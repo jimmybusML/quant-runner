@@ -4,7 +4,18 @@ from pathlib import Path
 from research.m3.probabilities import settle_score
 
 def audit(events):
-    orders = [e for e in events if e.get("protocol") == "M3_SHADOW_ORDER_V1" and e.get("market") == "AH"]
+    all_orders = [e for e in events if e.get("protocol") == "M3_SHADOW_ORDER_V1" and e.get("market") == "AH"]
+    # One shadow order per fixture × model × market, regardless of scan/run.
+    earliest = {}
+    for order in all_orders:
+        key = (order.get("fixture_identity_id"), order.get("model"), order.get("market"))
+        rank = (order.get("forecasted_at_utc") or "", order.get("event_id") or "")
+        if key not in earliest or rank < (
+            earliest[key].get("forecasted_at_utc") or "",
+            earliest[key].get("event_id") or "",
+        ):
+            earliest[key] = order
+    orders = list(earliest.values())
     settlements = {e.get("shadow_order_event_id"): e for e in events if e.get("protocol") == "M3_TOTALCORNER_FORWARD_SETTLEMENT_V1"}
     quotes = collections.defaultdict(list)
     for e in events:
@@ -43,7 +54,10 @@ def audit(events):
         unique.add((o.get("totalcorner_match_id"), o.get("quote_snapshot_recorded_utc"), o.get("line"), o.get("side")))
     result = {"protocol": "M3_AH_REVERSE_RESEARCH_AUDIT_V1", "research_only": True,
               "formal_order": False, "telegram_sent": False, "quote_source": "TotalCorner default, NOT Crown",
-              "models": {}, "distinct_quote_decisions": len(unique), "exclusions": dict(exclusions)}
+              "models": {}, "distinct_quote_decisions": len(unique), "exclusions": dict(exclusions),
+              "raw_ah_order_events": len(all_orders), "unique_ah_orders": len(orders),
+              "duplicates_excluded": len(all_orders) - len(orders),
+              "dedup_key": "fixture_identity_id × model × market; earliest forecasted_at_utc"}
     for model, counter in sorted(totals.items()):
         v = dict(counter)
         v["reverse_roi_percent"] = round(100 * v["reverse_units"] / v["paired"], 4) if v.get("paired") else None
