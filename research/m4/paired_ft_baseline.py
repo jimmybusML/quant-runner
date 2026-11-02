@@ -440,8 +440,8 @@ for i,x in enumerate(cal_rows):
  times=entry.get("quote_times",{})
  t_ou=parse(times.get("OU"));t_1x2=parse(times.get("X1X2"));ko=parse(entry.get("kickoff_at"))
  if not(t_ou and t_1x2 and ko):continue
- skew=abs((t_ou-t_1x2).total_seconds())/60
- skew_band="<15m" if skew<15 else "15-60m" if skew<60 else "1-3h" if skew<180 else ">=3h"
+ quote_skew_minutes=abs((t_ou-t_1x2).total_seconds())/60
+ skew_band="<15m" if quote_skew_minutes<15 else "15-60m" if quote_skew_minutes<60 else "1-3h" if quote_skew_minutes<180 else ">=3h"
  horizon=(ko-x["decision"]).total_seconds()/3600
  horizon_band="<1h" if horizon<1 else "1-6h" if horizon<6 else "6-24h" if horizon<24 else ">=24h"
  line=str(x["sides"]["under"]["line"])
