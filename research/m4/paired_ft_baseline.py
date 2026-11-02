@@ -369,6 +369,41 @@ for x in cal_rows:
 def composition_formatted():
  return {k:{"n":v["n"],"roi":round(v["pnl"]/v["n"],6),"pnl":round(v["pnl"],4),"mean_gap":round(v["gap_sum"]/v["n"],5),"mean_actual_minus_tau":round(v["actual_residual"]/v["n"],5)} for k,v in sorted(composition.items()) if v["n"]}
 
-output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_chronological_tau_calibration":calibration_report,"m4_ou_exploratory_candidates":candidate_formatted(),"m4_ou_distribution_candidates":dist_formatted(),"m4_ou_joint_market_candidates":joint_formatted(),"m4_signed_market_disagreement":gap_formatted(),"m4_gap_line_composition":composition_formatted(),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
+
+# Walk-forward multivariate residual calibration, fitted only from already
+# observed FT. Continuous features: OU contract line and OU-vs-1X2 tau gap.
+# Ridge strength fixed for research numerical stability, not a trading gate.
+import numpy as np
+walk=collections.defaultdict(lambda:{"n":0,"pnl":0.0,"switches":0,"mae":0.0,"logloss":0.0})
+rows=[]
+for x in cal_rows:
+ t=infer_ou_tau(x["sides"])
+ if t is not None:rows.append((x,t))
+for i,(x,t) in enumerate(rows):
+ hist=[(h,ht) for h,ht in rows[:i] if h["finished"]<x["decision"]]
+ if not hist:continue
+ line=x["sides"]["under"]["line"]
+ def feature(y,ou_tau):
+  ln=y["sides"]["under"]["line"]
+  return [1.,(ln-2.75),(ou_tau-y["tau"]), (ln-2.75)*(ou_tau-y["tau"])]
+ matrix=np.array([feature(h,ht) for h,ht in hist],dtype=float)
+ target=np.array([h["actual"]-h["tau"] for h,ht in hist],dtype=float)
+ current=np.array(feature(x,t),dtype=float)
+ # Center fit around historic intercept; small regularizer for numerical conditioning.
+ ridge=np.diag([1e-8,.1,.1,.1])
+ beta=np.linalg.solve(matrix.T@matrix+ridge,matrix.T@target)
+ baseline=x["tau"];mean_corrected=max(.05,baseline+float(target.mean()))
+ linear_corrected=max(.05,baseline+float(current@beta))
+ old=max(x["sides"],key=lambda q:x["sides"][q]["saved_ev"])
+ for name,tau in [("original_v6",baseline),("mean_only",mean_corrected),("line_gap_linear",linear_corrected)]:
+  es={side:poisson_ou_ev(tau,c["line"],c["price"],side) for side,c in x["sides"].items()}
+  chosen=max(es,key=es.get)
+  z=walk[name];z["n"]+=1;z["pnl"]+=x["sides"][chosen]["pnl"];z["switches"]+=int(chosen!=old)
+  z["mae"]+=abs(x["actual"]-tau)
+  z["logloss"]-=-tau+x["actual"]*math.log(tau)-math.lgamma(x["actual"]+1)
+def walk_formatted():
+ return {k:{"n":v["n"],"pnl_units":round(v["pnl"],4),"roi":round(v["pnl"]/v["n"],6),"switches":v["switches"],"goal_mae":round(v["mae"]/v["n"],6),"goal_logloss":round(v["logloss"]/v["n"],6)} for k,v in walk.items() if v["n"]}
+
+output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_chronological_tau_calibration":calibration_report,"m4_ou_exploratory_candidates":candidate_formatted(),"m4_ou_distribution_candidates":dist_formatted(),"m4_ou_joint_market_candidates":joint_formatted(),"m4_signed_market_disagreement":gap_formatted(),"m4_gap_line_composition":composition_formatted(),"m4_walk_forward_line_gap_calibration":walk_formatted(),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
 OUT.write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(output,ensure_ascii=False))
