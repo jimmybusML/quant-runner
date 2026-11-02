@@ -249,6 +249,12 @@
 
 # 量化亚洲盘｜跨会话工作交接记录
 
+## 2026-11-02 MR1 AH 正式 TG 497 单 M4 全量反打结算
+- 已读取 MR1 生产 master 正式 `sent.jsonl` / `settled.json`，生成时间 2026-11-02T13:00:39.927Z；574 已发、497 已结、77 待结；497 已结覆盖 344 场不同比赛、31 联赛。
+- 以各单原 `source_snapshot_key` 和 SHA256 关联同一 MR1 生产 master 的 Crown 双边 AH forward 快照，497/497 全部校验成功；正打 +1.875U (+0.3773%)，反打反事实 -32.380U (-6.5151%)。逐联赛完整数据：[`research/m4/M4_MR1_FORMAL_REVERSE_20261102.md`](research/m4/M4_MR1_FORMAL_REVERSE_20261102.md)。
+- 反打只作历史模拟，不是已发送 TG 订单；未改变正式 MR1、M4 上线条件、联赛 Pass 规则或任何已有生产逻辑。后续 M4 验证需要区分样本内表现与未来持续性。
+
+
 ## M3 Crown API 许可边界与来源身份补充（2026-10-20）
 - 更新官方条款/API文档交叉阅读：TotalCorner API文档明确 VIP 程序化接口、`bookmaker=crown`、AH/goal-line movements、样例请求及速率限制；现行 ToS 将 API 包含在 Service 中，同时约束 automated extraction，未明确 API 客户端是否豁免，也未授予价线公开再发布权。已在 `research/m3/M3_CROWN_STAGE_A_B_AUDIT.md` 与 `M3_RESEARCH_REPORT.md` 更新为“接口可用与实际授权范围分开验证”，不再把条款简单概括为已明确禁止官方 API 调用。
 - OddsPapi 自己将 `singbet` 称为“Crown in Asia/formerly Crown”，但没有核实到运营方一手映射；另一供应商目录将 Crown、SingBet 分列。OddsPapi 数据仍未计入 Crown，不能用于 Crown EV/ROI。
