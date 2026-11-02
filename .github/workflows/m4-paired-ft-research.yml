@@ -1,0 +1,29 @@
+name: M4 Paired FT Research
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: runner
+      - uses: actions/checkout@v4
+        with:
+          repository: ljm198964-alt/mr1-shadow
+          ref: master
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Paired match FT research
+        working-directory: source
+        run: python ../runner/research/m4/paired_ft_baseline.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m4-paired-ft-research
+          path: source/m4_paired_research.json
