@@ -249,6 +249,12 @@
 
 # 量化亚洲盘｜跨会话工作交接记录
 
+## 2026-11-03 M4 赔率 EV 校准时间前推实测
+- 在 497 单正式 MR1 V6 AH 已结算账本上，以订单 `sent_at` 为决策点、只使用当时已经 `settled_at` 的历史订单，实测原 EV、历史平均偏差修正和赔率线性正则校准。
+- MSE 全样本：原 EV 0.777810、平均偏差修正 0.781539、赔率修正 0.781121；后半段 249 单：原 0.765672、赔率修正 0.767107。**候选失败，未改 MR1 正式生产**。
+- 已保存可复跑只读代码 [`research/m4/ev_price_calibration_walkforward.py`](research/m4/ev_price_calibration_walkforward.py) 和实测报告 [`research/m4/M4_MR1_EV_PRICE_CALIBRATION_OOT_20261103.md`](research/m4/M4_MR1_EV_PRICE_CALIBRATION_OOT_20261103.md)。研究参数与赔率分组不是用户确认的生产规则。
+
+
 ## 2026-11-03 MR1 M4 时间顺序联赛正反打验证
 - 以 2026-11-02T13:00:39.927Z 正式账本 497 笔已结订单，逐笔使用原时点 verified Crown 双边赔率，按 `sent_at` 严格前进，联赛历史仅计 `settled_at <= sent_at` 的正式订单。
 - 本轮研究用当时同联赛正反两侧累计盈利较优者作为方向；双方累亏则模拟 Pass，首次无历史分“继续原 MR1”与“Pass”两种非生产情景。无新门槛或默认生产规则。
