@@ -138,6 +138,38 @@ for match,entries in group.items():
 def diagnostic_formatted():
  return {"|".join(map(str,k)):{"n":v["n"],"pnl_units":round(v["pnl"],4),"roi":round(v["pnl"]/v["n"],6),"model_ev_n":v["ev_n"],"mean_estimated_ev":round(v["estimated_ev_sum"]/v["ev_n"],6) if v["ev_n"] else None,"realized_minus_estimated_ev":round(v["pnl"]/v["n"]-v["estimated_ev_sum"]/v["ev_n"],6) if v["ev_n"]==v["n"] else None,"mean_quote_age_min":round(v["quote_age_sum"]/v["quote_age_n"],2) if v["quote_age_n"] else None} for k,v in sorted(diagnostic.items())}
 
-output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
+
+# Fixed Beijing clock replay: for every hour 0..23, each fixture/market contributes
+# at most one result, using its latest snapshot available by the most recent daily
+# decision clock strictly before kickoff. This is a historical observability
+# replay, not a simulated real-world snapshot acquisition at that clock.
+daily=collections.defaultdict(lambda:{"n":0,"pnl":0.0,"ev_n":0,"ev_sum":0.0,"age_sum":0.0,"age_n":0})
+local_tz=datetime.timezone(datetime.timedelta(hours=8))
+for match,entries in group.items():
+ kickoff=parse(entries[0][0].get("kickoff_at"))
+ if not kickoff:continue
+ kickoff_local=kickoff.astimezone(local_tz)
+ for hour in range(24):
+  cutoff=kickoff_local.replace(hour=hour,minute=0,second=0,microsecond=0)
+  if cutoff>=kickoff_local:cutoff-=datetime.timedelta(days=1)
+  for market in ("AH","OU"):
+   candidates=[]
+   for x,ft in entries:
+    received=parse(x.get("received_at"))
+    if received and received<=cutoff:
+     c=get(x,market)
+     if c:
+      pnl=settlement(c.get("side"),c.get("line"),c.get("price"),ft["home_goals"],ft["away_goals"],market)
+      if pnl is not None:candidates.append((received,x,c,pnl))
+   if not candidates:continue
+   received,x,c,pnl=max(candidates,key=lambda z:z[0])
+   z=daily[(market,hour)];z["n"]+=1;z["pnl"]+=pnl
+   if isinstance(c.get("EV"),(int,float)):z["ev_n"]+=1;z["ev_sum"]+=c["EV"]
+   age=x.get("quote_ages_minutes",{}).get(market)
+   if isinstance(age,(int,float)) and age>=0:z["age_n"]+=1;z["age_sum"]+=age
+def daily_formatted():
+ return {"|".join(map(str,k)):{"n":v["n"],"pnl_units":round(v["pnl"],4),"roi":round(v["pnl"]/v["n"],6),"mean_model_ev":round(v["ev_sum"]/v["ev_n"],6) if v["ev_n"] else None,"mean_quote_age_min":round(v["age_sum"]/v["age_n"],2) if v["age_n"] else None} for k,v in sorted(daily.items()) if v["n"]}
+
+output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
 OUT.write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(output,ensure_ascii=False))
