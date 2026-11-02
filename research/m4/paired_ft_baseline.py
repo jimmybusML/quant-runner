@@ -123,6 +123,11 @@ for match,entries in group.items():
   ev=c.get("EV")
   hour=parse(x["received_at"]).astimezone(datetime.timezone(datetime.timedelta(hours=8))).hour
   diagnostic_add((market,"overall"),p,ev,age)
+  diagnostic_add((market,"league",str(x.get("league") or "UNKNOWN")),p,ev,age)
+  line_value=c.get("line")
+  if isinstance(line_value,(int,float)):
+   diagnostic_add((market,"line",str(line_value)),p,ev,age)
+  diagnostic_add((market,"side",str(c.get("side"))),p,ev,age)
   diagnostic_add((market,"beijing_hour",str(hour)),p,ev,age)
   if isinstance(age,(int,float)):
    age_band="<30m" if age<30 else "30-60m" if age<60 else "60-120m" if age<120 else ">=120m"
