@@ -3211,3 +3211,10 @@
 - MR1 最新正式结算读取 UTC 2026-11-02T02:20:59.394Z：497已结算、71未结算、已结算净 +1.875U、ROI +0.3773%；正式 TG 订单与研究影子样本严格隔离。
 - **已提交 M4 基线文档** `research/m4/M4_RESEARCH_BASELINE.md`，commit `f5ef8ab655530be2e72f2b1a18dc853faf433b52`；文档列出各赛前 horizon 的观测覆盖及待验证问题。
 - 尚未完成：全量比赛去重/FT 配对、逐联赛逐小时的样本外收益核算、M4 参数拟合与独立影子前瞻。不得宣称 M4 已提升 ROI 或已部署。
+
+## 2026-11-02 M4 第二阶段：历史 FT 同场配对与研究运行
+- 已直接读取 MR1 私有仓库内的 forward records 目录 Git tree（18,413个赛前文件）与保存 FT 的 results 目录（2,038个文件），不使用账本猜测赛果。
+- 按 `match_id` 联结文件名：forward 覆盖2,533场唯一赛事，其中1,676场有同 ID 的已保存 FT 文件；12,566条多时点前瞻记录存在同 ID FT 文件。此项是**文件索引级覆盖**，尚未校验内容中的 FT 状态、精确 UTC 时间、Crown 身份和盘口有效性；不能宣称已经结算。
+- 在公开仓库新增只读评估脚本 `research/m4/paired_ft_baseline.py`，commit `439d32168879e1f2b10f551199cb903a0d324a27`；脚本在私有 MR1 代码 checkout 里读取存储数据，执行时间先后/Crown 身份/比分有效性检查，按照同场各 horizon 分别计算历史模拟收益，不读取或修改正式 TG 账本。
+- 新增手动工作流 `.github/workflows/m4-paired-ft-research.yml`，commit `f4c1f54499455c7d38ac47e9c8553d0cd5335e17`。2026-11-02 UTC 02:32:30 触发 [run 41378277617](https://github.com/ljm198964-alt/quant-runner/actions/runs/41378277617)，本次记录时状态 **in_progress**，私有代码 checkout 步骤进行中；不能把启动当成结果成功。
+- 下一步：读取该次 run 的最终状态、artifact 的实际配对结算结果和错误分布；按联赛及北京时间发单小时、赛前 horizon、Crown 报价年龄分析同场配对样本，再尝试联赛层级校准前推验证。当前仍未训练 M4 或产生 M4 正式/影子订单；原 MR1 正式策略未改。
