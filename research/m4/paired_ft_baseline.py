@@ -338,6 +338,21 @@ for x in cal_rows:
 def joint_formatted():
  return {k:{"n":v["n"],"pnl_units":round(v["pnl"],4),"roi":round(v["pnl"]/v["n"],6),"direction_changes":v["switches"],"goal_logloss":round(v["goal_logloss"]/v["n"],6),"mean_ou_implied_minus_1x2_tau":round(v["tau_gap_sum"]/v["n"],6)} for k,v in sorted(joint.items()) if v["n"]}
 
-output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_chronological_tau_calibration":calibration_report,"m4_ou_exploratory_candidates":candidate_formatted(),"m4_ou_distribution_candidates":dist_formatted(),"m4_ou_joint_market_candidates":joint_formatted(),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
+
+# Signed cross-market disagreement diagnostic: infer OU-side fair tau,
+# measure realized total-goal residual and original strategy PnL by gap.
+gap_groups=collections.defaultdict(lambda:{"n":0,"total_gap":0.0,"goal_residual":0.0,"pnl":0.0,"under":0})
+for x in cal_rows:
+ inferred=infer_ou_tau(x["sides"])
+ if inferred is None:continue
+ gap=inferred-x["tau"]
+ selected=max(x["sides"],key=lambda side:x["sides"][side]["saved_ev"] if isinstance(x["sides"][side]["saved_ev"],(int,float)) else -999)
+ bucket="negative" if gap<0 else "0_to_0.1" if gap<.1 else "0.1_to_0.2" if gap<.2 else "0.2_to_0.4" if gap<.4 else ">=0.4"
+ for key in ("all","gap|"+bucket,"month|"+x["decision"].strftime("%Y-%m"),"month_gap|"+x["decision"].strftime("%Y-%m")+"|"+bucket):
+  z=gap_groups[key];z["n"]+=1;z["total_gap"]+=gap;z["goal_residual"]+=x["actual"]-x["tau"];z["pnl"]+=x["sides"][selected]["pnl"];z["under"]+=int(selected=="under")
+def gap_formatted():
+ return {k:{"n":v["n"],"mean_market_tau_gap":round(v["total_gap"]/v["n"],5),"actual_minus_1x2_goals":round(v["goal_residual"]/v["n"],5),"original_roi":round(v["pnl"]/v["n"],6),"under_share":round(v["under"]/v["n"],5)} for k,v in sorted(gap_groups.items()) if v["n"]}
+
+output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_chronological_tau_calibration":calibration_report,"m4_ou_exploratory_candidates":candidate_formatted(),"m4_ou_distribution_candidates":dist_formatted(),"m4_ou_joint_market_candidates":joint_formatted(),"m4_signed_market_disagreement":gap_formatted(),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
 OUT.write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(output,ensure_ascii=False))
