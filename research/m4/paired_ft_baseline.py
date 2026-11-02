@@ -404,6 +404,30 @@ for i,(x,t) in enumerate(rows):
 def walk_formatted():
  return {k:{"n":v["n"],"pnl_units":round(v["pnl"],4),"roi":round(v["pnl"]/v["n"],6),"switches":v["switches"],"goal_mae":round(v["mae"]/v["n"],6),"goal_logloss":round(v["logloss"]/v["n"],6)} for k,v in walk.items() if v["n"]}
 
-output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_chronological_tau_calibration":calibration_report,"m4_ou_exploratory_candidates":candidate_formatted(),"m4_ou_distribution_candidates":dist_formatted(),"m4_ou_joint_market_candidates":joint_formatted(),"m4_signed_market_disagreement":gap_formatted(),"m4_gap_line_composition":composition_formatted(),"m4_walk_forward_line_gap_calibration":walk_formatted(),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
+
+# Cross-market quote timestamp skew and independent AH/OU diagnostics.
+skew=collections.defaultdict(lambda:{"n":0,"pnl":0.0,"ev":0.0,"resid":0.0,"skew_sum":0.0})
+for match,entries in group.items():
+ for x,ft in sorted(entries,key=lambda z:z[0].get("received_at",""),reverse=True):
+  times=x.get("quote_times",{})
+  t1=parse(times.get("X1X2"));tou=parse(times.get("OU"));tah=parse(times.get("AH"))
+  if not (t1 and tou):continue
+  tau=x.get("evaluation",{}).get("one_x_two",{}).get("tau_market")
+  if not isinstance(tau,(int,float)):continue
+  for market,tm in (("OU",tou),("AH",tah)):
+   if not tm:continue
+   c=get(x,market)
+   if not c:continue
+   p=settlement(c.get("side"),c.get("line"),c.get("price"),ft["home_goals"],ft["away_goals"],market)
+   if p is None:continue
+   diff=abs((tm-t1).total_seconds())/60
+   bucket="<15m" if diff<15 else "15-60m" if diff<60 else "1-3h" if diff<180 else ">=3h"
+   for key in (market+"|overall",market+"|"+bucket,market+"|direction|"+("market_newer" if tm>t1 else "1X2_newer" if tm<t1 else "same_timestamp")):
+    z=skew[key];z["n"]+=1;z["pnl"]+=p;z["ev"]+=float(c["EV"]);z["skew_sum"]+=diff;z["resid"]+=ft["home_goals"]+ft["away_goals"]-tau
+  break
+def skew_formatted():
+ return {k:{"n":v["n"],"roi":round(v["pnl"]/v["n"],6),"pnl_units":round(v["pnl"],4),"mean_model_ev":round(v["ev"]/v["n"],6),"mean_abs_quote_skew_min":round(v["skew_sum"]/v["n"],2),"actual_minus_1x2_goals":round(v["resid"]/v["n"],5)} for k,v in sorted(skew.items()) if v["n"]}
+
+output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_chronological_tau_calibration":calibration_report,"m4_ou_exploratory_candidates":candidate_formatted(),"m4_ou_distribution_candidates":dist_formatted(),"m4_ou_joint_market_candidates":joint_formatted(),"m4_signed_market_disagreement":gap_formatted(),"m4_gap_line_composition":composition_formatted(),"m4_walk_forward_line_gap_calibration":walk_formatted(),"m4_cross_market_quote_time_skew":skew_formatted(),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
 OUT.write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(output,ensure_ascii=False))
