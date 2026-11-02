@@ -522,6 +522,42 @@ for a in activation_events:
 def activation_formatted():
  return {"first_activations":activation_events[:12],"first_ou_newer_switches":[a for a in activation_events if a["recency"]=="OU_newer" and a["side_switched"]][:12],"by_period":{k:{"n":v["n"],"switched":v["switches"],"gain_u":round(v["gain"],4),"mean_prior_count":round(v["prior_n_sum"]/v["n"],2)} for k,v in sorted(activation_summary.items())}}
 
-output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_chronological_tau_calibration":calibration_report,"m4_ou_exploratory_candidates":candidate_formatted(),"m4_ou_distribution_candidates":dist_formatted(),"m4_ou_joint_market_candidates":joint_formatted(),"m4_signed_market_disagreement":gap_formatted(),"m4_gap_line_composition":composition_formatted(),"m4_walk_forward_line_gap_calibration":walk_formatted(),"m4_cross_market_quote_time_skew":skew_formatted(),"m4_ou_skew_line_horizon_calibration":skew_cells_formatted(),"m4_walk_forward_quote_order_adaptive":conditional_formatted(),"m4_adaptive_temporal_line_stability":stability_formatted(),"m4_week_league_line_drift":drift_formatted(),"m4_adaptive_activation_audit":activation_formatted(),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
+
+# Continuous historical-benefit shrinkage: soft mix of PnLs in expectation,
+# plus executable binary direction selected by a smoothed signed benefit.
+smooth=collections.defaultdict(lambda:{"n":0,"pnl":0.0,"switches":0,"selected":0})
+prior=[]
+for i,x in enumerate(cal_rows):
+ hist=[h for h in cal_rows[:i] if h["finished"]<x["decision"]]
+ if not hist:continue
+ source=next((q for q,ft in group[x["match"]] if parse(q.get("received_at"))==x["decision"]),None)
+ if source is None:continue
+ t=source.get("quote_times",{});ou_t=parse(t.get("OU"));one_t=parse(t.get("X1X2"))
+ if not (ou_t and one_t):continue
+ grp="OU" if ou_t>one_t else "1X2" if ou_t<one_t else "same"
+ old=max(x["sides"],key=lambda q:x["sides"][q]["saved_ev"])
+ tau=max(.05,x["tau"]+sum(h["actual"]-h["tau"] for h in hist)/len(hist))
+ new=max(x["sides"],key=lambda q:poisson_ou_ev(tau,x["sides"][q]["line"],x["sides"][q]["price"],q))
+ p0=x["sides"][old]["pnl"];p1=x["sides"][new]["pnl"]
+ known=[p for p in prior if p["finished"]<x["decision"] and p["group"]==grp]
+ gains=[p["gain"] for p in known];n=len(gains)
+ average=sum(gains)/n if n else 0.
+ for strength in (0,5,20,50,100):
+  # Probabilistic sigmoid shrinks the evidence toward 50%, not a minimum-sample gate.
+  evidence=sum(gains)/math.sqrt(n+strength) if n+strength else 0.
+  prob=1/(1+math.exp(-max(-30,min(30,evidence))))
+  # Deterministic comparison preserved as benchmark; fractional weight
+  # evaluates a randomized allocation expectation, NOT a completed bet.
+  key="soft_"+str(strength)
+  z=smooth[key];z["n"]+=1;z["pnl"]+=prob*p1+(1-prob)*p0;z["selected"]+=prob;z["switches"]+=prob*int(new!=old)
+  key="hard_shrink_"+str(strength)
+  # Shrinking gain alone cannot change its sign: this explicitly tests that limitation.
+  choose=average*n/(n+strength)>0 if n+strength else False
+  z=smooth[key];z["n"]+=1;z["pnl"]+=p1 if choose else p0;z["selected"]+=int(choose);z["switches"]+=int(choose and new!=old)
+ prior.append({"finished":x["finished"],"group":grp,"gain":p1-p0})
+def smooth_formatted():
+ return {k:{"n":v["n"],"expected_pnl_u":round(v["pnl"],4),"expected_roi":round(v["pnl"]/v["n"],6),"expected_calibrated_count":round(v["selected"],2),"expected_side_changes":round(v["switches"],2)} for k,v in sorted(smooth.items())}
+
+output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_chronological_tau_calibration":calibration_report,"m4_ou_exploratory_candidates":candidate_formatted(),"m4_ou_distribution_candidates":dist_formatted(),"m4_ou_joint_market_candidates":joint_formatted(),"m4_signed_market_disagreement":gap_formatted(),"m4_gap_line_composition":composition_formatted(),"m4_walk_forward_line_gap_calibration":walk_formatted(),"m4_cross_market_quote_time_skew":skew_formatted(),"m4_ou_skew_line_horizon_calibration":skew_cells_formatted(),"m4_walk_forward_quote_order_adaptive":conditional_formatted(),"m4_adaptive_temporal_line_stability":stability_formatted(),"m4_week_league_line_drift":drift_formatted(),"m4_adaptive_activation_audit":activation_formatted(),"m4_adaptive_shrinkage_experiment":smooth_formatted(),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
 OUT.write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(output,ensure_ascii=False))
