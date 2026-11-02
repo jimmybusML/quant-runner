@@ -192,6 +192,55 @@ for match,entries in group.items():
 def root_formatted():
  return {k:{"n":v["n"],"mean_actual_goals":round(v["actual_total"]/v["n"],5),"mean_1x2_predicted_goals":round(v["predicted_total"]/v["n"],5),"actual_minus_1x2_goals":round((v["actual_total"]-v["predicted_total"])/v["n"],5),"mean_crown_ou_line":round(v["ou_line"]/v["n"],5),"mean_predicted_ev":round(v["predicted_ev"]/v["n"],6),"realized_roi":round(v["pnl"]/v["n"],6)} for k,v in root.items() if v["n"]}
 
-output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
+
+# M4 chronological expanding-window tau calibration; no future label leakage.
+# Fixed candidate: additive correction equals mean completed training actual-minus-tau.
+# Use observed FT timestamp to ensure each training label existed before decision.
+import math
+def poisson_ou_ev(tau,line,price,side):
+ if tau<=0 or price<=1:return None
+ p=math.exp(-tau); probs=[p]
+ for k in range(1,31):
+  p=p*tau/k;probs.append(p)
+ return sum(w*settlement(side,line,price,k,0,"OU") for k,w in enumerate(probs))
+cal_rows=[]
+for match,entries in group.items():
+ for x,ft in sorted(entries,key=lambda q:q[0].get("received_at",""),reverse=True):
+  ev=x.get("evaluation",{})
+  tau=ev.get("one_x_two",{}).get("tau_market")
+  ou=ev.get("OU",{})
+  sides=ou.get("all_sides",[])
+  if not isinstance(tau,(int,float)) or not isinstance(sides,list) or len(sides)<2:continue
+  candidate={}
+  for c in sides:
+   if not isinstance(c,dict):continue
+   side=c.get("side")
+   if side not in ("under","over"):continue
+   pnl=settlement(side,c.get("line"),c.get("price"),ft["home_goals"],ft["away_goals"],"OU")
+   if pnl is not None:candidate[side]={"pnl":pnl,"line":c["line"],"price":c["price"],"saved_ev":c.get("EV")}
+  if len(candidate)!=2:continue
+  decision=parse(x.get("received_at"));finished=parse(ft.get("observed_at"))
+  if not decision or not finished:continue
+  cal_rows.append({"match":match,"decision":decision,"finished":finished,"tau":tau,"actual":ft["home_goals"]+ft["away_goals"],"sides":candidate})
+  break
+cal_rows.sort(key=lambda x:(x["decision"],x["match"]))
+cal_rows=sorted({x["match"]:x for x in cal_rows}.values(),key=lambda x:(x["decision"],x["match"]))
+baseline_pnl=0.0; calibrated_pnl=0.0; trained_n=0; valid_n=0; switches=0; mae_baseline=0.0;mae_adjusted=0.0
+examples=[]
+for i,x in enumerate(cal_rows):
+ history=[h for h in cal_rows[:i] if h["finished"]<x["decision"]]
+ if not history:continue
+ correction=sum(h["actual"]-h["tau"] for h in history)/len(history)
+ corrected=max(.05,x["tau"]+correction)
+ old_side=max(x["sides"],key=lambda side:x["sides"][side]["saved_ev"] if isinstance(x["sides"][side]["saved_ev"],(int,float)) else -999)
+ adjusted_evs={side:poisson_ou_ev(corrected,c["line"],c["price"],side) for side,c in x["sides"].items()}
+ new_side=max(adjusted_evs,key=adjusted_evs.get)
+ valid_n+=1;trained_n+=len(history);switches+=int(new_side!=old_side)
+ baseline_pnl+=x["sides"][old_side]["pnl"];calibrated_pnl+=x["sides"][new_side]["pnl"]
+ mae_baseline+=abs(x["actual"]-x["tau"]);mae_adjusted+=abs(x["actual"]-corrected)
+ if len(examples)<4:examples.append({"decision":x["decision"].isoformat(),"training_n":len(history),"correction":round(correction,4),"old_side":old_side,"new_side":new_side})
+calibration_report={"candidate":"expanding_window_additive_tau_mean_residual_research_only","chronological_test_fixtures":valid_n,"mean_training_fixtures":round(trained_n/valid_n,2) if valid_n else None,"side_switches":switches,"original_same_fixture_pnl_units":round(baseline_pnl,4),"corrected_same_fixture_pnl_units":round(calibrated_pnl,4),"original_roi":round(baseline_pnl/valid_n,6) if valid_n else None,"corrected_roi":round(calibrated_pnl/valid_n,6) if valid_n else None,"original_mae_goals":round(mae_baseline/valid_n,5) if valid_n else None,"corrected_mae_goals":round(mae_adjusted/valid_n,5) if valid_n else None,"examples":examples,"note":"No future outcomes used for correction; outcome availability checked using observed_at. Historical stored Crown quotes and original V6 research candidates, not formal TG. Candidate was proposed after inspecting this dataset, so this does not establish untouched holdout validity."}
+
+output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_chronological_tau_calibration":calibration_report,"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
 OUT.write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(output,ensure_ascii=False))
