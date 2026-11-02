@@ -73,6 +73,28 @@ for match,entries in group.items():
    # This is synthetic replay of saved historical model choices, not real trades.
 def formatted(d):
  return {("|".join(map(str,k)) if isinstance(k,tuple) else str(k)):{"n":v["n"],"pnl_units":round(v["pnl"],4),"roi":round(v["pnl"]/v["n"],6),"positive_ev_count":v["positive_ev_n"]} for k,v in sorted(d.items()) if v["n"]}
-output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
+
+# One independent fixture, one retrospective quote per market: latest valid received_at before kickoff.
+# This is a research replay, not the formal MR1 Telegram selection algorithm.
+unique=collections.defaultdict(lambda:{"n":0,"pnl":0.0,"win":0,"loss":0,"push":0,"half_win":0,"half_loss":0,"positive_ev_n":0})
+unique_league=collections.defaultdict(lambda:{"n":0,"pnl":0.0,"win":0,"loss":0,"push":0,"half_win":0,"half_loss":0,"positive_ev_n":0})
+by_fixture={}
+for match,entries in group.items():
+ for market in ("AH","OU"):
+  for x,ft in sorted(entries,key=lambda q:q[0].get("received_at",""),reverse=True):
+   c=get(x,market)
+   if not c:continue
+   p=settlement(c.get("side"),c.get("line"),c.get("price"),ft["home_goals"],ft["away_goals"],market)
+   if p is None:continue
+   league_name=str(x.get("league") or "UNKNOWN")
+   classification="push" if abs(p)<1e-10 else "win" if p>0.50001 else "half_win" if p>0 else "loss" if p< -0.50001 else "half_loss"
+   for d,key in ((unique,market),(unique_league,(league_name,market))):
+    z=d[key];z["n"]+=1;z["pnl"]+=p;z[classification]+=1
+    z["positive_ev_n"]+=int(isinstance(c.get("EV"),(int,float)) and c["EV"]>0)
+   by_fixture[(match,market)]={"horizon":x.get("horizon"),"league":league_name,"pnl":round(p,6)}
+   break
+def unique_formatted(d):
+ return {("|".join(map(str,k)) if isinstance(k,tuple) else str(k)):{**{field:v[field] for field in ("n","win","loss","push","half_win","half_loss","positive_ev_n")},"pnl_units":round(v["pnl"],4),"roi":round(v["pnl"]/v["n"],6)} for k,v in sorted(d.items()) if v["n"]}
+output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
 OUT.write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(output,ensure_ascii=False))
