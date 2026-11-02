@@ -3203,3 +3203,11 @@
 - For **each successful M3 score-distribution forecast**, create exactly **one AH and one OU shadow bet** when both sides' valid TotalCorner default-market quote exists. Do **not** apply a positive-EV threshold, and do not drop a market merely because its EV is negative. Choose each market's direction **mechanically from the model's score grid**, comparing the two sides' expected settlement at neutral 2.0 odds; actual quoted EV is stored only as an observation, not a selection gate. A missing/invalid quote is recorded as a data gap, never a fabricated order. AH/OU and all three model identities remain independent.
 - M3 remains shadow only; no Telegram sends or Crown substitution. The pre-existing 115 forecasts are historical and any generated orders from them are **retrospective reconstructions**, not claims of precommitted forward orders. Preserve source forecast, both-side EV snapshots, and all historical audit events; never delete them.
 - User expressly confirmed this policy and does **not** want it reopened or modified unless they explicitly request a change. Code implementation: `research/m3/m3_shadow_orders.py`, workflow `.github/workflows/m3-totalcorner-forward-ev.yml`.
+
+## 2026-11-02 M4 联赛差异化与小时研究启动
+- 用户确认：M4 以 MR1 为基础构建独立优化研究版本，研究各联赛的参数校准、发单北京时间钟点小时、距开赛提前小时，以及报价时效；目前仅研究，不修改 MR1 正式策略、联赛范围、EV 门槛或派单。
+- 已读取 MR1 V6 最新 forward summary（UTC 2026-11-02T02:20:58.962Z）：18,413 个多时点快照、36,826 AH/OU 市场观察，**不是**18,413场独立比赛。T24/T6/T1/T0.5 的 AH 正 EV 估计占比分别约 28.9%/40.7%/46.1%/48.4%；这是模型估计与不同赛事样本结构，不可冒充实证收益提升。
+- 已抽查真实单场 forward 记录，含 Crown 已核实标识、UTC kickoff、报价时间及报价年龄；比赛提前小时与报价新鲜度需要分开分析。
+- MR1 最新正式结算读取 UTC 2026-11-02T02:20:59.394Z：497已结算、71未结算、已结算净 +1.875U、ROI +0.3773%；正式 TG 订单与研究影子样本严格隔离。
+- **已提交 M4 基线文档** `research/m4/M4_RESEARCH_BASELINE.md`，commit `f5ef8ab655530be2e72f2b1a18dc853faf433b52`；文档列出各赛前 horizon 的观测覆盖及待验证问题。
+- 尚未完成：全量比赛去重/FT 配对、逐联赛逐小时的样本外收益核算、M4 参数拟合与独立影子前瞻。不得宣称 M4 已提升 ROI 或已部署。
