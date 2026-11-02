@@ -462,6 +462,7 @@ def skew_cells_formatted():
 conditional=collections.defaultdict(lambda:{"n":0,"pnl":0.0,"changes":0,"used_calibration":0})
 past=[]
 conditional_detail=[]
+activation_events=[]
 for i,x in enumerate(cal_rows):
  hist=[h for h in cal_rows[:i] if h["finished"]<x["decision"]]
  if not hist:continue
@@ -483,6 +484,9 @@ for i,x in enumerate(cal_rows):
   else:
    h=[p for p in known if name=="adaptive_global" or p["recency"]==recency]
    choose=bool(h) and sum(p["new_p"]-p["old_p"] for p in h)>0
+  if name=="adaptive_quote_order" and choose:
+   h=[p for p in known if p["recency"]==recency]
+   activation_events.append({"date":x["decision"].date().isoformat(),"week":x["decision"].strftime("%G-W%V"),"recency":recency,"match":x["match"],"prior_n":len(h),"prior_gain":round(sum(p["new_p"]-p["old_p"] for p in h),4),"current_gain":round(new_p-old_p,4),"side_switched":new!=old})
   picked=new if choose else old
   z=conditional[name];z["n"]+=1;z["pnl"]+=new_p if choose else old_p;z["changes"]+=int(picked!=old);z["used_calibration"]+=int(choose)
  conditional_detail.append({"match":x["match"],"decision":x["decision"],"league":source.get("league","unknown"),"recency":recency,"line":x["sides"]["under"]["line"],"baseline_pnl":old_p,"uniform_pnl":new_p,"adaptive_pnl":new_p if (bool([p for p in known if p["recency"]==recency]) and sum(p["new_p"]-p["old_p"] for p in known if p["recency"]==recency)>0) else old_p})
@@ -510,6 +514,14 @@ for detail_row in conditional_detail:
 def drift_formatted():
  return {k:{"n":v["n"],"original_roi":round(v["baseline"]/v["n"],6),"adaptive_roi":round(v["adaptive"]/v["n"],6),"gain_u":round(v["adaptive"]-v["baseline"],4)} for k,v in sorted(drift.items()) if v["n"]}
 
-output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_chronological_tau_calibration":calibration_report,"m4_ou_exploratory_candidates":candidate_formatted(),"m4_ou_distribution_candidates":dist_formatted(),"m4_ou_joint_market_candidates":joint_formatted(),"m4_signed_market_disagreement":gap_formatted(),"m4_gap_line_composition":composition_formatted(),"m4_walk_forward_line_gap_calibration":walk_formatted(),"m4_cross_market_quote_time_skew":skew_formatted(),"m4_ou_skew_line_horizon_calibration":skew_cells_formatted(),"m4_walk_forward_quote_order_adaptive":conditional_formatted(),"m4_adaptive_temporal_line_stability":stability_formatted(),"m4_week_league_line_drift":drift_formatted(),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
+
+activation_summary=collections.defaultdict(lambda:{"n":0,"switches":0,"gain":0.0,"prior_n_sum":0})
+for a in activation_events:
+ for k in ("week|"+a["week"]+"|"+a["recency"],"date|"+a["date"]+"|"+a["recency"]):
+  z=activation_summary[k];z["n"]+=1;z["switches"]+=int(a["side_switched"]);z["gain"]+=a["current_gain"];z["prior_n_sum"]+=a["prior_n"]
+def activation_formatted():
+ return {"first_activations":activation_events[:12],"first_ou_newer_switches":[a for a in activation_events if a["recency"]=="OU_newer" and a["side_switched"]][:12],"by_period":{k:{"n":v["n"],"switched":v["switches"],"gain_u":round(v["gain"],4),"mean_prior_count":round(v["prior_n_sum"]/v["n"],2)} for k,v in sorted(activation_summary.items())}}
+
+output={"protocol":"M4_MR1_PAIRED_FT_READ_ONLY_V1","created_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"MR1 saved forward Crown quotes and TotalCorner FT records","unique_valid_paired_matches":len(group),"counts":dict(counts),"ou_goal_mean_root_cause":root_formatted(),"m4_chronological_tau_calibration":calibration_report,"m4_ou_exploratory_candidates":candidate_formatted(),"m4_ou_distribution_candidates":dist_formatted(),"m4_ou_joint_market_candidates":joint_formatted(),"m4_signed_market_disagreement":gap_formatted(),"m4_gap_line_composition":composition_formatted(),"m4_walk_forward_line_gap_calibration":walk_formatted(),"m4_cross_market_quote_time_skew":skew_formatted(),"m4_ou_skew_line_horizon_calibration":skew_cells_formatted(),"m4_walk_forward_quote_order_adaptive":conditional_formatted(),"m4_adaptive_temporal_line_stability":stability_formatted(),"m4_week_league_line_drift":drift_formatted(),"m4_adaptive_activation_audit":activation_formatted(),"m4_a_probability_price_diagnostics":diagnostic_formatted(),"daily_fixed_beijing_clock_replay":daily_formatted(),"one_per_fixture_market":unique_formatted(unique),"one_per_fixture_league_market":unique_formatted(unique_league),"one_per_fixture_counts":{"unique_fixtures_with_either_market":len({k[0] for k in by_fixture}),"AH":unique["AH"]["n"],"OU":unique["OU"]["n"]},"per_market_horizon":formatted(agg),"per_league_market_horizon":formatted(league),"league_inventory":{k:{"snapshot_files":v["files"],"unique_matches":len(v["matches"]),"valid_ft_matches":len(valid_leagues[k])} for k,v in sorted(inventory.items())},"note":"Retrospective counterfactual, not Telegram trades or out-of-sample M4 improvement. Same match repeated across horizons; each horizon independently counts at most one observation per match. No new gate or trade rules."}
 OUT.write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps(output,ensure_ascii=False))
