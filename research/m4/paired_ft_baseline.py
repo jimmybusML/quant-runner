@@ -504,8 +504,8 @@ def stability_formatted():
 drift=collections.defaultdict(lambda:{"n":0,"baseline":0.0,"adaptive":0.0,"uniform":0.0})
 for detail_row in conditional_detail:
  week=detail_row["decision"].strftime("%G-W%V")
- league=detail_row["league"]
- for key in ("week_recency|"+week+"|"+detail_row["recency"],"week_line|"+week+"|"+str(detail_row["line"]),"week_league|"+week+"|"+league,"league|"+league):
+ league_name=detail_row["league"]
+ for key in ("week_recency|"+week+"|"+detail_row["recency"],"week_line|"+week+"|"+str(detail_row["line"]),"week_league|"+week+"|"+league_name,"league|"+league_name):
   z=drift[key];z["n"]+=1;z["baseline"]+=detail_row["baseline_pnl"];z["adaptive"]+=detail_row["adaptive_pnl"];z["uniform"]+=detail_row["uniform_pnl"]
 def drift_formatted():
  return {k:{"n":v["n"],"original_roi":round(v["baseline"]/v["n"],6),"adaptive_roi":round(v["adaptive"]/v["n"],6),"gain_u":round(v["adaptive"]-v["baseline"],4)} for k,v in sorted(drift.items()) if v["n"]}
