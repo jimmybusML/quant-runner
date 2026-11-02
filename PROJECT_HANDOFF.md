@@ -3218,3 +3218,12 @@
 - 在公开仓库新增只读评估脚本 `research/m4/paired_ft_baseline.py`，commit `439d32168879e1f2b10f551199cb903a0d324a27`；脚本在私有 MR1 代码 checkout 里读取存储数据，执行时间先后/Crown 身份/比分有效性检查，按照同场各 horizon 分别计算历史模拟收益，不读取或修改正式 TG 账本。
 - 新增手动工作流 `.github/workflows/m4-paired-ft-research.yml`，commit `f4c1f54499455c7d38ac47e9c8553d0cd5335e17`。2026-11-02 UTC 02:32:30 触发 [run 41378277617](https://github.com/ljm198964-alt/quant-runner/actions/runs/41378277617)，本次记录时状态 **in_progress**，私有代码 checkout 步骤进行中；不能把启动当成结果成功。
 - 下一步：读取该次 run 的最终状态、artifact 的实际配对结算结果和错误分布；按联赛及北京时间发单小时、赛前 horizon、Crown 报价年龄分析同场配对样本，再尝试联赛层级校准前推验证。当前仍未训练 M4 或产生 M4 正式/影子订单；原 MR1 正式策略未改。
+
+
+## 2026-11-02 M4-A confirmed direction and read-only implementation
+- User confirmed M4 research progression A (MR1 probability-versus-Crown-price mismatch), B (same-fixture M1/MR1/M3 comparison and league calibration), C (historical replay and independent forward validation). No unapproved model gates, league filters or change to live MR1/M1.
+- User confirmed M4 future Telegram dispatch shall occur at one fixed Beijing time, once per day. Exact hour not yet selected or authorized. This is a confirmed frequency requirement; no M4 formal dispatch is enabled.
+- Added M4-A diagnostics to `research/m4/paired_ft_baseline.py`, commit `3c48828e2a49ddac18900b33cae0a9aee6372423`: one latest validated pre-kickoff Crown observation per fixture/market, model estimated EV versus realized PnL, Crown quote age group and Beijing received-hour group. These are descriptive research statistics, not pre-registered strategy rules or evidence of causal best hour.
+- Dispatched public workflow run [41393864074](https://github.com/ljm198964-alt/quant-runner/actions/runs/41393864074) on 2026-11-02. On initial inspection running in private MR1 checkout; successful execution and report results must be checked separately, not assumed.
+- Prior independently verified one-per-fixture MR1 V6 research run [41389534474](https://github.com/ljm198964-alt/quant-runner/actions/runs/41389534474) produced 1,563 independently FT-paired fixtures, AH 1,563/-44.195U/-2.8276%, OU 1,563/-46.430U/-2.9706%. Not actual Telegram formal MR1 selection; two markets are independent simulations; no multi-horizon duplicate counting.
+- Next: inspect current workflow steps, log output and artifact; diagnose probability calibration/quote staleness and hour coverage; distinguish matched observation-hour from a prospective once-daily dispatch hour. M4-B and M4-C not yet implemented.
