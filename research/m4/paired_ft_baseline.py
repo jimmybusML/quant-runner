@@ -329,6 +329,7 @@ for x in cal_rows:
  for name,weight in (("one_x_two_only",0),("joint_25pct_ou",.25),("joint_50pct_ou",.5),("joint_75pct_ou",.75),("ou_only",1)):
   tau=(1-weight)*x["tau"]+weight*inferred
   ev={side:poisson_ou_ev(tau,c["line"],c["price"],side) for side,c in x["sides"].items()}
+  if abs(ev["over"]-ev["under"])<1e-8:continue # Price-implied OU fair mean has no directional edge; do not turn numerical ties into pseudo-trades.
   selected=max(ev,key=ev.get)
   z=joint[name];z["n"]+=1;z["pnl"]+=x["sides"][selected]["pnl"]
   z["switches"]+=int(selected!=old)
