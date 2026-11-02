@@ -87,7 +87,8 @@ for match,entries in group.items():
    p=settlement(c.get("side"),c.get("line"),c.get("price"),ft["home_goals"],ft["away_goals"],market)
    if p is None:continue
    league_name=str(x.get("league") or "UNKNOWN")
-   classification="push" if abs(p)<1e-10 else "win" if p>0.50001 else "half_win" if p>0 else "loss" if p< -0.50001 else "half_loss"
+   neutral=settlement(c.get("side"),c.get("line"),2.0,ft["home_goals"],ft["away_goals"],market)
+   classification="push" if abs(neutral)<1e-10 else "win" if neutral>0.75 else "half_win" if neutral>0 else "loss" if neutral< -0.75 else "half_loss"
    for d,key in ((unique,market),(unique_league,(league_name,market))):
     z=d[key];z["n"]+=1;z["pnl"]+=p;z[classification]+=1
     z["positive_ev_n"]+=int(isinstance(c.get("EV"),(int,float)) and c["EV"]>0)
