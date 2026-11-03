@@ -1,3 +1,11 @@
+## 2026-11-03 M1 AH + MR1 AH 正式 TG 赛果补采、入账及总/周成绩（已完成一次性补采，日常 Runner 仍阻塞）
+- 现有私有 M1 仓库 Actions secret `TOTALCORNER_TOKEN` 运行一次性纯赛果审计 run `41591966272` SUCCESS：74 场 pending 独立 match_id，52 场验证 FT，22 场仍非 FT、API 错误 0。临时采集脚本及 workflow 完成后已删除；不涉及 TG 派单或策略更改。
+- M1 官方 `settle_one` + report 补结 7 个正式 TG AH，私有 `totalcorner-research-bridge` 写账 commit `2b5ca00c90`，临时文件清理后 master `234b6e6e91`。M1 AH 累计发 402、结 394、待 8，净 -3.705U，ROI -0.94%。
+- MR1 原 `v6-ah-formal-settlement.js` 用 47 个逐场 FT 证据补结 60 个正式 TG AH 订单，已写原私有 `mr1-shadow` master commit `04944a4abe`（含 settled/performance/results 证据文件）。MR1 AH 累计发 574、结 557、待 17，净 -18.625U，ROI -3.34%。
+- 合计正式 TG 两线发 976、结 951、待 25，净 -22.330U，ROI -2.35%。上周北京时间 10/26-11/01：M1 +5.300U /65结；MR1 -22.640U /266结，合计 -17.340U /331结。本周 11/02-11/08：M1 -2.770U /7结；MR1 -4.460U /8结，合计 -7.230U /15结。
+- 本轮 25 笔剩余 pending 中有未开赛、未取得可靠 FT 以及特殊比赛；不能强行按已过开赛时间结算。特别是 Cambuur vs Go Ahead Eagles 的官方 4:0 于约 81 分钟中止，待按盘口结算规则核实。**公开 Runner 的 GitHub 私库认证故障仍未修好，不可宣称生产恢复。**
+- 完整本轮证据与逐周表：[`research/M1_MR1_FORMAL_SETTLEMENT_RECOVERY_20261103.md`](research/M1_MR1_FORMAL_SETTLEMENT_RECOVERY_20261103.md)。
+
 ## 2026-11-03 公开 Runner M1/MR1 认证故障定位（仍阻塞）
 - 公开 `quant-runner` 的 M1 workflow run `41545498225` 与 MR1 workflow run `41567689394` 均在 `actions/checkout@v4` 检出原有私有生产仓库时失败；日志是 `fatal: could not read Username for https://github.com: terminal prompts disabled`，随后 exit 128。不能把后续脚本的 MODULE_NOT_FOUND 当成独立原因。
 - 两工作流均使用公开仓库 Actions Secret `PRIVATE_REPO_TOKEN` 检出私有 `totalcorner-research-bridge` / `mr1-shadow`。该 Secret 名称存在，元数据上次更新时间 2026-10-03T13:04:54Z；日志证明认证失败，但**不能仅凭此断言一定是过期**，亦可能为撤销或权限变化。
