@@ -19,6 +19,7 @@ from urllib.parse import parse_qs, urlparse
 from zoneinfo import ZoneInfo
 
 import display_data
+import order_records
 import research_notify
 import job_explain
 
@@ -425,8 +426,38 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Content-Length", str(len(data)))
             self.end_headers()
             return self.wfile.write(data)
+        if path.path in ("/orders.js", "/orders.css"):
+            file = WEB / path.path.lstrip("/")
+            payload = file.read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "text/javascript; charset=utf-8" if path.path.endswith(".js") else "text/css; charset=utf-8")
+            self.send_header("Cache-Control", "no-store")
+            self.send_header("Content-Length", str(len(payload)))
+            self.end_headers()
+            return self.wfile.write(payload)
         if path.path == "/api/status":
             return self._json(200, status())
+        if path.path == "/api/orders":
+            try:
+                query = parse_qs(path.query)
+                first = lambda name, default: query.get(name, [default])[0]
+                return self._json(200, order_records.filter_and_page(
+                    first("model", "m1"), first("scope", "all"),
+                    first("search", ""), first("result", "all"),
+                    int(first("page", "1")), 40))
+            except (ValueError, KeyError) as exc:
+                return self._json(400, {"error": str(exc)})
+        if path.path == "/api/order":
+            try:
+                query = parse_qs(path.query)
+                model = query.get("model", ["m1"])[0]
+                ident = query.get("id", [""])[0]
+                if model not in ("m1", "mr1", "m3", "m4"):
+                    return self._json(400, {"error": "未知模型"})
+                record = order_records.get_one(model, ident)
+                return self._json(200, {"order": record}) if record else self._json(404, {"error": "订单不存在"})
+            except (ValueError, KeyError) as exc:
+                return self._json(400, {"error": str(exc)})
         if path.path == "/api/logs":
             jid = parse_qs(path.query).get("id", [""])[0]
             if jid not in JOBS:

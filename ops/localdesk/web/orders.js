@@ -1,0 +1,248 @@
+/* Match-level visual audit, separate from trading logic. */
+var orderState = {model:null,scope:null,page:1,query:"",result:"all",payload:null};
+var orderFetchSerial=0,orderTimer=null,modalOpen=false;
+var orderSummaryRender=renderScores;
+
+function orderN(x, places){return x===null||x===undefined||Number.isNaN(Number(x))?"未存":Number(x).toFixed(places)}
+function orderWater(x){if(x===null||x===undefined)return "未保存";return Number(x).toFixed(3).replace(/0$/,"").replace(/\.0$/,".00")}
+function orderLine(x){if(x===null||x===undefined)return "—";var v=Number(x);return v>0?"+"+v.toString():v.toString()}
+function orderTime(x){return x?date(x):"未记录"}
+function outcomeClass(x){return x==="全赢"||x==="半赢"?"green":x==="全输"||x==="半输"?"red":""}
+function orderModelName(model){return model==="m1"?"M1 AH":model==="mr1"?"MR1 AH":model==="m3"?"M3":"M4"}
+function orderGame(item){return (item.home_zh||item.home)+" vs "+(item.away_zh||item.away)}
+function orderMarket(item){return item.market==="OU"?"大小球":"让球"}
+function orderSideMarket(item,side){
+ if(item.market==="OU")return {name:side==="home"?"大球":"小球",line:item.selection_line,water:side==="home"?item.home_hk:item.away_hk};
+ var isHome=side==="home";
+ return {name:(isHome?item.home_zh||item.home:item.away_zh||item.away),line:isHome?item.home_line:item.away_line,water:isHome?item.home_hk:item.away_hk};
+}
+
+function orderScoping(){
+ return (selected==="m1"||selected==="mr1")?period:"all";
+}
+function orderPanelMarkup(){
+ const label=selected==="m4"?
+  "M4 目前没有独立新订单；逐场引用 MR1 的真实皇冠报价，展示原订单和研究中的“保留／跳过”假设。":
+ selected==="m3"?
+  "M3 逐笔影子预测；只显示已保存的盘口证据，未保存的对侧水位不会推算或伪造。":
+  "以下每行是一条真正发到 Telegram 的订单。即使同一场有多条不同正式单，也分别列出，方便找出风险。";
+ return '<div id="matchOrders" class="order-audit">'+
+   '<div class="order-head"><div><h3>逐场订单与盘口明细</h3><div class="order-sub">'+label+'</div></div><button onclick="loadOrders(false)">刷新逐场明细</button></div>'+
+   '<div class="order-filters"><div class="order-search"><label>查比赛、球队、联赛</label><input id="orderQuery" placeholder="输入中文球队、联赛或比赛号" value="'+esc(orderState.query)+'" oninput="orderSearchChanged(this.value)"></div>'+
+   '<div style="min-width:140px"><label>结算状态</label><select id="orderResultFilter" onchange="orderFilterChanged(this.value)">'+
+   [['all','所有订单'],['settled','已结算'],['pending','未结算'],['win','盈利订单'],['loss','亏损订单']].map(function(x){return '<option value="'+x[0]+'" '+(x[0]===orderState.result?'selected':'')+'>'+x[1]+'</option>'}).join('')+
+   '</select></div></div>'+
+   '<div id="orderCoverage" class="order-cover">正在读取逐场订单…</div>'+
+   '<div id="orderGrid">正在读取…</div>'+
+   '<div id="orderPages" class="order-pager"></div></div>';
+}
+
+renderScores = function(){
+ if(!data)return;
+ var scope=orderScoping(),changed=selected!==orderState.model||scope!==orderState.scope;
+ if(changed){
+   orderState={model:selected,scope:scope,page:1,query:"",result:"all",payload:null};
+ }
+ var panel=document.getElementById("matchOrders");
+ if(panel&&!changed){
+   panel.remove(); // Preserve search focus and pagination through automatic status refreshes.
+   orderSummaryRender();
+   document.getElementById("details").appendChild(panel);
+   if(orderState.payload)orderDraw(orderState.payload);
+ }else{
+   orderSummaryRender();
+   document.getElementById("details").insertAdjacentHTML("beforeend",orderPanelMarkup());
+   loadOrders(true);
+ }
+};
+
+function orderSearchChanged(next){
+ orderState.query=next;
+ orderState.page=1;
+ clearTimeout(orderTimer);
+ orderTimer=setTimeout(function(){loadOrders(false)},330);
+}
+function orderFilterChanged(v){orderState.result=v;orderState.page=1;loadOrders(false)}
+function orderPage(p){if(!orderState.payload||p<1||p>orderState.payload.pages)return;orderState.page=p;loadOrders(false);document.getElementById("matchOrders")?.scrollIntoView({behavior:"smooth",block:"start"})}
+
+async function loadOrders(force){
+ if(!data||!orderState.model)return;
+ const request=++orderFetchSerial;
+ const params=new URLSearchParams({
+    model:orderState.model,scope:orderState.scope||"all",
+    search:orderState.query,result:orderState.result,page:String(orderState.page)
+ });
+ const coverage=document.getElementById("orderCoverage");
+ if(coverage&&force)coverage.textContent="正在读取真实订单与盘口…";
+ try{
+   const response=await fetch("/api/orders?"+params.toString(),{cache:"no-store"});
+   const result=await response.json();
+   if(!response.ok)throw new Error(result.error||"明细暂时无法读取");
+   if(request!==orderFetchSerial||result.model!==orderState.model)return;
+   orderState.payload=result;
+   orderDraw(result);
+ }catch(err){
+   if(request!==orderFetchSerial)return;
+   if(coverage)coverage.textContent="明细暂时无法读取："+String(err.message);
+ }
+}
+function orderDraw(payload){
+ const area=document.getElementById("orderGrid"),coverage=document.getElementById("orderCoverage"),pages=document.getElementById("orderPages");
+ if(!area||!coverage||!pages)return;
+ const label=payload.model==="m4"?"MR1 历史研究对照":"模型订单";
+ const coveragePercent=payload.total?(payload.with_both_prices/payload.total*100).toFixed(0):"—";
+ let explain="当前范围 "+payload.total+" 笔"+label+"，已结 "+payload.settled+"，未结 "+payload.pending+"。";
+ if(payload.model==="m1"||payload.model==="mr1"){
+   explain+=" 完整双边水位 "+payload.with_both_prices+" 笔；明确验证 Crown 来源 "+payload.verified_crown+" 笔。";
+   if(payload.verified_crown<payload.total)explain+=" 未验证来源的旧单会明确标注，不能当成皇冠。";
+ }else if(payload.model==="m3"){
+   explain+=" 这些是模拟预测，原账本只保存所选方向水位；对侧报价缺失会显示“未保存”。";
+ }else{
+   explain+=" M4 仅沿用 MR1 盘口做事后对照，绝非独立正式投注。";
+ }
+ coverage.textContent=explain;
+ if(!payload.rows.length){
+   area.innerHTML='<p class="order-sub">当前搜索条件下没有订单。可以清空搜索或切换状态。</p>';
+   pages.textContent="";
+   return;
+ }
+ area.innerHTML='<div class="order-scroll"><table class="order-table">'+
+  '<thead><tr><th class="align-left">比赛／发单时间</th><th class="align-left">主队让球／水位</th><th class="align-left">客队让球／水位</th><th class="align-left">'+(payload.model==="m4"?"原下注／M4假设":"我们选择")+'</th><th>下单水位</th><th>最终比分</th><th>'+(payload.model==="m4"?"原MR1结果":"结果")+'</th><th>'+ (payload.model==="m4"?"研究收益":"净收益") +'</th></tr></thead><tbody>'+
+  payload.rows.map(function(x){
+    var home=orderSideMarket(x,"home"),away=orderSideMarket(x,"away");
+    var result=x.result&&x.result.home!=null&&x.result.away!=null?x.result.home+" : "+x.result.away:"未结算";
+    var chosen=(payload.model==="m4"?'<div>'+esc(x.m4_action)+'</div>':'')+
+       (payload.model==="m3"?'<span class="quote-quiet">'+esc(x.submodel||"")+' · '+orderMarket(x)+'</span><br>':'')+
+       '<span class="selection">'+esc(x.direction)+" "+orderLine(x.selection_line)+'</span>';
+    return '<tr data-id="'+esc(x.id)+'" onclick="openOrder(this.dataset.id)">'+
+      '<td class="align-left"><div class="match">'+esc(orderGame(x))+'</div><div class="fixture-sub">'+esc(x.league_zh||x.league)+' · '+orderTime(x.posted_at)+'</div>'+
+      (x.same_game_orders>1?'<div class="fixture-sub">此范围同场 '+x.same_game_orders+' 单</div>':'')+
+      (x.model==='m1'&&!x.bookmaker_verified?'<div class="fixture-sub no-quote">旧单盘口来源未核实</div>':'')+
+      (x.quote_at&&x.posted_at?'<div class="fixture-sub">盘口报价距发单 '+shortAge(x.quote_at,x.posted_at)+'</div>':'')+'</td>'+
+      '<td class="align-left">'+(x.home_hk!=null?'<div class="quote-main">'+esc(home.name)+' '+orderLine(home.line)+'</div><div class="water-hk">'+orderWater(home.water)+'</div>':'<span class="no-quote">未保存</span>')+'</td>'+
+      '<td class="align-left">'+(x.away_hk!=null?'<div class="quote-main">'+esc(away.name)+' '+orderLine(away.line)+'</div><div class="water-hk">'+orderWater(away.water)+'</div>':'<span class="no-quote">未保存</span>')+'</td>'+
+      '<td class="align-left">'+chosen+'</td>'+
+      '<td><strong>'+orderWater(x.selection_hk)+'</strong></td>'+
+      '<td>'+result+'</td>'+
+      '<td class="'+outcomeClass(x.settlement)+'">'+esc(x.settlement)+'</td>'+
+      '<td class="profit '+col(x.pnl)+'">'+(x.pnl!=null?u(x.pnl):"—")+'</td></tr>';
+  }).join("")+'</tbody></table></div>';
+ pages.innerHTML='<div class="sub">第 '+payload.page+' / '+payload.pages+' 页 · 共 '+payload.total+' 笔，每笔都可点开查看原始盘口</div>'+
+   '<div class="pager-actions"><button '+(payload.page<=1?'disabled':'')+' onclick="orderPage('+(payload.page-1)+')">上一页</button>'+
+   '<button '+(payload.page>=payload.pages?'disabled':'')+' onclick="orderPage('+(payload.page+1)+')">下一页</button></div>';
+}
+
+function valueOrBlank(x){return x===null||x===undefined?"未存":esc(String(x))}
+function shortAge(from,to){
+ if(!from||!to)return "无法比较";
+ const a=Date.parse(from),b=Date.parse(to);
+ if(!Number.isFinite(a)||!Number.isFinite(b))return "无法比较";
+ const delta=Math.round((b-a)/60000);
+ return delta>=0?delta+" 分钟":"报价时间晚于发单，需核查";
+}
+function quoteCard(label,name,line,hk,price,best){
+ return '<div class="order-pricebox '+(best?'best':'')+'"><div class="price-label">'+esc(label)+'</div>'+
+   '<div class="price-name">'+esc(name)+'</div>'+
+   '<div class="price-number">'+orderLine(line)+'　'+orderWater(hk)+'</div>'+
+   '<div class="price-info">让球线 · 香港水位'+(price!=null?'　|　欧赔 '+orderN(price,3):'')+'</div></div>';
+}
+function kv(label,value){return '<div class="kv"><span>'+esc(label)+'</span><b>'+esc(value)+'</b></div>'}
+function quoteChart(path){
+ if(!Array.isArray(path)||path.length<2)return '<p class="order-sub">这笔比赛没有足够的完整双边盘口路径，不能绘制可靠变化图。</p>';
+ const records=path.filter(x=>x.home_hk!=null&&x.away_hk!=null);
+ if(records.length<2)return '<p class="order-sub">没有足够双边水位观察点。</p>';
+ const vals=records.flatMap(x=>[Number(x.home_hk),Number(x.away_hk)]).filter(Number.isFinite);
+ if(!vals.length)return '';
+ const low=Math.min(...vals),high=Math.max(...vals),margin=Math.max(.035,(high-low)*.18);
+ const min=low-margin,max=high+margin,W=740,H=170,left=41,right=714,top=15,bottom=133;
+ function xy(i,key){let x=left+i*(right-left)/(records.length-1),v=Number(records[i][key]);return [x,top+(max-v)/(max-min)*(bottom-top)]}
+ const make=(key,color)=>'<path d="'+records.map((o,i)=>{var p=xy(i,key);return (i===0?'M':'L')+p[0].toFixed(2)+' '+p[1].toFixed(2)}).join(" ")+'" fill="none" stroke="'+color+'" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>'+
+   records.map((x,i)=>{var p=xy(i,key);return '<circle cx="'+p[0].toFixed(2)+'" cy="'+p[1].toFixed(2)+'" r="3.5" fill="'+color+'"/>'}).join("");
+ return '<div class="order-chart"><svg viewBox="0 0 740 170" role="img" aria-label="主客队历史皇冠水位变化图">'+
+ '<line x1="41" x2="714" y1="15" y2="15" stroke="#e3e8f0"/><line x1="41" x2="714" y1="133" y2="133" stroke="#e3e8f0"/>'+
+ '<text x="3" y="19" font-size="11" fill="#78889b">'+max.toFixed(2)+'</text><text x="3" y="136" font-size="11" fill="#78889b">'+min.toFixed(2)+'</text>'+
+ make("home_hk","#2b71bc")+make("away_hk","#d27a44")+
+ '<text x="43" y="158" font-size="11" fill="#6d7e90">早</text><text x="695" y="158" font-size="11" fill="#6d7e90">晚</text></svg>'+
+ '<div class="order-chart-legend"><span><i class="legend-line" style="background:#2b71bc"></i>主队水位</span><span><i class="legend-line" style="background:#d27a44"></i>客队水位</span></div></div>';
+}
+function historyTable(path){
+ if(!Array.isArray(path)||!path.length)return '';
+ return '<div class="order-history"><table><thead><tr><th class="align-left">报价时间（北京时间）</th><th>主让盘</th><th>主水位</th><th>客让盘</th><th>客水位</th></tr></thead><tbody>'+
+ path.map(x=>'<tr><td class="align-left">'+orderTime(x.at)+'</td><td>'+orderLine(x.home_line)+'</td><td>'+orderWater(x.home_hk)+'</td><td>'+orderLine(x.away_line)+'</td><td>'+orderWater(x.away_hk)+'</td></tr>').join("")+
+ '</tbody></table></div>';
+}
+function closeOrder(){
+ const node=document.getElementById("orderBackdrop");
+ if(node)node.remove();
+ document.body.style.overflow="";
+ modalOpen=false;
+}
+function orderEscape(e){if(e.key==="Escape"&&modalOpen)closeOrder()}
+document.addEventListener("keydown",orderEscape);
+
+async function openOrder(id){
+ const model=orderState.model;
+ const modal=document.createElement("div");
+ modal.id="orderBackdrop";modal.className="order-modal-backdrop";
+ modal.innerHTML='<div class="order-modal"><div class="order-modal-top"><h3>正在读取这场比赛…</h3><button class="close" onclick="closeOrder()">×</button></div></div>';
+ document.body.appendChild(modal);
+ modal.addEventListener("click",e=>{if(e.target===modal)closeOrder()});
+ document.body.style.overflow="hidden";modalOpen=true;
+ try{
+   const response=await fetch("/api/order?"+new URLSearchParams({model:model,id:id}).toString(),{cache:"no-store"});
+   const doc=await response.json();if(!response.ok||!doc.order)throw Error(doc.error||"找不到订单");
+   if(!modal.isConnected)return;
+   modal.querySelector(".order-modal").innerHTML=orderDetailHtml(doc.order);
+ }catch(err){if(modal.isConnected)modal.querySelector(".order-modal").innerHTML='<div class="order-modal-top"><h3>无法读取订单</h3><button class="close" onclick="closeOrder()">×</button></div><p>'+esc(err.message)+'</p>'}
+}
+function orderDetailHtml(x){
+ const result=x.result&&x.result.home!=null&&x.result.away!=null?x.result.home+' : '+x.result.away:'未取得完整结算比分';
+ const hk=x.selection_hk;
+ const pickTeam=x.direction==='主队'?(x.home_zh||x.home):x.direction==='客队'?(x.away_zh||x.away):(x.selection||'');
+ const study=x.model==='m4';
+ const mainTitle=orderGame(x);
+ const sourceFlag=x.bookmaker_verified?'原始皇冠盘口已验证':x.bookmaker;
+ const bothQuote=x.home_hk!=null&&x.away_hk!=null;
+ const notes=(x.notes||[]).slice();
+ if(!bothQuote)notes.push('对面水位原账本未保存，这里明确显示缺失，不用其他来源事后补价。');
+ if(x.quote_matches_selection===false)notes.push('模型订单水位与保存的双边报价不一致，需核对原始记录。');
+ const lineLabel=(x.market==='OU'?'大小球':'让球');
+ return '<div class="order-modal-top"><div><div class="order-meta">'+esc(x.league_zh||x.league)+' · '+lineLabel+'</div><h3>'+esc(mainTitle)+'</h3><div class="order-meta">比赛开始：'+orderTime(x.kickoff)+'　|　'+(x.tg_sent?'正式 TG 发单':'研究预测')+'：'+orderTime(x.posted_at)+'</div></div><button class="close" onclick="closeOrder()">×</button></div>'+
+ '<div class="order-resultbar"><span class="score">'+esc(result)+'</span><span class="outcome '+outcomeClass(x.settlement)+'">'+esc(x.settlement)+'</span><span class="'+col(x.pnl)+'" style="font-weight:760;font-size:20px">'+(x.pnl==null?'待结算':u(x.pnl))+'</span></div>'+
+ (study?'<div class="order-alert"><b>'+esc(x.m4_action||"研究比较")+'</b>。本条沿用 MR1 原始订单与实际赛果，仅按研究假设重新计算收益，M4 没有独立正式下注。</div>':'')+
+ '<h4>当时双方盘口与我们选择</h4>'+
+ '<div class="order-prices">'+
+ quoteCard('主队盘口快照',x.home_zh||x.home,x.home_line,x.home_hk,x.home_price,false)+
+ quoteCard('客队盘口快照',x.away_zh||x.away,x.away_line,x.away_hk,x.away_price,false)+
+ quoteCard(study?'MR1 当时实际选择（M4 仅假设）':'我们的实际选择',pickTeam,x.selection_line,hk,x.selection_price,true)+
+ '</div>'+
+ '<div class="order-detail-list">'+
+ kv('使用盘口来源',sourceFlag)+
+ kv('原始报价时间',orderTime(x.quote_at))+
+ kv('实际发单／预测时间',orderTime(x.posted_at))+
+ kv('报价到发单相隔',shortAge(x.quote_at,x.posted_at))+
+ kv('模型预测 EV（只作分析）',x.ev!=null?pct(x.ev*100):'未记录')+
+ kv('赛果',result)+
+ kv('下单香港水位',orderWater(hk))+
+ kv('下单欧赔',x.selection_price!=null?orderN(x.selection_price,3):'未记录')+
+ kv('订单结算状态',x.settlement)+
+ kv('订单是否已发到 TG',x.tg_sent?'已正式发单':'研究预测，没有正式发单')+
+ '</div>'+
+ (notes.length?'<div class="order-alert">'+notes.map(esc).join('<br>')+'</div>':'')+
+ sameMatchHtml(x)+
+ '<h4>历史盘口变化</h4><p class="order-sub">曲线是不同时间记录的主、客香港水位。若让球线发生变化，请同时参考下面的盘口线明细，不能把不同盘口的水位直接当同一盘口比较。</p>'+
+ quoteChart(x.quote_path)+historyTable(x.quote_path)+
+ (x.raw_text?'<h4>当时记录的原始派单内容</h4><div class="order-original-tg">'+esc(x.raw_text)+'</div>':'')+
+ '<details style="margin-top:18px"><summary>原始证据核对信息</summary><p class="order-source">模型：'+esc(orderModelName(x.model))+'<br>比赛编号：'+esc(x.fixture)+'<br>订单编号：'+esc(x.id)+
+ '<br>TG 回执：'+esc(x.tg_message_id||"无")+'<br>原始来源：'+esc(x.source||"未知")+
+ (x.source_snapshot_key?'<br>盘口记录：'+esc(x.source_snapshot_key):'')+'</p></details>';
+}
+
+function sameMatchHtml(order){
+ const rows=order.same_match_orders||[];
+ if(!rows.length)return '';
+ return '<h4>这场比赛的所有'+(order.model==='m3'?'影子预测':order.model==='m4'?'研究对照':'正式订单')+'（'+rows.length+' 笔）</h4>'+
+  '<div class="order-history"><table><thead><tr><th class="align-left">'+(order.model==='m3'?'模型／预测时间':'发单时间')+'</th><th>方向</th><th>让球线</th><th>下单水位</th><th>'+(payload.model==="m4"?"原MR1结果":"结果")+'</th><th>收益</th></tr></thead><tbody>'+
+  rows.map(function(x){return '<tr'+(x.id===order.id?' style="background:#eef5fd"':'')+'><td class="align-left">'+(x.submodel?esc(x.submodel)+' · ':'')+orderTime(x.posted_at)+'</td><td>'+esc(x.direction)+(x.m4_action?'（'+esc(x.m4_action)+'）':'')+'</td><td>'+orderLine(x.selection_line)+'</td><td>'+orderWater(x.selection_hk)+'</td><td>'+esc(x.settlement)+'</td><td class="'+col(x.pnl)+'">'+(x.pnl==null?'待结':u(x.pnl))+'</td></tr>'}).join('')+
+  '</tbody></table></div>';
+}

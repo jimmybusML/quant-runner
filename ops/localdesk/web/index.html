@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>量化亚洲盘</title>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>量化亚洲盘</title><link rel="stylesheet" href="/orders.css">
 <style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color-scheme:light;--bg:#f6f7fa;--card:#fff;--text:#202a36;--sub:#687584;--line:#e6eaf0;--blue:#286dc4;--bluebg:#ebf2fb;--red:#c44250;--green:#187954;--shadow:0 2px 18px rgba(33,52,78,.035)}
 *{box-sizing:border-box}body{background:var(--bg);color:var(--text);margin:0;font-size:14px}
@@ -100,4 +100,4 @@ async function saveModel(id){try{var x=document.querySelector('[data-model="'+id
 async function saveCredential(){var k=el("credKey").value,v=el("credValue").value;if(!v.trim())return toast("请先填写",true);try{await post("/api/credentials",{key:k,value:v});el("credValue").value="";toast("已保存到 Mac 本机");await refresh(false)}catch(err){toast(err.message,true)}}
 async function loadLog(id){try{var r=await fetch("/api/logs?id="+encodeURIComponent(id)),x=await r.json();var target=el("raw-"+id);if(target){target.innerHTML="";var pre=document.createElement("pre");pre.textContent=x.log||"没有原始记录";target.appendChild(pre)}}catch(err){toast(err.message,true)}}
 refresh(false);setInterval(function(){if(currentTab!=="settings")refresh(false)},10000);
-</script></body></html>
+</script><script src="/orders.js"></script></body></html>

@@ -1,0 +1,60 @@
+
+/* The full event-level evidence is below each model's summary, not a new trading rule. */
+.order-audit{margin-top:27px;border-top:1px solid var(--line);padding-top:22px}
+.order-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.order-sub{font-size:12px;color:var(--sub);line-height:1.7;margin:7px 0 13px}
+.order-filters{display:flex;gap:9px;align-items:end;flex-wrap:wrap;margin:17px 0}
+.order-filters .order-search{flex:1;min-width:190px}
+.order-filters label{display:block;color:var(--sub);font-size:11px;margin-bottom:6px}
+.order-filters input,.order-filters select{border-radius:8px;border:1px solid #cfd9e6;background:#fff;padding:10px;color:var(--text);font:inherit;font-size:13px;max-width:100%;width:100%}
+.order-filters input:focus,.order-filters select:focus{outline:2px solid #bdd8f7}
+.order-cover{background:#f3f7fb;border-radius:9px;padding:11px 13px;color:#53687e;font-size:12px;line-height:1.7;margin:10px 0}
+.order-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;max-width:100%}
+table.order-table{min-width:1040px;width:100%;font-size:12px}
+.order-table thead th{position:sticky;top:0;font-size:11px}
+.order-table tr{cursor:pointer}
+.order-table tbody tr:hover{background:#f2f7fd}
+.order-table td{vertical-align:middle}
+.order-table .align-left{text-align:left}
+.order-table .match{font-size:13px;font-weight:650;color:#2d3949}
+.order-table .fixture-sub{color:var(--sub);font-size:11px;margin-top:4px}
+.order-table .quote-main{font-size:12px;font-weight:620}
+.order-table .water-hk{font-size:15px;font-weight:750}
+.order-table .quote-quiet{font-size:11px;color:var(--sub)}
+.order-table .selection{color:#235ca7;font-weight:680}
+.order-table .profit{font-weight:700}
+.order-table .no-quote{font-size:11px;color:#a26a39}
+.order-pager{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:13px}
+.order-pager .pager-actions{display:flex;gap:8px}
+.order-alert{font-size:12px;color:#865830;padding:10px;background:#fff7e8;border-radius:8px;line-height:1.7;margin:12px 0}
+.order-modal-backdrop{position:fixed;inset:0;background:rgba(16,24,41,.55);z-index:40;display:flex;justify-content:center;align-items:center;padding:20px}
+.order-modal{width:min(1040px,100%);max-height:90vh;overflow-y:auto;background:white;border-radius:16px;box-shadow:0 14px 70px #0003;padding:24px}
+.order-modal-top{display:flex;justify-content:space-between;align-items:flex-start;gap:15px}
+.order-modal-top h3{font-size:21px;margin:2px 0 5px}
+.order-modal .close{font-size:20px;background:#edf1f6;border:0;width:36px;height:36px;display:grid;place-items:center}
+.order-meta{color:var(--sub);font-size:12px;margin:6px 0;line-height:1.7}
+.order-resultbar{display:flex;align-items:center;gap:13px;flex-wrap:wrap;background:#f5f8fb;padding:14px;border-radius:10px;margin:16px 0}
+.order-resultbar .score{font-size:22px;font-weight:750}
+.order-resultbar .outcome{font-weight:700}
+.order-prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:17px 0}
+.order-pricebox{background:#f6f8fb;border:1px solid #e5eaf0;padding:15px;border-radius:10px}
+.order-pricebox.best{background:#edf5ff;border-color:#b8d2f6}
+.order-pricebox .price-label{font-size:12px;color:#647489}
+.order-pricebox .price-name{font-size:13px;font-weight:680;margin-top:7px}
+.order-pricebox .price-number{font-size:23px;font-weight:760;letter-spacing:-.03em;margin-top:6px}
+.order-pricebox .price-info{font-size:12px;color:#69798c;margin-top:6px}
+.order-detail-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 20px;padding:14px 0}
+.order-detail-list .kv{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--line);font-size:12px}
+.order-detail-list .kv span:first-child{color:var(--sub)}
+.order-detail-list .kv b{font-weight:600;text-align:right;overflow-wrap:anywhere}
+.order-modal h4{margin:23px 0 8px;font-size:15px}
+.order-chart{border:1px solid #e5ebf2;border-radius:10px;padding:11px;margin-top:8px}
+.order-chart svg{width:100%;height:auto;display:block}
+.order-chart-legend{display:flex;gap:18px;font-size:12px;color:#637485;margin-top:4px}
+.legend-line{width:16px;height:3px;display:inline-block;margin-right:5px;vertical-align:middle}
+.order-history{margin-top:12px;max-height:235px;overflow:auto;border:1px solid var(--line);border-radius:9px}
+.order-history table{font-size:12px}
+.order-history th,.order-history td{padding:8px 10px}
+.order-source{font-size:12px;color:#6a7a8b;line-height:1.7;margin-top:12px}
+.order-original-tg{background:#f8fafc;border-radius:10px;padding:13px 14px;font-size:13px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+@media(max-width:720px){.order-modal-backdrop{padding:0}.order-modal{max-height:100vh;height:100%;border-radius:0;padding:17px}.order-prices{grid-template-columns:1fr}.order-detail-list{grid-template-columns:1fr}.order-filters .order-search{min-width:100%}}
