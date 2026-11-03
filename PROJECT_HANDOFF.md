@@ -1,3 +1,10 @@
+## 2026-11-03 M3/M4 后续研究：比分网格偏差与逐联赛 Crown 反打诊断
+- 用户要求继续研究 M3、M4，未允许改变任何实战或模拟出单规则。读本机实际 M3 分段影子账本1572发/1494结/78待/-30.6375U，对应249场独立FT、三模型×AH/OU；M3仍TotalCorner默认盘口非Crown、未发正式TG。
+- M3实际249场三模型AH 240场完全同方向；双变量AH比Poisson多+6.4625U全部来自仅4场不同选向，不能当独立稳定优势。OU Poisson和Dixon-Coles 249/249场选择相同，不能算两个独立收益模型。747个比分概率矩阵全部配对：三个模型预测均值约2.74总球，实际2.992；Poisson OU194场选小球（77.9%），预测总球2.600、实际2.995、小球194笔-14.1375U；存在尚待未来验证的低估进球偏差。
+- M4基于MR1实际TG574发/557结/17待/-18.625U，391场独立比赛，原已验证Crown双边快照 **557/557准确配对**。按原盘口正向逐笔重算557/557与账本吻合，全反打反事实-16.015U、无全局稳定性。坏联赛J1 -9U、英冠-8.215、土超-7.010、波兰超-6.335、法甲-5.100；好联赛瑞典超+4.355U、丹麦甲+4.820U、韩国K1+4.340U。J1/土超/波兰超在10/29前后两段均亏；英冠从+0.950跌到-9.165。波兰超报价年龄>=60分钟14单-8.120U但英冠短龄也亏，不增加统一Gate。
+- 已研究联赛-specific方向/赔率年龄/北京时间发单小时，继续建议对亏损联赛作独立概率校准观察，优质联赛保留，所有优化仅为建议，未经用户确认不得变策略、Pass/EV门槛或时间条件。**未建立独立前瞻验证通过的M4**，没有更改任何模型/Telegram/自动运行。
+- 完整报告及可重复只读脚本：research/M3_M4_CONTINUED_RESEARCH_20261103.md；research/m3/repro_20261103、research/m4/repro_20261103。脚本在用户授权 Mac 的既有生产数据源上运行，未把私有账本复制进公开仓库。
+
 ## 2026-11-03 20:58 Chrome MR1 AI 自动开 TotalCorner 的旧持久化 alarm 已真正清除
 - 用户报告**此前虽停掉 launchd、改了扩展文件，Chrome 仍不断自动打开 TotalCorner AI Picks**。本轮找准根因：Chrome `Default` 仍装有 **MR1 AI TotalCorner Collector** 扩展 `peplalmabefbpaihaeehmbncibfgopnf`，真正路径 `~/Desktop/mr1-ai`，其**在 Chrome 内存/扩展服务中遗留旧 `mr1-ai-hourly` 定时器**，所以改静态代码后仍可能继续自动打开网页。
 - 已通过真实扩展上下文调用 `chrome.alarms.clearAll()`、`chrome.runtime.reload()`，随后重新在同一实际扩展查询 `chrome.alarms.getAll()`，验证**小时定时器已经 0 个**；Chrome Extension Local Storage 保留 `mr1AutoOpenVerifiedAfterReload=true`、`mr1ActiveAlarmCount=0` 的成功标志。现有后台扩展脚本不再包含 `chrome.tabs.create` / `chrome.alarms.create`；两个原 MR1 AI launchd agent 也仍未加载。没有关闭用户 Chrome/其他浏览器页面，量化控制台 HTTP200、TG 和模型未动。
