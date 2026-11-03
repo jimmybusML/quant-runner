@@ -18,6 +18,10 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 from zoneinfo import ZoneInfo
 
+import display_data
+import research_notify
+import job_explain
+
 BASE = Path(__file__).resolve().parent
 REPOS = {"m1": BASE / "repos/m1", "mr1": BASE / "repos/mr1", "m3": BASE / "repos/runner", "m4": BASE / "repos/runner"}
 STATE = BASE / "state"
@@ -26,7 +30,7 @@ WEB = BASE / "web"
 PORT = 8765
 ACCOUNT = os.environ.get("USER", "mac")
 CSRF = secrets.token_urlsafe(32)
-CREDENTIAL_KEYS = ("TOTALCORNER_TOKEN", "M1_TELEGRAM_BOT_TOKEN", "M1_TELEGRAM_CHAT_ID", "MR1_TG_BOT_TOKEN", "MR1_TG_CHAT_ID")
+CREDENTIAL_KEYS = ("TOTALCORNER_TOKEN", "M1_TELEGRAM_BOT_TOKEN", "M1_TELEGRAM_CHAT_ID", "MR1_TG_BOT_TOKEN", "MR1_TG_CHAT_ID", "RESEARCH_TG_BOT_TOKEN", "RESEARCH_TG_CHAT_ID")
 DEFAULT = {"timezone": "Asia/Shanghai", "models": {
     "m1": {"schedule_enabled": False, "schedule_type": "times", "times": "00:05,06:05,12:05,18:05", "interval_minutes": 0, "tg_enabled": False},
     "mr1": {"schedule_enabled": False, "schedule_type": "interval", "times": "", "interval_minutes": 5, "tg_enabled": False},
@@ -133,11 +137,21 @@ def model_metrics():
 
 def status():
     with LOCK:
-        recent = sorted(JOBS.values(), key=lambda j: j["started_at"], reverse=True)[:24]
+        recent = [dict(j) for j in sorted(JOBS.values(), key=lambda j: j["started_at"], reverse=True)[:24]]
+    for j in recent:
+        if not j.get("message") and j.get("status") in ("succeeded", "failed"):
+            logpath = LOGS / (j["id"] + ".log")
+            if j["status"] == "succeeded" and logpath.exists():
+                try:
+                    j["message"] = job_explain.summarize(j["model"], j["action"], logpath.read_text(errors="replace")[-20000:])
+                except Exception:
+                    j["message"] = "这次任务已执行结束。"
+            else:
+                j["message"] = job_explain.friendly_error(j.get("error", "Unknown failure"))
     return {"server_time": now(), "csrf": CSRF, "timezone": settings()["timezone"],
         "settings": settings(), "credentials": {k: credentials(k) for k in CREDENTIAL_KEYS},
         "repos": {key: git_info(repo) for key, repo in REPOS.items()},
-        "metrics": model_metrics(), "jobs": recent, "origin": "127.0.0.1", "port": PORT}
+        "metrics": model_metrics(), "performance": display_data.readable_stats(), "jobs": recent, "origin": "127.0.0.1", "port": PORT}
 
 
 def validate_settings(input_obj):
@@ -165,8 +179,6 @@ def validate_settings(input_obj):
         for key in ("schedule_enabled", "tg_enabled"):
             if key in patch and not isinstance(patch[key], bool):
                 raise ValueError("Invalid setting " + key)
-        if model in ("m3", "m4") and patch.get("tg_enabled", False):
-            raise ValueError("M3/M4 are research-only; no formal TG route exists")
         conf.update({"schedule_type": typ, "times": times, "interval_minutes": interval,
             "schedule_enabled": patch.get("schedule_enabled", conf["schedule_enabled"]),
             "tg_enabled": patch.get("tg_enabled", conf["tg_enabled"])})
@@ -270,7 +282,14 @@ def worker(job_id, model, action):
     try:
         if needs_api(model, action) and not credentials("TOTALCORNER_TOKEN"):
             raise ValueError("TotalCorner credential not saved in local Keychain; add it from the dashboard")
+        if action == "run" and model in ("m3", "m4") and settings()["models"][model]["tg_enabled"]:
+            if not (credentials("RESEARCH_TG_BOT_TOKEN") and credentials("RESEARCH_TG_CHAT_ID")):
+                raise ValueError("research TG credentials missing")
         steps, env = job_steps(model, action)
+        run_identity = None
+        for cmd, _ in steps:
+            if "--run-id" in cmd:
+                run_identity = cmd[cmd.index("--run-id") + 1]
         with logpath.open("a", encoding="utf-8") as log:
             for index, (cmd, cwd) in enumerate(steps, 1):
                 if not cwd.is_dir():
@@ -285,12 +304,33 @@ def worker(job_id, model, action):
                     returncode = proc.wait()
                 if returncode:
                     raise RuntimeError(f"Step {index} exited with code {returncode}; see log")
+        summary = job_explain.summarize(model, action, logpath.read_text(encoding="utf-8", errors="replace"))
         with LOCK:
             job["status"] = "succeeded"
+            job["message"] = summary
+        if action == "run" and model in ("m3", "m4") and settings()["models"][model]["tg_enabled"]:
+            try:
+                token = credentials("RESEARCH_TG_BOT_TOKEN", True)
+                chat = credentials("RESEARCH_TG_CHAT_ID", True)
+                if model == "m3":
+                    outcome = research_notify.emit_m3(run_identity, token, chat)
+                    note = "TG 已确认发送 " + str(outcome["sent"]) + " 条研究预测。"
+                else:
+                    outcome = research_notify.emit_m4(job_id, read_json(STATE / "m4_latest.json", {}), token, chat)
+                    note = "TG 已确认发送 " + str(outcome["sent"]) + " 条 M4 研究报告（非正式派单）。"
+                with LOCK:
+                    job["tg_count"] = outcome["sent"]
+                    job["message"] += " " + note
+            except Exception as notify_error:
+                with LOCK:
+                    job["status"] = "partial"
+                    job["message"] += " 研究执行成功，但 TG 未确认发送成功。"
+                    job["error"] = job_explain.friendly_error(notify_error)
     except Exception as exc:
         with LOCK:
             job["status"] = "failed"
-            job["error"] = str(exc)
+            job["message"] = job_explain.friendly_error(exc)
+            job["error"] = job_explain.friendly_error(exc)
         with logpath.open("a", encoding="utf-8") as log:
             log.write("\n[ERROR] " + str(exc) + "\n")
     finally:

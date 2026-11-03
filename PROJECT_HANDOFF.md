@@ -1,3 +1,9 @@
+## 2026-11-03 Mac 可视化控制台完成中文减法和可点击战绩（已安装验证）
+- 用户反馈原 UI 日志/代码看不懂、缺少每模型战绩、API/TG 疑惑以及 M3/M4 TG 被强行标为未开放。已直接更新现有 Mac `~/QuantAsiaDesk/`，单页精简为 **战绩／运行／设置**，首页 M1/MR1/M3/M4 四卡；M1/MR1 全部/上周/本周 TG 正式成绩（胜/半胜/走水/半输/负、ROI、待结）并列，M3 三套模型×AH/OU 影子独立分线，M4 仅历史研究比较。所有出单与正式账本身份不变。
+- 每次运行现在返回中文摘要，原英文/代码日志只放高级「技术详情」；页面去除了代码 hash 和无意义英文。设置解释每天固定时间 vs 每隔 N 分钟；查看战绩不需要用户保存API/TG凭证。M3/M4 TG 开关可由用户自行勾选（默认关闭），M3 对当前研究新预测推送，M4 对研究比较推送，不冒充正式下注或改变 M4 策略。
+- Chrome Playwright 实际交互验证四卡/周战绩/M3六线/M4研究/运行日志/TG开关均正确，无 JS 错；390px 移动窄屏三页无水平滚动。API 设置 M3/M4 TG enabled=true 可以保存和恢复 false；模拟 Telegram 发送和幂等无真实发单。服务 `127.0.0.1:8765` 运行中，四条本机自动调度和 TG 默认仍关闭；正式本机联网派单仍待用户本机配置原有凭证并验证。
+- 源码及详情 [`ops/localdesk/UI_SIMPLIFICATION_20261103.md`](ops/localdesk/UI_SIMPLIFICATION_20261103.md)，本次未新建仓库、未改模型/策略/正式TG账本、未凭空新增 Gate。
+
 ## 2026-11-03 四模型 Mac 本机可视化控制台已安装（基础功能真实验证，正式自动派单仍未切换）
 - 现有 Mac 已实际安装 `~/QuantAsiaDesk`，公开源代码已同步备份至 [`ops/localdesk/`](ops/localdesk/README.md)；控制台 http://127.0.0.1:8765，127.0.0.1 only，macOS LaunchAgent `com.quantasia.localdesk` 已运行并设置登录启动，桌面 `量化亚洲盘控制台.command` 快捷入口已创建。无新 GitHub 仓库。
 - 真实本机仓库副本：私有 M1 `totalcorner-research-bridge/master` commit `234b6e6e`、私有 MR1 `mr1-shadow/master` commit `04944a4abe`、公开 Runner main 最新已 fast-forward 至 `61aa47a`。M3/M4 使用同一 Runner。Python 3.12 环境 penaltyblog 1.13.1/numpy/scipy/pandas/requests 已安装，MR1 npm ci 完成。
