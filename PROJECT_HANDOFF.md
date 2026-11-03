@@ -1,3 +1,9 @@
+## 2026-11-03 20:58 Chrome MR1 AI 自动开 TotalCorner 的旧持久化 alarm 已真正清除
+- 用户报告**此前虽停掉 launchd、改了扩展文件，Chrome 仍不断自动打开 TotalCorner AI Picks**。本轮找准根因：Chrome `Default` 仍装有 **MR1 AI TotalCorner Collector** 扩展 `peplalmabefbpaihaeehmbncibfgopnf`，真正路径 `~/Desktop/mr1-ai`，其**在 Chrome 内存/扩展服务中遗留旧 `mr1-ai-hourly` 定时器**，所以改静态代码后仍可能继续自动打开网页。
+- 已通过真实扩展上下文调用 `chrome.alarms.clearAll()`、`chrome.runtime.reload()`，随后重新在同一实际扩展查询 `chrome.alarms.getAll()`，验证**小时定时器已经 0 个**；Chrome Extension Local Storage 保留 `mr1AutoOpenVerifiedAfterReload=true`、`mr1ActiveAlarmCount=0` 的成功标志。现有后台扩展脚本不再包含 `chrome.tabs.create` / `chrome.alarms.create`；两个原 MR1 AI launchd agent 也仍未加载。没有关闭用户 Chrome/其他浏览器页面，量化控制台 HTTP200、TG 和模型未动。
+- **准确表述**：关闭的是 Chrome 该扩展的自动开页及旧警报，扩展仍处于安装/启用状态，手动抓取功能保留；不是“已卸载扩展”。原先“Chrome 旧 alarm 未证实清除”的交接状态已被此轮真实验证取代。
+- 细节与证据：[`ops/localdesk/MR1_AI_CHROME_ALARM_STOP_VERIFIED_20261103.md`](ops/localdesk/MR1_AI_CHROME_ALARM_STOP_VERIFIED_20261103.md)。用户之后不得被要求重复用终端处理此问题。
+
 ## 2026-11-03 Mac M1 重复「来源待核」提示修正
 - 用户截图指出每场重复显示橙色「来源待核」，挤占空间。核查本机正式 M1 数据：402 笔订单，其中335笔原始 Crown 来源已验证、67笔旧单缺可核实的来源存证；并非未结算或新出单失败。
 - 已直接修改本机 Mac web/orders.js 和 orders.css：逐行删除反复出现的橙色标签，工具栏仅显示一条简短「67 笔旧单无盘口来源存证」，但每场详情保留原真实 bookmaker 来源与验证状态；没有擅自将其标成 Crown 已验证。
