@@ -58,3 +58,153 @@ table.order-table{min-width:1040px;width:100%;font-size:12px}
 .order-source{font-size:12px;color:#6a7a8b;line-height:1.7;margin-top:12px}
 .order-original-tg{background:#f8fafc;border-radius:10px;padding:13px 14px;font-size:13px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
 @media(max-width:720px){.order-modal-backdrop{padding:0}.order-modal{max-height:100vh;height:100%;border-radius:0;padding:17px}.order-prices{grid-template-columns:1fr}.order-detail-list{grid-template-columns:1fr}.order-filters .order-search{min-width:100%}}
+
+/* Compact, readable dashboard. All order outcomes fit the viewport. */
+:root{--bg:#f7f8fa;--card:#fff;--text:#242e3b;--sub:#75808d;--line:#e7eaee;--blue:#286cbd;--bluebg:#edf4fb;--red:#c34754;--green:#198361;--shadow:none}
+body{background:var(--bg);color:var(--text);font-size:13px}
+.page{max-width:1420px;padding:15px 22px 28px}
+header{display:flex;gap:25px;align-items:center;justify-content:space-between;margin:0 0 12px;padding:0 0 9px;border-bottom:1px solid var(--line)}
+h1{font-size:20px;letter-spacing:-.025em;margin:0;font-weight:740;line-height:1.2}
+.nav{background:transparent;padding:0;margin:0;gap:4px;border-radius:0}
+.nav button{padding:9px 18px;font-size:13px;color:#6e7c8b;border-radius:8px;font-weight:650}
+.nav button.active{background:#e7eff8;color:#2264ae;box-shadow:none}
+button{font-size:12px;padding:7px 11px;border-color:#dce1e9;border-radius:7px}
+.toolrow.score-toolbar{justify-content:flex-end;margin:-1px 0 7px;min-height:29px}
+.score-toolbar button{padding:5px 12px;font-weight:500;color:var(--sub);border:0;background:transparent}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.panel{border-radius:10px;border:1px solid var(--line);padding:14px;box-shadow:none}
+.panel.card{padding:13px 14px 11px;min-width:0;border-color:#e4e9ef;transition:box-shadow .13s,border-color .13s}
+.panel.card:hover{border-color:#9bb9dc;box-shadow:0 3px 12px #285b9813}
+.panel.card.selected{border-color:#528bc6;background:#fcfdff;box-shadow:inset 0 0 0 1px #e1edfc}
+.cardhead h3{font-size:14px;font-weight:700}
+.cardhead .kind{font-size:10px;padding:3px 7px;color:#7c8794;background:#f2f4f6}
+.big{font-size:26px;margin:13px 0 2px;letter-spacing:-.035em;line-height:1.1}
+.compact-roi{font-size:12px;color:var(--sub);margin-top:4px}
+.statrow{border-top:1px solid #f0f1f3;padding-top:9px;margin-top:11px;display:flex;justify-content:space-between;gap:4px;flex-wrap:wrap;font-size:11px;color:#6a7888;line-height:1.2}
+#details.panel.detail{padding:0;border:0;box-shadow:none;background:transparent;margin:10px 0 0}
+.compact-detail{border:1px solid var(--line);border-radius:10px;background:#fff;padding:9px 14px}
+.compact-detail-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.compact-detail-title b{font-size:13px;font-weight:720}
+.segments{gap:4px}
+.segments button{padding:6px 13px;border-radius:7px;font-size:12px}
+.compact-counts{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid #f0f2f5;padding-top:8px;color:#707d8c;font-size:12px}
+.compact-counts b{color:#2d3b4b;font-size:14px;margin-left:4px}
+.compact-compare{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.8fr);gap:10px;border-bottom:1px solid #f0f2f5;padding:8px 4px;font-size:12px;align-items:center}
+.compact-compare:last-child{border-bottom:0}
+.compact-compare span:not(:first-child),.compact-compare strong{text-align:right}
+.compact-compare-header{font-size:11px;color:#8a96a2;padding-top:4px}
+.compact-compare strong{font-size:13px}
+.order-audit{border:1px solid var(--line);border-radius:10px;background:white;margin:9px 0 0;padding:0;overflow:hidden}
+.od-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px}
+.od-toolbar b{font-size:14px;font-weight:710}
+.od-count{font-size:11px;color:#758391;white-space:nowrap;margin-right:auto}
+.od-toolbar input,.od-toolbar select{font:inherit;font-size:12px;color:var(--text);background:#f9fafb;border:1px solid #e2e6ec;padding:8px 10px;border-radius:7px;outline:none}
+.od-toolbar input{width:192px;min-width:0}
+.od-toolbar select{width:90px}
+.od-toolbar input:focus,.od-toolbar select:focus{border-color:#a0bddf}
+.od-head,.od-row{display:grid;grid-template-columns:minmax(0,2.25fr) minmax(160px,1.35fr) minmax(125px,.92fr) minmax(135px,.85fr);gap:13px;align-items:center}
+.od-head{background:#f7f9fb;color:#8290a0;font-size:11px;font-weight:630;padding:8px 13px;border-top:1px solid #f0f1f4;border-bottom:1px solid #e9edf2}
+.od-head span:last-child{text-align:right}
+.od-list{width:100%}
+.od-row{padding:9px 13px;border-bottom:1px solid #edf0f3;min-width:0;cursor:pointer;transition:background .12s}
+.od-row:last-child{border-bottom:0}
+.od-row:hover,.od-row:focus-visible{background:#f3f8fd;outline:none}
+.od-game{min-width:0}
+.od-teams{font-size:12.5px;font-weight:690;color:#243144;line-height:1.45;overflow-wrap:anywhere}
+.od-meta{font-size:11px;color:#83909d;line-height:1.5;margin-top:3px;overflow-wrap:anywhere}
+.od-warning{color:#b77a43}
+.od-odds{display:grid;gap:4px;min-width:0}
+.od-odds>div{display:flex;align-items:center;gap:7px;min-width:0;font-variant-numeric:tabular-nums}
+.od-odds span{color:#8a96a3;font-size:11px;width:13px}
+.od-odds b{font-size:12px;color:#546171;font-weight:560;min-width:45px}
+.od-odds strong{font-size:13px;font-weight:720;letter-spacing:-.015em}
+.od-pick{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.od-pick span{color:#8090a1;font-size:11px}
+.od-pick b{font-size:12px;color:#245f9f;font-weight:700}
+.od-pick strong{font-size:14px;color:#245f9f}
+.od-finish{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:1px;font-variant-numeric:tabular-nums}
+.od-score{font-size:13px;font-weight:650;color:#4e5e70}
+.od-settle{font-size:11px;color:#7d8b99}
+.od-settle.red{color:var(--red)}
+.od-settle.green{color:var(--green)}
+.od-profit{font-size:16px;font-weight:750;white-space:nowrap;line-height:1.25}
+.od-empty{font-size:12px;color:#8190a0;padding:28px;text-align:center}
+.order-pager{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;border-top:1px solid var(--line)}
+.od-page-info{font-size:12px;color:#7b8895}
+.pager-actions{display:flex;gap:7px}
+.pager-actions button{padding:6px 11px}
+.pager-actions button:disabled{opacity:.42;cursor:default}
+#section-runs .panel{padding:12px 15px}
+.runline{padding:11px 2px;gap:8px}
+.runname{font-size:14px}
+.runbuttons button{font-size:12px;padding:7px 11px}
+.job{padding:9px 11px;margin:6px 0}
+.jobmessage{margin-top:3px;font-size:12px}
+.settingscard{padding:12px 15px;margin-bottom:9px;border-radius:10px}
+.settingshead{margin-bottom:9px}
+.settingshead h3{font-size:14px}
+.controls{gap:8px}
+.control input,.control select{padding:8px 9px;font-size:12px}
+.settingfoot{margin-top:8px}
+.credential{padding:13px;border-radius:10px}
+.order-modal{max-width:990px}
+@media(max-width:1100px){
+ .page{max-width:100%;padding:13px 15px 24px}
+ .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .od-head,.od-row{grid-template-columns:minmax(0,2fr) minmax(135px,1.15fr) minmax(115px,.9fr) 125px;gap:9px}
+}
+@media(max-width:840px){
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .od-head{display:none}
+ .od-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(110px,.62fr);grid-template-areas:'game finish' 'odds pick';gap:8px 11px;padding:9px 12px}
+ .od-game{grid-area:game}
+ .od-odds{grid-area:odds;border-top:1px dashed #edf0f3;padding-top:7px}
+ .od-pick{grid-area:pick;align-items:center;align-content:center;border-top:1px dashed #edf0f3;padding-top:7px;justify-content:flex-end;text-align:right}
+ .od-finish{grid-area:finish}
+ .od-toolbar{padding:9px 11px}
+ .od-toolbar input{width:min(220px,50vw)}
+ .compact-counts{gap:9px}
+}
+@media(max-width:520px){
+ .page{padding:11px 10px 24px}
+ header{gap:6px}
+ h1{font-size:17px}
+ .nav button{padding:7px 9px;font-size:12px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .panel.card{padding:10px 11px}
+ .cardhead h3{font-size:13px}
+ .big{font-size:21px;margin:10px 0 4px}
+ .compact-roi{font-size:11px}
+ .statrow{font-size:10px;line-height:1.4;margin-top:8px;padding-top:7px}
+ .compact-detail{padding:8px 10px}
+ .compact-counts{font-size:11px}
+ .compact-counts b{font-size:12px}
+ .compact-compare{font-size:11px;gap:4px;grid-template-columns:minmax(0,1.5fr) .8fr 1fr .75fr}
+ .order-audit{margin-top:8px}
+ .od-toolbar{gap:7px}
+ .od-toolbar b{font-size:13px}
+ .od-count{font-size:10px}
+ .od-toolbar input{order:3;width:calc(100% - 105px);flex:1}
+ .od-toolbar select{order:4;width:95px}
+ .od-row{grid-template-columns:minmax(0,1fr) 106px;gap:6px 10px}
+ .od-teams{font-size:12px}
+ .od-meta{font-size:10px}
+ .od-score{font-size:12px}
+ .od-profit{font-size:15px}
+ .od-odds strong{font-size:12px}
+ .od-pick strong{font-size:13px}
+ .od-odds b{min-width:40px}
+}
+
+/* Refresh lives in the navigation; no detached blank toolbar row. */
+.score-toolbar{display:none!important}
+.nav .nav-refresh{padding:6px 10px;background:transparent;border:0;font-size:18px;line-height:1;color:#748395;box-shadow:none}
+.nav .nav-refresh:hover{color:#246cb7;background:#edf3f9}
+@media(max-width:520px){.nav .nav-refresh{padding:6px 7px;font-size:16px}}
+@media(max-width:600px){
+ .od-toolbar{display:grid;grid-template-columns:minmax(0,1fr) 105px;column-gap:8px;row-gap:7px}
+ .od-toolbar>b{grid-column:1;grid-row:1;align-self:center}
+ .od-toolbar .od-count{grid-column:2;grid-row:1;text-align:right;white-space:nowrap;font-size:10px;align-self:center;margin:0}
+ .od-toolbar input{grid-column:1;grid-row:2;order:unset;width:100%;min-width:0;flex:unset}
+ .od-toolbar select{grid-column:2;grid-row:2;order:unset;width:100%;min-width:0;flex:unset}
+}

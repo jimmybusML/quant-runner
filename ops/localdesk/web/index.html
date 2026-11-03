@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>量化亚洲盘</title><link rel="stylesheet" href="/orders.css">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>量化亚洲盘</title><link rel="icon" href="data:,">
 <style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color-scheme:light;--bg:#f6f7fa;--card:#fff;--text:#202a36;--sub:#687584;--line:#e6eaf0;--blue:#286dc4;--bluebg:#ebf2fb;--red:#c44250;--green:#187954;--shadow:0 2px 18px rgba(33,52,78,.035)}
 *{box-sizing:border-box}body{background:var(--bg);color:var(--text);margin:0;font-size:14px}
@@ -22,22 +22,21 @@ table{border-collapse:collapse;width:100%;font-size:13px}th{text-align:left;back
 .credential{background:white;padding:19px;border:1px solid var(--line);border-radius:13px;margin-top:16px}.credline{display:flex;justify-content:space-between;padding:8px 0;font-size:13px;gap:8px}.credline span{color:var(--sub)}.credfields{display:grid;grid-template-columns:1fr 1.2fr auto;gap:9px;margin:13px 0}.hint{border-left:3px solid #98b4d2;padding-left:12px;margin-top:14px;color:#5b6e80;font-size:12px;line-height:1.8}
 footer{margin-top:29px;font-size:11px;color:#96a1ad;line-height:1.7}#toast{display:none;position:fixed;bottom:24px;right:24px;background:#24384c;color:white;padding:13px 18px;max-width:420px;font-size:13px;border-radius:11px;box-shadow:0 8px 36px #0002;z-index:30}#toast.error{background:#a73b4c}
 @media(max-width:760px){.page{padding:20px 13px}.grid{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.runline{align-items:flex-start;flex-direction:column}.credfields{grid-template-columns:1fr}h1{font-size:22px}}
-</style></head>
+</style><link rel="stylesheet" href="/orders.css"></head>
 <body><div class="page">
-<header><div><h1>量化亚洲盘</h1><div class="sub">本机控制台 · 战绩与运行一目了然</div></div><div><span class="pill">本机已连接</span></div></header>
-<nav class="nav"><button id="tab-scores" class="active" onclick="tab('scores')">战绩</button><button id="tab-runs" onclick="tab('runs')">运行</button><button id="tab-settings" onclick="tab('settings')">设置</button></nav>
+<header><h1>量化亚洲盘</h1><nav class="nav"><button id="tab-scores" class="active" onclick="tab('scores')">战绩</button><button id="tab-runs" onclick="tab('runs')">运行</button><button id="tab-settings" onclick="tab('settings')">设置</button><button class="nav-refresh" aria-label="刷新数据" title="刷新" onclick="refresh(true)">↻</button></nav></header>
 <section id="section-scores" class="page-section active">
-<div class="toolrow"><div><h2>各模型战绩</h2><div id="scoreUpdate" class="sub">正在读取账本…</div></div><button onclick="refresh(true)">刷新成绩</button></div>
+<div class="toolrow score-toolbar"><span id="scoreUpdate" hidden></span><button onclick="refresh(true)">刷新</button></div>
 <div class="grid" id="cards"></div>
 <div id="details" class="panel detail"></div>
 </section>
 <section id="section-runs" class="page-section">
-<h2>运行模型</h2><p class="short">点击“运行一次”就执行选定模型。只有你开启了该模型的 TG 推送，它才会尝试发送消息。</p>
+
 <div class="panel" id="runModels"></div>
-<div class="panel" style="margin-top:16px"><h3>最近运行结果</h3><p class="short">下方先显示人能看懂的结论。只有排查故障时才需要看“技术详情”。</p><div id="runJobs"></div></div>
+<div class="panel" style="margin-top:16px"><h3>执行记录</h3><div id="runJobs"></div></div>
 </section>
 <section id="section-settings" class="page-section">
-<h2>运行设置</h2><p class="short">“指定时间”是每天到点运行，例如每天 06:00 和 12:00；“循环间隔”是反复运行，例如每隔 5 分钟运行一次。你可以按模型分别选择。</p>
+
 <div id="settingModels"></div>
 <details class="credential"><summary style="font-size:14px;color:var(--text);font-weight:700">连接设置：赛事数据与 Telegram</summary>
 <div class="hint"><b>只想看历史战绩：</b>不需要保存任何密钥。<br><b>想扫描新比赛或补采比分：</b>需要保存一次 TotalCorner 赛事密钥。<br><b>想发消息到 Telegram：</b>需要保存对应模型的机器人信息。本机已有的配置不会自动改变。</div>
@@ -45,9 +44,9 @@ footer{margin-top:29px;font-size:11px;color:#96a1ad;line-height:1.7}#toast{displ
 <div class="credfields"><select class="credsel" id="credKey"><option value="TOTALCORNER_TOKEN">赛事数据（TotalCorner）</option><option value="M1_TELEGRAM_BOT_TOKEN">M1 的 Telegram 机器人</option><option value="M1_TELEGRAM_CHAT_ID">M1 的 TG 接收位置</option><option value="MR1_TG_BOT_TOKEN">MR1 的 Telegram 机器人</option><option value="MR1_TG_CHAT_ID">MR1 的 TG 接收位置</option><option value="RESEARCH_TG_BOT_TOKEN">M3/M4 的 TG 机器人</option><option value="RESEARCH_TG_CHAT_ID">M3/M4 的 TG 接收位置</option></select><input class="secret" id="credValue" type="password" autocomplete="off" placeholder="仅保存在 Mac 上"><button class="primary" onclick="saveCredential()">保存</button></div>
 <p class="sub">凭证只保存在本机 Mac 钥匙串。不要发到聊天里，也不需要创建新的 GitHub 仓库。</p>
 </details>
-<div class="hint">M3 选择 TG 后会发送该次运行产生的研究预测；M4 选择 TG 后会发送现有联赛研究比较。M4 目前没有独立的赛前出单策略，因此不会把历史回测当成正式投注。是否将 M3/M4 转为正式实战由你决定，本页面不自动更改原模型规则。</div>
+
 </section>
-<footer>所有账本与 Telegram 回执保持独立；历史研究不混入正式投注成绩。数据更新时间以模型账本为准。Mac 休眠或关机时本机不会自动执行。</footer>
+
 </div><div id="toast"></div>
 <script>
 var data=null,selected="m1",period="all",currentTab="scores";

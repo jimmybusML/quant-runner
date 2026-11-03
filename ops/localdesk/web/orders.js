@@ -242,7 +242,143 @@ function sameMatchHtml(order){
  const rows=order.same_match_orders||[];
  if(!rows.length)return '';
  return '<h4>这场比赛的所有'+(order.model==='m3'?'影子预测':order.model==='m4'?'研究对照':'正式订单')+'（'+rows.length+' 笔）</h4>'+
-  '<div class="order-history"><table><thead><tr><th class="align-left">'+(order.model==='m3'?'模型／预测时间':'发单时间')+'</th><th>方向</th><th>让球线</th><th>下单水位</th><th>'+(payload.model==="m4"?"原MR1结果":"结果")+'</th><th>收益</th></tr></thead><tbody>'+
+  '<div class="order-history"><table><thead><tr><th class="align-left">'+(order.model==='m3'?'模型／预测时间':'发单时间')+'</th><th>方向</th><th>让球线</th><th>下单水位</th><th>'+(order.model==="m4"?"原MR1结果":"结果")+'</th><th>收益</th></tr></thead><tbody>'+
   rows.map(function(x){return '<tr'+(x.id===order.id?' style="background:#eef5fd"':'')+'><td class="align-left">'+(x.submodel?esc(x.submodel)+' · ':'')+orderTime(x.posted_at)+'</td><td>'+esc(x.direction)+(x.m4_action?'（'+esc(x.m4_action)+'）':'')+'</td><td>'+orderLine(x.selection_line)+'</td><td>'+orderWater(x.selection_hk)+'</td><td>'+esc(x.settlement)+'</td><td class="'+col(x.pnl)+'">'+(x.pnl==null?'待结':u(x.pnl))+'</td></tr>'}).join('')+
   '</tbody></table></div>';
 }
+/* Focused interface: compact performance, evidence stays available on demand. */
+cards = function(){
+  return ["m1","mr1","m3","m4"].map(function(id){
+    var x=score(id), roi=x.roi==null&&id==="m3"?(x.settled?x.pnl/x.settled*100:null):x.roi;
+    var type=id==="m3"?"模拟":id==="m4"?"研究":"";
+    var left=id==="m4"?"样本 "+n(x.sent):"发 "+n(x.sent);
+    return '<div class="panel card '+(selected===id?'selected':'')+'" role="button" tabindex="0" onclick="selectScore(\''+id+'\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();selectScore(\''+id+'\')}">'+
+       '<div class="cardhead"><h3>'+modelNames[id]+'</h3>'+(type?'<span class="kind">'+type+'</span>':'')+'</div>'+
+       '<div class="big '+col(x.pnl)+'">'+u(x.pnl)+'</div>'+
+       '<div class="compact-roi">收益率 '+pct(roi)+'</div>'+
+       '<div class="statrow"><span>'+left+'</span><span>结 '+n(x.settled)+'</span><span>待 '+n(x.pending)+'</span></div>'+
+    '</div>';
+  }).join("");
+};
+
+detail = function(){
+  var id=selected,p=data.performance;
+  if(id==="m1"||id==="mr1"){
+    var w=p[id][period];
+    var counts=["全赢","半赢","走水","半输","全输"].map(function(k){
+      return '<span>'+k+' <b>'+n(w.states[k])+'</b></span>';
+    }).join("");
+    return '<div class="compact-detail"><div class="compact-detail-title"><b>'+modelNames[id]+'</b>'+
+      '<div class="segments">'+["all","last","this"].map(function(k){return '<button class="'+(period===k?'active':'')+'" onclick="changePeriod(\''+k+'\')">'+({all:'全部',last:'上周',this:'本周'})[k]+'</button>'}).join('')+'</div></div>'+
+      '<div class="compact-counts">'+counts+'</div></div>';
+  }
+  if(id==="m3"){
+    return '<div class="compact-detail"><div class="compact-detail-title"><b>M3</b></div>'+
+      '<div class="compact-compare compact-compare-header"><span>模型 / 盘口</span><span>已结 / 模拟</span><span>净收益</span><span>收益率</span></div>'+
+      p.m3.lines.map(function(x){return '<div class="compact-compare"><span>'+esc(x.name)+' · '+esc(x.market)+'</span><span>'+n(x.settled)+' / '+n(x.sent)+'</span><strong class="'+col(x.pnl)+'">'+u(x.pnl)+'</strong><span class="'+col(x.roi)+'">'+pct(x.roi)+'</span></div>'}).join('')+'</div>';
+  }
+  var t=p.m4, b=t.baseline||{}, e=t.excluded||{}, h=t.hypothetical||{};
+  return '<div class="compact-detail"><div class="compact-detail-title"><b>M4 · 历史比较</b></div>'+
+   '<div class="compact-compare compact-compare-header"><span>方案</span><span>样本</span><span>收益</span><span>收益率</span></div>'+
+   [[ 'MR1 原单',b], ['剔除联赛',e], ['假设保留',h]].map(function(y){
+     var r=y[1];return '<div class="compact-compare"><span>'+y[0]+'</span><span>'+n(r.orders)+'</span><strong class="'+col(r.pnl_units)+'">'+u(r.pnl_units)+'</strong><span>'+pct(r.roi==null?null:r.roi*100)+'</span></div>';
+   }).join('')+'</div>';
+};
+
+orderPanelMarkup = function(){
+  return '<div id="matchOrders" class="order-audit">'+
+    '<div class="od-toolbar"><b>逐场明细</b><span id="orderCoverage" class="od-count"></span>'+
+    '<input id="orderQuery" aria-label="搜索比赛" placeholder="搜索球队 / 联赛" value="'+esc(orderState.query)+'" oninput="orderSearchChanged(this.value)">'+
+    '<select id="orderResultFilter" aria-label="结算状态" onchange="orderFilterChanged(this.value)">'+
+    [['all','全部'],['settled','已结'],['pending','待结'],['win','盈利'],['loss','亏损']].map(function(x){return '<option value="'+x[0]+'" '+(x[0]===orderState.result?'selected':'')+'>'+x[1]+'</option>'}).join('')+'</select></div>'+
+    '<div id="orderGrid"></div><div id="orderPages" class="order-pager"></div></div>';
+};
+
+function shortOrderDate(value){
+ if(!value)return '—';
+ var dt=new Date(value);
+ if(Number.isNaN(dt.getTime()))return '—';
+ return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(dt);
+}
+function compactWater(x){
+ return x===null||x===undefined?'—':orderWater(x);
+}
+function compactScore(item){
+ return item.result&&item.result.home!=null&&item.result.away!=null?
+    (item.result.home+' : '+item.result.away):'— : —';
+}
+function compactOrderRow(x,model){
+ var home=orderSideMarket(x,'home'),away=orderSideMarket(x,'away');
+ var homeLine=home.water==null?'—':orderLine(home.line);
+ var awayLine=away.water==null?'—':orderLine(away.line);
+ var fromX=x.league_zh||x.league||'';
+ var shortMeta=esc(fromX)+' <span class="od-dot">·</span> '+esc(shortOrderDate(x.posted_at));
+ var sourceFlag=x.model==='m1'&&!x.bookmaker_verified?'<span class="od-warning">来源待核</span>':'';
+ var info=x.model==='m3'?(x.submodel||''):(x.model==='m4'?(x.m4_action||'').replace('研究假设：',''):'');
+ var chosen=esc(x.direction||'—')+' '+orderLine(x.selection_line);
+ var score=compactScore(x);
+ return '<div class="od-row" role="button" tabindex="0" data-id="'+esc(x.id)+'" onclick="openOrder(this.dataset.id)" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();openOrder(this.dataset.id)}">'+
+    '<div class="od-game"><div class="od-teams">'+esc(orderGame(x))+'</div>'+
+    '<div class="od-meta">'+shortMeta+' '+sourceFlag+(info?'<span class="od-note"> · '+esc(info)+'</span>':'')+'</div></div>'+
+    '<div class="od-odds"><div><span>主</span><b>'+homeLine+'</b><strong>'+compactWater(home.water)+'</strong></div>'+
+      '<div><span>客</span><b>'+awayLine+'</b><strong>'+compactWater(away.water)+'</strong></div></div>'+
+    '<div class="od-pick"><span>买</span><b>'+chosen+'</b><strong>'+compactWater(x.selection_hk)+'</strong></div>'+
+    '<div class="od-finish"><span class="od-score">'+score+'</span>'+
+     '<span class="od-settle '+outcomeClass(x.settlement)+'">'+esc(x.settlement)+'</span>'+
+     '<strong class="od-profit '+(x.pnl==null?'':col(x.pnl))+'">'+(x.pnl==null?'—':u(x.pnl))+'</strong></div>'+
+ '</div>';
+}
+orderDraw = function(payload){
+ var area=document.getElementById('orderGrid'),cover=document.getElementById('orderCoverage'),pages=document.getElementById('orderPages');
+ if(!area||!cover||!pages)return;
+ cover.textContent=n(payload.total)+' 笔 · '+n(payload.settled)+' 结 · '+n(payload.pending)+' 待';
+ if(!payload.rows.length){
+   area.innerHTML='<div class="od-empty">没有符合条件的订单</div>';
+   pages.innerHTML='';
+   return;
+ }
+ area.innerHTML='<div class="od-head"><span>比赛</span><span>盘口水位</span><span>下注</span><span>赛果 / 收益</span></div>'+
+   '<div class="od-list">'+payload.rows.map(function(x){return compactOrderRow(x,payload.model)}).join('')+'</div>';
+ pages.innerHTML='<div class="od-page-info">'+payload.page+' / '+payload.pages+'</div>'+
+   '<div class="pager-actions"><button '+(payload.page<=1?'disabled':'')+' onclick="orderPage('+(payload.page-1)+')">上一页</button>'+
+   '<button '+(payload.page>=payload.pages?'disabled':'')+' onclick="orderPage('+(payload.page+1)+')">下一页</button></div>';
+};
+
+// Main screen display is deterministic; the underlying accounting remains untouched.
+if(data&&currentTab==='scores')renderScores();
+
+/* Short labels for execution/settings; unchanged actions and saved values. */
+runLines = function(){
+ return ["m1","mr1","m3","m4"].map(function(id){
+   return '<div class="runline"><div class="runname">'+modelNames[id]+'</div>'+
+    '<div class="runbuttons"><button class="primary" onclick="runModel(\''+id+'\',\'run\')">运行</button>'+
+      (id==='m4'?'':'<button onclick="runModel(\''+id+'\',\'settle\')">结算</button>')+
+      '<button onclick="goScore(\''+id+'\')">战绩</button></div></div>';
+ }).join('');
+};
+control = function(id){
+ var c=data.settings.models[id], research=id==='m3'||id==='m4';
+ return '<div class="settingscard" data-model="'+id+'">'+
+ '<div class="settingshead"><h3>'+modelNames[id]+'</h3><button onclick="saveModel(\''+id+'\')">保存</button></div>'+
+ '<div class="controls">'+
+ '<label class="check"><input data-k="schedule_enabled" type="checkbox" '+(c.schedule_enabled?'checked':'')+'>定时</label>'+
+ '<div class="control"><label>方式</label><select data-k="schedule_type" onchange="scheduleFields(\''+id+'\')">'+
+ '<option value="manual" '+(c.schedule_type==='manual'?'selected':'')+'>只手动</option>'+
+ '<option value="times" '+(c.schedule_type==='times'?'selected':'')+'>每日定点</option>'+
+ '<option value="interval" '+(c.schedule_type==='interval'?'selected':'')+'>循环间隔</option></select></div>'+
+ '<div class="control" data-time="'+id+'"><label>北京时间</label><input data-k="times" value="'+esc(c.times)+'" placeholder="06:00,12:00"></div>'+
+ '<div class="control" data-interval="'+id+'"><label>分钟</label><input data-k="interval_minutes" type="number" min="1" value="'+(c.interval_minutes||'')+'"></div>'+
+ '<label class="check"><input type="checkbox" data-k="tg_enabled" '+(c.tg_enabled?'checked':'')+'>'+(research?'研究 TG':'正式 TG')+'</label>'+
+ '</div></div>';
+};
+var oldCompactOrderRow=compactOrderRow;
+compactOrderRow=function(x,model){
+ var content=oldCompactOrderRow(x,model);
+ if(x.market==='OU'&&x.selection_line!=null){
+   var normalized=String(Number(x.selection_line));
+   var plus='+'+normalized;
+   // Total-goal lines are thresholds, never a handicap of +N goals.
+   content=content.replace(esc(x.direction||'—')+' '+plus,esc(x.direction||'—')+' '+normalized);
+ }
+ return content;
+};
