@@ -1,3 +1,9 @@
+## 2026-11-03 补结 67 单后联赛亏损拆解（正式 TG，只读）
+- 新补结 M1 AH 7 单 -2.770U；MR1 AH 60 单 -20.500U，合计 -23.270U，因赛果延迟集中回写，非当天新增全部亏损。MR1 新补结 32 全输、13 全赢、6 半输、5 半赢、4 走水。
+- MR1 新补结最大亏损联赛：葡超 9 单 -5.070U，挪威甲级 7 单 -5.060U，哥伦比亚甲级 4 单 -2.500U，法甲及波兰超各 -2.000U。上周全部 MR1 已结 266 单中英冠 17 单 -9.165U 最大；英冠不属于这次新补结主要来源。
+- MR1 新补结 60 笔正式 TG 信号属于 47 个不同比赛 ID：其中 12 场有 25 笔正式 TG 订单，合计 -7.500U；不同订单未去重删除，也未擅自增加同场派单限制。
+- 报告：[`research/M1_MR1_FORMAL_SETTLEMENT_LEAGUE_DRAWDOWN_20261103.md`](research/M1_MR1_FORMAL_SETTLEMENT_LEAGUE_DRAWDOWN_20261103.md)。不改正式模型及任何 Gate。
+
 ## 2026-11-03 M1 AH + MR1 AH 正式 TG 赛果补采、入账及总/周成绩（已完成一次性补采，日常 Runner 仍阻塞）
 - 现有私有 M1 仓库 Actions secret `TOTALCORNER_TOKEN` 运行一次性纯赛果审计 run `41591966272` SUCCESS：74 场 pending 独立 match_id，52 场验证 FT，22 场仍非 FT、API 错误 0。临时采集脚本及 workflow 完成后已删除；不涉及 TG 派单或策略更改。
 - M1 官方 `settle_one` + report 补结 7 个正式 TG AH，私有 `totalcorner-research-bridge` 写账 commit `2b5ca00c90`，临时文件清理后 master `234b6e6e91`。M1 AH 累计发 402、结 394、待 8，净 -3.705U，ROI -0.94%。
