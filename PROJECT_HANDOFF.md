@@ -1,3 +1,10 @@
+## 2026-11-03 M3 运行故障、影子战绩与降水/反打最新核查（只读）
+- 最新主前瞻 run 41592553780（2026-11-03T06:51Z）failure；最近5次同工作流失败。已成功完成赛程 Inventory，但在 `persist_append_ledger.py` 写账步骤失败并跳过模型预测/影子单/结算。脚本统一报 `concurrent ledger persistence failed after retries`，push stderr 被隐藏，未能据此证明并发冲突。下载真实失败 run Artifact：已存 JSONL 104,477,212 字节，候选 105,176,572 字节，超过 GitHub 单文件 100MiB 上限 318,972 字节；候选多 1,061 条未入账赛程盘点事件。存储超限是目前最有证据支持的故障来源，未改生产。
+- 主账本最后增量 commit `cdd954c4fe` 于 2026-11-02T00:52:31Z；最新有效预测生成 2026-10-30T11:01Z。Watchdog run 41592539388 SUCCESS 并 dispatch 缺漏窗口，但补跑失败。Price followup 41558274331 success 但 eligible/attempted/added 全0。独立 Settle-only 最近 10/31 success，未宣称新正式 TG。
+- 按用户确认的 `fixture_identity_id×model×market` 只取最早预测的唯一口径，主账本 3348 条原始影子订单事件去重成1530单（255场×3模型×AH/OU），1050已结、480待结、+0.275U ROI +0.026%；旧自动 performance 计3348单不符合当前唯一统计口径。Poisson AH +0.2125U、OU -0.4875U；Dixon-Coles AH -3.025U、OU -0.4875U；Bivariate AH +2.950U、OU +1.1125U（每线175笔已结）。全部为 TotalCorner 默认盘口影子研究，不是正式 TG。
+- AH反打最新运行 41502280991 结果3模型都是负 ROI；滚动演进 registry 2026-11-02 各模型仍 rolling_4y/decision HOLD（已配对7场）；没有新降水样本证据。私有 M1 缓存检出还依赖此前已坏的 `PRIVATE_REPO_TOKEN`，主工作流当前未执行到该阶段，后续需检查。
+- 详细审计 [`research/m3/M3_LATEST_STATUS_AUDIT_20261103.md`](research/m3/M3_LATEST_STATUS_AUDIT_20261103.md)。存储分段是建议，尚未实施；不能更改模型/TG/用户冻结规则。
+
 ## 2026-11-03 MR1 AH 出单逻辑变动与集中亏损审计（只读）
 - 查 GitHub 历史：MR1 V6 AH 核心 `v6-cross-market-core.js` 最后 2026-10-02，`v6-cross-market-forward.js` 最后 10-08，正式 TG `v6-ah-formal-notify.js` 最后 10-13；公开 MR1 正式工作流 10-19 恢复后没有新的逻辑改动。历史上 10-06 V6 成为正式 AH 源，10-11 改为原 Crown 快照而非发送时重取价，均早于当前累计订单（10-19 起）。
 - 574 笔 TG SENT 全部 `MR1_V6_CROSS_MARKET_FORWARD_V1`、bookmaker=crown；正式选择由 Crown 1X2 去水拟合比分概率与 Crown AH 报价计算 EV 并选预测最高 AH 方向，原 notifier 满足 selected.EV>0 即可发送。无 M4 生效证据。
