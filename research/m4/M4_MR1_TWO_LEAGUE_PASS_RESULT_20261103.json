@@ -1,0 +1,111 @@
+{
+  "protocol": "M4_MR1_AH_TWO_LEAGUE_PASS_STUDY_V1",
+  "ledger_generated_at": "2026-11-02T13:00:39.927Z",
+  "research_only": true,
+  "production_change": false,
+  "study_leagues": [
+    "Japan J-League",
+    "Türkiye Super Lig"
+  ],
+  "all_history": {
+    "original": {
+      "orders": 497,
+      "unique_matches": 344,
+      "pnl_units": 1.875,
+      "roi": 0.00377264
+    },
+    "excluded": {
+      "orders": 29,
+      "unique_matches": 21,
+      "pnl_units": -16.84,
+      "roi": -0.58068966
+    },
+    "pass_study": {
+      "orders": 468,
+      "unique_matches": 323,
+      "pnl_units": 18.715,
+      "roi": 0.03998932
+    }
+  },
+  "cutoff_study": {
+    "cutoff_utc": "2026-10-29T00:00:00Z",
+    "historically_known": {
+      "orders": 304,
+      "unique_matches": 210,
+      "pnl_units": 8.975,
+      "roi": 0.02952303
+    },
+    "original_after": {
+      "orders": 160,
+      "unique_matches": 112,
+      "pnl_units": -10.925,
+      "roi": -0.06828125
+    },
+    "excluded_after": {
+      "orders": 11,
+      "unique_matches": 7,
+      "pnl_units": -6.72,
+      "roi": -0.61090909
+    },
+    "pass_study_after": {
+      "orders": 149,
+      "unique_matches": 105,
+      "pnl_units": -4.205,
+      "roi": -0.02822148
+    }
+  },
+  "league_detail": {
+    "Japan J-League": {
+      "all": {
+        "orders": 11,
+        "unique_matches": 10,
+        "pnl_units": -9.0,
+        "roi": -0.81818182
+      },
+      "settled_by_cutoff": {
+        "orders": 8,
+        "unique_matches": 7,
+        "pnl_units": -6.0,
+        "roi": -0.75
+      },
+      "sent_after_cutoff": {
+        "orders": 3,
+        "unique_matches": 3,
+        "pnl_units": -3.0,
+        "roi": -1.0
+      },
+      "settlement_states": {
+        "FULL_LOSS": 8,
+        "HALF_LOSS": 2,
+        "PUSH": 1
+      }
+    },
+    "Türkiye Super Lig": {
+      "all": {
+        "orders": 18,
+        "unique_matches": 11,
+        "pnl_units": -7.84,
+        "roi": -0.43555556
+      },
+      "settled_by_cutoff": {
+        "orders": 9,
+        "unique_matches": 6,
+        "pnl_units": -3.12,
+        "roi": -0.34666667
+      },
+      "sent_after_cutoff": {
+        "orders": 8,
+        "unique_matches": 4,
+        "pnl_units": -3.72,
+        "roi": -0.465
+      },
+      "settlement_states": {
+        "FULL_WIN": 4,
+        "PUSH": 1,
+        "HALF_LOSS": 3,
+        "FULL_LOSS": 10
+      }
+    }
+  },
+  "interpretation": "Retrospective conditional exclusion, not independent selection-validation: the two leagues were selected after seeing past outcomes. No live Pass enabled."
+}

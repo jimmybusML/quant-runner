@@ -1,3 +1,9 @@
+## 2026-11-03 M4 土超 + 日本 J1 Pass 独立研究（用户已确认研究方向）
+- 使用 MR1 AH 正式 TG 497 已结订单，生产账本生成时间 2026-11-02T13:00:39.927Z。仅研究土超 `Türkiye Super Lig` 和日本 J1 `Japan J-League` 的 Pass 反事实，不改正式 MR1，不设新 Gate。
+- 29 已结订单属于这两个联赛（21 场独立比赛），原策略合计 -16.840U；事后剔除后的 468 单为 +18.715U、ROI +4.00%，原 497 单 +1.875U、ROI +0.38%。
+- 2026-10-29 UTC 固定切点后的 160 单原收益 -10.925U；模拟 Pass 其中 11 单后，149 单 -4.205U、ROI -2.82%。**因研究联赛依据此前已查看全量赛果选定，切点结果不代表独立样本外验证。**
+- 独立只读研究代码与报告：`research/m4/mr1_two_league_pass_study.py`、`research/m4/M4_MR1_TWO_LEAGUE_PASS_STUDY_20261103.md`、`research/m4/M4_MR1_TWO_LEAGUE_PASS_RESULT_20261103.json`。没有改生产代码或发 TG。当前尚无新的未来独立样本结果。
+
 ## 2026-10-29 M3 06:00/12:00 调度可靠性根因排查与 watchdog 修复
 - 北京时区 cron 为 UTC 22:00 / UTC 04:00，main 默认分支无误；10/27-10/29的 schedule 工作流均成功但创建即已延迟数小时，单次实际执行约13-20分钟。没有证据将所有延迟归因于模型运算或UTC换算；GitHub schedule 极大延迟的上游原因尚未证实。
 - 找到自身已存在的 M3 Forward Schedule Watchdog 无法恢复漏跑。run 40890980949（2026-10-29 14:23Z）失败，日志 TypeError: Cannot read properties of undefined (reading 'created_at')。原因 github.paginate listWorkflowRuns 的 callback 使用 response.data.workflow_runs，实际 pagination 归一化返回数组导致 runs 内有 undefined。
