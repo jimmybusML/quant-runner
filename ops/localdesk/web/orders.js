@@ -382,3 +382,112 @@ compactOrderRow=function(x,model){
  }
  return content;
 };
+
+/* Four user-controlled model tests and one-page local connection setup. */
+runLines = function(){
+ return ["m1","mr1","m3","m4"].map(function(id){
+  const c=data.settings.models[id];
+  const isResearch=id==="m3"||id==="m4";
+  const keySet=(id==="m1"?["M1_TELEGRAM_BOT_TOKEN","M1_TELEGRAM_CHAT_ID"]:
+             id==="mr1"?["MR1_TG_BOT_TOKEN","MR1_TG_CHAT_ID"]:
+             ["RESEARCH_TG_BOT_TOKEN","RESEARCH_TG_CHAT_ID"]);
+  const connected=keySet.every(function(k){return data.credentials[k]});
+  return '<div class="runline"><div class="runname">'+modelNames[id]+'</div>'+
+    '<label class="check run-tg-label" title="由你控制测试或运行时是否发 TG"><input class="run-tg" type="checkbox" '+(c.tg_enabled?'checked':'')+' onchange="toggleModelTelegram(\''+id+'\',this)">'+(isResearch?'研究 TG':'正式 TG')+'</label>'+
+    '<span class="run-connect '+(connected?'linked':'')+'">'+(connected?'已设置':'未设置')+'</span>'+
+    '<div class="runbuttons"><button class="model-test-btn" onclick="runModel(\''+id+'\',\'test\')">测试</button>'+
+      '<button class="primary" onclick="runModel(\''+id+'\',\'run\')">运行</button>'+
+      (id==="m4"?"":'<button onclick="runModel(\''+id+'\',\'settle\')">结算</button>')+
+      '<button onclick="goScore(\''+id+'\')">战绩</button></div></div>';
+ }).join('');
+};
+
+async function toggleModelTelegram(model, checkbox){
+ const current=Object.assign({},data.settings.models[model]);
+ const previous=!checkbox.checked;
+ try{
+  const patch=Object.assign({},current,{tg_enabled:checkbox.checked});
+  const result=await post("/api/settings",{models:{[model]:patch}});
+  data.settings=result.settings;
+  toast(modelNames[model]+" TG 已"+(checkbox.checked?"开启":"关闭"));
+  renderRuns();
+ }catch(error){
+  checkbox.checked=previous;
+  toast("设置未保存："+error.message,true);
+ }
+}
+function connectionStatus(){
+ if(!data)return;
+ const groups={
+   api:["TOTALCORNER_TOKEN"],
+   m1:["M1_TELEGRAM_BOT_TOKEN","M1_TELEGRAM_CHAT_ID"],
+   mr1:["MR1_TG_BOT_TOKEN","MR1_TG_CHAT_ID"],
+   research:["RESEARCH_TG_BOT_TOKEN","RESEARCH_TG_CHAT_ID"]
+ };
+ Object.entries(groups).forEach(function([group,keys]){
+  const e=document.querySelector('[data-status="'+group+'"]');
+  if(!e)return;
+  const count=keys.filter(k=>data.credentials[k]).length;
+  e.textContent=count===keys.length?'已保存':count>0?'部分已保存':'未设置';
+  e.className=count===keys.length?'connected':'';
+ });
+}
+renderSettings = function(){
+ if(!data)return;
+ const active=document.activeElement;
+ // Preserve credential fields during automatic status updates.
+ const editing=active&&active.matches('.connect-input');
+ if(!editing){
+  el("settingModels").innerHTML=["m1","mr1","m3","m4"].map(control).join("");
+  ["m1","mr1","m3","m4"].forEach(scheduleFields);
+ }
+ connectionStatus();
+};
+async function saveConnections(group){
+ const form=document.querySelector('[data-connection="'+group+'"]');
+ if(!form)return;
+ const values={};
+ form.querySelectorAll('[data-secret]').forEach(function(input){
+  if(input.value.trim())values[input.getAttribute('data-secret')]=input.value.trim();
+ });
+ if(!Object.keys(values).length){toast("请填写现有连接资料",true);return}
+ try{
+  await post("/api/credentials-batch",{values:values});
+  form.querySelectorAll('[data-secret]').forEach(input=>input.value="");
+  toast("连接资料已保存在 Mac 钥匙串");
+  await refresh(false);
+  connectionStatus();
+ }catch(error){
+  toast("保存失败："+error.message,true);
+ }
+}
+
+async function findChats(group){
+ const form=document.querySelector('[data-connection="'+group+'"]');
+ const resultBox=form?.querySelector('[data-chat-results="'+group+'"]');
+ if(!resultBox)return;
+ resultBox.textContent="正在查找…";
+ try{
+  const response=await fetch("/api/telegram-chats?group="+encodeURIComponent(group),{cache:"no-store"});
+  const info=await response.json();
+  if(!response.ok)throw Error(info.error||"暂时无法查找");
+  resultBox.innerHTML='<div class="sub">'+esc(info.message||"")+'</div>';
+  if(info.chats&&info.chats.length){
+   const choices=document.createElement("div");
+   choices.className="chat-choices";
+   info.chats.forEach(function(chat){
+    const btn=document.createElement("button");
+    btn.className="chat-option";
+    btn.type="button";
+    btn.textContent=(chat.label||"聊天")+"（"+chat.id+"）";
+    btn.onclick=function(){
+     const field=form.querySelector('[data-secret$="CHAT_ID"]');
+     if(field)field.value=chat.id;
+     resultBox.innerHTML='<span class="sub">已选择。点击「保存」即可。</span>';
+    };
+    choices.appendChild(btn);
+   });
+   resultBox.appendChild(choices);
+  }
+ }catch(error){resultBox.textContent="查找失败："+error.message}
+}

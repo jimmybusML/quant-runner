@@ -22,6 +22,8 @@ import display_data
 import order_records
 import research_notify
 import job_explain
+import model_test
+import mac_keychain
 
 BASE = Path(__file__).resolve().parent
 REPOS = {"m1": BASE / "repos/m1", "mr1": BASE / "repos/mr1", "m3": BASE / "repos/runner", "m4": BASE / "repos/runner"}
@@ -85,26 +87,31 @@ def keychain_name(key):
 
 def credentials(key: str, get_value=False):
     if key not in CREDENTIAL_KEYS:
-        raise ValueError("Unknown credential key")
-    args = ["/usr/bin/security", "find-generic-password", "-a", ACCOUNT, "-s", keychain_name(key)]
+        raise ValueError("未知的连接名称")
+    service = keychain_name(key)
     if get_value:
-        args.append("-w")
-    p = subprocess.run(args, capture_output=True, text=True, timeout=12)
-    if not get_value:
-        return p.returncode == 0
-    return p.stdout.strip() if p.returncode == 0 else None
+        return mac_keychain.get(service, ACCOUNT)
+    return mac_keychain.exists(service, ACCOUNT)
 
 
 def put_credential(key, value):
     if key not in CREDENTIAL_KEYS or not isinstance(value, str) or not value.strip():
-        raise ValueError("Missing credential")
-    # Stored in the user's macOS login Keychain, never in app JSON or logs.
-    # -w without a value accepts the password from stdin. Avoid secrets in ps argv.
-    p = subprocess.run(["/usr/bin/security", "add-generic-password", "-U", "-a", ACCOUNT,
-        "-s", keychain_name(key), "-w"], input=value.strip() + "\n",
-        capture_output=True, text=True, timeout=20)
-    if p.returncode:
-        raise RuntimeError("macOS Keychain could not store the credential")
+        raise ValueError("凭证或连接类型不完整")
+    return mac_keychain.put(keychain_name(key), ACCOUNT, value)
+
+
+def put_credential_batch(values):
+    if not isinstance(values, dict) or not values:
+        raise ValueError("请填写要保存的连接资料")
+    for k,v in values.items():
+        if k not in CREDENTIAL_KEYS or not isinstance(v,str):
+            raise ValueError("连接资料有误")
+    saved=[]
+    for k,v in values.items():
+        if v.strip():
+            put_credential(k,v)
+            saved.append(k)
+    return saved
 
 
 def git_info(path):
@@ -275,6 +282,49 @@ def needs_api(model, action):
     return (model == "m1" and action in ("run", "settle")) or (model == "mr1" and action == "run") or (model == "m3" and action in ("run", "settle"))
 
 
+def worker_test(job_id, model):
+    with LOCK:
+        job = JOBS[job_id]
+    logpath = LOGS / (job_id + ".log")
+    try:
+        offline = model_test.offline_test(model)
+        messages = [offline["message"]]
+        tg_enabled = settings()["models"][model]["tg_enabled"]
+        tg_sent = False
+        tg_ok = not tg_enabled
+        if tg_enabled:
+            prefix = ("M1_TELEGRAM" if model=="m1" else "MR1_TG" if model=="mr1" else "RESEARCH_TG")
+            token_key = "M1_TELEGRAM_BOT_TOKEN" if model=="m1" else ("MR1_TG_BOT_TOKEN" if model=="mr1" else "RESEARCH_TG_BOT_TOKEN")
+            chat_key = "M1_TELEGRAM_CHAT_ID" if model=="m1" else ("MR1_TG_CHAT_ID" if model=="mr1" else "RESEARCH_TG_CHAT_ID")
+            if not (credentials(token_key) and credentials(chat_key)):
+                messages.append("TG 已勾选，但本机还没有连接资料。请到设置中保存。没有发送。")
+            else:
+                result = model_test.telegram_test(model, credentials(token_key, True), credentials(chat_key, True))
+                messages.append(result["message"])
+                tg_sent = result["status"]=="sent"
+                tg_ok = tg_sent
+        else:
+            messages.append("TG 开关关闭，本次只测试模型，不发消息。")
+        with LOCK:
+            job["status"] = "succeeded" if offline["ok"] and tg_ok else "partial" if offline["ok"] or tg_sent else "failed"
+            job["message"] = " ".join(messages)
+            job["test_only"] = True
+            job["tg_test_confirmed"] = tg_sent
+        with logpath.open("w",encoding="utf-8") as log:
+            log.write(job["message"]+"\n")
+    except Exception as error:
+        with LOCK:
+            job["status"]="failed"
+            job["message"]="本机测试发生错误；未确认有 TG 消息送达。"
+        with logpath.open("w",encoding="utf-8") as log:
+            log.write("本机测试异常："+type(error).__name__+"\n")
+    finally:
+        with LOCK:
+            job["finished_at"]=now()
+            ACTIVE.pop(model, None)
+            atomic_json(STATE / "last_jobs.json", list(JOBS.values())[-50:])
+
+
 def worker(job_id, model, action):
     with LOCK:
         job = JOBS[job_id]
@@ -342,7 +392,7 @@ def worker(job_id, model, action):
 
 
 def launch(model, action, source="manual"):
-    if model not in REPOS or action not in ("run", "report", "settle", "sync"):
+    if model not in REPOS or action not in ("run", "report", "settle", "sync", "test"):
         raise ValueError("Unknown action")
     if model == "m4" and action == "settle":
         raise ValueError("M4 has no formal order settlement: research only")
@@ -354,7 +404,10 @@ def launch(model, action, source="manual"):
         job = {"id": job_id, "model": model, "action": action, "source": source, "status": "running", "started_at": now(), "finished_at": None}
         ACTIVE[model] = job_id
         JOBS[job_id] = job
-    threading.Thread(target=worker, args=(job_id, model, action), daemon=True).start()
+    if action == "test":
+        threading.Thread(target=worker_test, args=(job_id, model), daemon=True).start()
+    else:
+        threading.Thread(target=worker, args=(job_id, model, action), daemon=True).start()
     return dict(job)
 
 
@@ -437,6 +490,21 @@ class Handler(BaseHTTPRequestHandler):
             return self.wfile.write(payload)
         if path.path == "/api/status":
             return self._json(200, status())
+        if path.path == "/api/telegram-chats":
+            query = parse_qs(path.query)
+            group = query.get("group", [""])[0]
+            keys = {
+                "m1": "M1_TELEGRAM_BOT_TOKEN",
+                "mr1": "MR1_TG_BOT_TOKEN",
+                "research": "RESEARCH_TG_BOT_TOKEN"
+            }
+            if group not in keys:
+                return self._json(400, {"error": "未知的机器人"})
+            token = credentials(keys[group], True)
+            if not token:
+                return self._json(200, {"ok":False,"chats":[],
+                    "message":"请先保存机器人的 Token。"})
+            return self._json(200, model_test.discover_chat_ids(token))
         if path.path == "/api/orders":
             try:
                 query = parse_qs(path.query)
@@ -486,6 +554,9 @@ class Handler(BaseHTTPRequestHandler):
             if route == "/api/credentials":
                 put_credential(data.get("key"), data.get("value"))
                 return self._json(200, {"stored": True, "key": data.get("key")})
+            if route == "/api/credentials-batch":
+                saved = put_credential_batch(data.get("values", {}))
+                return self._json(200, {"stored": True, "saved": saved})
             return self._json(404, {"error": "Not found"})
         except (ValueError, KeyError, FileNotFoundError) as exc:
             return self._json(400, {"error": str(exc)})

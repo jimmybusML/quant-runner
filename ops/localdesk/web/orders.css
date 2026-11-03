@@ -208,3 +208,40 @@ button{font-size:12px;padding:7px 11px;border-color:#dce1e9;border-radius:7px}
  .od-toolbar input{grid-column:1;grid-row:2;order:unset;width:100%;min-width:0;flex:unset}
  .od-toolbar select{grid-column:2;grid-row:2;order:unset;width:100%;min-width:0;flex:unset}
 }
+
+/* Four explicit manual checks, compact and separate from the TG switch. */
+.runline{display:grid;grid-template-columns:minmax(90px,1fr) 118px 68px auto;gap:10px;align-items:center}
+.runline .runname{font-size:14px}
+.runline .run-tg-label{white-space:nowrap;margin:0;font-size:12px;color:#485666}
+.runline .run-tg-label input{height:16px;width:16px}
+.run-connect{font-size:11px;color:#9a6970;white-space:nowrap}
+.run-connect.linked{color:#22815f}
+.runbuttons{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.runbuttons button.model-test-btn{background:#f2f6fb;border-color:#bfd0e3;color:#2863a6}
+.runbuttons button.model-test-btn:hover{background:#e4effc}
+.connect-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:13px 0}
+.connect-card{min-width:0;background:#f9fafc;border:1px solid #e7eaf0;border-radius:9px;padding:13px;display:flex;flex-direction:column;gap:9px}
+.connect-head{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px}
+.connect-head>span{font-size:11px;color:#a0645d}
+.connect-head>span.connected{color:#178565}
+.connect-input{width:100%;min-width:0;border:1px solid #d7dfe9;border-radius:7px;background:white;padding:9px 10px;color:#283748;font-size:12px}
+.connect-input:focus{outline:2px solid #b6d6f7;border-color:#9dc2e9}
+.connect-card button{align-self:flex-end}
+#section-runs .runline:last-child{border:0}
+@media(max-width:840px){
+ .runline{grid-template-columns:minmax(70px,1fr) 100px 56px;gap:8px}
+ .runline .runbuttons{grid-column:1/-1;justify-content:flex-start}
+ .runline .runname{font-size:13px}
+ .runline .run-tg-label{font-size:11px}
+}
+@media(max-width:550px){
+ .connect-grid{grid-template-columns:1fr}
+ .runline{grid-template-columns:minmax(65px,1fr) 92px 53px;gap:6px}
+ .runbuttons button{padding:7px 11px}
+ .runline .run-connect{font-size:10px}
+}
+.connect-actions{display:flex;gap:8px;justify-content:flex-end}
+.connect-actions .find-chat{color:#55718e;background:#f1f4f8;border-color:#dae3ee;font-weight:500}
+.chat-results{font-size:12px;line-height:1.6;color:#647589}
+.chat-choices{display:flex;flex-direction:column;gap:5px;margin-top:7px}
+.chat-choices .chat-option{width:100%;text-align:left;background:#fff;border-color:#d9e3ee;overflow-wrap:anywhere;font-size:12px;font-weight:500}

@@ -1,3 +1,10 @@
+## 2026-11-03 Mac 四模型「测试」按钮与密钥本地配置（已验证功能，外部连接尚未授权）
+- 用户要求 Mac 本地手动控制 M1/MR1/M3/M4，「要不要发 TG 自己勾选」，每模型一个「测试」按钮，并希望助手直接配置原有 Token/密钥。不新建仓库、不转移加密秘密到公有文件。
+- 已直接安装在 Mac `~/QuantAsiaDesk`：四模型各有“测试”按钮与可独立选择的 TG 开关；测试真实离线 M1 12项、MR1 6项、M3 2项、M4 历史研究557单，全通过。TG 开关关闭只做模型测试；开启且本机 Keychain 配好后才发一条明确标记为“测试、非投注”的消息，只有真实 message_id 才算送达；测试回执独立于正式 TG/影子账本，UNKNOWN 不自动重发。
+- 原 macOS Keychain 存储卡顿已修复为原生 Security.framework 无 CLI 明文参数实现，临时测试数据实际写/读/覆盖/删除验证并清理。设置页改为四组清晰连接表单：TotalCorner、M1 TG、MR1 TG、M3/M4 研究 TG；Bot Token 可以在原 BotFather 找回，Chat ID 可在保存 Bot Token 后通过“找接收位置”只读查询 Telegram 最近聊天并由用户选择。模拟单测5项通过，真实 Chrome 1440/980/680/390/320px 页面四按钮和设置表单正常、JS 无错。
+- **未完成真实外部配置**：三个仓库 GitHub Actions Secrets 对应的 token **名称存在但原文不可读取**，Mac Keychain 当前相关项全部未保存；不得绕过安全拦截提取旧明文，也不能把离线测试误报为本机 TG 或赛事 API 已通。需要用户在自己 Mac 页填既有服务密钥（不要发在聊天中）；此后再由用户选择运行/测试。M1 原有 TG toggle=true，其他三个 false，**全部 schedule_enabled=false**。上轮已停止的 GitHub 18 TG 工作流维持 `disabled_manually`。
+- 代码、真实验证和接续细节：[`ops/localdesk/LOCAL_KEYS_AND_4_TESTS_20261103.md`](ops/localdesk/LOCAL_KEYS_AND_4_TESTS_20261103.md)。
+
 ## 2026-11-03 由用户决定：GitHub TG 派单入口已全部停用，转为本机手动控制
 - **用户明确最新决定**：停止现有 GitHub 上负责 TG 发单的工作流，以后由用户在 Mac 本机控制台手动操控。没有要求删除任何仓库、既有订单、比分、正式账本、研究数据或解除模型独立身份；仍应保持所有 Crown 来源要求、既有策略以及 TG 真实发送口径。
 - **GitHub 实际状态已通过 `gh workflow disable` 与 `gh workflow list --all` 验证为 `disabled_manually`，共18个**：

@@ -32,17 +32,42 @@ footer{margin-top:29px;font-size:11px;color:#96a1ad;line-height:1.7}#toast{displ
 </section>
 <section id="section-runs" class="page-section">
 
+<div class="sub" style="margin:0 0 9px">测试：仅检查模型；勾选 TG 才发送测试消息，不计入战绩。</div>
 <div class="panel" id="runModels"></div>
 <div class="panel" style="margin-top:16px"><h3>执行记录</h3><div id="runJobs"></div></div>
 </section>
 <section id="section-settings" class="page-section">
 
 <div id="settingModels"></div>
-<details class="credential"><summary style="font-size:14px;color:var(--text);font-weight:700">连接设置：赛事数据与 Telegram</summary>
-<div class="hint"><b>只想看历史战绩：</b>不需要保存任何密钥。<br><b>想扫描新比赛或补采比分：</b>需要保存一次 TotalCorner 赛事密钥。<br><b>想发消息到 Telegram：</b>需要保存对应模型的机器人信息。本机已有的配置不会自动改变。</div>
-<div id="credStatus"></div>
-<div class="credfields"><select class="credsel" id="credKey"><option value="TOTALCORNER_TOKEN">赛事数据（TotalCorner）</option><option value="M1_TELEGRAM_BOT_TOKEN">M1 的 Telegram 机器人</option><option value="M1_TELEGRAM_CHAT_ID">M1 的 TG 接收位置</option><option value="MR1_TG_BOT_TOKEN">MR1 的 Telegram 机器人</option><option value="MR1_TG_CHAT_ID">MR1 的 TG 接收位置</option><option value="RESEARCH_TG_BOT_TOKEN">M3/M4 的 TG 机器人</option><option value="RESEARCH_TG_CHAT_ID">M3/M4 的 TG 接收位置</option></select><input class="secret" id="credValue" type="password" autocomplete="off" placeholder="仅保存在 Mac 上"><button class="primary" onclick="saveCredential()">保存</button></div>
-<p class="sub">凭证只保存在本机 Mac 钥匙串。不要发到聊天里，也不需要创建新的 GitHub 仓库。</p>
+<details class="credential" id="connections">
+<summary style="font-size:14px;color:var(--text);font-weight:700">连接设置</summary>
+<p class="sub">已有战绩无需密钥。要扫描新比赛，填赛事密钥；要发 TG，填相应机器人的资料。只保存到这台 Mac。</p>
+<div class="connect-grid">
+  <div class="connect-card" data-connection="api">
+    <div class="connect-head"><strong>赛事数据</strong><span data-status="api">未连接</span></div>
+    <input class="connect-input" data-secret="TOTALCORNER_TOKEN" type="password" autocomplete="off" placeholder="已有 TotalCorner 密钥">
+    <button onclick="saveConnections('api')">保存</button>
+  </div>
+  <div class="connect-card" data-connection="m1">
+    <div class="connect-head"><strong>M1 的 Telegram</strong><span data-status="m1">未连接</span></div>
+    <input class="connect-input" data-secret="M1_TELEGRAM_BOT_TOKEN" type="password" autocomplete="off" placeholder="机器人 Token">
+    <input class="connect-input" data-secret="M1_TELEGRAM_CHAT_ID" type="text" autocomplete="off" placeholder="接收位置 Chat ID">
+    <div class="connect-actions"><button class="find-chat" onclick="findChats('m1')">找接收位置</button><button onclick="saveConnections('m1')">保存</button></div><div class="chat-results" data-chat-results="m1"></div>
+  </div>
+  <div class="connect-card" data-connection="mr1">
+    <div class="connect-head"><strong>MR1 的 Telegram</strong><span data-status="mr1">未连接</span></div>
+    <input class="connect-input" data-secret="MR1_TG_BOT_TOKEN" type="password" autocomplete="off" placeholder="机器人 Token">
+    <input class="connect-input" data-secret="MR1_TG_CHAT_ID" type="text" autocomplete="off" placeholder="接收位置 Chat ID">
+    <div class="connect-actions"><button class="find-chat" onclick="findChats('mr1')">找接收位置</button><button onclick="saveConnections('mr1')">保存</button></div><div class="chat-results" data-chat-results="mr1"></div>
+  </div>
+  <div class="connect-card" data-connection="research">
+    <div class="connect-head"><strong>M3／M4 的 Telegram</strong><span data-status="research">未连接</span></div>
+    <input class="connect-input" data-secret="RESEARCH_TG_BOT_TOKEN" type="password" autocomplete="off" placeholder="机器人 Token">
+    <input class="connect-input" data-secret="RESEARCH_TG_CHAT_ID" type="text" autocomplete="off" placeholder="接收位置 Chat ID">
+    <div class="connect-actions"><button class="find-chat" onclick="findChats('research')">找接收位置</button><button onclick="saveConnections('research')">保存</button></div><div class="chat-results" data-chat-results="research"></div>
+  </div>
+</div>
+<p class="sub">原 GitHub 密钥无法显示原文。已有 TG 机器人 Token 可在 <a href="https://t.me/BotFather" target="_blank" rel="noopener noreferrer">BotFather</a> 中选择原机器人查看；接收位置可用上面的「找接收位置」。</p>
 </details>
 
 </section>
@@ -85,7 +110,7 @@ function changePeriod(k){period=k;renderScores()}
 function renderScores(){if(!data)return;el("cards").innerHTML=cards();el("details").innerHTML=detail();var t=[data.metrics.m1.source_time,data.metrics.mr1.source_time,data.performance.m3.source].filter(Boolean).sort().pop();el("scoreUpdate").textContent="来源：各模型本机正式或研究账本 · 最后报表 "+date(t)}
 function runLines(){return ["m1","mr1","m3","m4"].map(function(id){return '<div class="runline"><div><div class="runname">'+modelNames[id]+'</div><div class="sub">'+(id==="m1"?"正式让球模型":id==="mr1"?"跨市场让球模型":id==="m3"?"三模型影子预测": "联赛优化研究")+'</div></div><div class="runbuttons"><button class="primary" onclick="runModel(\''+id+'\',\'run\')">'+(id==="m4"?"运行研究":"运行一次")+'</button>'+(id==="m4"?'':'<button onclick="runModel(\''+id+'\',\'settle\')">结算赛果</button>')+'<button onclick="goScore(\''+id+'\')">看战绩</button></div></div>'}).join("")}
 function goScore(id){selected=id;tab("scores");el("details").scrollIntoView({behavior:"smooth",block:"nearest"})}
-function renderRuns(){if(!data)return;el("runModels").innerHTML=runLines();el("runJobs").innerHTML=data.jobs.length?data.jobs.slice(0,9).map(function(j){var state={succeeded:"已完成",failed:"未成功",running:"运行中",partial:"部分完成"}[j.status]||"已中断";return '<div class="job"><div class="jobline"><span class="jobstatus '+esc(j.status)+'">'+state+'</span><div><div class="jobtitle">'+modelNames[j.model]+' · '+({run:"运行",settle:"结算赛果",report:"查看报表",sync:"更新代码"}[j.action]||"任务")+'</div><div class="sub">'+date(j.started_at)+'</div></div></div><div class="jobmessage">'+esc(j.message|| (j.status==="running"?"正在执行，请稍后刷新。":j.status==="failed"?"运行没有成功，可打开技术详情。":"任务已结束。"))+'</div><details><summary>技术详情（遇到问题时查看）</summary><div id="raw-'+esc(j.id)+'"></div><button class="smalllink" onclick="loadLog(\''+esc(j.id)+'\')">读取原始记录</button></details></div>'}).join(""):'<p class="sub">还没有本机执行记录。</p>'}
+function renderRuns(){if(!data)return;el("runModels").innerHTML=runLines();el("runJobs").innerHTML=data.jobs.length?data.jobs.slice(0,9).map(function(j){var state={succeeded:"已完成",failed:"未成功",running:"运行中",partial:"部分完成"}[j.status]||"已中断";return '<div class="job"><div class="jobline"><span class="jobstatus '+esc(j.status)+'">'+state+'</span><div><div class="jobtitle">'+modelNames[j.model]+' · '+({run:"运行",settle:"结算赛果",report:"查看报表",sync:"更新代码",test:"测试"}[j.action]||"任务")+'</div><div class="sub">'+date(j.started_at)+'</div></div></div><div class="jobmessage">'+esc(j.message|| (j.status==="running"?"正在执行，请稍后刷新。":j.status==="failed"?"运行没有成功，可打开技术详情。":"任务已结束。"))+'</div><details><summary>技术详情（遇到问题时查看）</summary><div id="raw-'+esc(j.id)+'"></div><button class="smalllink" onclick="loadLog(\''+esc(j.id)+'\')">读取原始记录</button></details></div>'}).join(""):'<p class="sub">还没有本机执行记录。</p>'}
 function control(id){var c=data.settings.models[id],isResearch=id==="m3"||id==="m4",tg=isResearch?"推送研究结果到 TG":"正式订单发到 TG";
 return '<div class="settingscard" data-model="'+id+'"><div class="settingshead"><div><h3>'+modelNames[id]+'</h3><p class="sub">'+(isResearch?(id==="m3"?"发送该次新预测，保持研究身份。":"发送研究比较，目前没有独立赛前下注信号。"):"保留原正式 TG 账本与发单程序。")+'</p></div><button onclick="saveModel(\''+id+'\')">保存</button></div><div class="controls"><label class="check"><input data-k="schedule_enabled" type="checkbox" '+(c.schedule_enabled?"checked":"")+'>自动运行</label><div class="control"><label>运行方式</label><select data-k="schedule_type" onchange="scheduleFields(\''+id+'\')"><option value="manual" '+(c.schedule_type==="manual"?"selected":"")+'>只手动</option><option value="times" '+(c.schedule_type==="times"?"selected":"")+'>指定时间</option><option value="interval" '+(c.schedule_type==="interval"?"selected":"")+'>循环间隔</option></select></div><div class="control" data-time="'+id+'"><label>每天运行（北京时间）</label><input data-k="times" value="'+esc(c.times)+'" placeholder="06:00,12:00"></div><div class="control" data-interval="'+id+'"><label>每隔多少分钟</label><input data-k="interval_minutes" type="number" min="1" value="'+(c.interval_minutes||"")+'"></div></div><div class="settingfoot"><label class="check"><input type="checkbox" data-k="tg_enabled" '+(c.tg_enabled?"checked":"")+'> '+tg+'</label><span class="sub">默认由你自己决定是否开启</span></div></div>'}
 function scheduleFields(id){var card=document.querySelector('[data-model="'+id+'"]'),v=card.querySelector('[data-k="schedule_type"]').value;card.querySelector('[data-time="'+id+'"]').style.display=v==="times"?"flex":"none";card.querySelector('[data-interval="'+id+'"]').style.display=v==="interval"?"flex":"none"}
