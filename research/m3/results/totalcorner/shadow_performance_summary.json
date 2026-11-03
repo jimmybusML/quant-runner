@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-02T23:11:31.055085+00:00",
+  "generated_at_utc": "2026-11-03T08:16:39.592917+00:00",
   "scope": "M3 SHADOW ONLY; NOT FORMAL TELEGRAM",
   "source": "research/m3/results/totalcorner/forward_ev_ledger.jsonl",
   "event_counts": {
@@ -12,83 +12,87 @@
     "M3_SHADOW_ORDER_V1": 3348,
     "M3_TOTALCORNER_PRICE_SNAPSHOT_V1": 2036
   },
+  "order_identity": "fixture_identity_id × model × market; earliest forecasted_at_utc",
+  "raw_shadow_order_events": 3348,
+  "unique_shadow_orders": 1530,
+  "legacy_duplicate_order_events_excluded": 1818,
   "models": {
     "poisson": {
       "AH": {
-        "orders": 558,
-        "settled": 475,
-        "unsettled_or_invalid": 83,
-        "full_win": 202,
-        "half_win": 24,
-        "push": 13,
-        "half_loss": 40,
-        "full_loss": 196,
-        "net_units": -27.0125,
-        "roi_percent": -5.6868
+        "orders": 255,
+        "settled": 175,
+        "unsettled_or_invalid": 80,
+        "full_win": 75,
+        "half_win": 11,
+        "push": 7,
+        "half_loss": 19,
+        "full_loss": 63,
+        "net_units": 0.2125,
+        "roi_percent": 0.1214
       },
       "OU": {
-        "orders": 558,
-        "settled": 475,
-        "unsettled_or_invalid": 83,
-        "full_win": 211,
-        "half_win": 19,
-        "push": 19,
-        "half_loss": 41,
-        "full_loss": 185,
-        "net_units": -7.65,
-        "roi_percent": -1.6105
+        "orders": 255,
+        "settled": 175,
+        "unsettled_or_invalid": 80,
+        "full_win": 78,
+        "half_win": 9,
+        "push": 7,
+        "half_loss": 13,
+        "full_loss": 68,
+        "net_units": -0.4875,
+        "roi_percent": -0.2786
       }
     },
     "dixon_coles": {
       "AH": {
-        "orders": 558,
-        "settled": 475,
-        "unsettled_or_invalid": 83,
-        "full_win": 198,
-        "half_win": 26,
-        "push": 13,
-        "half_loss": 38,
-        "full_loss": 200,
-        "net_units": -33.2,
-        "roi_percent": -6.9895
+        "orders": 255,
+        "settled": 175,
+        "unsettled_or_invalid": 80,
+        "full_win": 73,
+        "half_win": 12,
+        "push": 7,
+        "half_loss": 18,
+        "full_loss": 65,
+        "net_units": -3.025,
+        "roi_percent": -1.7286
       },
       "OU": {
-        "orders": 558,
-        "settled": 475,
-        "unsettled_or_invalid": 83,
-        "full_win": 211,
-        "half_win": 19,
-        "push": 19,
-        "half_loss": 41,
-        "full_loss": 185,
-        "net_units": -7.65,
-        "roi_percent": -1.6105
+        "orders": 255,
+        "settled": 175,
+        "unsettled_or_invalid": 80,
+        "full_win": 78,
+        "half_win": 9,
+        "push": 7,
+        "half_loss": 13,
+        "full_loss": 68,
+        "net_units": -0.4875,
+        "roi_percent": -0.2786
       }
     },
     "bivariate_poisson": {
       "AH": {
-        "orders": 558,
-        "settled": 475,
-        "unsettled_or_invalid": 83,
-        "full_win": 203,
-        "half_win": 25,
-        "push": 13,
-        "half_loss": 39,
-        "full_loss": 195,
-        "net_units": -24.275,
-        "roi_percent": -5.1105
+        "orders": 255,
+        "settled": 175,
+        "unsettled_or_invalid": 80,
+        "full_win": 76,
+        "half_win": 12,
+        "push": 7,
+        "half_loss": 18,
+        "full_loss": 62,
+        "net_units": 2.95,
+        "roi_percent": 1.6857
       },
       "OU": {
-        "orders": 558,
-        "settled": 475,
-        "unsettled_or_invalid": 83,
-        "full_win": 212,
-        "half_win": 19,
-        "push": 19,
-        "half_loss": 41,
-        "full_loss": 184,
-        "net_units": -6.0,
-        "roi_percent": -1.2632
+        "orders": 255,
+        "settled": 175,
+        "unsettled_or_invalid": 80,
+        "full_win": 79,
+        "half_win": 9,
+        "push": 7,
+        "half_loss": 13,
+        "full_loss": 67,
+        "net_units": 1.1125,
+        "roi_percent": 0.6357
       }
     }
   },
