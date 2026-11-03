@@ -1,3 +1,8 @@
+## 2026-11-03 M1 已完成不发 TG 的真实本机扫描验证
+- 修复本机 `scripts/m1_preview.py` 的 `m1_live_scan` 导入路径后，使用用户已保存在 Mac Keychain 的真实 `TOTALCORNER_TOKEN`，从现有 M1 原代码运行**完整非 TG 独立预览**。本机脚本 `~/QuantAsiaDesk/logs/m1_safe_preview_live_verify.log` 真实执行 **exit 0**，输出 `status=COMPLETE, preview_only=true, telegram_sent=false, new_signals=1, candidate_count=1, errors=0`；7 个联赛的原历史缓存采集进度无错误。没有把这1笔候选加入正式 TG 或原 M1 正式账本，预览记录单独保存在 `~/QuantAsiaDesk/state/m1_preview/latest.json`。
+- 用户本机 M1 `tg_enabled=true` 仍是用户自己的开关；实际**含 TG 的派单、GitHub 正式账本持久化与回执**在本轮未触发/未验收。原 `claim_key` 本机独立运行身份适配已经离线子进程验证，但不能将非 TG 预览成功冒称 TG 生产恢复。MR1 与 M3、M4 的另三条运行实测结果仍以 2026-11-03 前述实际记录为准。
+- MR1 AI 浏览器：本轮已真正停止的两项 launchd、修订的实际 Chrome unpacked 扩展 `~/Desktop/mr1-ai/background.js` 继续保留；Chrome 旧内存 alarm 未通过扩展管理界面可靠确认清除，用户若仍遇自动开页需要重新加载该扩展/重启 Chrome（没有强杀 Chrome 或其他用户标签）。
+
 ## 2026-11-03 M3 本机整轮恢复真实成功（新结算重算影子战绩）
 - M3 真实本机操作 `20261103T110041Z-2b1fd85` 已通过 `http://127.0.0.1:8765/api/status` 核实 `status=succeeded`，**全部10步完成**。赛程原接口以 Python urllib 请求曾持续 `IncompleteRead`，同一 TotalCorner Token 用与 M1 一致的 requests 客户端实际返回 HTTP200、success=1、30场后修复。此次完整运行：44页赛程、1,270条新赛事审计事件、21个预测矩阵、**42笔新影子订单**、444条新结算、赛果验证249场、赛果拒绝1场与映射冲突1场、研究账本重新报告成功。第9步原分段持久化返回 `PERSISTED`、新增3131事件、1个 segment，第10步返回 `REPORTED`，不存在 TG 正式派单。
 - M3 去重战绩由本机新报表 `~/QuantAsiaDesk/state/m3_latest.json`（UTC 2026-11-03T11:20:08.827138Z）：影子单 **1,572笔**、已结 **1,494**、待结 **78**、净收益 **-30.6375U**（此前账本 1530/1050/+0.275U 为历史未完全结算旧快照；本次大量旧订单新增实际赛果后重新核算）。任何 TG 正式实战与 M1/MR1 正式账本均未包含这些模拟订单。
