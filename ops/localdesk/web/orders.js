@@ -491,3 +491,17 @@ async function findChats(group){
   }
  }catch(error){resultBox.textContent="查找失败："+error.message}
 }
+
+function openConnectionSetup(){
+  tab("settings");
+  const panel=document.getElementById("connections");
+  if(panel){
+    panel.open=true;
+    panel.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+}
+function routeLocalAnchor(){
+  if(window.location.hash==="#connections")openConnectionSetup();
+}
+window.addEventListener("hashchange",routeLocalAnchor);
+routeLocalAnchor();

@@ -20,3 +20,5 @@
 - 上轮用户批准停用的 GitHub 18 个 TG 发单入口不重新启用，仓库和历史订单账本保留。完成本机 Keychain 配置后仍须**由用户主动点模型「测试」**验证 TG 真实 `message_id`，再按用户选择手动运行；本轮尚无可确认的本机正式实盘派单。
 
 源：`ops/localdesk/app.py`、`mac_keychain.py`、`model_test.py`、`web/index.html`、`web/orders.js`、`web/orders.css`、`tests/test_connections.py`。
+
+- 连接页直达入口：`http://127.0.0.1:8765/#connections`，Mac Chrome 实际验证自动展开连接表单（四组）且无浏览器 JS 错误。
