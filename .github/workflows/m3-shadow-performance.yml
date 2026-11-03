@@ -15,6 +15,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - name: Restore full M3 append-only ledger from immutable segments
+        run: python -m research.m3.segmented_ledger materialize
       - name: Summarize immutable M3 shadow ledger
         run: |
           python -m research.m3.shadow_performance_report --ledger research/m3/results/totalcorner/forward_ev_ledger.jsonl --output research/m3/results/totalcorner/shadow_performance_summary.json

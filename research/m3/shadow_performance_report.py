@@ -20,12 +20,21 @@ def summarize(path):
                 orders[e["event_id"]] = e
             elif protocol == "M3_TOTALCORNER_FORWARD_SETTLEMENT_V1":
                 settled.setdefault(e.get("shadow_order_event_id"), []).append(e)
+    # User-approved M3 order identity: one earliest actual shadow order per
+    # fixture_id x model x AH/OU. Legacy duplicate events remain immutable.
+    by_identity = {}
+    for oid, order in orders.items():
+        key = (str(order["fixture_identity_id"]), order["model"], order["market"])
+        prior = by_identity.get(key)
+        if prior is None or (str(order["forecasted_at_utc"]), oid) < (str(prior[1]["forecasted_at_utc"]), prior[0]):
+            by_identity[key] = (oid, order)
+    selected_orders = dict(by_identity.values())
     results = {}
     anomalies = []
     for model in ("poisson", "dixon_coles", "bivariate_poisson"):
         results[model] = {}
         for market in ("AH", "OU"):
-            selection = [(oid, o) for oid, o in orders.items() if o.get("model") == model and o.get("market") == market]
+            selection = [(oid, o) for oid, o in selected_orders.items() if o.get("model") == model and o.get("market") == market]
             states = collections.Counter()
             net = 0.0
             valid = 0
@@ -60,6 +69,10 @@ def summarize(path):
         "generated_at_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "scope": "M3 SHADOW ONLY; NOT FORMAL TELEGRAM",
         "source": str(path), "event_counts": dict(counts),
+        "order_identity": "fixture_identity_id × model × market; earliest forecasted_at_utc",
+        "raw_shadow_order_events": len(orders),
+        "unique_shadow_orders": len(selected_orders),
+        "legacy_duplicate_order_events_excluded": len(orders) - len(selected_orders),
         "models": results, "anomalies": anomalies,
         "orphan_settlements": sum(len(v) for k, v in settled.items() if k not in orders)
     }

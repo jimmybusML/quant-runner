@@ -10,6 +10,7 @@ on:
       - 'research/m3/m3_shadow_orders.py'
       - 'research/m3/m1_history_forward.py'
       - 'research/m3/persist_append_ledger.py'
+      - 'research/m3/segmented_ledger.py'
       - 'tests/test_m3_slot_idempotency.py'
   schedule:
     - cron: '0 22 * * *'
@@ -25,6 +26,8 @@ jobs:
     timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
+      - name: Restore full M3 append-only ledger from immutable segments
+        run: python -m research.m3.segmented_ledger materialize
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'

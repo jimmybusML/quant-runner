@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Restore full M3 append-only ledger from immutable segments
+        run: python -m research.m3.segmented_ledger materialize
         with:
           ref: main
           persist-credentials: true

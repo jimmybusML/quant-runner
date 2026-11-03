@@ -21,6 +21,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      - name: Restore full M3 append-only ledger from immutable segments
+        run: python -m research.m3.segmented_ledger materialize
       - name: Diagnose quote and forecast pairing from full production ledger
         run: |
           python -m research.m3.price_data_diagnostics \

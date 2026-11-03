@@ -18,6 +18,8 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - name: Restore full M3 append-only ledger from immutable segments
+        run: python -m research.m3.segmented_ledger materialize
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
