@@ -313,13 +313,13 @@ function compactOrderRow(x,model){
  var awayLine=away.water==null?'—':orderLine(away.line);
  var fromX=x.league_zh||x.league||'';
  var shortMeta=esc(fromX)+' <span class="od-dot">·</span> '+esc(shortOrderDate(x.posted_at));
- var sourceFlag=x.model==='m1'&&!x.bookmaker_verified?'<span class="od-warning">来源待核</span>':'';
+ // Historical source evidence is a detail, not a repeated list badge.
  var info=x.model==='m3'?(x.submodel||''):(x.model==='m4'?(x.m4_action||'').replace('研究假设：',''):'');
  var chosen=esc(x.direction||'—')+' '+orderLine(x.selection_line);
  var score=compactScore(x);
  return '<div class="od-row" role="button" tabindex="0" data-id="'+esc(x.id)+'" onclick="openOrder(this.dataset.id)" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();openOrder(this.dataset.id)}">'+
     '<div class="od-game"><div class="od-teams">'+esc(orderGame(x))+'</div>'+
-    '<div class="od-meta">'+shortMeta+' '+sourceFlag+(info?'<span class="od-note"> · '+esc(info)+'</span>':'')+'</div></div>'+
+    '<div class="od-meta">'+shortMeta+(info?'<span class="od-note"> · '+esc(info)+'</span>':'')+'</div></div>'+
     '<div class="od-odds"><div><span>主</span><b>'+homeLine+'</b><strong>'+compactWater(home.water)+'</strong></div>'+
       '<div><span>客</span><b>'+awayLine+'</b><strong>'+compactWater(away.water)+'</strong></div></div>'+
     '<div class="od-pick"><span>买</span><b>'+chosen+'</b><strong>'+compactWater(x.selection_hk)+'</strong></div>'+
@@ -332,6 +332,18 @@ orderDraw = function(payload){
  var area=document.getElementById('orderGrid'),cover=document.getElementById('orderCoverage'),pages=document.getElementById('orderPages');
  if(!area||!cover||!pages)return;
  cover.textContent=n(payload.total)+' 笔 · '+n(payload.settled)+' 结 · '+n(payload.pending)+' 待';
+ // Keep provenance visible once, not as repeated orange labels on every match.
+ let legacy=document.getElementById('orderLegacySource');
+ if(!legacy){
+   legacy=document.createElement('span');
+   legacy.id='orderLegacySource';
+   legacy.className='od-source-summary';
+   cover.insertAdjacentElement('afterend',legacy);
+ }
+ const unverified=payload.model==='m1'?Math.max(0,payload.total-(payload.verified_crown||0)):0;
+ legacy.textContent=unverified?unverified+' 笔旧单无盘口来源存证':'';
+ legacy.title=unverified?'旧 M1 订单保留了双方报价，但缺少原始 Crown 来源验证记录。点开具体订单可核对。':'';
+ legacy.hidden=!unverified;
  if(!payload.rows.length){
    area.innerHTML='<div class="od-empty">没有符合条件的订单</div>';
    pages.innerHTML='';

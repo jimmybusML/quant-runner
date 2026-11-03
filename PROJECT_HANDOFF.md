@@ -1,3 +1,8 @@
+## 2026-11-03 Mac M1 重复「来源待核」提示修正
+- 用户截图指出每场重复显示橙色「来源待核」，挤占空间。核查本机正式 M1 数据：402 笔订单，其中335笔原始 Crown 来源已验证、67笔旧单缺可核实的来源存证；并非未结算或新出单失败。
+- 已直接修改本机 Mac web/orders.js 和 orders.css：逐行删除反复出现的橙色标签，工具栏仅显示一条简短「67 笔旧单无盘口来源存证」，但每场详情保留原真实 bookmaker 来源与验证状态；没有擅自将其标成 Crown 已验证。
+- Chrome/Playwright 实测 1440/1024/768/390/320px：无重复标签、无横向滚动、比分和净收益完整可见。实测点开第9页未验证旧单，详情仍显示旧账本来源未核实；切换 MR1 时 M1 来源提醒自动隐藏。没有修改模型、账本、TG 或调度。
+
 ## 2026-11-03 M1 已完成不发 TG 的真实本机扫描验证
 - 修复本机 `scripts/m1_preview.py` 的 `m1_live_scan` 导入路径后，使用用户已保存在 Mac Keychain 的真实 `TOTALCORNER_TOKEN`，从现有 M1 原代码运行**完整非 TG 独立预览**。本机脚本 `~/QuantAsiaDesk/logs/m1_safe_preview_live_verify.log` 真实执行 **exit 0**，输出 `status=COMPLETE, preview_only=true, telegram_sent=false, new_signals=1, candidate_count=1, errors=0`；7 个联赛的原历史缓存采集进度无错误。没有把这1笔候选加入正式 TG 或原 M1 正式账本，预览记录单独保存在 `~/QuantAsiaDesk/state/m1_preview/latest.json`。
 - 用户本机 M1 `tg_enabled=true` 仍是用户自己的开关；实际**含 TG 的派单、GitHub 正式账本持久化与回执**在本轮未触发/未验收。原 `claim_key` 本机独立运行身份适配已经离线子进程验证，但不能将非 TG 预览成功冒称 TG 生产恢复。MR1 与 M3、M4 的另三条运行实测结果仍以 2026-11-03 前述实际记录为准。
