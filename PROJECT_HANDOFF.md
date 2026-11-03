@@ -1,3 +1,8 @@
+## 2026-11-03 M3 本机整轮恢复真实成功（新结算重算影子战绩）
+- M3 真实本机操作 `20261103T110041Z-2b1fd85` 已通过 `http://127.0.0.1:8765/api/status` 核实 `status=succeeded`，**全部10步完成**。赛程原接口以 Python urllib 请求曾持续 `IncompleteRead`，同一 TotalCorner Token 用与 M1 一致的 requests 客户端实际返回 HTTP200、success=1、30场后修复。此次完整运行：44页赛程、1,270条新赛事审计事件、21个预测矩阵、**42笔新影子订单**、444条新结算、赛果验证249场、赛果拒绝1场与映射冲突1场、研究账本重新报告成功。第9步原分段持久化返回 `PERSISTED`、新增3131事件、1个 segment，第10步返回 `REPORTED`，不存在 TG 正式派单。
+- M3 去重战绩由本机新报表 `~/QuantAsiaDesk/state/m3_latest.json`（UTC 2026-11-03T11:20:08.827138Z）：影子单 **1,572笔**、已结 **1,494**、待结 **78**、净收益 **-30.6375U**（此前账本 1530/1050/+0.275U 为历史未完全结算旧快照；本次大量旧订单新增实际赛果后重新核算）。任何 TG 正式实战与 M1/MR1 正式账本均未包含这些模拟订单。
+- 另 M1 在最新用户 TG 开关保持开的情况下不擅自派发真实 TG：本轮已另启动原模型**不发TG预览**完整 API 扫描，以验证已修的 import/策略路径，须核对当前日志 `~/QuantAsiaDesk/logs/m1_safe_preview_live_verify.log` 的真实结束状态后再宣称通过。M1 正式 TG 和远端正式账本写入仍未做真实产线新单验收。
+
 ## 2026-11-03 Mac MR1 AI 浏览器停用与 M1/M3 手动运行修复
 - 用户要求 MR1 AI 停止自动打开 Chrome/TotalCorner AI Picks，同时修复四个模型本机运行失败。已将旧 MR1 AI `com.mr1.ai.extension-bridge` 和旧每300秒 shadow collector 的 LaunchAgent 停止并从自动启动目录移至 `~/QuantAsiaDesk/state/paused-background-agents/`，确认无 MR1 后台进程；现有本机控制台 `com.quantasia.localdesk` 未受影响。
 - 发现真正的 Chrome Unpacked MR1 AI 扩展位于 `~/Desktop/mr1-ai/background.js`，其每小时 alarm 自动创建2个 TotalCorner AI 标签；该实际加载目录以及原源仓库扩展目录均已取消自动创建 tab/alarm，备份保存。注意**正在运行的 Chrome 旧 worker 可能需扩展重新加载后才保证定时器彻底失效**，不以修改静态文件冒充实时关闭 Chrome 旧 alarm。
