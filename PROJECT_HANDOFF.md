@@ -1,3 +1,14 @@
+## 2026-11-03 由用户决定：GitHub TG 派单入口已全部停用，转为本机手动控制
+- **用户明确最新决定**：停止现有 GitHub 上负责 TG 发单的工作流，以后由用户在 Mac 本机控制台手动操控。没有要求删除任何仓库、既有订单、比分、正式账本、研究数据或解除模型独立身份；仍应保持所有 Crown 来源要求、既有策略以及 TG 真实发送口径。
+- **GitHub 实际状态已通过 `gh workflow disable` 与 `gh workflow list --all` 验证为 `disabled_manually`，共18个**：
+  - 公开 `ljm198964-alt/quant-runner`（8）：`m1-free-runtime.yml`、`mr1-free-runtime.yml`、`m1-schedule-watchdog.yml`、`mr1-free-scheduler.yml`、`mr1-public-ticker.yml`、`m1-tg-history-name-repair.yml`、`mr1-ai-telegram-display-repair.yml`、`mr1-formal-tg-name-repair.yml`。前5条含正式派单或循环派单入口，后3条曾能直接操作 TG 历史消息；停止所有 GitHub 侧 TG 写入以免误触发。
+  - 私有旧 M1 `ljm198964-alt/totalcorner-research-bridge`（3）：`m1-live-scan.yml`、`m1-notification-recovery.yml`、`m1-ou-r1-tg-test-once.yml`。
+  - 私有旧 MR1 `ljm198964-alt/mr1-shadow`（7）：`mr1-shadow-runtime.yml`、`mr1-shadow-scheduled.yml`、`mr1-shadow-schedule-a.yml`、`mr1-shadow-schedule-b.yml`、`mr1-shadow-schedule-c.yml`、`mr1-telegram-delivery.yml`、`mr1-v3-live-bootstrap.yml`。
+- 发现并**实际取消**原来仍执行中的公开 `MR1 Public Ticker` run `41595399641`；GitHub 已核实最终 `status=completed, conclusion=cancelled`。随后对三个仓库检查 `in_progress` 与 `queued`，**全部为空**。
+- **其余研究、纯赛果结算、分析与报表 Actions 没有因为本次停 TG 而全部停止**，因为用户此次指定的是 GitHub TG 派单链路；这不代表整个 GitHub Actions 已关闭。相关 TG 工作流是 GitHub 手动停用状态，不是仓库被删除或永久不能恢复；恢复须用户新指令。
+- Mac `http://127.0.0.1:8765` 控制台 `/api/status` 核验：`m1/mr1/m3/m4` 的 `schedule_enabled` 全为 `false`，因此**本机不会自动定时发单**。`m1.tg_enabled=true` 是用户当前已保存的本机开关，其他3个为 false；没有擅自改动。Keychain 中 `TOTALCORNER_TOKEN`、M1/MR1 TG 凭证当前均显示未配置，故 Mac **手动联网扫描并成功正式派单尚未验证**。历史账本/手动报表仍可打开。本轮没有实际新 TG 派单，不得把停 GitHub 当作本地派单成功。
+- 下一项只有在用户要求时继续：用户自己于 Mac 控制台“设置→连接设置”输入既有 TotalCorner 和 TG 凭证，选择模型手动运行；随后以真实 TG 回执和正式账本更新来验证本地生产链路。**不创建新仓库、不要求用户使用终端、不擅自重新启用 GitHub 自动 TG**。
+
 ## 2026-11-03 本机 UI 减法：逐笔比分收益始终可见
 - 用户明确指出旧逐场表格横向截断净收益/胜负栏、首页冗字及大面积留白。已**直接在原 Mac** `~/QuantAsiaDesk` 修改，摘要卡四列紧凑排列、简化导航/文案，逐笔表由横向滚动宽表重构为自适应网格；每条主客水位、下注、比分、输赢、净收益完整可见。保留订单明细展开、双边盘口历史、搜索/周切换/亏损筛选/分页。运行页与设置页也完成文案减法，没有取消功能。
 - Chrome Playwright 实际测试桌面/手机 1440/1024/900/768/390/320px，所有尺寸页面无横向滚动、收益右侧未被遮挡、无 JS 错误；MR1 上周 269 笔与亏损 131 笔查询、模型切换、运行/设置页均正常。TG、模型、Crown、调度及正式账本**完全未动**。
