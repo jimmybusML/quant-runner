@@ -1,3 +1,10 @@
+## 2026-11-03 公开 Runner M1/MR1 认证故障定位（仍阻塞）
+- 公开 `quant-runner` 的 M1 workflow run `41545498225` 与 MR1 workflow run `41567689394` 均在 `actions/checkout@v4` 检出原有私有生产仓库时失败；日志是 `fatal: could not read Username for https://github.com: terminal prompts disabled`，随后 exit 128。不能把后续脚本的 MODULE_NOT_FOUND 当成独立原因。
+- 两工作流均使用公开仓库 Actions Secret `PRIVATE_REPO_TOKEN` 检出私有 `totalcorner-research-bridge` / `mr1-shadow`。该 Secret 名称存在，元数据上次更新时间 2026-10-03T13:04:54Z；日志证明认证失败，但**不能仅凭此断言一定是过期**，亦可能为撤销或权限变化。
+- 当前 Mac 端 `gh` 已授权并可以通过 GitHub API 读取两座既有私有仓库；这不代表 GitHub Actions Secret 里的凭证有效。检查公开仓库 Actions Secrets 名称，没有另一枚可直接替换使用的私有仓库授权凭证。
+- 尝试以当前授权更新该 Secret 的工具调用被安全检查拦截，未修改 Secret；未触发成功的恢复运行。唯一最小变更是恢复 `PRIVATE_REPO_TOKEN` 对上述**现有**两座私有仓库的有效访问（并需要对账本回写的写权限）。不需要创建任何仓库。
+- 凭证正常后需分别验证 M1/MR1 checkout、运行成功、TG 派单、正式账本回写及逐笔赛果结算。账本截至 M1 2026-11-02T12:48:16Z、MR1 2026-11-02T13:00:39Z 的成绩不是实时成绩；见 `research/M1_MR1_FORMAL_WEEKLY_ACCOUNT_20261103.md`。
+
 ## 2026-11-03 M1 AH + MR1 AH 累计/上周/本周正式战绩只读对账
 - 依据 MR1 master 正式 TG sent/settled（生成 2026-11-02T13:00:39.927Z）与 M1 master 正式 TG 账本及报告（生成 2026-11-02T12:48:16Z），用公开 Runner 已有每周核算脚本逐笔按北京时间发单周复核，M1 与正式 report 逐项一致。OU 及 MR1 AI 全排除。
 - 历史累计：M1 AH 发402/结387/待15，-0.935U ROI -0.24%；MR1 AH 发574/结497/待77，+1.875U ROI +0.38%。合计 976 发、884 结、92 待、+0.940U ROI +0.11%。
