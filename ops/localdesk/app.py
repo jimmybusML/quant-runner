@@ -337,6 +337,12 @@ def worker(job_id, model, action):
             if not (credentials("RESEARCH_TG_BOT_TOKEN") and credentials("RESEARCH_TG_CHAT_ID")):
                 raise ValueError("research TG credentials missing")
         steps, env = job_steps(model, action)
+        if model == "m1" and action == "run" and settings()["models"]["m1"]["tg_enabled"]:
+            # Existing formal M1 claim/dispatch requires a unique durable run identity.
+            # Local control supplies the same two existing environment fields.
+            timestamp=dt.datetime.fromisoformat(job["started_at"].replace("Z", "+00:00"))
+            env["GITHUB_RUN_ID"] = str(int(timestamp.timestamp()*1000000))
+            env["GITHUB_RUN_ATTEMPT"] = "1"
         run_identity = None
         for cmd, _ in steps:
             if "--run-id" in cmd:

@@ -1,14 +1,31 @@
 """Live TotalCorner schedule discovery against saved M3 predictions; no wagers or odds persistence."""
-import argparse, collections, datetime, difflib, json, os, time, urllib.parse, urllib.request
+import argparse, collections, datetime, difflib, json, os, time, urllib.parse
+import requests
 from pathlib import Path
 
 def get_schedule(day, token):
     page=1; rows=[]; rate_retries=0
     while True:
-        params=urllib.parse.urlencode({'token':token,'date':day.replace('-',''),'page':page})
-        req=urllib.request.Request('https://api.totalcorner.com/v1/match/schedule?'+params,headers={'Accept':'application/json'})
-        with urllib.request.urlopen(req,timeout=25) as response:
-            payload=json.load(response)
+        # Use the same established HTTP client and user agent as M1.
+        # urllib on this Mac repeatedly failed reading TotalCorner chunked JSON,
+        # while requests retrieved the exact schedule as valid JSON.
+        # Network retries re-request precisely the same page, no odds fallback.
+        for transport_attempt in range(4):
+            try:
+                response=requests.get(
+                    'https://api.totalcorner.com/v1/match/schedule',
+                    params={'token':token,'date':day.replace('-',''),'page':page},
+                    headers={'Accept':'application/json','User-Agent':'M1-GitHub-Actions/3.0'},
+                    timeout=25)
+                response.raise_for_status()
+                payload=response.json()
+                break
+            except (requests.exceptions.ConnectionError,
+                    requests.exceptions.ChunkedEncodingError,
+                    requests.exceptions.Timeout) as error:
+                if transport_attempt == 3:
+                    raise RuntimeError('TotalCorner 赛程数据下载中断，全部重试失败') from error
+                time.sleep(2.0*(transport_attempt+1))
         if payload.get('success') != 1 and isinstance(payload.get('error'),dict) and payload['error'].get('code')=='TOO_MANY_REQUEST' and rate_retries < 6:
             rate_retries += 1
             time.sleep(11)

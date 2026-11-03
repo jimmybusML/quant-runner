@@ -505,3 +505,45 @@ function routeLocalAnchor(){
 }
 window.addEventListener("hashchange",routeLocalAnchor);
 routeLocalAnchor();
+
+/* Show actual local step in Chinese without exposing raw terminal output. */
+var _renderJobsBeforeProgress=renderRuns;
+renderRuns=function(){
+  _renderJobsBeforeProgress();
+  if(!data||!Array.isArray(data.jobs))return;
+  var cards=[...document.querySelectorAll("#runJobs .job")];
+  data.jobs.slice(0,9).forEach(function(job,index){
+    if(!cards[index])return;
+    if(job.status!=="running"&&job.status!=="failed")return;
+    fetch("/api/logs?id="+encodeURIComponent(job.id),{cache:"no-store"})
+     .then(function(r){return r.json()})
+     .then(function(log){
+       if(!cards[index]?.isConnected)return;
+       var text=log.log||"";
+       var message=cards[index].querySelector(".jobmessage");
+       if(!message)return;
+       if(job.status==="running"){
+         var steps={
+           m1:["策略核对","扫描比赛"],
+           mr1:["采集市场","计算模型","核算赛果","保存运行记录"],
+           m3:["整理历史数据","采集赛程","保存赛程","核对赛事范围","模型预测","生成影子订单","核对模型状态","核算比分","保存账本","更新战绩"],
+           m4:["联赛研究"]
+         }[job.model]||[];
+         var matches=[...text.matchAll(/Step (\d+)\/(\d+):/g)];
+         if(matches.length){
+           var last=matches[matches.length-1],index=Number(last[1])-1;
+           message.textContent="正在"+(steps[index]||"执行")+" · 第"+last[1]+"/"+last[2]+"步";
+         }else{
+           message.textContent="正在启动模型…";
+         }
+       }else if(job.status==="failed"){
+         if(text.includes("No module named 'm1_live_scan'"))
+           message.textContent="本次失败：M1 本机模块路径错误；已修正启动路径。";
+         else if(text.includes("notification claim requires a durable GitHub run identity"))
+           message.textContent="本次失败：M1 沿用了 GitHub 运行身份校验；本机身份适配已修复。";
+         else if(text.includes("IncompleteRead")||text.includes("TotalCorner 下载中断"))
+           message.textContent="本次失败：TotalCorner 数据传输中断；已切换验证可用的下载方式。";
+       }
+     }).catch(function(){});
+  });
+};

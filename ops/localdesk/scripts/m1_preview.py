@@ -11,6 +11,8 @@ from pathlib import Path
 root = Path(__file__).resolve().parent.parent
 preview = root / "state/m1_preview"
 preview.mkdir(parents=True, exist_ok=True)
+# Standalone wrapper runs outside the M1 repo; make only that repo importable.
+sys.path.insert(0, str(root / "repos/m1"))
 import m1_live_scan as scan
 
 scan.RESULTS = preview

@@ -1,3 +1,11 @@
+## 2026-11-03 Mac MR1 AI 浏览器停用与 M1/M3 手动运行修复
+- 用户要求 MR1 AI 停止自动打开 Chrome/TotalCorner AI Picks，同时修复四个模型本机运行失败。已将旧 MR1 AI `com.mr1.ai.extension-bridge` 和旧每300秒 shadow collector 的 LaunchAgent 停止并从自动启动目录移至 `~/QuantAsiaDesk/state/paused-background-agents/`，确认无 MR1 后台进程；现有本机控制台 `com.quantasia.localdesk` 未受影响。
+- 发现真正的 Chrome Unpacked MR1 AI 扩展位于 `~/Desktop/mr1-ai/background.js`，其每小时 alarm 自动创建2个 TotalCorner AI 标签；该实际加载目录以及原源仓库扩展目录均已取消自动创建 tab/alarm，备份保存。注意**正在运行的 Chrome 旧 worker 可能需扩展重新加载后才保证定时器彻底失效**，不以修改静态文件冒充实时关闭 Chrome 旧 alarm。
+- M1 本机预览 `m1_live_scan` 模块导入路径错误已修；原正式派单 `claim_key` 需要 GitHub 运行身份的问题，通过保留原 `GITHUB_RUN_ID/GITHUB_RUN_ATTEMPT` 字段而为本机每次真实手动运行提供独立身份处理，单测通过、**尚未实测正式TG生产新单**。MR1 最近一次真实本机完整执行成功，V6结算557/待17/本次新增0，原持久化完成；M4 本地研究执行成功。
+- M3 原 `/match/schedule` urllib chunked `IncompleteRead` 导致失败；对同一真实 TotalCorner API 用 `requests.get` 核验200 JSON有效/30场，已更换 M3 赛程与完场数据的 HTTP 客户端、保留实际比赛身份和盘口结算原规则。真实本机重试 run `20261103T110041Z-2b1fd85` 已进入赛果阶段，赛程44页成功并生成42笔新的**影子**模拟订单；是否整轮成功需要核对最新运行状态。公开 M3 workflow 添加缺失依赖 `requests`。
+- 本机 Keychain 现已配置赛事数据及各 TG 连接（新事实，不再认为缺 token）；全部自动调度关闭、M1 TG开关为用户所设true，其余false，GitHub之前停的18条派单工作流仍 disabled。无新自动TG。
+- 完整诊断、修复清单与限制：[`ops/localdesk/MAC_STOP_BROWSER_AND_RUNTIME_FIX_20261103.md`](ops/localdesk/MAC_STOP_BROWSER_AND_RUNTIME_FIX_20261103.md)。
+
 ## 2026-11-03 Mac 四模型「测试」按钮与密钥本地配置（已验证功能，外部连接尚未授权）
 - 用户可直接在 Mac 打开 `http://127.0.0.1:8765/#connections`，页面自动切换至“设置”并展开四组连接表单；Chrome 实际验证该入口打开成功且无 JS 错。
 - 用户要求 Mac 本地手动控制 M1/MR1/M3/M4，「要不要发 TG 自己勾选」，每模型一个「测试」按钮，并希望助手直接配置原有 Token/密钥。不新建仓库、不转移加密秘密到公有文件。

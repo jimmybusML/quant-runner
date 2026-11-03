@@ -9,7 +9,7 @@ import json
 import os
 import time
 import urllib.parse
-import urllib.request
+import requests
 from pathlib import Path
 from research.m3.kickoff_gate import totalcorner_shanghai_kickoff
 from research.m3.probabilities import settle_score
@@ -60,10 +60,23 @@ def verified_final(payload, match_id, kickoff, now, fixture=None):
     return score('hg'),score('ag'),hashlib.sha256(json.dumps(row,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
 def fetch_final(match_id,token):
-    url='https://api.totalcorner.com/v1/match/view/'+urllib.parse.quote(str(match_id),safe='')+'?'+urllib.parse.urlencode({'token':token})
+    # Match-results only. Use M1's proven HTTP client to prevent incomplete
+    # chunked responses from hiding otherwise verified full-time scores.
+    # Score/identity/market settlement validation remains unchanged.
+    url='https://api.totalcorner.com/v1/match/view/'+urllib.parse.quote(str(match_id),safe='')
     for attempt in range(5):
-        with urllib.request.urlopen(urllib.request.Request(url,headers={'Accept':'application/json'}),timeout=30) as response:
-            payload=json.load(response)
+        try:
+            response=requests.get(url,params={'token':token},
+                headers={'Accept':'application/json','User-Agent':'M1-GitHub-Actions/3.0'},timeout=30)
+            response.raise_for_status()
+            payload=response.json()
+        except (requests.exceptions.ConnectionError,
+                requests.exceptions.ChunkedEncodingError,
+                requests.exceptions.Timeout) as error:
+            if attempt==4:
+                raise RuntimeError('TotalCorner 比分下载中断') from error
+            time.sleep(2.0*(attempt+1))
+            continue
         if payload.get('success')==1:return payload
         if (payload.get('error') or {}).get('code')!='TOO_MANY_REQUEST':return payload
         time.sleep(11)
