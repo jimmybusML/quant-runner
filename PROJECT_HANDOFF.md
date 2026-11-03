@@ -1,3 +1,12 @@
+## 2026-11-03 四模型 Mac 本机可视化控制台已安装（基础功能真实验证，正式自动派单仍未切换）
+- 现有 Mac 已实际安装 `~/QuantAsiaDesk`，公开源代码已同步备份至 [`ops/localdesk/`](ops/localdesk/README.md)；控制台 http://127.0.0.1:8765，127.0.0.1 only，macOS LaunchAgent `com.quantasia.localdesk` 已运行并设置登录启动，桌面 `量化亚洲盘控制台.command` 快捷入口已创建。无新 GitHub 仓库。
+- 真实本机仓库副本：私有 M1 `totalcorner-research-bridge/master` commit `234b6e6e`、私有 MR1 `mr1-shadow/master` commit `04944a4abe`、公开 Runner main 最新已 fast-forward 至 `61aa47a`。M3/M4 使用同一 Runner。Python 3.12 环境 penaltyblog 1.13.1/numpy/scipy/pandas/requests 已安装，MR1 npm ci 完成。
+- 本机 `/api/status` HTTP 200、中文 Web 前端 JS `node --check`、Python 编译已验证。通过本机控制台真实运行成功：M1 report（TG 已发402、结394、待8、-3.705U），MR1 settle（557已结、17待、-18.625U，新加0），M3 report（用户唯一口径1530影子单/1050结/480待、+0.275U），M4 研究（读取557条MR1正式已结，未改正式模型）；本机定时设置保存和回滚经HTTP API验证；Mac Git同步后M3物化2 segments/163546事件成功。
+- M1 本机源码已应用**原用户批准**的 EV >=10% AH 基础选单排除，来源为公开 Runner `ops/m1_ah_ev_cap.py`，使用幂等 wrapper；未添加其它Gate。无TG扫描使用独立 `state/m1_preview` 身份与结果，不能误锁正式TG原订单。MR1 的正式 TG 派单使用原 `src/v6-ah-formal-notify.js` 并保持 10/19 activation，原持久化写入器 `src/persist-github-state.js` 已连接到本机执行步骤。关闭TG的运行不发送。
+- **重要边界**：四模型本机调度均默认关闭，M1/MR1 的本机 TG 开关均关闭，M3/M4 仍为影子研究且没有正式TG能力；用户尚未通过本机 Keychain 配置本地 TotalCorner / TG 凭证。因此本轮**尚未**实际本机联网扫盘或派单，没有新的 TG 回执，**不得宣称 M1/MR1/M3 已完全迁移成功**。旧 GitHub 定时任务未关闭。要完成切换需在本机页面设置已有凭证并实际验证新单TG与正式账本回写后再安全停旧任务，用户不需终端操作。
+- M3 100MiB 单文件障碍已真实修复：公开 `cd97fdb` 将原 immutable 104477212B 主账本保留，新事件写segments。真实 GitHub run `41602048717` 首个 Persist 成功并写两segment（主链随后失败于 `PRIVATE_REPO_TOKEN` 检出私有 M1 缓存，尚未修复）；本机则直接克隆相同私库读取缓存，等待API凭证即可验证主前瞻。无改M3策略或投注规则。
+- 控制台源代码及使用/限制见 [`ops/localdesk/README.md`](ops/localdesk/README.md)。本轮持久化记录明确区分“本机服务/手动任务成功”与“自动实盘链路完全迁移”。
+
 ## 2026-11-03 M3 运行故障、影子战绩与降水/反打最新核查（只读）
 - 最新主前瞻 run 41592553780（2026-11-03T06:51Z）failure；最近5次同工作流失败。已成功完成赛程 Inventory，但在 `persist_append_ledger.py` 写账步骤失败并跳过模型预测/影子单/结算。脚本统一报 `concurrent ledger persistence failed after retries`，push stderr 被隐藏，未能据此证明并发冲突。下载真实失败 run Artifact：已存 JSONL 104,477,212 字节，候选 105,176,572 字节，超过 GitHub 单文件 100MiB 上限 318,972 字节；候选多 1,061 条未入账赛程盘点事件。存储超限是目前最有证据支持的故障来源，未改生产。
 - 主账本最后增量 commit `cdd954c4fe` 于 2026-11-02T00:52:31Z；最新有效预测生成 2026-10-30T11:01Z。Watchdog run 41592539388 SUCCESS 并 dispatch 缺漏窗口，但补跑失败。Price followup 41558274331 success 但 eligible/attempted/added 全0。独立 Settle-only 最近 10/31 success，未宣称新正式 TG。
