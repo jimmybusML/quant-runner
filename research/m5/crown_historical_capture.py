@@ -391,7 +391,8 @@ def fetch_crown(args) -> None:
                                   "crown_ou_fixtures": counts["crown_ou_prematch_fixtures"]}), flush=True)
             continue
         if (payload.get("success") != 1 or len(matches) != 1 or len(crown) != 1
-                or matches[0].get("h") != fixture["home"] or matches[0].get("a") != fixture["away"]):
+                or matches[0].get("h") != fixture["home"] or matches[0].get("a") != fixture["away"]
+                or matches[0].get("l") != fixture["league"]):
             save_json(no_path, {"status": "no_crown_or_identity_failure", "error_code": error_code,
                                 "captured_at_utc": utc_now()})
             counts["no_crown_or_invalid_response"] += 1
@@ -404,7 +405,12 @@ def fetch_crown(args) -> None:
             continue
         source_kickoff = local_to_utc(matches[0].get("start"), zone)
         expected_kickoff = local_to_utc(fixture["kickoff_source_local"], zone)
-        if not source_kickoff or source_kickoff != expected_kickoff:
+        try:
+            source_score = (int(matches[0].get("hg")), int(matches[0].get("ag")))
+        except (TypeError, ValueError):
+            source_score = None
+        expected_score = (fixture["home_goals"], fixture["away_goals"])
+        if not source_kickoff or source_kickoff != expected_kickoff or source_score != expected_score:
             counts["schedule_identity_or_time_mismatch"] += 1
             save_json(no_path, {"status": "schedule_identity_or_time_mismatch", "captured_at_utc": utc_now()})
             counts["processed"] += 1
