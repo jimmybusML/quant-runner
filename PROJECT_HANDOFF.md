@@ -1,3 +1,9 @@
+## 2026-11-04 21:50 北京时间 MR1 正式结算补采与本地后台运行
+- **正式MR1账本现场核实**：`data/mr1-v6-cross-market/formal/sent.jsonl` 576条TG正式发送；原settled 557条、19条未结。实际执行本机 `~/QuantAsiaDesk/scripts/mr1_formal_result_reconcile.mjs`：待核14个独立赛事ID，TotalCorner `/match/view` 查14，确认全场11场，3场未取得FT，`v6-ah-formal-settlement.js` 新结12笔；正式结算569、待结7，净收益-28.275U、ROI -4.969244%。未取得FT的3场没有伪造结果。正式数据本机写入 `data/mr1-v6-cross-market/formal/settled.json`、`performance.json`；与研究/影子账本严格分开。
+- **已安装本地 launchd 后台**：`com.quantasia.mr1.collect` 与 `com.quantasia.mr1.settle`，均 `StartInterval=300` 秒；脚本 `~/QuantAsiaDesk/scripts/mr1_background_maintenance.py`；采集执行既有 `src/shadow-v23.js --scheduled`（仅Crown快照、绝不发TG），结算调用新增的定向赛果补采脚本（仅正式TG账本未结赛事、去重按match_id）再执行正式结算。日志在 `~/QuantAsiaDesk/logs/mr1_collect_background.log`、`mr1_settle_background.log`。使用本机Keychain凭证，未改用户12:05 MR1正式TG派单时刻、原模型条件、盘口来源。启动时launchctl两项均已加载，**持续运行与下一次自动结算尚需观察**，不可把任务安装冒充已持续验证成功。
+- **水位注意**：现有 `v6-ah-formal-notify.js` 正式派单使用先前Crown snapshot锁定价格，不是12:05现场重新报价。新增采集不等于发单时重报价；任何变更发单报价/EV判定都须另行确认，禁止混用旧报价和新报价。
+- 后续：核对两个launchd下一轮执行结果；确认正式账本持久化到原生产GitHub，检查余7笔赛果；必要时完善本地MR1正式发送前报价机制（未经确认不得改变模型规则）。
+
 ## 2026-11-04 下午人工恢复：MR1已成功正式TG发送2单，M1已重新扫描
 - 北京时间2026-11-04 16:12启动本机MR1人工正式运行，collector新增3条真实Crown SNAPSHOT_OK，V6 forward新增3条research records，formal notify最终 `eligible=2,sent=2,unknown=0,failed=0`，正式TG已发送：match_id `202810398` Telegram message_id `1688` at 2026-11-04T08:16:44.416Z；match_id `202810401` Telegram message_id `1689` at 2026-11-04T08:16:44.929Z。已直接从 `data/mr1-v6-cross-market/formal/sent.jsonl` 核实，是真实正式发送而非测试。正式MR1总发送从574增至576；原已结557待结17，此时新增两单待结。不能把16:16的人工恢复当作12:05那次成功发送。
 - 北京时间2026-11-04 16:31:23，调用本机QuantAsiaDesk `/api/run` 正式发起M1 `run`，job `20261104T083123Z-42ad7a2`；本轮已完成，job `succeeded`，M1 run `M1_20261104T083124Z`：`status=COMPLETE,new_signals=0,candidates=0,watchlist=16,errors=0,immediate_delivery_errors=0`；M1新TG仍为0。原12:05跳过的科特赖克vs梅赫伦订单未凭空重发，不能用扫描成功冒充正式派单成功。
