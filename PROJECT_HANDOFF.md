@@ -3673,3 +3673,4 @@
 - 当前 OOS 73,204行、324 folds，UTC years 2015–2026，forecast SHA `3ea8adac0d9e5e580c9914370f4f96e8f904889966cc1593a41824db8f3f1469`。AH 1X2 proxy LL/Brier `1.00127342/0.59684815`，OU2.5 `0.69471781/0.24957950`，exact-score LL `2.95779534`。3,465候选未形成可评分OOS预测。
 - 派生对照已按同SHA重算：M3 common n=7,663；nested fold evaluation n=7,252；M1 exact same-Crown OU n=14, AH=0。MR1 verified receipt + independent FT AH/OU各194；AH `+8.375U/+4.317010%`, DD 12.505U；OU `-5.455U/-2.811856%`, DD 20.2U。TotalCorner movement endpoint AH/OU各212，ROI `+2.766509%/-0.283019%`，但响应赛后、FT同响应，仍不得计为received-forward。
 - M5/Crown派生结果和文档仍待本轮提交/push；M3 75 tests及py_compile已通过；当前私有预测哈希/行数与每个重放都应最终再核一遍。schedule collection PID1267上次检查仍活跃；不要另起并发采集。M5 Actions没触发。最新权威细节见 M5 progress report 最后一节。
+- 提交/推送回执：本轮最新数据、同价回放与报告 commit `d3039387e7ef464792029d195211226fb61e6796` 已推送到 `codex/m5-oos-crown-expansion`；本机提交时为 `2026-11-05T03:49:11+08:00`（UTC `2026-11-04T19:49:11Z`），远端 push 返回成功。此为代码和报告公开落库，不代表 M5 Actions run 或目标达成。
