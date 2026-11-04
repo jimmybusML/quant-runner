@@ -1,3 +1,10 @@
+## 2026-11-04 12:05 北京时间 M1/MR1 定时成功却0条TG：已核实根因
+- Mac当前M1/MR1均设置`Asia/Shanghai`,每天`12:05`,定时和TG开关均为true。2026-11-04T04:05Z 两条任务实际启动且成功结束，正式TG新单均0；**没有证据表明TG机器人错误**。
+- M1实际新候选1：科特赖克 vs 梅赫伦、2026-11-05 03:30 北京时间，梅赫伦AH0，扫描水位港赔0.86；在正式发送前核Crown实时报价失败 `CROWN_QUOTE_NOT_CURRENT`，最终 `SKIPPED_CROWN_QUOTE_UNAVAILABLE`，故TG 0、不使用不可核验旧报价、不改变用户Crown严格要求。
+- MR1在12:05的collector/模型/结算/持久化五步骤成功，但策略`NO_NEW_INPUT`，V6新增records0、TG eligible0/sent0，557结17待。实际采集窗口约144条snapshot-index状态：MISSED_WINDOW143、MARKET_UNAVAILABLE1、SNAPSHOT_OK0；每天12:05只运行一次，与原MR1多horizon观察盘口设计不完全契合。此为诊断事实，不授权改变用户设定时刻、采集窗口或增加新Gate。
+- 另核实MR1当前17笔待结对应14场，14场本地FT文件全缺；MR1目前结算只读取已有FT文件，并未主动填补该缺口。M1有联网结算方法但没有独立自动赛果采集调度。**本轮没有改变本机设置、没有执行额外TG或账本写入**。
+- 诊断详情与可选（未生效）方案：[`ops/localdesk/M1_MR1_NO_TG_1205_ROOT_CAUSE_20261104.md`](ops/localdesk/M1_MR1_NO_TG_1205_ROOT_CAUSE_20261104.md)。
+
 ## 2026-11-04 M3/M4 下一轮：比分尾部、保守时间修正和MR1分联赛EV
 - 用户要求继续M3/M4研究，没有许可改变已冻结的模型规则、EV Gate、Crown来源、正式Telegram或调度；本次只读复算，原运行和正式账本均不变。详细研究报告与脚本：[`research/M3_M4_NEXT_ROUND_20261104.md`](research/M3_M4_NEXT_ROUND_20261104.md)，两套源脚本分别保存于`research/m3/repro_20261104/`及`research/m4/repro_20261104/`，未上传任何私有账本或密钥。
 - 样本来源：M3最新保存于2026-11-03T11:20:08Z，1,572影子单、1,494已结、78未结、-30.6375U，三模型AH/OU为同样249场独立已结赛果；M3是TotalCorner默认盘口，**并非Crown正式TG**。M4没有独立订单，基于原MR1正式TG账本2026-11-02T13:00:39Z，574已发、557已结、17未结、391场独立比赛、-18.625U；仅把这份旧快照作为历史研究，不冒充2026-11-04实时战绩。
