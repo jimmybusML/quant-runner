@@ -29,3 +29,13 @@ For ongoing M3 pairing, the current research capture archive should be treated a
 - Crown historical coverage target of 10,000 fixtures: not met.
 - M5 independent AH and OU ROI target: not met.
 - API requests, production writes, Telegram writes, and credential reads: zero.
+
+## Follow-up: V26 archive versus M5 historical forecasts (2026-11-05)
+
+A second, local-only audit inspected the existing `market-resolution/latest` rows for the 47 locked Crown observations and the private M5 forecast file. The public V26 `observations.jsonl` is schema-minimal (status, match ID, signal key and first-seen/freeze timestamps); raw resolved quote/fixture payloads remain outside the public repository. The V26 aggregate `summary.json` has 39 settled scoring rows and aggregate Crown observation P&L, but the scored rows contain no quote prices or market lines.
+
+The private quote payloads verified the Crown bookmaker marker and exact fixture identity. All 47 locked observations pass the event / request / receipt sequence with `quote event <= received < kickoff`. Thirty-nine fixtures could be joined by exact match ID and fixture identity to the M5 annual UTC walk-forward historical forecast and independent post-kickoff FT receipt. This is an identity and retrospective forecast join only: M5 forecasts were reconstructed offline from historical results and do not have contemporaneous model-generation receipts predating those quote events. Their `prediction_asof_utc` fields establish the backtest cutoff convention, not that those forecasts actually existed at that historical time. Consequently these 39 must not be added to contemporaneous M5/Crown ROI or counted as archived live predictions.
+
+The parallel MR1 V6 forward archive has records for 39 of those fixture IDs, but contains only market-fit statuses and selected-side summaries rather than an auditable full score distribution; it is not a substitute M5 forecast. The V26 scored summary does retain 39 results but omits contract prices/lines, so it cannot independently reproduce a Crown-specific P&L or evaluate M5's probability grid.
+
+Audit source SHA-256 values (local archive only): observations `5d2b236e500c90447274ea0c78123832f6debc6dbb6b3ace136c695da5468db6`, V26 summary `24ad11aad9668aef6c1e425ceb3f0dde71ef7c2d3b40b67e0775dff5db7c5e32`, protocol `a31d541d9ad024530a913ba5de3d985d4fe5fda04386f6109b6f8162ac4dec0b`. No raw quote values, match IDs, teams or credentials were copied into this report. This follow-up made no provider requests or production writes.

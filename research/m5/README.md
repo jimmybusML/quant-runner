@@ -81,3 +81,5 @@ MR1 全量历史旧基准来自公开 GitHub Actions run `41425306084` 聚合 ar
 同一 317 场 MR1 verified Crown 子集新增较低价一侧描述性基准：AH `+2.277603%`、OU `-5.864353%`；M5 分别 `-4.088328%`、`+2.239748%`。这只是同盘口的对照方向，不是策略门槛。详细结算计数与 SHA 见进度报告末节及脱敏 JSON。
 
 时间稳定性审计显示，verified Crown 配对 317 场集中在 2026-Q4（AH 另有 1 场在 Q3 且走水），没有跨年验证。不得把这组聚集样本解释为跨赛季稳定 ROI。
+
+The additional local V26 Crown browser archive was re-audited against the current M5 forecast snapshot. It has 47 frozen Crown AH observations with quote event/receipt/kickoff chronology confirmed, and 39 exact fixture IDs also present in the retrospective M5 OOS artifact with independent FT. Those M5 rows were reconstructed offline; no contemporaneous M5 forecast-generation receipt proves the probability grid existed before the quote. V26's public scored summary lacks prices/contracts, and MR1 V6 has no auditable full M5-compatible probability grid. Thus these joins add **zero** valid contemporaneous M5/Crown ROI observations and no OU coverage. See [follow-up audit](M5_CROWN_ARCHIVE_COVERAGE_AUDIT_20261105.md). Raw observations and private files remain outside the public repository.
