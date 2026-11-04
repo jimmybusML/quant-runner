@@ -1,8 +1,8 @@
 {
-  "MR1_fixture_registry_sha256": "7d64bc4c437f8bd5958225104f15e39880df32db96d5e31f8d97e9fce57c299f",
-  "MR1_snapshot_index_sha256": "c38af559b487a07c518c65a2fd8333d9494925a6605c11a206f37ad8820cda74",
+  "MR1_fixture_registry_sha256": "891a1092095f8ced9cadaae613457233dd7986501ebf92a81ad06f47d3ea79ca",
+  "MR1_snapshot_index_sha256": "107f1635b7642dd2d4057500ea7105df2355934a00590bd3f6daeb3355e45a8a",
   "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
-  "generated_utc": "2026-11-04T22:10:26.936674+00:00",
+  "generated_utc": "2026-11-04T23:23:45.004164+00:00",
   "markets": {
     "AH": {
       "candidate_temperatures": [
@@ -16,126 +16,126 @@
         1.75,
         2.0
       ],
-      "chronological_train_fixtures_with_pre_holdout_FT": 181,
+      "chronological_train_fixtures_with_pre_holdout_FT": 606,
       "holdout_baseline_temperature_1": {
-        "bets": 96,
-        "fixtures": 96,
-        "max_drawdown_units_quote_time": 4.5,
-        "net_units": 7.97,
+        "bets": 262,
+        "fixtures": 262,
+        "max_drawdown_units_quote_time": 19.125,
+        "net_units": -18.105,
         "roi_fixture_bootstrap_95pct_interval": {
-          "lower_2_5_pct": -9.395833,
+          "lower_2_5_pct": -17.515267,
           "resamples": 10000,
           "seed": 20261105,
-          "upper_97_5_pct": 25.802083
+          "upper_97_5_pct": 3.662214
         },
-        "roi_pct": 8.302083,
-        "settled": 96,
-        "settlement_brier": 0.6114652,
-        "settlement_log_loss": 0.98216803,
+        "roi_pct": -6.910305,
+        "settled": 262,
+        "settlement_brier": 0.66053269,
+        "settlement_log_loss": 1.03858128,
         "settlements": {
-          "half_loss": 8,
-          "half_win": 5,
-          "loss": 33,
-          "push": 4,
-          "win": 46
+          "half_loss": 23,
+          "half_win": 18,
+          "loss": 106,
+          "push": 18,
+          "win": 97
         }
       },
       "holdout_calibrated": {
-        "bets": 96,
-        "fixtures": 96,
-        "max_drawdown_units_quote_time": 4.81,
-        "net_units": 7.39,
+        "bets": 262,
+        "fixtures": 262,
+        "max_drawdown_units_quote_time": 17.89,
+        "net_units": -16.87,
         "roi_fixture_bootstrap_95pct_interval": {
-          "lower_2_5_pct": -10.083333,
+          "lower_2_5_pct": -16.998092,
           "resamples": 10000,
           "seed": 20261105,
-          "upper_97_5_pct": 25.354167
+          "upper_97_5_pct": 4.124046
         },
-        "roi_pct": 7.697917,
-        "settled": 96,
-        "settlement_brier": 0.6106218,
-        "settlement_log_loss": 0.98153317,
+        "roi_pct": -6.438931,
+        "settled": 262,
+        "settlement_brier": 0.65724434,
+        "settlement_log_loss": 1.04049827,
         "settlements": {
-          "half_loss": 7,
-          "half_win": 6,
-          "loss": 34,
-          "push": 4,
-          "win": 45
+          "half_loss": 22,
+          "half_win": 19,
+          "loss": 106,
+          "push": 18,
+          "win": 97
         }
       },
       "holdout_quote_time_range_utc": [
-        "2026-10-11T12:05:02Z",
-        "2026-10-14T20:45:14Z"
+        "2026-10-22T13:59:01Z",
+        "2026-11-03T10:12:40Z"
       ],
-      "purged_pre_cutoff_fixtures_without_pre_holdout_FT": 40,
-      "quote_time_cutoff_utc": "2026-10-11T12:05:02Z",
+      "purged_pre_cutoff_fixtures_without_pre_holdout_FT": 3,
+      "quote_time_cutoff_utc": "2026-10-22T13:59:01Z",
       "roi_gate_used": false,
-      "selected_temperature_by_train_log_loss": 2.0,
+      "selected_temperature_by_train_log_loss": 1.75,
       "selection_target": "minimum training-period settlement-category log loss; ROI is not used to select temperature",
-      "source_verified_quotes": 317,
-      "train_FT_receipt_latest_utc": "2026-10-11T11:59:24.909000Z",
+      "source_verified_quotes": 871,
+      "train_FT_receipt_latest_utc": "2026-10-22T03:30:34.074000Z",
       "train_baseline_temperature_1": {
-        "bets": 181,
-        "fixtures": 181,
-        "max_drawdown_units_quote_time": 25.79,
-        "net_units": -16.465,
+        "bets": 606,
+        "fixtures": 606,
+        "max_drawdown_units_quote_time": 28.9,
+        "net_units": -0.125,
         "roi_fixture_bootstrap_95pct_interval": {
-          "lower_2_5_pct": -21.975138,
+          "lower_2_5_pct": -7.117987,
           "resamples": 10000,
           "seed": 20261105,
-          "upper_97_5_pct": 3.848066
+          "upper_97_5_pct": 7.015677
         },
-        "roi_pct": -9.096685,
-        "settled": 181,
-        "settlement_brier": 0.66518782,
-        "settlement_log_loss": 1.07348238,
+        "roi_pct": -0.020627,
+        "settled": 606,
+        "settlement_brier": 0.63942498,
+        "settlement_log_loss": 1.02800122,
         "settlements": {
-          "half_loss": 8,
-          "half_win": 8,
-          "loss": 80,
-          "push": 17,
-          "win": 68
+          "half_loss": 43,
+          "half_win": 36,
+          "loss": 233,
+          "push": 38,
+          "win": 256
         }
       },
       "train_calibrated": {
-        "bets": 181,
-        "fixtures": 181,
-        "max_drawdown_units_quote_time": 27.47,
-        "net_units": -16.035,
+        "bets": 606,
+        "fixtures": 606,
+        "max_drawdown_units_quote_time": 33.89,
+        "net_units": -5.745,
         "roi_fixture_bootstrap_95pct_interval": {
-          "lower_2_5_pct": -21.803867,
+          "lower_2_5_pct": -8.127888,
           "resamples": 10000,
           "seed": 20261105,
-          "upper_97_5_pct": 4.038674
+          "upper_97_5_pct": 6.04538
         },
-        "roi_pct": -8.859116,
-        "settled": 181,
-        "settlement_brier": 0.65051965,
-        "settlement_log_loss": 1.04284703,
+        "roi_pct": -0.94802,
+        "settled": 606,
+        "settlement_brier": 0.63370833,
+        "settlement_log_loss": 1.01661768,
         "settlements": {
-          "half_loss": 8,
-          "half_win": 8,
-          "loss": 80,
-          "push": 17,
-          "win": 68
+          "half_loss": 42,
+          "half_win": 37,
+          "loss": 237,
+          "push": 38,
+          "win": 252
         }
       },
       "train_quote_time_range_utc": [
-        "2026-10-06T12:41:28Z",
-        "2026-10-11T09:21:40Z"
+        "2026-09-19T18:29:52Z",
+        "2026-10-22T00:32:32Z"
       ],
       "train_settlement_log_loss_by_temperature": {
-        "0.6": 1.13200348,
-        "0.75": 1.10147563,
-        "0.9": 1.08244697,
-        "1.0": 1.07348238,
-        "1.1": 1.06650935,
-        "1.25": 1.05870004,
-        "1.5": 1.05031716,
-        "1.75": 1.04549816,
-        "2.0": 1.04284703
+        "0.6": 1.06565279,
+        "0.75": 1.04512816,
+        "0.9": 1.03321397,
+        "1.0": 1.02800122,
+        "1.1": 1.02422421,
+        "1.25": 1.02043771,
+        "1.5": 1.01733467,
+        "1.75": 1.01661768,
+        "2.0": 1.01728821
       },
-      "untouched_later_holdout_fixtures": 96
+      "untouched_later_holdout_fixtures": 262
     },
     "OU": {
       "candidate_temperatures": [
@@ -149,133 +149,133 @@
         1.75,
         2.0
       ],
-      "chronological_train_fixtures_with_pre_holdout_FT": 180,
+      "chronological_train_fixtures_with_pre_holdout_FT": 606,
       "holdout_baseline_temperature_1": {
-        "bets": 96,
-        "fixtures": 96,
-        "max_drawdown_units_quote_time": 19.72,
-        "net_units": -12.39,
+        "bets": 262,
+        "fixtures": 262,
+        "max_drawdown_units_quote_time": 37.72,
+        "net_units": -36.8,
         "roi_fixture_bootstrap_95pct_interval": {
-          "lower_2_5_pct": -30.796875,
+          "lower_2_5_pct": -25.05916,
           "resamples": 10000,
           "seed": 20261105,
-          "upper_97_5_pct": 5.166667
+          "upper_97_5_pct": -3.139313
         },
-        "roi_pct": -12.90625,
-        "settled": 96,
-        "settlement_brier": 0.65813756,
-        "settlement_log_loss": 1.03158858,
+        "roi_pct": -14.045802,
+        "settled": 262,
+        "settlement_brier": 0.65716407,
+        "settlement_log_loss": 1.03563166,
         "settlements": {
-          "half_loss": 5,
-          "half_win": 6,
-          "loss": 45,
-          "push": 6,
-          "win": 34
+          "half_loss": 23,
+          "half_win": 12,
+          "loss": 119,
+          "push": 13,
+          "win": 95
         }
       },
       "holdout_calibrated": {
-        "bets": 96,
-        "fixtures": 96,
-        "max_drawdown_units_quote_time": 18.245,
-        "net_units": -8.26,
+        "bets": 262,
+        "fixtures": 262,
+        "max_drawdown_units_quote_time": 42.57,
+        "net_units": -38.1,
         "roi_fixture_bootstrap_95pct_interval": {
-          "lower_2_5_pct": -26.640625,
+          "lower_2_5_pct": -25.009542,
           "resamples": 10000,
           "seed": 20261105,
-          "upper_97_5_pct": 9.161458
+          "upper_97_5_pct": -3.729008
         },
-        "roi_pct": -8.604167,
-        "settled": 96,
-        "settlement_brier": 0.63412896,
-        "settlement_log_loss": 1.00160794,
+        "roi_pct": -14.541985,
+        "settled": 262,
+        "settlement_brier": 0.63673964,
+        "settlement_log_loss": 1.00816505,
         "settlements": {
-          "half_loss": 5,
-          "half_win": 6,
-          "loss": 43,
-          "push": 6,
-          "win": 36
+          "half_loss": 22,
+          "half_win": 13,
+          "loss": 120,
+          "push": 13,
+          "win": 94
         }
       },
       "holdout_quote_time_range_utc": [
-        "2026-10-11T11:47:22Z",
-        "2026-10-14T17:44:40Z"
+        "2026-10-22T11:20:39Z",
+        "2026-11-02T11:31:42Z"
       ],
-      "purged_pre_cutoff_fixtures_without_pre_holdout_FT": 41,
-      "quote_time_cutoff_utc": "2026-10-11T11:47:22Z",
+      "purged_pre_cutoff_fixtures_without_pre_holdout_FT": 3,
+      "quote_time_cutoff_utc": "2026-10-22T11:20:39Z",
       "roi_gate_used": false,
       "selected_temperature_by_train_log_loss": 1.25,
       "selection_target": "minimum training-period settlement-category log loss; ROI is not used to select temperature",
-      "source_verified_quotes": 317,
-      "train_FT_receipt_latest_utc": "2026-10-11T11:13:36.839000Z",
+      "source_verified_quotes": 871,
+      "train_FT_receipt_latest_utc": "2026-10-22T03:30:34.074000Z",
       "train_baseline_temperature_1": {
-        "bets": 180,
-        "fixtures": 180,
-        "max_drawdown_units_quote_time": 8.0,
-        "net_units": 12.4,
+        "bets": 606,
+        "fixtures": 606,
+        "max_drawdown_units_quote_time": 20.09,
+        "net_units": 4.775,
         "roi_fixture_bootstrap_95pct_interval": {
-          "lower_2_5_pct": -5.938889,
+          "lower_2_5_pct": -6.414191,
           "resamples": 10000,
           "seed": 20261105,
-          "upper_97_5_pct": 19.608333
+          "upper_97_5_pct": 7.907591
         },
-        "roi_pct": 6.888889,
-        "settled": 180,
-        "settlement_brier": 0.63020463,
-        "settlement_log_loss": 1.00506621,
+        "roi_pct": 0.787954,
+        "settled": 606,
+        "settlement_brier": 0.63734549,
+        "settlement_log_loss": 1.00950997,
         "settlements": {
-          "half_loss": 14,
-          "half_win": 13,
-          "loss": 61,
-          "push": 10,
-          "win": 82
+          "half_loss": 40,
+          "half_win": 39,
+          "loss": 234,
+          "push": 32,
+          "win": 261
         }
       },
       "train_calibrated": {
-        "bets": 180,
-        "fixtures": 180,
-        "max_drawdown_units_quote_time": 11.215,
-        "net_units": 7.585,
+        "bets": 606,
+        "fixtures": 606,
+        "max_drawdown_units_quote_time": 18.245,
+        "net_units": 8.56,
         "roi_fixture_bootstrap_95pct_interval": {
-          "lower_2_5_pct": -8.361111,
+          "lower_2_5_pct": -5.554455,
           "resamples": 10000,
           "seed": 20261105,
-          "upper_97_5_pct": 16.763889
+          "upper_97_5_pct": 8.34901
         },
-        "roi_pct": 4.213889,
-        "settled": 180,
-        "settlement_brier": 0.62409008,
-        "settlement_log_loss": 0.9954724,
+        "roi_pct": 1.412541,
+        "settled": 606,
+        "settlement_brier": 0.6250144,
+        "settlement_log_loss": 0.99218565,
         "settlements": {
-          "half_loss": 15,
-          "half_win": 12,
-          "loss": 63,
-          "push": 10,
-          "win": 80
+          "half_loss": 41,
+          "half_win": 38,
+          "loss": 232,
+          "push": 32,
+          "win": 263
         }
       },
       "train_quote_time_range_utc": [
         "2026-10-06T12:41:28Z",
-        "2026-10-11T07:58:34Z"
+        "2026-10-21T17:39:38Z"
       ],
       "train_settlement_log_loss_by_temperature": {
-        "0.6": 1.10451478,
-        "0.75": 1.04699087,
-        "0.9": 1.01642753,
-        "1.0": 1.00506621,
-        "1.1": 0.99860693,
-        "1.25": 0.9954724,
-        "1.5": 1.00161094,
-        "1.75": 1.01619787,
-        "2.0": 1.03555163
+        "0.6": 1.1288729,
+        "0.75": 1.06219238,
+        "0.9": 1.02469355,
+        "1.0": 1.00950997,
+        "1.1": 0.99969343,
+        "1.25": 0.99218565,
+        "1.5": 0.99229786,
+        "1.75": 1.00193867,
+        "2.0": 1.01708876
       },
-      "untouched_later_holdout_fixtures": 96
+      "untouched_later_holdout_fixtures": 262
     }
   },
   "protocol": "M5_CROWN_CHRONOLOGICAL_TEMPERATURE_CALIBRATION_V1",
   "scope_note": "MR1 source-verified Crown snapshots joined to independent M5 OOS score grids and post-kickoff verified FT. Temperature selected only on earlier Crown settlement log loss; later holdout is not used for selection. No minimum EV or other bet gate. AH and OU fit/test independently. Aggregate only; no fixture IDs, teams, odds, or raw response values. Research-only; not a formal strategy or deployment.",
   "split": "Per market, sort unique source Crown quote event instants; train on early ~70% and test on later ~30%. No identical quote timestamp crosses the boundary. Training FT receipt must predate the first held-out quote; pre-boundary rows with later FT receipts are purged.",
-  "verified_Crown_snapshot_count": 317,
-  "verified_Crown_snapshot_hash_set_sha256": "938ee37c144f9988eefd0aa138889c21b310e90a5c17ea783dcaf3f21e93f7f6",
-  "verified_FT_receipt_count": 317,
-  "verified_FT_receipt_hash_set_sha256": "bb31aaedb5102a123a7c12145c2297d596cf42396c0ab7f4710c2e09e882bd3c"
+  "verified_Crown_snapshot_count": 871,
+  "verified_Crown_snapshot_hash_set_sha256": "32ad634a363f4869708766b7875b3cbba3cd5e5aa0240550194d05aec5c6152a",
+  "verified_FT_receipt_count": 871,
+  "verified_FT_receipt_hash_set_sha256": "65bc9ca3e891532f6b7e8f6198e052adf78e5f726e81440be329b14323ef7f42"
 }

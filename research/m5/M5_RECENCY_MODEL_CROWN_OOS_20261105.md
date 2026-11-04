@@ -28,7 +28,7 @@
 
 逐联赛半衰期计数和各联赛样本外 proper scores 在 [`m5_goal_model_recency_2026_oos.json`](results/m5_goal_model_recency_2026_oos.json)。AH 的概率质量有小幅改善，OU 略差；这些 proper scores 不是 ROI。
 
-## Crown 收益回放
+## Crown 收益回放（前一份存档快照，已由下方刷新结果取代）
 
 | 市场 / 模型 | 去重 forecast fixtures | Crown 有效 fixture | 模拟下注 / 已结算 | 全赢 / 半赢 / 走水 / 半输 / 全输 | 净收益 | ROI | 最大回撤 |
 |---|---:|---:|---:|---|---:|---:|---:|
@@ -41,7 +41,7 @@
 
 相同 Crown 样本的 settlement Log Loss / Brier：AH 基线 `1.05273941 / 0.65440920`、候选 `1.04382035 / 0.64828452`；OU 基线 `1.00331741 / 0.63152205`、候选 `1.01106287 / 0.63711699`。这再次显示 AH 小幅改善、OU 变差。
 
-## TotalCorner 事件时间样本去重扩展
+## TotalCorner 事件时间样本去重扩展（前一份存档快照，已由下方刷新结果取代）
 
 为检查现有 TotalCorner historical endpoint movement 是否能补充独立市场样本，新增 [`m5_crown_oos_source_union.py`](m5_crown_oos_source_union.py)。它按规范化 `(联赛, UTC 比赛日, 主队, 客队)` fixture identity × market 合并两个 Crown 证据层：有赛前 `received < kickoff` 及独立 FT 的 MR1 V23 报价优先；只对 MR1 中缺席的 fixture-market 加入 TotalCorner Crown 历史 movement（其 source event < kickoff，但 endpoint 和比分是在赛后回取）。该规则在两个模型间完全相同，同一场同一市场最多一注，不把两个报价来源重复累计。
 
@@ -62,10 +62,32 @@
 
 与 M1、MR1 保存选择及 M3 原始模型的同价同时间 ROI 对照，在本次 317 场上没有可用的三方共同决策样本；当前回放的 `same_quote_saved_MR1_selection` 与 M3 精确盘口栏为空。之前已发表的 M1/M3 小样本或其他盘口时点不并入本实验，也不拿来证明优势。
 
+
+## 2026-11-05 MR1 Crown 档案刷新：871 verified + 70 event-time
+
+使用已授权的本地只读 MR1 存档 the already authorized local MR1 repository archive 重放。上一份 317/483 结果使用较早的 MR1 fixture-registry/snapshot-index 指纹；本次严格保留新输入指纹，不把两个版本的行数相加。最新输出生成于 `2026-11-04T23:23:10.323370Z`，fixture registry SHA `891a1092095f8ced9cadaae613457233dd7986501ebf92a81ad06f47d3ea79ca`，snapshot index SHA `107f1635b7642dd2d4057500ea7105df2355934a00590bd3f6daeb3355e45a8a`，基线/候选预测 SHA 仍为 `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a` / `fc2abf89b2ac80eb2ba72bf9e992f25eeda11502f2e87cd2bd965b921843d26d`。
+
+每市场有 871 个 MR1 Crown quote received-before-kickoff 且有独立 FT 的唯一 fixture，覆盖 48 个联赛；TotalCorner endpoint 共 212 个 event-time fixture，与 MR1 按规范化联赛、UTC日期、主客身份重合 142 个，补充 70 个不重叠场，最终 source-priority union 为 941 fixture-market、49 个联赛。AH/OU 独立统计，同一 fixture-market 只结算一次。TotalCorner 的 event timestamp 早于开赛，但 endpoint 与嵌入比分在赛后取得，仍不算赛前收到的历史报价。
+
+| 市场 / 证据样本 | 模型 | 场数 | W/HW/P/HL/L | 净 U / ROI | 最大回撤 U | 95% fixture-bootstrap ROI 区间 | Settlement LL / Brier |
+|---|---|---:|---|---:|---:|---|---|
+| AH MR1 received | M5 基线 | 871 | 354/55/56/66/340 | -17.825 / -2.046498% | 28.900 | -7.756028% 至 +3.767509% | 1.03171136 / 0.64617416 |
+| AH MR1 received | 近期加权 | 871 | 352/60/56/61/342 | -16.940 / -1.944891% | 24.555 | -7.652124% 至 +3.848450% | 1.03004581 / 0.64562197 |
+| AH union | M5 基线 | 941 | 384/57/61/68/371 | -21.010 / -2.232731% | 28.900 | -7.866100% 至 +3.393199% | 1.03068920 / 0.64490442 |
+| AH union | 近期加权 | 941 | 379/61/61/64/376 | -26.905 / -2.859192% | 27.810 | -8.352816% 至 +2.919766% | 1.02985212 / 0.64521313 |
+| OU MR1 received | M5 基线 | 871 | 358/51/45/63/354 | -31.075 / -3.567738% | 51.600 | -9.388634% 至 +2.369690% | 1.01610124 / 0.64262006 |
+| OU MR1 received | 近期加权 | 871 | 357/53/45/61/355 | -32.485 / -3.729621% | 51.505 | -9.669346% 至 +2.159587% | 1.02220923 / 0.64711209 |
+| OU union | M5 基线 | 941 | 388/55/49/71/378 | -28.900 / -3.071201% | 50.325 | -8.730606% 至 +2.583953% | 1.01371083 / 0.64033632 |
+| OU union | 近期加权 | 941 | 386/56/49/70/380 | -33.000 / -3.506908% | 55.495 | -9.216791% 至 +2.138151% | 1.02090617 / 0.64582477 |
+
+在相同 871 个 MR1 Crown 合约上，近期加权相对基线 AH ROI 差 `+0.101607` 个百分点、OU `-0.161883` 个百分点；fixture-paired bootstrap 95% 区间分别为 `[-3.739380,+3.794489]` 与 `[-3.873708,+3.504592]`。在 941 场 union 上差值为 AH `-0.626461pp`（区间 `[-4.393199,+3.121679]`）、OU `-0.435707pp`（`[-4.044633,+3.148778]`）。这些区间都跨零；没有证据证明近期加权提升 Crown 收益。两个市场的完整逐联赛 W/HW/P/HL/L、净 U 与 ROI 在 [`m5_goal_model_recency_2026_crown_source_union.json`](results/m5_goal_model_recency_2026_crown_source_union.json)，49 联赛结果仅为描述性分布，不作联赛过滤。
+
+同一最新 MR1 归档上的独立时间留出：每市场 871 个 source-verified quote fixture，以报价事件 UTC 时间排序；训练集 606 个且对应独立 FT receipt 早于首个测试报价，另有 3 个前边界 quote 因 FT receipt 太晚而 purged；之后 262 场严格留出。AH 截点 `2026-10-22T13:59:01Z`，OU 截点 `2026-10-22T11:20:39Z`。只在各自早期训练集上用 settlement log loss 选温度，AH=1.75、OU=1.25；未用 ROI 选温度。测试集：AH 原始网格 `-6.910305%`（97/18/18/23/106 W/HW/P/HL/L），校准 `-6.438931%`（97/19/18/22/106），95% bootstrap 区间 `[-16.998092,+4.124046]%`；OU 原始 `-14.045802%`（95/12/13/23/119），校准 `-14.541985%`（94/13/13/22/120），校准后 settlement LL/Brier 有改善至 `1.00816505/0.63673964`，但 ROI 更差，95% 区间 `[-25.009542,-3.729008]%`。此严格时间测试不支持达到 +5% 目标；它不是新的投注规则或模型上线建议。完整分割、训练分数、bootstrap、来源 hash 在 [`m5_crown_temperature_holdout.json`](results/m5_crown_temperature_holdout.json)。其 MR1 registry SHA 与 union 输入一致，为 `891a1092…`。
+
 ## 限制与下一步
 
-- Crown 配对覆盖为 317 / 10,235 个 2026 forecast（约 3.10%），距离每市场 10,000 个不重复、有效 Crown 报价及赛后结果样本还差很远。AH 与 OU 分开统计，不叠加市场行数。
-- 当前 317 Crown 样本集中于 2026-Q4，缺少跨年/跨赛季 Crown ROI 稳定性证据。TotalCorner 原历史 endpoint movement 回放属于不同事件时间口径，不能并入本次已收取的 V23 快照 cohort。
+- 最新 verified MR1 Crown 覆盖为 871 / 10,235 个 2026 forecast（AH、OU分别计数，市场间不叠加）；含 70 个 TotalCorner-only event-time 增量的并集为每市场 941 场。两者都远低于每市场 10,000 个不重复样本。
+- 当前 871 场 received-before-kickoff Crown 样本集中在 2026-09-19 至 2026-11-03；没有跨年/跨赛季 ROI 稳定性证据。TotalCorner 赛后回取 movement 仍单独列为较弱 event-time cohort。
 - 这次不是对所有半衰期、联赛策略或回测规则的穷举搜索；没有根据 Crown ROI 选参。2025 参数选择样本仍然有限，2026 Crown 收益区间可能很宽，不能将点估计视为可靠盈利率。
 - 要验证目标，最优先工作仍是补齐固定 51 联赛缺失赛程页，并获得至少每市场 10,000 场有 Crown 赛前 line/双边 price、可信 quote event/receipt UTC、独立 FT 的不重复样本。当前本地无 TotalCorner token，尚未发起新请求；不在公开仓库存储原始 Crown 价格、身份或令牌。
 

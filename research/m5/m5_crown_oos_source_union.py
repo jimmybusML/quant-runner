@@ -14,6 +14,7 @@ import hashlib
 import json
 import math
 import re
+import random
 import unicodedata
 from collections import Counter
 from datetime import datetime, timezone
@@ -175,6 +176,38 @@ def score_row(forecast, quote, market):
             "units": units, "log_loss": -math.log(max(dist[category], 1e-15)),
             "brier": sum((dist[c] - (1.0 if c == category else 0.0)) ** 2 for c in cats)}
 
+def bootstrap_roi_interval(units, seed=20261105, resamples=10000):
+    """Fixture bootstrap interval for mean 1U return; rows are unique fixtures."""
+    n = len(units)
+    if not n:
+        return None
+    rng = random.Random(seed)
+    estimates = [100.0 * sum(units[rng.randrange(n)] for _ in range(n)) / n
+                 for _ in range(resamples)]
+    estimates.sort()
+    return {"lower_2_5_pct": round(estimates[int(0.025 * resamples) - 1], 6),
+            "upper_97_5_pct": round(estimates[int(0.975 * resamples) - 1], 6),
+            "resamples": resamples, "seed": seed}
+
+def paired_roi_delta(baseline_rows, candidate_rows, seed=20261106, resamples=10000):
+    if len(baseline_rows) != len(candidate_rows):
+        raise ValueError("paired bootstrap requires identical fixture counts")
+    n = len(baseline_rows)
+    if not n:
+        return {"fixtures": 0, "candidate_minus_baseline_roi_pp": None,
+                "fixture_bootstrap_95pct_interval_pp": None}
+    deltas = [c["units"] - b["units"] for b, c in zip(baseline_rows, candidate_rows)]
+    rng = random.Random(seed)
+    estimates = [100.0 * sum(deltas[rng.randrange(n)] for _ in range(n)) / n
+                 for _ in range(resamples)]
+    estimates.sort()
+    return {"fixtures": n,
+            "candidate_minus_baseline_roi_pp": round(100.0 * sum(deltas) / n, 6),
+            "fixture_bootstrap_95pct_interval_pp": {
+                "lower_2_5_pct": round(estimates[int(0.025 * resamples) - 1], 6),
+                "upper_97_5_pct": round(estimates[int(0.975 * resamples) - 1], 6),
+                "resamples": resamples, "seed": seed}}
+
 def summarize(rows):
     n = len(rows); outcomes = Counter(r["category"] for r in rows); net = sum(r["units"] for r in rows)
     by_quote_time = Counter()
@@ -199,6 +232,7 @@ def summarize(rows):
             "max_drawdown_units_by_quote_event": round(dd, 6) if n else None,
             "settlement_log_loss": round(sum(r["log_loss"] for r in rows) / n, 8) if n else None,
             "settlement_brier": round(sum(r["brier"] for r in rows) / n, 8) if n else None,
+            "roi_fixture_bootstrap_95pct_interval": bootstrap_roi_interval([r["units"] for r in rows]),
             "by_league": by_league}
 
 def run(mr1_root: Path, private_dir: Path, baseline_path: Path, candidate_path: Path,
@@ -252,7 +286,9 @@ def run(mr1_root: Path, private_dir: Path, baseline_path: Path, candidate_path: 
                 baseline_row = score_row(baseline[mid], quote, market); baseline_row["league"] = baseline[mid]["league"]
                 candidate_row = score_row(candidate[mid], quote, market); candidate_row["league"] = candidate[mid]["league"]
                 baseline_scored.append(baseline_row); candidate_scored.append(candidate_row)
-            model_results[label] = {"baseline": summarize(baseline_scored), "recency_candidate": summarize(candidate_scored)}
+            model_results[label] = {"baseline": summarize(baseline_scored),
+                                    "recency_candidate": summarize(candidate_scored),
+                                    "paired_candidate_minus_baseline": paired_roi_delta(baseline_scored, candidate_scored)}
         markets[market] = {"MR1_fixture_count": len(mr1_selected), "TotalCorner_raw_fixture_count": len(tc_selected),
                            "same_fixture_identity_source_overlap": len(set(mr1_selected) & set(tc_selected)),
                            "TotalCorner_unique_additions": len(tc_only), "deduplicated_fixture_count": len(selected),
