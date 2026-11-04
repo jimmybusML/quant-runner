@@ -83,3 +83,16 @@ MR1 全量历史旧基准来自公开 GitHub Actions run `41425306084` 聚合 ar
 时间稳定性审计显示，verified Crown 配对 317 场集中在 2026-Q4（AH 另有 1 场在 Q3 且走水），没有跨年验证。不得把这组聚集样本解释为跨赛季稳定 ROI。
 
 The additional local V26 Crown browser archive was re-audited against the current M5 forecast snapshot. It has 47 frozen Crown AH observations with quote event/receipt/kickoff chronology confirmed, and 39 exact fixture IDs also present in the retrospective M5 OOS artifact with independent FT. Those M5 rows were reconstructed offline; no contemporaneous M5 forecast-generation receipt proves the probability grid existed before the quote. V26's public scored summary lacks prices/contracts, and MR1 V6 has no auditable full M5-compatible probability grid. Thus these joins add **zero** valid contemporaneous M5/Crown ROI observations and no OU coverage. See [follow-up audit](M5_CROWN_ARCHIVE_COVERAGE_AUDIT_20261105.md). Raw observations and private files remain outside the public repository.
+
+## Chronological M5 Crown temperature holdout
+
+`m5_crown_temperature_holdout.py` tests a bounded score-grid temperature calibration on the existing 317 source-verified, pre-kickoff-received Crown snapshots per market. For each market independently, the temperature is chosen from a preregistered nine-value grid using only the early quote-time partition's Asian settlement-category log loss; ROI does not select it. The later partition starts at the saved UTC quote-event cutoff. A training result is usable only when its verified FT receipt predates that cutoff; 40 AH and 41 OU boundary rows were purged. No identical quote timestamp crosses the split. The held-out results have 96 unique fixtures per market.
+
+| Market / model | Early train n | Purged | Later holdout n | Temperature | Holdout W/HW/P/HL/L | Net U | ROI | 95% fixture-bootstrap ROI interval | Max DD U | Settlement LL / Brier |
+|---|---:|---:|---:|---:|---|---:|---:|---:|---:|---|
+| AH raw grid | 181 | 40 | 96 | 1.00 | 46/5/4/8/33 | +7.970 | +8.3021% | -9.3958% to +25.8021% | 4.500 | 0.982168 / 0.611465 |
+| AH temperature tuned on train LL | 181 | 40 | 96 | 2.00 | 45/6/4/7/34 | +7.390 | +7.6979% | -10.0833% to +25.3542% | 4.810 | 0.981533 / 0.610622 |
+| OU raw grid | 180 | 41 | 96 | 1.00 | 34/6/6/5/45 | -12.390 | -12.9063% | -30.7969% to +5.1667% | 19.720 | 1.031589 / 0.658138 |
+| OU temperature tuned on train LL | 180 | 41 | 96 | 1.25 | 36/6/6/5/43 | -8.260 | -8.6042% | -26.6406% to +9.1615% | 18.245 | 1.001608 / 0.634129 |
+
+This is a small, single later-period holdout, not a 10,000-match result or stable profitability evidence. Both AH bootstrap intervals cross zero; OU remains loss-making. AH's selected temperature is at the top of the tested grid, so its optimum is boundary-censored and needs a new, untouched forward cohort before any stronger claim. The full sanitized receipt is [`results/m5_crown_temperature_holdout.json`](results/m5_crown_temperature_holdout.json). This research adds no EV gate, filter, order limit, or production change.

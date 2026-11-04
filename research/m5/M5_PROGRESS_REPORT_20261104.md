@@ -567,3 +567,22 @@ TotalCorner movement 的 212 场/市场，其源事件时间早于开赛，但 e
 后续单一 schedule collector 已处理固定范围 51/51 联赛，累计 4,235 个已保存页和 126,455 个 schedule fixture ID；11 个 page errors。最新冻结清单仍有 129 个已知缺页，因此 `complete_historical_universe=false`。这些页数不是已完赛候选数或 OOS 预测数。本轮训练已用稳定冻结 manifest 生成新 SHA；所有同版本 M3、nested、MR1 Crown、M1 exact quote、TotalCorner movement 和训练支持度回放均应检查 SHA 后再引用。
 
 M5 Actions workflow 仍未存在/运行；本次训练是本地显式执行，没有 Actions 成功或云端落库证据。没有改动生产策略、订单、Telegram 或自动模型升级。M5 当前还没有完成目标；下一步重点是在固定赛事范围内扩充具备可信赛前接收时间的 Crown 记录，并研究低训练支持折的层级收缩，但不得把支持度诊断变成投注 gate。
+
+## 2026-11-05 M5 Crown temperature calibration: quote-time holdout
+
+This experiment uses only the existing source-verified MR1 V23 Crown snapshots, independent FT receipts and M5 OOS full-score forecasts. The forecast SHA remains `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`; the quote archive is outside the public repository. Each market independently selects a score-grid temperature from `(0.60, 0.75, 0.90, 1.00, 1.10, 1.25, 1.50, 1.75, 2.00)` by minimum early-period Asian settlement-category log loss. ROI is not used for hyperparameter selection.
+
+The split is by exact Crown quote event timestamp, with same-instant quotes kept in the same partition. The later holdout begins at the split timestamp. To prevent outcome leakage, a pre-cutoff quote enters calibration only when the separate FT receipt was already recorded before the first holdout quote; otherwise it is purged. AH has 181 calibration fixtures, 40 purged rows and 96 holdout fixtures. OU has 180 calibration fixtures, 41 purged and 96 holdout. Every held-out quote is strictly later than the calibration quote boundary and each calibration FT receipt predates that boundary. Every fixture-market has one Crown contract and one independent settlement.
+
+| Market / variant | Train n | Purged | Holdout bets | Win / half-win / push / half-loss / loss | Net U | ROI | Bootstrap 95% fixture interval | Max drawdown | Settlement LL / Brier |
+|---|---:|---:|---:|---|---:|---:|---:|---:|---|
+| AH raw temperature 1.0 | 181 | 40 | 96 | 46 / 5 / 4 / 8 / 33 | +7.970 | +8.302083% | -9.395833% to +25.802083% | 4.500U | 0.98216803 / 0.61146520 |
+| AH train-LL calibrated, T=2.0 | 181 | 40 | 96 | 45 / 6 / 4 / 7 / 34 | +7.390 | +7.697917% | -10.083333% to +25.354167% | 4.810U | 0.98153317 / 0.61062180 |
+| OU raw temperature 1.0 | 180 | 41 | 96 | 34 / 6 / 6 / 5 / 45 | -12.390 | -12.906250% | -30.796875% to +5.166667% | 19.720U | 1.03158858 / 0.65813756 |
+| OU train-LL calibrated, T=1.25 | 180 | 41 | 96 | 36 / 6 / 6 / 5 / 43 | -8.260 | -8.604167% | -26.640625% to +9.161458% | 18.245U | 1.00160794 / 0.63412896 |
+
+Temperature selection improves the held-out settlement log loss and Brier for both markets, but the ROI conclusions do not meet the research goal. AH's point estimate is above 5% on this 96-fixture single-period holdout, but its 95% bootstrap interval includes material loss and T=2.0 is at the top of the tested candidate grid, so the optimum is boundary-censored. OU remains negative after calibration. Results are short-period and retrospective, not an independently archived live M5 prediction stream. Full sanitized receipt: `results/m5_crown_temperature_holdout.json`; implementation: `m5_crown_temperature_holdout.py`.
+
+The experiment does not add a bet filter, EV floor, or production rule. No Crown API calls, credential reads, Telegram activity, or production writes occurred. It does not raise the full-cohort snapshot result (AH 317 bets / -4.088328%; OU 317 / +2.239748%) and does not satisfy the 10,000-quote-per-market requirement.
+
+The aggregate report was generated at `2026-11-04T22:10:26.936674Z`. It records forecast SHA `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`, MR1 snapshot-index SHA `c38af559b487a07c518c65a2fd8333d9494925a6605c11a206f37ad8820cda74`, fixture-registry SHA `7d64bc4c437f8bd5958225104f15e39880df32db96d5e31f8d97e9fce57c299f`, Crown snapshot hash-set SHA `938ee37c144f9988eefd0aa138889c21b310e90a5c17ea783dcaf3f21e93f7f6`, and verified FT receipt hash-set SHA `bb31aaedb5102a123a7c12145c2297d596cf42396c0ab7f4710c2e09e882bd3c`. It contains only aggregate outputs and hashes, not fixture identities or price values.
