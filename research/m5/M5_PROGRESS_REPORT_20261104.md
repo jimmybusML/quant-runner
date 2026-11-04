@@ -236,7 +236,7 @@ M5 尚未达到完成标准。要完成目标，仍需在既定赛事范围内�
 
 所有 ROI 均是固定一单位的历史影子回放，模型用时间前推的留出赛季概率；预测本身不是当时归档的 M5 单据，故不得表述为真实成交或当时生效的 M5 OOS 信号。只允许 Crown 作为交易赔率来源；公开文件不含逐场价、球队或 fixture ID。
 
-### M1 V23 与 M5 同 Crown 合约配对（OU）
+### M1 V23 与 M5 同 Crown 合约配对（OU；前版结果）
 
 新增 [`m5_m1_same_quote_oos_replay.py`](m5_m1_same_quote_oos_replay.py) 与 [`results/m5_goal_model_m1_same_quote_oos.json`](results/m5_goal_model_m1_same_quote_oos.json)。M1 V23 有56场冻结 Crown OU eligible observation；其中6场通过 TotalCorner fixture ID、球队、kickoff、Crown OU盘口/双方水位、quote event 位于 M5 UTC OOS forecast as-of 之后且 kickoff 之前，以及 M1 verified FT receipt 的精确连接。六场使用同一 Crown 合约、每模型一注：M5 Poisson +2.025U/+33.75%；M1 frozen `crown_market_poisson` +2.055U/+34.25%；M1 calibrated +1.150U/+19.17%；M1 raw -2.500U/-41.67%；两个既有 market-blend 分别与对应 calibrated/raw 结果相同。M1 expected-total 按原 sanitized replay 方案转换为 Poisson count 分布。n=6，不能据此选择策略或外推 ROI；不代表 M1 正式账本成绩。M3 同 Crown 的可比子样本来自另一 MR1 quote archive，只有 OU n=9、AH n=5，未与 M1 六场拼接。
 
@@ -294,3 +294,114 @@ M3 每 4 小时 workflow 仍按原授权频率运行。最新可核实 run `4186
 - TotalCorner endpoint cohort 的源事件时间早于开赛，但响应后取且 FT 同响应；不得称为 received-forward Crown 快照。MR1 verified archive 虽有接收时间证据，但只覆盖 387 场/市场，历史模型选择背景也须单独说明。
 - M5 Actions 自动重训/比较/持久化尚未触发验证。当前分支的公开代码/报告提交不等于 Actions 成功。
 - Crown Factor audit 为描述性事后分组，不是筛选策略。原始 Crown 响应、逐场预测和凭证继续留在仓库外。
+
+## 2026-11-05 后续采集增量：63,091 场版本（当前最新）
+
+本节取代本报告前面 56,688 场、245 折那一节的“当前最新”身份；前版保留作历史快照。采集进程在用户既有授权下继续请求赛程页，本轮没有启动第二个并发采集器。冻结数据生成于 `2026-11-04T19:18:23.607999Z`：固定 51 个范围联赛中 26 个已有 page-1，已知 2,493 页、已保存 2,320、缺 173；66,094 场唯一 FT 候选，排除 2 个重复身份组。历史 universe 仍不完整。manifest SHA-256 `67af2a975ac20216312fe464ccd4fd58793e5b3092f351bca86495b406857f45`。
+
+M5 独立 Poisson 严格 UTC 年×联赛前推 **63,091 场 / 275 折**，覆盖测试年 2015–2026；逐场 forecast 留在私有目录，SHA-256 `8bd28cfd85e08f005ca9a547b89f722fbd78ff8c232bf5387ed041d854c5c431`。AH 1X2 概率代理 LL/Brier `1.00244361/0.59755777`；OU2.5 `0.69492663/0.24955853`；精确比分 LL `2.95858364`。66,094 个候选中 3,003 个未进入可评分 OOS fold；不得将候选数当成 OOS 数。逐 UTC 年指标详见 `m5_goal_model_partial_oos.json`，不同年份评分有波动，并非稳定盈利证据。
+
+与 M3 最新严格预测的精确同场比较为 **7,663 场**：AH 代理 LL/Brier，M3 Dixon-Coles `1.01000095/0.60367120`，M5 `1.01223291/0.60523473`；OU2.5，M3 Poisson `0.69321624/0.24972808`，M5 `0.69266069/0.24953371`。M5 AH 弱于 M3 最佳 proper score，OU 略优。嵌套权重选择后，在 7,252 场样本上 M3+M5 AH LL/Brier `1.00991517/0.60370237`，优于此评估样本内单模型；OU 权重退化到 M5 独立 Poisson，LL/Brier `0.69147091/0.24898142`。融合评估也属历史研究 OOS 分数，不等于 Crown 收益。
+
+### 以当前 forecast SHA 重算 Crown 样本
+
+| Crown 来源 | AH 有效赛/注 | AH 净收益 / ROI | AH 最大回撤 | OU 有效赛/注 | OU 净收益 / ROI | OU 最大回撤 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| MR1 V23 verified Crown + 独立赛后 FT | 161 | `-5.385U / -3.344720%` | `11.920U` | 161 | `-8.300U / -5.155280%` | `16.945U` |
+| TotalCorner Crown endpoint historical movement | 212 | `+5.865U / +2.766509%` | `9.620U` | 212 | `-0.600U / -0.283019%` | `16.060U` |
+
+MR1 cohort 结算 AH W/HW/L/HL/P=`63/10/64/10/14`，OU=`64/10/65/12/10`；两市场都仅 2026 OOS 年。AH/OU 分别只有 161 个严格快照与 FT 样本，ROI 均未超过 +5%。TotalCorner 212 场的报价是 response 内 source-time movement，响应在赛后取回且 FT 同响应；仍不是当时接收的 pre-kickoff snapshot。两 cohort 不合并。当前回放只有每个预测 fixture-market 一注，不设 EV 阈值；这只是研究回放，不是实际下注。
+
+同 MR1 Crown 合约上可精确连接 M3 预测的极小样本为 AH 4 场（M3 三个模型及 M5 均 `+2.02U/+50.5%`）、OU 5 场（M3 bivariate `+0.50U/+10%`，M3 Poisson/DC 与 M5 `-1.33U/-26.6%`）。样本太小且这不是全体 Crown 回测。M1 同价比较已在本轮重新运行：AH 无样本；OU 当前版本精确配对 n=9。M5 `+0.925U/+10.277778%`；M1 Crown market Poisson `+2.805U/+31.166667%`、calibrated `+3.800U/+42.222222%`、raw `-3.640U/-40.444444%`；两种既有 blend 分别等于其 calibrated/raw 对应项。仅9场，不应外推。
+
+Crown 因素分位分析按当前预测 SHA 重算。AH 时间四分位 ROI 依次 `-6.44/-8.42/+8.75/+17.18%`，OU `+3.19/-4.09/-16.21/+15.98%`；盘线变化、价格分位也有大幅反转。每格约 47–113 场，分组为事后描述且使用了 TotalCorner historical movement 时间，受样本稀疏、响应时间限制与多重比较影响，不能据此创建交易 Gate 或宣称可复现优势。
+
+### 本轮运行与后续
+
+- 当前冻结 manifest 和 63,091 场 forecast 均留在私有路径，公开仓库仅保存汇总、时间分层和 SHA。
+- 原有 schedule discovery 进程 PID 1267 在本节生成时仍存活，并持有 TotalCorner HTTPS 连接；不要启动第二个 schedule/quote 请求。下一次训练应先再次冻结 manifest，以便输入版本与结果哈希一致。
+- M3 Actions 最新成功 `41864900732`；M5 Actions 仍未运行，不构成 M5 自动化验收。此分支代码/结果推送也不等于 Actions 成功。
+- 当前最好实测收益仍是 TotalCorner endpoint AH `+2.766509%`，不足 +5%；MR1 verified cohort AH `-3.344720%`、OU `-5.155280%`。没有市场达到目标。每市场 10,000 个 received-before-kickoff Crown+FT 样本、全 51 联赛历史赛程、当前版本 M1 同价对照和 M5 自动回测仍未完成。
+
+
+### 当前 M1 同价回执补充（2026-11-04T19:30:16Z）
+
+在最新 forecast SHA `8bd28cfd85e08f005ca9a547b89f722fbd78ff8c232bf5387ed041d854c5c431` 上重跑 M1 V23 OU exact quote / verified FT 配对，冻结档案 56 个 eligible fixture 中有 9 场通过 fixture ID、球队、UTC kickoff、Crown OU line/双水位、报价 event 在模型 as-of 后且 kickoff 前、独立 verified FT 的全部精确检查。AH 没有该协议的可比样本。每算法每场 1U：M5 `+0.925U/+10.277778%`，M1 market Poisson `+2.805U/+31.166667%`，calibrated `+3.800U/+42.222222%`，raw `-3.640U/-40.444444%`；市场校准 blend/raw blend 分别等于对应基模型。9 场各模型结算 W/HW/L/HL/P 分类（M5 `4/1/3/0/1`；M1 market Poisson `5/1/2/0/1`；calibrated `6/0/1/1/1`；raw `2/0/5/1/1`）。样本太小，分数不能说明模型泛化或超越 >5% 目标；这不是 M1 production ledger。完整输入哈希只在脱敏 JSON 留存。
+
+## 2026-11-05 再扩样快照：69,171 场 OOS（当前最新）
+
+这是本轮当前权威版本，覆盖前述 63,091 场版本。schedule discovery 持续运行时另冻结快照，UTC `2026-11-04T19:31:40.785863Z`：固定 51 个联赛中 29 个已有 page-1，2,777 个已知页面、2,543 已保存、234 缺失；72,446 个去重 FT 候选，2 组重复身份被排除。manifest SHA-256 `ab5346c7513fa3551c1bd18791e218ec7c557ad91b9b16afadbb66fd5251dfd8`。这是明确的 partial universe。
+
+M5 独立 Poisson 按联赛和 UTC 日历年 walk-forward，产出 **69,171 unique OOS fixture / 309 folds**，2015–2026 各年都有 OOS 预测。逐场文件保存在私有目录，SHA-256 `817370d18a9d60b835d553c15b9d7fcc11bb8cd4c5fc1a1390ccb9ca8760f5a7`；72,446 候选中的 3,275 场未进入可评分 OOS 样本。总体 AH 1X2 代理 Log Loss/Brier `1.00227780/0.59749566`，OU2.5 `0.69502139/0.24967156`，exact score Log Loss `2.95770164`。按 OOS 年切分的 AH/OU Log Loss、Brier 如下；跨年波动存在，不足以证明某一策略稳定盈利。
+
+| UTC 测试年 | OOS 场数 | AH LL | AH Brier | OU LL | OU Brier |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2015 | 4,966 | 1.03563 | 0.61968 | 0.73929 | 0.26399 |
+| 2016 | 4,978 | 0.99841 | 0.59620 | 0.70593 | 0.25526 |
+| 2017 | 5,151 | 0.97670 | 0.58063 | 0.68660 | 0.24620 |
+| 2018 | 5,288 | 0.98887 | 0.58922 | 0.69346 | 0.24955 |
+| 2019 | 5,439 | 1.00168 | 0.59185 | 0.69201 | 0.24820 |
+| 2020 | 4,664 | 1.00901 | 0.60278 | 0.69615 | 0.24974 |
+| 2021 | 6,589 | 1.00926 | 0.60302 | 0.69039 | 0.24814 |
+| 2022 | 6,034 | 0.99173 | 0.59118 | 0.69479 | 0.25012 |
+| 2023 | 7,000 | 1.00546 | 0.59850 | 0.69333 | 0.24940 |
+| 2024 | 6,631 | 0.99474 | 0.59333 | 0.68488 | 0.24569 |
+| 2025 | 6,661 | 1.00570 | 0.60114 | 0.68466 | 0.24565 |
+| 2026 | 5,770 | 1.01105 | 0.60286 | 0.68958 | 0.24788 |
+
+当前 M3 对照仍是同一 7,663 个严格共同 fixture；新 OOS 池扩大的 fixture 不在 M3 CSV 内，故这个交集未变。AH M3 Dixon-Coles `1.01000095/0.60367120`、M5 `1.01223291/0.60523473`；OU M3 Poisson `0.69321624/0.24972808`、M5 `0.69266069/0.24953371`。嵌套权重测试 n=7,252；AH blend `1.00991517/0.60370237`，OU 权重退化为 M5 `0.69147091/0.24898142`。
+
+### 当前 forecast SHA 上的独立 Crown/同价结果
+
+| 样本证据 | AH 比赛 / 模拟注 / 已结算 | AH W/HW/L/HL/P | AH 净收益 / ROI / 最大回撤 | OU 比赛 / 模拟注 / 已结算 | OU W/HW/L/HL/P | OU 净收益 / ROI / 最大回撤 |
+| --- | ---: | --- | --- | ---: | --- | --- |
+| MR1 verified Crown 接收时间赛前 + 独立赛后 FT | 176 / 176 / 176 | 72/10/67/11/16 | `-0.875U / -0.497159% / 12.855U` | 176 / 176 / 176 | 71/11/71/13/10 | `-8.225U / -4.673295% / 19.330U` |
+| TotalCorner endpoint historical movement（响应赛后取回，FT 同响应） | 212 / 212 / 212 | 91/10/80/9/22 | `+5.865U / +2.766509% / 9.620U` | 212 / 212 / 212 | 88/15/81/19/9 | `-0.600U / -0.283019% / 16.060U` |
+| M1 V23 exact same-Crown OU quote + verified FT | AH 无同协议样本 | — | — | 12 / 12 / 12 | 各模型单独列在下文 | M5 `+0.335U / +2.791667%` |
+
+MR1 176 场回放的 quote receipt 在 kickoff 前，FT receipt 在 kickoff 后，fixture identity 精确；它是历史预测回放，不是当时保存的 M5 forecast 或真实投注。M3 在完全相同 Crown 合约的交集 AH n=4，M5 和 M3 各模型均 `+2.02U/+50.5%`；OU n=5，M5 与 M3 Poisson/DC `-1.33U/-26.6%`，M3 bivariate `+0.50U/+10%`。小样本不作为获利证据。
+
+M1 OU 的 12 场同价配对 W/HW/L/HL/P、净收益/ROI 分别是：M5 `5/1/4/1/1`, `+0.335U/+2.791667%`; M1 market Poisson `6/2/3/0/1`, `+3.170U/+26.416667%`; M1 calibrated `8/1/1/1/1`, `+6.015U/+50.125%`; M1 raw `4/0/5/2/1`, `-2.380U/-19.833333%`。两个旧 market-blend 在这 12 场分别复制其 calibrated/raw 对照。样本仅 12 场，且不是 M1 正式账本。
+
+TotalCorner Crown movement 仍然只能作为“source event timestamp 在 kickoff 前的历史报价轨迹”使用，响应发生在赛后，不构成 contemporaneous received-before-kickoff snapshot。它和 MR1 verified received archive 不合并。当前严格 receipt-verified cohort 每市场 176 场、每市场 10,000 场目标仍相差约两个数量级。AH/OU 都没有稳健、独立验证的 >5% ROI；在 12 场 M1 exact subset 的 M1 calibrated +50.125% 也不能外推。
+
+### 当前自动采集状态
+
+schedule discovery PID 1267 在本节生成时仍运行；本地下一次快照应再次核对 51-liga scope 的页数并明确冻结新 manifest，然后重训和复跑所有依赖 forecast SHA 的报告。不得把不同 manifest 版本的候选数、预测数和 Crown ROI 合并。当前 M5 结果已本地生成但尚待本次提交推送；M5 GitHub Actions 没有触发/成功证据。M3 Actions 成功 `41864900732` 仍只属于 M3。生产链路、Telegram、自动模型升级均未触碰。
+
+## 2026-11-05 当前最新快照：73,204 场 OOS / 324 folds
+
+覆盖前面的 69,171 场版本。冻结 manifest UTC `2026-11-04T19:40:31.683513Z`：固定 51 联赛范围已有 30 个 page-1；已知 2,905 页、保存 2,688、缺 217；72,446 个唯一 FT 候选，2 个 identity duplicate groups 被排除；complete historical universe=false。manifest SHA `753c285ffed5cf26fc1900eb9eb9b89ea547f59f54335aca87f90a828bbec949`。
+
+独立 M5 Poisson OOS 预测 **73,204 场 / 324 联赛×UTC 年折**，2015–2026；forecast 仅存本地私有目录，SHA `3ea8adac0d9e5e580c9914370f4f96e8f904889966cc1593a41824db8f3f1469`。AH 1X2 proxy LL/Brier `1.00127342/0.59684815`，OU2.5 `0.69471781/0.24957950`，exact score LL `2.95779534`。候选中 3,465 场无可评分 OOS fold。逐年结果：
+
+| UTC 测试年 | OOS 场数 | AH LL | AH Brier | OU LL | OU Brier |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 2015 | 5,206 | 1.03187 | 0.61728 | 0.73808 | 0.26372 |
+| 2016 | 5,216 | 0.99837 | 0.59621 | 0.70606 | 0.25536 |
+| 2017 | 5,393 | 0.97514 | 0.57960 | 0.68682 | 0.24633 |
+| 2018 | 5,552 | 0.99158 | 0.59114 | 0.69285 | 0.24928 |
+| 2019 | 5,723 | 0.99909 | 0.59020 | 0.69184 | 0.24818 |
+| 2020 | 4,891 | 1.00802 | 0.60207 | 0.69650 | 0.25000 |
+| 2021 | 6,924 | 1.00657 | 0.60135 | 0.69126 | 0.24859 |
+| 2022 | 6,281 | 0.99156 | 0.59103 | 0.69478 | 0.25014 |
+| 2023 | 7,296 | 1.00431 | 0.59774 | 0.69338 | 0.24946 |
+| 2024 | 7,226 | 0.99171 | 0.59108 | 0.68518 | 0.24578 |
+| 2025 | 7,245 | 1.00657 | 0.60169 | 0.68315 | 0.24494 |
+| 2026 | 6,251 | 1.01136 | 0.60319 | 0.68861 | 0.24747 |
+
+M3 同期严格 OOS 共同集不随额外 M5 私有比赛增加，仍为 7,663 场：M3 Dixon-Coles AH proxy `1.01000095/0.60367120`，M5 `1.01223291/0.60523473`；M3 Poisson OU2.5 `0.69321624/0.24972808`，M5 `0.69266069/0.24953371`。嵌套权重验证集 7,252 场；AH blend LL/Brier `1.00991517/0.60370237`，OU 权重退化到 M5 独立模型 `0.69147091/0.24898142`。
+
+### 当前 forecast SHA 对应收益结果
+
+| 样本证据 | AH 赛事/下注/结算 | AH W/HW/L/HL/P | AH 净收益 / ROI / 最大回撤 | OU 赛事/下注/结算 | OU W/HW/L/HL/P | OU 净收益 / ROI / 最大回撤 |
+| --- | ---: | --- | --- | ---: | --- | --- |
+| MR1 verified Crown received-before-kickoff + independent FT | 194/194/194 | 84/12/70/11/17 | `+8.375U / +4.317010% / 12.505U` | 194/194/194 | 81/12/78/13/10 | `-5.455U / -2.811856% / 20.200U` |
+| TotalCorner Crown historical movement (response after FT) | 212/212/212 | 91/10/80/9/22 | `+5.865U / +2.766509% / 9.620U` | 212/212/212 | 88/15/81/19/9 | `-0.600U / -0.283019% / 16.060U` |
+| M1 V23 exact same Crown OU quote + verified FT | AH 不适用 | — | — | 14/14/14 | 按每个模型单列 | M5 `-1.665U / -11.892857%` |
+
+MR1 verified 194 场均在 kickoff 前收到报价，有独立赛后 FT 和唯一身份；这是当前真正带接收时间证据的 Crown 回放。AH 4.317% 未超过目标，OU 为负。TotalCorner 两边报价仅源 event timestamp 在开赛前，但接口响应赛后取得且 FT 同响应；不能把它标记成 pre-match received snapshot。两批不能合并。两市场仍远未达到各 10,000 样本。
+
+M1 current exact quote OU n=14，W/HW/L/HL/P 和净收益/ROI：M5 `5/1/6/1/1`, `-1.665U/-11.892857%`; M1 market Poisson `7/2/4/0/1`, `+3.050U/+21.785714%`; M1 calibrated `9/1/2/1/1`, `+5.895U/+42.107143%`; M1 raw `5/0/6/2/1`, `-2.500U/-17.857143%`。既有两个 blend 与对应 calibrated/raw 结果相同。AH 无符合此 M1 同报价协议样本。14 场比较为描述，不作策略选择依据。
+
+本次所有 M5派生回放 JSON 中的 forecast SHA 均为 `3ea8adac0d9e5e580c9914370f4f96e8f904889966cc1593a41824db8f3f1469`。M3/M5 proper scores、MR1、M1及TotalCorner相互比较时分别遵守同场和时间证据口径；没有跨版本或跨来源合并。

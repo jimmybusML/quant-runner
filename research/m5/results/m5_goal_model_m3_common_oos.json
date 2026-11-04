@@ -1,16 +1,16 @@
 {
   "crown_prices_used": false,
-  "exact_common_fixture_count": 7611,
-  "generated_utc": "2026-11-04T19:09:19.731844+00:00",
-  "incomplete_m3_score_rows_excluded": 1186,
+  "exact_common_fixture_count": 7663,
+  "generated_utc": "2026-11-04T19:46:36.496300+00:00",
+  "incomplete_m3_score_rows_excluded": 1201,
   "m3_models": [
     "poisson",
     "dixon_coles",
     "bivariate_poisson"
   ],
   "m3_prediction_sha256": "9375bdbbb60e7b3c9e71d13bdc7f9e0d6ec57649579a4c2e4a14b9cbf4de8cc0",
-  "m5_model_oos_fixtures_scored": 17599,
-  "m5_private_forecast_sha256": "4fb9799d59e5a856248a00d04343e29e0cce83e9e0780c7ef57d4d6dca84c201",
+  "m5_model_oos_fixtures_scored": 18559,
+  "m5_private_forecast_sha256": "3ea8adac0d9e5e580c9914370f4f96e8f904889966cc1593a41824db8f3f1469",
   "protocol": "M5_PARTIAL_SCOPE_M3_STRICT_OOS_COMMON_FIXTURE_SCORE_V1",
   "result_identity_conflicts_excluded": 26,
   "roi": null,
@@ -18,46 +18,46 @@
   "scores": {
     "AH_1X2_probability_proxy": {
       "bivariate_poisson": {
-        "brier": 0.6038815,
-        "fixtures": 7611,
-        "log_loss": 1.01047677
+        "brier": 0.6037282,
+        "fixtures": 7663,
+        "log_loss": 1.01021695
       },
       "dixon_coles": {
-        "brier": 0.60383377,
-        "fixtures": 7611,
-        "log_loss": 1.01027079
+        "brier": 0.6036712,
+        "fixtures": 7663,
+        "log_loss": 1.01000095
       },
       "m5_independent_goal_rates": {
-        "brier": 0.60606501,
-        "fixtures": 7611,
-        "log_loss": 1.01344007
+        "brier": 0.60523473,
+        "fixtures": 7663,
+        "log_loss": 1.01223291
       },
       "poisson": {
-        "brier": 0.60407905,
-        "fixtures": 7611,
-        "log_loss": 1.0105538
+        "brier": 0.60390806,
+        "fixtures": 7663,
+        "log_loss": 1.01027396
       }
     },
     "OU_O2_5": {
       "bivariate_poisson": {
-        "brier": 0.24960659,
-        "fixtures": 7611,
-        "log_loss": 0.69292919
+        "brier": 0.24976546,
+        "fixtures": 7663,
+        "log_loss": 0.69326355
       },
       "dixon_coles": {
-        "brier": 0.24956606,
-        "fixtures": 7611,
-        "log_loss": 0.69288043
+        "brier": 0.24972945,
+        "fixtures": 7663,
+        "log_loss": 0.69322096
       },
       "m5_independent_goal_rates": {
-        "brier": 0.24948956,
-        "fixtures": 7611,
-        "log_loss": 0.69260889
+        "brier": 0.24953371,
+        "fixtures": 7663,
+        "log_loss": 0.69266069
       },
       "poisson": {
-        "brier": 0.24956476,
-        "fixtures": 7611,
-        "log_loss": 0.6928759
+        "brier": 0.24972808,
+        "fixtures": 7663,
+        "log_loss": 0.69321624
       }
     }
   }

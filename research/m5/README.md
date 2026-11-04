@@ -1,8 +1,8 @@
 # M5 独立融合研究
 
-生成时间：2026-11-05 UTC。M5 是独立研究身份；本目录不连接 M1/MR1/M3 的生产预测、订单、账本或 Telegram。当前已有真实概率前推实验和 M3/M5 的 Crown AH/OU 小样本 OOS 回放，但尚未完成每市场10,000场 Crown 历史收益验证或 M5 Actions 验收。最新完整报告见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)，本轮最新汇总生成于 `2026-11-04T19:08:56Z` UTC。
+生成时间：2026-11-05 UTC。M5 是独立研究身份；本目录不连接 M1/MR1/M3 的生产预测、订单、账本或 Telegram。当前已有真实概率前推实验和 M3/M5 的 Crown AH/OU 小样本 OOS 回放，但尚未完成每市场10,000场 Crown 历史收益验证或 M5 Actions 验收。最新完整报告见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)，当前 M5 forecast 生成于 `2026-11-04T19:46:15Z` UTC，M1 同价配对于 `2026-11-04T19:46:49Z` UTC 重算。
 
-当前综合进度见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)。最新独立 M5 OOS 结果为56,688场/245折，与 M3严格同场概率比较7,611场；TotalCorner Crown endpoint及MR1 verified archive分别 AH/OU各212与387场。早期 M3 AH0/OU2.5（n=24/36）和全比分网格（n=17）仍属另协议小样本。所有ROI均为描述值，每市场10,000场目标远未达到。代码与产物：
+当前综合进度见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)。最新独立 M5 OOS 结果为73,204场/324折，与 M3严格同场概率比较7,663场；TotalCorner Crown endpoint及MR1 verified archive分别 AH/OU各212与194场。早期 M3 AH0/OU2.5（n=24/36）和全比分网格（n=17）仍属另协议小样本。所有ROI均为描述值，每市场10,000场目标远未达到。代码与产物：
 
 - [probability_stack_oos.py](probability_stack_oos.py) → [M3 13,234 场逐季前推概率结果](results/m5_probability_stack_oos.json)
 - [m1_ou_crown_small_archive_replay.py](m1_ou_crown_small_archive_replay.py) → [M1 冻结 Crown OU 小样本回放](results/m1_ou_crown_small_archive.json)
@@ -12,16 +12,16 @@
 - [m3_grid_crown_replay.py](m3_grid_crown_replay.py) → [同期全比分网格与 Crown 任意主盘探索](results/m3_grid_crown_replay.json)
 - [probability_stack_league_oos.py](probability_stack_league_oos.py) → [逐联赛 walk-forward 权重与单模型对照](results/m5_league_local_probability_oos.json)
 - [crown_historical_capture.py](crown_historical_capture.py) → 受限速、断点续跑的私有 TotalCorner 历史研究采集器；原始 Crown 响应必须写到公开仓库之外。本机采集进展与数据仍是私有输入，公开报告只保留聚合信息。
-- [m5_goal_model_oos.py](m5_goal_model_oos.py) → 独立 Poisson 比分分布候选；读取私有完赛赛程清单，按联赛和 UTC 年份前推，仅输出公开聚合指标，逐场预测留在仓库外。已基于当前 partial 输入生成 56,688 场真实 OOS 概率预测；完整 51 联赛历史范围尚未取得。
-- [m5_goal_model_partial_oos.json](results/m5_goal_model_partial_oos.json) → partial scope 下的 245 折 OOS 概率报告，ROI 为 null。
-- [m5_goal_model_m3_comparison.py](m5_goal_model_m3_comparison.py) → M5 独立进球模型与 M3 原版三模型在精确相同 fixture 上作 proper-score 对照；本轮 n=7,611，AH 仅为 1X2 概率代理，Crown ROI 不在此报告。
-- [m5_goal_model_m3_common_oos.json](results/m5_goal_model_m3_common_oos.json) → 7,611 场同样本 M3/M5 指标与来源哈希。
+- [m5_goal_model_oos.py](m5_goal_model_oos.py) → 独立 Poisson 比分分布候选；读取私有完赛赛程清单，按联赛和 UTC 年份前推，仅输出公开聚合指标，逐场预测留在仓库外。已基于当前 partial 输入生成 73,204 场真实 OOS 概率预测；完整 51 联赛历史范围尚未取得。
+- [m5_goal_model_partial_oos.json](results/m5_goal_model_partial_oos.json) → partial scope 下的 324 折 OOS 概率报告，ROI 为 null。
+- [m5_goal_model_m3_comparison.py](m5_goal_model_m3_comparison.py) → M5 独立进球模型与 M3 原版三模型在精确相同 fixture 上作 proper-score 对照；本轮 n=7,663，AH 仅为 1X2 概率代理，Crown ROI 不在此报告。
+- [m5_goal_model_m3_common_oos.json](results/m5_goal_model_m3_common_oos.json) → 7,663 场同样本 M3/M5 指标与来源哈希。
 - [m5_goal_model_oos_blend.py](m5_goal_model_oos_blend.py) → M3 与 M5 概率按 UTC 年嵌套前推拟合融合权重；完整四模型权重回执及 OOS proper score 在 [nested blend result](results/m5_goal_model_nested_blend.json)。AH 1X2 代理、OU2.5 独立拟合，无 Crown ROI。
 - [m5_mr1_crown_oos_replay.py](m5_mr1_crown_oos_replay.py) → 只读地把 M5 逐场预测连接到本机 verified Crown/FT archive，并输出 AH/OU 分开的同场 ROI、赛季、联赛及 M3/MR1 可比样本聚合。
-- [m5_goal_model_mr1_crown_oos.json](results/m5_goal_model_mr1_crown_oos.json) → partial source scope 内 AH/OU 各 387 个严格 Crown/FT 交集的 M5 OOS 回放；不公开逐场数据。
+- [m5_goal_model_mr1_crown_oos.json](results/m5_goal_model_mr1_crown_oos.json) → partial source scope 内 AH/OU 各 194 个严格 Crown/FT 交集的 M5 OOS 回放；不公开逐场数据。
 - [m5_goal_model_totalcorner_crown_partial.json](results/m5_goal_model_totalcorner_crown_partial.json) → TotalCorner Crown endpoint 事件时间来源的独立 212 场/市场 partial 重放；与 MR1 存档样本不混合。
 - [m5_crown_factor_audit.py](m5_crown_factor_audit.py) → 对赛前 quote time、盘线/水位变化做不含逐场明细的分位描述；不是策略筛选器。完整汇总见 [factor audit](results/m5_goal_model_crown_factor_audit.json)。
-- [m5_m1_same_quote_oos_replay.py](m5_m1_same_quote_oos_replay.py) → M1 V23 的OU预测均值与M5在同一 Crown 盘口/水位/verified FT上的精确 fixture 配对回放；当前 n=7，不能外推。结果见 [same-quote report](results/m5_goal_model_m1_same_quote_oos.json)。
+- [m5_m1_same_quote_oos_replay.py](m5_m1_same_quote_oos_replay.py) → M1 V23 的OU预测均值与M5在同一 Crown 盘口/水位/verified FT上的精确 fixture 配对回放；当前 OU n=14（AH无样本），不能外推。结果见 [same-quote report](results/m5_goal_model_m1_same_quote_oos.json)。
 
 ## 可复核数据现状
 
@@ -62,3 +62,15 @@ MR1 全量历史旧基准来自公开 GitHub Actions run `41425306084` 聚合 ar
 要继续到 10,000 场 M5 Crown 回测，需要至少 10,000 个唯一比赛的精确 UTC kickoff、唯一 fixture 身份、Crown 原始两侧 AH/OU 线价及可信赛前 capture/received UTC、FT 来源/时间。用户已确认复用现有合法 Crown 授权；本研究继续限定在 Crown 专属接口并将原始数据留在仓库外。现有真实赛前历史快照只支持报告中已列明的小样本，不能扩写为更大历史覆盖；新增前瞻采集需保留实际接收时间，不能倒填历史价格。
 
 满足数据条件后，M5 必须先固化一个新的独立基线；按 UTC 日期扩展训练/滚动预测，模型参数仅用已发生赛果，避免同日及未来泄漏。AH/OU 分别输出概率校准、Log Loss、Brier、样本数、赛季拆分及 Crown 覆盖。收益回测采用相同 fixture 集合比较可比模型，并按亚洲盘半赢/半输/走水结算；不通过事后门槛筛选追 ROI。
+
+### 最新采集 / 模型快照（2026-11-04T19:46:15Z）
+
+后续扩展版报告已覆盖 76,669 场候选赛程、73,204 场 UTC 时间前推 OOS 预测 / 324 折，仍是不完整的 51 联赛历史清单（30 联赛已分页、217 已知页缺失）。当前版本 forecast SHA `3ea8adac0d9e5e580c9914370f4f96e8f904889966cc1593a41824db8f3f1469`；M3 同场 n=7,663，嵌套融合评估 n=7,252。proper score 不是交易收益。
+
+当前 SHA 上的 Crown 配对：MR1 verified received-before-kickoff + 独立 FT AH/OU 各 194 场，ROI `+4.317010%/-2.811856%`；TotalCorner endpoint historical movement 各 212 场，ROI `+2.766509%/-0.283019%`，但事件时间早于 kickoff 不证明响应当时已收到，不能称为 received-forward 报价。二者不合并。详细覆盖、逐年评分、比分命中、季度因素和哈希见 [最新报告章节](M5_PROGRESS_REPORT_20261104.md)。当前 M1 same-quote OU 精确配对 n=14、AH=0；M5 ROI `-11.892857%`，M1 calibrated `+42.107143%`，样本不足以外推。历史采集进程仍活跃；M5 Actions 未运行、ROI >5% 与 10,000 Crown 样本目标均未达到。
+
+最新 forecast SHA 与完整的 Crown 样本时间分层见 [进度报告](M5_PROGRESS_REPORT_20261104.md) 最后一节；当前 OU M1 同价精确配对为 n=14，AH 为 0。
+
+当前最新 OOS、跨年评分与三类 Crown 时间证据的逐项拆分见进度报告末节（73,204 场 forecast SHA `3ea8adac0d9e5e580c9914370f4f96e8f904889966cc1593a41824db8f3f1469`）。
+
+本轮最新配套回放与 AH/OU 结算表见进度报告末节，MR1 verified sample 各 n=194，TotalCorner historical-event sample 各 n=212，M1 OU exact subset n=14。

@@ -3646,3 +3646,30 @@
 - 当前 M5 代码分支 `codex/m5-oos-crown-expansion` 基点仍为 `ac8f30b`；最新变更尚待语法、JSON、敏感字段、时间序和测试复核，再 commit/push。最终 commit/push UTC 和 SHA 应在提交后补入。本轮没有新的 M5 Actions run ID。
 - 未完成：全 51 联赛赛程覆盖；每市场 10,000 个有合法 Crown 同期报价及 FT 的唯一样本；AH 与 OU 各自 OOS ROI >5%；M5 Actions 定时训练和历史对比实跑验收。不能把 M3 Actions 成功代替 M5 验收。
 - 提交/远端验收：最新 M5 更新已提交并推送到 `codex/m5-oos-crown-expansion`，commit `dcafabea4b8c9b4fdb94415ac30a37ebf67d2872`，本机记录的提交 UTC 为 `2026-11-04T19:16:55Z`（显示时区 Asia/Shanghai）。Push 返回成功；GitHub Actions 未触发。以上代码提交与公开结果落库已完成，但不等于 M5 workflow 成功运行。
+
+## 2026-11-05 M5 持续扩样：当前 63,091 场 forecast 版本
+- 总体授权继续复用既有 Crown 授权；没有请求新授权、输出任何凭证、触及生产模型或 TG。先检查 PID 1267 仍活跃并持有 TotalCorner HTTPS 连接，没有并发启动 collector。schedule manifest 新冻结于 `2026-11-04T19:18:23.607999Z`：51 个固定 scope、26 个已有 page-1、2,493 known / 2,320 saved / 173 missing pages、66,094 unique finished candidates，仍 incomplete；SHA `67af2a975ac20216312fe464ccd4fd58793e5b3092f351bca86495b406857f45`。
+- 最新 M5 年×联赛 walk-forward 训练完成：63,091 unique OOS / 275 folds / 2015–2026 test years。private forecast SHA `8bd28cfd85e08f005ca9a547b89f722fbd78ff8c232bf5387ed041d854c5c431`。AH 1X2 proxy LL/Brier `1.00244361/0.59755777`；OU2.5 `0.69492663/0.24955853`；exact score LL `2.95858364`。3,003 候选没有进入 scored OOS fold；无 Crown prices、ROI null。
+- 当前版本 exact M3 common OOS n=7,663：M3 DC AH LL/Brier `1.01000095/0.60367120`，M5 `1.01223291/0.60523473`；M3 Poisson OU `0.69321624/0.24972808`，M5 `0.69266069/0.24953371`。嵌套权重有 7,252 rows；AH blend `1.00991517/0.60370237`，OU 退化 M5 单模型 `0.69147091/0.24898142`。
+- 当前 forecast SHA 重算 MR1 Crown/verified FT cohort：AH/OU 各 161，AH `-5.385U/-3.344720%`、DD `11.920U`，OU `-8.300U/-5.155280%`、DD `16.945U`。TotalCorner source-time endpoint AH/OU各212，`+2.766509%/-0.283019%`，但 response赛后取得、FT同response，不是真正接收时间赛前存档。M3同价小样本AH n=4 / OU n=5；M1 same quote 的 n=7 JSON绑定旧forecast SHA `4fb9799d…`，本轮未找到/重算对应 M1 私有输入，不能当成当前版本比较。
+- Crown factor audit 已按当前 SHA 重算，只有事后描述性四分位；不是筛选规则。当前分项及时间证据详见最新进度报告末节。M3 Actions `41864900732` 是既有 M3 成功，不是 M5 workflow run。M5 Actions尚未运行，部署/自动化未验收。
+- 公开提交记录当前上一版 `1ecff46e9247d36274a8df9c67c130686f048cc2`；本节新增的 current model replays/report 尚未提交。先完成私有预测时序/哈希复核、文档及安全字段扫描，再提交并推送。仍未达到：全51联赛历史覆盖、AH/OU每市场10,000 verified received-before-kickoff Crown+FT、两市场各 ROI>5%、当前 M1 same-quote复算、M5 workflow验收。
+
+- 随后将 M1 V23 frozen OU exact quote 配对在当前 forecast SHA `8bd28cfd85e08f005ca9a547b89f722fbd78ff8c232bf5387ed041d854c5c431` 上重新运行，M1 eligible 56 场中精确 Crown/FT/as-of 配对 9 场，AH 0。M5 `+0.925U/+10.277778%`；M1 market Poisson `+2.805U/+31.166667%`，calibrated `+3.800U/+42.222222%`，raw `-3.640U/-40.444444%`；小样本只作同价对照，不泛化。
+- 当前版本 MR1 archived-Crown exact replay 实际只有 AH/OU 各 161 场（与上版 n=387 不同，上一版本结果不可沿用）：AH 63/10/64/10/14 W/HW/L/HL/P，`-5.385U/-3.344720%`，DD 11.920U；OU 64/10/65/12/10，`-8.300U/-5.155280%`，DD 16.945U。M3 exact quote intersection AH n=4、OU n=5，均属小样本。
+- 当前版本 M3 common OOS n=7,663，嵌套融合完整 intersection n=7,252；总分和年度表已在最新进度报告末节，README 当前摘要应以该节为准。
+
+
+## 2026-11-05 第四次扩样：69,171 场 M5 OOS
+- 新冻结时间 `2026-11-04T19:31:40.785863Z`，51 个固定联赛中 29 个分页已开始，2,777 known / 2,543 saved / 234 missing pages；72,446 unique FT candidates，identity duplicate groups 2，scope incomplete。manifest SHA `ab5346c7513fa3551c1bd18791e218ec7c557ad91b9b16afadbb66fd5251dfd8`。
+- M5 独立 Poisson OOS 69,171 unique fixture、309 UTC league-year folds，2015–2026 年；私有 forecast SHA `817370d18a9d60b835d553c15b9d7fcc11bb8cd4c5fc1a1390ccb9ca8760f5a7`。AH proxy LL/Brier `1.00227780/0.59749566`，OU2.5 `0.69502139/0.24967156`，exact-score LL `2.95770164`。3,275 候选无可评分 OOS fold。
+- M3 same-fixture n=7,663；嵌套 blend test n=7,252。AH M5 单模型弱于 M3 DC，OU M5 单模型略优于 M3 Poisson；AH blend proper score改善、OU blend权重退化到M5。年度 score 与完整数值见 `research/m5/M5_PROGRESS_REPORT_20261104.md` 末节。
+- 当前同 forecast SHA 的 Crown replay：MR1 verified receipt+独立FT AH/OU各176；AH `-0.875U/-0.497159%`、DD 12.855U；OU `-8.225U/-4.673295%`、DD 19.330U。TotalCorner source-time endpoint各212，AH `+2.766509%`、OU `-0.283019%`，但 response/FT在赛后，不能作 contemporaneous receipt。M1 same-price verified OU n=12，M5 `+0.335U/+2.791667%`，M1 calibrated `+6.015U/+50.125%`，小样本不能泛化；AH n=0。
+- schedule collector PID 1267 在这轮快照时仍活跃；M5 Actions 无 run；M3 Actions `41864900732` 不可替代。新结果和报告本次仍未提交，先做私有逐行时间/身份校验、JSON敏感字段检查、diff 检查，之后更新 commit/push receipt。目标未满足：51联赛完整、AH与OU各10,000 verified Crown+FT fixtures、独立样本外ROI均>5%、Actions验收。
+
+
+## 2026-11-05 当前最新 M5：73,204 场独立 OOS
+- 最后冻结输入 UTC `2026-11-04T19:40:31.683513Z`：范围 51 个联赛，30个有 page-1；2,905 known / 2,688 saved / 217 missing pages；72,446 unique FT candidates；manifest incomplete、重复身份2组。SHA `753c285ffed5cf26fc1900eb9eb9b89ea547f59f54335aca87f90a828bbec949`。
+- 当前 OOS 73,204行、324 folds，UTC years 2015–2026，forecast SHA `3ea8adac0d9e5e580c9914370f4f96e8f904889966cc1593a41824db8f3f1469`。AH 1X2 proxy LL/Brier `1.00127342/0.59684815`，OU2.5 `0.69471781/0.24957950`，exact-score LL `2.95779534`。3,465候选未形成可评分OOS预测。
+- 派生对照已按同SHA重算：M3 common n=7,663；nested fold evaluation n=7,252；M1 exact same-Crown OU n=14, AH=0。MR1 verified receipt + independent FT AH/OU各194；AH `+8.375U/+4.317010%`, DD 12.505U；OU `-5.455U/-2.811856%`, DD 20.2U。TotalCorner movement endpoint AH/OU各212，ROI `+2.766509%/-0.283019%`，但响应赛后、FT同响应，仍不得计为received-forward。
+- M5/Crown派生结果和文档仍待本轮提交/push；M3 75 tests及py_compile已通过；当前私有预测哈希/行数与每个重放都应最终再核一遍。schedule collection PID1267上次检查仍活跃；不要另起并发采集。M5 Actions没触发。最新权威细节见 M5 progress report 最后一节。

@@ -1,60 +1,60 @@
 {
-  "common_strict_oos_fixtures": 7611,
+  "common_strict_oos_fixtures": 7663,
   "crown_prices_used": false,
   "fold_receipts": [
     {
       "test_fixtures": 797,
       "test_year": 2019,
-      "train_fixtures": 359,
+      "train_fixtures": 411,
       "train_test_fixture_keys_disjoint": true
     },
     {
       "test_fixtures": 761,
       "test_year": 2020,
-      "train_fixtures": 1156,
+      "train_fixtures": 1208,
       "train_test_fixture_keys_disjoint": true
     },
     {
       "test_fixtures": 1065,
       "test_year": 2021,
-      "train_fixtures": 1917,
+      "train_fixtures": 1969,
       "train_test_fixture_keys_disjoint": true
     },
     {
       "test_fixtures": 863,
       "test_year": 2022,
-      "train_fixtures": 2982,
+      "train_fixtures": 3034,
       "train_test_fixture_keys_disjoint": true
     },
     {
       "test_fixtures": 1031,
       "test_year": 2023,
-      "train_fixtures": 3845,
+      "train_fixtures": 3897,
       "train_test_fixture_keys_disjoint": true
     },
     {
       "test_fixtures": 985,
       "test_year": 2024,
-      "train_fixtures": 4876,
+      "train_fixtures": 4928,
       "train_test_fixture_keys_disjoint": true
     },
     {
       "test_fixtures": 1003,
       "test_year": 2025,
-      "train_fixtures": 5861,
+      "train_fixtures": 5913,
       "train_test_fixture_keys_disjoint": true
     },
     {
       "test_fixtures": 747,
       "test_year": 2026,
-      "train_fixtures": 6864,
+      "train_fixtures": 6916,
       "train_test_fixture_keys_disjoint": true
     }
   ],
-  "generated_utc": "2026-11-04T19:09:19.869123+00:00",
-  "incomplete_prediction_rows_excluded": 1186,
+  "generated_utc": "2026-11-04T19:46:36.942753+00:00",
+  "incomplete_prediction_rows_excluded": 1201,
   "m3_predictions_sha256": "9375bdbbb60e7b3c9e71d13bdc7f9e0d6ec57649579a4c2e4a14b9cbf4de8cc0",
-  "m5_private_forecasts_sha256": "4fb9799d59e5a856248a00d04343e29e0cce83e9e0780c7ef57d4d6dca84c201",
+  "m5_private_forecasts_sha256": "3ea8adac0d9e5e580c9914370f4f96e8f904889966cc1593a41824db8f3f1469",
   "markets": {
     "AH_1X2_probability_proxy": {
       "bivariate_poisson": {
@@ -68,13 +68,13 @@
         "fixtures": 7252
       },
       "m5_independent_goal_rates": {
-        "fixture_weighted_brier": 0.60665567,
-        "fixture_weighted_log_loss": 1.01429778,
+        "fixture_weighted_brier": 0.60598568,
+        "fixture_weighted_log_loss": 1.01332506,
         "fixtures": 7252
       },
       "m5_walk_forward_blend": {
-        "fixture_weighted_brier": 0.60395241,
-        "fixture_weighted_log_loss": 1.01026866,
+        "fixture_weighted_brier": 0.60370237,
+        "fixture_weighted_log_loss": 1.00991517,
         "fixtures": 7252
       },
       "poisson": {
@@ -95,13 +95,13 @@
         "fixtures": 7252
       },
       "m5_independent_goal_rates": {
-        "fixture_weighted_brier": 0.24914195,
-        "fixture_weighted_log_loss": 0.69184846,
+        "fixture_weighted_brier": 0.24898142,
+        "fixture_weighted_log_loss": 0.69147091,
         "fixtures": 7252
       },
       "m5_walk_forward_blend": {
-        "fixture_weighted_brier": 0.24913458,
-        "fixture_weighted_log_loss": 0.69183147,
+        "fixture_weighted_brier": 0.24898142,
+        "fixture_weighted_log_loss": 0.69147091,
         "fixtures": 7252
       },
       "poisson": {
@@ -118,9 +118,9 @@
   "walk_forward_weights": {
     "2019": {
       "AH": {
-        "bivariate_poisson": 0.67471001,
+        "bivariate_poisson": 0.65070926,
         "dixon_coles": 0.0,
-        "m5_independent_goal_rates": 0.32528999,
+        "m5_independent_goal_rates": 0.34929074,
         "poisson": 0.0
       },
       "OU": {
@@ -130,16 +130,16 @@
         "poisson": 0.0
       },
       "test_fixtures": 797,
-      "train_fixtures": 359,
+      "train_fixtures": 411,
       "train_years": [
         2018
       ]
     },
     "2020": {
       "AH": {
-        "bivariate_poisson": 0.73459831,
+        "bivariate_poisson": 0.66481394,
         "dixon_coles": 0.0,
-        "m5_independent_goal_rates": 0.26540169,
+        "m5_independent_goal_rates": 0.33518606,
         "poisson": 0.0
       },
       "OU": {
@@ -149,7 +149,7 @@
         "poisson": 0.0
       },
       "test_fixtures": 761,
-      "train_fixtures": 1156,
+      "train_fixtures": 1208,
       "train_years": [
         2018,
         2019
@@ -157,10 +157,10 @@
     },
     "2021": {
       "AH": {
-        "bivariate_poisson": 0.48368982,
+        "bivariate_poisson": 0.44933291,
         "dixon_coles": 0.0,
-        "m5_independent_goal_rates": 0.36207683,
-        "poisson": 0.15423335
+        "m5_independent_goal_rates": 0.40927743,
+        "poisson": 0.14138966
       },
       "OU": {
         "bivariate_poisson": 0.0,
@@ -169,7 +169,7 @@
         "poisson": 0.0
       },
       "test_fixtures": 1065,
-      "train_fixtures": 1917,
+      "train_fixtures": 1969,
       "train_years": [
         2018,
         2019,
@@ -178,9 +178,9 @@
     },
     "2022": {
       "AH": {
-        "bivariate_poisson": 0.61911911,
+        "bivariate_poisson": 0.57983298,
         "dixon_coles": 0.0,
-        "m5_independent_goal_rates": 0.38088089,
+        "m5_independent_goal_rates": 0.42016702,
         "poisson": 0.0
       },
       "OU": {
@@ -190,7 +190,7 @@
         "poisson": 0.0
       },
       "test_fixtures": 863,
-      "train_fixtures": 2982,
+      "train_fixtures": 3034,
       "train_years": [
         2018,
         2019,
@@ -200,9 +200,9 @@
     },
     "2023": {
       "AH": {
-        "bivariate_poisson": 0.6333135,
+        "bivariate_poisson": 0.60763307,
         "dixon_coles": 0.0,
-        "m5_independent_goal_rates": 0.3666865,
+        "m5_independent_goal_rates": 0.39236693,
         "poisson": 0.0
       },
       "OU": {
@@ -212,7 +212,7 @@
         "poisson": 0.0
       },
       "test_fixtures": 1031,
-      "train_fixtures": 3845,
+      "train_fixtures": 3897,
       "train_years": [
         2018,
         2019,
@@ -223,9 +223,9 @@
     },
     "2024": {
       "AH": {
-        "bivariate_poisson": 0.31600993,
-        "dixon_coles": 0.30903132,
-        "m5_independent_goal_rates": 0.37495874,
+        "bivariate_poisson": 0.28534403,
+        "dixon_coles": 0.2946898,
+        "m5_independent_goal_rates": 0.41996617,
         "poisson": 0.0
       },
       "OU": {
@@ -235,7 +235,7 @@
         "poisson": 0.0
       },
       "test_fixtures": 985,
-      "train_fixtures": 4876,
+      "train_fixtures": 4928,
       "train_years": [
         2018,
         2019,
@@ -247,19 +247,19 @@
     },
     "2025": {
       "AH": {
-        "bivariate_poisson": 0.30840422,
-        "dixon_coles": 0.31673815,
-        "m5_independent_goal_rates": 0.37485764,
+        "bivariate_poisson": 0.28152187,
+        "dixon_coles": 0.30302597,
+        "m5_independent_goal_rates": 0.41545217,
         "poisson": 0.0
       },
       "OU": {
-        "bivariate_poisson": 0.02535777,
+        "bivariate_poisson": 0.0,
         "dixon_coles": 0.0,
-        "m5_independent_goal_rates": 0.97464223,
+        "m5_independent_goal_rates": 1.0,
         "poisson": 0.0
       },
       "test_fixtures": 1003,
-      "train_fixtures": 5861,
+      "train_fixtures": 5913,
       "train_years": [
         2018,
         2019,
@@ -272,19 +272,19 @@
     },
     "2026": {
       "AH": {
-        "bivariate_poisson": 0.26099199,
-        "dixon_coles": 0.39923459,
-        "m5_independent_goal_rates": 0.33977341,
+        "bivariate_poisson": 0.23648537,
+        "dixon_coles": 0.38012615,
+        "m5_independent_goal_rates": 0.38338848,
         "poisson": 0.0
       },
       "OU": {
-        "bivariate_poisson": 0.02953085,
+        "bivariate_poisson": 0.0,
         "dixon_coles": 0.0,
-        "m5_independent_goal_rates": 0.97046915,
+        "m5_independent_goal_rates": 1.0,
         "poisson": 0.0
       },
       "test_fixtures": 747,
-      "train_fixtures": 6864,
+      "train_fixtures": 6916,
       "train_years": [
         2018,
         2019,
@@ -311,12 +311,12 @@
             "log_loss": 1.00302546
           },
           "m5_independent_goal_rates": {
-            "brier": 0.60604515,
-            "log_loss": 1.01421782
+            "brier": 0.60247292,
+            "log_loss": 1.00892103
           },
           "m5_walk_forward_blend": {
-            "brier": 0.59776118,
-            "log_loss": 1.00222724
+            "brier": 0.59704765,
+            "log_loss": 1.00122592
           },
           "poisson": {
             "brier": 0.59842009,
@@ -336,12 +336,12 @@
             "log_loss": 1.03686399
           },
           "m5_independent_goal_rates": {
-            "brier": 0.62237855,
-            "log_loss": 1.03440827
+            "brier": 0.62252665,
+            "log_loss": 1.03503726
           },
           "m5_walk_forward_blend": {
-            "brier": 0.62219043,
-            "log_loss": 1.03490346
+            "brier": 0.62194366,
+            "log_loss": 1.03448778
           },
           "poisson": {
             "brier": 0.62330824,
@@ -361,12 +361,12 @@
             "log_loss": 1.01106105
           },
           "m5_independent_goal_rates": {
-            "brier": 0.60398803,
-            "log_loss": 1.01289662
+            "brier": 0.60367252,
+            "log_loss": 1.01251738
           },
           "m5_walk_forward_blend": {
-            "brier": 0.60187688,
-            "log_loss": 1.00940475
+            "brier": 0.60175445,
+            "log_loss": 1.00927643
           },
           "poisson": {
             "brier": 0.60356891,
@@ -386,12 +386,12 @@
             "log_loss": 0.9976862
           },
           "m5_independent_goal_rates": {
-            "brier": 0.5975231,
-            "log_loss": 1.0014256
+            "brier": 0.59813484,
+            "log_loss": 1.00241689
           },
           "m5_walk_forward_blend": {
-            "brier": 0.59452893,
-            "log_loss": 0.99711261
+            "brier": 0.5948665,
+            "log_loss": 0.99762026
           },
           "poisson": {
             "brier": 0.59478113,
@@ -411,12 +411,12 @@
             "log_loss": 1.01913063
           },
           "m5_independent_goal_rates": {
-            "brier": 0.60992443,
-            "log_loss": 1.02023467
+            "brier": 0.60800375,
+            "log_loss": 1.01747304
           },
           "m5_walk_forward_blend": {
-            "brier": 0.60845453,
-            "log_loss": 1.01763628
+            "brier": 0.60748537,
+            "log_loss": 1.01632825
           },
           "poisson": {
             "brier": 0.61010344,
@@ -436,12 +436,12 @@
             "log_loss": 1.00416873
           },
           "m5_independent_goal_rates": {
-            "brier": 0.60186447,
-            "log_loss": 1.00655177
+            "brier": 0.60199152,
+            "log_loss": 1.00632602
           },
           "m5_walk_forward_blend": {
-            "brier": 0.59925985,
-            "log_loss": 1.00256937
+            "brier": 0.59922554,
+            "log_loss": 1.00240558
           },
           "poisson": {
             "brier": 0.60060601,
@@ -461,12 +461,12 @@
             "log_loss": 1.0035109
           },
           "m5_independent_goal_rates": {
-            "brier": 0.60433067,
-            "log_loss": 1.010352
+            "brier": 0.60379154,
+            "log_loss": 1.00945924
           },
           "m5_walk_forward_blend": {
-            "brier": 0.60052457,
-            "log_loss": 1.00484702
+            "brier": 0.6003911,
+            "log_loss": 1.00462905
           },
           "poisson": {
             "brier": 0.59982781,
@@ -486,12 +486,12 @@
             "log_loss": 1.01841094
           },
           "m5_independent_goal_rates": {
-            "brier": 0.61057153,
-            "log_loss": 1.0180824
+            "brier": 0.61067792,
+            "log_loss": 1.01835297
           },
           "m5_walk_forward_blend": {
-            "brier": 0.61040056,
-            "log_loss": 1.01744581
+            "brier": 0.61033244,
+            "log_loss": 1.01741637
           },
           "poisson": {
             "brier": 0.61069567,
@@ -513,12 +513,12 @@
             "log_loss": 0.69581665
           },
           "m5_independent_goal_rates": {
-            "brier": 0.25220115,
-            "log_loss": 0.69841182
+            "brier": 0.25147835,
+            "log_loss": 0.69678232
           },
           "m5_walk_forward_blend": {
-            "brier": 0.25220115,
-            "log_loss": 0.69841182
+            "brier": 0.25147835,
+            "log_loss": 0.69678232
           },
           "poisson": {
             "brier": 0.25079172,
@@ -538,12 +538,12 @@
             "log_loss": 0.69596862
           },
           "m5_independent_goal_rates": {
-            "brier": 0.25085283,
-            "log_loss": 0.69555589
+            "brier": 0.25090421,
+            "log_loss": 0.6956546
           },
           "m5_walk_forward_blend": {
-            "brier": 0.25085283,
-            "log_loss": 0.69555589
+            "brier": 0.25090421,
+            "log_loss": 0.6956546
           },
           "poisson": {
             "brier": 0.25075621,
@@ -563,12 +563,12 @@
             "log_loss": 0.69609693
           },
           "m5_independent_goal_rates": {
-            "brier": 0.25121914,
-            "log_loss": 0.69615882
+            "brier": 0.25100447,
+            "log_loss": 0.69563396
           },
           "m5_walk_forward_blend": {
-            "brier": 0.25121914,
-            "log_loss": 0.69615882
+            "brier": 0.25100447,
+            "log_loss": 0.69563396
           },
           "poisson": {
             "brier": 0.25109994,
@@ -588,12 +588,12 @@
             "log_loss": 0.68983279
           },
           "m5_independent_goal_rates": {
-            "brier": 0.24684624,
-            "log_loss": 0.68689593
+            "brier": 0.24701886,
+            "log_loss": 0.68723166
           },
           "m5_walk_forward_blend": {
-            "brier": 0.24684624,
-            "log_loss": 0.68689593
+            "brier": 0.24701886,
+            "log_loss": 0.68723166
           },
           "poisson": {
             "brier": 0.24811903,
@@ -613,12 +613,12 @@
             "log_loss": 0.69281235
           },
           "m5_independent_goal_rates": {
-            "brier": 0.24845479,
-            "log_loss": 0.69004649
+            "brier": 0.24868182,
+            "log_loss": 0.69051653
           },
           "m5_walk_forward_blend": {
-            "brier": 0.24845479,
-            "log_loss": 0.69004649
+            "brier": 0.24868182,
+            "log_loss": 0.69051653
           },
           "poisson": {
             "brier": 0.24974651,
@@ -638,12 +638,12 @@
             "log_loss": 0.68042638
           },
           "m5_independent_goal_rates": {
-            "brier": 0.2451815,
-            "log_loss": 0.68434648
+            "brier": 0.24470593,
+            "log_loss": 0.68328865
           },
           "m5_walk_forward_blend": {
-            "brier": 0.2451815,
-            "log_loss": 0.68434648
+            "brier": 0.24470593,
+            "log_loss": 0.68328865
           },
           "poisson": {
             "brier": 0.24360482,
@@ -663,12 +663,12 @@
             "log_loss": 0.69095929
           },
           "m5_independent_goal_rates": {
-            "brier": 0.24928696,
-            "log_loss": 0.69190725
+            "brier": 0.24904126,
+            "log_loss": 0.69135613
           },
           "m5_walk_forward_blend": {
-            "brier": 0.24924521,
-            "log_loss": 0.69182072
+            "brier": 0.24904126,
+            "log_loss": 0.69135613
           },
           "poisson": {
             "brier": 0.24881892,
@@ -688,12 +688,12 @@
             "log_loss": 0.69329234
           },
           "m5_independent_goal_rates": {
-            "brier": 0.24980177,
-            "log_loss": 0.69294545
+            "brier": 0.24971241,
+            "log_loss": 0.69276473
           },
           "m5_walk_forward_blend": {
-            "brier": 0.24978627,
-            "log_loss": 0.69289673
+            "brier": 0.24971241,
+            "log_loss": 0.69276473
           },
           "poisson": {
             "brier": 0.25011984,
