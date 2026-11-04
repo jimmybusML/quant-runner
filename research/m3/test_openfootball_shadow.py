@@ -81,8 +81,10 @@ class OpenFootballShadowTests(unittest.TestCase):
             with patch.dict(shadow.MODELS, {"poisson": FakeModel}, clear=True):
                 first = shadow.run_shadow(data, [base_fixture, near_fixture], [], {}, "commit-a",
                     datetime(2026, 10, 20, 12, tzinfo=timezone.utc), ledger, output, "test-1")
-                self.assertEqual(first["eligible_future_fixture_identities"], 1)
-                self.assertEqual(first["forecasts_appended"], 1)
+                # The unapproved three-day minimum lead gate was removed.
+                # Both future source dates are eligible for research forecasts.
+                self.assertEqual(first["eligible_future_fixture_identities"], 2)
+                self.assertEqual(first["forecasts_appended"], 2)
                 forecast = json.loads(ledger.read_text().splitlines()[0])
                 self.assertEqual(forecast["market_data_status"], "NO_CROWN_QUOTE_CAPTURED")
                 self.assertEqual(forecast["score_probability_grid"], FakeGrid.grid)
@@ -104,7 +106,7 @@ class OpenFootballShadowTests(unittest.TestCase):
                     datetime(2026, 10, 20, 16, tzinfo=timezone.utc), ledger, output, "test-2")
                 self.assertEqual(second["forecasts_appended"], 0)
                 self.assertEqual(second["superseded_forecasts_appended"], 1)
-                self.assertEqual(second["unique_forecast_keys"], 1)
+                self.assertEqual(second["unique_forecast_keys"], 2)
 
                 settled_data = pd.concat([data, pd.DataFrame([{
                     **training[0], "season": "2627", "match_date_utc": pd.Timestamp("2026-10-23", tz="UTC"),
@@ -119,7 +121,7 @@ class OpenFootballShadowTests(unittest.TestCase):
                 self.assertEqual(third["probability_metrics_by_model"]["poisson"]["n_settled"], 1)
                 all_events = [json.loads(line) for line in ledger.read_text().splitlines()]
                 self.assertEqual([e["event_type"] for e in all_events], ["FORECAST", "FORECAST",
-                    "FORECAST_DUPLICATE_SUPERSEDED", "SETTLEMENT"])
+                    "FORECAST", "FORECAST_DUPLICATE_SUPERSEDED", "SETTLEMENT"])
                 self.assertFalse(all_events[-1]["formal_ledger_write"])
 
 

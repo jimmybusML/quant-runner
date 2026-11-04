@@ -6,6 +6,25 @@
 - M5 报告与 JSON 由本机脚本于 `2026-11-04T15:05Z` 生成；语法编译和样本计数/隔离断言通过。Actions：本次研究提交使用 `[skip ci]`，无 M5 workflow、无 M5 Actions run；因此代码和报告落库已验证，M5 自动 workflow/生产部署均未实现且本阶段不需要。
 - 尚未达到完成目标：没有 10,000 场带赛前 Crown AH/OU 历史价格的唯一赛事，尚无 >5% 的 M5 Crown 样本外 ROI；AH 只有 MR1 旧模型汇总基准，OU 只有 52 场冻结 M1 小样本回放。不要把 13,234 场概率评分误报为 Crown 收益回测，也不要把小样本候选门槛迁移为生产 Gate。下一步需在现有范围内取得可合法复算的更大 Crown 价格/FT 配对与原模型逐场概率，再进行共同样本前推对照。
 
+## 2026-11-05 M3 Crown 授权来源核对与 M5 全比分线探索
+- 用户确认继续使用现有 Crown 数据授权，无需新授权/新 token。对 `quant-runner` GitHub Actions Secret 只读清单显示 `TOTALCORNER_TOKEN` 和 `PRIVATE_REPO_TOKEN` 名称；未读取值。未找到 OddsPapi token/connector/存档。M3 Crown probe 历史成功 run 六次，最新 [39584036612](https://github.com/ljm198964-alt/quant-runner/actions/runs/39584036612)（2026-10-21），属于固定历史 ID 源诊断，不是连续前瞻档案。M3 定时 forward-EV 的赔率端点是明确标注的 TotalCorner default bookmaker，不可当 Crown。M3 独立研究最近成功 Actions [41824869171](https://github.com/ljm198964-alt/quant-runner/actions/runs/41824869171)，2026-11-04；严格 OOS 报告不含 Crown ROI。
+- TotalCorner 官方 API 文档支持 Crown AH/goal-line bookmaker movement API，current Terms of Service（2026-10-27）要求自动数据提取需 prior written consent。用户确认已有授权应复用；公开仓库没有可引用的授权文档/范围记录，因此本轮不新增 API workflow，也不公开逐场价格。无新凭证申请、无 API 请求。细节与边界更新于 `research/m3/M3_CROWN_STAGE_A_B_AUDIT.md`。
+- 公开 M3 strict season-forward CSV 与现有本机 MR1 V23 verified Crown archive 做安全聚合回放：预测报告 UTC `2026-11-04T11:59:53.779352Z`，M3/M5 AH0 24场 `+5.910U/+24.625%`（10k fixture bootstrap 95% `-5.42%–+53.54%`），OU2.5 36场 `-1.660U/-4.611%`（`-36.03%–+26.94%`）。MR1 完全同一盘口/水位/receipt time 且有独立 FT 的子样本 AH n=11：M5 `+3.300U/+30%`、MR1 `+1.700U/+15.45%`；OU n=21：M5 `-5.750U/-27.38%`、MR1 `-5.970U/-28.43%`。只发布 aggregate/hashes，不复制队名、报价或 fixture ID。
+- 全比分网格附加回放代码 `research/m5/m3_grid_crown_replay.py`、结果 `research/m5/results/m3_grid_crown_replay.json` 生成 UTC `2026-11-04T16:04:48.417796Z`；修复 provider 本地比赛日期与 UTC kickoff 日期跨日导致漏配，使用 source ID + exact teams + registered UTC kickoff，verified Crown quote observed/received/kickoff 与预测时间全序核验。2,932 grid hashes 全通过；39 个三模型完整 IDs，18 个有 Crown 主盘和 forecasts，严格 M3 CSV 交集 17/市场。AH `-0.245U/-1.44%`，OU `-3.980U/-23.41%`。因训练历史缓存没有逐 forecast 源内容哈希和赛果可得时间，该网格是探索性同步预测覆盖，不能独立证明训练数据隔离，不能取代 AH0/OU2.5 strict OOS 主结果。
+- 发现 M3 独立研究 README 声明每 4 小时运行，但 workflow 实际 cron 是 UTC 04:00、22:00；已依用户授权频率改为 `0 */4 * * *`。该研究 workflow 不调用 Crown API，不涉及生产链路；推送后将手动运行一次验证并记录真实 run ID。
+- 本轮 M5 代码/JSON/报告本地检查：Python 3.12 编译通过，JSON 样本/结果一致断言通过，44,418 行 strict OOS 预测均满足 `train_end_utc < match_date_utc`，`git diff --check` 通过。M3 全套研究测试首次暴露一条仍断言旧三日 gate 的测试，更新为已授权的无 gate 行为后，75/75 通过。**本轮没有 M5 Actions run**，因为 Crown 匹配使用本地只读档案。提交 SHA、公开 push 和手动 M3 workflow 运行状态待补充。任务仍未达到 10,000 Crown paired sample，未达到独立 AH、OU 都 >5% ROI，不能标记研究系统验收完成。
+
+## 2026-11-04 M5 首个 M3/MR1 同 Crown 盘口 OOS 对照
+- 用户目标保持为 AH/OU 独立、真实赛前 Crown、至少 10,000 场不重复比赛，M5 AH/OU 样本外 ROI 分别 >5%；本轮仅做只读历史研究，不改生产、不发 Telegram、不调用 TotalCorner API、不读取凭证。
+- `research/m5/m3_crown_exact_line_replay.py` 用 M3 公开严格赛季前推 OOS CSV 与本机 MR1 V23 fixture registry 按联赛代码 + UTC kickoff date + 规范化主客队精确连接。候选 122，排除身份键碰撞 1，唯一 121（全为 2026/27，UTC kickoff 2026-10-09 18:45 至 2026-11-02 20:00）。M3 每模型 train_end 早于 kickoff，且模型行赛果/season/train_end 一致。
+- Crown 报价仅接受 `source_bookmaker=crown`、verified 标记、market observed <= received < kickoff，并精确匹配 M3 概率支持的 AH0 或 OU2.5；每场市场选最后一个赛前观测。覆盖 AH 24/121，OU 36/121，两市均有 8。M3/M5 每个可用场次均下注 1U、选两边模型期望收益较高一侧、无 EV 门槛；按 AH0 win/push/loss、OU2.5 win/loss 结算。
+- M3 当前季权重只用此前 OOS 季节历史 14,329 个 fixture 拟合：AH Poisson 24.5037%、DC 51.9078%、Bivariate 23.5884%；OU 100% Bivariate。完整逐季权重仍见 m5_probability_stack_oos.json。
+- M3/M5-Crown 全部可用报价样本：AH 24，M5 +5.910U/+24.625%，12胜5负7走，max DD3U，bootstrap 95% [-5.42%,+53.54%]；OU 36，M5 -1.660U/-4.611%，18胜18负，max DD8.26U，区间 [-36.03%,+26.94%]。AH 数值超过 5% 但极小样本且区间跨零；不满足 10,000 场要求。M3单模型/M5全部同价结果及 proper score 在安全聚合 JSON 中。
+- MR1 同场同盘口线/方向价格/received timestamp 严格一致的候选为 AH24、OU35；另需 MR1 independent verified FT observed after kickoff 后，直接比较共同样本为 AH11、OU21。AH 共同样本 M5 +3.30U/+30.00%、MR1 saved selection +1.70U/+15.45%；OU M5 -5.75U/-27.38%、MR1 -5.97U/-28.43%。区间宽、不能外推；MR1 是研究保存选择，不是正式 TG。
+- M1 旧 Crown OU 小档案与当前报价时间窗口不能形成同盘口同价足够对照，M1/M3 总精确交集仍只有 2；不可把 M1、MR1 与 M5 不同盘口/样本 ROI 直接比较。分联赛细项只是诊断，不能变成筛选条件。
+- 原始 M3 CSV SHA `9375bdbbb60e7b3c9e71d13bdc7f9e0d6ec57649579a4c2e4a14b9cbf4de8cc0`；回放生成 UTC `2026-11-04T15:42:09.893870Z`。结果文件 `research/m5/results/m3_crown_exact_line_replay.json` 仅含汇总/输入哈希/UTC时段，不含球队、逐场价格、fixture ID 或快照原文。MR1 index/quote/forward/FT 稳定性检查均通过。新 Actions run 未触发（使用 `[skip ci]` 推送）。
+- 后续方向：恢复/导出可复算的 M3 完整进球矩阵，以覆盖真实 Crown AH 多种盘口线；OU 目前只匹配 2.5 线。拓展历史 OOS 与 Crown 时点覆盖，持续固定合约样本做逐季比较。此时没有足够证据声称 M5 已满足盈利目标。
+
 ## 2026-11-04 M5 只读复核 MR1 本机 Crown 历史存档
 - 用户指示先审计现有 Crown 相关存档和授权，不要求新授权，不用其他公司价格替代。本轮仅只读本机 `$HOME/QuantAsiaDesk/repos/mr1` 存档，无网络/API/credential 访问；未改私有仓库、正式流程、账本或 Telegram。
 - 公开 quant-runner 研究脚本 `research/m5/mr1_local_crown_replay.py` 将 Crown verified 标记、quote received UTC < kickoff UTC、FT observed UTC > kickoff UTC、fixture identity、MR1 frozen scope 一并校验；每个 fixture/market 取 MR1 已保存最后有效赛前合约，按 1U 亚洲盘结算，输出只含聚合/哈希，不含逐场价格、球队、fixture ID 或原始账本。聚合 JSON：`research/m5/results/mr1_local_crown_replay.json`。
