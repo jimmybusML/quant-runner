@@ -1,0 +1,227 @@
+{
+  "MR1_fixture_registry_sha256": "7d64bc4c437f8bd5958225104f15e39880df32db96d5e31f8d97e9fce57c299f",
+  "MR1_quote_snapshot_hash_set_sha256": "8e8ba8f1e89841775d8a097fcf1ab128b68dd3c9baab83383912e58f55054ace",
+  "MR1_snapshot_index_sha256": "c38af559b487a07c518c65a2fd8333d9494925a6605c11a206f37ad8820cda74",
+  "MR1_verified_FT_hash_set_sha256": "584293c67822ff2f40b0db4c79ca9642bfa9c42d3422b55201e723f16993d69d",
+  "TotalCorner_limitation": "Source event timestamp precedes kickoff, but the historical endpoint response was retrieved after the match and its score is in that response; this is not contemporaneous receipt proof. It is never counted twice when joined with the MR1 receipt-verified cohort.",
+  "TotalCorner_response_hash_set_sha256": "8b8b35e0a18de0a861c37f94553e085abd4221ea6a24c477be3d8b18423a933b",
+  "baseline_forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+  "candidate_forecast_sha256": "fc2abf89b2ac80eb2ba72bf9e992f25eeda11502f2e87cd2bd965b921843d26d",
+  "forecast_fixture_count": 10235,
+  "generated_utc": "2026-11-04T23:06:51.085874+00:00",
+  "markets": {
+    "AH": {
+      "MR1_fixture_count": 317,
+      "TotalCorner_raw_fixture_count": 212,
+      "TotalCorner_unique_additions": 166,
+      "by_evidence_cohort": {
+        "MR1_received": {
+          "baseline": {
+            "full_loss": 128,
+            "full_win": 124,
+            "half_loss": 20,
+            "half_win": 20,
+            "max_drawdown_units_by_quote_event": 25.79,
+            "net_units": -12.96,
+            "push": 25,
+            "roi_pct": -4.088328,
+            "settled_bets": 317,
+            "settlement_brier": 0.6544092,
+            "settlement_log_loss": 1.05273941,
+            "simulated_bets": 317,
+            "unique_fixtures": 317
+          },
+          "recency_candidate": {
+            "full_loss": 125,
+            "full_win": 127,
+            "half_loss": 20,
+            "half_win": 20,
+            "max_drawdown_units_by_quote_event": 20.495,
+            "net_units": -6.765,
+            "push": 25,
+            "roi_pct": -2.134069,
+            "settled_bets": 317,
+            "settlement_brier": 0.64828452,
+            "settlement_log_loss": 1.04382035,
+            "simulated_bets": 317,
+            "unique_fixtures": 317
+          }
+        },
+        "TotalCorner_eventtime_only": {
+          "baseline": {
+            "full_loss": 66,
+            "full_win": 67,
+            "half_loss": 8,
+            "half_win": 6,
+            "max_drawdown_units_by_quote_event": 9.62,
+            "net_units": -4.875,
+            "push": 19,
+            "roi_pct": -2.936747,
+            "settled_bets": 166,
+            "settlement_brier": 0.6607533,
+            "settlement_log_loss": 1.06660966,
+            "simulated_bets": 166,
+            "unique_fixtures": 166
+          },
+          "recency_candidate": {
+            "full_loss": 73,
+            "full_win": 60,
+            "half_loss": 10,
+            "half_win": 4,
+            "max_drawdown_units_by_quote_event": 23.75,
+            "net_units": -20.425,
+            "push": 19,
+            "roi_pct": -12.304217,
+            "settled_bets": 166,
+            "settlement_brier": 0.67225481,
+            "settlement_log_loss": 1.07840308,
+            "simulated_bets": 166,
+            "unique_fixtures": 166
+          }
+        },
+        "deduplicated_union": {
+          "baseline": {
+            "full_loss": 194,
+            "full_win": 191,
+            "half_loss": 28,
+            "half_win": 26,
+            "max_drawdown_units_by_quote_event": 25.79,
+            "net_units": -17.835,
+            "push": 44,
+            "roi_pct": -3.692547,
+            "settled_bets": 483,
+            "settlement_brier": 0.65658957,
+            "settlement_log_loss": 1.05750641,
+            "simulated_bets": 483,
+            "unique_fixtures": 483
+          },
+          "recency_candidate": {
+            "full_loss": 198,
+            "full_win": 187,
+            "half_loss": 30,
+            "half_win": 24,
+            "max_drawdown_units_by_quote_event": 27.665,
+            "net_units": -27.19,
+            "push": 44,
+            "roi_pct": -5.6294,
+            "settled_bets": 483,
+            "settlement_brier": 0.65652276,
+            "settlement_log_loss": 1.05570593,
+            "simulated_bets": 483,
+            "unique_fixtures": 483
+          }
+        }
+      },
+      "deduplicated_fixture_count": 483,
+      "same_fixture_identity_source_overlap": 46
+    },
+    "OU": {
+      "MR1_fixture_count": 317,
+      "TotalCorner_raw_fixture_count": 212,
+      "TotalCorner_unique_additions": 166,
+      "by_evidence_cohort": {
+        "MR1_received": {
+          "baseline": {
+            "full_loss": 118,
+            "full_win": 139,
+            "half_loss": 23,
+            "half_win": 19,
+            "max_drawdown_units_by_quote_event": 20.09,
+            "net_units": 7.1,
+            "push": 18,
+            "roi_pct": 2.239748,
+            "settled_bets": 317,
+            "settlement_brier": 0.63152205,
+            "settlement_log_loss": 1.00331741,
+            "simulated_bets": 317,
+            "unique_fixtures": 317
+          },
+          "recency_candidate": {
+            "full_loss": 122,
+            "full_win": 135,
+            "half_loss": 22,
+            "half_win": 20,
+            "max_drawdown_units_by_quote_event": 22.76,
+            "net_units": -0.355,
+            "push": 18,
+            "roi_pct": -0.111987,
+            "settled_bets": 317,
+            "settlement_brier": 0.63711699,
+            "settlement_log_loss": 1.01106287,
+            "simulated_bets": 317,
+            "unique_fixtures": 317
+          }
+        },
+        "TotalCorner_eventtime_only": {
+          "baseline": {
+            "full_loss": 63,
+            "full_win": 67,
+            "half_loss": 16,
+            "half_win": 12,
+            "max_drawdown_units_by_quote_event": 11.645,
+            "net_units": -2.065,
+            "push": 8,
+            "roi_pct": -1.243976,
+            "settled_bets": 166,
+            "settlement_brier": 0.63744418,
+            "settlement_log_loss": 1.01539404,
+            "simulated_bets": 166,
+            "unique_fixtures": 166
+          },
+          "recency_candidate": {
+            "full_loss": 65,
+            "full_win": 65,
+            "half_loss": 14,
+            "half_win": 14,
+            "max_drawdown_units_by_quote_event": 10.76,
+            "net_units": -3.87,
+            "push": 8,
+            "roi_pct": -2.331325,
+            "settled_bets": 166,
+            "settlement_brier": 0.64912548,
+            "settlement_log_loss": 1.02929439,
+            "simulated_bets": 166,
+            "unique_fixtures": 166
+          }
+        },
+        "deduplicated_union": {
+          "baseline": {
+            "full_loss": 181,
+            "full_win": 206,
+            "half_loss": 39,
+            "half_win": 31,
+            "max_drawdown_units_by_quote_event": 24.105,
+            "net_units": 5.035,
+            "push": 26,
+            "roi_pct": 1.042443,
+            "settled_bets": 483,
+            "settlement_brier": 0.6335574,
+            "settlement_log_loss": 1.00746797,
+            "simulated_bets": 483,
+            "unique_fixtures": 483
+          },
+          "recency_candidate": {
+            "full_loss": 187,
+            "full_win": 200,
+            "half_loss": 36,
+            "half_win": 34,
+            "max_drawdown_units_by_quote_event": 26.6,
+            "net_units": -4.225,
+            "push": 26,
+            "roi_pct": -0.874741,
+            "settled_bets": 483,
+            "settlement_brier": 0.64124413,
+            "settlement_log_loss": 1.01732877,
+            "simulated_bets": 483,
+            "unique_fixtures": 483
+          }
+        }
+      },
+      "deduplicated_fixture_count": 483,
+      "same_fixture_identity_source_overlap": 46
+    }
+  },
+  "protocol": "M5_CROWN_SOURCE_PRIORITY_UNION_OOS_V1",
+  "scope_note": "Partial frozen 51-league M1 scope; strict annual UTC M5 OOS forecasts. AH and OU are separate. Crown prices only; no EV threshold; one 1U simulated bet per unique fixture-market. No rows, identities, teams, odds or credentials are published.",
+  "source_priority": "Deduplicate on normalized league, UTC kickoff date, ordered home and away teams, and market. For cross-source overlap retain the MR1 V23 Crown snapshot with received<kickoff and independent FT. Add only TotalCorner event-time Crown movements whose normalized fixture-market is absent from MR1. This produces one row per fixture and market; source cohorts and the unique union are reported separately."
+}

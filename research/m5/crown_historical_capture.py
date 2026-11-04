@@ -475,7 +475,11 @@ def replay_private_crown(args) -> None:
     from research.m5.m3_grid_crown_replay import expected_return, legs_result, payout, split_line
 
     private_dir = ensure_private_destination(args.private_dir)
-    forecast_path = private_dir / "m5-model-oos" / "m5_goal_model_forecasts.jsonl"
+    forecast_path = args.forecasts or (private_dir / "m5-model-oos" / "m5_goal_model_forecasts.jsonl")
+    forecast_path = forecast_path.expanduser().resolve()
+    repo = Path(__file__).resolve().parents[2]
+    if forecast_path == repo or repo in forecast_path.parents:
+        raise ValueError("per-fixture forecasts must remain outside the public repository")
     if not forecast_path.exists():
         raise FileNotFoundError("private M5 forecast file is missing")
     forecasts = {}
@@ -573,9 +577,12 @@ def replay_private_crown(args) -> None:
             br = sum((distribution[k] - (1.0 if k == actual_category else 0.0)) ** 2 for k in ("win", "half_win", "push", "half_loss", "loss"))
             scores.append((ll, br))
         pnl_by_fixture.sort(key=lambda x: (x[0], x[2]))
+        by_quote_time = defaultdict(float)
+        for quote_time, units, _mid in pnl_by_fixture:
+            by_quote_time[quote_time] += units
         equity = peak = max_dd = 0.0
-        for _time, units, _mid in pnl_by_fixture:
-            equity += units; peak = max(peak, equity); max_dd = max(max_dd, peak-equity)
+        for quote_time in sorted(by_quote_time):
+            equity += by_quote_time[quote_time]; peak = max(peak, equity); max_dd = max(max_dd, peak-equity)
         total = sum(x[1] for x in pnl_by_fixture); bets = len(pnl_by_fixture)
         market_result = {"unique_forecast_fixtures": len(forecasts), "quote_covered_fixtures": bets,
                          "simulated_bets": bets, "settled_bets": bets, "pending_bets": 0,
@@ -618,6 +625,8 @@ def main() -> None:
     replay.add_argument("--private-dir", type=Path, required=True)
     replay.add_argument("--source-timezone", required=True)
     replay.add_argument("--output", type=Path, required=True)
+    replay.add_argument("--forecasts", type=Path,
+                        help="optional private per-fixture forecast file; defaults to private-dir/m5-model-oos")
     replay.set_defaults(func=replay_private_crown)
     args = parser.parse_args()
     if hasattr(args, "min_interval") and args.min_interval < 2.6:

@@ -223,18 +223,23 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
        unitsm=(prices[0]-1 if hg+ag>2.5 else -1) if mside=="over" else (prices[1]-1 if hg+ag<2.5 else -1)
       m3same[model].append((q["observed"],unitsm))
      except (KeyError,ValueError,TypeError):pass
-  entries.sort(key=lambda r:(r["observed"],r["mid"]))
+  by_quote_time=defaultdict(float)
+  for r in entries:by_quote_time[r["observed"]]+=r["units"]
   equity=peak=dd=0.0
-  for r in entries:
-   equity+=r["units"];peak=max(peak,equity);dd=max(dd,peak-equity)
+  for quote_time in sorted(by_quote_time):
+   equity+=by_quote_time[quote_time];peak=max(peak,equity);dd=max(dd,peak-equity)
+  favorite_by_quote_time=defaultdict(float)
+  for r in favorite_entries:favorite_by_quote_time[r["observed"]]+=r["units"]
   favorite_equity=favorite_peak=favorite_dd=0.0
-  for r in sorted(favorite_entries,key=lambda x:(x["observed"],x["mid"])):
-   favorite_equity+=r["units"];favorite_peak=max(favorite_peak,favorite_equity);favorite_dd=max(favorite_dd,favorite_peak-favorite_equity)
+  for quote_time in sorted(favorite_by_quote_time):
+   favorite_equity+=favorite_by_quote_time[quote_time];favorite_peak=max(favorite_peak,favorite_equity);favorite_dd=max(favorite_dd,favorite_peak-favorite_equity)
   def time_bucket_summary(rows):
    ordered=sorted(rows,key=lambda x:(x["observed"],x["mid"]));counts=Counter(x["category"] for x in ordered)
+   time_units=defaultdict(float)
+   for item in ordered:time_units[item["observed"]]+=item["units"]
    equity=peak=drawdown=0.0
-   for item in ordered:
-    equity+=item["units"];peak=max(peak,equity);drawdown=max(drawdown,peak-equity)
+   for quote_time in sorted(time_units):
+    equity+=time_units[quote_time];peak=max(peak,equity);drawdown=max(drawdown,peak-equity)
    bucket_net=sum(x["units"] for x in ordered);bucket_n=len(ordered)
    return {"bets":bucket_n,"full_win":counts["win"],"half_win":counts["half_win"],"full_loss":counts["loss"],"half_loss":counts["half_loss"],"push":counts["push"],"net_units":round(bucket_net,6),"roi_pct":round(100*bucket_net/bucket_n,6) if bucket_n else None,"max_drawdown_units_by_quote_time":round(drawdown,6) if bucket_n else None}
   n=len(entries);net=sum(r["units"] for r in entries)
