@@ -192,8 +192,8 @@ M5 尚未达到完成标准。继续研究需要在既有范围内获得至少 1
 
 ## 2026-11-05 续跑检查与独立进球模型候选
 
-本轮只对公开 M5 研究文件做修改；没有写 M1/MR1/M3 生产仓库、正式账本或 Telegram。由 MR1 V23 registry 校正出的 51 个 M1 一级联赛 ID 清单在本机私有目录，API 历史分页恢复执行。截至本次 checkpoint，至少 10 个联赛已有 page-1 元数据；私有磁盘累计有 762 个 schedule page 文件，已知 page-1 所代表总分页 1,032 页，缺 270 页尚未取回。采集器 checkpoint（本轮重启后的过程统计）为处理 350 页、10,437 行，累计错误 9 次 `TOO_MANY_REQUEST`、1 次 `URLError`、3 次 `SSLError`；之前从本地完整扫描计算的完赛候选估计约 17,571 场。由于分页未完成、响应身份尚未逐项 Crown 核验，候选数不能视作最终覆盖。
+本轮只对公开 M5 研究文件做修改；没有写 M1/MR1/M3 生产仓库、正式账本或 Telegram。由 MR1 V23 registry 校正出的 51 个 M1 一级联赛 ID 清单在本机私有目录，API 历史分页恢复执行。截至最终私有磁盘扫描，10 个联赛已有 page-1 元数据，其已知总分页 1,032 页，已保存 822 页、缺 210 页，共解析 24,570 条 schedule rows；本地条件筛出的完赛候选 ID 约 23,763 个（非 Crown 验证数）。停止进程前 checkpoint 为处理 400 页、11,937 行；累计错误 9 次 `TOO_MANY_REQUEST`、1 次 `URLError`、3 次 `SSLError`。由于分页未完成、报价和逐场身份尚未逐项 Crown 核验，候选数不能视作最终覆盖。
 
 新增 [`m5_goal_model_oos.py`](m5_goal_model_oos.py)，为完全独立的主客进球率 Poisson 候选：每联赛按 UTC 日历年 walk-forward，ridge 只由紧邻的更早验证年选择，产出 15x15 比分分布和 AH/OU 概率；逐场输出强制在仓库外，公开端仅含输入哈希与聚合 proper score。验证了未见球队按队独立采用中性回退，以及预测网格概率总和为 1。已完成语法编译和 40 场合成拟合/概率质量核对；**没有真实历史 OOS 模型结果**，因为 51 联赛候选 manifest 尚未生成。
 
-本地长请求期间出现 TLS 握手挂起，当前前台分页过程已停止。采集器可从已保存页恢复；网络稳定后应先跑完 51 个 league 的 schedule 分页、重试缺页，再从完赛 fixture 精确回填 Crown AH/OU movement 并校对球队、联赛、UTC kickoff 与 FT，最后按严格时间切分生成预测并与赛前报价配对。**本轮没有完成 Crown backfill、真实 M5 ROI、真实 OOS 训练、GitHub Actions run 或 M5 Actions 落库验收；现有 M3/M5-Crown 小样本 n=24/36 仍为最新可报告回放。**
+本地长请求期间出现 TLS 握手挂起，当前前台分页过程已停止。采集器可从已保存页恢复；网络稳定后应先跑完全部 51 个 league 的 schedule 分页、重试缺页，再从完赛 fixture 精确回填 Crown AH/OU movement 并校对球队、联赛、UTC kickoff 与 FT，最后按严格时间切分生成预测并与赛前报价配对。**本轮没有完成 Crown backfill、真实 M5 ROI、真实 OOS 训练、GitHub Actions run 或 M5 Actions 落库验收；现有 M3/M5-Crown 小样本 n=24/36 仍为最新可报告回放。**
