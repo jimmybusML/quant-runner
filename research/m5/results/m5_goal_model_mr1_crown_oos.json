@@ -7,7 +7,7 @@
   "TotalCorner_Crown_response_hash_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "forecast_rows": 127674,
   "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
-  "generated_utc": "2026-11-04T21:48:26.775208+00:00",
+  "generated_utc": "2026-11-04T21:52:22.358206+00:00",
   "limitations": [
     "The source schedule universe is partial, not all 51 frozen scope leagues.",
     "MR1 saved model selections are compared only when decision record, Crown quote source hash, market, line, price and event time match exactly.",
@@ -262,6 +262,56 @@
           "bets": 8,
           "net_units": -1.16,
           "roi_pct": -14.5
+        }
+      },
+      "by_quote_utc_quarter": {
+        "2026-Q3": {
+          "crown_short_price_side_baseline": {
+            "bets": 1,
+            "full_loss": 0,
+            "full_win": 0,
+            "half_loss": 0,
+            "half_win": 0,
+            "max_drawdown_units_by_quote_time": 0.0,
+            "net_units": 0.0,
+            "push": 1,
+            "roi_pct": 0.0
+          },
+          "m5": {
+            "bets": 1,
+            "full_loss": 0,
+            "full_win": 0,
+            "half_loss": 0,
+            "half_win": 0,
+            "max_drawdown_units_by_quote_time": 0.0,
+            "net_units": 0.0,
+            "push": 1,
+            "roi_pct": 0.0
+          }
+        },
+        "2026-Q4": {
+          "crown_short_price_side_baseline": {
+            "bets": 316,
+            "full_loss": 113,
+            "full_win": 139,
+            "half_loss": 17,
+            "half_win": 23,
+            "max_drawdown_units_by_quote_time": 19.085,
+            "net_units": 7.22,
+            "push": 24,
+            "roi_pct": 2.28481
+          },
+          "m5": {
+            "bets": 316,
+            "full_loss": 128,
+            "full_win": 124,
+            "half_loss": 20,
+            "half_win": 20,
+            "max_drawdown_units_by_quote_time": 25.79,
+            "net_units": -12.96,
+            "push": 24,
+            "roi_pct": -4.101266
+          }
         }
       },
       "by_year": {
@@ -567,6 +617,32 @@
           "bets": 8,
           "net_units": -1.24,
           "roi_pct": -15.5
+        }
+      },
+      "by_quote_utc_quarter": {
+        "2026-Q4": {
+          "crown_short_price_side_baseline": {
+            "bets": 317,
+            "full_loss": 128,
+            "full_win": 129,
+            "half_loss": 20,
+            "half_win": 22,
+            "max_drawdown_units_by_quote_time": 22.815,
+            "net_units": -18.59,
+            "push": 18,
+            "roi_pct": -5.864353
+          },
+          "m5": {
+            "bets": 317,
+            "full_loss": 118,
+            "full_win": 139,
+            "half_loss": 23,
+            "half_win": 19,
+            "max_drawdown_units_by_quote_time": 20.09,
+            "net_units": 7.1,
+            "push": 18,
+            "roi_pct": 2.239748
+          }
         }
       },
       "by_year": {

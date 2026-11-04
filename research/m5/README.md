@@ -79,3 +79,5 @@ MR1 全量历史旧基准来自公开 GitHub Actions run `41425306084` 聚合 ar
 - [m5_goal_model_training_support_audit.py](m5_goal_model_training_support_audit.py) → [按先验训练赛数汇总的 OOS proper-score 诊断](results/m5_goal_model_training_support_audit.json)；仅用于研究稀疏历史下的参数收缩，不作为下注筛选。
 
 同一 317 场 MR1 verified Crown 子集新增较低价一侧描述性基准：AH `+2.277603%`、OU `-5.864353%`；M5 分别 `-4.088328%`、`+2.239748%`。这只是同盘口的对照方向，不是策略门槛。详细结算计数与 SHA 见进度报告末节及脱敏 JSON。
+
+时间稳定性审计显示，verified Crown 配对 317 场集中在 2026-Q4（AH 另有 1 场在 Q3 且走水），没有跨年验证。不得把这组聚集样本解释为跨赛季稳定 ROI。

@@ -149,7 +149,7 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
  from research.m5.m3_grid_crown_replay import expected_return,legs_result,payout
  output_markets={}
  for market in ("AH","OU"):
-  entries=[]; favorite_entries=[]; outcomes=Counter(); favorite_outcomes=Counter(); by_year=defaultdict(list); by_league=defaultdict(list); m3same=defaultdict(list); m5same=[]; mr1same=[];proper=[]
+  entries=[]; favorite_entries=[]; outcomes=Counter(); favorite_outcomes=Counter(); by_year=defaultdict(list); by_quarter=defaultdict(list); favorite_by_quarter=defaultdict(list); by_league=defaultdict(list); m3same=defaultdict(list); m5same=[]; mr1same=[];proper=[]
   for (mid,mkt),(q,f,ft) in selected.items():
    if mkt!=market:continue
    grid=f["prediction"]["grid"];prices=q["prices"];line=q["line"]
@@ -159,6 +159,8 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
    hg,ag=int(f["home_goals"]),int(f["away_goals"]);legs,cat=legs_result(market,side,line,hg,ag);units=payout(legs,price)
    row={"observed":q["observed"],"mid":mid,"league":f["league"],"year":q["observed"].year,"units":units,"category":cat}
    entries.append(row);outcomes[cat]+=1;by_year[str(q["observed"].year)].append(units);by_league[f["league"]].append(units)
+   quarter=f"{q['observed'].year}-Q{(q['observed'].month-1)//3+1}"
+   by_quarter[quarter].append(row)
    # Same verified Crown contract and stake, but select the shorter-priced side
    # without looking at model probabilities. This is a descriptive baseline,
    # not a gate or a proposed production rule.
@@ -166,7 +168,8 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
    favorite_side=sides[favorite_idx];favorite_price=prices[favorite_idx]
    favorite_legs,favorite_category=legs_result(market,favorite_side,line,hg,ag)
    favorite_units=payout(favorite_legs,favorite_price)
-   favorite_entries.append({"observed":q["observed"],"mid":mid,"units":favorite_units,"category":favorite_category})
+   favorite_row={"observed":q["observed"],"mid":mid,"units":favorite_units,"category":favorite_category}
+   favorite_entries.append(favorite_row);favorite_by_quarter[quarter].append(favorite_row)
    favorite_outcomes[favorite_category]+=1
    distribution=Counter()
    for gh,gridrow in enumerate(grid):
@@ -227,9 +230,17 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
   favorite_equity=favorite_peak=favorite_dd=0.0
   for r in sorted(favorite_entries,key=lambda x:(x["observed"],x["mid"])):
    favorite_equity+=r["units"];favorite_peak=max(favorite_peak,favorite_equity);favorite_dd=max(favorite_dd,favorite_peak-favorite_equity)
+  def time_bucket_summary(rows):
+   ordered=sorted(rows,key=lambda x:(x["observed"],x["mid"]));counts=Counter(x["category"] for x in ordered)
+   equity=peak=drawdown=0.0
+   for item in ordered:
+    equity+=item["units"];peak=max(peak,equity);drawdown=max(drawdown,peak-equity)
+   bucket_net=sum(x["units"] for x in ordered);bucket_n=len(ordered)
+   return {"bets":bucket_n,"full_win":counts["win"],"half_win":counts["half_win"],"full_loss":counts["loss"],"half_loss":counts["half_loss"],"push":counts["push"],"net_units":round(bucket_net,6),"roi_pct":round(100*bucket_net/bucket_n,6) if bucket_n else None,"max_drawdown_units_by_quote_time":round(drawdown,6) if bucket_n else None}
   n=len(entries);net=sum(r["units"] for r in entries)
   output_markets[market]={"unique_forecast_fixtures":len(forecasts),"verified_quote_covered_fixtures":n,"simulated_bets":n,"settled_bets":n,"full_win":outcomes["win"],"half_win":outcomes["half_win"],"full_loss":outcomes["loss"],"half_loss":outcomes["half_loss"],"push":outcomes["push"],"net_units":round(net,6),"roi_pct":round(100*net/n,6) if n else None,"oos_roi_pct":round(100*net/n,6) if n else None,"max_drawdown_units_by_quote_time":round(dd,6) if n else None,
     "by_year":{y:{"bets":len(v),"net_units":round(sum(v),6),"roi_pct":round(100*sum(v)/len(v),6)} for y,v in sorted(by_year.items())},
+    "by_quote_utc_quarter":{q:{"m5":time_bucket_summary(by_quarter[q]),"crown_short_price_side_baseline":time_bucket_summary(favorite_by_quarter[q])} for q in sorted(by_quarter)},
     "by_league":{k:{"bets":len(v),"net_units":round(sum(v),6),"roi_pct":round(100*sum(v)/len(v),6)} for k,v in sorted(by_league.items())},
     "settlement_log_loss":round(sum(x[0] for x in proper)/len(proper),8) if proper else None,
     "settlement_brier":round(sum(x[1] for x in proper)/len(proper),8) if proper else None,
