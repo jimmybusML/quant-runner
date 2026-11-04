@@ -1,13 +1,13 @@
 {
   "MR1_fixture_registry_sha256": "7d64bc4c437f8bd5958225104f15e39880df32db96d5e31f8d97e9fce57c299f",
-  "MR1_forward_record_sha256_set": "9e44abfcf48f49ec2895a4b6ff6bdea4998c30c068a0db7a7ad7ff7191e3a38e",
-  "MR1_quote_snapshot_hash_set_sha256": "42631a9ed678d27b9bdbe904fb11ddfea0748676bd66e19231af26c235216e2f",
+  "MR1_forward_record_sha256_set": "ad8605020a5ea3ac70dbfb433510e9fe66524bd979f6c5bb26d71db19a4fa0ca",
+  "MR1_quote_snapshot_hash_set_sha256": "b9fe4b9df15f2d022da18facf2541bec340e8fbe5b1351dece31f9889570a678",
   "MR1_snapshot_index_sha256": "c38af559b487a07c518c65a2fd8333d9494925a6605c11a206f37ad8820cda74",
   "MR1_verified_FT_receipts_sha256": "584293c67822ff2f40b0db4c79ca9642bfa9c42d3422b55201e723f16993d69d",
   "TotalCorner_Crown_response_hash_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "forecast_rows": 82377,
-  "forecast_sha256": "1112fe6833c1b6c4f9f6c2826a8b2239aa8821c5bd1a2112c9fd0887b6083853",
-  "generated_utc": "2026-11-04T20:06:33.118186+00:00",
+  "forecast_rows": 87588,
+  "forecast_sha256": "cbfee8bbf5e59599f476d722b03550876c9b56e07ce1f8c8e304b625033224a3",
+  "generated_utc": "2026-11-04T20:18:13.814023+00:00",
   "limitations": [
     "The source schedule universe is partial, not all 51 frozen scope leagues.",
     "MR1 saved model selections are compared only when decision record, Crown quote source hash, market, line, price and event time match exactly.",
@@ -16,9 +16,9 @@
   ],
   "market_quote_rows": {
     "kickoff_mismatch": 41,
-    "no_matching_verified_ft": 31,
-    "verified_AH_snapshot_rows": 1594,
-    "verified_OU_snapshot_rows": 1594
+    "no_matching_verified_ft": 34,
+    "verified_AH_snapshot_rows": 1679,
+    "verified_OU_snapshot_rows": 1679
   },
   "markets": {
     "AH": {
@@ -133,6 +133,11 @@
           "net_units": 1.1,
           "roi_pct": 15.714286
         },
+        "Montenegro Prva Liga": {
+          "bets": 1,
+          "net_units": 0.9,
+          "roi_pct": 90.0
+        },
         "Netherlands Eredivisie": {
           "bets": 9,
           "net_units": -0.96,
@@ -147,6 +152,11 @@
           "bets": 6,
           "net_units": -0.355,
           "roi_pct": -5.916667
+        },
+        "Poland Ekstraklasa": {
+          "bets": 10,
+          "net_units": -1.96,
+          "roi_pct": -19.6
         },
         "Saudi Arabia Pro League": {
           "bets": 8,
@@ -186,20 +196,20 @@
       },
       "by_year": {
         "2026": {
-          "bets": 212,
-          "net_units": 2.645,
-          "roi_pct": 1.247642
+          "bets": 223,
+          "net_units": 1.585,
+          "roi_pct": 0.710762
         }
       },
-      "full_loss": 77,
-      "full_win": 88,
+      "full_loss": 83,
+      "full_win": 93,
       "half_loss": 15,
       "half_win": 11,
-      "max_drawdown_units_by_quote_time": 16.005,
-      "net_units": 2.645,
-      "oos_roi_pct": 1.247642,
+      "max_drawdown_units_by_quote_time": 18.285,
+      "net_units": 1.585,
+      "oos_roi_pct": 0.710762,
       "push": 21,
-      "roi_pct": 1.247642,
+      "roi_pct": 0.710762,
       "same_quote_M3_OOS_models": {
         "bivariate_poisson": {
           "bets": 4,
@@ -227,12 +237,12 @@
         "net_units": 0,
         "roi_pct": null
       },
-      "settled_bets": 212,
-      "settlement_brier": 0.64775939,
-      "settlement_log_loss": 1.04394093,
-      "simulated_bets": 212,
-      "unique_forecast_fixtures": 82377,
-      "verified_quote_covered_fixtures": 212
+      "settled_bets": 223,
+      "settlement_brier": 0.64220498,
+      "settlement_log_loss": 1.03570773,
+      "simulated_bets": 223,
+      "unique_forecast_fixtures": 87588,
+      "verified_quote_covered_fixtures": 223
     },
     "OU": {
       "by_league": {
@@ -343,8 +353,13 @@
         },
         "Malta Premier League": {
           "bets": 7,
-          "net_units": -0.17,
-          "roi_pct": -2.428571
+          "net_units": -0.14,
+          "roi_pct": -2.0
+        },
+        "Montenegro Prva Liga": {
+          "bets": 1,
+          "net_units": -1.0,
+          "roi_pct": -100.0
         },
         "Netherlands Eredivisie": {
           "bets": 9,
@@ -360,6 +375,11 @@
           "bets": 6,
           "net_units": 0.48,
           "roi_pct": 8.0
+        },
+        "Poland Ekstraklasa": {
+          "bets": 10,
+          "net_units": -1.36,
+          "roi_pct": -13.6
         },
         "Saudi Arabia Pro League": {
           "bets": 8,
@@ -399,20 +419,20 @@
       },
       "by_year": {
         "2026": {
-          "bets": 212,
-          "net_units": -0.765,
-          "roi_pct": -0.360849
+          "bets": 223,
+          "net_units": -3.095,
+          "roi_pct": -1.387892
         }
       },
-      "full_loss": 82,
-      "full_win": 91,
-      "half_loss": 14,
-      "half_win": 13,
-      "max_drawdown_units_by_quote_time": 20.3,
-      "net_units": -0.765,
-      "oos_roi_pct": -0.360849,
-      "push": 12,
-      "roi_pct": -0.360849,
+      "full_loss": 87,
+      "full_win": 94,
+      "half_loss": 15,
+      "half_win": 14,
+      "max_drawdown_units_by_quote_time": 20.07,
+      "net_units": -3.095,
+      "oos_roi_pct": -1.387892,
+      "push": 13,
+      "roi_pct": -1.387892,
       "same_quote_M3_OOS_models": {
         "bivariate_poisson": {
           "bets": 5,
@@ -440,12 +460,12 @@
         "net_units": 0,
         "roi_pct": null
       },
-      "settled_bets": 212,
-      "settlement_brier": 0.62886062,
-      "settlement_log_loss": 0.99988205,
-      "simulated_bets": 212,
-      "unique_forecast_fixtures": 82377,
-      "verified_quote_covered_fixtures": 212
+      "settled_bets": 223,
+      "settlement_brier": 0.63322648,
+      "settlement_log_loss": 1.00496078,
+      "simulated_bets": 223,
+      "unique_forecast_fixtures": 87588,
+      "verified_quote_covered_fixtures": 223
     }
   },
   "method": "One unique M5 UTC-year OOS forecast per fixture; latest verified Crown source quote with observed<=received<kickoff and quote observed after prediction_asof; FT independently verified after kickoff; choose the side with higher model expected return and no EV gate; quarter-line split settlement; no duplicated fixture within each market.",

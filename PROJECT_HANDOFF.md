@@ -3689,3 +3689,13 @@
 - 当前分报告需提交/push；同步的页采集仍活跃，当前冻结输入不代表未来页已纳入。M5 Actions未跑。全51范围、10k Crown received-before-kickoff样本、AH/OU独立 ROI>5%仍未达到。
 - 本轮冻结模型之后 schedule collector 仍推进：私有 summary UTC `20:07:32Z`，35 leagues complete、2,745 pages saved，PID1267仍运行；这些后续页面不包含于当前 34/51, 82,377 forecast。下一轮稳定 collector 后重建 manifest，再训练及更新派生结果，不得把后续页数直接加进 OOS 数量。
 - 本次 82,377 场 OOS 及同 SHA Crown 回放结果已提交并推送至 `codex/m5-oos-crown-expansion`，代码/报告 commit `807c71c777d8669992b3c7fabf6c06c45daad489`，本机 commit UTC `2026-11-04T20:09:14Z`；push 成功。不是 M5 Actions 验收。工作树干净性及 remote SHA 应以最后一次查询确认。
+
+
+## 2026-11-05 M5 当前冻结结果与 Crown 授权答复
+- 按用户最新指示继续复用已有 Crown 授权；未请求新授权、未读取/输出 Token 或私有逐笔数据。Crown-only 交易报价约束、M1/M2/MR1 生产隔离、无 Telegram、无新 Gate、无自动模型提升均遵守。TotalCorner movement 源时间与赛后接口响应/FT 的证据差异继续明确区分。
+- 最新冻结 UTC `2026-11-04T20:10:10.780680Z`，partial manifest SHA `06f712fc747e67e5661c77cc07cee9a771d64a77ee4352c5ad25d9b993c9a2dc`；36/51 联赛有分页，3,373 known / 3,220 saved / 153 missing pages，91,636 唯一候选，仍不是完整历史 universe。
+- M5 Poisson strict UTC league-year OOS 87,588 唯一场 / 402 折（2015–2026），预测保存在私有根目录，SHA `cbfee8bbf5e59599f476d722b03550876c9b56e07ce1f8c8e304b625033224a3`。AH 1X2 proxy LL/Brier `1.00519601/0.59916515`；OU2.5 `0.69595984/0.24979692`；exact score LL `2.96181127`。M3 exact common n=7,663，AH M3 DC 优于 M5 单体，OU M5 略优于 M3 Poisson；nested OOS n=7,252，AH blend `1.00991517/0.60370237`，OU blend 权重为 M5 单模型 `0.69147091/0.24898142`。
+- 当前 forecast SHA 上，MR1 verified receipt-before-kickoff Crown + separate FT AH/OU 各223，ROI `+0.710762%/-1.387892%`，最大回撤 `18.285/20.070U`；TotalCorner historical movement endpoint 各212，`+2.766509%/-0.283019%`，但响应和 FT 在赛后，不能当作同期接收的赛前快照；M1 exact same-quote OU n=15，M5 `+7.566667%`，不外推。未达到任一市场 ROI>5% 或每市场10,000个 verified Crown OOS样本。
+- Forecast 私有 JSONL 已校验 87,588 行、比赛 ID 与标准化联赛/日期/主客键均唯一；每行 training cutoff 与 prediction as-of 均早于 kickoff，score-grid 归一化，forecast SHA 与所有 current-SHA 回放一致。M3 75 tests 已由此前执行通过；本轮将重新执行测试与公开结果脱敏扫描。
+- 实际 Actions 复核：默认分支未发现 `m5-independent-research.yml`，本轮无 M5 workflow run，故没有 M5 Actions 成功/结果落库的云端证据。schedule discovery PID 1267 仍运行，后续页未并入本冻结版。当前分支 `codex/m5-oos-crown-expansion`；本节完成提交后记录 commit SHA、UTC 与 remote ref。
+- 尚未完成：固定51联赛完整赛程覆盖；AH/OU 各10,000场 verified contemporaneous Crown quote+FT；两市场各自 OOS ROI>5%；添加/验收M5独立云端训练及版本比较（需按现有用户授权在研究仓库实施，不得连接交易链路）。
