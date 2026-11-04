@@ -131,7 +131,7 @@ def fetch_schedules(args) -> None:
     state = {"last_start": 0.0}
     summary = {"protocol": "M5_CROWN_PRIVATE_SCHEDULE_CAPTURE_V1", "started_utc": utc_now(),
                "league_count": len(leagues), "pages_requested": 0, "pages_saved": 0,
-               "schedule_rows": 0, "in_scope_rows": 0, "unique_fixture_ids": 0,
+               "pages_processed": 0, "schedule_rows": 0, "in_scope_rows": 0, "unique_fixture_ids": 0,
                "page_errors": 0, "api_errors": 0}
     seen_ids: set[str] = set()
     errors = out / "schedule-errors.jsonl"
@@ -191,6 +191,7 @@ def fetch_schedules(args) -> None:
             except Exception:
                 summary["page_errors"] += 1
                 continue
+            summary["pages_processed"] += 1
             for row in rows:
                 if not isinstance(row, dict):
                     continue
@@ -200,6 +201,14 @@ def fetch_schedules(args) -> None:
                 summary["in_scope_rows"] += 1
                 if row.get("id") is not None:
                     seen_ids.add(str(row["id"]))
+            if summary["pages_processed"] % 50 == 0:
+                summary["unique_fixture_ids"] = len(seen_ids)
+                summary["updated_utc"] = utc_now()
+                save_json(out / "schedule-summary.json", summary)
+                print(json.dumps({"pages_processed": summary["pages_processed"],
+                                  "in_scope_schedule_rows": summary["in_scope_rows"],
+                                  "unique_fixture_ids": summary["unique_fixture_ids"],
+                                  "page_errors": summary["page_errors"], "api_errors": summary["api_errors"]}), flush=True)
         print(json.dumps({"league_index": len(summary.get("completed_leagues", [])) + 1,
                           "league_count": len(leagues), "pages_total": pages,
                           "pages_saved": summary["pages_saved"], "page_errors": summary["page_errors"]}), flush=True)
