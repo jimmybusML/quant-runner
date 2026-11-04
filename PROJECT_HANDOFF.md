@@ -3699,3 +3699,4 @@
 - Forecast 私有 JSONL 已校验 87,588 行、比赛 ID 与标准化联赛/日期/主客键均唯一；每行 training cutoff 与 prediction as-of 均早于 kickoff，score-grid 归一化，forecast SHA 与所有 current-SHA 回放一致。M3 75 tests 已由此前执行通过；本轮将重新执行测试与公开结果脱敏扫描。
 - 实际 Actions 复核：默认分支未发现 `m5-independent-research.yml`，本轮无 M5 workflow run，故没有 M5 Actions 成功/结果落库的云端证据。schedule discovery PID 1267 仍运行，后续页未并入本冻结版。当前分支 `codex/m5-oos-crown-expansion`；本节完成提交后记录 commit SHA、UTC 与 remote ref。
 - 尚未完成：固定51联赛完整赛程覆盖；AH/OU 各10,000场 verified contemporaneous Crown quote+FT；两市场各自 OOS ROI>5%；添加/验收M5独立云端训练及版本比较（需按现有用户授权在研究仓库实施，不得连接交易链路）。
+- 最新公开增量已推送：commit `63c4a5737bb29ae307d40e39da2c5c0fb5133624`，提交 UTC `2026-11-04T20:24:02Z`，远端分支 `codex/m5-oos-crown-expansion`。本次公开结果均为无逐场身份/报价的脱敏聚合及摘要；M5 Actions 未触发。
