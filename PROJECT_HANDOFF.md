@@ -1,3 +1,10 @@
+## 2026-11-05 07:40 北京时间 TG控制权纠正及M3/MR1本机故障调查
+- 用户纠正：TG开关开启/关闭只能由用户选择；此前擅自将M3/M4研究通知全部禁用并禁止重新开启，超越授权。用户明确禁止的是结算、战绩、盈亏、研究报告等非比赛订单的自动TG发送。当前 `settings.json` M1/MR1 true、M3/M4 false，是已有设置，未擅自开启。
+- 本机 `~/QuantAsiaDesk/app.py` 已撤销M3/M4开关强制拒绝；恢复M3在用户开启TG时的预测消息 `research_notify.emit_m3` 路径；`research_notify.py` 恢复M3消息发送函数，但M4 `emit_m4` 改为无发送返回，仅后台显示M4研究报告。语法检查通过、本地控制台HTTP200；未发测试TG。需注意M3仍为影子预测，用户可决定是否开启其通知，不得混入正式实战成绩。
+- M3 2026-11-05 06:00（UTC 2026-11-04T22:00）job `20261104T220010Z-ce9d3fd` **failed**：step 8 `totalcorner_shadow_settle` 已新增444影子结算，但step 9 `persist_append_ledger` 报 `immutable existing event mismatch: 444`，账本持久化失败；没有擅自覆盖不可变历史。07:30 job `20261104T233054Z-90c7651` 本条记录时仍running step8，不得宣称完成。需要等当前结算并定位事件冲突具体字段后修复；不能简单删除或改写444历史事件。
+- MR1 2026-11-05 07:30 job `20261104T233044Z-ba54c10` **failed**：step5 `persist-github-state.js` 因无正在执行rebase仍调用 `git rebase --abort` 而退出128。已修改本机 `src/persist-github-state.js` 用merge-base判断是否需要rebase，且仅在rebase失败时尝试abort；Node语法检查通过，**未完成端到端验证**。本机MR1仓库当前master ahead2 behind1且有未提交工作树变动，必须保护历史和数据，不能强制reset/覆盖。
+- 当前两条故障不应被描述为模型预测错误或已全面修复。下一步先保全MR1工作树/远端状态、核对M3正在运行的第8步完成结果，再做真实持久化验证。
+
 ## 2026-11-05 07:29 北京时间 M4 非法研究TG通知：来源核实与本机彻底禁用
 - 用户再次明确：TG **只允许正式比赛投注单**；任何M4研究报告、M3研究预测、结算、战绩、盈亏、运行状态不得发送。此前未完全禁用研究通知是错误。
 - 本机 `~/QuantAsiaDesk/state/research_telegram_receipts.json` 证明 M4 研究报告已经被发送2条：2026-11-04T08:12:48.619626Z message_id=1687、2026-11-04T13:51:15.792685Z message_id=1690。第二条发生在此前禁用研究通知前。当前未发现11月5日新的M4正式发送回执，不能声称今天新发了M4。
