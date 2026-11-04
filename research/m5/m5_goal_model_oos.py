@@ -168,7 +168,11 @@ def build_partial_schedule_manifest(private_dir: Path) -> dict:
     complete_universe = started_leagues == len(leagues) and missing_pages == 0
     grouped_identity = defaultdict(list)
     for row in rows.values():
-        identity = (normalize_identity(row["league"]), row["kickoff_utc"][:10],
+        # Parse source-local or offset-aware kickoff first, then deduplicate on
+        # UTC calendar date. The schedule API's local date can differ across
+        # midnight from the UTC identity used by the OOS forecast evaluator.
+        kickoff_utc = datetime.fromisoformat(row["kickoff_utc"].replace("Z", "+00:00")).astimezone(timezone.utc)
+        identity = (normalize_identity(row["league"]), kickoff_utc.date().isoformat(),
                     normalize_identity(row["home"]), normalize_identity(row["away"]))
         grouped_identity[identity].append(row)
     duplicate_groups = [values for values in grouped_identity.values() if len(values) > 1]

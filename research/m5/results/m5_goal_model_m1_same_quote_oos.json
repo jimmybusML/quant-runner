@@ -1,0 +1,91 @@
+{
+  "M1_observations_sha256": "83929310c0dc0a3b7e62a986513ed19ccd2877fe11f9cf0e5dc2291a7ede69dc",
+  "M1_summary_sha256": "b4e054c8cecd82f7828080d9bea3f5955f54c66531342e016ad3ab3df9a212ce",
+  "M1_verified_FT_receipt_sha256": "ebc8623a2bf126be84c276e700ce7e482678b2f53984b61ad51778b7a05710a4",
+  "crown_prices_used_only": true,
+  "eligible_M1_Crown_fixtures": 56,
+  "exclusions": {
+    "no_exact_m5_fixture_id": 41,
+    "no_verified_ft": 8
+  },
+  "forecast_rows": 56688,
+  "forecast_sha256": "4fb9799d59e5a856248a00d04343e29e0cce83e9e0780c7ef57d4d6dca84c201",
+  "generated_utc": "2026-11-04T19:12:11.863538+00:00",
+  "models": {
+    "crown_market_poisson": {
+      "full_loss": 1,
+      "full_win": 4,
+      "half_loss": 0,
+      "half_win": 1,
+      "net_units": 2.915,
+      "push": 1,
+      "roi_pct": 41.642857,
+      "settled_bets": 7,
+      "simulated_bets": 7,
+      "unique_crown_quote_fixtures": 7
+    },
+    "m1_calibrated": {
+      "full_loss": 1,
+      "full_win": 4,
+      "half_loss": 1,
+      "half_win": 0,
+      "net_units": 2.01,
+      "push": 1,
+      "roi_pct": 28.714286,
+      "settled_bets": 7,
+      "simulated_bets": 7,
+      "unique_crown_quote_fixtures": 7
+    },
+    "m1_raw_base": {
+      "full_loss": 3,
+      "full_win": 2,
+      "half_loss": 1,
+      "half_win": 0,
+      "net_units": -1.64,
+      "push": 1,
+      "roi_pct": -23.428571,
+      "settled_bets": 7,
+      "simulated_bets": 7,
+      "unique_crown_quote_fixtures": 7
+    },
+    "m5_independent_goal_rates": {
+      "full_loss": 2,
+      "full_win": 3,
+      "half_loss": 0,
+      "half_win": 1,
+      "net_units": 1.025,
+      "push": 1,
+      "roi_pct": 14.642857,
+      "settled_bets": 7,
+      "simulated_bets": 7,
+      "unique_crown_quote_fixtures": 7
+    },
+    "market_75pct_calibrated_25pct": {
+      "full_loss": 1,
+      "full_win": 4,
+      "half_loss": 1,
+      "half_win": 0,
+      "net_units": 2.01,
+      "push": 1,
+      "roi_pct": 28.714286,
+      "settled_bets": 7,
+      "simulated_bets": 7,
+      "unique_crown_quote_fixtures": 7
+    },
+    "market_75pct_raw_25pct": {
+      "full_loss": 3,
+      "full_win": 2,
+      "half_loss": 1,
+      "half_win": 0,
+      "net_units": -1.64,
+      "push": 1,
+      "roi_pct": -23.428571,
+      "settled_bets": 7,
+      "simulated_bets": 7,
+      "unique_crown_quote_fixtures": 7
+    }
+  },
+  "protocol": "M5_M1_FROZEN_CROWN_OU_EXACT_QUOTE_OOS_COMPARISON_V1",
+  "scope_note": "M1 frozen expected-total variants converted to Poisson goal-count distributions using the same settlement approach as the existing sanitized M1 archive replay; compared with M5 score-grid probabilities on exact fixture ID, teams, kickoff, Crown line, prices, and verified FT. One unit per fixture for each model. This small retrospective paired sample is not the official M1 production ledger or a broad independent test.",
+  "unique_exact_fixture_quote_ft_pairs": 7
+}

@@ -149,7 +149,7 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
  from research.m5.m3_grid_crown_replay import expected_return,legs_result,payout
  output_markets={}
  for market in ("AH","OU"):
-  entries=[]; outcomes=Counter(); by_year=defaultdict(list); by_league=defaultdict(list); m3same=defaultdict(list); mr1same=[];proper=[]
+  entries=[]; outcomes=Counter(); by_year=defaultdict(list); by_league=defaultdict(list); m3same=defaultdict(list); m5same=[]; mr1same=[];proper=[]
   for (mid,mkt),(q,f,ft) in selected.items():
    if mkt!=market:continue
    grid=f["prediction"]["grid"];prices=q["prices"];line=q["line"]
@@ -185,6 +185,7 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
    code=M3_CODES.get(f["league"]);key=(code,f["kickoff"][:10],norm(f["home"]),norm(f["away"]))
    modelrows=m3.get(key,{})
    if len(modelrows)==3 and line==(0.0 if market=="AH" else 2.5):
+    m5same.append((q["observed"],units))
     for model in MODELS:
      r=modelrows.get(model,{})
      try:
@@ -221,6 +222,7 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
     "settlement_log_loss":round(sum(x[0] for x in proper)/len(proper),8) if proper else None,
     "settlement_brier":round(sum(x[1] for x in proper)/len(proper),8) if proper else None,
     "same_quote_saved_MR1_selection":{"bets":len(mr1same),"net_units":round(sum(x[1] for x in mr1same),6),"roi_pct":round(100*sum(x[1] for x in mr1same)/len(mr1same),6) if mr1same else None},
+    "same_quote_M5_on_M3_contract_fixtures":{"bets":len(m5same),"net_units":round(sum(x[1] for x in m5same),6),"roi_pct":round(100*sum(x[1] for x in m5same)/len(m5same),6) if m5same else None},
     "same_quote_M3_OOS_models":{model:{"bets":len(v),"net_units":round(sum(x[1] for x in v),6),"roi_pct":round(100*sum(x[1] for x in v)/len(v),6) if v else None} for model,v in sorted(m3same.items())}}
  # Guard against concurrent edits while hashing/replaying private read-only sources.
  if index_path.read_bytes()!=idx_raw or reg_path.read_bytes()!=reg_raw:raise RuntimeError("MR1 Crown archive index/registry changed during replay; rerun on a stable snapshot")

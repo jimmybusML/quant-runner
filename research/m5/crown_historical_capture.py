@@ -487,7 +487,16 @@ def replay_private_crown(args) -> None:
             continue
     zone = ZoneInfo(args.source_timezone)
     result = {"protocol": "M5_PRIVATE_CROWN_OOS_REPLAY_V1", "generated_utc": utc_now(),
-              "forecast_rows": len(forecasts), "markets": {}}
+              "forecast_rows": len(forecasts), "forecast_sha256": hashlib.sha256(forecast_path.read_bytes()).hexdigest(),
+              "markets": {}}
+    manifest_receipt = private_dir / "schedule-partial-manifest-receipt.json"
+    if manifest_receipt.exists():
+        try:
+            receipt = json.loads(manifest_receipt.read_text(encoding="utf-8"))
+            result["source_manifest_sha256"] = receipt.get("manifest_sha256")
+            result["source_manifest_is_complete_historical_universe"] = bool(receipt.get("complete_historical_universe"))
+        except Exception:
+            result["source_manifest_sha256"] = None
     input_hashes = set()
     for market, list_key in (("AH", "asian_list"), ("OU", "goal_list")):
         selected = {}

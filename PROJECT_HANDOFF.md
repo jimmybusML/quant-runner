@@ -3626,3 +3626,22 @@
 - Crown collector 停止时进度文件记为 300/23,812 requests processed，298个精确 Crown identities、传输错误2，AH/OU有效movement各212。该检查点指旧 23,812 forecast 候选，而本次重放覆盖重用的 Crown response 与最新34,322预测精确交集；collector 已退出。schedule cache 后续仍由 PID 1267 运行，本轮未停止或启动并发 collector。
 - 更新研究报告及 M5 README。Python 语法编译与 diff whitespace 校验通过；**未触发 M5 GitHub Actions、未提交/推送本次更改**，故当前没有新 commit 或新 Actions run ID。最近 M3 Actions仍为 `41864900732` SUCCESS，不能代替 M5 验收。仍未满足全 51 联赛历史覆盖、每市场 Crown n=10,000、Crown AH与OU OOS ROI均>5%、自动训练/版本比较 Actions 持续运行与公开 Actions 落库。
 - 全程只保留公开代码和不含价格/ID的聚合/哈希；逐场forecast与API response留在仓库外私有目录。没有使用其他博彩公司交易价，未修改 M1/M2/MR1/M3 生产，未改 Gate、模型晋级或 Telegram。
+
+## 2026-11-05 M5 第三次 partial 历史扩样与 M1 同价对照
+- schedule manifest冻结于 UTC `2026-11-04T18:40:09.503603Z`，固定 51 个 M1 一级联赛 ID 中19个已开始分页；已知1,871页中已有1,676、缺195。候选47,496 unique FT fixture，按UTC日/league/规范化主客队排除重复身份2组/4行，manifest SHA `87d5c5d7560aa740a6209ae8c91851dfa653f6517af6b6e06a6b232df24e3215`，仍不完整。
+- 新严格 UTC 年度前推 run 190 folds、45,240 OOS fixture。forecast SHA `8b36e7753c5ae55814f7878411cc4c5befeaeb1fc394bd1bb3a1ce58ff31f9f3`。AH proxy LL/Brier `1.00484221/0.59932383`，OU2.5 `0.69396022/0.24954746`，exact score LL `2.95909737`。M3 same exact OOS fixture comparison n=7,057；M5独立 Poisson AH未胜M3 DC，OU proper score略胜M3 Poisson。M3/M5 nested blend scored n=6,698，AH略优单模型、OU权重退化为M5独立单模型。
+- MR1 V23 Crown + verified FT 同forecast复算覆盖AH/OU各327场：AH +1.125U/+0.344037%，DD 13.405U；OU -21.280U/-6.507645%，DD 28.420U。TotalCorner历史 endpoint exact Crown movement样本仍AH/OU各212，+2.766509%/-0.283019%；FT来自同一TotalCorner match response，非独立 receipt，不与MR1 archive合并。
+- 新增 M1 OU same quote report `m5_goal_model_m1_same_quote_oos.json`：M1 V23 冻结 archive 的56个 eligible Crown观察中，只有6场可精确连接 M5 OOS fixture、球队、UTC kickoff、同一 Crown线/水位及 M1 verified FT，且 Crown event晚于 M5 forecast as-of。六场每模型各一注：M5独立Poisson +2.025U/+33.75%，M1 Crown market Poisson +2.055U/+34.25%，M1 calibrated +1.150U/+19.166667%，M1 raw -2.500U/-41.666667%。仅样本配对审计，n=6，不能外推或与 MR1 327场合并。
+- 新增 `m5_crown_factor_audit.py` 对 TotalCorner Crown endpoint n=212 做quote年龄/价位/盘线变动/水位变动描述性分位审计。不是预注册、不是OOS策略，也没有新增筛选门槛。
+- 最近本地 schedule 进程 PID 1267 仍存活，summary至 `18:45:07Z` 有19个完成league、1328页处理、7个page errors；此前cache仅低频增加，并仍使用同一API速率窗口。不要在该进程存活时启动第二个TotalCorner collector。当前所有M5逐场预测与原始quote仍在repo外。
+- 最新结果、脚本、报告已更新；最近变更仍待提交到分支 `codex/m5-oos-crown-expansion`。本阶段没有M5 Actions run，不能称持续任务或云端结果落库验收。45,240预测数达到10k只是概率样本，不满足每市场至少10k真实 Crown历史报价+FT；AH/OU ROI均未超过5%。
+
+## 2026-11-05 M5 最新 OOS 与 Crown 证据分层续交
+- 本轮继续使用用户已确认的现有授权与本机私有数据；没有请求新授权、读取或公开 token、向 M1/M2/MR1 生产系统写入、改动 Telegram 或添加任何交易 Gate。TotalCorner、OddsPapi、Crown 接口/Secrets 的既有审计见 M3 Crown audit；可见 Secret 名称仅为 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN`，未读取 Secret 值或找到可复用的 OddsPapi 凭据/档案。
+- 赛程输入于 UTC `2026-11-04T19:04:37.678707Z` 冻结：固定 M1 scope 51 个联赛，23 个已开始分页；2,244 个已知页中保存 2,087、缺 157；59,398 个唯一完赛候选，manifest SHA `31e102f1d7e725180426c083bfd41c1ac8779d200b52a4b3cd399c3e3ebaabc5`，历史宇宙仍不完整。
+- M5 独立 UTC 年×联赛 walk-forward Poisson：56,688 个唯一 OOS 预测、245 折，私有预测 SHA `4fb9799d59e5a856248a00d04343e29e0cce83e9e0780c7ef57d4d6dca84c201`；AH 1X2 proxy LL/Brier `1.00110378/0.59645491`，OU2.5 `0.69574444/0.24993771`，exact score LL `2.96542764`。这是概率质量评估、无 Crown price、ROI null。严格 M3 同场 n=7,611；嵌套融合 n=7,611，OU 未超过 M3 Poisson；细节见 `research/m5/M5_PROGRESS_REPORT_20261104.md` 与脱敏 JSON。
+- Crown cohorts 保持分离：TotalCorner Crown endpoint historical movement AH/OU 各212，分别 `+2.766509%/-0.283019%`，源事件时间赛前但响应赛后、FT同响应；MR1 V23 verified Crown + 独立赛后 FT AH/OU 各387，分别 `-4.852713%/-8.487080%`，最大回撤 `20.24U/39.63U`；M1 精确同价交集 OU n=7，M5 `+1.025U/+14.642857%`。另有 M3 同 MR1 报价 n=5 AH/n=10 OU，属于极小子样本。均不能合并/外推，也不是实时下注结果。
+- Crown Factor audit 已使用当前 56,688 预测版本重跑，输出仅有聚合、源哈希与脱敏分组；分位仅描述、不是交易 Gate。最新完整报告与时间分类见 `research/m5/M5_PROGRESS_REPORT_20261104.md`。
+- M3 自动流程最近一次真实成功仍为 Actions `41864900732`（2026-11-04T16:16:39Z，12/12 tasks）；数据/模型指纹未变、无新增学习信息。M5 Actions 没有运行，本轮不是自动化验收。schedule page discovery 本地 PID 1267 仍运行，勿启动并行 TotalCorner 请求；当前模型使用冻结 partial manifest，不自动包含后续下载。
+- 当前 M5 代码分支 `codex/m5-oos-crown-expansion` 基点仍为 `ac8f30b`；最新变更尚待语法、JSON、敏感字段、时间序和测试复核，再 commit/push。最终 commit/push UTC 和 SHA 应在提交后补入。本轮没有新的 M5 Actions run ID。
+- 未完成：全 51 联赛赛程覆盖；每市场 10,000 个有合法 Crown 同期报价及 FT 的唯一样本；AH 与 OU 各自 OOS ROI >5%；M5 Actions 定时训练和历史对比实跑验收。不能把 M3 Actions 成功代替 M5 验收。
