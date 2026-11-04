@@ -3702,3 +3702,11 @@
 - 最新公开增量已推送：commit `63c4a5737bb29ae307d40e39da2c5c0fb5133624`，提交 UTC `2026-11-04T20:24:02Z`，远端分支 `codex/m5-oos-crown-expansion`。本次公开结果均为无逐场身份/报价的脱敏聚合及摘要；M5 Actions 未触发。
 - 增补训练支持度诊断脚本/汇总：少于20场训练的历史折 n=126，AH 1X2 proxy LL/Brier `1.92165/0.80607`、OU2.5 `1.80664/0.41598`；训练>=250折 n=78,205，分别 `1.00155/0.59757` 与 `0.69003/0.24808`。仅作事后 OOS 描述，研究层级收缩，不作为投注门槛。采集 PID 1267 尚未结束，等待完成后再冻结新 manifest。
 - 支持度诊断增量已推送：`b5d1785f88b54baa4cf00730bd76cb8ecc9c692c`，研究代码和脱敏汇总已入库；该提交没有触发 M5 Actions。
+
+## 2026-11-05 M5 新冻结：127,674 场 OOS
+- 原 schedule discovery 进程 PID 1267 已自然结束。冻结 manifest UTC `2026-11-04T21:29:25.511926Z`，固定 51/51 league IDs 有 page-1；4,789 known / 4,660 saved / 129 missing pages；133,140 唯一 FT 候选，排除6组/12重复行；`complete_historical_universe=false`；manifest SHA `258702e669bd5c1569b16bc191ce66e7117a368f409c3028572de5fd9186d0bf`。采集 summary 4,235 saved pages、126,455 schedule IDs、11 page errors。
+- M5 OOS 重训完成：127,674 unique fixtures / 584 UTC league-year folds，2014–2026；私有 forecast SHA `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`。AH 1X2 proxy LL/Brier `1.01485592/0.60611273`；OU2.5 `0.69625130/0.25025289`；exact-score LL `2.95638939`。
+- 本SHA依赖报告已重算：M3 exact common 7,663、nested 7,252；MR1 verified Crown received-before-kickoff + independent FT AH/OU各317，ROI `-4.088328%/+2.239748%`，DD `25.790U/20.090U`；TotalCorner endpoint event-time cohort各212 `+2.766509%/-0.283019%`（响应/FT赛后，不是赛前收价）；M1 same Crown expected-total OU exact subset n=23，M5 `-8.804348%`，M1 Crown market Poisson `+9.043478%`。不可合并/外推。
+- OOS训练支持诊断最新SHA上：<20训练赛数 n=316，AH `1.659212/0.858306`、OU `1.266332/0.367378` (LL/Brier)；>=250 n=114,094，AH `1.010514/0.603886`、OU `0.690869/0.248530`。这是事后分组，不是投注门槛。
+- M5 Actions 未存在/未运行；本轮本地执行和报告更新不等于云端自动化成功。所有逐场 forecast 在私有目录，公共仓库仅脱敏聚合与哈希。新结果提交/推送后需补具体 commit SHA 和 UTC 回执。
+- 目标仍未达：complete scope、每个市场至少10,000个 verified pre-kickoff Crown+FT样本、AH与OU OOS ROI各自严格>5%。
