@@ -77,6 +77,7 @@ MR1 全量历史旧基准来自公开 GitHub Actions run `41425306084` 聚合 ar
 
 说明：最后训练输入冻结在 34/51 leagues；报告生成后 schedule collector 又记录 35 leagues complete / 2,745 saved pages（20:07:32Z），尚未纳入该 forecast，须待后续冻结并重训。
 - [m5_goal_model_training_support_audit.py](m5_goal_model_training_support_audit.py) → [按先验训练赛数汇总的 OOS proper-score 诊断](results/m5_goal_model_training_support_audit.json)；仅用于研究稀疏历史下的参数收缩，不作为下注筛选。
+- [M5 近期赛果加权候选报告](M5_RECENCY_MODEL_CROWN_OOS_20261105.md) → 每联赛只用 2025 赛果选半衰期、2026 逐联赛严格 UTC OOS：10,235 场同场样本 AH 1X2 proper score 小幅改善，OU 略差；与同一 317 场已验证 Crown AH/OU 样本配对后，ROI 为 AH -2.134069%、OU -0.111987%，均未超过 +5%。[模型分数及联赛结果](results/m5_goal_model_recency_2026_oos.json)、[Crown/FT 回放](results/m5_goal_model_recency_2026_crown_oos.json)。候选逐场预测仍在仓库外。
 
 同一 317 场 MR1 verified Crown 子集新增较低价一侧描述性基准：AH `+2.277603%`、OU `-5.864353%`；M5 分别 `-4.088328%`、`+2.239748%`。这只是同盘口的对照方向，不是策略门槛。详细结算计数与 SHA 见进度报告末节及脱敏 JSON。
 
