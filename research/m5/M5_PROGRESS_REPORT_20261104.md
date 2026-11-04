@@ -26,6 +26,8 @@ M1 与 M3 的现存资料仅有 **2 场**通过精确“联赛代码 + UTC 日�
 
 脚本：[`probability_stack_oos.py`](probability_stack_oos.py)。输入来自 M3 最新严格前推 CSV，源报告生成于 2026-11-04T11:59:53.779Z。源文件包含 17,151 场唯一测试赛事，其中 14,806 场三模型都生成有效预测；第一次可训练历史权重的 OOS 季为 2019/20，因此留出该最早预测季后，逐赛季评估共有 **13,234 场**。唯一赛事键为联赛、UTC 日期、主队、客队。所有三个模型行均核对赛果/赛季一致、概率向量归一化且唯一。
 
+随后 Actions run [41864900732](https://github.com/ljm198964-alt/quant-runner/actions/runs/41864900732) 于 `2026-11-04T16:16:39.480507Z` 再训练和比较，输入 fingerprint、测试身份及 penaltyblog 版本均未变，9 个模型/市场 score comparison 的差异均为 0，确认此次运行没有新增学习信息。预测文件 SHA 保持 `9375bdbb…`，因此下面的 OOS 堆叠及 Crown replay 输入仍对应同一预测集合。
+
 每个测试赛季的融合权重由更早赛季的 OOS 预测和实际赛果拟合，非负且和为 1；同季行不进入拟合。没有依 ROI 选权重，没有调 Crown 赔率门槛。多分类 1X2/AH0 Brier 使用三类平方误差和；OU Brier 使用二元 O2.5 平方误差。
 
 | 独立市场/指标 | M3 Poisson | M3 Dixon-Coles | M3 Bivariate | M5 逐季前推融合 |
