@@ -519,3 +519,7 @@ M3 严格 OOS 完整模型预测与 M5 仅精确共同匹配 7,663 场，AH 为 
 MR1 verified archive 的 market quote rows 各有 1,679 条候选 snapshot，因 kickoff mismatch 41、没有匹配 verified FT 34 等原因，最终每市场仅覆盖 223 场；相对于 87,588 个 forecast fixtures，覆盖率约 0.255%。TotalCorner endpoint 仅覆盖 212 场/市场，约 0.242%。AH/OU 必须分开解释；没有把 event time 当成 receive time，也没有合并两类 Crown 样本。现有可验证 Crown ROI 均未达到用户目标的两个市场分别 >5%，也没有市场达到每市场 10,000 个有效赛前 Crown 价格与 FT 样本。
 
 M5 含未来功能的自动化验收仍未完成：远端不存在 `m5-independent-research.yml`，本轮没有对应 M5 Actions run，因此不能称为云端自动训练、版本比较或结果落库成功。已有本地训练命令和派生报告可重跑；报告绑定 manifest、forecast 与模型来源 SHA。schedule discovery PID 1267 在本报告检查时仍在运行；后续新增页没有进入本冻结版，须等待单一采集进程稳定后再冻结及重训。未改动 M1/M2/MR1 生产链路、Telegram、任何 Gate 或正式模型选择。
+
+## OOS 历史支持度诊断
+
+对当前 forecast SHA 做事后分组，AH 使用 1X2 概率代理，OU 使用 O2.5 概率；分组变量仅为每个 OOS 折此前实际训练赛数，不参与下注筛选或模型权重选择。仅有 126 场预测落在训练历史少于 20 场的组，但该组评分显著较差：AH LL/Brier `1.92165/0.80607`，OU `1.80664/0.41598`；训练赛数至少 250 的 78,205 场组分别为 AH `1.00155/0.59757`、OU `0.69003/0.24808`。此差异提示极稀疏训练折的 team effect 方差可能过高，值得后续测试层级/跨联赛先验收缩；这只是诊断，不是新门槛，也不是 Crown 盈利证据。可用 [support audit script](m5_goal_model_training_support_audit.py) 和 [aggregate output](results/m5_goal_model_training_support_audit.json) 重现。

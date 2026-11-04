@@ -1,0 +1,54 @@
+{
+  "ROI": null,
+  "ah_definition": "Three-way 1X2 probability proxy; not Asian handicap contract settlement.",
+  "crown_prices_used": false,
+  "forecast_sha256": "cbfee8bbf5e59599f476d722b03550876c9b56e07ce1f8c8e304b625033224a3",
+  "generated_utc": "2026-11-04T20:43:24.683609+00:00",
+  "interpretation": "Post-hoc descriptive score audit only. Bins are not betting filters, model selection criteria, or independent ROI evidence.",
+  "maximum_training_fixtures": 4610,
+  "minimum_training_fixtures": 2,
+  "protocol": "M5_OOS_TRAINING_SUPPORT_SCORE_AUDIT_V1",
+  "support_bins": {
+    "0-19": {
+      "ah_brier": 0.80607102,
+      "ah_log_loss": 1.92164559,
+      "exact_score_log_loss": 5.81490308,
+      "fixtures": 126,
+      "ou_brier": 0.41597536,
+      "ou_log_loss": 1.80663533
+    },
+    "100-249": {
+      "ah_brier": 0.61534723,
+      "ah_log_loss": 1.0303263,
+      "exact_score_log_loss": 2.98601219,
+      "fixtures": 6504,
+      "ou_brier": 0.260222,
+      "ou_log_loss": 0.72759278
+    },
+    "20-49": {
+      "ah_brier": 0.61518045,
+      "ah_log_loss": 1.05062145,
+      "exact_score_log_loss": 3.07954359,
+      "fixtures": 458,
+      "ou_brier": 0.27848342,
+      "ou_log_loss": 0.7904484
+    },
+    "250+": {
+      "ah_brier": 0.59757456,
+      "ah_log_loss": 1.00155426,
+      "exact_score_log_loss": 2.95113776,
+      "fixtures": 78205,
+      "ou_brier": 0.24807672,
+      "ou_log_loss": 0.69002538
+    },
+    "50-99": {
+      "ah_brier": 0.5929512,
+      "ah_log_loss": 0.99869407,
+      "exact_score_log_loss": 3.07680373,
+      "fixtures": 2295,
+      "ou_brier": 0.264022,
+      "ou_log_loss": 0.72870193
+    }
+  },
+  "unique_forecast_fixtures": 87588
+}

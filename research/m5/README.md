@@ -76,3 +76,4 @@ MR1 全量历史旧基准来自公开 GitHub Actions run `41425306084` 聚合 ar
 本轮最新配套回放与 AH/OU 结算表见进度报告末节，MR1 verified sample 各 n=212，TotalCorner historical-event sample 各 n=212，M1 OU exact subset n=15。
 
 说明：最后训练输入冻结在 34/51 leagues；报告生成后 schedule collector 又记录 35 leagues complete / 2,745 saved pages（20:07:32Z），尚未纳入该 forecast，须待后续冻结并重训。
+- [m5_goal_model_training_support_audit.py](m5_goal_model_training_support_audit.py) → [按先验训练赛数汇总的 OOS proper-score 诊断](results/m5_goal_model_training_support_audit.json)；仅用于研究稀疏历史下的参数收缩，不作为下注筛选。

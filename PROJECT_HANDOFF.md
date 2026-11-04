@@ -3700,3 +3700,4 @@
 - 实际 Actions 复核：默认分支未发现 `m5-independent-research.yml`，本轮无 M5 workflow run，故没有 M5 Actions 成功/结果落库的云端证据。schedule discovery PID 1267 仍运行，后续页未并入本冻结版。当前分支 `codex/m5-oos-crown-expansion`；本节完成提交后记录 commit SHA、UTC 与 remote ref。
 - 尚未完成：固定51联赛完整赛程覆盖；AH/OU 各10,000场 verified contemporaneous Crown quote+FT；两市场各自 OOS ROI>5%；添加/验收M5独立云端训练及版本比较（需按现有用户授权在研究仓库实施，不得连接交易链路）。
 - 最新公开增量已推送：commit `63c4a5737bb29ae307d40e39da2c5c0fb5133624`，提交 UTC `2026-11-04T20:24:02Z`，远端分支 `codex/m5-oos-crown-expansion`。本次公开结果均为无逐场身份/报价的脱敏聚合及摘要；M5 Actions 未触发。
+- 增补训练支持度诊断脚本/汇总：少于20场训练的历史折 n=126，AH 1X2 proxy LL/Brier `1.92165/0.80607`、OU2.5 `1.80664/0.41598`；训练>=250折 n=78,205，分别 `1.00155/0.59757` 与 `0.69003/0.24808`。仅作事后 OOS 描述，研究层级收缩，不作为投注门槛。采集 PID 1267 尚未结束，等待完成后再冻结新 manifest。
