@@ -1,0 +1,244 @@
+{
+  "MR1_fixture_registry_sha256": "ce3cd5241ab943858113dd01a67b771ed90b329cccce8ba0d0c8fbc96c09c2eb",
+  "MR1_forward_record_sha256_set": "c89a385b3becbbbf48bdd015467c165c49c333a0bbba55622f579b8035303f28",
+  "MR1_quote_snapshot_hash_set_sha256": "085a252ef97dfa36c4cbf567a98f115a75aee364df7047ff9cc1e9e080a2a144",
+  "MR1_snapshot_index_sha256": "58dcaa5781244965e15559d5dd7d17f48804a6b32c7c033c78fc1f8a88ef1072",
+  "MR1_verified_FT_receipts_sha256": "e4af475c7c42ac85a29f621c7bf2594908d8dda841d988eb0e7edfc73dca6ee3",
+  "TotalCorner_Crown_response_hash_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "forecast_rows": 34322,
+  "forecast_sha256": "d05783846b78eb1900c8dd67dd8c2d77555b19e675074b163346f4613d567e95",
+  "generated_utc": "2026-11-04T18:21:32.508816+00:00",
+  "limitations": [
+    "The source schedule universe is partial, not all 51 frozen scope leagues.",
+    "MR1 saved model selections are compared only when decision record, Crown quote source hash, market, line, price and event time match exactly.",
+    "M3 comparison is limited to same fixtures and exact AH0 or OU2.5 contracts where strict M3 probability fields exist.",
+    "This is retrospective research, not live results or a deployment recommendation."
+  ],
+  "market_quote_rows": {
+    "kickoff_mismatch": 31,
+    "no_matching_verified_ft": 867,
+    "verified_AH_snapshot_rows": 1841,
+    "verified_OU_snapshot_rows": 1841
+  },
+  "markets": {
+    "AH": {
+      "by_league": {
+        "China Super League": {
+          "bets": 24,
+          "net_units": -8.52,
+          "roi_pct": -35.5
+        },
+        "Colombia Primera A": {
+          "bets": 45,
+          "net_units": 9.885,
+          "roi_pct": 21.966667
+        },
+        "England Premier League": {
+          "bets": 21,
+          "net_units": 1.18,
+          "roi_pct": 5.619048
+        },
+        "France Ligue 1": {
+          "bets": 27,
+          "net_units": -1.945,
+          "roi_pct": -7.203704
+        },
+        "Georgia Erovnuli Liga": {
+          "bets": 5,
+          "net_units": 0.195,
+          "roi_pct": 3.9
+        },
+        "Germany Bundesliga I": {
+          "bets": 24,
+          "net_units": 1.465,
+          "roi_pct": 6.104167
+        },
+        "Greece Super League 1": {
+          "bets": 12,
+          "net_units": 1.5,
+          "roi_pct": 12.5
+        },
+        "Italy Serie A": {
+          "bets": 12,
+          "net_units": 1.515,
+          "roi_pct": 12.625
+        },
+        "Lithuania A Lyga": {
+          "bets": 5,
+          "net_units": 2.74,
+          "roi_pct": 54.8
+        },
+        "Northern Ireland Premier": {
+          "bets": 14,
+          "net_units": -1.865,
+          "roi_pct": -13.321429
+        },
+        "Spain La Liga": {
+          "bets": 29,
+          "net_units": -2.785,
+          "roi_pct": -9.603448
+        },
+        "Wales Premier League": {
+          "bets": 12,
+          "net_units": -3.2,
+          "roi_pct": -26.666667
+        }
+      },
+      "by_year": {
+        "2026": {
+          "bets": 230,
+          "net_units": 0.165,
+          "roi_pct": 0.071739
+        }
+      },
+      "full_loss": 83,
+      "full_win": 93,
+      "half_loss": 19,
+      "half_win": 12,
+      "max_drawdown_units_by_quote_time": 13.76,
+      "net_units": 0.165,
+      "oos_roi_pct": 0.071739,
+      "push": 23,
+      "roi_pct": 0.071739,
+      "same_quote_M3_OOS_models": {
+        "bivariate_poisson": {
+          "bets": 5,
+          "net_units": 2.88,
+          "roi_pct": 57.6
+        },
+        "dixon_coles": {
+          "bets": 5,
+          "net_units": 2.88,
+          "roi_pct": 57.6
+        },
+        "poisson": {
+          "bets": 5,
+          "net_units": 2.88,
+          "roi_pct": 57.6
+        }
+      },
+      "same_quote_saved_MR1_selection": {
+        "bets": 0,
+        "net_units": 0,
+        "roi_pct": null
+      },
+      "settled_bets": 230,
+      "settlement_brier": 0.65237533,
+      "settlement_log_loss": 1.04954998,
+      "simulated_bets": 230,
+      "unique_forecast_fixtures": 34322,
+      "verified_quote_covered_fixtures": 230
+    },
+    "OU": {
+      "by_league": {
+        "China Super League": {
+          "bets": 24,
+          "net_units": -2.835,
+          "roi_pct": -11.8125
+        },
+        "Colombia Primera A": {
+          "bets": 45,
+          "net_units": 5.14,
+          "roi_pct": 11.422222
+        },
+        "England Premier League": {
+          "bets": 21,
+          "net_units": -0.49,
+          "roi_pct": -2.333333
+        },
+        "France Ligue 1": {
+          "bets": 27,
+          "net_units": -12.005,
+          "roi_pct": -44.462963
+        },
+        "Georgia Erovnuli Liga": {
+          "bets": 5,
+          "net_units": -0.61,
+          "roi_pct": -12.2
+        },
+        "Germany Bundesliga I": {
+          "bets": 24,
+          "net_units": -0.04,
+          "roi_pct": -0.166667
+        },
+        "Greece Super League 1": {
+          "bets": 12,
+          "net_units": -5.58,
+          "roi_pct": -46.5
+        },
+        "Italy Serie A": {
+          "bets": 12,
+          "net_units": -0.785,
+          "roi_pct": -6.541667
+        },
+        "Lithuania A Lyga": {
+          "bets": 5,
+          "net_units": -5.0,
+          "roi_pct": -100.0
+        },
+        "Northern Ireland Premier": {
+          "bets": 14,
+          "net_units": 1.025,
+          "roi_pct": 7.321429
+        },
+        "Spain La Liga": {
+          "bets": 29,
+          "net_units": 4.93,
+          "roi_pct": 17.0
+        },
+        "Wales Premier League": {
+          "bets": 12,
+          "net_units": -1.63,
+          "roi_pct": -13.583333
+        }
+      },
+      "by_year": {
+        "2026": {
+          "bets": 230,
+          "net_units": -17.88,
+          "roi_pct": -7.773913
+        }
+      },
+      "full_loss": 98,
+      "full_win": 90,
+      "half_loss": 19,
+      "half_win": 15,
+      "max_drawdown_units_by_quote_time": 26.03,
+      "net_units": -17.88,
+      "oos_roi_pct": -7.773913,
+      "push": 8,
+      "roi_pct": -7.773913,
+      "same_quote_M3_OOS_models": {
+        "bivariate_poisson": {
+          "bets": 9,
+          "net_units": -1.66,
+          "roi_pct": -18.444444
+        },
+        "dixon_coles": {
+          "bets": 9,
+          "net_units": -5.33,
+          "roi_pct": -59.222222
+        },
+        "poisson": {
+          "bets": 9,
+          "net_units": -5.33,
+          "roi_pct": -59.222222
+        }
+      },
+      "same_quote_saved_MR1_selection": {
+        "bets": 0,
+        "net_units": 0,
+        "roi_pct": null
+      },
+      "settled_bets": 230,
+      "settlement_brier": 0.64723842,
+      "settlement_log_loss": 1.02413879,
+      "simulated_bets": 230,
+      "unique_forecast_fixtures": 34322,
+      "verified_quote_covered_fixtures": 230
+    }
+  },
+  "method": "One unique M5 UTC-year OOS forecast per fixture; latest verified Crown source quote with observed<=received<kickoff and quote observed after prediction_asof; FT independently verified after kickoff; choose the side with higher model expected return and no EV gate; quarter-line split settlement; no duplicated fixture within each market.",
+  "protocol": "M5_MR1_VERIFIED_CROWN_COMMON_OOS_REPLAY_V1",
+  "strict_M3_OOS_csv_sha256": "9375bdbbb60e7b3c9e71d13bdc7f9e0d6ec57649579a4c2e4a14b9cbf4de8cc0"
+}

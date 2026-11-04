@@ -13,6 +13,9 @@ import hashlib
 import json
 import math
 import os
+import re
+import sys
+import unicodedata
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -27,6 +30,11 @@ REGULARIZATIONS = (0.01, 0.1, 1.0)
 
 def digest(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
+
+
+def normalize_identity(value: str) -> str:
+    text = unicodedata.normalize("NFKD", str(value or "")).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "", text)
 
 
 def parse_utc(value: str) -> datetime:
@@ -52,7 +60,7 @@ def read_manifest(path: Path):
     rows = manifest.get("rows")
     if not isinstance(rows, list):
         raise ValueError("private candidate manifest has no rows array")
-    fixtures, seen = [], set()
+    fixtures, seen, identity_keys = [], set(), set()
     for row in rows:
         mid = str(row.get("match_id") or "")
         league = str(row.get("league") or "")
@@ -66,12 +74,128 @@ def read_manifest(path: Path):
             continue
         if mid in seen:
             raise ValueError("duplicate fixture ID in private candidate manifest")
+        identity_key = (normalize_identity(league), kickoff.date().isoformat(),
+                        normalize_identity(home), normalize_identity(away))
+        if identity_key in identity_keys:
+            raise ValueError("duplicate normalized fixture identity in private candidate manifest")
         seen.add(mid)
+        identity_keys.add(identity_key)
         fixtures.append({"match_id": mid, "league": league, "home": home, "away": away,
                          "kickoff": kickoff, "home_goals": hg, "away_goals": ag,
                          "year": kickoff.year})
     fixtures.sort(key=lambda x: (x["kickoff"], x["match_id"]))
     return raw, fixtures
+
+
+def build_partial_schedule_manifest(private_dir: Path) -> dict:
+    """Build a reproducible manifest from currently saved schedule pages.
+
+    The receipt always marks page coverage as incomplete unless all 51 frozen
+    league IDs have a known page-1 response and every announced page is saved.
+    This is useful for a bounded research checkpoint, never a claim of full
+    historical coverage.
+    """
+    from zoneinfo import ZoneInfo
+
+    repo_root = Path(__file__).resolve().parents[2]
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+    from research.m3.reference.m1_runtime_policy import scope_status
+
+    leagues_path = private_dir / "m1-scope-leagues.json"
+    leagues = json.loads(leagues_path.read_text(encoding="utf-8"))
+    if not isinstance(leagues, dict) or len(leagues) != 51:
+        raise ValueError("expected the frozen 51-league M1 scope map")
+    zone = ZoneInfo("Asia/Shanghai")
+    now = datetime.now(timezone.utc)
+    rows, conflicts = {}, set()
+    known_pages = saved_pages = missing_pages = 0
+    league_dirs = private_dir / "schedules"
+    for league_id in sorted(leagues):
+        folder = league_dirs / str(league_id)
+        first = folder / "page-1.json"
+        if not first.exists():
+            continue
+        try:
+            first_payload = json.loads(first.read_text(encoding="utf-8"))["payload"]
+            expected_name = str((first_payload.get("data") or {}).get("league", {}).get("name") or leagues[league_id])
+            page_count = int((first_payload.get("pagination") or {}).get("pages") or 1)
+        except Exception:
+            continue
+        known_pages += page_count
+        for number in range(1, page_count + 1):
+            page = folder / f"page-{number}.json"
+            if not page.exists():
+                missing_pages += 1
+                continue
+            try:
+                envelope = json.loads(page.read_text(encoding="utf-8"))
+                payload = envelope.get("payload") or {}
+                body_rows = ((payload.get("data") or {}).get("matches") or [])
+                if payload.get("success") != 1:
+                    continue
+            except Exception:
+                missing_pages += 1
+                continue
+            saved_pages += 1
+            for item in body_rows:
+                if not isinstance(item, dict) or scope_status(str(item.get("l") or expected_name)).get("status") != "IN":
+                    continue
+                if str(item.get("status") or "").lower() not in ("full", "ft", "finished", "ended"):
+                    continue
+                try:
+                    mid = str(item["id"])
+                    home, away = str(item["h"]), str(item["a"])
+                    hg, ag = int(item["hg"]), int(item["ag"])
+                    kickoff = datetime.fromisoformat(str(item["start"]))
+                    if kickoff.tzinfo is None:
+                        kickoff = kickoff.replace(tzinfo=zone)
+                    kickoff = kickoff.astimezone(timezone.utc)
+                    if not mid or not home or not away or min(hg, ag) < 0 or kickoff >= now:
+                        continue
+                except (KeyError, TypeError, ValueError):
+                    continue
+                row = {"match_id": mid, "league": str(item.get("l") or expected_name),
+                       "home": home, "away": away,
+                       "kickoff_utc": kickoff.isoformat().replace("+00:00", "Z"),
+                       "home_goals": hg, "away_goals": ag}
+                if mid in rows and rows[mid] != row:
+                    rows.pop(mid, None)
+                    conflicts.add(mid)
+                elif mid not in conflicts:
+                    rows[mid] = row
+    started_leagues = sum(1 for league_id in leagues if (league_dirs / str(league_id) / "page-1.json").exists())
+    complete_universe = started_leagues == len(leagues) and missing_pages == 0
+    grouped_identity = defaultdict(list)
+    for row in rows.values():
+        identity = (normalize_identity(row["league"]), row["kickoff_utc"][:10],
+                    normalize_identity(row["home"]), normalize_identity(row["away"]))
+        grouped_identity[identity].append(row)
+    duplicate_groups = [values for values in grouped_identity.values() if len(values) > 1]
+    duplicate_rows_excluded = sum(len(values) for values in duplicate_groups)
+    ordered = sorted((values[0] for values in grouped_identity.values() if len(values) == 1),
+                     key=lambda row: (row["kickoff_utc"], row["match_id"]))
+    manifest = {"protocol": "M5_PRIVATE_PARTIAL_SCHEDULE_MANIFEST_V1", "generated_utc": now.isoformat(),
+                "complete_historical_universe": complete_universe, "scope_league_ids": len(leagues),
+                "leagues_with_page1": started_leagues, "known_pages_for_started_leagues": known_pages,
+                "saved_pages": saved_pages, "missing_pages": missing_pages,
+                "candidate_unique_ft": len(ordered), "identity_conflicts_excluded": len(conflicts),
+                "duplicate_fixture_key_groups_excluded": len(duplicate_groups),
+                "duplicate_fixture_rows_excluded": duplicate_rows_excluded,
+                "rows": ordered}
+    encoded = (json.dumps(manifest, sort_keys=True, ensure_ascii=False, separators=(",", ":")) + "\n").encode()
+    out = private_dir / "candidate-manifest.partial.json"
+    fd = os.open(out, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+    with os.fdopen(fd, "wb") as stream:
+        stream.write(encoded)
+    os.chmod(out, 0o600)
+    receipt = {key: value for key, value in manifest.items() if key != "rows"}
+    receipt["manifest_sha256"] = digest(encoded)
+    receipt["manifest_path"] = out.name
+    receipt_path = private_dir / "schedule-partial-manifest-receipt.json"
+    receipt_path.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    os.chmod(receipt_path, 0o600)
+    return receipt
 
 
 def fit_rates(rows, regularization: float):
@@ -194,8 +318,8 @@ def score_report(rows):
             "exact_score_log_loss": round(sum(ll_score) / len(ll_score), 8)}
 
 
-def run(private_dir: Path, output_path: Path):
-    manifest_path = private_dir / "candidate-manifest.json"
+def run(private_dir: Path, output_path: Path, manifest_name: str = "candidate-manifest.json"):
+    manifest_path = private_dir / manifest_name
     raw, fixtures = read_manifest(manifest_path)
     grouped = defaultdict(list)
     for fixture in fixtures:
@@ -241,6 +365,7 @@ def run(private_dir: Path, output_path: Path):
     aggregate = {"protocol": "M5_M1_SCOPE_CALENDAR_YEAR_GOAL_MODEL_OOS_V1",
                  "generated_utc": datetime.now(timezone.utc).isoformat(),
                  "input_candidate_manifest_sha256": digest(raw), "input_schedule_fixtures": len(fixtures),
+                 "input_manifest_is_complete_historical_universe": bool(json.loads(raw).get("complete_historical_universe", False)),
                  "unique_oos_fixtures": len(forecasts), "source_scope": "frozen M1 formal top-tier competition whitelist",
                  "model": "independent home/away Poisson goal-rate model with zero-sum team attack/defence effects; ridge penalty selected only on the immediately prior calendar-year validation fold; 15x15 independent score distribution",
                  "time_isolation": "Each target UTC calendar year is fit only on earlier-year FT fixtures in that competition; team-season fixture IDs are disjoint; training cutoff precedes every test kickoff.",
@@ -261,9 +386,16 @@ def run(private_dir: Path, output_path: Path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--private-dir", type=Path, required=True)
+    parser.add_argument("--manifest-name", default="candidate-manifest.json")
+    parser.add_argument("--build-partial-manifest", action="store_true",
+                        help="materialize a private manifest from saved pages and exit")
     parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parent / "results/m5_goal_model_oos.json")
     args = parser.parse_args()
-    run(args.private_dir, args.output)
+    if args.build_partial_manifest:
+        result = build_partial_schedule_manifest(args.private_dir.expanduser().resolve())
+        print(json.dumps(result, sort_keys=True))
+        return
+    run(args.private_dir, args.output, args.manifest_name)
 
 
 if __name__ == "__main__":

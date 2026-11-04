@@ -320,7 +320,24 @@ def fetch_crown(args) -> None:
             continue
         candidates[mid] = record
     candidate_rows = list(candidates.values())
-    candidate_rows.sort(key=lambda x: (x["kickoff_utc"], x["match_id"]))
+    candidate_rows.sort(key=lambda x: (x["kickoff_utc"], x["match_id"]), reverse=True)
+    forecast_path = out / "m5-model-oos" / "m5_goal_model_forecasts.jsonl"
+    if forecast_path.exists():
+        forecast_ids = {}
+        for line in forecast_path.read_text(encoding="utf-8").splitlines():
+            try:
+                prediction = json.loads(line)
+                forecast_ids[str(prediction["match_id"])] = prediction
+            except Exception:
+                continue
+        candidate_rows = [row for row in candidate_rows
+                          if row["match_id"] in forecast_ids
+                          and (row["league"], row["home"], row["away"], row["kickoff_utc"], row["home_goals"], row["away_goals"])
+                          == (forecast_ids[row["match_id"]].get("league"), forecast_ids[row["match_id"]].get("home"),
+                              forecast_ids[row["match_id"]].get("away"), forecast_ids[row["match_id"]].get("kickoff"),
+                              forecast_ids[row["match_id"]].get("home_goals"), forecast_ids[row["match_id"]].get("away_goals"))]
+        if not candidate_rows:
+            raise RuntimeError("no exact OOS forecast to historical schedule candidates remain")
     save_json(out / "candidate-manifest.json", {"protocol": "M5_M1_SCOPE_HISTORICAL_FT_CANDIDATES_V1",
               "generated_utc": utc_now(), "source_timezone": args.source_timezone,
               "unique_candidates": len(candidate_rows), "identity_conflicts_excluded": len(identity_conflicts),
@@ -332,6 +349,7 @@ def fetch_crown(args) -> None:
               "no_crown_or_invalid_response": 0, "transport_errors": 0,
               "schedule_identity_or_time_mismatch": 0, "processed": 0}
     receipts_path = out / "crown-response-index.jsonl"
+    candidate_ids = {row["match_id"] for row in candidate_rows}
     latest = out / "quote-progress.json"
     if receipts_path.exists():
         for line in receipts_path.read_text(encoding="utf-8").splitlines():
@@ -339,11 +357,13 @@ def fetch_crown(args) -> None:
                 entry = json.loads(line)
             except ValueError:
                 continue
+            if str(entry.get("match_id")) not in candidate_ids:
+                continue
             counts["crown_exact_identity"] += 1
             counts["crown_ah_prematch_fixtures"] += int(entry.get("ah_valid_prematch_rows", 0) > 0)
             counts["crown_ou_prematch_fixtures"] += int(entry.get("ou_valid_prematch_rows", 0) > 0)
             counts["crown_both_market_fixtures"] += int(entry.get("ah_valid_prematch_rows", 0) > 0 and entry.get("ou_valid_prematch_rows", 0) > 0)
-    no_crown_files = list((out / "no-crown").glob("*.json"))
+    no_crown_files = [p for p in (out / "no-crown").glob("*.json") if p.stem in candidate_ids]
     counts["no_crown_or_invalid_response"] = len(no_crown_files)
     counts["transport_errors"] = sum(1 for p in no_crown_files
                                       if json.loads(p.read_text(encoding="utf-8")).get("status") == "transport_error")
@@ -447,6 +467,128 @@ def fetch_crown(args) -> None:
     print(json.dumps(summary, sort_keys=True))
 
 
+def replay_private_crown(args) -> None:
+    """Evaluate source-timestamped Crown movements against M5 OOS forecasts."""
+    import hashlib
+    from collections import Counter, defaultdict
+    from research.m5.m5_goal_model_oos import parse_utc
+    from research.m5.m3_grid_crown_replay import expected_return, legs_result, payout, split_line
+
+    private_dir = ensure_private_destination(args.private_dir)
+    forecast_path = private_dir / "m5-model-oos" / "m5_goal_model_forecasts.jsonl"
+    if not forecast_path.exists():
+        raise FileNotFoundError("private M5 forecast file is missing")
+    forecasts = {}
+    for line in forecast_path.read_text(encoding="utf-8").splitlines():
+        try:
+            row = json.loads(line)
+            forecasts[str(row["match_id"])] = row
+        except Exception:
+            continue
+    zone = ZoneInfo(args.source_timezone)
+    result = {"protocol": "M5_PRIVATE_CROWN_OOS_REPLAY_V1", "generated_utc": utc_now(),
+              "forecast_rows": len(forecasts), "markets": {}}
+    input_hashes = set()
+    for market, list_key in (("AH", "asian_list"), ("OU", "goal_list")):
+        selected = {}
+        for mid, forecast in forecasts.items():
+            raw_path = private_dir / "crown-responses" / f"{mid}.json"
+            if not raw_path.exists():
+                continue
+            try:
+                raw = raw_path.read_bytes(); payload = json.loads(raw)
+                data = payload.get("data") or []
+                matches = [m for m in data if isinstance(m, dict) and str(m.get("id") or "") == mid]
+                crown = [book for m in matches for book in (m.get("bookmakers") or [])
+                         if isinstance(book, dict) and book.get("slug") == "crown"]
+                if payload.get("success") != 1 or len(matches) != 1 or len(crown) != 1:
+                    continue
+                item = matches[0]
+                if item.get("h") != forecast.get("home") or item.get("a") != forecast.get("away") or item.get("l") != forecast.get("league"):
+                    continue
+                kickoff = parse_utc(forecast["kickoff"])
+                source_kickoff = local_to_utc(item.get("start"), zone)
+                if source_kickoff != kickoff or (int(item.get("hg")), int(item.get("ag"))) != (int(forecast["home_goals"]), int(forecast["away_goals"])):
+                    continue
+                eligible = []
+                for movement in crown[0].get(list_key) or []:
+                    if not isinstance(movement, list) or len(movement) != 8:
+                        continue
+                    minute, raw_line, p1, p2, source_time, _hs, _as, closed = movement
+                    if minute is not None or closed not in (0, "0", False):
+                        continue
+                    observed = local_to_utc(source_time, zone)
+                    try:
+                        line = float(sum(float(v.strip()) for v in str(raw_line).split(",")) / len(str(raw_line).split(",")))
+                        prices = (float(p1), float(p2))
+                        split_line(line)
+                    except (ValueError, TypeError, ZeroDivisionError):
+                        continue
+                    prediction_asof = parse_utc(forecast["prediction_asof_utc"])
+                    if (not observed or observed < prediction_asof or observed >= kickoff
+                            or any(not math.isfinite(x) or x <= 1 for x in prices)):
+                        continue
+                    eligible.append((observed, line, prices, str(raw_line)))
+                if not eligible:
+                    continue
+                chosen = max(eligible, key=lambda x: x[0])
+                selected[mid] = {"forecast": forecast, "observed": chosen[0], "line": chosen[1],
+                                 "prices": chosen[2], "raw_line": chosen[3],
+                                 "score": (int(forecast["home_goals"]), int(forecast["away_goals"])),
+                                 "sha": hashlib.sha256(raw).hexdigest()}
+                input_hashes.add(selected[mid]["sha"])
+            except Exception:
+                continue
+        outcomes = Counter(); pnl_by_fixture = []; by_year = defaultdict(list); scores = []
+        for mid, row in selected.items():
+            grid = row["forecast"]["prediction"]["grid"]
+            prices = row["prices"]
+            sides = ("home", "away") if market == "AH" else ("over", "under")
+            evs = [expected_return(grid, market, side, row["line"], price) for side, price in zip(sides, prices)]
+            side_idx = 0 if evs[0] >= evs[1] else 1
+            side, price = sides[side_idx], prices[side_idx]
+            legs, category = legs_result(market, side, row["line"], *row["score"])
+            units = payout(legs, price)
+            outcomes[category] += 1
+            pnl_by_fixture.append((row["observed"], units, mid))
+            by_year[row["forecast"]["kickoff"][:4]].append(units)
+            distribution = defaultdict(float)
+            for h, gridrow in enumerate(grid):
+                for a, probability in enumerate(gridrow):
+                    _, predicted_category = legs_result(market, side, row["line"], h, a)
+                    distribution[predicted_category] += float(probability)
+            actual_labels = {"win": "win", "half_win": "half_win", "push": "push", "half_loss": "half_loss", "loss": "loss"}
+            actual_category = actual_labels[category]
+            prob = max(distribution[actual_category], 1e-15)
+            ll = -math.log(prob)
+            br = sum((distribution[k] - (1.0 if k == actual_category else 0.0)) ** 2 for k in ("win", "half_win", "push", "half_loss", "loss"))
+            scores.append((ll, br))
+        pnl_by_fixture.sort(key=lambda x: (x[0], x[2]))
+        equity = peak = max_dd = 0.0
+        for _time, units, _mid in pnl_by_fixture:
+            equity += units; peak = max(peak, equity); max_dd = max(max_dd, peak-equity)
+        total = sum(x[1] for x in pnl_by_fixture); bets = len(pnl_by_fixture)
+        market_result = {"unique_forecast_fixtures": len(forecasts), "quote_covered_fixtures": bets,
+                         "simulated_bets": bets, "settled_bets": bets, "pending_bets": 0,
+                         "settlement_counts": {k: outcomes[k] for k in ("win", "half_win", "loss", "half_loss", "push")},
+                         "net_units": round(total, 6), "roi_pct": round(100 * total / bets, 6) if bets else None,
+                         "max_drawdown_units_by_quote_time": round(max_dd, 6) if bets else None,
+                         "settlement_log_loss": round(sum(x[0] for x in scores)/len(scores), 8) if scores else None,
+                         "settlement_brier": round(sum(x[1] for x in scores)/len(scores), 8) if scores else None,
+                         "by_year": {year: {"bets": len(values), "net_units": round(sum(values), 6), "roi_pct": round(100*sum(values)/len(values), 6)} for year, values in sorted(by_year.items())}}
+        result["markets"][market] = market_result
+    result["private_quote_response_hash_set_sha256"] = hashlib.sha256("\n".join(sorted(input_hashes)).encode()).hexdigest()
+    result["scope_note"] = "AH and OU evaluated separately using the latest valid source-time Crown movement before kickoff; one bet per forecast-fixture-market; no EV threshold; partial historical capture only."
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    encoded_result = (json.dumps(result, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n").encode()
+    temp_path = args.output.with_name(args.output.name + f".tmp-{os.getpid()}")
+    with temp_path.open("wb") as stream:
+        stream.write(encoded_result)
+        stream.flush()
+        os.fsync(stream.fileno())
+    os.replace(temp_path, args.output)
+    print(json.dumps(result, sort_keys=True))
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(dest="command", required=True)
@@ -463,8 +605,13 @@ def main() -> None:
     quotes.add_argument("--min-interval", type=float, default=3.1)
     quotes.add_argument("--target-market-fixtures", type=int, default=10000)
     quotes.set_defaults(func=fetch_crown)
+    replay = sub.add_parser("replay")
+    replay.add_argument("--private-dir", type=Path, required=True)
+    replay.add_argument("--source-timezone", required=True)
+    replay.add_argument("--output", type=Path, required=True)
+    replay.set_defaults(func=replay_private_crown)
     args = parser.parse_args()
-    if args.min_interval < 2.6:
+    if hasattr(args, "min_interval") and args.min_interval < 2.6:
         raise SystemExit("min-interval must be at least 2.6 seconds")
     args.func(args)
 
