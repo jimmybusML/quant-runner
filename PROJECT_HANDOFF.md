@@ -1,3 +1,9 @@
+## 2026-11-05 07:29 北京时间 M4 非法研究TG通知：来源核实与本机彻底禁用
+- 用户再次明确：TG **只允许正式比赛投注单**；任何M4研究报告、M3研究预测、结算、战绩、盈亏、运行状态不得发送。此前未完全禁用研究通知是错误。
+- 本机 `~/QuantAsiaDesk/state/research_telegram_receipts.json` 证明 M4 研究报告已经被发送2条：2026-11-04T08:12:48.619626Z message_id=1687、2026-11-04T13:51:15.792685Z message_id=1690。第二条发生在此前禁用研究通知前。当前未发现11月5日新的M4正式发送回执，不能声称今天新发了M4。
+- 直接修复本机 `~/QuantAsiaDesk/app.py`：删除所有 `research_notify` 导入与M3/M4发送分支，不再调用 `emit_m3`/`emit_m4`；配置更新拒绝将M3/M4 `tg_enabled` 设为true。修复 `~/QuantAsiaDesk/research_notify.py` 中 `deliver` 为显式抛出 `RESEARCH_TELEGRAM_DISABLED`，防止旧辅助入口再发。M3/M4当前TG设置false，M1/MR1 true，正式发单未动。
+- Python语法检查通过；重启 `com.quantasia.localdesk` 后后台HTTP200；检查程序无`research_notify`引用，旧消息保留为历史事实，未发测试TG。**修复仅在本机**，尚未审计所有其他独立GitHub/外部消息发送源，不能冒称全局已完全关闭。
+
 ## 2026-11-04 M5 独立融合研究启动与历史回放（仅研究）
 - 公开仓库 `quant-runner/main` commit `bc6488b3bd148fbde04f8edd281fa5b2b75e1383` 保存 M5 独立研究代码、聚合结果和报告：`research/m5/M5_PROGRESS_REPORT_20261104.md`、`README.md`。M5 不接入 M1/MR1/M3 正式订单、结算账本、Telegram 或自动运行；未修改任何生产策略/赛事范围。
 - M3 penaltyblog 输入报告生成于 `2026-11-04T11:59:53.779352Z`。共同预测有效的 14,806 场中，逐季先前 OOS 预测训练融合权重、2019/20 至 2026/27 留出评估为 13,234 场唯一 fixture；AH0 与 OU O2.5 独立。融合 1X2 未超过 Dixon-Coles，OU 权重每季选择 Bivariate Poisson、未超过该单模型。源数据不含可配对 Crown 线价，故无 ROI。
