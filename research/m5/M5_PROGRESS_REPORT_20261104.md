@@ -186,6 +186,6 @@ M5 尚未达到完成标准。继续研究需要在既有范围内获得至少 1
 
 额外只读审计发现本机 MR1 V23 有 32,866 条快照记录、17,422 条有明确 Crown 标签及 AH/OU 时间线字段，但涉及 3,699 个登记 fixture；其中只读模型/赛果回放严格通过赛前 Crown 与赛后 FT 验证的有效唯一样本仍为 AH/OU 各 1,621，而不是 17,422 场。M1 正式一级联赛策略范围的现有本机 TotalCorner schedule ID 去重后只有 8,140 场，单靠本地已存赛程无法满足 10,000 场要求。
 
-为保持 M1 现有正式范围不变，新增一次性私有采集器 [`crown_historical_capture.py`](crown_historical_capture.py)，只调用 TotalCorner League Schedule 与明确 `bookmaker=crown` 的 `match/bookmaker_odds` 端点，固定使用 M1 正式一级联赛白名单，按 3.1 秒串行请求、断点续跑，并强制将原始响应写到仓库外的私有目录。单条历史 Crown movement API 探针成功返回 AH/OU 时间线；历史原始赔率及身份仍不公开。本报告生成时，37 个已有 M1 scope 联赛 ID 的分页总量审计显示约 3,274 页；全量分页与后续 Crown AH/OU 覆盖回填尚在运行中，尚无可报告的历史回填样本数或 ROI。
+为保持 M1 现有正式范围不变，新增一次性私有采集器 [`crown_historical_capture.py`](crown_historical_capture.py)，只调用 TotalCorner League Schedule 与明确 `bookmaker=crown` 的 `match/bookmaker_odds` 端点，固定使用 M1 正式一级联赛白名单，按 3.1 秒串行请求、断点续跑，并强制将原始响应写到仓库外的私有目录。单条历史 Crown movement API 探针成功返回 AH/OU 时间线；历史原始赔率及身份仍不公开。初查来自历史批次的 37 个 M1 scope 联赛 ID 时分页约 3,274 页；随后从 MR1 V23 fixture registry 又核实出 14 个此前未在历史批次映射中的 M1 正式范围 league ID，目前私有采集清单已校正为 **51 个**，新增 14 个的分页数仍待请求，全范围总页数尚未最终确定。全量分页与后续 Crown AH/OU 覆盖回填尚在运行中，尚无可报告的历史回填样本数或 ROI。
 
 官方接口说明列出 `match/bookmaker_odds/{match_id}` 可按 `bookmaker=crown` 返回 asian/goal movement，行内含比赛分钟、盘口、双方水位、来源本地时间及 closed 标记；接口限速为每分钟 30 次且按 10 秒窗口计数。官方条款注明自动抽取需要 prior written consent。用户已明确要求复用现有授权；本轮未申请新授权、未输出凭证或赔率。实际回填严格串行低于公开限速。工作流/Actions 尚未创建或触发，采集是单次本地研究执行，不涉及生产运行。
