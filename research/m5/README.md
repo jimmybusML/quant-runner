@@ -12,6 +12,7 @@
 - [m3_grid_crown_replay.py](m3_grid_crown_replay.py) → [同期全比分网格与 Crown 任意主盘探索](results/m3_grid_crown_replay.json)
 - [probability_stack_league_oos.py](probability_stack_league_oos.py) → [逐联赛 walk-forward 权重与单模型对照](results/m5_league_local_probability_oos.json)
 - [crown_historical_capture.py](crown_historical_capture.py) → 受限速、断点续跑的私有 TotalCorner 历史研究采集器；原始 Crown 响应必须写到公开仓库之外。本机采集进展与数据仍是私有输入，公开报告只保留聚合信息。
+- [m5_goal_model_oos.py](m5_goal_model_oos.py) → 独立 Poisson 比分分布研究候选；读取私有完赛赛程清单，按联赛和 UTC 年份前推，仅输出公开聚合指标，逐场预测留在仓库外。目前尚无完整 51 联赛历史输入，未生成真实 OOS 成绩。
 
 ## 可复核数据现状
 

@@ -189,3 +189,11 @@ M5 尚未达到完成标准。继续研究需要在既有范围内获得至少 1
 为保持 M1 现有正式范围不变，新增一次性私有采集器 [`crown_historical_capture.py`](crown_historical_capture.py)，只调用 TotalCorner League Schedule 与明确 `bookmaker=crown` 的 `match/bookmaker_odds` 端点，固定使用 M1 正式一级联赛白名单，按 3.1 秒串行请求、断点续跑，并强制将原始响应写到仓库外的私有目录。单条历史 Crown movement API 探针成功返回 AH/OU 时间线；历史原始赔率及身份仍不公开。初查来自历史批次的 37 个 M1 scope 联赛 ID 时分页约 3,274 页；随后从 MR1 V23 fixture registry 又核实出 14 个此前未在历史批次映射中的 M1 正式范围 league ID，目前私有采集清单已校正为 **51 个**，新增 14 个的分页数仍待请求，全范围总页数尚未最终确定。全量分页与后续 Crown AH/OU 覆盖回填尚在运行中，尚无可报告的历史回填样本数或 ROI。
 
 官方接口说明列出 `match/bookmaker_odds/{match_id}` 可按 `bookmaker=crown` 返回 asian/goal movement，行内含比赛分钟、盘口、双方水位、来源本地时间及 closed 标记；接口限速为每分钟 30 次且按 10 秒窗口计数。官方条款注明自动抽取需要 prior written consent。用户已明确要求复用现有授权；本轮未申请新授权、未输出凭证或赔率。实际回填严格串行低于公开限速。工作流/Actions 尚未创建或触发，采集是单次本地研究执行，不涉及生产运行。
+
+## 2026-11-05 续跑检查与独立进球模型候选
+
+本轮只对公开 M5 研究文件做修改；没有写 M1/MR1/M3 生产仓库、正式账本或 Telegram。由 MR1 V23 registry 校正出的 51 个 M1 一级联赛 ID 清单在本机私有目录，API 历史分页恢复执行。截至本次 checkpoint，至少 10 个联赛已有 page-1 元数据；私有磁盘累计有 762 个 schedule page 文件，已知 page-1 所代表总分页 1,032 页，缺 270 页尚未取回。采集器 checkpoint（本轮重启后的过程统计）为处理 350 页、10,437 行，累计错误 9 次 `TOO_MANY_REQUEST`、1 次 `URLError`、3 次 `SSLError`；之前从本地完整扫描计算的完赛候选估计约 17,571 场。由于分页未完成、响应身份尚未逐项 Crown 核验，候选数不能视作最终覆盖。
+
+新增 [`m5_goal_model_oos.py`](m5_goal_model_oos.py)，为完全独立的主客进球率 Poisson 候选：每联赛按 UTC 日历年 walk-forward，ridge 只由紧邻的更早验证年选择，产出 15x15 比分分布和 AH/OU 概率；逐场输出强制在仓库外，公开端仅含输入哈希与聚合 proper score。验证了未见球队按队独立采用中性回退，以及预测网格概率总和为 1。已完成语法编译和 40 场合成拟合/概率质量核对；**没有真实历史 OOS 模型结果**，因为 51 联赛候选 manifest 尚未生成。
+
+本地长请求期间出现 TLS 握手挂起，当前前台分页过程已停止。采集器可从已保存页恢复；网络稳定后应先跑完 51 个 league 的 schedule 分页、重试缺页，再从完赛 fixture 精确回填 Crown AH/OU movement 并校对球队、联赛、UTC kickoff 与 FT，最后按严格时间切分生成预测并与赛前报价配对。**本轮没有完成 Crown backfill、真实 M5 ROI、真实 OOS 训练、GitHub Actions run 或 M5 Actions 落库验收；现有 M3/M5-Crown 小样本 n=24/36 仍为最新可报告回放。**
