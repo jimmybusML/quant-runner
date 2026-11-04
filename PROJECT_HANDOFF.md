@@ -3645,3 +3645,4 @@
 - M3 自动流程最近一次真实成功仍为 Actions `41864900732`（2026-11-04T16:16:39Z，12/12 tasks）；数据/模型指纹未变、无新增学习信息。M5 Actions 没有运行，本轮不是自动化验收。schedule page discovery 本地 PID 1267 仍运行，勿启动并行 TotalCorner 请求；当前模型使用冻结 partial manifest，不自动包含后续下载。
 - 当前 M5 代码分支 `codex/m5-oos-crown-expansion` 基点仍为 `ac8f30b`；最新变更尚待语法、JSON、敏感字段、时间序和测试复核，再 commit/push。最终 commit/push UTC 和 SHA 应在提交后补入。本轮没有新的 M5 Actions run ID。
 - 未完成：全 51 联赛赛程覆盖；每市场 10,000 个有合法 Crown 同期报价及 FT 的唯一样本；AH 与 OU 各自 OOS ROI >5%；M5 Actions 定时训练和历史对比实跑验收。不能把 M3 Actions 成功代替 M5 验收。
+- 提交/远端验收：最新 M5 更新已提交并推送到 `codex/m5-oos-crown-expansion`，commit `dcafabea4b8c9b4fdb94415ac30a37ebf67d2872`，本机记录的提交 UTC 为 `2026-11-04T19:16:55Z`（显示时区 Asia/Shanghai）。Push 返回成功；GitHub Actions 未触发。以上代码提交与公开结果落库已完成，但不等于 M5 workflow 成功运行。
