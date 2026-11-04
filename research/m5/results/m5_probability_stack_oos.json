@@ -1,0 +1,688 @@
+{
+  "crown_prices_used": false,
+  "fixture_identity": [
+    "league",
+    "match_date_utc",
+    "home_team",
+    "away_team"
+  ],
+  "generated_utc": "2026-11-04T15:04:49.765639+00:00",
+  "input_artifact": "research/m3/results/predictions/9375bdbbb60e7b3c9e71d13bdc7f9e0d6ec57649579a4c2e4a14b9cbf4de8cc0.csv",
+  "input_report_generated_utc": "2026-11-04T11:59:53.779352+00:00",
+  "input_sha256": "9375bdbbb60e7b3c9e71d13bdc7f9e0d6ec57649579a4c2e4a14b9cbf4de8cc0",
+  "interpretation": "Probability-quality study only; no Crown-linked prices, EV, simulated bets, ROI, or drawdown are available from this input.",
+  "markets": {
+    "1x2": {
+      "season_splits": [
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.59883721,
+              "log_loss": 1.00190502
+            },
+            "dixon_coles": {
+              "brier": 0.59864575,
+              "log_loss": 1.00193854
+            },
+            "equal_blend": {
+              "brier": 0.5984804,
+              "log_loss": 1.00126646
+            },
+            "poisson": {
+              "brier": 0.59836196,
+              "log_loss": 1.00075242
+            },
+            "walkforward_blend": {
+              "brier": 0.59859817,
+              "log_loss": 1.00133169
+            }
+          },
+          "test_season": "1920",
+          "test_unique_fixtures": 1573,
+          "train_seasons": [
+            "1819"
+          ],
+          "train_unique_fixtures": 1572,
+          "walkforward_weights": {
+            "bivariate_poisson": 0.60583255,
+            "dixon_coles": 0.0,
+            "poisson": 0.39416745
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.60817569,
+              "log_loss": 1.01791931
+            },
+            "dixon_coles": {
+              "brier": 0.60782912,
+              "log_loss": 1.01761018
+            },
+            "equal_blend": {
+              "brier": 0.60799319,
+              "log_loss": 1.01759702
+            },
+            "poisson": {
+              "brier": 0.60827155,
+              "log_loss": 1.0178672
+            },
+            "walkforward_blend": {
+              "brier": 0.60826403,
+              "log_loss": 1.0178613
+            }
+          },
+          "test_season": "2021",
+          "test_unique_fixtures": 1808,
+          "train_seasons": [
+            "1819",
+            "1920"
+          ],
+          "train_unique_fixtures": 3145,
+          "walkforward_weights": {
+            "bivariate_poisson": 0.04186662,
+            "dixon_coles": 0.0,
+            "poisson": 0.95813338
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.6010818,
+              "log_loss": 1.00539059
+            },
+            "dixon_coles": {
+              "brier": 0.60079963,
+              "log_loss": 1.00519538
+            },
+            "equal_blend": {
+              "brier": 0.60104088,
+              "log_loss": 1.00538381
+            },
+            "poisson": {
+              "brier": 0.60147859,
+              "log_loss": 1.00603632
+            },
+            "walkforward_blend": {
+              "brier": 0.60143151,
+              "log_loss": 1.00595455
+            }
+          },
+          "test_season": "2122",
+          "test_unique_fixtures": 1850,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021"
+          ],
+          "train_unique_fixtures": 4953,
+          "walkforward_weights": {
+            "bivariate_poisson": 0.09900114,
+            "dixon_coles": 0.0,
+            "poisson": 0.90099886
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.59808098,
+              "log_loss": 1.0036975
+            },
+            "dixon_coles": {
+              "brier": 0.59781972,
+              "log_loss": 1.00305687
+            },
+            "equal_blend": {
+              "brier": 0.59782988,
+              "log_loss": 1.0031032
+            },
+            "poisson": {
+              "brier": 0.59783831,
+              "log_loss": 1.00304133
+            },
+            "walkforward_blend": {
+              "brier": 0.59784109,
+              "log_loss": 1.00310186
+            }
+          },
+          "test_season": "2223",
+          "test_unique_fixtures": 1874,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021",
+            "2122"
+          ],
+          "train_unique_fixtures": 6803,
+          "walkforward_weights": {
+            "bivariate_poisson": 0.27737171,
+            "dixon_coles": 0.1528127,
+            "poisson": 0.56981559
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.59681905,
+              "log_loss": 1.00002126
+            },
+            "dixon_coles": {
+              "brier": 0.59645132,
+              "log_loss": 0.99941504
+            },
+            "equal_blend": {
+              "brier": 0.59683176,
+              "log_loss": 1.00002787
+            },
+            "poisson": {
+              "brier": 0.5974095,
+              "log_loss": 1.00103348
+            },
+            "walkforward_blend": {
+              "brier": 0.59708818,
+              "log_loss": 1.00047022
+            }
+          },
+          "test_season": "2324",
+          "test_unique_fixtures": 1890,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021",
+            "2122",
+            "2223"
+          ],
+          "train_unique_fixtures": 8677,
+          "walkforward_weights": {
+            "bivariate_poisson": 0.0,
+            "dixon_coles": 0.27863591,
+            "poisson": 0.72136409
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.60194228,
+              "log_loss": 1.00716041
+            },
+            "dixon_coles": {
+              "brier": 0.60167663,
+              "log_loss": 1.00684369
+            },
+            "equal_blend": {
+              "brier": 0.60190383,
+              "log_loss": 1.00715709
+            },
+            "poisson": {
+              "brier": 0.60228586,
+              "log_loss": 1.00785346
+            },
+            "walkforward_blend": {
+              "brier": 0.60190374,
+              "log_loss": 1.00717495
+            }
+          },
+          "test_season": "2425",
+          "test_unique_fixtures": 1882,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021",
+            "2122",
+            "2223",
+            "2324"
+          ],
+          "train_unique_fixtures": 10567,
+          "walkforward_weights": {
+            "bivariate_poisson": 0.16941032,
+            "dixon_coles": 0.41775938,
+            "poisson": 0.4128303
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.59813235,
+              "log_loss": 1.00140026
+            },
+            "dixon_coles": {
+              "brier": 0.59797787,
+              "log_loss": 1.00106395
+            },
+            "equal_blend": {
+              "brier": 0.59801451,
+              "log_loss": 1.00118549
+            },
+            "poisson": {
+              "brier": 0.59815768,
+              "log_loss": 1.00150739
+            },
+            "walkforward_blend": {
+              "brier": 0.59798802,
+              "log_loss": 1.00112594
+            }
+          },
+          "test_season": "2526",
+          "test_unique_fixtures": 1880,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021",
+            "2122",
+            "2223",
+            "2324",
+            "2425"
+          ],
+          "train_unique_fixtures": 12449,
+          "walkforward_weights": {
+            "bivariate_poisson": 0.27802303,
+            "dixon_coles": 0.47644691,
+            "poisson": 0.24553006
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.56611918,
+              "log_loss": 0.95668467
+            },
+            "dixon_coles": {
+              "brier": 0.56721188,
+              "log_loss": 0.95807955
+            },
+            "equal_blend": {
+              "brier": 0.56636403,
+              "log_loss": 0.95696967
+            },
+            "poisson": {
+              "brier": 0.56594635,
+              "log_loss": 0.95648016
+            },
+            "walkforward_blend": {
+              "brier": 0.56658276,
+              "log_loss": 0.95724913
+            }
+          },
+          "test_season": "2627",
+          "test_unique_fixtures": 477,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021",
+            "2122",
+            "2223",
+            "2324",
+            "2425",
+            "2526"
+          ],
+          "train_unique_fixtures": 14329,
+          "walkforward_weights": {
+            "bivariate_poisson": 0.23588442,
+            "dixon_coles": 0.51907833,
+            "poisson": 0.24503726
+          }
+        }
+      ],
+      "walkforward_oos": {
+        "bivariate_poisson": {
+          "brier": 0.59919365,
+          "log_loss": 1.00361067
+        },
+        "dixon_coles": {
+          "brier": 0.59897424,
+          "log_loss": 1.0033253
+        },
+        "n_unique_fixtures": 13234,
+        "poisson": {
+          "brier": 0.59930191,
+          "log_loss": 1.00371486
+        },
+        "walkforward_blend": {
+          "brier": 0.59922138,
+          "log_loss": 1.00357665
+        }
+      }
+    },
+    "ou_over_2_5": {
+      "season_splits": [
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.24508034,
+              "log_loss": 0.76110938
+            },
+            "dixon_coles": {
+              "brier": 0.24452245,
+              "log_loss": 0.76301636
+            },
+            "equal_blend": {
+              "brier": 0.24469112,
+              "log_loss": 0.76235141
+            },
+            "poisson": {
+              "brier": 0.24451357,
+              "log_loss": 0.76302925
+            },
+            "walkforward_blend": {
+              "brier": 0.24508034,
+              "log_loss": 0.76110938
+            }
+          },
+          "test_season": "1920",
+          "test_unique_fixtures": 1573,
+          "train_seasons": [
+            "1819"
+          ],
+          "train_unique_fixtures": 1572,
+          "walkforward_weights": {
+            "bivariate_poisson": 1.0,
+            "dixon_coles": 0.0,
+            "poisson": 0.0
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.2490085,
+              "log_loss": 0.74514187
+            },
+            "dixon_coles": {
+              "brier": 0.2489993,
+              "log_loss": 0.74599001
+            },
+            "equal_blend": {
+              "brier": 0.2489971,
+              "log_loss": 0.74568938
+            },
+            "poisson": {
+              "brier": 0.24900052,
+              "log_loss": 0.74597557
+            },
+            "walkforward_blend": {
+              "brier": 0.2490085,
+              "log_loss": 0.74514187
+            }
+          },
+          "test_season": "2021",
+          "test_unique_fixtures": 1808,
+          "train_seasons": [
+            "1819",
+            "1920"
+          ],
+          "train_unique_fixtures": 3145,
+          "walkforward_weights": {
+            "bivariate_poisson": 1.0,
+            "dixon_coles": 0.0,
+            "poisson": 0.0
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.24456997,
+              "log_loss": 0.7501709
+            },
+            "dixon_coles": {
+              "brier": 0.24461329,
+              "log_loss": 0.75172678
+            },
+            "equal_blend": {
+              "brier": 0.24459736,
+              "log_loss": 0.75116799
+            },
+            "poisson": {
+              "brier": 0.24462556,
+              "log_loss": 0.75164757
+            },
+            "walkforward_blend": {
+              "brier": 0.24456997,
+              "log_loss": 0.7501709
+            }
+          },
+          "test_season": "2122",
+          "test_unique_fixtures": 1850,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021"
+          ],
+          "train_unique_fixtures": 4953,
+          "walkforward_weights": {
+            "bivariate_poisson": 1.0,
+            "dixon_coles": 0.0,
+            "poisson": 0.0
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.24843122,
+              "log_loss": 0.74249022
+            },
+            "dixon_coles": {
+              "brier": 0.24869304,
+              "log_loss": 0.74313581
+            },
+            "equal_blend": {
+              "brier": 0.24859235,
+              "log_loss": 0.74291591
+            },
+            "poisson": {
+              "brier": 0.24867002,
+              "log_loss": 0.74316168
+            },
+            "walkforward_blend": {
+              "brier": 0.24843122,
+              "log_loss": 0.74249022
+            }
+          },
+          "test_season": "2223",
+          "test_unique_fixtures": 1874,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021",
+            "2122"
+          ],
+          "train_unique_fixtures": 6803,
+          "walkforward_weights": {
+            "bivariate_poisson": 1.0,
+            "dixon_coles": 0.0,
+            "poisson": 0.0
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.2437871,
+              "log_loss": 0.74290306
+            },
+            "dixon_coles": {
+              "brier": 0.24390456,
+              "log_loss": 0.74389873
+            },
+            "equal_blend": {
+              "brier": 0.24385432,
+              "log_loss": 0.74356924
+            },
+            "poisson": {
+              "brier": 0.24388698,
+              "log_loss": 0.7439426
+            },
+            "walkforward_blend": {
+              "brier": 0.2437871,
+              "log_loss": 0.74290306
+            }
+          },
+          "test_season": "2324",
+          "test_unique_fixtures": 1890,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021",
+            "2122",
+            "2223"
+          ],
+          "train_unique_fixtures": 8677,
+          "walkforward_weights": {
+            "bivariate_poisson": 1.0,
+            "dixon_coles": 0.0,
+            "poisson": 0.0
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.24309572,
+              "log_loss": 0.74601507
+            },
+            "dixon_coles": {
+              "brier": 0.24298985,
+              "log_loss": 0.74714562
+            },
+            "equal_blend": {
+              "brier": 0.243014,
+              "log_loss": 0.74681322
+            },
+            "poisson": {
+              "brier": 0.2429749,
+              "log_loss": 0.74732269
+            },
+            "walkforward_blend": {
+              "brier": 0.24309572,
+              "log_loss": 0.74601507
+            }
+          },
+          "test_season": "2425",
+          "test_unique_fixtures": 1882,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021",
+            "2122",
+            "2223",
+            "2324"
+          ],
+          "train_unique_fixtures": 10567,
+          "walkforward_weights": {
+            "bivariate_poisson": 1.0,
+            "dixon_coles": 0.0,
+            "poisson": 0.0
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.24802328,
+              "log_loss": 0.73632262
+            },
+            "dixon_coles": {
+              "brier": 0.24830885,
+              "log_loss": 0.73737387
+            },
+            "equal_blend": {
+              "brier": 0.24820868,
+              "log_loss": 0.7370067
+            },
+            "poisson": {
+              "brier": 0.248309,
+              "log_loss": 0.73736036
+            },
+            "walkforward_blend": {
+              "brier": 0.24802328,
+              "log_loss": 0.73632262
+            }
+          },
+          "test_season": "2526",
+          "test_unique_fixtures": 1880,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021",
+            "2122",
+            "2223",
+            "2324",
+            "2425"
+          ],
+          "train_unique_fixtures": 12449,
+          "walkforward_weights": {
+            "bivariate_poisson": 1.0,
+            "dixon_coles": 0.0,
+            "poisson": 0.0
+          }
+        },
+        {
+          "metrics": {
+            "bivariate_poisson": {
+              "brier": 0.24442481,
+              "log_loss": 0.74176956
+            },
+            "dixon_coles": {
+              "brier": 0.24397606,
+              "log_loss": 0.74363918
+            },
+            "equal_blend": {
+              "brier": 0.24412378,
+              "log_loss": 0.74297227
+            },
+            "poisson": {
+              "brier": 0.24399327,
+              "log_loss": 0.74356245
+            },
+            "walkforward_blend": {
+              "brier": 0.24442481,
+              "log_loss": 0.74176956
+            }
+          },
+          "test_season": "2627",
+          "test_unique_fixtures": 477,
+          "train_seasons": [
+            "1819",
+            "1920",
+            "2021",
+            "2122",
+            "2223",
+            "2324",
+            "2425",
+            "2526"
+          ],
+          "train_unique_fixtures": 14329,
+          "walkforward_weights": {
+            "bivariate_poisson": 1.0,
+            "dixon_coles": 0.0,
+            "poisson": 0.0
+          }
+        }
+      ],
+      "walkforward_oos": {
+        "bivariate_poisson": {
+          "brier": 0.24594767,
+          "log_loss": 0.74579735
+        },
+        "dixon_coles": {
+          "brier": 0.24594934,
+          "log_loss": 0.7469685
+        },
+        "n_unique_fixtures": 13234,
+        "poisson": {
+          "brier": 0.24594292,
+          "log_loss": 0.74698741
+        },
+        "walkforward_blend": {
+          "brier": 0.24594767,
+          "log_loss": 0.74579735
+        }
+      }
+    }
+  },
+  "protocol": "M5_M3_OOS_CONVEX_STACK_V1",
+  "roi": null,
+  "scope": "Only fixtures present in the saved M3 Football-Data.co.uk OOS artifact; scope is a subset of the established M1/MR1 union.",
+  "source_models": [
+    "poisson",
+    "dixon_coles",
+    "bivariate_poisson"
+  ],
+  "time_isolation": "For each target season, weights are fit only on earlier seasons' saved OOS predictions. No fixture from the target season is used for weight fitting.",
+  "unique_scored_fixtures": 14806
+}

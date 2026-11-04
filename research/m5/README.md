@@ -1,6 +1,12 @@
-# M5 独立融合研究：启动审计
+# M5 独立融合研究
 
-生成时间：2026-11-04 UTC。M5 是独立研究身份；本目录不连接 M1/MR1/M3 的生产预测、订单、账本或 Telegram。本文仅记录启动时的数据可用性审计，不是回测报告，也不声称已完成 10,000 场 Crown 历史收益验证。
+生成时间：2026-11-04 UTC。M5 是独立研究身份；本目录不连接 M1/MR1/M3 的生产预测、订单、账本或 Telegram。当前已有真实概率前推实验和小样本 Crown OU 回放，但尚未完成 10,000 场 Crown 历史收益验证。
+
+当前综合进度见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)。代码与产物：
+
+- [probability_stack_oos.py](probability_stack_oos.py) → [M3 13,234 场逐季前推概率结果](results/m5_probability_stack_oos.json)
+- [m1_ou_crown_small_archive_replay.py](m1_ou_crown_small_archive_replay.py) → [M1 冻结 Crown OU 小样本回放](results/m1_ou_crown_small_archive.json)
+- [exact_m1_m3_join_audit.py](exact_m1_m3_join_audit.py) → [M1/M3 精确交集覆盖审计](results/m1_m3_exact_join.json)
 
 ## 可复核数据现状
 

@@ -1,0 +1,21 @@
+{
+  "exact_join_key": [
+    "league_code",
+    "UTC_calendar_date",
+    "normalized_home_team",
+    "normalized_away_team"
+  ],
+  "inputs_sha256": {
+    "m1_observations": "83929310c0dc0a3b7e62a986513ed19ccd2877fe11f9cf0e5dc2291a7ede69dc",
+    "m1_settled_summary": "b4e054c8cecd82f7828080d9bea3f5955f54c66531342e016ad3ab3df9a212ce",
+    "m3_oos_csv": "9375bdbbb60e7b3c9e71d13bdc7f9e0d6ec57649579a4c2e4a14b9cbf4de8cc0"
+  },
+  "m1_eligible_settled_unique_fixtures": 52,
+  "m1_key_collisions": 0,
+  "m1_m3_exact_common_fixtures_with_all_three_m3_predictions": 2,
+  "m3_common_scored_unique_fixtures": 14806,
+  "m3_key_collisions": 0,
+  "price_source": "M1 archived Crown quotes only; this join audit itself computes no PnL.",
+  "protocol": "M5_M1_M3_EXACT_COMPOSITE_JOIN_AUDIT_V1",
+  "raw_fixture_ids_or_names_published": false
+}
