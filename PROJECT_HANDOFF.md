@@ -3714,3 +3714,4 @@
 - 新增 317 场同盘口/同结算 Crown 较低价一侧描述性基准（每场固定一注，不看 M5 概率）：AH `+2.277603%` vs M5 `-4.088328%`；OU `-5.864353%` vs M5 `+2.239748%`。该基准只衡量模型方向增量，样本小且不构成正式规则；具体全赢/半赢等结算已写入 MR1 Crown OOS JSON。
 - 同盘口 Crown 方向基准代码与重放已公开：commit `d38b1e791afff59c9c4b07ce972d3ef1c6fae555`，UTC `2026-11-04T21:49:53Z`，远端 `codex/m5-oos-crown-expansion`。M5 同样本 AH 落后短价侧，OU 优于短价侧，但 ROI 仍未达到目标。
 - Crown verified quote-time 季度审计：AH 316/317 注在2026-Q4，Q3仅1注且push；OU 317注全部在2026-Q4。当前样本没有跨季度/跨年 ROI 稳定性证据，详细分项在 MR1 OOS JSON 的 `by_quote_utc_quarter`。
+- Crown quote-time quarter breakdown and report update pushed as `c6d0bb3a2bbd42eeb6630028c6a6c36ef05be02a` at `2026-11-04T21:53:04Z` UTC; remote branch `codex/m5-oos-crown-expansion`.
