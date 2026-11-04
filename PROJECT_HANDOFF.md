@@ -3710,3 +3710,4 @@
 - OOS训练支持诊断最新SHA上：<20训练赛数 n=316，AH `1.659212/0.858306`、OU `1.266332/0.367378` (LL/Brier)；>=250 n=114,094，AH `1.010514/0.603886`、OU `0.690869/0.248530`。这是事后分组，不是投注门槛。
 - M5 Actions 未存在/未运行；本轮本地执行和报告更新不等于云端自动化成功。所有逐场 forecast 在私有目录，公共仓库仅脱敏聚合与哈希。新结果提交/推送后需补具体 commit SHA 和 UTC 回执。
 - 目标仍未达：complete scope、每个市场至少10,000个 verified pre-kickoff Crown+FT样本、AH与OU OOS ROI各自严格>5%。
+- 最新 OOS / Crown replay 快照已推送：commit `37d9f6f03b24b5114798d934868e9a3270f6d0c3`，提交 UTC `2026-11-04T21:44:17Z`，远端分支 `codex/m5-oos-crown-expansion`。验证包括 127,674 条 forecast 唯一身份/UTC cutoff/grid、所有依赖 SHA 对齐、M3 75 tests 通过、公开 JSON 脱敏检查为 0 个敏感键。
