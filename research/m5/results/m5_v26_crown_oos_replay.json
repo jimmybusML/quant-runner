@@ -1,0 +1,145 @@
+{
+  "V23_fixture_registry_sha256": "7d64bc4c437f8bd5958225104f15e39880df32db96d5e31f8d97e9fce57c299f",
+  "V23_index_sha256": "c38af559b487a07c518c65a2fd8333d9494925a6605c11a206f37ad8820cda74",
+  "V23_quote_snapshot_count": 2403,
+  "V23_quote_snapshot_hash_set_sha256": "8e8ba8f1e89841775d8a097fcf1ab128b68dd3c9baab83383912e58f55054ace",
+  "V26_FT_receipt_hash_set_sha256": "f30cc9f90e0b2b4904f95eb72c544bd4ee09dd06d8c916472d6109509478f70d",
+  "V26_audit_counts": {
+    "fixture_mismatch": 1,
+    "no_forecast_id": 7,
+    "protocol_locked": 47,
+    "verified_historical_oos_pairs": 39
+  },
+  "V26_observations_sha256": "5d2b236e500c90447274ea0c78123832f6debc6dbb6b3ace136c695da5468db6",
+  "V26_protocol_sha256": "a31d541d9ad024530a913ba5de3d985d4fe5fda04386f6109b6f8162ac4dec0b",
+  "V26_quote_payload_count": 39,
+  "V26_quote_payload_hash_set_sha256": "a51e5b91b6347d9e5462ad7aaf20835ed501bde669bcad5f0556977257e23b4c",
+  "V26_summary_sha256": "24ad11aad9668aef6c1e425ceb3f0dde71ef7c2d3b40b67e0775dff5db7c5e32",
+  "deduplication": "One record per exact match_id and market. Where V23 and V26 both have eligible data, retain the later Crown quote event timestamp, then later receipt timestamp. No fixture can be counted twice in a market.",
+  "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+  "generated_utc": "2026-11-04T22:29:19.946274+00:00",
+  "markets": {
+    "AH": {
+      "V23_later_quote_on_same_V26_fixtures": {
+        "full_loss": 17,
+        "full_win": 8,
+        "half_loss": 4,
+        "half_win": 4,
+        "max_drawdown_units_by_quote_event": 12.555,
+        "net_units": -9.475,
+        "push": 6,
+        "roi_pct": -24.294872,
+        "settled_bets": 39,
+        "settlement_brier": 0.750181,
+        "settlement_log_loss": 1.18903297,
+        "simulated_bets": 39,
+        "unique_fixtures": 39
+      },
+      "V23_only": {
+        "full_loss": 128,
+        "full_win": 124,
+        "half_loss": 20,
+        "half_win": 20,
+        "max_drawdown_units_by_quote_event": 25.79,
+        "net_units": -12.96,
+        "push": 25,
+        "roi_pct": -4.088328,
+        "settled_bets": 317,
+        "settlement_brier": 0.6544092,
+        "settlement_log_loss": 1.05273941,
+        "simulated_bets": 317,
+        "unique_fixtures": 317
+      },
+      "V26_MR1_AI_direction_same_quote_baseline": {
+        "full_loss": 7,
+        "full_win": 18,
+        "half_loss": 4,
+        "half_win": 4,
+        "max_drawdown_units_by_quote_event": 2.0,
+        "net_units": 9.815,
+        "push": 6,
+        "roi_pct": 25.166667,
+        "settled_bets": 39,
+        "settlement_brier": null,
+        "settlement_log_loss": null,
+        "simulated_bets": 39,
+        "unique_fixtures": 39
+      },
+      "V26_first_locked_quote_hindcast": {
+        "full_loss": 17,
+        "full_win": 8,
+        "half_loss": 3,
+        "half_win": 5,
+        "max_drawdown_units_by_quote_event": 12.695,
+        "net_units": -8.985,
+        "push": 6,
+        "roi_pct": -23.038462,
+        "settled_bets": 39,
+        "settlement_brier": 0.73294132,
+        "settlement_log_loss": 1.16726241,
+        "simulated_bets": 39,
+        "unique_fixtures": 39
+      },
+      "merged_unique_latest_quote": {
+        "full_loss": 128,
+        "full_win": 124,
+        "half_loss": 20,
+        "half_win": 20,
+        "max_drawdown_units_by_quote_event": 25.79,
+        "net_units": -12.96,
+        "push": 25,
+        "roi_pct": -4.088328,
+        "settled_bets": 317,
+        "settlement_brier": 0.6544092,
+        "settlement_log_loss": 1.05273941,
+        "simulated_bets": 317,
+        "unique_fixtures": 317
+      }
+    },
+    "OU": {
+      "V23_only": {
+        "full_loss": 118,
+        "full_win": 139,
+        "half_loss": 23,
+        "half_win": 19,
+        "max_drawdown_units_by_quote_event": 20.09,
+        "net_units": 7.1,
+        "push": 18,
+        "roi_pct": 2.239748,
+        "settled_bets": 317,
+        "settlement_brier": 0.63152205,
+        "settlement_log_loss": 1.00331741,
+        "simulated_bets": 317,
+        "unique_fixtures": 317
+      },
+      "V26_only": {
+        "roi_pct": null,
+        "settled_bets": 0,
+        "simulated_bets": 0,
+        "unique_fixtures": 0
+      },
+      "merged_unique_latest_quote": {
+        "full_loss": 118,
+        "full_win": 139,
+        "half_loss": 23,
+        "half_win": 19,
+        "max_drawdown_units_by_quote_event": 20.09,
+        "net_units": 7.1,
+        "push": 18,
+        "roi_pct": 2.239748,
+        "settled_bets": 317,
+        "settlement_brier": 0.63152205,
+        "settlement_log_loss": 1.00331741,
+        "simulated_bets": 317,
+        "unique_fixtures": 317
+      }
+    }
+  },
+  "method": "M5 score-grid probabilities are retrospectively reconstructed using strict annual UTC walk-forward training on prior-year results. Require training_end < prediction_asof <= Crown event <= received < kickoff, exact fixture identity, source-verified Crown AH contract, and separate post-kickoff FT receipt. Select the side with higher M5 expected return at the exact Crown line and price; no EV gate; one unit; quarter-line settlement. This is a historical hindcast, not an archived live M5 signal.",
+  "overlap_quote_time_order": {
+    "V23_newer": 39
+  },
+  "protocol": "M5_V26_CROWN_STRICT_OOS_HINDCAST_V1",
+  "scope_note": "Crown AH only in V26; no OU data in this archive. No non-Crown prices, private row values, IDs, team names, or credentials are published.",
+  "unique_fixture_market_overlap_V23_V26": 39
+}
