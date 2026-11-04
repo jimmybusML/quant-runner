@@ -3711,3 +3711,4 @@
 - M5 Actions 未存在/未运行；本轮本地执行和报告更新不等于云端自动化成功。所有逐场 forecast 在私有目录，公共仓库仅脱敏聚合与哈希。新结果提交/推送后需补具体 commit SHA 和 UTC 回执。
 - 目标仍未达：complete scope、每个市场至少10,000个 verified pre-kickoff Crown+FT样本、AH与OU OOS ROI各自严格>5%。
 - 最新 OOS / Crown replay 快照已推送：commit `37d9f6f03b24b5114798d934868e9a3270f6d0c3`，提交 UTC `2026-11-04T21:44:17Z`，远端分支 `codex/m5-oos-crown-expansion`。验证包括 127,674 条 forecast 唯一身份/UTC cutoff/grid、所有依赖 SHA 对齐、M3 75 tests 通过、公开 JSON 脱敏检查为 0 个敏感键。
+- 新增 317 场同盘口/同结算 Crown 较低价一侧描述性基准（每场固定一注，不看 M5 概率）：AH `+2.277603%` vs M5 `-4.088328%`；OU `-5.864353%` vs M5 `+2.239748%`。该基准只衡量模型方向增量，样本小且不构成正式规则；具体全赢/半赢等结算已写入 MR1 Crown OOS JSON。

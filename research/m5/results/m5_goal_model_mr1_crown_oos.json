@@ -7,7 +7,7 @@
   "TotalCorner_Crown_response_hash_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "forecast_rows": 127674,
   "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
-  "generated_utc": "2026-11-04T21:41:28.378858+00:00",
+  "generated_utc": "2026-11-04T21:48:26.775208+00:00",
   "limitations": [
     "The source schedule universe is partial, not all 51 frozen scope leagues.",
     "MR1 saved model selections are compared only when decision record, Crown quote source hash, market, line, price and event time match exactly.",
@@ -280,11 +280,39 @@
       "oos_roi_pct": -4.088328,
       "push": 25,
       "roi_pct": -4.088328,
-      "same_quote_M3_OOS_models": {},
+      "same_quote_M3_OOS_models": {
+        "bivariate_poisson": {
+          "bets": 4,
+          "net_units": 2.02,
+          "roi_pct": 50.5
+        },
+        "dixon_coles": {
+          "bets": 4,
+          "net_units": 2.02,
+          "roi_pct": 50.5
+        },
+        "poisson": {
+          "bets": 4,
+          "net_units": 2.02,
+          "roi_pct": 50.5
+        }
+      },
       "same_quote_M5_on_M3_contract_fixtures": {
-        "bets": 0,
-        "net_units": 0,
-        "roi_pct": null
+        "bets": 4,
+        "net_units": 2.02,
+        "roi_pct": 50.5
+      },
+      "same_quote_crown_short_price_side_baseline": {
+        "bets": 317,
+        "full_loss": 113,
+        "full_win": 139,
+        "half_loss": 17,
+        "half_win": 23,
+        "max_drawdown_units_by_quote_time": 19.085,
+        "net_units": 7.22,
+        "push": 25,
+        "roi_pct": 2.277603,
+        "settled_bets": 317
       },
       "same_quote_saved_MR1_selection": {
         "bets": 0,
@@ -557,11 +585,39 @@
       "oos_roi_pct": 2.239748,
       "push": 18,
       "roi_pct": 2.239748,
-      "same_quote_M3_OOS_models": {},
+      "same_quote_M3_OOS_models": {
+        "bivariate_poisson": {
+          "bets": 5,
+          "net_units": 0.5,
+          "roi_pct": 10.0
+        },
+        "dixon_coles": {
+          "bets": 5,
+          "net_units": -1.33,
+          "roi_pct": -26.6
+        },
+        "poisson": {
+          "bets": 5,
+          "net_units": -1.33,
+          "roi_pct": -26.6
+        }
+      },
       "same_quote_M5_on_M3_contract_fixtures": {
-        "bets": 0,
-        "net_units": 0,
-        "roi_pct": null
+        "bets": 5,
+        "net_units": -1.33,
+        "roi_pct": -26.6
+      },
+      "same_quote_crown_short_price_side_baseline": {
+        "bets": 317,
+        "full_loss": 128,
+        "full_win": 129,
+        "half_loss": 20,
+        "half_win": 22,
+        "max_drawdown_units_by_quote_time": 22.815,
+        "net_units": -18.59,
+        "push": 18,
+        "roi_pct": -5.864353,
+        "settled_bets": 317
       },
       "same_quote_saved_MR1_selection": {
         "bets": 0,
@@ -578,5 +634,5 @@
   },
   "method": "One unique M5 UTC-year OOS forecast per fixture; latest verified Crown source quote with observed<=received<kickoff and quote observed after prediction_asof; FT independently verified after kickoff; choose the side with higher model expected return and no EV gate; quarter-line split settlement; no duplicated fixture within each market.",
   "protocol": "M5_MR1_VERIFIED_CROWN_COMMON_OOS_REPLAY_V1",
-  "strict_M3_OOS_csv_sha256": null
+  "strict_M3_OOS_csv_sha256": "9375bdbbb60e7b3c9e71d13bdc7f9e0d6ec57649579a4c2e4a14b9cbf4de8cc0"
 }

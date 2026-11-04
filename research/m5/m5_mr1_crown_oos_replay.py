@@ -149,7 +149,7 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
  from research.m5.m3_grid_crown_replay import expected_return,legs_result,payout
  output_markets={}
  for market in ("AH","OU"):
-  entries=[]; outcomes=Counter(); by_year=defaultdict(list); by_league=defaultdict(list); m3same=defaultdict(list); m5same=[]; mr1same=[];proper=[]
+  entries=[]; favorite_entries=[]; outcomes=Counter(); favorite_outcomes=Counter(); by_year=defaultdict(list); by_league=defaultdict(list); m3same=defaultdict(list); m5same=[]; mr1same=[];proper=[]
   for (mid,mkt),(q,f,ft) in selected.items():
    if mkt!=market:continue
    grid=f["prediction"]["grid"];prices=q["prices"];line=q["line"]
@@ -159,6 +159,15 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
    hg,ag=int(f["home_goals"]),int(f["away_goals"]);legs,cat=legs_result(market,side,line,hg,ag);units=payout(legs,price)
    row={"observed":q["observed"],"mid":mid,"league":f["league"],"year":q["observed"].year,"units":units,"category":cat}
    entries.append(row);outcomes[cat]+=1;by_year[str(q["observed"].year)].append(units);by_league[f["league"]].append(units)
+   # Same verified Crown contract and stake, but select the shorter-priced side
+   # without looking at model probabilities. This is a descriptive baseline,
+   # not a gate or a proposed production rule.
+   favorite_idx=0 if prices[0]<=prices[1] else 1
+   favorite_side=sides[favorite_idx];favorite_price=prices[favorite_idx]
+   favorite_legs,favorite_category=legs_result(market,favorite_side,line,hg,ag)
+   favorite_units=payout(favorite_legs,favorite_price)
+   favorite_entries.append({"observed":q["observed"],"mid":mid,"units":favorite_units,"category":favorite_category})
+   favorite_outcomes[favorite_category]+=1
    distribution=Counter()
    for gh,gridrow in enumerate(grid):
     for ga,prob in enumerate(gridrow):
@@ -215,6 +224,9 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
   equity=peak=dd=0.0
   for r in entries:
    equity+=r["units"];peak=max(peak,equity);dd=max(dd,peak-equity)
+  favorite_equity=favorite_peak=favorite_dd=0.0
+  for r in sorted(favorite_entries,key=lambda x:(x["observed"],x["mid"])):
+   favorite_equity+=r["units"];favorite_peak=max(favorite_peak,favorite_equity);favorite_dd=max(favorite_dd,favorite_peak-favorite_equity)
   n=len(entries);net=sum(r["units"] for r in entries)
   output_markets[market]={"unique_forecast_fixtures":len(forecasts),"verified_quote_covered_fixtures":n,"simulated_bets":n,"settled_bets":n,"full_win":outcomes["win"],"half_win":outcomes["half_win"],"full_loss":outcomes["loss"],"half_loss":outcomes["half_loss"],"push":outcomes["push"],"net_units":round(net,6),"roi_pct":round(100*net/n,6) if n else None,"oos_roi_pct":round(100*net/n,6) if n else None,"max_drawdown_units_by_quote_time":round(dd,6) if n else None,
     "by_year":{y:{"bets":len(v),"net_units":round(sum(v),6),"roi_pct":round(100*sum(v)/len(v),6)} for y,v in sorted(by_year.items())},
@@ -222,6 +234,7 @@ def run(mr1_root:Path, forecasts_path:Path, m3_csv:Path|None, output:Path, sourc
     "settlement_log_loss":round(sum(x[0] for x in proper)/len(proper),8) if proper else None,
     "settlement_brier":round(sum(x[1] for x in proper)/len(proper),8) if proper else None,
     "same_quote_saved_MR1_selection":{"bets":len(mr1same),"net_units":round(sum(x[1] for x in mr1same),6),"roi_pct":round(100*sum(x[1] for x in mr1same)/len(mr1same),6) if mr1same else None},
+    "same_quote_crown_short_price_side_baseline":{"bets":len(favorite_entries),"settled_bets":len(favorite_entries),"full_win":favorite_outcomes["win"],"half_win":favorite_outcomes["half_win"],"full_loss":favorite_outcomes["loss"],"half_loss":favorite_outcomes["half_loss"],"push":favorite_outcomes["push"],"net_units":round(sum(x["units"] for x in favorite_entries),6),"roi_pct":round(100*sum(x["units"] for x in favorite_entries)/len(favorite_entries),6) if favorite_entries else None,"max_drawdown_units_by_quote_time":round(favorite_dd,6) if favorite_entries else None},
     "same_quote_M5_on_M3_contract_fixtures":{"bets":len(m5same),"net_units":round(sum(x[1] for x in m5same),6),"roi_pct":round(100*sum(x[1] for x in m5same)/len(m5same),6) if m5same else None},
     "same_quote_M3_OOS_models":{model:{"bets":len(v),"net_units":round(sum(x[1] for x in v),6),"roi_pct":round(100*sum(x[1] for x in v)/len(v),6) if v else None} for model,v in sorted(m3same.items())}}
  # Guard against concurrent edits while hashing/replaying private read-only sources.

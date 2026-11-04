@@ -77,3 +77,5 @@ MR1 全量历史旧基准来自公开 GitHub Actions run `41425306084` 聚合 ar
 
 说明：最后训练输入冻结在 34/51 leagues；报告生成后 schedule collector 又记录 35 leagues complete / 2,745 saved pages（20:07:32Z），尚未纳入该 forecast，须待后续冻结并重训。
 - [m5_goal_model_training_support_audit.py](m5_goal_model_training_support_audit.py) → [按先验训练赛数汇总的 OOS proper-score 诊断](results/m5_goal_model_training_support_audit.json)；仅用于研究稀疏历史下的参数收缩，不作为下注筛选。
+
+同一 317 场 MR1 verified Crown 子集新增较低价一侧描述性基准：AH `+2.277603%`、OU `-5.864353%`；M5 分别 `-4.088328%`、`+2.239748%`。这只是同盘口的对照方向，不是策略门槛。详细结算计数与 SHA 见进度报告末节及脱敏 JSON。
