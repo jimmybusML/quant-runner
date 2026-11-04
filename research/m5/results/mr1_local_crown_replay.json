@@ -1,0 +1,1156 @@
+{
+  "competition_scope_protocol": "config/validation-spec.json competition_scope",
+  "competition_scope_sha256": "6c4fc5654162e93a29c8233ade09df710959a9ff378b9ae5a9a62de7b9ecd7bb",
+  "generated_utc": "2026-11-04T15:21:50.351807+00:00",
+  "inventory": {
+    "bad_forward_json": 0,
+    "forward_snapshot_files": 18607,
+    "invalid_time_snapshots": 4,
+    "kickoff_end_utc": "2026-11-03T23:20:00+00:00",
+    "kickoff_start_utc": "2026-10-08T12:30:00+00:00",
+    "league_count_in_forward_inventory": 104,
+    "quote_received_end_utc": "2026-11-03T10:51:33.146000+00:00",
+    "quote_received_start_utc": "2026-10-08T11:34:05.082000+00:00",
+    "settlement_result_files": 2182,
+    "unique_fixture_ids_with_verified_prematch_crown": 1621,
+    "unverified_crown_snapshots": 1293,
+    "valid_crown_snapshot_observations_inside_mr1_scope": 12349,
+    "valid_crown_snapshot_observations_outside_mr1_scope": 0,
+    "valid_crown_snapshot_observations_with_ft": 12349,
+    "verified_ft_files": 2182,
+    "wrong_match_identity": 0
+  },
+  "limitations": [
+    "Historical MR1 research replay, not M5 predictions or formal TG results.",
+    "Only aggregate metrics are published; source prices, teams, fixture IDs, records, and ledgers remain private.",
+    "Source was read locally and checked unchanged during analysis. This report does not pin or archive private raw data in the public repository.",
+    "This is a historical snapshot and does not establish future profitability."
+  ],
+  "markets": {
+    "AH": {
+      "by_horizon": {
+        "T0.5": {
+          "net_units": -48.26,
+          "roi": -0.0321519,
+          "settled_bets": 1501
+        },
+        "T1": {
+          "net_units": 4.68,
+          "roi": 0.07548387,
+          "settled_bets": 62
+        },
+        "T12": {
+          "net_units": -1.99,
+          "roi": -0.398,
+          "settled_bets": 5
+        },
+        "T18": {
+          "net_units": -4.5,
+          "roi": -0.9,
+          "settled_bets": 5
+        },
+        "T3": {
+          "net_units": -7.125,
+          "roi": -0.33928571,
+          "settled_bets": 21
+        },
+        "T36": {
+          "net_units": -4.15,
+          "roi": -0.69166667,
+          "settled_bets": 6
+        },
+        "T6": {
+          "net_units": -6.31,
+          "roi": -0.30047619,
+          "settled_bets": 21
+        }
+      },
+      "by_horizon_bet_counts": {
+        "T0.5": 1501,
+        "T1": 62,
+        "T12": 5,
+        "T18": 5,
+        "T3": 21,
+        "T36": 6,
+        "T6": 21
+      },
+      "by_league": {
+        "Albania Championship": {
+          "net_units": 1.85,
+          "roi": 0.925,
+          "settled_bets": 2
+        },
+        "Albania First Division": {
+          "net_units": 1.865,
+          "roi": 0.62166667,
+          "settled_bets": 3
+        },
+        "Armenia Premier League": {
+          "net_units": 2.41,
+          "roi": 0.80333333,
+          "settled_bets": 3
+        },
+        "Austria 2. Liga": {
+          "net_units": -0.245,
+          "roi": -0.00875,
+          "settled_bets": 28
+        },
+        "Austria Bundesliga": {
+          "net_units": -5.69,
+          "roi": -0.23708333,
+          "settled_bets": 24
+        },
+        "Azerbaijan Premier League": {
+          "net_units": 2.56,
+          "roi": 0.28444444,
+          "settled_bets": 9
+        },
+        "Belgium First Division A": {
+          "net_units": -0.24,
+          "roi": -0.01090909,
+          "settled_bets": 22
+        },
+        "Belgium First Division B": {
+          "net_units": -2.81,
+          "roi": -0.40142857,
+          "settled_bets": 7
+        },
+        "Bosnia & Herzegovina 1st League": {
+          "net_units": 0.0,
+          "roi": 0.0,
+          "settled_bets": 4
+        },
+        "Bosnia & Herzegovina Premier Liga": {
+          "net_units": 1.78,
+          "roi": 0.89,
+          "settled_bets": 2
+        },
+        "Bulgaria First League": {
+          "net_units": -2.17,
+          "roi": -0.24111111,
+          "settled_bets": 9
+        },
+        "Bulgaria Second League": {
+          "net_units": 3.685,
+          "roi": 0.460625,
+          "settled_bets": 8
+        },
+        "China Division 1": {
+          "net_units": 0.43,
+          "roi": 0.026875,
+          "settled_bets": 16
+        },
+        "China Super League": {
+          "net_units": -1.57,
+          "roi": -0.06541667,
+          "settled_bets": 24
+        },
+        "Colombia Primera A": {
+          "net_units": 4.76,
+          "roi": 0.10577778,
+          "settled_bets": 45
+        },
+        "Croatia 1.NL": {
+          "net_units": -2.29,
+          "roi": -0.20818182,
+          "settled_bets": 11
+        },
+        "Croatia HNL": {
+          "net_units": 3.48,
+          "roi": 0.348,
+          "settled_bets": 10
+        },
+        "Cyprus Division 1": {
+          "net_units": -3.74,
+          "roi": -0.26714286,
+          "settled_bets": 14
+        },
+        "Cyprus Division 2": {
+          "net_units": -2.0,
+          "roi": -1.0,
+          "settled_bets": 2
+        },
+        "Czechia 2. Liga": {
+          "net_units": 1.99,
+          "roi": 0.0995,
+          "settled_bets": 20
+        },
+        "Czechia First League": {
+          "net_units": -3.35,
+          "roi": -0.209375,
+          "settled_bets": 16
+        },
+        "Denmark Division 1": {
+          "net_units": -1.16,
+          "roi": -0.05043478,
+          "settled_bets": 23
+        },
+        "Denmark Superligaen": {
+          "net_units": 1.0,
+          "roi": 0.04545455,
+          "settled_bets": 22
+        },
+        "Egypt Division 1": {
+          "net_units": -5.17,
+          "roi": -0.30411765,
+          "settled_bets": 17
+        },
+        "Egypt Division 2": {
+          "net_units": 5.165,
+          "roi": 0.22456522,
+          "settled_bets": 23
+        },
+        "England Championship": {
+          "net_units": -8.695,
+          "roi": -0.14737288,
+          "settled_bets": 59
+        },
+        "England Premier League": {
+          "net_units": 2.96,
+          "roi": 0.14095238,
+          "settled_bets": 21
+        },
+        "Estonia Esiliiga": {
+          "net_units": -0.74,
+          "roi": -0.12333333,
+          "settled_bets": 6
+        },
+        "Estonia Meistriliiga": {
+          "net_units": -0.13,
+          "roi": -0.01181818,
+          "settled_bets": 11
+        },
+        "Finland Veikkausliiga": {
+          "net_units": -5.475,
+          "roi": -0.365,
+          "settled_bets": 15
+        },
+        "Finland Ykkosliiga": {
+          "net_units": 6.665,
+          "roi": 0.6665,
+          "settled_bets": 10
+        },
+        "France Ligue 1": {
+          "net_units": -9.495,
+          "roi": -0.35166667,
+          "settled_bets": 27
+        },
+        "France Ligue 2": {
+          "net_units": -6.985,
+          "roi": -0.30369565,
+          "settled_bets": 23
+        },
+        "Georgia Erovnuli Liga": {
+          "net_units": 0.115,
+          "roi": 0.023,
+          "settled_bets": 5
+        },
+        "Germany Bundesliga I": {
+          "net_units": -0.555,
+          "roi": -0.023125,
+          "settled_bets": 24
+        },
+        "Germany Bundesliga II": {
+          "net_units": -2.97,
+          "roi": -0.11423077,
+          "settled_bets": 26
+        },
+        "Greece Super League 1": {
+          "net_units": -3.435,
+          "roi": -0.28625,
+          "settled_bets": 12
+        },
+        "Greece Super League 2": {
+          "net_units": -2.5,
+          "roi": -0.83333333,
+          "settled_bets": 3
+        },
+        "Hungary NB I": {
+          "net_units": 4.47,
+          "roi": 0.55875,
+          "settled_bets": 8
+        },
+        "Hungary NB II": {
+          "net_units": 2.71,
+          "roi": 0.90333333,
+          "settled_bets": 3
+        },
+        "Iceland Premier League": {
+          "net_units": 5.87,
+          "roi": 0.53363636,
+          "settled_bets": 11
+        },
+        "Israel Leumit Liga": {
+          "net_units": 0.085,
+          "roi": 0.00447368,
+          "settled_bets": 19
+        },
+        "Israel Premier League": {
+          "net_units": -2.31,
+          "roi": -0.17769231,
+          "settled_bets": 13
+        },
+        "Italy Serie A": {
+          "net_units": -4.06,
+          "roi": -0.145,
+          "settled_bets": 28
+        },
+        "Italy Serie B": {
+          "net_units": -1.785,
+          "roi": -0.0425,
+          "settled_bets": 42
+        },
+        "Japan J-League": {
+          "net_units": -6.145,
+          "roi": -0.14987805,
+          "settled_bets": 41
+        },
+        "Japan J2-League": {
+          "net_units": -3.075,
+          "roi": -0.0627551,
+          "settled_bets": 49
+        },
+        "Kazakhstan Premier League": {
+          "net_units": -2.99,
+          "roi": -0.17588235,
+          "settled_bets": 17
+        },
+        "Latvia 1. Liga": {
+          "net_units": -1.0,
+          "roi": -1.0,
+          "settled_bets": 1
+        },
+        "Latvia Virsliga": {
+          "net_units": 0.44,
+          "roi": 0.03666667,
+          "settled_bets": 12
+        },
+        "Lithuania 1 Lyga": {
+          "net_units": -0.805,
+          "roi": -0.13416667,
+          "settled_bets": 6
+        },
+        "Lithuania A Lyga": {
+          "net_units": -3.13,
+          "roi": -0.626,
+          "settled_bets": 5
+        },
+        "Malta Premier League": {
+          "net_units": -0.45,
+          "roi": -0.02647059,
+          "settled_bets": 17
+        },
+        "Montenegro Prva Liga": {
+          "net_units": -0.63,
+          "roi": -0.105,
+          "settled_bets": 6
+        },
+        "Netherlands Eerste Divisie": {
+          "net_units": -1.785,
+          "roi": -0.04824324,
+          "settled_bets": 37
+        },
+        "Netherlands Eredivisie": {
+          "net_units": 7.51,
+          "roi": 0.27814815,
+          "settled_bets": 27
+        },
+        "North Macedonia First League": {
+          "net_units": -1.12,
+          "roi": -0.37333333,
+          "settled_bets": 3
+        },
+        "Northern Ireland Premier": {
+          "net_units": 6.43,
+          "roi": 0.45928571,
+          "settled_bets": 14
+        },
+        "Norway Division 1": {
+          "net_units": -3.9,
+          "roi": -0.1,
+          "settled_bets": 39
+        },
+        "Norway Eliteserien": {
+          "net_units": 3.93,
+          "roi": 0.1965,
+          "settled_bets": 20
+        },
+        "Poland Ekstraklasa": {
+          "net_units": -12.31,
+          "roi": -0.36205882,
+          "settled_bets": 34
+        },
+        "Poland I Liga": {
+          "net_units": -5.52,
+          "roi": -0.276,
+          "settled_bets": 20
+        },
+        "Portugal Primeira Liga": {
+          "net_units": -3.805,
+          "roi": -0.14634615,
+          "settled_bets": 26
+        },
+        "Portugal Segunda Liga": {
+          "net_units": 3.59,
+          "roi": 0.29916667,
+          "settled_bets": 12
+        },
+        "Republic of Ireland First Division": {
+          "net_units": 5.17,
+          "roi": 0.517,
+          "settled_bets": 10
+        },
+        "Republic of Ireland Premier Division": {
+          "net_units": 1.37,
+          "roi": 0.0685,
+          "settled_bets": 20
+        },
+        "Romania Liga I": {
+          "net_units": -5.075,
+          "roi": -0.26710526,
+          "settled_bets": 19
+        },
+        "Romania Liga II": {
+          "net_units": -7.08,
+          "roi": -0.26222222,
+          "settled_bets": 27
+        },
+        "Saudi Arabia Division 1": {
+          "net_units": -1.045,
+          "roi": -0.08708333,
+          "settled_bets": 12
+        },
+        "Saudi Arabia Pro League": {
+          "net_units": 2.235,
+          "roi": 0.08277778,
+          "settled_bets": 27
+        },
+        "Scotland Championship": {
+          "net_units": 1.24,
+          "roi": 0.10333333,
+          "settled_bets": 12
+        },
+        "Scotland Premiership": {
+          "net_units": -0.48,
+          "roi": -0.0192,
+          "settled_bets": 25
+        },
+        "Serbia Prva Liga": {
+          "net_units": 2.86,
+          "roi": 0.47666667,
+          "settled_bets": 6
+        },
+        "Serbia Super Liga": {
+          "net_units": -7.9,
+          "roi": -0.43888889,
+          "settled_bets": 18
+        },
+        "Slovakia 2. Liga": {
+          "net_units": 2.82,
+          "roi": 0.40285714,
+          "settled_bets": 7
+        },
+        "Slovakia Super Liga": {
+          "net_units": 4.75,
+          "roi": 0.39583333,
+          "settled_bets": 12
+        },
+        "Slovenia 2. SNL": {
+          "net_units": 0.16,
+          "roi": 0.04,
+          "settled_bets": 4
+        },
+        "Slovenia Prva Liga": {
+          "net_units": 0.33,
+          "roi": 0.033,
+          "settled_bets": 10
+        },
+        "South Korea K League 1": {
+          "net_units": 0.99,
+          "roi": 0.04714286,
+          "settled_bets": 21
+        },
+        "South Korea K League 2": {
+          "net_units": -5.465,
+          "roi": -0.30361111,
+          "settled_bets": 18
+        },
+        "Spain La Liga": {
+          "net_units": -0.025,
+          "roi": -0.00086207,
+          "settled_bets": 29
+        },
+        "Spain Segunda": {
+          "net_units": -6.835,
+          "roi": -0.1627381,
+          "settled_bets": 42
+        },
+        "Sweden Allsvenskan": {
+          "net_units": 0.795,
+          "roi": 0.02148649,
+          "settled_bets": 37
+        },
+        "Sweden Superettan": {
+          "net_units": -0.71,
+          "roi": -0.02535714,
+          "settled_bets": 28
+        },
+        "Switzerland Challenge League": {
+          "net_units": 2.14,
+          "roi": 0.17833333,
+          "settled_bets": 12
+        },
+        "Switzerland Super League": {
+          "net_units": 0.9,
+          "roi": 0.06,
+          "settled_bets": 15
+        },
+        "T\u00fcrkiye 1 Lig": {
+          "net_units": -1.99,
+          "roi": -0.06862069,
+          "settled_bets": 29
+        },
+        "T\u00fcrkiye Super Lig": {
+          "net_units": -8.45,
+          "roi": -0.30178571,
+          "settled_bets": 28
+        },
+        "Ukraine Persha Liga": {
+          "net_units": -1.5,
+          "roi": -0.75,
+          "settled_bets": 2
+        },
+        "Ukraine Vyscha Liga": {
+          "net_units": 3.675,
+          "roi": 0.153125,
+          "settled_bets": 24
+        },
+        "Wales Premier League": {
+          "net_units": -0.05,
+          "roi": -0.00454545,
+          "settled_bets": 11
+        }
+      },
+      "by_quote_age_band_diagnostic_only": {
+        "30-60m": {
+          "net_units": -11.04,
+          "roi": -0.06773006,
+          "settled_bets": 163
+        },
+        "60-120m": {
+          "net_units": 8.255,
+          "roi": 0.06604,
+          "settled_bets": 125
+        },
+        "<30m": {
+          "net_units": -32.67,
+          "roi": -0.03273547,
+          "settled_bets": 998
+        },
+        ">=120m": {
+          "net_units": -32.2,
+          "roi": -0.0961194,
+          "settled_bets": 335
+        }
+      },
+      "by_side": {
+        "away": {
+          "net_units": -36.94,
+          "roi": -0.03475071,
+          "settled_bets": 1063
+        },
+        "home": {
+          "net_units": -30.715,
+          "roi": -0.0550448,
+          "settled_bets": 558
+        }
+      },
+      "max_drawdown_units_by_quote_timestamp": 71.295,
+      "mean_model_ev": 0.00220253,
+      "mean_quote_age_minutes": 151.501,
+      "net_units": -67.655,
+      "pending_bets": 0,
+      "positive_model_ev_count_diagnostic_only": 893,
+      "realized_roi_minus_mean_model_ev": -0.04393912,
+      "roi": -0.04173658,
+      "settled_bets": 1621,
+      "settlement_counts": {
+        "half_loss": 82,
+        "half_win": 144,
+        "loss": 670,
+        "push": 99,
+        "win": 626
+      },
+      "simulated_bets": 1621,
+      "unique_fixtures": 1621
+    },
+    "OU": {
+      "by_horizon": {
+        "T0.5": {
+          "net_units": -49.295,
+          "roi": -0.03284144,
+          "settled_bets": 1501
+        },
+        "T1": {
+          "net_units": 1.08,
+          "roi": 0.01741935,
+          "settled_bets": 62
+        },
+        "T12": {
+          "net_units": 0.81,
+          "roi": 0.162,
+          "settled_bets": 5
+        },
+        "T18": {
+          "net_units": 0.35,
+          "roi": 0.07,
+          "settled_bets": 5
+        },
+        "T3": {
+          "net_units": -4.73,
+          "roi": -0.2252381,
+          "settled_bets": 21
+        },
+        "T36": {
+          "net_units": -3.54,
+          "roi": -0.59,
+          "settled_bets": 6
+        },
+        "T6": {
+          "net_units": -2.66,
+          "roi": -0.12666667,
+          "settled_bets": 21
+        }
+      },
+      "by_horizon_bet_counts": {
+        "T0.5": 1501,
+        "T1": 62,
+        "T12": 5,
+        "T18": 5,
+        "T3": 21,
+        "T36": 6,
+        "T6": 21
+      },
+      "by_league": {
+        "Albania Championship": {
+          "net_units": -0.62,
+          "roi": -0.31,
+          "settled_bets": 2
+        },
+        "Albania First Division": {
+          "net_units": 0.67,
+          "roi": 0.22333333,
+          "settled_bets": 3
+        },
+        "Armenia Premier League": {
+          "net_units": 0.86,
+          "roi": 0.28666667,
+          "settled_bets": 3
+        },
+        "Austria 2. Liga": {
+          "net_units": 3.19,
+          "roi": 0.11392857,
+          "settled_bets": 28
+        },
+        "Austria Bundesliga": {
+          "net_units": -7.35,
+          "roi": -0.30625,
+          "settled_bets": 24
+        },
+        "Azerbaijan Premier League": {
+          "net_units": -2.305,
+          "roi": -0.25611111,
+          "settled_bets": 9
+        },
+        "Belgium First Division A": {
+          "net_units": -5.6,
+          "roi": -0.25454545,
+          "settled_bets": 22
+        },
+        "Belgium First Division B": {
+          "net_units": -1.715,
+          "roi": -0.245,
+          "settled_bets": 7
+        },
+        "Bosnia & Herzegovina 1st League": {
+          "net_units": -0.16,
+          "roi": -0.04,
+          "settled_bets": 4
+        },
+        "Bosnia & Herzegovina Premier Liga": {
+          "net_units": 1.74,
+          "roi": 0.87,
+          "settled_bets": 2
+        },
+        "Bulgaria First League": {
+          "net_units": -0.85,
+          "roi": -0.09444444,
+          "settled_bets": 9
+        },
+        "Bulgaria Second League": {
+          "net_units": -2.36,
+          "roi": -0.295,
+          "settled_bets": 8
+        },
+        "China Division 1": {
+          "net_units": 1.0,
+          "roi": 0.0625,
+          "settled_bets": 16
+        },
+        "China Super League": {
+          "net_units": -2.805,
+          "roi": -0.116875,
+          "settled_bets": 24
+        },
+        "Colombia Primera A": {
+          "net_units": 11.775,
+          "roi": 0.26166667,
+          "settled_bets": 45
+        },
+        "Croatia 1.NL": {
+          "net_units": -0.815,
+          "roi": -0.07409091,
+          "settled_bets": 11
+        },
+        "Croatia HNL": {
+          "net_units": -0.72,
+          "roi": -0.072,
+          "settled_bets": 10
+        },
+        "Cyprus Division 1": {
+          "net_units": -0.265,
+          "roi": -0.01892857,
+          "settled_bets": 14
+        },
+        "Cyprus Division 2": {
+          "net_units": -2.0,
+          "roi": -1.0,
+          "settled_bets": 2
+        },
+        "Czechia 2. Liga": {
+          "net_units": -1.82,
+          "roi": -0.091,
+          "settled_bets": 20
+        },
+        "Czechia First League": {
+          "net_units": 7.33,
+          "roi": 0.458125,
+          "settled_bets": 16
+        },
+        "Denmark Division 1": {
+          "net_units": 2.975,
+          "roi": 0.12934783,
+          "settled_bets": 23
+        },
+        "Denmark Superligaen": {
+          "net_units": 2.665,
+          "roi": 0.12113636,
+          "settled_bets": 22
+        },
+        "Egypt Division 1": {
+          "net_units": -8.335,
+          "roi": -0.49029412,
+          "settled_bets": 17
+        },
+        "Egypt Division 2": {
+          "net_units": -4.72,
+          "roi": -0.20521739,
+          "settled_bets": 23
+        },
+        "England Championship": {
+          "net_units": -5.225,
+          "roi": -0.08855932,
+          "settled_bets": 59
+        },
+        "England Premier League": {
+          "net_units": -2.335,
+          "roi": -0.11119048,
+          "settled_bets": 21
+        },
+        "Estonia Esiliiga": {
+          "net_units": 1.37,
+          "roi": 0.22833333,
+          "settled_bets": 6
+        },
+        "Estonia Meistriliiga": {
+          "net_units": -0.54,
+          "roi": -0.04909091,
+          "settled_bets": 11
+        },
+        "Finland Veikkausliiga": {
+          "net_units": 6.57,
+          "roi": 0.438,
+          "settled_bets": 15
+        },
+        "Finland Ykkosliiga": {
+          "net_units": -2.26,
+          "roi": -0.226,
+          "settled_bets": 10
+        },
+        "France Ligue 1": {
+          "net_units": -3.16,
+          "roi": -0.11703704,
+          "settled_bets": 27
+        },
+        "France Ligue 2": {
+          "net_units": -3.09,
+          "roi": -0.13434783,
+          "settled_bets": 23
+        },
+        "Georgia Erovnuli Liga": {
+          "net_units": 4.1,
+          "roi": 0.82,
+          "settled_bets": 5
+        },
+        "Germany Bundesliga I": {
+          "net_units": -0.21,
+          "roi": -0.00875,
+          "settled_bets": 24
+        },
+        "Germany Bundesliga II": {
+          "net_units": 13.24,
+          "roi": 0.50923077,
+          "settled_bets": 26
+        },
+        "Greece Super League 1": {
+          "net_units": -0.64,
+          "roi": -0.05333333,
+          "settled_bets": 12
+        },
+        "Greece Super League 2": {
+          "net_units": 0.98,
+          "roi": 0.32666667,
+          "settled_bets": 3
+        },
+        "Hungary NB I": {
+          "net_units": 1.64,
+          "roi": 0.205,
+          "settled_bets": 8
+        },
+        "Hungary NB II": {
+          "net_units": 0.8,
+          "roi": 0.26666667,
+          "settled_bets": 3
+        },
+        "Iceland Premier League": {
+          "net_units": -1.84,
+          "roi": -0.16727273,
+          "settled_bets": 11
+        },
+        "Israel Leumit Liga": {
+          "net_units": -2.625,
+          "roi": -0.13815789,
+          "settled_bets": 19
+        },
+        "Israel Premier League": {
+          "net_units": 4.11,
+          "roi": 0.31615385,
+          "settled_bets": 13
+        },
+        "Italy Serie A": {
+          "net_units": -7.385,
+          "roi": -0.26375,
+          "settled_bets": 28
+        },
+        "Italy Serie B": {
+          "net_units": 2.315,
+          "roi": 0.05511905,
+          "settled_bets": 42
+        },
+        "Japan J-League": {
+          "net_units": -6.795,
+          "roi": -0.16573171,
+          "settled_bets": 41
+        },
+        "Japan J2-League": {
+          "net_units": 4.995,
+          "roi": 0.10193878,
+          "settled_bets": 49
+        },
+        "Kazakhstan Premier League": {
+          "net_units": -6.5,
+          "roi": -0.38235294,
+          "settled_bets": 17
+        },
+        "Latvia 1. Liga": {
+          "net_units": -0.5,
+          "roi": -0.5,
+          "settled_bets": 1
+        },
+        "Latvia Virsliga": {
+          "net_units": -3.56,
+          "roi": -0.29666667,
+          "settled_bets": 12
+        },
+        "Lithuania 1 Lyga": {
+          "net_units": -0.51,
+          "roi": -0.085,
+          "settled_bets": 6
+        },
+        "Lithuania A Lyga": {
+          "net_units": -3.06,
+          "roi": -0.612,
+          "settled_bets": 5
+        },
+        "Malta Premier League": {
+          "net_units": 2.85,
+          "roi": 0.16764706,
+          "settled_bets": 17
+        },
+        "Montenegro Prva Liga": {
+          "net_units": -5.0,
+          "roi": -0.83333333,
+          "settled_bets": 6
+        },
+        "Netherlands Eerste Divisie": {
+          "net_units": 7.525,
+          "roi": 0.20337838,
+          "settled_bets": 37
+        },
+        "Netherlands Eredivisie": {
+          "net_units": -6.02,
+          "roi": -0.22296296,
+          "settled_bets": 27
+        },
+        "North Macedonia First League": {
+          "net_units": 0.4,
+          "roi": 0.13333333,
+          "settled_bets": 3
+        },
+        "Northern Ireland Premier": {
+          "net_units": -3.68,
+          "roi": -0.26285714,
+          "settled_bets": 14
+        },
+        "Norway Division 1": {
+          "net_units": -7.52,
+          "roi": -0.19282051,
+          "settled_bets": 39
+        },
+        "Norway Eliteserien": {
+          "net_units": -1.3,
+          "roi": -0.065,
+          "settled_bets": 20
+        },
+        "Poland Ekstraklasa": {
+          "net_units": -4.11,
+          "roi": -0.12088235,
+          "settled_bets": 34
+        },
+        "Poland I Liga": {
+          "net_units": 0.98,
+          "roi": 0.049,
+          "settled_bets": 20
+        },
+        "Portugal Primeira Liga": {
+          "net_units": -3.225,
+          "roi": -0.12403846,
+          "settled_bets": 26
+        },
+        "Portugal Segunda Liga": {
+          "net_units": -3.175,
+          "roi": -0.26458333,
+          "settled_bets": 12
+        },
+        "Republic of Ireland First Division": {
+          "net_units": 4.4,
+          "roi": 0.44,
+          "settled_bets": 10
+        },
+        "Republic of Ireland Premier Division": {
+          "net_units": 1.15,
+          "roi": 0.0575,
+          "settled_bets": 20
+        },
+        "Romania Liga I": {
+          "net_units": -0.28,
+          "roi": -0.01473684,
+          "settled_bets": 19
+        },
+        "Romania Liga II": {
+          "net_units": -2.35,
+          "roi": -0.08703704,
+          "settled_bets": 27
+        },
+        "Saudi Arabia Division 1": {
+          "net_units": 0.405,
+          "roi": 0.03375,
+          "settled_bets": 12
+        },
+        "Saudi Arabia Pro League": {
+          "net_units": -1.645,
+          "roi": -0.06092593,
+          "settled_bets": 27
+        },
+        "Scotland Championship": {
+          "net_units": 3.0,
+          "roi": 0.25,
+          "settled_bets": 12
+        },
+        "Scotland Premiership": {
+          "net_units": -4.245,
+          "roi": -0.1698,
+          "settled_bets": 25
+        },
+        "Serbia Prva Liga": {
+          "net_units": 1.355,
+          "roi": 0.22583333,
+          "settled_bets": 6
+        },
+        "Serbia Super Liga": {
+          "net_units": 3.805,
+          "roi": 0.21138889,
+          "settled_bets": 18
+        },
+        "Slovakia 2. Liga": {
+          "net_units": 0.42,
+          "roi": 0.06,
+          "settled_bets": 7
+        },
+        "Slovakia Super Liga": {
+          "net_units": 2.91,
+          "roi": 0.2425,
+          "settled_bets": 12
+        },
+        "Slovenia 2. SNL": {
+          "net_units": 0.79,
+          "roi": 0.1975,
+          "settled_bets": 4
+        },
+        "Slovenia Prva Liga": {
+          "net_units": 0.38,
+          "roi": 0.038,
+          "settled_bets": 10
+        },
+        "South Korea K League 1": {
+          "net_units": -4.935,
+          "roi": -0.235,
+          "settled_bets": 21
+        },
+        "South Korea K League 2": {
+          "net_units": -3.9,
+          "roi": -0.21666667,
+          "settled_bets": 18
+        },
+        "Spain La Liga": {
+          "net_units": 1.12,
+          "roi": 0.03862069,
+          "settled_bets": 29
+        },
+        "Spain Segunda": {
+          "net_units": -5.185,
+          "roi": -0.12345238,
+          "settled_bets": 42
+        },
+        "Sweden Allsvenskan": {
+          "net_units": 3.845,
+          "roi": 0.10391892,
+          "settled_bets": 37
+        },
+        "Sweden Superettan": {
+          "net_units": -1.745,
+          "roi": -0.06232143,
+          "settled_bets": 28
+        },
+        "Switzerland Challenge League": {
+          "net_units": 1.665,
+          "roi": 0.13875,
+          "settled_bets": 12
+        },
+        "Switzerland Super League": {
+          "net_units": 1.58,
+          "roi": 0.10533333,
+          "settled_bets": 15
+        },
+        "T\u00fcrkiye 1 Lig": {
+          "net_units": -3.745,
+          "roi": -0.12913793,
+          "settled_bets": 29
+        },
+        "T\u00fcrkiye Super Lig": {
+          "net_units": 0.48,
+          "roi": 0.01714286,
+          "settled_bets": 28
+        },
+        "Ukraine Persha Liga": {
+          "net_units": -0.11,
+          "roi": -0.055,
+          "settled_bets": 2
+        },
+        "Ukraine Vyscha Liga": {
+          "net_units": -10.255,
+          "roi": -0.42729167,
+          "settled_bets": 24
+        },
+        "Wales Premier League": {
+          "net_units": -4.27,
+          "roi": -0.38818182,
+          "settled_bets": 11
+        }
+      },
+      "by_quote_age_band_diagnostic_only": {
+        "30-60m": {
+          "net_units": 7.235,
+          "roi": 0.03672589,
+          "settled_bets": 197
+        },
+        "60-120m": {
+          "net_units": -11.695,
+          "roi": -0.07496795,
+          "settled_bets": 156
+        },
+        "<30m": {
+          "net_units": -36.735,
+          "roi": -0.04609159,
+          "settled_bets": 797
+        },
+        ">=120m": {
+          "net_units": -16.79,
+          "roi": -0.03564756,
+          "settled_bets": 471
+        }
+      },
+      "by_side": {
+        "over": {
+          "net_units": 0.695,
+          "roi": 0.0057438,
+          "settled_bets": 121
+        },
+        "under": {
+          "net_units": -58.68,
+          "roi": -0.03912,
+          "settled_bets": 1500
+        }
+      },
+      "max_drawdown_units_by_quote_timestamp": 73.825,
+      "mean_model_ev": 0.05656928,
+      "mean_quote_age_minutes": 220.37,
+      "net_units": -57.985,
+      "pending_bets": 0,
+      "positive_model_ev_count_diagnostic_only": 1295,
+      "realized_roi_minus_mean_model_ev": -0.09234041,
+      "roi": -0.03577113,
+      "settled_bets": 1621,
+      "settlement_counts": {
+        "half_loss": 97,
+        "half_win": 112,
+        "loss": 674,
+        "push": 72,
+        "win": 666
+      },
+      "simulated_bets": 1621,
+      "unique_fixtures": 1621
+    }
+  },
+  "method": "For each verified fixture and market, use the latest valid saved MR1 model-selected Crown quote strictly before kickoff; one unit; Asian full/half/push settlement.",
+  "network_requests": 0,
+  "production_modified": false,
+  "protocol": "M5_MR1_LOCAL_CROWN_ONE_FIXTURE_REPLAY_V1",
+  "source_data_snapshot_sha256": "48327b9e3dea24371c2fb034f1cd7061c0605bd30663de156f026344cacdbaf6",
+  "source_paths": [
+    "data/mr1-v6-cross-market/forward/records",
+    "data/strategy-shadow-ledger/results"
+  ],
+  "source_repo_head": "245dec16bd56a3e71081e106b9543592e61bd644",
+  "telegram_write": false
+}

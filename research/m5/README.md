@@ -2,11 +2,12 @@
 
 生成时间：2026-11-04 UTC。M5 是独立研究身份；本目录不连接 M1/MR1/M3 的生产预测、订单、账本或 Telegram。当前已有真实概率前推实验和小样本 Crown OU 回放，但尚未完成 10,000 场 Crown 历史收益验证。
 
-当前综合进度见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)。代码与产物：
+当前综合进度见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)。本轮增加了 MR1 本机存档的只读 Crown 重放：1,621 个唯一赛前 Crown fixture，AH ROI -4.1737%，OU ROI -3.5771%；此为 MR1 历史选择，不是 M5 模型成绩，也不是公开 Actions 新运行。代码与产物：
 
 - [probability_stack_oos.py](probability_stack_oos.py) → [M3 13,234 场逐季前推概率结果](results/m5_probability_stack_oos.json)
 - [m1_ou_crown_small_archive_replay.py](m1_ou_crown_small_archive_replay.py) → [M1 冻结 Crown OU 小样本回放](results/m1_ou_crown_small_archive.json)
 - [exact_m1_m3_join_audit.py](exact_m1_m3_join_audit.py) → [M1/M3 精确交集覆盖审计](results/m1_m3_exact_join.json)
+- [mr1_local_crown_replay.py](mr1_local_crown_replay.py) → [MR1 私有本机存档的安全聚合 Crown 重放](results/mr1_local_crown_replay.json)
 
 ## 可复核数据现状
 
@@ -20,6 +21,10 @@
 M3 报告 `research/m3/results/latest_penaltyblog_oos_report.json` 由 2026-11-04T11:59:53.779352Z 生成；报告列明训练与测试严格按比赛日期/赛季隔离、当日测试结果不用于训练，且明确 `crown_roi: null`。同目录多个预测文件是不同运行快照，不能相加来扩大赛事数。最新预测文件 `9375bdbb...csv` 有 17,151 个唯一测试行身份，但其中只有 14,806 行有评分预测。
 
 MR1 配对数据由公开 GitHub Actions run `41425306084` 保存的 M4 聚合 artifact 检查；artifact 报告将多时点快照与唯一 fixture 区分，最终每 fixture/market 仅取一个可验证赛前 Crown 报价。它没有可用于独立训练 M5 的公开逐场安全记录，因此 M5 无法在公开仓库独立复算 MR1 私有数据。
+
+## 本机 Crown 存档复核
+
+本机 MR1 现存 snapshot 经严格 verified-Crown、received < kickoff、FT observed > kickoff 和 fixture identity 检查，得到 1,621 场唯一有效比赛。AH -67.655U/-4.1737%，OU -57.985U/-3.5771%，均为逐场每市场 1U。数据与结果均为本地研究 snapshot 聚合，输入 SHA 与 source HEAD 已保存；不包含公开逐场价格、ID、球队或原始账本。它不能与公开 M4 1,563 场报告逐场核对，不能声称是新增 58 场，也不是 M5 业绩或 M5 Actions 验收。
 
 ## 明确结论
 

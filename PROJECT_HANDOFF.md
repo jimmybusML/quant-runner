@@ -6,6 +6,14 @@
 - M5 报告与 JSON 由本机脚本于 `2026-11-04T15:05Z` 生成；语法编译和样本计数/隔离断言通过。Actions：本次研究提交使用 `[skip ci]`，无 M5 workflow、无 M5 Actions run；因此代码和报告落库已验证，M5 自动 workflow/生产部署均未实现且本阶段不需要。
 - 尚未达到完成目标：没有 10,000 场带赛前 Crown AH/OU 历史价格的唯一赛事，尚无 >5% 的 M5 Crown 样本外 ROI；AH 只有 MR1 旧模型汇总基准，OU 只有 52 场冻结 M1 小样本回放。不要把 13,234 场概率评分误报为 Crown 收益回测，也不要把小样本候选门槛迁移为生产 Gate。下一步需在现有范围内取得可合法复算的更大 Crown 价格/FT 配对与原模型逐场概率，再进行共同样本前推对照。
 
+## 2026-11-04 M5 只读复核 MR1 本机 Crown 历史存档
+- 用户指示先审计现有 Crown 相关存档和授权，不要求新授权，不用其他公司价格替代。本轮仅只读本机 `$HOME/QuantAsiaDesk/repos/mr1` 存档，无网络/API/credential 访问；未改私有仓库、正式流程、账本或 Telegram。
+- 公开 quant-runner 研究脚本 `research/m5/mr1_local_crown_replay.py` 将 Crown verified 标记、quote received UTC < kickoff UTC、FT observed UTC > kickoff UTC、fixture identity、MR1 frozen scope 一并校验；每个 fixture/market 取 MR1 已保存最后有效赛前合约，按 1U 亚洲盘结算，输出只含聚合/哈希，不含逐场价格、球队、fixture ID 或原始账本。聚合 JSON：`research/m5/results/mr1_local_crown_replay.json`。
+- 生成 UTC `2026-11-04T15:21:50.351807Z`；源 MR1 HEAD `245dec16bd56a3e71081e106b9543592e61bd644`；scope SHA-256 `6c4fc5654162e93a29c8233ade09df710959a9ff378b9ae5a9a62de7b9ecd7bb`；source snapshot manifest SHA-256 `48327b9e3dea24371c2fb034f1cd7061c0605bd30663de156f026344cacdbaf6`。共 18,607 forward files、2,182 verified FT 文件、12,349 verified Crown+FT 赛前快照、1,621 唯一赛前 Crown fixture，数据时段 kickoff 2026-10-08 至 2026-11-03 UTC，输入联赛名 104 个、有效样本覆盖 91 个。
+- AH 1,621 全结，626/144/670/82/99 (win/half-win/loss/half-loss/push)，-67.655U，ROI -4.1737%，quote timestamp grouped max DD 71.295U。OU 1,621 全结，666/112/674/97/72，-57.985U，ROI -3.5771%，max DD 73.825U。独立于此前公开 M4 Actions run 41425306084 的 1,563 场聚合；没有逐场公开清单证明准确新增差额，不能称“新增58场”或新 Actions 验收。这是 MR1 历史选单回放，不是 M5 样本外收益。
+- M5 概率 OOS 仍为 13,234 场，但无与之匹配的 Crown 历史盘价；10,000 场 Crown 结算目标与 M5 ROI >5% 尚未达成。AH/OU 分组和 quote-age/horizon 分析只作描述，不得转成未授权 gate。M5 每4小时 workflow 尚未建立，本次无 Actions run。
+- 复核通过后应以 `[skip ci]` 提交并推送公开 quant-runner；记录本次实际 commit 和远端验证 SHA 于下方追加，不要触发既有 M3/M4 生产流程。
+
 ## 2026-11-04 晚 本地订单双时间与TG仅正式投注单修复
 - 用户明确：TG只发送正式比赛投注单；结算、战绩汇总、研究报告、状态信息全部只留本地后台；不能发送结算TG。正式单的出单时间与比赛开赛时间必须各自明确展示，按北京时间；正式TG内容中文化。
 - 已在本机 `~/QuantAsiaDesk/web/orders.js` 逐场列表与紧凑卡片增加明确标签“出单”=`posted_at`、“开赛”=`kickoff`；不合成、不推断历史时间，原详情时间继续显示。
