@@ -349,6 +349,7 @@ def fetch_crown(args) -> None:
                                       if json.loads(p.read_text(encoding="utf-8")).get("status") == "transport_error")
     counts["processed"] = counts["crown_exact_identity"] + counts["no_crown_or_invalid_response"]
     counts["requests"] = counts["processed"]
+    transient_dir = out / "transient-errors"
     for fixture in candidate_rows:
         mid = fixture["match_id"]
         raw_path = out / "crown-responses" / f"{mid}.json"
@@ -362,8 +363,8 @@ def fetch_crown(args) -> None:
             counts["requests"] += 1
         except Exception as exc:
             counts["transport_errors"] += 1
-            save_json(no_path, {"status": "transport_error", "error_type": type(exc).__name__,
-                                "captured_at_utc": utc_now()})
+            save_json(transient_dir / f"{mid}.json", {"status": "transport_error", "error_type": type(exc).__name__,
+                                                       "captured_at_utc": utc_now()})
             counts["processed"] += 1
             if counts["processed"] % 100 == 0:
                 save_json(latest, {"protocol": "M5_CROWN_BACKFILL_PROGRESS_V1", "updated_utc": utc_now(), **counts})
@@ -378,6 +379,17 @@ def fetch_crown(args) -> None:
         error_code = ((payload.get("error") or {}).get("code") if isinstance(payload, dict) else None)
         if error_code in ("TOKEN_ERROR", "NO_PERMISSION"):
             raise RuntimeError("TotalCorner authorization failed; stopping without logging credential data")
+        if payload.get("success") != 1:
+            save_json(transient_dir / f"{mid}.json", {"status": "api_error", "error_code": error_code,
+                                                       "captured_at_utc": utc_now()})
+            counts["transport_errors"] += 1
+            counts["processed"] += 1
+            if counts["processed"] % 100 == 0:
+                save_json(latest, {"protocol": "M5_CROWN_BACKFILL_PROGRESS_V1", "updated_utc": utc_now(), **counts})
+                print(json.dumps({"processed": counts["processed"], "candidate_unique_fixtures": counts["candidate_unique_fixtures"],
+                                  "crown_ah_fixtures": counts["crown_ah_prematch_fixtures"],
+                                  "crown_ou_fixtures": counts["crown_ou_prematch_fixtures"]}), flush=True)
+            continue
         if (payload.get("success") != 1 or len(matches) != 1 or len(crown) != 1
                 or matches[0].get("h") != fixture["home"] or matches[0].get("a") != fixture["away"]):
             save_json(no_path, {"status": "no_crown_or_identity_failure", "error_code": error_code,
