@@ -3688,3 +3688,4 @@
 - Same-SHA Crown: MR1 verified pre-kickoff receipt+FT AH/OU各212，AH `+2.645U/+1.247642%` DD16.005，OU `-0.765U/-0.360849%` DD20.3；TotalCorner historical response cohort各212、AH `+2.766509%`/OU`-0.283019%`但response赛后；M1 same Crown OU n=15、M5 +7.566667%、M1 calibrated +32.633333%，不能外推。
 - 当前分报告需提交/push；同步的页采集仍活跃，当前冻结输入不代表未来页已纳入。M5 Actions未跑。全51范围、10k Crown received-before-kickoff样本、AH/OU独立 ROI>5%仍未达到。
 - 本轮冻结模型之后 schedule collector 仍推进：私有 summary UTC `20:07:32Z`，35 leagues complete、2,745 pages saved，PID1267仍运行；这些后续页面不包含于当前 34/51, 82,377 forecast。下一轮稳定 collector 后重建 manifest，再训练及更新派生结果，不得把后续页数直接加进 OOS 数量。
+- 本次 82,377 场 OOS 及同 SHA Crown 回放结果已提交并推送至 `codex/m5-oos-crown-expansion`，代码/报告 commit `807c71c777d8669992b3c7fabf6c06c45daad489`，本机 commit UTC `2026-11-04T20:09:14Z`；push 成功。不是 M5 Actions 验收。工作树干净性及 remote SHA 应以最后一次查询确认。
