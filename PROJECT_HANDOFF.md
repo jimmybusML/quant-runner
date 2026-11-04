@@ -1,3 +1,8 @@
+## 2026-11-04 下午人工恢复：MR1已成功正式TG发送2单，M1已重新扫描
+- 北京时间2026-11-04 16:12启动本机MR1人工正式运行，collector新增3条真实Crown SNAPSHOT_OK，V6 forward新增3条research records，formal notify最终 `eligible=2,sent=2,unknown=0,failed=0`，正式TG已发送：match_id `202810398` Telegram message_id `1688` at 2026-11-04T08:16:44.416Z；match_id `202810401` Telegram message_id `1689` at 2026-11-04T08:16:44.929Z。已直接从 `data/mr1-v6-cross-market/formal/sent.jsonl` 核实，是真实正式发送而非测试。正式MR1总发送从574增至576；原已结557待结17，此时新增两单待结。不能把16:16的人工恢复当作12:05那次成功发送。
+- 北京时间2026-11-04 16:31:23，调用本机QuantAsiaDesk `/api/run` 正式发起M1 `run`，job `20261104T083123Z-42ad7a2`；本条记录时扫描尚在运行，尚不能宣称M1 TG发送成功，需以最终日志和正式发送账本复核。
+- **尚未修复** 12:05 MR1多horizon采集与每天仅12:05一次运行的结构性不匹配；不得因本次人工运行发2单就宣称未来12:05自动有单。用户12:05定时、Crown规则、策略和TG设置均未改变。若要增加后台采集频率而保持12:05正式派单，需要用户明确批准。
+
 ## 2026-11-04 12:05 北京时间 M1/MR1 定时成功却0条TG：已核实根因
 - Mac当前M1/MR1均设置`Asia/Shanghai`,每天`12:05`,定时和TG开关均为true。2026-11-04T04:05Z 两条任务实际启动且成功结束，正式TG新单均0；**没有证据表明TG机器人错误**。
 - M1实际新候选1：科特赖克 vs 梅赫伦、2026-11-05 03:30 北京时间，梅赫伦AH0，扫描水位港赔0.86；在正式发送前核Crown实时报价失败 `CROWN_QUOTE_NOT_CURRENT`，最终 `SKIPPED_CROWN_QUOTE_UNAVAILABLE`，故TG 0、不使用不可核验旧报价、不改变用户Crown严格要求。
