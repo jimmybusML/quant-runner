@@ -1,0 +1,1239 @@
+{
+  "crown_prices_used": false,
+  "generated_utc": "2026-11-04T17:03:21.012503+00:00",
+  "input_fixtures": 14806,
+  "input_prediction_sha256": "9375bdbbb60e7b3c9e71d13bdc7f9e0d6ec57649579a4c2e4a14b9cbf4de8cc0",
+  "input_report_generated_utc": "2026-11-04T16:16:39.480507+00:00",
+  "markets": {
+    "1x2": {
+      "by_league_oos": {
+        "B1": {
+          "global_blend": {
+            "brier": 0.59765003,
+            "fixtures": 1878,
+            "log_loss": 1.00102927
+          },
+          "league_local_best_single": {
+            "brier": 0.59778339,
+            "fixtures": 1878,
+            "log_loss": 1.00129251
+          },
+          "league_local_blend": {
+            "brier": 0.59781411,
+            "fixtures": 1878,
+            "log_loss": 1.001337
+          }
+        },
+        "D1": {
+          "global_blend": {
+            "brier": 0.60459646,
+            "fixtures": 1908,
+            "log_loss": 1.01100316
+          },
+          "league_local_best_single": {
+            "brier": 0.60467474,
+            "fixtures": 1908,
+            "log_loss": 1.01116808
+          },
+          "league_local_blend": {
+            "brier": 0.60432816,
+            "fixtures": 1908,
+            "log_loss": 1.01066107
+          }
+        },
+        "E0": {
+          "global_blend": {
+            "brier": 0.60377912,
+            "fixtures": 2397,
+            "log_loss": 1.01092117
+          },
+          "league_local_best_single": {
+            "brier": 0.60377407,
+            "fixtures": 2397,
+            "log_loss": 1.01080059
+          },
+          "league_local_blend": {
+            "brier": 0.60377407,
+            "fixtures": 2397,
+            "log_loss": 1.01080059
+          }
+        },
+        "F1": {
+          "global_blend": {
+            "brier": 0.60470219,
+            "fixtures": 2127,
+            "log_loss": 1.01212813
+          },
+          "league_local_best_single": {
+            "brier": 0.60474398,
+            "fixtures": 2127,
+            "log_loss": 1.01218616
+          },
+          "league_local_blend": {
+            "brier": 0.60474455,
+            "fixtures": 2127,
+            "log_loss": 1.01218661
+          }
+        },
+        "I1": {
+          "global_blend": {
+            "brier": 0.5935104,
+            "fixtures": 2424,
+            "log_loss": 0.99455602
+          },
+          "league_local_best_single": {
+            "brier": 0.59314098,
+            "fixtures": 2424,
+            "log_loss": 0.99393679
+          },
+          "league_local_blend": {
+            "brier": 0.59314098,
+            "fixtures": 2424,
+            "log_loss": 0.99393679
+          }
+        },
+        "SP1": {
+          "global_blend": {
+            "brier": 0.59280382,
+            "fixtures": 2500,
+            "log_loss": 0.99425116
+          },
+          "league_local_best_single": {
+            "brier": 0.59249718,
+            "fixtures": 2500,
+            "log_loss": 0.99380686
+          },
+          "league_local_blend": {
+            "brier": 0.59249718,
+            "fixtures": 2500,
+            "log_loss": 0.99380686
+          }
+        }
+      },
+      "folds": [
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 210,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.36860777,
+                "poisson": 0.63139223
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 240,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 272,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 306,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 272,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 272,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1573,
+          "test_season": "1920",
+          "train_fixtures": 1572
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 442,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 480,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.03321047,
+                "poisson": 0.96678953
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 544,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 557,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 578,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 544,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1808,
+          "test_season": "2021",
+          "train_fixtures": 3145
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 682,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 752,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.42686499,
+                "poisson": 0.57313501
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 886,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 863,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 920,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 850,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1850,
+          "test_season": "2122",
+          "train_fixtures": 4953
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 922,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 992,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.40994088,
+                "poisson": 0.59005912
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 1228,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 1205,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 1226,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1230,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1874,
+          "test_season": "2223",
+          "train_fixtures": 6803
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 1194,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 1298,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.46996763,
+                "poisson": 0.53003237
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 1570,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 1511,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 1532,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1572,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1890,
+          "test_season": "2324",
+          "train_fixtures": 8677
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 1470,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.10402147,
+                "poisson": 0.89597853
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 1538,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.5435276,
+                "poisson": 0.4564724
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 1912,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 1783,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 1912,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1952,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1882,
+          "test_season": "2425",
+          "train_fixtures": 10567
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1742,
+              "weights": {
+                "bivariate_poisson": 0.19164898,
+                "dixon_coles": 0.2873265,
+                "poisson": 0.52102452
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 1778,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.59110695,
+                "poisson": 0.40889305
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 2254,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 2089,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 2254,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2332,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1880,
+          "test_season": "2526",
+          "train_fixtures": 12449
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 2018,
+              "weights": {
+                "bivariate_poisson": 0.06956873,
+                "dixon_coles": 0.3371117,
+                "poisson": 0.59331957
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 2084,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.61013068,
+                "poisson": 0.38986932
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 2596,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.0,
+                "poisson": 1.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "poisson",
+              "prior_league_fixtures": 2361,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 0.02450819,
+                "poisson": 0.97549181
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 2596,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2674,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 477,
+          "test_season": "2627",
+          "train_fixtures": 14329
+        }
+      ],
+      "pooled_oos": {
+        "global_blend": {
+          "brier": 0.59922137,
+          "fixtures": 13234,
+          "log_loss": 1.00357664
+        },
+        "league_local_best_single": {
+          "brier": 0.5991318,
+          "fixtures": 13234,
+          "log_loss": 1.00342791
+        },
+        "league_local_blend": {
+          "brier": 0.59908628,
+          "fixtures": 13234,
+          "log_loss": 1.0033612
+        }
+      }
+    },
+    "ou_over_2_5": {
+      "by_league_oos": {
+        "B1": {
+          "global_blend": {
+            "brier": 0.24687263,
+            "fixtures": 1878,
+            "log_loss": 0.73561356
+          },
+          "league_local_best_single": {
+            "brier": 0.24687263,
+            "fixtures": 1878,
+            "log_loss": 0.73561356
+          },
+          "league_local_blend": {
+            "brier": 0.24687263,
+            "fixtures": 1878,
+            "log_loss": 0.73561356
+          }
+        },
+        "D1": {
+          "global_blend": {
+            "brier": 0.23229281,
+            "fixtures": 1908,
+            "log_loss": 0.79943001
+          },
+          "league_local_best_single": {
+            "brier": 0.23229281,
+            "fixtures": 1908,
+            "log_loss": 0.79943001
+          },
+          "league_local_blend": {
+            "brier": 0.23229281,
+            "fixtures": 1908,
+            "log_loss": 0.79943001
+          }
+        },
+        "E0": {
+          "global_blend": {
+            "brier": 0.24703218,
+            "fixtures": 2397,
+            "log_loss": 0.73640114
+          },
+          "league_local_best_single": {
+            "brier": 0.24703218,
+            "fixtures": 2397,
+            "log_loss": 0.73640114
+          },
+          "league_local_blend": {
+            "brier": 0.24703218,
+            "fixtures": 2397,
+            "log_loss": 0.73640114
+          }
+        },
+        "F1": {
+          "global_blend": {
+            "brier": 0.25009705,
+            "fixtures": 2127,
+            "log_loss": 0.74126057
+          },
+          "league_local_best_single": {
+            "brier": 0.25009705,
+            "fixtures": 2127,
+            "log_loss": 0.74126057
+          },
+          "league_local_blend": {
+            "brier": 0.25009705,
+            "fixtures": 2127,
+            "log_loss": 0.74126057
+          }
+        },
+        "I1": {
+          "global_blend": {
+            "brier": 0.25310222,
+            "fixtures": 2424,
+            "log_loss": 0.71367221
+          },
+          "league_local_best_single": {
+            "brier": 0.25270461,
+            "fixtures": 2424,
+            "log_loss": 0.71425135
+          },
+          "league_local_blend": {
+            "brier": 0.25270461,
+            "fixtures": 2424,
+            "log_loss": 0.71425135
+          }
+        },
+        "SP1": {
+          "global_blend": {
+            "brier": 0.24416706,
+            "fixtures": 2500,
+            "log_loss": 0.75653248
+          },
+          "league_local_best_single": {
+            "brier": 0.24416706,
+            "fixtures": 2500,
+            "log_loss": 0.75653248
+          },
+          "league_local_blend": {
+            "brier": 0.24416706,
+            "fixtures": 2500,
+            "log_loss": 0.75653248
+          }
+        }
+      },
+      "folds": [
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 210,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 240,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 272,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 306,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "dixon_coles",
+              "prior_league_fixtures": 272,
+              "weights": {
+                "bivariate_poisson": 0.0,
+                "dixon_coles": 1.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 272,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1573,
+          "test_season": "1920",
+          "train_fixtures": 1572
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 442,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 480,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 544,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 557,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 578,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 544,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1808,
+          "test_season": "2021",
+          "train_fixtures": 3145
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 682,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 752,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 886,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 863,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 920,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 850,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1850,
+          "test_season": "2122",
+          "train_fixtures": 4953
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 922,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 992,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1228,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1205,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1226,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1230,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1874,
+          "test_season": "2223",
+          "train_fixtures": 6803
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1194,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1298,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1570,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1511,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1532,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1572,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1890,
+          "test_season": "2324",
+          "train_fixtures": 8677
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1470,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1538,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1912,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1783,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1912,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1952,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1882,
+          "test_season": "2425",
+          "train_fixtures": 10567
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1742,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 1778,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2254,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2089,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2254,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2332,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 1880,
+          "test_season": "2526",
+          "train_fixtures": 12449
+        },
+        {
+          "league_weights": {
+            "B1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2018,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "D1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2084,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "E0": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2596,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "F1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2361,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "I1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2596,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            },
+            "SP1": {
+              "prior_best_single_model": "bivariate_poisson",
+              "prior_league_fixtures": 2674,
+              "weights": {
+                "bivariate_poisson": 1.0,
+                "dixon_coles": 0.0,
+                "poisson": 0.0
+              }
+            }
+          },
+          "test_fixtures": 477,
+          "test_season": "2627",
+          "train_fixtures": 14329
+        }
+      ],
+      "pooled_oos": {
+        "global_blend": {
+          "brier": 0.24594767,
+          "fixtures": 13234,
+          "log_loss": 0.74579735
+        },
+        "league_local_best_single": {
+          "brier": 0.24587484,
+          "fixtures": 13234,
+          "log_loss": 0.74590343
+        },
+        "league_local_blend": {
+          "brier": 0.24587484,
+          "fixtures": 13234,
+          "log_loss": 0.74590343
+        }
+      }
+    }
+  },
+  "markets_independent": true,
+  "protocol": "M5_LEAGUE_LOCAL_WALKFORWARD_STACK_V1",
+  "roi": null,
+  "time_isolation": "For each target season, both global and league-local weights and the best single model are fit on prior seasons' OOS predictions only. Training and test fixture keys are disjoint."
+}

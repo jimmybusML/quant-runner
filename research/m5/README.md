@@ -10,6 +10,8 @@
 - [mr1_local_crown_replay.py](mr1_local_crown_replay.py) → [MR1 私有本机存档的安全聚合 Crown 重放](results/mr1_local_crown_replay.json)
 - [m3_crown_exact_line_replay.py](m3_crown_exact_line_replay.py) → [M3/M5 OOS 与 MR1 同 Crown 线价对照](results/m3_crown_exact_line_replay.json)
 - [m3_grid_crown_replay.py](m3_grid_crown_replay.py) → [同期全比分网格与 Crown 任意主盘探索](results/m3_grid_crown_replay.json)
+- [probability_stack_league_oos.py](probability_stack_league_oos.py) → [逐联赛 walk-forward 权重与单模型对照](results/m5_league_local_probability_oos.json)
+- [crown_historical_capture.py](crown_historical_capture.py) → 受限速、断点续跑的私有 TotalCorner 历史研究采集器；原始 Crown 响应必须写到公开仓库之外。本机采集进展与数据仍是私有输入，公开报告只保留聚合信息。
 
 ## 可复核数据现状
 
