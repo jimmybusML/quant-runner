@@ -1,3 +1,10 @@
+## 2026-11-04 晚 本地订单双时间与TG仅正式投注单修复
+- 用户明确：TG只发送正式比赛投注单；结算、战绩汇总、研究报告、状态信息全部只留本地后台；不能发送结算TG。正式单的出单时间与比赛开赛时间必须各自明确展示，按北京时间；正式TG内容中文化。
+- 已在本机 `~/QuantAsiaDesk/web/orders.js` 逐场列表与紧凑卡片增加明确标签“出单”=`posted_at`、“开赛”=`kickoff`；不合成、不推断历史时间，原详情时间继续显示。
+- `~/QuantAsiaDesk/repos/mr1/src/v6-ah-formal-notify.js` 正式TG格式改为中文分行“出单时间/比赛时间/联赛/比赛/全场让球”，北京时间；使用发送前实际格式化时间，发送成功账本 `sent_at` 仍以成功后的记录为准。保持中文名库映射与原未解析回退逻辑；尚待下一笔真实TG核实外观。
+- `~/QuantAsiaDesk/state/settings.json` 将M3、M4 `tg_enabled=false`，M1/MR1保留true。`~/QuantAsiaDesk/app.py` 禁止M3/M4研究TG派送（包括M4研究战绩报告），不修改正式模型派单规则。`v6-ah-formal-settlement.js` 原本 `settlement_telegram:false`，正式结算仍仅更新账本。
+- 本机 Python/Node语法检查通过，`com.quantasia.localdesk` kickstart重新加载后 HTTP 200；未发测试TG。上述修改当前仅本机生效，非GitHub部署；正式生产链路是否另有独立TG结算报告源仍需逐一审计，不能宣称所有来源已经全局排除。
+
 ## 2026-11-04 21:50 北京时间 MR1 正式结算补采与本地后台运行
 - **正式MR1账本现场核实**：`data/mr1-v6-cross-market/formal/sent.jsonl` 576条TG正式发送；原settled 557条、19条未结。实际执行本机 `~/QuantAsiaDesk/scripts/mr1_formal_result_reconcile.mjs`：待核14个独立赛事ID，TotalCorner `/match/view` 查14，确认全场11场，3场未取得FT，`v6-ah-formal-settlement.js` 新结12笔；正式结算569、待结7，净收益-28.275U、ROI -4.969244%。未取得FT的3场没有伪造结果。正式数据本机写入 `data/mr1-v6-cross-market/formal/settled.json`、`performance.json`；与研究/影子账本严格分开。
 - **已安装本地 launchd 后台**：`com.quantasia.mr1.collect` 与 `com.quantasia.mr1.settle`，均 `StartInterval=300` 秒；脚本 `~/QuantAsiaDesk/scripts/mr1_background_maintenance.py`；采集执行既有 `src/shadow-v23.js --scheduled`（仅Crown快照、绝不发TG），结算调用新增的定向赛果补采脚本（仅正式TG账本未结赛事、去重按match_id）再执行正式结算。日志在 `~/QuantAsiaDesk/logs/mr1_collect_background.log`、`mr1_settle_background.log`。使用本机Keychain凭证，未改用户12:05 MR1正式TG派单时刻、原模型条件、盘口来源。启动时launchctl两项均已加载，**持续运行与下一次自动结算尚需观察**，不可把任务安装冒充已持续验证成功。
