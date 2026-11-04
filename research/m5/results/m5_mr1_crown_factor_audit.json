@@ -1,0 +1,545 @@
+{
+  "MR1_fixture_registry_sha256": "99f97a1ac4fb8b6485ba2f1c08f2a5ac8738add7a55349a6d34ca7d9b0ac619a",
+  "MR1_quote_snapshot_hash_set_sha256": "c3f11fa5e7c5b7485085999a4b29d39db2479bf0417fbdad23829415fbf96541",
+  "MR1_snapshot_index_sha256": "536259f7e5381947db5726294e9a772cac5c0e17680541e70faeacf4b36386fc",
+  "crown_prices_used_only": true,
+  "forecast_fixture_count": 10235,
+  "forecast_sha256": "fc2abf89b2ac80eb2ba72bf9e992f25eeda11502f2e87cd2bd965b921843d26d",
+  "generated_utc": "2026-11-04T23:47:48.391521+00:00",
+  "limitations": [
+    "Single recent 2026 period; not cross-season stability evidence.",
+    "Post-hoc factor quantiles are descriptive and not strategy filters or independent ROI tests.",
+    "Quarter-line settlement rules are applied to the selected latest quote.",
+    "Public artifact contains aggregate metrics and hashes only; no match IDs, teams, exact timestamps, prices, lines or credentials."
+  ],
+  "markets": {
+    "AH": {
+      "by_absolute_open_to_latest_line_change_quartile": {
+        "groups": {
+          "1": {
+            "full_loss": 216,
+            "full_win": 215,
+            "half_loss": 36,
+            "half_win": 36,
+            "net_units": -15.19,
+            "push": 34,
+            "roi_pct": -2.828678,
+            "settled_bets": 537,
+            "simulated_bets": 537,
+            "unique_fixtures": 537
+          },
+          "3": {
+            "full_loss": 119,
+            "full_win": 129,
+            "half_loss": 23,
+            "half_win": 20,
+            "net_units": -2.5,
+            "push": 20,
+            "roi_pct": -0.803859,
+            "settled_bets": 311,
+            "simulated_bets": 311,
+            "unique_fixtures": 311
+          },
+          "4": {
+            "full_loss": 7,
+            "full_win": 8,
+            "half_loss": 2,
+            "half_win": 4,
+            "net_units": 0.75,
+            "push": 2,
+            "roi_pct": 3.26087,
+            "settled_bets": 23,
+            "simulated_bets": 23,
+            "unique_fixtures": 23
+          }
+        },
+        "quantile_cut_values_private": true
+      },
+      "by_quote_age_to_kickoff_quartile": {
+        "groups": {
+          "1": {
+            "full_loss": 84,
+            "full_win": 90,
+            "half_loss": 18,
+            "half_win": 20,
+            "net_units": 0.86,
+            "push": 6,
+            "roi_pct": 0.394495,
+            "settled_bets": 218,
+            "simulated_bets": 218,
+            "unique_fixtures": 218
+          },
+          "2": {
+            "full_loss": 80,
+            "full_win": 88,
+            "half_loss": 18,
+            "half_win": 15,
+            "net_units": 0.015,
+            "push": 17,
+            "roi_pct": 0.006881,
+            "settled_bets": 218,
+            "simulated_bets": 218,
+            "unique_fixtures": 218
+          },
+          "3": {
+            "full_loss": 90,
+            "full_win": 87,
+            "half_loss": 9,
+            "half_win": 13,
+            "net_units": -7.285,
+            "push": 19,
+            "roi_pct": -3.341743,
+            "settled_bets": 218,
+            "simulated_bets": 218,
+            "unique_fixtures": 218
+          },
+          "4": {
+            "full_loss": 88,
+            "full_win": 87,
+            "half_loss": 16,
+            "half_win": 12,
+            "net_units": -10.53,
+            "push": 14,
+            "roi_pct": -4.852535,
+            "settled_bets": 217,
+            "simulated_bets": 217,
+            "unique_fixtures": 217
+          }
+        },
+        "quantile_cut_values_private": true
+      },
+      "by_received_snapshot_count_quartile": {
+        "groups": {
+          "1": {
+            "full_loss": 100,
+            "full_win": 78,
+            "half_loss": 12,
+            "half_win": 11,
+            "net_units": -30.44,
+            "push": 18,
+            "roi_pct": -13.899543,
+            "settled_bets": 219,
+            "simulated_bets": 219,
+            "unique_fixtures": 219
+          },
+          "2": {
+            "full_loss": 91,
+            "full_win": 96,
+            "half_loss": 16,
+            "half_win": 20,
+            "net_units": 0.885,
+            "push": 12,
+            "roi_pct": 0.376596,
+            "settled_bets": 235,
+            "simulated_bets": 235,
+            "unique_fixtures": 235
+          },
+          "3": {
+            "full_loss": 151,
+            "full_win": 178,
+            "half_loss": 33,
+            "half_win": 29,
+            "net_units": 12.615,
+            "push": 26,
+            "roi_pct": 3.02518,
+            "settled_bets": 417,
+            "simulated_bets": 417,
+            "unique_fixtures": 417
+          }
+        },
+        "quantile_cut_values_private": true
+      },
+      "by_selected_price_quartile": {
+        "groups": {
+          "1": {
+            "full_loss": 85,
+            "full_win": 104,
+            "half_loss": 20,
+            "half_win": 22,
+            "net_units": 0.52,
+            "push": 16,
+            "roi_pct": 0.210526,
+            "settled_bets": 247,
+            "simulated_bets": 247,
+            "unique_fixtures": 247
+          },
+          "2": {
+            "full_loss": 76,
+            "full_win": 99,
+            "half_loss": 11,
+            "half_win": 13,
+            "net_units": 14.395,
+            "push": 11,
+            "roi_pct": 6.854762,
+            "settled_bets": 210,
+            "simulated_bets": 210,
+            "unique_fixtures": 210
+          },
+          "3": {
+            "full_loss": 95,
+            "full_win": 81,
+            "half_loss": 13,
+            "half_win": 14,
+            "net_units": -15.065,
+            "push": 11,
+            "roi_pct": -7.03972,
+            "settled_bets": 214,
+            "simulated_bets": 214,
+            "unique_fixtures": 214
+          },
+          "4": {
+            "full_loss": 86,
+            "full_win": 68,
+            "half_loss": 17,
+            "half_win": 11,
+            "net_units": -16.79,
+            "push": 18,
+            "roi_pct": -8.395,
+            "settled_bets": 200,
+            "simulated_bets": 200,
+            "unique_fixtures": 200
+          }
+        },
+        "quantile_cut_values_private": true
+      },
+      "by_selected_side_price_change_quartile": {
+        "groups": {
+          "1": {
+            "full_loss": 86,
+            "full_win": 93,
+            "half_loss": 19,
+            "half_win": 17,
+            "net_units": -7.35,
+            "push": 12,
+            "roi_pct": -3.237885,
+            "settled_bets": 227,
+            "simulated_bets": 227,
+            "unique_fixtures": 227
+          },
+          "2": {
+            "full_loss": 93,
+            "full_win": 90,
+            "half_loss": 17,
+            "half_win": 15,
+            "net_units": -13.78,
+            "push": 13,
+            "roi_pct": -6.04386,
+            "settled_bets": 228,
+            "simulated_bets": 228,
+            "unique_fixtures": 228
+          },
+          "3": {
+            "full_loss": 86,
+            "full_win": 83,
+            "half_loss": 11,
+            "half_win": 17,
+            "net_units": -4.155,
+            "push": 14,
+            "roi_pct": -1.969194,
+            "settled_bets": 211,
+            "simulated_bets": 211,
+            "unique_fixtures": 211
+          },
+          "4": {
+            "full_loss": 77,
+            "full_win": 86,
+            "half_loss": 14,
+            "half_win": 11,
+            "net_units": 8.345,
+            "push": 17,
+            "roi_pct": 4.070732,
+            "settled_bets": 205,
+            "simulated_bets": 205,
+            "unique_fixtures": 205
+          }
+        },
+        "quantile_cut_values_private": true
+      },
+      "overall": {
+        "full_loss": 342,
+        "full_win": 352,
+        "half_loss": 61,
+        "half_win": 60,
+        "max_drawdown_units_by_quote_event": 24.555,
+        "net_units": -16.94,
+        "push": 56,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -7.93915,
+          "resamples": 10000,
+          "seed": 20261108,
+          "upper_97_5_pct": 3.943743
+        },
+        "roi_pct": -1.944891,
+        "settled_bets": 871,
+        "simulated_bets": 871,
+        "unique_fixtures": 871
+      }
+    },
+    "OU": {
+      "by_absolute_open_to_latest_line_change_quartile": {
+        "groups": {
+          "1": {
+            "full_loss": 213,
+            "full_win": 230,
+            "half_loss": 36,
+            "half_win": 30,
+            "net_units": -5.42,
+            "push": 24,
+            "roi_pct": -1.016886,
+            "settled_bets": 533,
+            "simulated_bets": 533,
+            "unique_fixtures": 533
+          },
+          "3": {
+            "full_loss": 133,
+            "full_win": 119,
+            "half_loss": 25,
+            "half_win": 23,
+            "net_units": -25.235,
+            "push": 20,
+            "roi_pct": -7.885938,
+            "settled_bets": 320,
+            "simulated_bets": 320,
+            "unique_fixtures": 320
+          },
+          "4": {
+            "full_loss": 9,
+            "full_win": 8,
+            "half_loss": 0,
+            "half_win": 0,
+            "net_units": -1.83,
+            "push": 1,
+            "roi_pct": -10.166667,
+            "settled_bets": 18,
+            "simulated_bets": 18,
+            "unique_fixtures": 18
+          }
+        },
+        "quantile_cut_values_private": true
+      },
+      "by_quote_age_to_kickoff_quartile": {
+        "groups": {
+          "1": {
+            "full_loss": 96,
+            "full_win": 79,
+            "half_loss": 18,
+            "half_win": 12,
+            "net_units": -26.44,
+            "push": 13,
+            "roi_pct": -12.12844,
+            "settled_bets": 218,
+            "simulated_bets": 218,
+            "unique_fixtures": 218
+          },
+          "2": {
+            "full_loss": 96,
+            "full_win": 86,
+            "half_loss": 12,
+            "half_win": 14,
+            "net_units": -15.575,
+            "push": 10,
+            "roi_pct": -7.144495,
+            "settled_bets": 218,
+            "simulated_bets": 218,
+            "unique_fixtures": 218
+          },
+          "3": {
+            "full_loss": 81,
+            "full_win": 103,
+            "half_loss": 14,
+            "half_win": 11,
+            "net_units": 13.02,
+            "push": 9,
+            "roi_pct": 5.972477,
+            "settled_bets": 218,
+            "simulated_bets": 218,
+            "unique_fixtures": 218
+          },
+          "4": {
+            "full_loss": 82,
+            "full_win": 89,
+            "half_loss": 17,
+            "half_win": 16,
+            "net_units": -3.49,
+            "push": 13,
+            "roi_pct": -1.608295,
+            "settled_bets": 217,
+            "simulated_bets": 217,
+            "unique_fixtures": 217
+          }
+        },
+        "quantile_cut_values_private": true
+      },
+      "by_received_snapshot_count_quartile": {
+        "groups": {
+          "1": {
+            "full_loss": 91,
+            "full_win": 92,
+            "half_loss": 15,
+            "half_win": 11,
+            "net_units": -10.63,
+            "push": 10,
+            "roi_pct": -4.853881,
+            "settled_bets": 219,
+            "simulated_bets": 219,
+            "unique_fixtures": 219
+          },
+          "2": {
+            "full_loss": 86,
+            "full_win": 96,
+            "half_loss": 15,
+            "half_win": 20,
+            "net_units": 3.51,
+            "push": 18,
+            "roi_pct": 1.493617,
+            "settled_bets": 235,
+            "simulated_bets": 235,
+            "unique_fixtures": 235
+          },
+          "3": {
+            "full_loss": 178,
+            "full_win": 169,
+            "half_loss": 31,
+            "half_win": 22,
+            "net_units": -25.365,
+            "push": 17,
+            "roi_pct": -6.082734,
+            "settled_bets": 417,
+            "simulated_bets": 417,
+            "unique_fixtures": 417
+          }
+        },
+        "quantile_cut_values_private": true
+      },
+      "by_selected_price_quartile": {
+        "groups": {
+          "1": {
+            "full_loss": 93,
+            "full_win": 95,
+            "half_loss": 13,
+            "half_win": 22,
+            "net_units": -12.6,
+            "push": 9,
+            "roi_pct": -5.431034,
+            "settled_bets": 232,
+            "simulated_bets": 232,
+            "unique_fixtures": 232
+          },
+          "2": {
+            "full_loss": 97,
+            "full_win": 91,
+            "half_loss": 17,
+            "half_win": 15,
+            "net_units": -17.04,
+            "push": 12,
+            "roi_pct": -7.344828,
+            "settled_bets": 232,
+            "simulated_bets": 232,
+            "unique_fixtures": 232
+          },
+          "3": {
+            "full_loss": 86,
+            "full_win": 80,
+            "half_loss": 8,
+            "half_win": 8,
+            "net_units": -9.69,
+            "push": 11,
+            "roi_pct": -5.020725,
+            "settled_bets": 193,
+            "simulated_bets": 193,
+            "unique_fixtures": 193
+          },
+          "4": {
+            "full_loss": 79,
+            "full_win": 91,
+            "half_loss": 23,
+            "half_win": 8,
+            "net_units": 6.845,
+            "push": 13,
+            "roi_pct": 3.198598,
+            "settled_bets": 214,
+            "simulated_bets": 214,
+            "unique_fixtures": 214
+          }
+        },
+        "quantile_cut_values_private": true
+      },
+      "by_selected_side_price_change_quartile": {
+        "groups": {
+          "1": {
+            "full_loss": 92,
+            "full_win": 93,
+            "half_loss": 12,
+            "half_win": 17,
+            "net_units": -11.12,
+            "push": 12,
+            "roi_pct": -4.920354,
+            "settled_bets": 226,
+            "simulated_bets": 226,
+            "unique_fixtures": 226
+          },
+          "2": {
+            "full_loss": 104,
+            "full_win": 84,
+            "half_loss": 14,
+            "half_win": 14,
+            "net_units": -28.455,
+            "push": 11,
+            "roi_pct": -12.535242,
+            "settled_bets": 227,
+            "simulated_bets": 227,
+            "unique_fixtures": 227
+          },
+          "3": {
+            "full_loss": 78,
+            "full_win": 83,
+            "half_loss": 16,
+            "half_win": 16,
+            "net_units": -2.555,
+            "push": 8,
+            "roi_pct": -1.271144,
+            "settled_bets": 201,
+            "simulated_bets": 201,
+            "unique_fixtures": 201
+          },
+          "4": {
+            "full_loss": 81,
+            "full_win": 97,
+            "half_loss": 19,
+            "half_win": 6,
+            "net_units": 9.645,
+            "push": 14,
+            "roi_pct": 4.4447,
+            "settled_bets": 217,
+            "simulated_bets": 217,
+            "unique_fixtures": 217
+          }
+        },
+        "quantile_cut_values_private": true
+      },
+      "overall": {
+        "full_loss": 355,
+        "full_win": 357,
+        "half_loss": 61,
+        "half_win": 53,
+        "max_drawdown_units_by_quote_event": 51.505,
+        "net_units": -32.485,
+        "push": 45,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -9.615959,
+          "resamples": 10000,
+          "seed": 20261108,
+          "upper_97_5_pct": 2.059701
+        },
+        "roi_pct": -3.729621,
+        "settled_bets": 871,
+        "simulated_bets": 871,
+        "unique_fixtures": 871
+      }
+    }
+  },
+  "method": "One latest Crown snapshot per unique 2026 forecast fixture-market, with verified Crown source, quote event <= received < kickoff, received >= forecast as-of, exact MR1 registry identity, and separate verified FT observed after kickoff. Model selects higher expected-return side without an EV threshold. Quote-age, selected-price, open-to-latest line/price move and number-of-snapshot quantiles are descriptive only.",
+  "protocol": "M5_MR1_VERIFIED_CROWN_QUOTE_FACTOR_AUDIT_V1",
+  "selected_MR1_quote_hash_set_sha256": "32ad634a363f4869708766b7875b3cbba3cd5e5aa0240550194d05aec5c6152a",
+  "verified_FT_hash_set_sha256": "5438e5bd035125ebcc815ef0268b23d0b963e53e8f5ead870b2ad1c7b8c848d2"
+}

@@ -1,0 +1,65 @@
+{
+  "crown_prices_used": false,
+  "exact_common_fixture_count": 1003,
+  "generated_utc": "2026-11-04T23:38:14.869230+00:00",
+  "incomplete_m3_score_rows_excluded": 101,
+  "m3_models": [
+    "poisson",
+    "dixon_coles",
+    "bivariate_poisson"
+  ],
+  "m3_prediction_sha256": "9375bdbbb60e7b3c9e71d13bdc7f9e0d6ec57649579a4c2e4a14b9cbf4de8cc0",
+  "m5_kickoff_year_filter": 2025,
+  "m5_model_oos_fixtures_scored": 1741,
+  "m5_private_forecast_sha256": "64363b275eae3e3561edfe93a992ae5ffbb8b20a671361f7552056b709e948a0",
+  "protocol": "M5_PARTIAL_SCOPE_M3_STRICT_OOS_COMMON_FIXTURE_SCORE_V1",
+  "result_identity_conflicts_excluded": 6,
+  "roi": null,
+  "scope_note": "Only six M3-supported leagues and exact fixture/date/team joins; the M5 source schedule universe is partial. AH values are 1X2 three-way probability proxies, not Asian-contract settlement ROI. Proper-score comparison only; no Crown price.",
+  "scores": {
+    "AH_1X2_probability_proxy": {
+      "bivariate_poisson": {
+        "brier": 0.59953097,
+        "fixtures": 1003,
+        "log_loss": 1.00361639
+      },
+      "dixon_coles": {
+        "brier": 0.59943067,
+        "fixtures": 1003,
+        "log_loss": 1.0035109
+      },
+      "m5_independent_goal_rates": {
+        "brier": 0.59479055,
+        "fixtures": 1003,
+        "log_loss": 0.99712334
+      },
+      "poisson": {
+        "brier": 0.59982781,
+        "fixtures": 1003,
+        "log_loss": 1.00423668
+      }
+    },
+    "OU_O2_5": {
+      "bivariate_poisson": {
+        "brier": 0.24849385,
+        "fixtures": 1003,
+        "log_loss": 0.69028659
+      },
+      "dixon_coles": {
+        "brier": 0.2488163,
+        "fixtures": 1003,
+        "log_loss": 0.69095929
+      },
+      "m5_independent_goal_rates": {
+        "brier": 0.24757271,
+        "fixtures": 1003,
+        "log_loss": 0.68900798
+      },
+      "poisson": {
+        "brier": 0.24881892,
+        "fixtures": 1003,
+        "log_loss": 0.69096389
+      }
+    }
+  }
+}

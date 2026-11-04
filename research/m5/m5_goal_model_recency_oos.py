@@ -3,7 +3,7 @@
 
 Per competition, select a history half-life using only the previous calendar
 year's exact-score log loss, then refit through the end of the prior year and
-evaluate on 2026 fixtures. Per-fixture predictions are written only to the
+evaluate on the requested target year. Per-fixture predictions are written only to the
 private output directory. Public output is aggregate-only.
 """
 from __future__ import annotations
@@ -163,14 +163,15 @@ def scores(records):
             "ou_o25_brier": ou_brier / n if n else None, "exact_score_log_loss": score_ll / n if n else None}
 
 
-def run(manifest_path: Path, baseline_path: Path, private_output: Path, aggregate_output: Path):
+def run(manifest_path: Path, baseline_path: Path, private_output: Path, aggregate_output: Path,
+        target_year: int = TARGET_YEAR):
     raw, manifest, all_rows = load_rows(manifest_path)
     baseline_raw = baseline_path.read_bytes()
     baseline = {}
     for line in baseline_raw.decode().splitlines():
         try:
             r = json.loads(line)
-            if int(str(r["kickoff"])[:4]) == TARGET_YEAR:
+            if int(str(r["kickoff"])[:4]) == target_year:
                 baseline[str(r["match_id"])] = r
         except Exception:
             continue
@@ -181,12 +182,12 @@ def run(manifest_path: Path, baseline_path: Path, private_output: Path, aggregat
     identity_conflicts = 0
     parameter_counts = Counter()
     for league, league_rows in sorted(by_league.items()):
-        train_2026 = [r for r in league_rows if r["year"] < TARGET_YEAR]
-        train_2025 = [r for r in league_rows if r["year"] < TARGET_YEAR - 1]
-        validation_2025 = [r for r in league_rows if r["year"] == TARGET_YEAR - 1]
+        train_target = [r for r in league_rows if r["year"] < target_year]
+        train_validation = [r for r in league_rows if r["year"] < target_year - 1]
+        validation = [r for r in league_rows if r["year"] == target_year - 1]
         target = []
         for r in league_rows:
-            if r["year"] != TARGET_YEAR or r["match_id"] not in baseline:
+            if r["year"] != target_year or r["match_id"] not in baseline:
                 continue
             old = baseline[r["match_id"]]
             try:
@@ -198,7 +199,7 @@ def run(manifest_path: Path, baseline_path: Path, private_output: Path, aggregat
                 identity_conflicts += 1
                 continue
             target.append(r)
-        if len(train_2025) < 20 or len(validation_2025) < 5 or not target:
+        if len(train_validation) < 20 or len(validation) < 5 or not target:
             continue
         # Reuse only the prior-year regularization chosen by the existing M5
         # fold. The new choice is the recency half-life, selected by 2025
@@ -209,34 +210,35 @@ def run(manifest_path: Path, baseline_path: Path, private_output: Path, aggregat
         baseline_league = next((x for x in baseline.values() if x.get("league") == league), None)
         if baseline_league is not None:
             lam = float(baseline_league.get("regularization", 0.1))
-        validation_asof = datetime(TARGET_YEAR - 1, 1, 1, tzinfo=timezone.utc)
-        final_asof = datetime(TARGET_YEAR, 1, 1, tzinfo=timezone.utc)
+        validation_asof = datetime(target_year - 1, 1, 1, tzinfo=timezone.utc)
+        final_asof = datetime(target_year, 1, 1, tzinfo=timezone.utc)
         candidates = {}
         for half_life in HALF_LIVES:
-            model = fit_rates(train_2025, lam, half_life, validation_asof)
-            candidates[str(half_life)] = exact_score_ll(model, validation_2025)
+            model = fit_rates(train_validation, lam, half_life, validation_asof)
+            candidates[str(half_life)] = exact_score_ll(model, validation)
         selected = min(HALF_LIVES, key=lambda h: (candidates[str(h)], 0.0 if math.isinf(h) else abs(math.log(h))))
-        model = fit_rates(train_2026, lam, selected, final_asof)
+        model = fit_rates(train_target, lam, selected, final_asof)
         first_target = min(r["kickoff"] for r in target)
         if model["training_end"] >= first_target or model["training_end"] >= final_asof:
-            raise ValueError("2026 target training cutoff is not prior to the forecast window")
-        train_2025_ids = {r["match_id"] for r in train_2025}
-        train_2026_ids = {r["match_id"] for r in train_2026}
-        validation_ids = {r["match_id"] for r in validation_2025}
+            raise ValueError(f"{target_year} target training cutoff is not prior to the forecast window")
+        train_validation_ids = {r["match_id"] for r in train_validation}
+        train_target_ids = {r["match_id"] for r in train_target}
+        validation_ids = {r["match_id"] for r in validation}
         target_ids = {r["match_id"] for r in target}
-        if train_2025_ids & validation_ids or train_2026_ids & target_ids or validation_ids & target_ids:
+        if train_validation_ids & validation_ids or train_target_ids & target_ids or validation_ids & target_ids:
             raise ValueError("fixture identity overlaps across model phase boundaries")
         parameter_counts[str(selected)] += len(target)
-        fold_receipts.append({"league": league, "train_fixtures": len(train_2026),
-                              "validation_2025_fixtures": len(validation_2025),
-                              "target_2026_fixtures": len(target),
+        fold_receipts.append({"league": league, "train_fixtures": len(train_target),
+                              "validation_year_fixtures": len(validation),
+                              "validation_year": target_year - 1,
+                              "target_year_fixtures": len(target),
                               "training_end_utc": model["training_end"].isoformat().replace("+00:00", "Z"),
                               "regularization_from_existing_m5_fold": lam,
                               "selected_half_life_years": None if math.isinf(selected) else selected,
                               "validation_exact_score_log_loss": candidates,
-                              "validation_fit_train_ids_disjoint_from_2025_validation": True,
-                              "final_fit_train_ids_disjoint_from_2026_target": True,
-                              "2025_validation_ids_disjoint_from_2026_target": True})
+                              "validation_fit_train_ids_disjoint_from_validation": True,
+                              "final_fit_train_ids_disjoint_from_target": True,
+                              "validation_ids_disjoint_from_target": True})
         for fixture in target:
             p = predict(model, fixture["home"], fixture["away"])
             old = baseline[fixture["match_id"]]
@@ -262,7 +264,7 @@ def run(manifest_path: Path, baseline_path: Path, private_output: Path, aggregat
         a = [r for r in candidate_records if r["league"] == league]
         b = [r for r in baseline_records if r["league"] == league]
         by_league_scores[league] = {"candidate": scores(a), "baseline": scores(b)}
-    receipt = {"protocol": "M5_RECENCY_WEIGHTED_2026_STRICT_UTC_OOS_V1",
+    receipt = {"protocol": f"M5_RECENCY_WEIGHTED_{target_year}_STRICT_UTC_OOS_V1",
                "generated_utc": datetime.now(timezone.utc).isoformat(),
                "candidate_manifest_sha256": sha(raw), "candidate_manifest_complete_historical_universe": bool(manifest.get("complete_historical_universe")),
                "baseline_forecast_sha256": sha(baseline_raw), "private_candidate_forecast_sha256": sha(private_output.read_bytes()),
@@ -272,8 +274,8 @@ def run(manifest_path: Path, baseline_path: Path, private_output: Path, aggregat
                "candidate_oos": scores(candidate_records), "baseline_same_fixture_oos": scores(baseline_records),
                "by_league": by_league_scores,
                "fold_receipts": fold_receipts,
-               "time_isolation": "Half-life selected independently per league using 2025 exact-score log loss only. Model refit uses UTC fixtures before 2026-01-01; every scored 2026 fixture is identity-disjoint and strictly later than training. No 2026 outcome is used for selection.",
-               "scope_note": "Partial frozen M1 51-league schedule universe. Candidate and baseline use exact common 2026 fixture IDs; Crown ROI is reported by the separate Crown replay, not inferred from proper scores. No production model or trade rule changed."}
+               "time_isolation": f"Half-life selected independently per league using {target_year - 1} exact-score log loss only. Model refit uses UTC fixtures before {target_year}-01-01; every scored {target_year} fixture is identity-disjoint and strictly later than training. No {target_year} outcome is used for selection.",
+               "scope_note": f"Partial frozen M1 51-league schedule universe. Candidate and baseline use exact common {target_year} fixture IDs; Crown ROI is reported by separate Crown replay, not inferred from proper scores. No production model or trade rule changed."}
     aggregate_output.parent.mkdir(parents=True, exist_ok=True)
     aggregate_output.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({"unique_fixtures": len(oos), "folds": len(fold_receipts),
@@ -289,8 +291,9 @@ def main():
     p.add_argument("--baseline-forecasts", type=Path, required=True)
     p.add_argument("--private-output", type=Path, required=True)
     p.add_argument("--aggregate-output", type=Path, required=True)
+    p.add_argument("--target-year", type=int, default=TARGET_YEAR)
     args = p.parse_args()
-    run(args.manifest, args.baseline_forecasts, args.private_output, args.aggregate_output)
+    run(args.manifest, args.baseline_forecasts, args.private_output, args.aggregate_output, args.target_year)
 
 
 if __name__ == "__main__":

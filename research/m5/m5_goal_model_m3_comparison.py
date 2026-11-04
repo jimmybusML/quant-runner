@@ -22,13 +22,14 @@ def score(probabilities, actual):
     p = [min(1-1e-12, max(1e-12, float(x))) for x in probabilities]
     return -math.log(p[actual]), sum((p[i] - (1.0 if i == actual else 0.0))**2 for i in range(len(p)))
 
-def run(m3_csv: Path, m5_forecast_jsonl: Path, output: Path):
+def run(m3_csv: Path, m5_forecast_jsonl: Path, output: Path, kickoff_year: int | None = None):
     m3_raw=m3_csv.read_bytes(); m5_raw=m5_forecast_jsonl.read_bytes()
     m5={}
     for line in m5_raw.decode().splitlines():
         try:
             row=json.loads(line); league=LEAGUE_CODES.get(row["league"])
             if not league: continue
+            if kickoff_year is not None and int(str(row["kickoff"])[:4]) != kickoff_year: continue
             key=(league,row["kickoff"][:10],norm(row["home"]),norm(row["away"]))
             if key in m5: m5.pop(key)
             else: m5[key]=row
@@ -76,6 +77,7 @@ def run(m3_csv: Path, m5_forecast_jsonl: Path, output: Path):
     report={"protocol":"M5_PARTIAL_SCOPE_M3_STRICT_OOS_COMMON_FIXTURE_SCORE_V1",
             "generated_utc":datetime.now(timezone.utc).isoformat(),"m3_prediction_sha256":sha(m3_raw),
             "m5_private_forecast_sha256":sha(m5_raw),"m5_model_oos_fixtures_scored":len(m5),
+            "m5_kickoff_year_filter":kickoff_year,
             "exact_common_fixture_count":len(common),"result_identity_conflicts_excluded":collisions,
             "incomplete_m3_score_rows_excluded":missing,"m3_models":list(MODELS),"scores":results,
             "roi":None,"crown_prices_used":False,
@@ -84,5 +86,5 @@ def run(m3_csv: Path, m5_forecast_jsonl: Path, output: Path):
     print(json.dumps({"common_fixtures":len(common),"scores":results,"output":str(output)}))
 
 def main():
-    p=argparse.ArgumentParser(); p.add_argument("--m3-csv",type=Path,required=True); p.add_argument("--m5-forecasts",type=Path,required=True); p.add_argument("--output",type=Path,required=True); a=p.parse_args(); run(a.m3_csv,a.m5_forecasts,a.output)
+    p=argparse.ArgumentParser(); p.add_argument("--m3-csv",type=Path,required=True); p.add_argument("--m5-forecasts",type=Path,required=True); p.add_argument("--kickoff-year",type=int); p.add_argument("--output",type=Path,required=True); a=p.parse_args(); run(a.m3_csv,a.m5_forecasts,a.output,a.kickoff_year)
 if __name__=="__main__": main()

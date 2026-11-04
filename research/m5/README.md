@@ -79,6 +79,9 @@ MR1 全量历史旧基准来自公开 GitHub Actions run `41425306084` 聚合 ar
 - [m5_goal_model_training_support_audit.py](m5_goal_model_training_support_audit.py) → [按先验训练赛数汇总的 OOS proper-score 诊断](results/m5_goal_model_training_support_audit.json)；仅用于研究稀疏历史下的参数收缩，不作为下注筛选。
 - [M5 近期赛果加权候选报告](M5_RECENCY_MODEL_CROWN_OOS_20261105.md) → 每联赛只用 2025 赛果选半衰期、2026 逐联赛严格 UTC OOS：10,235 场同场样本 AH 1X2 proper score 小幅改善，OU 略差；最新 MR1 archive snapshot 上每市场 871 场已收 Crown + 独立 FT 的同价样本 ROI 为 AH -1.944891%、OU -3.729621%。再加入 70 个不重叠 TotalCorner event-time Crown fixture-market 后，941 场去重并集 ROI 为 AH -2.859192%、OU -3.506908%；两者均未超过 +5%，bootstrap 区间跨零。[模型分数及联赛结果](results/m5_goal_model_recency_2026_oos.json)、[MR1 Crown/FT 回放](results/m5_goal_model_recency_2026_crown_oos.json)、[按证据优先级去重的双源回放](results/m5_goal_model_recency_2026_crown_source_union.json)。TotalCorner event-time quotes 在赛后回取，不计作赛前已收取快照；候选逐场预测仍在仓库外。
 
+- 2026-11-05 follow-up added 2025 strict OOS recency scores and a 2025-fit/2026-holdout M3/M5 blend with training-end-before-as-of enforcement. The blend did not beat the best single model on either market; its 518-fixture aligned holdout has zero exact-contract Crown overlap, so it has no ROI. See the final sections of [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md) and the sanitized receipts `results/m5_goal_model_recency_2025_oos.json` and `results/m5_recency_m3_walkforward_blend_2025fit_2026test.json`.
+- The new MR1 Crown factor audit covers 871 verified received-before-kickoff snapshots per market. AH is -1.944891% ROI, OU -3.729621%; bootstrap intervals include zero. Post-hoc descriptive quantile groups have ties and do not create filters. See `results/m5_mr1_crown_factor_audit.json`. These results are not a deployed M5 stream and remain far below 10,000 fixtures per market.
+
 此前 317 场 MR1 verified Crown 子集的较低价一侧对照基准来自旧归档指纹（见历史进度报告），不能与当前 871 场回放拼接。该方向只是描述性基准，不是策略门槛。
 
 最新 source-verified Crown 配对为 871 场，覆盖 2026-09-19 至 2026-11-03 UTC；目前仍无跨年验证，不能解释为跨赛季稳定 ROI。
