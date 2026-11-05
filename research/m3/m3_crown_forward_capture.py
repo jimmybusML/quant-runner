@@ -2,10 +2,11 @@
 
 The collector uses the existing TotalCorner credential in the caller's runtime,
 queries only bookmaker=crown, and never writes or prints quote lines/prices or raw
-responses. It records HMAC commitments and both the UTC API-snapshot receipt time
-and provider quote-update time in a public append-only receipt, distinguishing a
-current pre-kickoff snapshot from a retrospective history download. M1/M2/MR1
-inputs are never opened.
+responses. It records every HMAC snapshot receipt, both the UTC API-snapshot
+receipt time and provider quote-update time, and an independent fingerprint of
+the unique quote rows. This distinguishes a current pre-kickoff snapshot from a
+retrospective history download and reports unchanged inputs as no new learning.
+M1/M2/MR1 inputs are never opened.
 """
 from __future__ import annotations
 
@@ -366,7 +367,8 @@ def build_commitments(forecasts: list[dict], schedule: dict, payload: dict,
                 "telegram_sent": False,
             }
             event["event_id"] = hashlib.sha256(json.dumps(
-                [event["forecast_id"], market, row_commitment], separators=(",", ":")
+                [event["forecast_id"], market, row_commitment,
+                 event["snapshot_received_at_utc"]], separators=(",", ":")
             ).encode()).hexdigest()
             commitments.append(event)
             market_counts[market] += 1
@@ -504,6 +506,23 @@ def main() -> None:
                                 for row in captured}
     captured_by_market = Counter(market for _fixture, market in captured_fixture_markets)
     protocol_counts = Counter(row.get("protocol", "legacy") for row in prior.values())
+    prior_unique_quote_rows = {(row.get("fixture_identity_id"), row.get("market"),
+                                row.get("source_quote_row_hmac")) for row in prior.values()
+                               if row.get("source_quote_row_hmac")}
+    current_unique_quote_rows = {(row.get("fixture_identity_id"), row.get("market"),
+                                  row.get("source_quote_row_hmac")) for row in captured
+                                 if row.get("source_quote_row_hmac")}
+    new_unique_quote_rows = current_unique_quote_rows - prior_unique_quote_rows
+    quote_snapshot_fingerprint = hashlib.sha256(json.dumps(sorted(
+        [list(row) for row in current_unique_quote_rows]), separators=(",", ":")
+    ).encode()).hexdigest()
+    previous_quote_snapshot_fingerprint = previous_report.get("current_snapshot_quote_fingerprint_sha256")
+    quote_snapshot_changed = (None if previous_quote_snapshot_fingerprint is None else
+                              quote_snapshot_fingerprint != previous_quote_snapshot_fingerprint)
+    forecast_changed = (None if previous_forecast_fingerprint is None else
+                        forecast_input_fingerprint != previous_forecast_fingerprint)
+    new_learning_information = (None if forecast_changed is None or quote_snapshot_changed is None else
+                                forecast_changed or quote_snapshot_changed)
     report_generated_at = datetime.now(UTC)
     summary = {"protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V2",
         "capture_started_utc": capture_started_at.isoformat().replace("+00:00", "Z"),
@@ -512,12 +531,20 @@ def main() -> None:
         "forecast_source": "M3 OpenFootball forward-only shadow; public M3 ledger only",
         "forecasts_considered": len(forecasts), "fixtures_with_unique_schedule_identity": len(candidates),
         "forecast_input_fingerprint_sha256": forecast_input_fingerprint,
-        "forecast_input_changed_vs_previous_run": None if previous_forecast_fingerprint is None else
-            forecast_input_fingerprint != previous_forecast_fingerprint,
-        "new_learning_information": (None if previous_forecast_fingerprint is None else
-            forecast_input_fingerprint != previous_forecast_fingerprint or bool(added)),
-        "new_learning_information_baseline": "unavailable_first_capture_run" if previous_forecast_fingerprint is None else "previous_capture_report",
+        "forecast_input_changed_vs_previous_run": forecast_changed,
+        "current_snapshot_quote_fingerprint_sha256": quote_snapshot_fingerprint,
+        "quote_snapshot_changed_vs_previous_run": quote_snapshot_changed,
+        "new_learning_information": new_learning_information,
+        "new_learning_information_baseline": ("both_forecast_and_quote_fingerprints" if
+            forecast_changed is not None and quote_snapshot_changed is not None else
+            "previous_report_missing_quote_fingerprint" if previous_forecast_fingerprint is not None else
+            "unavailable_first_capture_run"),
         "quote_commitments_added": len(added), "quote_commitments_total": len(prior),
+        "unique_fixture_market_quote_rows_total": len({
+            (row.get("fixture_identity_id"), row.get("market"), row.get("source_quote_row_hmac"))
+            for row in prior.values() if row.get("source_quote_row_hmac")}),
+        "new_unique_fixture_market_quote_rows_added": len(new_unique_quote_rows),
+        "current_snapshot_unique_fixture_market_quote_rows": len(current_unique_quote_rows),
         "quote_commitments_by_protocol": dict(protocol_counts),
         "new_commitments_protocol": "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V2",
         "snapshot_time_basis": "API response received after forecast and before kickoff; latest active Crown pre-match movement row; provider update time retained separately",

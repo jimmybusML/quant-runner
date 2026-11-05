@@ -116,6 +116,11 @@ class M3CrownForwardCaptureTest(unittest.TestCase):
         self.assertNotIn("price1", event)
         self.assertNotIn("line", event)
         self.assertIn("mean_expected_unit_return", status["mean_ev"]["OU|poisson|over"])
+        later_events, _ = build_commitments([forecast], schedule, payload,
+            datetime(2026, 11, 6, 2, 2, tzinfo=timezone.utc), "Asia/Shanghai", "private-key")
+        self.assertEqual(len(later_events), 1)
+        self.assertNotEqual(event["event_id"], later_events[0]["event_id"])
+        self.assertEqual(event["source_quote_row_hmac"], later_events[0]["source_quote_row_hmac"])
         pre_forecast_events, _ = build_commitments([forecast], schedule, payload,
             datetime(2026, 11, 6, 0, 59, tzinfo=timezone.utc), "Asia/Shanghai", "private-key")
         self.assertEqual(pre_forecast_events, [])
