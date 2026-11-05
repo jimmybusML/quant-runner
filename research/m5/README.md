@@ -332,4 +332,14 @@ The collector stopped at 11,149 processed candidates, 11,085 exact responses, 64
 
 Final temporal holdout (`2026-11-05T20:41:14Z`) uses 7,692 AH / 7,691 OU training IDs and 2,295 disjoint test IDs each. Calibrated ROI is AH `+0.385839%`, OU `-4.017647%`; proper scores improve modestly, but every API quote receipt is post-kickoff. [Crown terminal holdout](results/m5_crown_terminal_temporal_holdout_20261105T204114Z.json).
 
-The serialized TOTAL fallback waiter exited without producing a TOTAL progress/index file. The Crown terminal prerequisite is now satisfied. Continue the already implemented private `TotalCorner default` fallback against Crown-missing markets with a 12,000 combined source-event target; keep Crown and TOTAL source labels distinct and deduplicate fixture-markets. This extension adds no betting condition.
+The private TOTAL fallback diagnostic uncovered a parser mismatch: 75 exact-identity `/match/odds` responses contain historical 7-column odds rows (AH and OU), while the initial parser required the 8-column form and therefore marked every row unusable. TotalCorner's current public API specification documents the first five fields as minute, line, both prices, and source time, with score and `closed` appended in the 8-column example. The parser now accepts a 7-column row only when its minute field is empty and all line, price, timestamp, forecast-as-of, and kickoff checks pass; if an 8-column row is supplied, the `closed` flag must still be open. No receipt timestamp is inferred from a source event timestamp.
+
+## 2026-11-05 TotalCorner 7-column parser correction and Crown-first replay
+
+Generated `2026-11-05T21:35:07Z`, source code run locally on 2026-11-06 UTC. 75 exact-identity TOTAL responses yielded 75 eligible fixture-markets in each market after per-row strict UTC checks; all their API receipts occurred after kickoff. Crown remains first choice per fixture-market, so merged samples are AH 10,062 (9,987 Crown + 75 TOTAL default) and OU 10,061 (9,986 Crown + 75 TOTAL default). This clears the 10,000 unique fixture-market count, but not the contemporaneous receipt-time requirement: this is event-time retrospective replay only.
+
+AH: `-234.390U / -2.329457%`, settlement log loss `1.03406769`, Brier `0.65026565`, event-time max drawdown `257.135U`. By UTC kickoff year: 2025 n=727 ROI `-9.437414%`; 2026 n=9,335 ROI `-1.775897%`.
+
+OU: `-365.0925U / -3.628789%`, settlement log loss `0.98845404`, Brier `0.62366511`, event-time max drawdown `380.2125U`. By UTC kickoff year: 2025 n=726 ROI `-6.420110%`; 2026 n=9,335 ROI `-3.411703%`.
+
+Neither market reaches the +3% target. The historical archive contains source-event timestamps before kickoff, but API receipt timestamps are after kickoff for every selected row; ROI is not executable or prospective performance. No record is categorized as Crown when its source is TotalCorner default. Machine-readable aggregate report: [7-column parser Crown-first replay](results/m5_source_union_replay_7col_checkpoint_20261105T213507Z.json). Private raw responses remain outside the repository.

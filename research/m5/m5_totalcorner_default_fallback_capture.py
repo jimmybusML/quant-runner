@@ -42,10 +42,16 @@ def valid_rows(rows: object, asof: datetime, kickoff: datetime, zone: ZoneInfo) 
     if not isinstance(rows, list):
         return valid
     for row in rows:
-        if not isinstance(row, list) or len(row) < 8:
+        # TotalCorner's older /match/odds archive can return the first seven
+        # documented columns and omit the newer home/away-score + closed
+        # fields. Those rows remain usable only when their own minute field
+        # proves they are pre-kickoff; never infer a missing closed flag.
+        if not isinstance(row, list) or len(row) < 7:
             continue
-        minute, raw_line, first_price, second_price, raw_time, _hs, _as, closed = row[:8]
-        if minute not in (None, "", 0, "0") or closed not in (0, "0", False):
+        minute, raw_line, first_price, second_price, raw_time = row[:5]
+        if minute not in (None, "", 0, "0"):
+            continue
+        if len(row) >= 8 and row[7] not in (0, "0", False):
             continue
         observed = local_to_utc(raw_time, zone)
         if not observed or observed < asof or observed >= kickoff:

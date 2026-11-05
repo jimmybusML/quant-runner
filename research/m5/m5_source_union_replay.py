@@ -36,9 +36,13 @@ def raw_event(rows, market, asof, kickoff, zone):
     key='asian_list' if market=='AH' else 'goal_list'
     valid=[]
     for r in rows or []:
-        if not isinstance(r,list) or len(r)<8: continue
-        minute,line_raw,p1,p2,raw_time,_hs,_as,closed=r[:8]
-        if minute not in (None,'',0,'0') or closed not in (0,'0',False): continue
+        # Some historical TotalCorner default responses carry seven columns:
+        # minute, line, prices, time, and scores, with no closed flag. Accept
+        # these only when minute is empty and all quote/time checks pass.
+        if not isinstance(r,list) or len(r)<7: continue
+        minute,line_raw,p1,p2,raw_time=r[:5]
+        if minute not in (None,'',0,'0'): continue
+        if len(r)>=8 and r[7] not in (0,'0',False): continue
         observed=local_to_utc(raw_time,zone)
         if not observed or observed<asof or observed>=kickoff: continue
         try:
