@@ -4038,3 +4038,10 @@
 - Progress `2026-11-05T20:24:47Z`: 11,000 processed, 10,936 exact responses, 64 transport errors, 9,869 valid quotes per market.
 - Replay `m5_source_union_replay_partial_20261105T202620Z.json` at `2026-11-05T20:26:20Z`: AH n=9,869 / OU n=9,868; AH -216.450U/-2.193231%, OU -342.360U/-3.469396%. Sixteen invalid receipt times omitted; all included receipts post-kickoff.
 - Holdout `m5_crown_goal_rate_temporal_holdout_20261105T202839Z.json` at `2026-11-05T20:28:39Z`: train AH/OU 7,607/7,606; holdout 2,295 each; calibrated ROI AH +0.253159%, OU -4.106100%. All receipts post-kickoff.
+
+
+## 2026-11-05 M5 Crown terminal and TOTAL fallback continuation
+- Crown terminal progress `finished_utc=2026-11-05T20:36:44.955424Z`: 11,149/127,674 candidate rows processed; 11,085 exact responses; 64 transport errors; 10,001 AH / 10,000 OU valid source-event pre-kickoff quotes; identity/time mismatches 0.
+- Final strict replay `research/m5/results/m5_crown_terminal_replay_20261105T203851Z.json` generated `2026-11-05T20:38:51.857734Z`: AH 9,987 / OU 9,986 settled event-time fixture-markets after excluding 13/14 rows with invalid/missing receipt timestamps. All included API receipts post-kickoff. AH -231.890U/-2.321918%, OU -357.030U/-3.575305%; so 10k captured source events, but just under 10k valid receipt-indexed settled rows.
+- Temporal holdout `research/m5/results/m5_crown_terminal_temporal_holdout_20261105T204114Z.json` generated `2026-11-05T20:41:14.338989Z`: AH/OU 7,692/7,691 train and 2,295 disjoint holdout, calibrated ROI +0.385839%/-4.017647%; all receipts post-kickoff.
+- Verified former waiter PID 19737 exited and no `totalcorner-default-index.jsonl` or progress exists. Now run the existing private TOTAL fallback explicitly, credential loaded in memory through `ops/localdesk/mac_keychain.py`, target combined source coverage 12,000 per market. It only queries markets absent in Crown and records `totalcorner_default_NOT_CROWN`; do not let it use Crown label. Then run source-union replay and document source-stratified results.
