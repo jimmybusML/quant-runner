@@ -1,3 +1,8 @@
+## 2026-11-05 14:12 北京时间 补充验证：新MR1自动远端持久化通过
+- 06:10:35Z 使用最新统一协调器单独执行MR1：第1步复核仅剩1场已过原开赛时间未核验的Kolos–Polissya（外部多源显示Postponed），未擅自结算；第2步 `STATE_PERSISTED` 成功写入现有MR1远端；审计06:11:04Z生成；最终 `COMPLETED failed=[]`。正式MR1 588已发送、576已结算、12未结算，其中1延期、11尚未到开赛时间。
+- 旧MR1独立结算LaunchAgent已卸载且从LaunchAgents目录移至本机 `state/retired_com.quantasia.mr1.settle.plist`；新的统一Agent `com.quantasia.unified.settlement` 已启动且首轮exit=0。MR1 collector仍运行，它不是旧结算调度。
+- **边界**：统一自动调度与逐模型审计已经替换旧MR1结算调度，但第二独立赛果来源尚未自动化，M1旧GitHub扫描内嵌结算尚未退役。不能声称完整生产迁移完成。
+
 ## 2026-11-05 14:12 北京时间 统一结算首轮成功、MR1历史漏单补齐
 - 本机新统一 LaunchAgent `com.quantasia.unified.settlement` 已加载，旧 `com.quantasia.mr1.settle` 已卸载。新协调器 2026-11-05 06:00:10Z 启动，M1、MR1、M3全部成功，最终 `COMPLETED failed=[]`。M3 06:09:41Z 全四步完成：赛果候选498、已核验赛事74、影子结算检查444、`NO_NEW_EVENTS`（无新事件）、`REPORTED`，报告生成UTC06:09:41、`anomalies=[]`、1530唯一影子订单；不得误称444条新写入。
 - 本机仪表盘M1/MR1/M3的 `settle` 操作已经路由至统一协调器。旧模型内部计分公式和既有账本格式保留，以保护历史不可变订单；旧扫描流程仍可能调用原有结算，故不是全部旧结算实现已删除。
