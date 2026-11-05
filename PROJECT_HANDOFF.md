@@ -1,8 +1,9 @@
 # 2026-11-05 M3 Crown 前瞻采集验收（用户确认复用现有授权）
 - 用户明确要求先审计公开仓库和既有来源，复用现有 Crown 授权，不申请新授权；本轮只使用公开 `quant-runner` 中的 M3 独立代码及既有 `TOTALCORNER_TOKEN` Secret 引用，不读取凭证值。历史 Crown probe [39584036612](https://github.com/ljm198964-alt/quant-runner/actions/runs/39584036612) 是固定赛事来源诊断，不等于连续历史盘口档案。OddsPapi token/连接器/存档未发现；TotalCorner default 和其他公司水位均排除。
 - 新增 M3 专属 `.github/workflows/m3-crown-forward-capture.yml` 与 `research/m3/m3_crown_forward_capture.py`，限定 `bookmaker=crown`、AH/OU 分开、UTC 严格配对已记录 M3 OpenFootball 预测与开赛前报价；仅保存 HMAC 行/响应承诺、时间及汇总覆盖/EV，不保存原始响应、盘口线、水位或凭证。无 M3 Telegram、订单、Gate、模型自动晋升；不读 M1/M2/MR1 预测、订单、参数或账本。
-- 首次真实 workflow run [41956460742](https://github.com/ljm198964-alt/quant-runner/actions/runs/41956460742) 完成 M3 forecast refresh、83项 workflow 测试、Crown-only 查询并上传脱敏报告；最后在持久化步骤因零 quote 时收据 JSONL 不存在而失败。报告生成 UTC `2026-11-05T02:40:16.831148Z`：144 forecasts、1场唯一 schedule match、Crown response unavailable、0个 quote commitment，EV/ROI=null；首次指纹无前次 capture baseline，新增学习信息应为未知。总计84项本地测试通过；已补空文件持久化、API限速重试及 allowlisted 错误分类，待修复版本再次运行。
-- 该失败 run 未写入任何前瞻价格或 quote commitment，未产生 M3 TG/订单。历史 AH0 n=24 / OU2.5 n=36 仍是事后 hindcast，不是同期预测。
+- 首次真实 workflow run [41956460742](https://github.com/ljm198964-alt/quant-runner/actions/runs/41956460742) 完成 M3 forecast refresh、83项 workflow 测试、Crown-only 查询并上传脱敏报告；最后在持久化步骤因零 quote 时收据 JSONL 不存在而失败。该 run 没有写入报价数据。
+- 修复版 Actions run [41957259557](https://github.com/ljm198964-alt/quant-runner/actions/runs/41957259557) 于2026-11-05 02:50:19Z全步骤成功，报告/模型结果由 Actions commit `1f1721f2` 持久化到公开 `main`。脱敏 report 生成 UTC `2026-11-05T02:47:28.510865Z`：144 forecasts、5场唯一 TotalCorner/Crown身份、18条HMAC报价承诺（AH 9 / OU 9；D1、E0），原始价格和响应均未落库。精确 EV 不可计算：对应的旧 forecast 没有比分网格，现有简化EV接口只支持AH0/OU2.5；本次没有任何 quote/model 行通过EV计算，ROI=null，无最大回撤，不将 commitment 数视为ROI样本。首轮 capture 没有指纹基线，新增学习信息未知。后续新 forecast 有比分网格，可用于精确 Crown line EV。
+- 当前全套 M3本地及workflow测试84项通过；手动Crown工作流每4小时UTC触发已生效。无M3 TG/订单、无M1/M2/MR1数据读取。历史 AH0 n=24 / OU2.5 n=36 仍是事后hindcast，不是同期预测。
 - 旧 handoff 中“没有可追溯授权范围证据，因此不发请求”的条目是此前状态记录；以用户本轮明确确认的复用现有授权指示为最新执行依据。若 workflow 失败，仅记录脱敏错误和缺失能力，不回退其他盘口源。
 
 # 2026-11-05 M3 独立研究验收增补
