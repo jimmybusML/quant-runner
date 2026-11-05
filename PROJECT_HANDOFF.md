@@ -4014,3 +4014,9 @@
 - Formal progress `2026-11-05T19:54:27Z`: 10,600 processed, 10,538 exact responses, 62 transport errors, 9,555 eligible AH/OU quotes.
 - Replay `m5_source_union_replay_partial_20261105T195601Z.json` at `2026-11-05T19:56:01Z`: AH n=9,551, OU n=9,550; AH -187.635U/-1.964559%, OU -307.235U/-3.217120%. All API receipts post-kickoff.
 - Time holdout `m5_crown_goal_rate_temporal_holdout_20261105T195817Z.json` at `2026-11-05T19:58:17Z`: train AH/OU 7,281/7,280; holdout 2,295 each; calibrated ROI AH +0.052941%, OU -3.843355%. All receipts post-kickoff.
+
+
+## 2026-11-05 M5 Crown 10,700-candidate checkpoint
+- Progress `2026-11-05T20:00:12Z`: 10,700 processed, 10,638 exact responses, 62 transport errors, 9,635 valid AH/OU quotes.
+- Replay `m5_source_union_replay_partial_20261105T200149Z.json` at `2026-11-05T20:01:49Z`: AH n=9,636 / OU n=9,635, AH -187.205U/-1.942767%, OU -326.105U/-3.384587%; eight invalid timestamps excluded and all included receipts post-kickoff.
+- Temporal holdout `m5_crown_goal_rate_temporal_holdout_20261105T200411Z.json` at `2026-11-05T20:04:11Z`: train AH/OU 7,359/7,358, test 2,295 each; calibrated ROI AH +0.077996%, OU -3.930501%. All receipts post-kickoff.
