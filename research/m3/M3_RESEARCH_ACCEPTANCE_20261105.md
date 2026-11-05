@@ -71,3 +71,16 @@ AH/OU 补充候选 `opisthokonta/goalmodel`：当前检视版本 v0.6.4（2024-0
 未完成：新 Crown quote 配对的可计算线级 EV；新的带比分网格前瞻事件与数据累积；根据赛后 FT 与 HMAC 承诺行情的逐市场 OOS Log Loss/Brier、ROI/收益序列及最大回撤；B1 的独立 M3 forward forecast；第三方候选 `goalmodel` 的真实独立 OOS 运行；用最新 OOS forecast SHA 重跑本地 Crown hindcast。当前真实历史 Crown 回放只有 AH0 24 场、OU2.5 36 场，预测为 hindcast，不能满足前瞻效果验收；其收益区间宽且跨零。没有扩大或缩小既定联赛范围，也未增加任何 Gate。
 
 最值得继续：推送后立即手动触发 `m3-crown-forward-capture.yml`，检验现有 Secret 在该研究 workflow 中可用、UTC 配对与私密值抑制均成立；记录实际 Actions ID、报告与落库 commit。随后增加按 HMAC 回取 history row 的赛后 evaluator，分 AH/OU 留存公平 EV、Log Loss/Brier、ROI 和有效收益序列；维持每市场独立样本且等待真实数据。此前不加 EV、置信度、数量、时效或联赛 Gate，不自动升版、不启用 Telegram。
+
+## 2026-11-05 main 线上状态复核与自动化故障
+
+本节按最新公开 main `c40a70da7d2eed6f1d749fa4a662ae4d02842631` 和 GitHub Actions 实际记录复核，UTC 查询时间为 `2026-11-05T03:25Z` 附近。它更新运行状态，不改变原先样本口径：
+
+- 独立训练/OOS run [41956446597](https://github.com/ljm198964-alt/quant-runner/actions/runs/41956446597) 在 `2026-11-05T02:37:40Z` 成功；同一 workflow 的 OOS 与 V4 结果确实提交到公开仓库，receipt commit 为 `6a66232`。M3 测试 83/83 通过。输入指纹未变 (`648aa1d7…77cb4e`)，所以没有新增赛果学习信息；重拟合后 parameter/prediction SHA 改变，逐字节拟合确定性仍未解释。
+- 最新 Crown 专属前瞻 run [41957259557](https://github.com/ljm198964-alt/quant-runner/actions/runs/41957259557) 在 `2026-11-05T02:50:19Z` 成功，报告和承诺文件已提交公开 main，commit `1f1721f2`。真实输入为 TotalCorner `bookmaker=crown`；144 个 forecast 只映射到 5 个唯一 fixture identity，保留 18 个不含明文价格/盘线/赛事源 ID 的 HMAC 行承诺，AH 9、OU 9；另 43 场因 schedule identity 缺失或歧义被拒绝。forecast 首次指纹没有基线，新增学习信息未知。由于这 5 场命中的仍是旧 forecast，未含 full score grid，线级 EV、真实赛果评分、ROI 和回撤均为 null。18 个承诺不是 18 个已结算样本。
+- 同日 `m3-totalcorner-forward-ev.yml` run [41952143472](https://github.com/ljm198964-alt/quant-runner/actions/runs/41952143472) 失败在私有 `totalcorner-research-bridge` 完赛缓存 checkout；GitHub 的 `PRIVATE_REPO_TOKEN` 名称存在，但这次 fetch 未获认证。没有检查 Secret 值。该旧 workflow 读取 M1 完赛缓存，不能代表 M3 Crown-only 前瞻工作流，结果不纳入本报告。TotalCorner Crown workflow 已独立成功，故此次失败没有阻断 Crown 采集；私有缓存依赖仍需有权限的仓库维护者修复。
+- AH reverse research workflow 的 run [41958838179](https://github.com/ljm198964-alt/quant-runner/actions/runs/41958838179) `failure` 且零 job。核实为 YAML 把 `with:` 挂在 `run:` 步骤下；本提交删除无效的 `with` 子块，ledger materialize 本身从当前 checkout 的不可变 Git baseline 读取。另将摘要 rebase/push 改为当前 dispatch ref，避免从功能分支手动验收时写入 main。该 reverse audit 明确用 `TotalCorner default NOT Crown` 旧影子数据，不能用于 Crown ROI。
+- `m3-totalcorner-auto-shadow.yml` 的 run [41951424819](https://github.com/ljm198964-alt/quant-runner/actions/runs/41951424819) 失败原因是 workflow 未安装 `requests`，而代码导入它。该工作流使用 `default_unspecified_NOT_CROWN` 数据，仅用于独立旧影子审计；本次不把它重标为 Crown，也不将该非 Crown 的 EV/回报记录混入 Crown 研究。
+- Secret 名称元数据仅确认 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN` 存在；没有读取值。OddsPapi 凭据或已存数据仍未发现。成功的 Crown run 证明当前 Crown capture 路径使用的现有 TotalCorner 凭据可执行该次采集，不构成更宽历史回填或公开原始数据权限证明。依用户明确指示，未索取新授权，也未回退至其它公司赔率。
+
+这次复核没有改 M1、M2、MR1 生产链路，没有 Telegram、模型自动晋升、新交易 gate 或用户冻结的赛事范围变更。下一项可验证增量仍是：生成/保存新的前瞻 full-score-grid forecast，确认 AH 与 OU quote-row 的 EV 计数非零；在比赛结束后以独立 FT 复核 quote HMAC，再分市场累计 proper scores 与单位结算结果。当前还没有符合这些条件的 Crown OOS 样本。
