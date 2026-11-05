@@ -1,0 +1,263 @@
+{
+  "crown_prices_used_only": true,
+  "cutoff_method": "Within each market, chronological 70th percentile of distinct verified Crown quote-event UTC timestamps; all matches at the cutoff timestamp enter holdout. Purge early quotes whose separate FT receipt is not before cutoff.",
+  "forecast_universe": {
+    "baseline": 127674,
+    "recency": 10235
+  },
+  "generated_utc": "2026-11-05T03:19:58.725806+00:00",
+  "input_sha256": {
+    "M5_baseline_forecasts": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+    "M5_recency_forecasts": "fc2abf89b2ac80eb2ba72bf9e992f25eeda11502f2e87cd2bd965b921843d26d",
+    "MR1_V6_records": "2f579e4cc89a250a8315a45488336a15f9416b673092c1539de6b35e612622d1",
+    "MR1_fixture_registry": "55f0def036733e39ec360096de75a31fd8809a37d4e2e89a9ce573228b525d7e",
+    "MR1_snapshot_index": "600b7b49fb3fee9eec0b2b9ddd24de1fd40f383e50c5bcdee8f84f1808c6c314",
+    "independent_FT_receipts": "5cd32fec1308515935d46dcec5de6aef3944f80895a2e721287c91616dd80561",
+    "verified_Crown_snapshots": "1065121476946e695ea2597b0da3e7bd5284768513b85fab79623626669d8252"
+  },
+  "limitations": [
+    "This 2026 Crown cohort was used in earlier M5 studies; chronological holdout is not pristine untouched validation.",
+    "This estimates only two global scoring-rate offsets and does not model league-specific or market-specific drift.",
+    "AH and OU are evaluated separately on 870 unique fixture-markets each; these are Crown ROI samples, not the 10,000-fixture objective.",
+    "M5 forecasts are retrospective UTC walk-forward hindcasts, not contemporaneously archived M5 deployment predictions."
+  ],
+  "markets": {
+    "AH": {
+      "all_training_FT_receipts_precede_cutoff": true,
+      "early_quote_fixtures": 605,
+      "later_holdout_fixtures": 265,
+      "models": {
+        "M5_baseline": {
+          "calibrated_later_holdout": {
+            "bootstrap_95pct_roi_interval": {
+              "lower_2_5_pct": -16.339623,
+              "resamples": 10000,
+              "seed": 20261180,
+              "upper_97_5_pct": 4.809434
+            },
+            "full_loss": 105,
+            "full_win": 100,
+            "half_loss": 25,
+            "half_win": 17,
+            "max_drawdown_by_quote_event_units": 16.92,
+            "mean_selected_model_ev_pct": 16.7178,
+            "net_units": -15.495,
+            "push": 18,
+            "roi_pct": -5.84717,
+            "settled_bets": 265,
+            "settlement_brier": 0.65759421,
+            "settlement_log_loss": 1.03668834,
+            "simulated_bets": 265,
+            "unique_fixture_markets": 265
+          },
+          "estimated_global_away_rate_multiplier": 1.13873116,
+          "estimated_global_home_rate_multiplier": 1.10420288,
+          "raw_later_holdout": {
+            "bootstrap_95pct_roi_interval": {
+              "lower_2_5_pct": -17.20566,
+              "resamples": 10000,
+              "seed": 20261170,
+              "upper_97_5_pct": 4.150943
+            },
+            "full_loss": 107,
+            "full_win": 98,
+            "half_loss": 23,
+            "half_win": 19,
+            "max_drawdown_by_quote_event_units": 18.87,
+            "mean_selected_model_ev_pct": 17.464552,
+            "net_units": -17.445,
+            "push": 18,
+            "roi_pct": -6.583019,
+            "settled_bets": 265,
+            "settlement_brier": 0.66063292,
+            "settlement_log_loss": 1.04019567,
+            "simulated_bets": 265,
+            "unique_fixture_markets": 265
+          },
+          "training_FT_received_before_cutoff": true,
+          "training_fixture_count": 605
+        },
+        "M5_recency": {
+          "calibrated_later_holdout": {
+            "bootstrap_95pct_roi_interval": {
+              "lower_2_5_pct": -10.79434,
+              "resamples": 10000,
+              "seed": 20261181,
+              "upper_97_5_pct": 10.209434
+            },
+            "full_loss": 100,
+            "full_win": 105,
+            "half_loss": 20,
+            "half_win": 22,
+            "max_drawdown_by_quote_event_units": 15.06,
+            "mean_selected_model_ev_pct": 16.798811,
+            "net_units": -1.17,
+            "push": 18,
+            "roi_pct": -0.441509,
+            "settled_bets": 265,
+            "settlement_brier": 0.65257639,
+            "settlement_log_loss": 1.02958826,
+            "simulated_bets": 265,
+            "unique_fixture_markets": 265
+          },
+          "estimated_global_away_rate_multiplier": 1.11672806,
+          "estimated_global_home_rate_multiplier": 1.09928,
+          "raw_later_holdout": {
+            "bootstrap_95pct_roi_interval": {
+              "lower_2_5_pct": -12.518868,
+              "resamples": 10000,
+              "seed": 20261171,
+              "upper_97_5_pct": 8.445283
+            },
+            "full_loss": 102,
+            "full_win": 103,
+            "half_loss": 20,
+            "half_win": 22,
+            "max_drawdown_by_quote_event_units": 17.06,
+            "mean_selected_model_ev_pct": 17.706698,
+            "net_units": -5.425,
+            "push": 18,
+            "roi_pct": -2.04717,
+            "settled_bets": 265,
+            "settlement_brier": 0.65609868,
+            "settlement_log_loss": 1.03354447,
+            "simulated_bets": 265,
+            "unique_fixture_markets": 265
+          },
+          "training_FT_received_before_cutoff": true,
+          "training_fixture_count": 605
+        }
+      },
+      "purged_early_quotes_late_FT_receipt": 0,
+      "quote_time_cutoff_utc": "2026-10-22T11:21:08Z",
+      "train_holdout_fixture_ids_disjoint": true,
+      "training_unique_fixtures": 605,
+      "unique_quote_timestamps": 847,
+      "unique_verified_fixture_markets": 870
+    },
+    "OU": {
+      "all_training_FT_receipts_precede_cutoff": true,
+      "early_quote_fixtures": 606,
+      "later_holdout_fixtures": 264,
+      "models": {
+        "M5_baseline": {
+          "calibrated_later_holdout": {
+            "bootstrap_95pct_roi_interval": {
+              "lower_2_5_pct": -20.875,
+              "resamples": 10000,
+              "seed": 20261180,
+              "upper_97_5_pct": 0.083333
+            },
+            "full_loss": 116,
+            "full_win": 99,
+            "half_loss": 20,
+            "half_win": 16,
+            "max_drawdown_by_quote_event_units": 37.07,
+            "mean_selected_model_ev_pct": 8.504104,
+            "net_units": -27.45,
+            "push": 13,
+            "roi_pct": -10.397727,
+            "settled_bets": 264,
+            "settlement_brier": 0.63741341,
+            "settlement_log_loss": 1.00926881,
+            "simulated_bets": 264,
+            "unique_fixture_markets": 264
+          },
+          "estimated_global_away_rate_multiplier": 1.14033263,
+          "estimated_global_home_rate_multiplier": 1.10127822,
+          "raw_later_holdout": {
+            "bootstrap_95pct_roi_interval": {
+              "lower_2_5_pct": -23.564394,
+              "resamples": 10000,
+              "seed": 20261170,
+              "upper_97_5_pct": -2.363636
+            },
+            "full_loss": 118,
+            "full_win": 97,
+            "half_loss": 24,
+            "half_win": 12,
+            "max_drawdown_by_quote_event_units": 37.325,
+            "mean_selected_model_ev_pct": 15.041613,
+            "net_units": -34.485,
+            "push": 13,
+            "roi_pct": -13.0625,
+            "settled_bets": 264,
+            "settlement_brier": 0.65599542,
+            "settlement_log_loss": 1.0345575,
+            "simulated_bets": 264,
+            "unique_fixture_markets": 264
+          },
+          "training_FT_received_before_cutoff": true,
+          "training_fixture_count": 597
+        },
+        "M5_recency": {
+          "calibrated_later_holdout": {
+            "bootstrap_95pct_roi_interval": {
+              "lower_2_5_pct": -24.149621,
+              "resamples": 10000,
+              "seed": 20261181,
+              "upper_97_5_pct": -3.007576
+            },
+            "full_loss": 120,
+            "full_win": 95,
+            "half_loss": 20,
+            "half_win": 16,
+            "max_drawdown_by_quote_event_units": 40.745,
+            "mean_selected_model_ev_pct": 9.353499,
+            "net_units": -35.745,
+            "push": 13,
+            "roi_pct": -13.539773,
+            "settled_bets": 264,
+            "settlement_brier": 0.63658902,
+            "settlement_log_loss": 1.00939782,
+            "simulated_bets": 264,
+            "unique_fixture_markets": 264
+          },
+          "estimated_global_away_rate_multiplier": 1.11679258,
+          "estimated_global_home_rate_multiplier": 1.09633001,
+          "raw_later_holdout": {
+            "bootstrap_95pct_roi_interval": {
+              "lower_2_5_pct": -17.439394,
+              "resamples": 10000,
+              "seed": 20261171,
+              "upper_97_5_pct": 3.541667
+            },
+            "full_loss": 110,
+            "full_win": 105,
+            "half_loss": 23,
+            "half_win": 13,
+            "max_drawdown_by_quote_event_units": 23.71,
+            "mean_selected_model_ev_pct": 15.043839,
+            "net_units": -18.645,
+            "push": 13,
+            "roi_pct": -7.0625,
+            "settled_bets": 264,
+            "settlement_brier": 0.65415093,
+            "settlement_log_loss": 1.03303643,
+            "simulated_bets": 264,
+            "unique_fixture_markets": 264
+          },
+          "training_FT_received_before_cutoff": true,
+          "training_fixture_count": 597
+        }
+      },
+      "purged_early_quotes_late_FT_receipt": 9,
+      "quote_time_cutoff_utc": "2026-10-21T15:48:42Z",
+      "train_holdout_fixture_ids_disjoint": true,
+      "training_unique_fixtures": 597,
+      "unique_quote_timestamps": 848,
+      "unique_verified_fixture_markets": 870
+    }
+  },
+  "parameter_method": "Per market and model, estimate separate global home/away Poisson rate multipliers as sum(actual goals)/sum(unadjusted predicted \u03bb) on unique early fixture identities. This is the exact two-intercept maximum-likelihood fit for Poisson counts. Apply score-grid exponential tilting by exp(home_goals*log(home_multiplier)+away_goals*log(away_multiplier)), then renormalize. No ROI tuning or gates.",
+  "protocol": "M5_CROWN_GLOBAL_GOAL_RATE_BIAS_CORRECTION_HOLDOUT_V1",
+  "roi_used_for_parameter_selection": false,
+  "validation_counts": {
+    "candidate_exact_id_records": 9573,
+    "eligible_quote_records_AH": 6804,
+    "eligible_quote_records_OU": 6804,
+    "forward_record_identity_or_outcome_flag_fail": 87,
+    "independent_ft_fail": 2682,
+    "verified_crown_forward_records": 17338
+  }
+}
