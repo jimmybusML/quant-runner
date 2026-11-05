@@ -3803,3 +3803,6 @@
 - The V23 snapshot index and fixture registry had changed since the previous run; new SHA256 fingerprints are recorded in `research/m5/results/m5_mr1_v6_same_crown_oos.json`. All selected V6 records, matched Crown snapshots, independent FT receipts, fixture counts and financial metrics are unchanged: 870 per market; no ROI changed. This is a source freshness correction, not a new sample or independent validation.
 - No credentials/API calls were used. Raw private files remain outside the public repository; only the aggregate result and hashes are published.
 - Publication receipt for this refresh: commit `b9105e233e0c704f07bbc51fda75a8b54abd3e1c` pushed to `codex/m5-oos-crown-expansion`; the remote ref was verified equal. No M5 Actions run was initiated.
+
+
+- Calendar coverage audit of all 17,338 MR1 V6 verified Crown-forward records found kickoff year 2026 only; all rows have quote times and `received_at` before kickoff. Thus these forward records cannot create a prior-season validation cohort for the current M5 forecasts; the common Crown/FT cohort remains 870 fixtures per market. The date audit was aggregate-only and disclosed no fixture identifiers or timestamps.
