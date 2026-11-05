@@ -173,3 +173,14 @@ Added a single global home/away scoring-rate tilt, fit from M5 OOS score grids a
 
 
 率校准在新训练样本上的复核（6,169训练/2,295时间留出每市场）见 [最新校准回执](results/m5_crown_goal_rate_temporal_holdout_20261105T181541Z.json)：AH校准ROI -0.162092%，OU -3.968627%；proper score虽改善，但全未达到+3%，且报价receipt均在开赛后。
+
+
+### 2026-11-05T18:18Z Crown checkpoint and 9,500-candidate refresh
+
+The private Crown collector checkpoint is `2026-11-05T18:18:35Z`: 9,500/127,674 candidates processed, 9,444 exact responses, 56 transport errors, 8,532 fixture quotes valid for both AH and OU, and zero identity/time mismatches. This is still an active partial archive, not final coverage.
+
+A replay generated `2026-11-05T18:19:34Z` on 8,542 unique fixture-markets per market (all Crown): AH `-139.660U`, ROI `-1.634980%`, maximum event-time drawdown `172.935U`, settlement Log Loss/Brier `1.03356792/0.64981503`; OU `-348.350U`, ROI `-4.078085%`, drawdown `351.850U`, Log Loss/Brier `0.98967251/0.62473892`. Descriptive fixture-bootstrap 95% ROI intervals are AH `-3.501463% to +0.213767%` and OU `-5.979045% to -2.199719%`. The samples cover 2026-02-02 through 2026-11-04 UTC and are each below 10,000. All selected API receipts arrived after kickoff; these event-time replays are retrospective and cannot be represented as executable pregame ROI. Full aggregate and hashes: [partial replay receipt](results/m5_source_union_replay_partial_20261105T181934Z.json).
+
+A separate chronological rate calibration uses 6,266 prior fixtures and 2,295 later holdout fixtures per market, cutoff `2026-09-01T00:00:00Z`; fixture IDs are disjoint. Home/away rate multipliers are 1.035343/1.031832, fit by prior-period goal likelihood rather than ROI. Raw vs calibrated holdout ROI: AH `+0.244009%` to `-0.204793%`; OU `-4.723965%` to `-3.901961%`. Calibration modestly improves both settlement Log Loss/Brier pairs (AH `1.02778536/0.64250851` to `1.02695128/0.64222314`; OU `0.99662474/0.62898185` to `0.99000195/0.62414496`). AH and OU still do not reach the +3% objective; OU remains negative. All API receipts were post-kickoff, so even this time-split result is not execution evidence. Full audit: [temporal holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T182153Z.json).
+
+Neither run completes the 10,000-per-market target or provides contemporaneous receipt evidence. Do not treat event-time replay ROI as verified Crown executable ROI. No filters/gates were introduced and no M5 Actions run was triggered.
