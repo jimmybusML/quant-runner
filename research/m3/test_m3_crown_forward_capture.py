@@ -9,10 +9,17 @@ from research.m3.m3_crown_forward_capture import (
     movement_rows,
     source_local_to_utc,
     safe_api_error,
+    learning_delta_status,
 )
 
 
 class M3CrownForwardCaptureTest(unittest.TestCase):
+    def test_learning_delta_distinguishes_changed_unchanged_and_missing_baselines(self):
+        self.assertTrue(learning_delta_status(True, None))
+        self.assertFalse(learning_delta_status(False, False))
+        self.assertIsNone(learning_delta_status(False, None))
+        self.assertIsNone(learning_delta_status(None, None))
+
     def test_api_error_classification_is_allowlisted(self):
         self.assertEqual(safe_api_error({"error": {"code": "TOO_MANY_REQUEST"}}), "TOO_MANY_REQUEST")
         self.assertEqual(safe_api_error({"error": {"code": "arbitrary private response detail"}}), "OTHER")

@@ -158,6 +158,17 @@ def _hmac(secret: str, value: object) -> str:
     return hmac.new(secret.encode("utf-8"), canonical, hashlib.sha256).hexdigest()
 
 
+def learning_delta_status(forecast_changed: bool | None,
+                          quote_changed: bool | None) -> bool | None:
+    """Report known new inputs without treating an unavailable baseline as false."""
+    known = (forecast_changed, quote_changed)
+    if any(value is True for value in known):
+        return True
+    if all(value is False for value in known):
+        return False
+    return None
+
+
 def _line_parts(value: object) -> list[float]:
     """Read ordinary or quarter-line provider notation without publishing it."""
     if isinstance(value, bool):
@@ -519,10 +530,10 @@ def main() -> None:
     previous_quote_snapshot_fingerprint = previous_report.get("current_snapshot_quote_fingerprint_sha256")
     quote_snapshot_changed = (None if previous_quote_snapshot_fingerprint is None else
                               quote_snapshot_fingerprint != previous_quote_snapshot_fingerprint)
+    quote_data_changed = (None if not captured else bool(new_unique_quote_rows))
     forecast_changed = (None if previous_forecast_fingerprint is None else
                         forecast_input_fingerprint != previous_forecast_fingerprint)
-    new_learning_information = (None if forecast_changed is None or quote_snapshot_changed is None else
-                                forecast_changed or quote_snapshot_changed)
+    new_learning_information = learning_delta_status(forecast_changed, quote_data_changed)
     report_generated_at = datetime.now(UTC)
     summary = {"protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V2",
         "capture_started_utc": capture_started_at.isoformat().replace("+00:00", "Z"),
@@ -534,10 +545,11 @@ def main() -> None:
         "forecast_input_changed_vs_previous_run": forecast_changed,
         "current_snapshot_quote_fingerprint_sha256": quote_snapshot_fingerprint,
         "quote_snapshot_changed_vs_previous_run": quote_snapshot_changed,
+        "new_unique_quote_rows_vs_saved_history": quote_data_changed,
         "new_learning_information": new_learning_information,
-        "new_learning_information_baseline": ("both_forecast_and_quote_fingerprints" if
-            forecast_changed is not None and quote_snapshot_changed is not None else
-            "previous_report_missing_quote_fingerprint" if previous_forecast_fingerprint is not None else
+        "new_learning_information_baseline": ("forecast_change_and_unique_quote_rows" if
+            forecast_changed is not None and quote_data_changed is not None else
+            "partial_data_evidence" if previous_forecast_fingerprint is not None else
             "unavailable_first_capture_run"),
         "quote_commitments_added": len(added), "quote_commitments_total": len(prior),
         "unique_fixture_market_quote_rows_total": len({
