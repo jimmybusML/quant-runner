@@ -7,6 +7,7 @@
 - 当前 OOS 原始可复核报告及预测/参数版本仍在下方既有 results 路径。
 - [M3 Crown 前瞻采集器](m3_crown_forward_capture.py) 与 [每四小时 UTC workflow](../../.github/workflows/m3-crown-forward-capture.yml) 已实际运行成功；collector 只请求 `bookmaker=crown`，按 UTC 配对已记录 M3 预测与赛前 AH/OU 报价，公开收据只保存 HMAC、时间与聚合数据，不保存盘口、水位或原响应。
 - 最近两次真实运行 [42095998979](https://github.com/ljm198964-alt/quant-runner/actions/runs/42095998979) 和 [42106953039](https://github.com/ljm198964-alt/quant-runner/actions/runs/42106953039) 均成功，提交分别为 `b2739dc0`、`868d4c8`。最新累计 30 条 quote commitment（AH 15、OU 15；每市场4个唯一 fixture-market，跨3个模型）；最新 run 无新 forecast/quote 输入变化。当前没有成熟的前瞻结算样本，线级 EV、ROI 与回撤仍不能报告。
+- PR #65 的分支端到端验收 [42109348334](https://github.com/ljm198964-alt/quant-runner/actions/runs/42109348334) 成功（85/85 tests），并将 [`latest_pairing_status.json`](results/crown/latest_pairing_status.json) 更新器和收据追加至 PR 分支提交 `1f912b7`；本次无新增 forecast 或报价。
 - 最近一次主分支 Actions 运行了84项 M3 测试；状态汇总修复及新测试在隔离 Python 3.12 环境完成完整85/85测试。
 - Secret 名称 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN` 只从公开 workflow 引用确认，未读取任何值。历史 Crown 源探测 run `39584036612` 成功；OddsPapi 的凭证、连接器和历史存档未找到。
 - Crown 前瞻输入沿用 OpenFootball M3 forecast 账本，现有来源缺少 B1 前瞻 fixtures；研究固定范围仍为六联赛，B1 覆盖缺口如实保留。手动 Crown probe 已移除非 Crown fallback 并避免输出 ID/赔率字段。
