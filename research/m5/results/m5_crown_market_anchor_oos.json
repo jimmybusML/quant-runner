@@ -1,0 +1,231 @@
+{
+  "MR1_fixture_registry_sha256": "fd95d335483b86ab2281eb831ff5423fe3f6b091cbc7e28fa38031b98e6606d7",
+  "MR1_snapshot_index_sha256": "536259f7e5381947db5726294e9a772cac5c0e17680541e70faeacf4b36386fc",
+  "crown_prices_used_only": true,
+  "forecast_sha256": "fc2abf89b2ac80eb2ba72bf9e992f25eeda11502f2e87cd2bd965b921843d26d",
+  "generated_utc": "2026-11-05T00:17:37.562032+00:00",
+  "limitations": [
+    "Only exact AH0 (DNB) and OU2.5 contracts are included in this candidate test; it does not generalize to other lines.",
+    "AH0 Crown prices identify the conditional decisive home/away split but not draw probability; the anchor retains the M5 draw mass.",
+    "The quote-time holdout is a small 2026 period that was previously explored in other M5 analyses; it is not an untouched independent validation sample.",
+    "The overall Crown-priced sample remains below 10,000 fixtures per market."
+  ],
+  "markets": {
+    "AH": {
+      "candidate_definitions": {
+        "Crown_anchor": "No-vig Crown price probabilities; AH0 keeps M5 draw mass because DNB prices do not identify draw probability",
+        "M5_only": "M5 probability distribution; weight 1.0",
+        "fitted_blend": "Convex mixture of M5 and Crown-anchor probabilities; weight fitted on early-period log loss only"
+      },
+      "contract": 0.0,
+      "fitted_M5_weight_selected_by_train_log_loss": 0.2,
+      "holdout_same_Crown_contract": {
+        "Crown_anchor": {
+          "brier": 0.63996688,
+          "full_loss": 10,
+          "full_win": 12,
+          "half_loss": 0,
+          "half_win": 0,
+          "log_loss": 1.05780614,
+          "max_drawdown_units_by_quote_time": 3.58,
+          "net_units": 0.61,
+          "push": 6,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -28.678571,
+            "resamples": 10000,
+            "seed": 20261102,
+            "upper_97_5_pct": 32.857143
+          },
+          "roi_pct": 2.178571,
+          "settled_bets": 28,
+          "simulated_bets": 28,
+          "unique_fixtures": 28
+        },
+        "M5_only": {
+          "brier": 0.61590829,
+          "full_loss": 7,
+          "full_win": 15,
+          "half_loss": 0,
+          "half_win": 0,
+          "log_loss": 1.02318174,
+          "max_drawdown_units_by_quote_time": 2.14,
+          "net_units": 7.03,
+          "push": 6,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -5.964286,
+            "resamples": 10000,
+            "seed": 20261101,
+            "upper_97_5_pct": 54.821429
+          },
+          "roi_pct": 25.107143,
+          "settled_bets": 28,
+          "simulated_bets": 28,
+          "unique_fixtures": 28
+        },
+        "fitted_blend": {
+          "brier": 0.63318025,
+          "full_loss": 7,
+          "full_win": 15,
+          "half_loss": 0,
+          "half_win": 0,
+          "log_loss": 1.04858156,
+          "max_drawdown_units_by_quote_time": 2.14,
+          "net_units": 7.03,
+          "push": 6,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -6.142857,
+            "resamples": 10000,
+            "seed": 20261103,
+            "upper_97_5_pct": 54.214286
+          },
+          "roi_pct": 25.107143,
+          "settled_bets": 28,
+          "simulated_bets": 28,
+          "unique_fixtures": 28
+        }
+      },
+      "new_bet_gate_added": false,
+      "purged_pre_cutoff_fixtures_without_pre_holdout_FT": 7,
+      "quote_time_cutoff_utc": "2026-10-18T14:21:54Z",
+      "roi_used_to_select_weight": false,
+      "source_verified_unique_contract_fixtures": 90,
+      "train_fixtures_with_FT_received_before_holdout_quote": 55,
+      "train_log_loss_at_fitted_weight": 1.07141513,
+      "train_log_loss_by_candidate_weight": {
+        "0.0": 1.07320231,
+        "0.05": 1.07248004,
+        "0.1": 1.07194152,
+        "0.15": 1.07158644,
+        "0.2": 1.07141513,
+        "0.25": 1.07142858,
+        "0.3": 1.07162845,
+        "0.35": 1.07201708,
+        "0.4": 1.07259755,
+        "0.45": 1.07337373,
+        "0.5": 1.07435037,
+        "0.55": 1.07553316,
+        "0.6": 1.07692884,
+        "0.65": 1.07854538,
+        "0.7": 1.08039212,
+        "0.75": 1.08248,
+        "0.8": 1.08482185,
+        "0.85": 1.08743274,
+        "0.9": 1.09033042,
+        "0.95": 1.09353594,
+        "1.0": 1.0970744
+      },
+      "untouched_later_quote_time_holdout_fixtures": 28
+    },
+    "OU": {
+      "candidate_definitions": {
+        "Crown_anchor": "No-vig Crown price probabilities; AH0 keeps M5 draw mass because DNB prices do not identify draw probability",
+        "M5_only": "M5 probability distribution; weight 1.0",
+        "fitted_blend": "Convex mixture of M5 and Crown-anchor probabilities; weight fitted on early-period log loss only"
+      },
+      "contract": 2.5,
+      "fitted_M5_weight_selected_by_train_log_loss": 0.35,
+      "holdout_same_Crown_contract": {
+        "Crown_anchor": {
+          "brier": 0.24322304,
+          "full_loss": 29,
+          "full_win": 22,
+          "half_loss": 0,
+          "half_win": 0,
+          "log_loss": 0.67958291,
+          "max_drawdown_units_by_quote_time": 11.65,
+          "net_units": -8.83,
+          "push": 0,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -43.392157,
+            "resamples": 10000,
+            "seed": 20261102,
+            "upper_97_5_pct": 8.921569
+          },
+          "roi_pct": -17.313725,
+          "settled_bets": 51,
+          "simulated_bets": 51,
+          "unique_fixtures": 51
+        },
+        "M5_only": {
+          "brier": 0.24999974,
+          "full_loss": 24,
+          "full_win": 27,
+          "half_loss": 0,
+          "half_win": 0,
+          "log_loss": 0.6945277,
+          "max_drawdown_units_by_quote_time": 7.62,
+          "net_units": 0.37,
+          "push": 0,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -25.627451,
+            "resamples": 10000,
+            "seed": 20261101,
+            "upper_97_5_pct": 26.745098
+          },
+          "roi_pct": 0.72549,
+          "settled_bets": 51,
+          "simulated_bets": 51,
+          "unique_fixtures": 51
+        },
+        "fitted_blend": {
+          "brier": 0.24365529,
+          "full_loss": 24,
+          "full_win": 27,
+          "half_loss": 0,
+          "half_win": 0,
+          "log_loss": 0.68046323,
+          "max_drawdown_units_by_quote_time": 7.62,
+          "net_units": 0.37,
+          "push": 0,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -25.568627,
+            "resamples": 10000,
+            "seed": 20261103,
+            "upper_97_5_pct": 27.235294
+          },
+          "roi_pct": 0.72549,
+          "settled_bets": 51,
+          "simulated_bets": 51,
+          "unique_fixtures": 51
+        }
+      },
+      "new_bet_gate_added": false,
+      "purged_pre_cutoff_fixtures_without_pre_holdout_FT": 3,
+      "quote_time_cutoff_utc": "2026-10-22T11:52:37Z",
+      "roi_used_to_select_weight": false,
+      "source_verified_unique_contract_fixtures": 168,
+      "train_fixtures_with_FT_received_before_holdout_quote": 114,
+      "train_log_loss_at_fitted_weight": 0.69518537,
+      "train_log_loss_by_candidate_weight": {
+        "0.0": 0.69750943,
+        "0.05": 0.69686151,
+        "0.1": 0.69631752,
+        "0.15": 0.69587808,
+        "0.2": 0.69554404,
+        "0.25": 0.69531638,
+        "0.3": 0.69519635,
+        "0.35": 0.69518537,
+        "0.4": 0.69528513,
+        "0.45": 0.69549757,
+        "0.5": 0.69582488,
+        "0.55": 0.69626959,
+        "0.6": 0.69683453,
+        "0.65": 0.69752294,
+        "0.7": 0.69833844,
+        "0.75": 0.69928514,
+        "0.8": 0.70036768,
+        "0.85": 0.70159131,
+        "0.9": 0.70296199,
+        "0.95": 0.7044865,
+        "1.0": 0.70617259
+      },
+      "untouched_later_quote_time_holdout_fixtures": 51
+    }
+  },
+  "method": "Exact verified MR1 Crown receipt quotes and separate post-kickoff FT. One unique fixture per selected contract. Train-only convex weight selection minimizes settlement outcome log loss; holdout ROI uses same Crown prices, one 1U selection per fixture and Asian settlement. AH and OU fit separately. No threshold or filter is selected.",
+  "protocol": "M5_CROWN_MARKET_ANCHORED_AH0_OU25_TIME_OOS_V1",
+  "verified_Crown_snapshot_count": 871,
+  "verified_Crown_snapshot_hash_set_sha256": "32ad634a363f4869708766b7875b3cbba3cd5e5aa0240550194d05aec5c6152a",
+  "verified_FT_receipt_count": 871,
+  "verified_FT_receipt_hash_set_sha256": "65bc9ca3e891532f6b7e8f6198e052adf78e5f726e81440be329b14323ef7f42"
+}
