@@ -136,6 +136,10 @@ def run(a):
                     except Exception: counts['invalid_totalcorner_response']+=1
             if not chosen: continue
             observed,line,prices=chosen
+            # The archive receipt is a separate fact from the source event
+            # timestamp. Never accept a receipt that predates its quoted event.
+            if receipt_at is None or receipt_at < observed:
+                counts['missing_or_invalid_quote_receipt_time']+=1; continue
             grid=f.get('prediction',{}).get('grid')
             if not isinstance(grid,list): counts['missing_score_grid']+=1; continue
             try:

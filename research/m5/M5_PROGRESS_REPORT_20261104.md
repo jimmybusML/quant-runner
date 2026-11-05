@@ -834,4 +834,4 @@ This is a small, retrospective same-Crown comparison, not a pristine M5 live-sig
 当前可核验比较仍是 M5 与冻结 M1 V23 的23场同价 Crown OU 回放：M5 -8.804348%，M1 calibrated -0.543478%；远小于10,000，不能说明稳定收益。最新回填收尾后需先生成 Crown-only 汇总重放，再单独生成 TOTAL 补缺回放和来源分层汇总；未达到样本目标前不报告研究系统验收完成。没有 M5 Actions run，当前也没有可声称成功的自动训练或结果落库验证。
 
 
-本次新增 `m5_source_union_replay.py` 并对采集中已落盘部分执行 event-time 回放。生成 UTC `2026-11-05T06:06:18.384593Z`：492场/市场，全部来自 Crown；AH +11.815U/+2.401423%，OU -32.550U/-6.615854%；bootstrap 95%区间分别 -5.459350%至+10.041667%、-14.583333%至+1.236789%。所有 quote endpoint receipt 均晚于开赛，故只能报告为赛后回取但源 event time 早于开赛的 retrospective replay，不代表赛前收到/可执行报价。输出暂存在本地 `/tmp/m5_source_union_replay.partial.json`；回填完成后再跑 Crown/TOTAL分源最终汇总。
+本次新增 `m5_source_union_replay.py` 并对采集中已落盘部分执行 event-time 回放。生成 UTC `2026-11-05T06:10:03.534371Z`：533场/市场，全部来自 Crown；AH +9.645U/+1.809568%，OU -34.385U/-6.451220%；bootstrap 95%区间分别 -5.623827%至+9.355535%、-14.030019%至+1.134146%。所有 quote endpoint receipt 均晚于开赛，故只能报告为赛后回取但源 event time 早于开赛的 retrospective replay，不代表赛前收到/可执行报价。聚合输出 `results/m5_source_union_replay_partial_20261105.json` 已提交；回填完成后再跑 Crown/TOTAL分源最终汇总。
