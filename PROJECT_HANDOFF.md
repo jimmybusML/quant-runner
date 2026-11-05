@@ -1,3 +1,8 @@
+## 2026-11-05T16:30Z M5 8,200候选检查点阶段性回放续记
+- Crown collector PID `19740` 仍在运行；checkpoint `2026-11-05T16:28:53.674517Z` 为处理8,200/127,674、精确响应8,149、传输错误51、AH/OU各7,326场有效赛前源事件价、身份/时间错配0。TotalCorner fallback仍未启动，等待 Crown 正常终态。
+- 聚合重放 generated UTC `2026-11-05T16:30:10.330103Z`，结果 `research/m5/results/m5_source_union_replay_partial_20261105T163010330103Z.json`：AH/OU各7,342场/注，AH净 `-119.290U`、ROI `-1.624762%`，OU净 `-303.650U`、ROI `-4.135794%`；AH类别 W/HW/P/HL/L `2963/495/500/526/2858`，OU `3024/395/382/515/3026`；最大回撤 AH `144.940U`、OU `314.140U`。95% fixture bootstrap ROI区间 AH `[-3.623468%,+0.399210%]`，OU `[-6.164533%,-2.062585%]`。
+- 当前replay发现10条响应没有可配对 receipt index，暂未计入盘口样本；推测是 collector 与回放并发写入窗口，须在 Crown 终态后重放确认，不将其计入7,342。其余样本全部响应在赛后取得，只有源事件时间早于开赛的回顾模拟，不等同于赛前接收/可执行ROI；仅2026开赛年，仍低于每市场10,000，收益目标未达成。阶段报告已加入 README；本次公开更新 commit pending。
+
 ## 2026-11-05 M5 采集续跑与7,262场阶段性回放
 - 活动分支 `codex/m5-oos-crown-expansion`；回放由 `/Users/mac/QuantAsiaDesk/data/m5-crown-authorized` 私有原始档案计算，未把原始报价、match IDs 或密钥写入公开仓库。用户指定的 `/private/tmp/m1-m5-private` 目前只检查到既有 M1 observations/summary/verified FT；M5 Crown collector 的现存活动归档实际位于前述 QuantAsiaDesk 目录。
 - Crown 采集 PID `19740` 仍运行；2026-11-05T16:20:38.253997Z checkpoint：候选127,674，处理8,100，精确响应8,049，传输错误51，AH/OU各7,237场有效赛前源事件报价，身份/时间错配0。TOTAL 串行等待器仍等待 Crown 终态，TOTAL 请求尚未启动；私有采集速率约每分钟十余条响应，不能把索引行数代替检查点覆盖。
