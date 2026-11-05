@@ -1,0 +1,201 @@
+{
+  "audit_counts": {
+    "missing_receipt_timestamp": 2,
+    "receipt_after_kickoff_AH": 9576,
+    "receipt_after_kickoff_OU": 9575
+  },
+  "candidate_fixtures": 127674,
+  "forecast_rows": 127674,
+  "generated_utc": "2026-11-05T19:58:17.207630+00:00",
+  "holdout_start_utc": "2026-09-01T00:00:00Z",
+  "input_hashes": {
+    "candidate_manifest_sha256": "556b16b74911fafeed6559cf0522f3979fdcedb70add97e6d1358af40e7c32c4",
+    "crown_response_hash_set_sha256": "d5770ea6489a0ed5fc0e413dcbebb02d7567656f9586019dcb01171759fc37f4",
+    "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a"
+  },
+  "limits": [
+    "Historical Crown responses are fetched after fixtures; source-event timestamps support retrospective event-time evaluation, not contemporaneous receipt or executable ROI.",
+    "The 2026 temporal holdout is a research holdout, not a pristine preregistered independent era.",
+    "Calibration is a single global home/away goal-rate tilt per market, fitted only on fixtures before the UTC cutoff; no ROI is used to choose parameters."
+  ],
+  "markets": {
+    "AH": {
+      "calibrated_holdout": {
+        "max_drawdown_units_by_quote_event_time": 33.31,
+        "net_units": 1.215,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -3.552288,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": 3.671678
+        },
+        "roi_pct": 0.052941,
+        "settled_bets": 2295,
+        "settlement_brier": 0.6421864,
+        "settlement_counts": {
+          "half_loss": 168,
+          "half_win": 124,
+          "loss": 875,
+          "push": 161,
+          "win": 967
+        },
+        "settlement_log_loss": 1.02686221,
+        "simulated_bets": 2295,
+        "source_fixture_markets": {
+          "Crown": 2295
+        },
+        "total_stake_units": 2295,
+        "unique_fixtures": 2295
+      },
+      "cutoff_utc": "2026-09-01T00:00:00Z",
+      "holdout_kickoff_range_utc": [
+        "2026-09-01T01:05:00+00:00",
+        "2026-11-04T17:00:00+00:00"
+      ],
+      "holdout_unique_fixture_markets": 2295,
+      "parameter_fit": {
+        "away_rate_multiplier": 1.0353532993998478,
+        "home_rate_multiplier": 1.0259766179457404,
+        "method": "separate Poisson log-rate intercept MLE from prior-period actual goals / prior-period score-grid expected goals; no ROI optimization",
+        "training_actual_away_goals": 9095,
+        "training_actual_home_goals": 11201,
+        "training_predicted_away_goals": 8784.44102634,
+        "training_predicted_home_goals": 10917.40279854,
+        "training_unique_fixtures": 7281
+      },
+      "raw_holdout": {
+        "max_drawdown_units_by_quote_event_time": 32.235,
+        "net_units": 5.6,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -3.41329,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": 3.848148
+        },
+        "roi_pct": 0.244009,
+        "settled_bets": 2295,
+        "settlement_brier": 0.64250851,
+        "settlement_counts": {
+          "half_loss": 166,
+          "half_win": 126,
+          "loss": 874,
+          "push": 161,
+          "win": 968
+        },
+        "settlement_log_loss": 1.02778536,
+        "simulated_bets": 2295,
+        "source_fixture_markets": {
+          "Crown": 2295
+        },
+        "total_stake_units": 2295,
+        "unique_fixtures": 2295
+      },
+      "source": "Crown only; one latest eligible source-event quote per fixture-market",
+      "timing": {
+        "all_api_receipts_after_kickoff": true,
+        "holdout_quote_event_between_prediction_asof_and_kickoff": true,
+        "holdout_receipts_before_kickoff": 0
+      },
+      "training_fixture_ids_disjoint_from_holdout": true,
+      "training_kickoff_range_utc": [
+        "2025-12-13T19:00:00+00:00",
+        "2026-08-31T23:00:00+00:00"
+      ],
+      "training_unique_fixture_markets": 7281
+    },
+    "OU": {
+      "calibrated_holdout": {
+        "max_drawdown_units_by_quote_event_time": 121.335,
+        "net_units": -88.205,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -7.472767,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": -0.176471
+        },
+        "roi_pct": -3.843355,
+        "settled_bets": 2295,
+        "settlement_brier": 0.62460881,
+        "settlement_counts": {
+          "half_loss": 145,
+          "half_win": 126,
+          "loss": 953,
+          "push": 124,
+          "win": 947
+        },
+        "settlement_log_loss": 0.99062939,
+        "simulated_bets": 2295,
+        "source_fixture_markets": {
+          "Crown": 2295
+        },
+        "total_stake_units": 2295,
+        "unique_fixtures": 2295
+      },
+      "cutoff_utc": "2026-09-01T00:00:00Z",
+      "holdout_kickoff_range_utc": [
+        "2026-09-01T01:05:00+00:00",
+        "2026-11-04T17:00:00+00:00"
+      ],
+      "holdout_unique_fixture_markets": 2295,
+      "parameter_fit": {
+        "away_rate_multiplier": 1.0354776577262386,
+        "home_rate_multiplier": 1.0260086997278735,
+        "method": "separate Poisson log-rate intercept MLE from prior-period actual goals / prior-period score-grid expected goals; no ROI optimization",
+        "training_actual_away_goals": 9095,
+        "training_actual_home_goals": 11200,
+        "training_predicted_away_goals": 8783.38603652,
+        "training_predicted_home_goals": 10916.08677682,
+        "training_unique_fixtures": 7280
+      },
+      "raw_holdout": {
+        "max_drawdown_units_by_quote_event_time": 127.84,
+        "net_units": -108.415,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -8.423094,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": -1.110893
+        },
+        "roi_pct": -4.723965,
+        "settled_bets": 2295,
+        "settlement_brier": 0.62898185,
+        "settlement_counts": {
+          "half_loss": 149,
+          "half_win": 122,
+          "loss": 961,
+          "push": 124,
+          "win": 939
+        },
+        "settlement_log_loss": 0.99662474,
+        "simulated_bets": 2295,
+        "source_fixture_markets": {
+          "Crown": 2295
+        },
+        "total_stake_units": 2295,
+        "unique_fixtures": 2295
+      },
+      "source": "Crown only; one latest eligible source-event quote per fixture-market",
+      "timing": {
+        "all_api_receipts_after_kickoff": true,
+        "holdout_quote_event_between_prediction_asof_and_kickoff": true,
+        "holdout_receipts_before_kickoff": 0
+      },
+      "training_fixture_ids_disjoint_from_holdout": true,
+      "training_kickoff_range_utc": [
+        "2025-12-13T19:00:00+00:00",
+        "2026-08-31T23:00:00+00:00"
+      ],
+      "training_unique_fixture_markets": 7280
+    }
+  },
+  "protocol": "M5_CROWN_GOAL_RATE_TEMPORAL_HOLDOUT_V1",
+  "strategy_definition": "Each fixture-market selects the side with the greater expected return from the corresponding score grid and the latest valid source-time Crown line/prices. Same rule before and after calibration; one unit stake; no EV cutoff, source mixing, or filters."
+}
