@@ -30,6 +30,19 @@
 - [m5_m1_same_quote_oos_replay.py](m5_m1_same_quote_oos_replay.py) → M1 V23 的OU预测均值与M5在同一 Crown 盘口/水位/verified FT上的精确 fixture 配对回放；当前 OU n=14（AH无样本），不能外推。结果见 [same-quote report](results/m5_goal_model_m1_same_quote_oos.json)。
 - [m5_m1_v23_crown_ou_comparison.py](m5_m1_v23_crown_ou_comparison.py) → 将 M5 年度前推比分网格与私有 `/private/tmp/m1-m5-private` 的 M1 V23 frozen calibrated total 在相同 Crown OU 合约、同一独立 FT 上比较；当前严格共同 n=23，均未达到新目标。报告 [aggregate receipt](results/m5_m1_v23_crown_ou_comparison.json) 不含原始价格、fixture IDs 或逐场记录。
 
+### 2026-11-05 M3/M5 固定合约时间留出复核（研究回放）
+
+新增 [`m5_m3_crown_archive_blend_replay.py`](m5_m3_crown_archive_blend_replay.py)，将 M5 的逐场比分分布与公开 M3 严格 OOS Poisson、Dixon-Coles、Bivariate Poisson 概率在精确相同 fixture 上比较。只评价 M3 原生支持的 Crown AH0 和 OU2.5 合约。训练集截至 2026-08-31；固定 `2026-09-01 UTC` 之后为时间留出期。每市场的 M3/M5 混合权重只用训练集对数损失按0.05步长拟合，再以训练对数损失选模型；留出ROI未用于权重或模型选择。没有EV、联赛或其他投注筛选条件，每个有效fixture每市场模拟1U。
+
+| 市场 | 训练唯一合约 | 训练选择（M5权重） | 留出唯一比赛/注数 | 全赢/半赢/走水/半输/全输 | 净收益 | ROI | 最大回撤 | Log Loss / Brier | ROI bootstrap 95% |
+| --- | ---: | --- | ---: | --- | ---: | ---: | ---: | --- | --- |
+| Crown AH0 | 66 | M3 Dixon-Coles（0%） | 38 | 20 / 0 / 11 / 0 / 7 | +11.650U | +30.657895% | 3.000U | 1.05453363 / 0.63473806 | +6.552632% 至 +53.552632% |
+| Crown OU2.5 | 137 | M3 Bivariate Poisson（0%） | 59 | 33 / 0 / 0 / 0 / 26 | +4.790U | +8.118644% | 8.450U | 0.68569524 / 0.49259476 | -16.474576% 至 +33.016949% |
+
+同一留出样本上的 M5 单模型为 AH0 `+9.650U / +25.394737%`（38场），OU2.5 `-0.480U / -0.813559%`（59场）。M3/M5训练期拟合在AH两种、OU Bivariate模型均选择0% M5权重；目前没有证据显示融合优于选中的M3模型。概率模型的选择未依赖留出ROI。AH、OU分别计数；这两条固定合约的半赢、半输均为0。
+
+该阶段性结果数值上两市都超过+3%，但每市场只有38/59场，远未达到既定10,000唯一真实历史比赛目标。所有报价响应都在开赛后回取；预测是按历史训练截止时间重建的walk-forward输出，也不是当时已存档的即时信号。因此这是严格时间顺序的回顾性模拟，不是可执行实收ROI，不能作为 M5 验收完成。训练/留出覆盖：AH0 训练2026-03-01至08-30、留出09-05至11-02；OU2.5训练03-01至08-31、留出09-03至11-01。精确键冲突0，M3赛果与M5赛程分数不一致的26条已排除。只有 M3 覆盖的六个联赛参与此比较；它是模型对照支持范围，不是新增的策略联赛过滤。来源仅 Crown，无 TotalCorner报价参与。聚合结果与输入SHA见 [M3/M5 holdout receipt](results/m5_m3_crown_2026_holdout_20261105T164917Z.json)。
+
 ## 可复核数据现状
 
 | 数据 | 唯一赛事/样本 | 能支持什么 | 不能支持什么 |
