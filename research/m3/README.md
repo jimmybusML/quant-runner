@@ -2,11 +2,12 @@
 
 ## 最新验收（2026-11-05）
 
-- [M3 AH/OU 与 Crown 样本外验收报告](M3_RESEARCH_ACCEPTANCE_20261105.md)：记录最新严格 OOS Actions run `41956446597`、19,218 场可用历史赛果、14,806 场严格前推评分，以及 AH/OU 独立 Crown 历史快照影子回放（回放基于前一预测版本）。现有8,430条保存的forecast均缺完整比分网格；下一条新建预测才会记录比分分布，可用于 arbitrary Crown线EV。
+- [M3 AH/OU 与 Crown 样本外验收报告](M3_RESEARCH_ACCEPTANCE_20261105.md)：记录最新严格 OOS Actions run `42092149857`、19,218 场可用历史赛果、14,807 场严格前推评分，以及 AH/OU 独立 Crown 历史快照影子回放（仍是小样本 hindcast）。
 - [Crown 回放的脱敏聚合数据](results/m3_crown_oos_replay_20261105.json)：不包含队名、fixture ID、赔率或密钥。
 - 当前 OOS 原始可复核报告及预测/参数版本仍在下方既有 results 路径。
-- 新增 [M3 Crown 前瞻采集器](m3_crown_forward_capture.py) 与 [每四小时 UTC workflow](../../.github/workflows/m3-crown-forward-capture.yml)。collector 只请求 `bookmaker=crown`，按 UTC 配对 M3 已记录预测和开赛前 AH/OU 报价；公开收据保存带密钥 HMAC 与汇总 EV，不保存盘口、水位或原响应。须待 workflow 首次成功运行后才能报告真实前瞻覆盖。
-- 本地全量 M3 验证为 84/84 单测通过。修复后真实 Actions [41957259557](https://github.com/ljm198964-alt/quant-runner/actions/runs/41957259557) 成功，报告与 receipts 持久化于 commit `1f1721f2`：144 forecasts / 5 unique Crown identities / 18 quote commitments（AH 9、OU 9）/ exact-line EV 0 / ROI null。旧 forecast 缺比分网格，不能声称本批已有EV；新 forecast 已保存比分网格供后续实际报价计算。
+- [M3 Crown 前瞻采集器](m3_crown_forward_capture.py) 与 [每四小时 UTC workflow](../../.github/workflows/m3-crown-forward-capture.yml) 已实际运行成功；collector 只请求 `bookmaker=crown`，按 UTC 配对已记录 M3 预测与赛前 AH/OU 报价，公开收据只保存 HMAC、时间与聚合数据，不保存盘口、水位或原响应。
+- 最近两次真实运行 [42095998979](https://github.com/ljm198964-alt/quant-runner/actions/runs/42095998979) 和 [42106953039](https://github.com/ljm198964-alt/quant-runner/actions/runs/42106953039) 均成功，提交分别为 `b2739dc0`、`868d4c8`。最新累计 30 条 quote commitment（AH 15、OU 15；每市场4个唯一 fixture-market，跨3个模型）；最新 run 无新 forecast/quote 输入变化。当前没有成熟的前瞻结算样本，线级 EV、ROI 与回撤仍不能报告。
+- 最近一次主分支 Actions 运行了84项 M3 测试；状态汇总修复及新测试在隔离 Python 3.12 环境完成完整85/85测试。
 - Secret 名称 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN` 只从公开 workflow 引用确认，未读取任何值。历史 Crown 源探测 run `39584036612` 成功；OddsPapi 的凭证、连接器和历史存档未找到。
 - Crown 前瞻输入沿用 OpenFootball M3 forecast 账本，现有来源缺少 B1 前瞻 fixtures；研究固定范围仍为六联赛，B1 覆盖缺口如实保留。手动 Crown probe 已移除非 Crown fallback 并避免输出 ID/赔率字段。
 
