@@ -1,98 +1,98 @@
 {
-  "generated_at_utc": "2026-11-04T21:28:02.816474+00:00",
+  "generated_at_utc": "2026-11-05T11:24:38.298318+00:00",
   "scope": "M3 SHADOW ONLY; NOT FORMAL TELEGRAM",
   "source": "research/m3/results/totalcorner/forward_ev_ledger.jsonl",
   "event_counts": {
-    "M3_TOTALCORNER_FORWARD_EV_V1": 12004,
-    "M3_TOTALCORNER_FORWARD_FORECAST_V1": 2953,
-    "M3_TOTALCORNER_FORWARD_SETTLEMENT_V1": 6034,
-    "M3_TOTALCORNER_FUTURE_INVENTORY_V1": 60160,
-    "M3_FUTURE_MODEL_STATUS_V1": 42441,
-    "M3_M1_MR1_SCOPE_V1": 51429,
-    "M3_SHADOW_ORDER_V1": 3390,
-    "M3_TOTALCORNER_PRICE_SNAPSHOT_V1": 2088
+    "M3_TOTALCORNER_FORWARD_EV_V1": 12556,
+    "M3_TOTALCORNER_FORWARD_FORECAST_V1": 3091,
+    "M3_TOTALCORNER_FORWARD_SETTLEMENT_V1": 6082,
+    "M3_TOTALCORNER_FUTURE_INVENTORY_V1": 66995,
+    "M3_FUTURE_MODEL_STATUS_V1": 44920,
+    "M3_M1_MR1_SCOPE_V1": 57598,
+    "M3_SHADOW_ORDER_V1": 3486,
+    "M3_TOTALCORNER_PRICE_SNAPSHOT_V1": 2208
   },
   "order_identity": "fixture_identity_id × model × market; earliest forecasted_at_utc",
-  "raw_shadow_order_events": 3390,
-  "unique_shadow_orders": 1572,
+  "raw_shadow_order_events": 3486,
+  "unique_shadow_orders": 1668,
   "legacy_duplicate_order_events_excluded": 1818,
   "models": {
     "poisson": {
       "AH": {
-        "orders": 262,
-        "settled": 249,
-        "unsettled_or_invalid": 13,
-        "full_win": 108,
-        "half_win": 15,
+        "orders": 278,
+        "settled": 257,
+        "unsettled_or_invalid": 21,
+        "full_win": 111,
+        "half_win": 16,
         "push": 10,
         "half_loss": 24,
-        "full_loss": 92,
-        "net_units": -0.45,
-        "roi_percent": -0.1807
+        "full_loss": 96,
+        "net_units": -1.575,
+        "roi_percent": -0.6128
       },
       "OU": {
-        "orders": 262,
-        "settled": 249,
-        "unsettled_or_invalid": 13,
-        "full_win": 106,
+        "orders": 278,
+        "settled": 257,
+        "unsettled_or_invalid": 21,
+        "full_win": 110,
         "half_win": 14,
         "push": 7,
         "half_loss": 17,
-        "full_loss": 105,
-        "net_units": -11.9625,
-        "roi_percent": -4.8042
+        "full_loss": 109,
+        "net_units": -12.3125,
+        "roi_percent": -4.7909
       }
     },
     "dixon_coles": {
       "AH": {
-        "orders": 262,
-        "settled": 249,
-        "unsettled_or_invalid": 13,
-        "full_win": 107,
+        "orders": 278,
+        "settled": 257,
+        "unsettled_or_invalid": 21,
+        "full_win": 110,
         "half_win": 16,
         "push": 10,
-        "half_loss": 23,
-        "full_loss": 93,
-        "net_units": -1.9125,
-        "roi_percent": -0.7681
+        "half_loss": 24,
+        "full_loss": 97,
+        "net_units": -3.9375,
+        "roi_percent": -1.5321
       },
       "OU": {
-        "orders": 262,
-        "settled": 249,
-        "unsettled_or_invalid": 13,
-        "full_win": 106,
+        "orders": 278,
+        "settled": 257,
+        "unsettled_or_invalid": 21,
+        "full_win": 110,
         "half_win": 14,
         "push": 7,
         "half_loss": 17,
-        "full_loss": 105,
-        "net_units": -11.9625,
-        "roi_percent": -4.8042
+        "full_loss": 109,
+        "net_units": -12.3125,
+        "roi_percent": -4.7909
       }
     },
     "bivariate_poisson": {
       "AH": {
-        "orders": 262,
-        "settled": 249,
-        "unsettled_or_invalid": 13,
-        "full_win": 111,
-        "half_win": 16,
+        "orders": 278,
+        "settled": 257,
+        "unsettled_or_invalid": 21,
+        "full_win": 114,
+        "half_win": 17,
         "push": 10,
         "half_loss": 23,
-        "full_loss": 89,
-        "net_units": 6.0125,
-        "roi_percent": 2.4147
+        "full_loss": 93,
+        "net_units": 4.8875,
+        "roi_percent": 1.9018
       },
       "OU": {
-        "orders": 262,
-        "settled": 249,
-        "unsettled_or_invalid": 13,
-        "full_win": 107,
+        "orders": 278,
+        "settled": 257,
+        "unsettled_or_invalid": 21,
+        "full_win": 111,
         "half_win": 14,
         "push": 7,
         "half_loss": 17,
-        "full_loss": 104,
-        "net_units": -10.3625,
-        "roi_percent": -4.1616
+        "full_loss": 108,
+        "net_units": -10.7125,
+        "roi_percent": -4.1683
       }
     }
   },
