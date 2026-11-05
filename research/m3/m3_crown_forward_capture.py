@@ -280,6 +280,50 @@ def crown_bookmaker(match: dict) -> dict | None:
     return rows[0] if len(rows) == 1 else None
 
 
+def pairing_status(commitments: list[dict], generated_utc: str) -> dict:
+    """Summarize only Crown M3 forward commitments; never count hindcasts as pairs."""
+    counts = Counter()
+    fixtures = Counter()
+    valid_rows = 0
+    received_before_kickoff = 0
+    for row in commitments:
+        market = row.get("market")
+        if market not in ("AH", "OU") or row.get("provider") != "TotalCorner" or row.get("bookmaker") != "crown":
+            continue
+        try:
+            forecast_at = parse_utc(row["forecasted_at_utc"], "forecasted_at_utc")
+            observed_at = parse_utc(row["quote_observed_at_utc"], "quote_observed_at_utc")
+            received_at = parse_utc(row["received_at_utc"], "received_at_utc")
+            kickoff = parse_utc(row["kickoff_at_utc"], "kickoff_at_utc")
+        except (KeyError, TypeError, ValueError):
+            continue
+        if not forecast_at < observed_at < kickoff or received_at >= kickoff:
+            continue
+        valid_rows += 1
+        counts[market] += 1
+        fixtures[(row.get("fixture_identity_id"), market)] += 1
+        received_before_kickoff += 1
+    return {
+        "protocol": "M3_CROWN_PAIRING_STATUS_V2",
+        "generated_utc": generated_utc,
+        "historical_settled_market_pairs": {"AH": 0, "OU": 0},
+        "historical_pairing_basis": "No contemporaneous Crown quote-to-settlement evaluation is available; retrospective hindcasts are excluded.",
+        "forward_capture": "active",
+        "forward_commitment_rows_by_market": {market: counts[market] for market in ("AH", "OU")},
+        "forward_unique_fixture_markets_by_market": {
+            market: sum(1 for fixture, item_market in fixtures if item_market == market)
+            for market in ("AH", "OU")},
+        "forward_commitment_rows_with_valid_utc_order": valid_rows,
+        "quote_receipts_before_kickoff": received_before_kickoff,
+        "source": "TotalCorner bookmaker=crown only",
+        "EV_and_ROI": "see latest_forward_capture_report.json for supported-line EV; settled ROI and drawdown remain unavailable",
+        "raw_quotes_or_credentials_persisted": False,
+        "m1_m2_mr1_inputs_read": False,
+        "formal_order": False,
+        "telegram_sent": False,
+    }
+
+
 def build_commitments(forecasts: list[dict], schedule: dict, payload: dict,
                       received_at: datetime, source_timezone: str,
                       key: str) -> tuple[list[dict], dict]:
@@ -513,6 +557,9 @@ def main() -> None:
         "EV": None, "ROI": None}
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    status = pairing_status(list(prior.values()), summary["generated_utc"])
+    (args.report.parent / "latest_pairing_status.json").write_text(
+        json.dumps(status, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"status": "COMPLETED", "forecasts_considered": len(forecasts),
         "fixtures_with_unique_schedule_identity": len(candidates),
         "quote_commitments_added": len(added), "status_counts": dict(statuses),

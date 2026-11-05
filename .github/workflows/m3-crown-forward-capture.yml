@@ -63,7 +63,8 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add research/m3/results/openfootball/shadow_ledger.jsonl \
             research/m3/results/crown/forward_quote_commitments.jsonl \
-            research/m3/results/crown/latest_forward_capture_report.json
+            research/m3/results/crown/latest_forward_capture_report.json \
+            research/m3/results/crown/latest_pairing_status.json
           if git diff --cached --quiet; then
             echo 'M3_CROWN_NO_NEW_FORECAST_OR_QUOTE_COMMITMENT'
             exit 0

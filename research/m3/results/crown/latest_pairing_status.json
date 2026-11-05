@@ -1,18 +1,26 @@
 {
-  "protocol": "M3_CROWN_PAIRING_STATUS_V1",
-  "generated_utc": "2026-10-20T13:42:29.735545Z",
-  "audit_scope": "existing publicly retained Crown-labelled archive plus value-suppressed audit of M1-scoped quote timestamps; no M1 forecasts, signals, orders, ledgers, or settlements read or used",
-  "historical_market_pairs": {
+  "protocol": "M3_CROWN_PAIRING_STATUS_V2",
+  "generated_utc": "2026-11-05T20:51:57.814557Z",
+  "historical_settled_market_pairs": {
     "AH": 0,
     "OU": 0
   },
-  "historical_pairing_basis": "No eligible contemporaneous M3 recorded-forward forecast and Crown quote pair; the public archive overlap is retrospective hindcast only, while M1-scoped OU quote evidence predates M3 forecasts; no precise UTC kickoff for current M3 calendar fixtures.",
-  "future_capture": "not_started",
-  "crown_api_requests_made": 0,
-  "totalcorner_token_value_read": false,
-  "authorized_m3_collection_scope_verified": false,
-  "EV_and_ROI": "not_calculable",
+  "historical_pairing_basis": "No contemporaneous Crown quote-to-settlement evaluation is available; retrospective hindcasts are excluded.",
+  "forward_capture": "active",
+  "forward_commitment_rows_by_market": {
+    "AH": 15,
+    "OU": 15
+  },
+  "forward_unique_fixture_markets_by_market": {
+    "AH": 4,
+    "OU": 4
+  },
+  "forward_commitment_rows_with_valid_utc_order": 30,
+  "quote_receipts_before_kickoff": 30,
+  "source": "TotalCorner bookmaker=crown only",
+  "EV_and_ROI": "see latest_forward_capture_report.json for supported-line EV; settled ROI and drawdown remain unavailable",
+  "raw_quotes_or_credentials_persisted": false,
+  "m1_m2_mr1_inputs_read": false,
   "formal_order": false,
-  "telegram_sent": false,
-  "data_values_or_private_counts_persisted": false
+  "telegram_sent": false
 }

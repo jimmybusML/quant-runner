@@ -20,6 +20,8 @@ M3 是独立研究模型，不读取 M1、M2、MR1 的预测、订单、参数�
 - [Crown TotalCorner 已授权响应离线导入规范](crown_totalcorner_import_contract.md)
 - [M3 Crown 私有影子账本写入器](crown_shadow_ledger.py)（按模型可支持线计算五状态概率/理论 EV；不支持线明确留空，ROI 保持不可用）
 - [M3 Crown 覆盖及配对状态](results/crown/latest_pairing_status.json)
+- [最新 Crown 前瞻采集汇总](results/crown/latest_forward_capture_report.json)
+- [追加式 Crown 前瞻承诺账本](results/crown/forward_quote_commitments.jsonl)（仅 HMAC 与 UTC 来源证据，不含原始价格）
 - [最新 penaltyblog OOS 报告](results/latest_penaltyblog_oos_report.json)
 - [最新时间切分清单](results/latest_penaltyblog_oos_splits.json)
 - [最新 V4 原版指标](results/latest_v4_original_metrics.csv)
