@@ -2,7 +2,7 @@
 
 生成时间：2026-11-05 UTC。M5 是独立研究身份；本目录不连接 M1/MR1/M3 的生产预测、订单、账本或 Telegram。当前已有真实概率前推实验、Crown AH/OU 回放和同场 OU quote-time 配对诊断，但尚未完成每市场10,000场 Crown 历史收益验证或 M5 Actions 验收。最新报告与新增 quote-time 诊断见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)，当前 M5 forecast 生成于 `2026-11-04T21:39:54Z` UTC，依赖回放于 `2026-11-04T21:41Z` UTC 重算。
 
-当前权威快照见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md) 末节：133,140 个 partial-scope 完赛候选、127,674 个 UTC 年×联赛 OOS 预测、584 折；forecast SHA `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`。M3 精确共同 OOS 为 7,663 场，嵌套评估 7,252 场；MR1 verified Crown receipt-before-kickoff + 独立 FT AH/OU 各 317 场，TotalCorner endpoint historical movement AH/OU 各 212 场（response/FT 在赛后，不能算赛前收到）。所有 ROI 均是部分样本描述值；两个市场的 OOS ROI >5% 与每市场 10,000 场合法 Crown 证据目标都未达到，M5 Actions workflow 当前不存在。代码与产物：
+当前权威快照见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md) 末节：133,140 个 partial-scope 完赛候选、127,674 个 UTC 年×联赛 OOS 预测、584 折；forecast SHA `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`。M3 精确共同 OOS 为 7,663 场，嵌套评估 7,252 场；最新 MR1 verified Crown receipt-before-kickoff + 独立 FT 的同价 M5/MR1 V6 对照为 AH/OU 各 870 场；TotalCorner endpoint historical movement AH/OU 各 212 场（response/FT 在赛后，不能算赛前收到）。所有 ROI 均是部分样本描述值；两个市场的 OOS ROI >5% 与每市场 10,000 场合法 Crown 证据目标都未达到，M5 Actions workflow 当前不存在。代码与产物：
 
 - [probability_stack_oos.py](probability_stack_oos.py) → [M3 13,234 场逐季前推概率结果](results/m5_probability_stack_oos.json)
 - [m1_ou_crown_small_archive_replay.py](m1_ou_crown_small_archive_replay.py) → [M1 冻结 Crown OU 小样本回放](results/m1_ou_crown_small_archive.json)
