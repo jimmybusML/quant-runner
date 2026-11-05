@@ -16,6 +16,13 @@
 - 新四小时 cron 配置手动触发的 M3 independent research run [41864900732](https://github.com/ljm198964-alt/quant-runner/actions/runs/41864900732) 已 **SUCCESS**；source run commit `8afc193d…`，Actions 结果持久化 commit `2d7fcef0adbb9f9fb1e5f1dae79314b79c2ed1ba`。penaltyblog 1.13.1 报告生成 `2026-11-04T16:16:39.480507Z`，51,453 行模型输出；17,151 唯一测试赛事，14,806 有评分预测，strict train/test identity 与上次相同，input fingerprint `baa24eb1…` 未变。9 项 penaltyblog 模型/市场 proper-score 对比差均为 0；Football Predictor V4 54 项指标差也全为 0。Crown ROI 仍为 null；本次无新增学习信息。最近前一成功 run [41824869171](https://github.com/ljm198964-alt/quant-runner/actions/runs/41824869171) 于 `2026-11-04T11:55:26Z`。另检查旧日志：`41823686426` M3 forward-EV 因私有 bridge checkout Git 认证失败；`41823870336` default-odds EV 因缺 `requests` 包失败。这两条都不是 Crown 盘口路径；本轮未改写以免扩大研究数据源或改变其他流程。
 - **本轮没有 M5 Actions run**，因为 Crown 配对使用本机只读存档。任务仍未达到 10,000 Crown paired sample，未达到独立 AH、OU 都 >5% ROI，不能标记研究系统验收完成。
 
+## 2026-11-05 M5 Crown 覆盖与现有授权路径复核续记
+- 在 M5 分支复核公开 Actions secret 元数据：存在 `TOTALCORNER_TOKEN` 与 `PRIVATE_REPO_TOKEN` 名称，未读取其值；当前机器没有 `TOTALCORNER_TOKEN` 环境值。可访问的私有 `totalcorner-research-bridge` 目前没有 M5 forecast 或 Crown historical capture 输入，因此不能据此声称 M5 Actions 可立即复跑历史回填。
+- M5 私有 TotalCorner 采集档案仍停在 300/23,812 候选；298 个 exact Crown 响应中，212 场有有效赛前 AH、212 场有有效赛前 OU。51 个固定范围 league ID 的历史赛程仍有 129/4,789 已知分页缺失（已保存4,660页），完整历史候选全集尚未确认。MR1 V6 同 Crown 价/FT 研究 cohort 为每市场870场；都未达到每市场10,000场。
+- 现有公开 M3 Crown 前瞻配对 workflow 每4小时运行，但仅使用 M3 独立预测与记录。最新真实成功 [Actions 41968378899](https://github.com/ljm198964-alt/quant-runner/actions/runs/41968378899)，生成报告 UTC `2026-11-05T02:47:28.510865Z`，新增18条 M3 quote commitments（AH9、OU9），不含报价值、EV、ROI。它不能计入 M5 历史/收益样本，也不是 M5 自动化验收。
+- M5 Crown 授权/档案边界和进展已写入 `research/m5/M5_CROWN_ARCHIVE_COVERAGE_AUDIT_20261105.md` 与 `research/m5/README.md`，公开提交 `f374a37a324283bc7f19cc99887dc4efeb02abaa` 已推送到 `codex/m5-oos-crown-expansion`。此提交只更新审计文档，不新增 API 请求、M5 Actions、生产写入或 Telegram 写入。
+- 研究目标仍未完成：缺少可在 M5 私有逐场 forecast 上复算的扩展 Crown/FT 历史配对。当前可报告的最佳 M5/MR1 V6 同价样本每市场870场，收益仍未达到独立样本外 ROI >5%；M5 branch 没有可验证的 M5 Actions 历史回填 run。
+
 ## 2026-11-04 M5 首个 M3/MR1 同 Crown 盘口 OOS 对照
 - 用户目标保持为 AH/OU 独立、真实赛前 Crown、至少 10,000 场不重复比赛，M5 AH/OU 样本外 ROI 分别 >5%；本轮仅做只读历史研究，不改生产、不发 Telegram、不调用 TotalCorner API、不读取凭证。
 - `research/m5/m3_crown_exact_line_replay.py` 用 M3 公开严格赛季前推 OOS CSV 与本机 MR1 V23 fixture registry 按联赛代码 + UTC kickoff date + 规范化主客队精确连接。候选 122，排除身份键碰撞 1，唯一 121（全为 2026/27，UTC kickoff 2026-10-09 18:45 至 2026-11-02 20:00）。M3 每模型 train_end 早于 kickoff，且模型行赛果/season/train_end 一致。
