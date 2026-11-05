@@ -1,0 +1,34 @@
+{
+  "all_predictions_before_kickoff": true,
+  "all_train_cutoffs_before_prediction": true,
+  "current_roi": "not yet observable; no qualified Crown quote/settlement pairs at audit time",
+  "forecast_sha256": "f5609935bfb29aa33a38597a977b2092408a75311ac8061c7c07cf3103f9b4a4",
+  "future_kickoff_utc_range": [
+    "2026-11-06T11:00:00Z",
+    "2026-11-23T20:00:00Z"
+  ],
+  "generated_utc": "2026-11-05T22:59:49.604793Z",
+  "markets": {
+    "AH": {
+      "crown_quotes_received_after_forecast_and_before_kickoff": 0,
+      "unique_future_forecasts": 361
+    },
+    "OU": {
+      "crown_quotes_received_after_forecast_and_before_kickoff": 0,
+      "unique_future_forecasts": 361
+    }
+  },
+  "note": "Future forecasts and any odds remain private. No M1/MR1 predictions or ledgers used. Current Crown coverage is zero because no indexed snapshot satisfies forecast-asof <= quote-event <= actual-receipt < kickoff.",
+  "pairing_audit_counts": {
+    "forecast_fixture_index_matches": 551,
+    "identity_or_kickoff_mismatch": 3,
+    "non_ok_snapshot_entries": 353,
+    "receipt_outside_forecast_to_kickoff_window": 195
+  },
+  "pairing_audit_generated_utc": "2026-11-05T23:01:36.025379+00:00",
+  "pairing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "pairing_time_rule": "prediction_asof_utc <= quote_event_utc <= quote_received_utc < kickoff_utc",
+  "protocol": "M5_FORWARD_SHADOW_STARTER_AUDIT_V1",
+  "unique_match_ids": 361,
+  "unique_normalized_fixture_identities": 361
+}
