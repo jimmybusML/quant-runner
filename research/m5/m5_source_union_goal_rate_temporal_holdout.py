@@ -17,6 +17,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+import numpy as np
+from scipy.optimize import minimize
+
 from research.m5.crown_historical_capture import ensure_private_destination, local_to_utc
 from research.m5.m3_grid_crown_replay import expected_return, legs_result, payout, bootstrap, score
 from research.m5.m5_source_union_replay import event_rows, fixture_row, raw_event
@@ -154,6 +157,59 @@ def fit_rate_factors(rows):
         "training_predicted_away_goals": round(pred_away, 8),
         "home_rate_multiplier": actual_home / pred_home,
         "away_rate_multiplier": actual_away / pred_away,
+    }
+
+
+def fit_score_grid_logloss_factors(rows):
+    """Fit two exponential score-grid tilts by prior-period exact-score NLL."""
+    unique = {}
+    for row in rows:
+        unique.setdefault(row["match_id"], row)
+    grids = [np.asarray(row["grid"], dtype=float) for row in unique.values()]
+    actual = np.asarray([row["actual"] for row in unique.values()], dtype=float)
+    if not grids:
+        raise ValueError("no training rows for score-grid likelihood calibration")
+    max_home = max(g.shape[0] - 1 for g in grids)
+    max_away = max(g.shape[1] - 1 for g in grids)
+    home_idx = np.arange(max_home + 1, dtype=float)[:, None]
+    away_idx = np.arange(max_away + 1, dtype=float)[None, :]
+
+    def objective(parameters):
+        home_log, away_log = parameters
+        nll = 0.0
+        grad_home = 0.0
+        grad_away = 0.0
+        for grid, (actual_home, actual_away) in zip(grids, actual):
+            log_grid = np.log(np.maximum(grid, 1e-300))
+            h = np.arange(grid.shape[0], dtype=float)[:, None]
+            a = np.arange(grid.shape[1], dtype=float)[None, :]
+            tilted = log_grid + h * home_log + a * away_log
+            peak = float(np.max(tilted))
+            weights = np.exp(tilted - peak)
+            mass = float(weights.sum())
+            probs = weights / mass
+            log_normalizer = peak + math.log(mass)
+            nll += log_normalizer - float(log_grid[int(actual_home), int(actual_away)]) \
+                   - home_log * actual_home - away_log * actual_away
+            grad_home += float((probs * h).sum()) - actual_home
+            grad_away += float((probs * a).sum()) - actual_away
+        count = len(grids)
+        return nll / count, np.asarray([grad_home / count, grad_away / count])
+
+    result = minimize(objective, np.zeros(2), jac=True, method="L-BFGS-B",
+                      bounds=[(-0.7, 0.7), (-0.7, 0.7)],
+                      options={"maxiter": 250, "ftol": 1e-12, "gtol": 1e-9})
+    if not result.success and np.linalg.norm(result.jac) > 1e-6:
+        raise RuntimeError("score-grid log-loss calibration failed to converge")
+    home_log, away_log = (float(x) for x in result.x)
+    return {
+        "training_unique_fixtures": len(unique),
+        "home_log_tilt": home_log,
+        "away_log_tilt": away_log,
+        "home_rate_multiplier": math.exp(home_log),
+        "away_rate_multiplier": math.exp(away_log),
+        "training_exact_score_log_loss": round(float(result.fun), 8),
+        "method": "two-parameter exponential tilt of the full M5 score grid fitted by prior-period exact-score negative log likelihood; no ROI optimization",
     }
 
 
@@ -303,6 +359,7 @@ def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
                                       "holdout_fixture_markets": len(holdout)}
             continue
         factors = fit_rate_factors(training)
+        score_grid_factors = fit_score_grid_logloss_factors(training)
         report_markets[market] = {
             "cutoff_utc": cutoff + "T00:00:00Z",
             "training_unique_fixture_markets": len(training),
@@ -315,9 +372,13 @@ def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
                                           max(r["kickoff"].isoformat() for r in holdout)],
             "parameter_fit": {**factors,
                 "method": "separate Poisson log-rate intercept MLE from prior-period actual goals / prior-period score-grid expected goals; no ROI optimization"},
+            "score_grid_logloss_parameter_fit": score_grid_factors,
             "raw_holdout": evaluate(market, holdout, None, 20261160 + idx),
             "calibrated_holdout": evaluate(market, holdout,
                 (factors["home_rate_multiplier"], factors["away_rate_multiplier"]), 20261170 + idx),
+            "score_grid_logloss_calibrated_holdout": evaluate(market, holdout,
+                (score_grid_factors["home_rate_multiplier"],
+                 score_grid_factors["away_rate_multiplier"]), 20261180 + idx),
             "source": "Crown first; TotalCorner default only fills a Crown-missing fixture-market; one latest eligible source-event quote per fixture-market",
             "training_source_fixture_markets": dict(Counter(r["source"] for r in training)),
             "holdout_source_fixture_markets": dict(Counter(r["source"] for r in holdout)),
