@@ -1,5 +1,12 @@
 # M3 独立 AH / OU 研究
 
+## 最新验收（2026-11-05）
+
+- [M3 AH/OU 与 Crown 样本外验收报告](M3_RESEARCH_ACCEPTANCE_20261105.md)：记录实际成功 Actions run `41943100635`、19,218 场可用历史赛果、14,806 场严格前推评分，以及 AH/OU 独立 Crown 历史快照影子回放。
+- [Crown 回放的脱敏聚合数据](results/m3_crown_oos_replay_20261105.json)：不包含队名、fixture ID、赔率或密钥。
+- 当前 OOS 原始可复核报告及预测/参数版本仍在下方既有 results 路径。
+- 自动 M3 Crown 前瞻采集尚未启用；报告说明了现有授权引用证据和私有持久化缺口。手动 Crown probe 已移除非 Crown fallback 并避免输出 ID/赔率字段。
+
 M3 是独立研究模型，不读取 M1、M2、MR1 的预测、订单、参数或账本。当前流程不产生正式交易信号、不发 Telegram、不自动提升模型，也没有增加交易 Gate。
 
 ## 研究入口与结果

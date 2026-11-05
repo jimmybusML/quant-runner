@@ -1,0 +1,44 @@
+{
+  "protocol": "M3_STRICT_SEASON_FORWARD_CROWN_ARCHIVE_REPLAY_V1",
+  "generated_utc": "2026-11-05T01:25:37.266167+00:00",
+  "m3_actions_run_id": "41943100635",
+  "m3_prediction_report_generated_utc": "2026-11-05T00:44:41.469266+00:00",
+  "prediction_sha256": "48857e6d831ee873fbc30b71da8941fe9f482e96dd8e4e6a7a636354c725289a",
+  "crown_archive_source": "Locally held, independently verified Crown quote and FT archive; no M3/M1/MR1 predictions, parameters, orders, or ledger values were read.",
+  "network_requests": 0,
+  "quote_prices_or_fixture_identifiers_published": false,
+  "time_method": "Exact fixture join; select the latest verified Crown quote strictly before independently verified UTC kickoff; settle against verified FT after kickoff.",
+  "prediction_timing_limitation": "M3 strict season-forward forecasts were generated retrospectively from historical results; they were not contemporaneously recorded at quote time.",
+  "selection_method": "Per fixture, choose the model-implied higher expected-return side at the available exact market line; no EV or confidence threshold. One unit per fixture. AH and OU are evaluated separately.",
+  "sample_scope": {
+    "strict_m3_oos_fixtures_with_all_three_models": 14806,
+    "exact_join_candidates": 122,
+    "unique_exact_joined_fixtures": 121,
+    "identity_collisions_excluded": 1,
+    "joined_fixtures_with_verified_ft_after_kickoff": 76,
+    "AH_quote_and_result_fixtures": 24,
+    "OU_quote_and_result_fixtures": 36,
+    "quote_event_utc_ranges": {
+      "AH": ["2026-10-08T20:53:12+00:00", "2026-11-01T15:15:06+00:00"],
+      "OU": ["2026-10-08T07:17:10+00:00", "2026-11-01T19:08:24+00:00"]
+    },
+    "crown_quote_fixtures_with_both_markets": 8
+  },
+  "AH_home_0": {
+    "poisson": {"n": 24, "log_loss": 1.076413, "brier": 0.650943, "wins": 12, "pushes": 7, "losses": 5, "net_units": 5.91, "roi": 0.24625, "max_drawdown_units": 3.0, "roi_bootstrap_95pct": [-0.069167, 0.53125]},
+    "dixon_coles": {"n": 24, "log_loss": 1.073640, "brier": 0.649481, "wins": 12, "pushes": 7, "losses": 5, "net_units": 5.91, "roi": 0.24625, "max_drawdown_units": 3.0, "roi_bootstrap_95pct": [-0.069167, 0.53125]},
+    "bivariate_poisson": {"n": 24, "log_loss": 1.072940, "brier": 0.649093, "wins": 12, "pushes": 7, "losses": 5, "net_units": 5.91, "roi": 0.24625, "max_drawdown_units": 3.0, "roi_bootstrap_95pct": [-0.069167, 0.53125]}
+  },
+  "OU_over_2_5": {
+    "poisson": {"n": 36, "log_loss": 0.694815, "brier": 0.250781, "wins": 16, "losses": 20, "net_units": -5.54, "roi": -0.153889, "max_drawdown_units": 10.09, "roi_bootstrap_95pct": [-0.467222, 0.159722]},
+    "dixon_coles": {"n": 36, "log_loss": 0.694818, "brier": 0.250782, "wins": 16, "losses": 20, "net_units": -5.54, "roi": -0.153889, "max_drawdown_units": 10.09, "roi_bootstrap_95pct": [-0.467222, 0.159722]},
+    "bivariate_poisson": {"n": 36, "log_loss": 0.694174, "brier": 0.250460, "wins": 18, "losses": 18, "net_units": -1.66, "roi": -0.046111, "max_drawdown_units": 8.26, "roi_bootstrap_95pct": [-0.360278, 0.265278]}
+  },
+  "limitations": [
+    "These 24 AH and 36 OU observations are small and overlapping fixtures are possible; market samples must not be combined.",
+    "All bootstrap intervals cross zero and are descriptive, not evidence of persistent edge.",
+    "No execution, slippage, limits, or fill receipts are present; results are unit-stake replay, not realized trading ROI.",
+    "Historical Crown quotes are actual pre-kickoff snapshots, but M3 predictions are retrospective strict-OOS hindcasts rather than forecasts recorded at those times.",
+    "This replay does not establish the scope of provider written permission for new API collection or public quote retention."
+  ]
+}

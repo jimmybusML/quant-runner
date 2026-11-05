@@ -250,3 +250,7 @@ Crown 阶段 A 的存档交集为公开混合赛事 artifact 16 场中的 Dortmu
 - 为新生成的 OpenFootball penaltyblog 影子 forecast 保存原生归一化比分概率矩阵，矩阵行表示主队进球、列表示客队进球；AH0、OU O2.5 原有字段不变。只读 ledger audit 现在验证矩阵结构、概率有限且处于[0,1]、总质量为1及方向语义。历史 canonical 记录不回填、不重算；未带矩阵的既有记录仍可审计。
 - `crown_shadow_ledger.add_line_ev` 可同时读取此紧凑矩阵与旧稀疏单元格式，按原盘线重新求五种亚洲盘结算状态和单单位条件 EV。矩阵序列化本机基准为 16×16 / 5,704 bytes；来源为 penaltyblog 1.13.1 `create_dixon_coles_grid` 的结构验证，不是比赛预测或 Crown 结果。
 - 本次 Python 3.12 + penaltyblog 1.13.1 本地完整 M3 测试 60/60 通过，真实 penaltyblog grid 序列化总概率质量 0.9999999999999999，编译与 `git diff --check` 通过。该功能须待本分支 GitHub Actions 验收；尚无新 forward forecast、合法 Crown quote 或 Crown EV/ROI。OpenFootball 赛程仍无精确 kickoff UTC，因而比分网格不能自行建立有效盘口配对。
+# 最新验收摘要（2026-11-05）
+
+最新可核验状态、实际 Actions 运行、严格样本外指标、Crown 历史快照覆盖和未解决的数据授权/持久化边界，见 [M3_RESEARCH_ACCEPTANCE_20261105.md](M3_RESEARCH_ACCEPTANCE_20261105.md)。最新训练 Actions `41943100635` 成功；数据输入 fingerprint 发生变化。Crown AH0 24 场、OU2.5 36 场样本仅是对历史 Crown 赛前报价的事后 OOS hindcast 回放，不是当时实时预测或实际成交。
+
