@@ -63,6 +63,11 @@ jobs:
           source /tmp/m3-penaltyblog-venv/bin/activate
           pip install penaltyblog
           python -c 'import penaltyblog; print("penaltyblog import ok")'
+      - name: Run M3 unit tests
+        shell: bash
+        run: |
+          source /tmp/m3-penaltyblog-venv/bin/activate
+          python -m unittest discover -s research/m3 -p 'test_*.py' -v
       - name: Run strict UTC season-forward penaltyblog AH and OU evaluation
         shell: bash
         run: |

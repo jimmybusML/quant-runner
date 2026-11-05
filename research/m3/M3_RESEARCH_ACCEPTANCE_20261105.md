@@ -8,7 +8,7 @@ M3 已有可复现的 AH 与 OU 真实历史样本外概率评估、每四小时
 
 ## 最新真实历史样本外模型结果
 
-GitHub Actions run [41943100635](https://github.com/ljm198964-alt/quant-runner/actions/runs/41943100635) 于 2026-11-05 成功。报告生成 UTC `2026-11-05T00:44:41.469266Z`；输入指纹 `648aa1d7…77cb4e`，与前版不同；严格 OOS 预测 CSV SHA-256 `48857e6d…725289a`。Football-Data.co.uk 的赛果 CSV 只读取日期、主客队和全场进球，未读取文件内赔率。可用样本 19,218 场、6 个既定联赛（B1、D1、E0、F1、I1、SP1），跨赛季 2017/18 至 2026/27；测试集 17,152 场，模型成功评分 14,806 场（86.32%）。
+最新 GitHub Actions run [41949306821](https://github.com/ljm198964-alt/quant-runner/actions/runs/41949306821) 于 2026-11-05 `01:33:21Z–01:36:42Z` 成功；全部 V4、penaltyblog、严格前推和持久化步骤通过。run 对应提交 `6217d0446906c00bd939b1f6d4967db50410b6c8`，Actions 收据由 `a2ae20e7` 持久化至公开分支。报告生成 UTC `2026-11-05T01:36:35.969415Z`；输入指纹 `648aa1d7…77cb4e`，与前次相同，本次**没有新增学习信息**。严格 OOS 预测 CSV SHA-256 `48857e6d…725289a`，数据和评分与此前 `41943100635` 相同。Football-Data.co.uk 的赛果 CSV 只读取日期、主客队和全场进球，未读取文件内赔率。可用样本 19,218 场、6 个既定联赛（B1、D1、E0、F1、I1、SP1），跨赛季 2017/18 至 2026/27；测试集 17,152 场，模型成功评分 14,806 场（86.32%）。
 
 训练隔离按联赛及测试赛季执行：只取更早赛季文件，且训练比赛 UTC 日期早于该测试赛季最早比赛日期；测试日期/赛季结果不用于该 split 拟合。数据只有日历日期，统一作为 UTC 日期解析且整场测试日期均从训练集排除；它不提供实际 kickoff UTC。报告与模型参数快照记录在 `results/latest_penaltyblog_oos_report.json`、`results/latest_penaltyblog_oos_splits.json`、`results/predictions/`、`results/model_parameters/`。
 
@@ -52,8 +52,8 @@ AH/OU 补充候选 `opisthokonta/goalmodel`：当前检视版本 v0.6.4（2024-0
 
 ## 自动化、数据追溯与工程边界
 
-- `.github/workflows/m3-independent-research.yml` 维持用户已确认的 `0 */4 * * *` UTC 频率，并可手动运行；本次 run `41943100635` 成功，执行原版 V4 和三种 penaltyblog 模型、严格 OOS 评分、输入指纹比较及持久化。模型数、参数哈希、预测哈希、run ID、UTC 生成时间与历史版本均留存。
-- 本次输入 fingerprint 相对前版变化，代表有新增/更新的数据输入；若后续不变，工作流应记录无新增学习信息，不人为制造优化。
+- `.github/workflows/m3-independent-research.yml` 维持用户已确认的 `0 */4 * * *` UTC 频率，并可手动运行；最新 run `41949306821` 成功，执行原版 V4 和三种 penaltyblog 模型、严格 OOS 评分、输入指纹比较及持久化。模型数、参数哈希、预测哈希、run ID、UTC 生成时间与历史版本均留存。
+- 本次输入 fingerprint 与前次相同；workflow 如实记录无新增学习信息，没有人为制造优化。
 - run 结束成功并不代表 Crown collector 已运行。M3 自动流程当前不采集 Crown。
 - 本次修复 M3 手动 Crown 探测脚本：删除 TotalCorner 默认赔率 fallback；日志不再输出源 match ID、bookmaker 字段形状或报价样例，只报告 Crown 识别状态与行数。没有触碰其他模型 workflow 或任何正式链路，也没有执行该探测 workflow。
 - 已检查已有 Crown Secret 名称 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN`，从未读取值。发现 2026-10-21 历史固定 ID Crown 探测成功记录；这不是持续前瞻报价存档。OddsPapi 的凭证/连接器/归档未找到。M3 forward-EV 的 TotalCorner default bookmaker 记录严格排除，不代替 Crown。
