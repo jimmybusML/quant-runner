@@ -21,6 +21,7 @@
 - M5 私有 TotalCorner 采集档案仍停在 300/23,812 候选；298 个 exact Crown 响应中，212 场有有效赛前 AH、212 场有有效赛前 OU。51 个固定范围 league ID 的历史赛程仍有 129/4,789 已知分页缺失（已保存4,660页），完整历史候选全集尚未确认。MR1 V6 同 Crown 价/FT 研究 cohort 为每市场870场；都未达到每市场10,000场。
 - 现有公开 M3 Crown 前瞻配对 workflow 每4小时运行，但仅使用 M3 独立预测与记录。最新真实成功 [Actions 41968378899](https://github.com/ljm198964-alt/quant-runner/actions/runs/41968378899)，生成报告 UTC `2026-11-05T02:47:28.510865Z`，新增18条 M3 quote commitments（AH9、OU9），不含报价值、EV、ROI。它不能计入 M5 历史/收益样本，也不是 M5 自动化验收。
 - M5 Crown 授权/档案边界和进展已写入 `research/m5/M5_CROWN_ARCHIVE_COVERAGE_AUDIT_20261105.md` 与 `research/m5/README.md`，公开提交 `f374a37a324283bc7f19cc99887dc4efeb02abaa` 已推送到 `codex/m5-oos-crown-expansion`。此提交只更新审计文档，不新增 API 请求、M5 Actions、生产写入或 Telegram 写入。
+- 2026-11-05T04:52:46.880043Z 在本机用现有 `crown_historical_capture.py replay` 对私有输入做独立重跑，除 `generated_utc` 外与已发布 `m5_goal_model_totalcorner_crown_partial.json` 完全一致；M5 forecast SHA `ebc8ae9a…`, Crown response hash set `8b8b35e0…`, partial manifest SHA `258702e6…` 均未变。确认样本仍 AH 212 注 `+5.865U/+2.766509%`、OU 212 注 `-0.600U/-0.283019%`；这只是可复现性确认，没有新增数据/学习。两者均为赛后回取的历史 movement response（源 event time 早于 kickoff），独立于赛前已接收 MR1 quote cohort，且每市场均远小于10,000。
 - 研究目标仍未完成：缺少可在 M5 私有逐场 forecast 上复算的扩展 Crown/FT 历史配对。当前可报告的最佳 M5/MR1 V6 同价样本每市场870场，收益仍未达到独立样本外 ROI >5%；M5 branch 没有可验证的 M5 Actions 历史回填 run。
 
 ## 2026-11-04 M5 首个 M3/MR1 同 Crown 盘口 OOS 对照

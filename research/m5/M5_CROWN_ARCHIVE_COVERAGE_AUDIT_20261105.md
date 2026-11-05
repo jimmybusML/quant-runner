@@ -40,6 +40,17 @@ The private M5 TotalCorner capture remains at 300 of 23,812 unique candidate fix
 
 No M5 request was made in this recheck: the machine has no `TOTALCORNER_TOKEN` environment value, and the extant M3 workflow consumes its token only for M3 data. M5's capture/replay requires its private forecast inputs alongside private raw quote responses; the accessible bridge currently does not contain those M5 inputs. Do not treat M3's successful run as M5 automation acceptance, and do not claim the current auth metadata alone makes M5 historical replay runnable in Actions.
 
+## Replay reproducibility confirmation (2026-11-05)
+
+Re-ran the existing private Crown replay against the unchanged local capture and the 127,674-row M5 UTC walk-forward forecast (`research/m5/crown_historical_capture.py replay`). The sanitized output exactly matches the saved [`m5_goal_model_totalcorner_crown_partial.json`](results/m5_goal_model_totalcorner_crown_partial.json) after excluding `generated_utc`; forecast SHA, quote-response hash set, schedule-manifest SHA, fixture counts, settlements, returns, proper scores and drawdowns are identical. The new run generated at `2026-11-05T04:52:46.880043Z`; there was no new source data and therefore no new learning information.
+
+| Market | Unique Crown event-time fixtures | Bets / settled | W / HW / P / HL / L | Net U | ROI | Max DD U |
+|---|---:|---:|---|---:|---:|---:|
+| AH | 212 | 212 / 212 | 91 / 10 / 22 / 9 / 80 | +5.865 | +2.766509% | 9.620 |
+| OU | 212 | 212 / 212 | 88 / 15 / 9 / 19 / 81 | -0.600 | -0.283019% | 16.060 |
+
+These are event-time historical movement backtests: the Crown movement source timestamps precede kickoff, but the API responses and FT data were received after the matches. Keep this cohort separate from contemporaneously received MR1 Crown snapshots. Each market remains below 10,000 unique fixtures, and neither ROI exceeds +5%.
+
 ## Follow-up: V26 archive versus M5 historical forecasts (2026-11-05)
 
 A second, local-only audit inspected the existing `market-resolution/latest` rows for the 47 locked Crown observations and the private M5 forecast file. The public V26 `observations.jsonl` is schema-minimal (status, match ID, signal key and first-seen/freeze timestamps); raw resolved quote/fixture payloads remain outside the public repository. The V26 aggregate `summary.json` has 39 settled scoring rows and aggregate Crown observation P&L, but the scored rows contain no quote prices or market lines.
