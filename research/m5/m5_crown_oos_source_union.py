@@ -14,12 +14,13 @@ import hashlib
 import json
 import math
 import re
-import random
 import unicodedata
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
+
+import numpy as np
 
 def sha(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
@@ -181,12 +182,11 @@ def bootstrap_roi_interval(units, seed=20261105, resamples=10000):
     n = len(units)
     if not n:
         return None
-    rng = random.Random(seed)
-    estimates = [100.0 * sum(units[rng.randrange(n)] for _ in range(n)) / n
-                 for _ in range(resamples)]
-    estimates.sort()
-    return {"lower_2_5_pct": round(estimates[int(0.025 * resamples) - 1], 6),
-            "upper_97_5_pct": round(estimates[int(0.975 * resamples) - 1], 6),
+    rng = np.random.default_rng(seed)
+    values = np.asarray(units, dtype=float)
+    estimates = np.sort(rng.choice(values, size=(resamples, n), replace=True).mean(axis=1) * 100.0)
+    return {"lower_2_5_pct": round(float(estimates[int(0.025 * resamples) - 1]), 6),
+            "upper_97_5_pct": round(float(estimates[int(0.975 * resamples) - 1]), 6),
             "resamples": resamples, "seed": seed}
 
 def paired_roi_delta(baseline_rows, candidate_rows, seed=20261106, resamples=10000):
@@ -197,15 +197,14 @@ def paired_roi_delta(baseline_rows, candidate_rows, seed=20261106, resamples=100
         return {"fixtures": 0, "candidate_minus_baseline_roi_pp": None,
                 "fixture_bootstrap_95pct_interval_pp": None}
     deltas = [c["units"] - b["units"] for b, c in zip(baseline_rows, candidate_rows)]
-    rng = random.Random(seed)
-    estimates = [100.0 * sum(deltas[rng.randrange(n)] for _ in range(n)) / n
-                 for _ in range(resamples)]
-    estimates.sort()
+    rng = np.random.default_rng(seed)
+    values = np.asarray(deltas, dtype=float)
+    estimates = np.sort(rng.choice(values, size=(resamples, n), replace=True).mean(axis=1) * 100.0)
     return {"fixtures": n,
             "candidate_minus_baseline_roi_pp": round(100.0 * sum(deltas) / n, 6),
             "fixture_bootstrap_95pct_interval_pp": {
-                "lower_2_5_pct": round(estimates[int(0.025 * resamples) - 1], 6),
-                "upper_97_5_pct": round(estimates[int(0.975 * resamples) - 1], 6),
+                "lower_2_5_pct": round(float(estimates[int(0.025 * resamples) - 1]), 6),
+                "upper_97_5_pct": round(float(estimates[int(0.975 * resamples) - 1]), 6),
                 "resamples": resamples, "seed": seed}}
 
 def summarize(rows):

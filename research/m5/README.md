@@ -427,3 +427,20 @@ Extended `m5_source_union_goal_rate_temporal_holdout.py` with a league-aware cal
 | OU | -4.902335% | -4.709339% | -2.870331% | 0.99056481 / 0.62448302 | -6.256323% to +0.588035% |
 
 This candidate improves the point ROI on both markets relative to raw selection but does not reach +3%; both intervals include zero, and AH proper scores worsen slightly relative to raw (LL/Brier 1.03491701/0.64661616). Treat as an exploratory calibration result requiring a fresh future-season test, not evidence of executable profitability. The method and all fitted league coefficients are archived for reproducibility. The latest independent full archive source-union replay at UTC `2026-11-05T22:38:01.235333Z` is [here](results/m5_source_union_replay_live_20261106T143000Z.json): AH n=10,718 ROI -2.255925%; OU n=10,717 ROI -3.683563%. Every API receipt remains post-kickoff.
+
+## M5 baseline vs recency on receipt-verified Crown and deduplicated Crown-source union
+
+Ran the existing cross-source identity audit against MR1 V23 prospectively received Crown snapshots plus the M5 historical TotalCorner Crown-source archive, using the independent M5 baseline and recency score grids. Output: [latest M5 Crown OOS source-union report](results/m5_crown_oos_source_union_latest_20261106.json), generated UTC `2026-11-05T22:50:27.855381Z`. The M5 prediction variants—not MR1 predictions—drive side choice. Both AH and OU are kept separate, one unit per unique fixture-market. Source identity is deduplicated by normalized league, UTC kickoff date and ordered teams. MR1 Crown overlap with TotalCorner: 861; each market has 871 receipt-verified Crown rows plus 8,399 unique event-time-only TotalCorner additions, 9,270 unique union fixtures. This cohort does not reach the 10,000 minimum and the union's TotalCorner additions are retrospective, so only the 871 Crown rows have contemporaneous receipt evidence.
+
+| Market/cohort | Model | n | Net U / ROI | Log Loss / Brier | Max DD | Bootstrap 95% ROI |
+|---|---|---:|---:|---:|---:|---:|
+| AH MR1 received Crown | baseline | 871 | -17.825 / -2.046498% | 1.03171136 / 0.64617416 | 28.900 | -8.024684% to +3.812859% |
+| AH MR1 received Crown | recency | 871 | -16.940 / -1.944891% | 1.03004581 / 0.64562197 | 24.555 | -7.904707% to +3.876005% |
+| AH deduplicated union | baseline | 9,270 | -176.680 / -1.905933% | 1.03203240 / 0.64902290 | 199.750 | -3.661758% to -0.140669% |
+| AH deduplicated union | recency | 9,270 | -238.970 / -2.577886% | 1.02721575 / 0.64603767 | 258.575 | -4.371791% to -0.794229% |
+| OU MR1 received Crown | baseline | 871 | -31.075 / -3.567738% | 1.01610124 / 0.64262006 | 51.600 | -9.452354% to +2.356487% |
+| OU MR1 received Crown | recency | 871 | -32.485 / -3.729621% | 1.02220923 / 0.64711209 | 51.505 | -9.738232% to +2.025258% |
+| OU deduplicated union | baseline | 9,270 | -306.165 / -3.302751% | 0.98806322 / 0.62346620 | 362.335 | -5.129935% to -1.470550% |
+| OU deduplicated union | recency | 9,270 | -298.955 / -3.224973% | 0.98838178 / 0.62392913 | 362.270 | -4.999838% to -1.386192% |
+
+This comparison finds small, inconsistent recency changes: it slightly improves AH on the 871-row Crown tier, worsens AH on the larger retrospective union, slightly improves OU ROI on the union while worsening its proper scores, and worsens OU on the receipt-verified Crown tier. No market reaches +3%. The 2026 outcomes and holdout have been examined repeatedly; this is not a pristine test or prospective M5 execution. `m5_crown_oos_source_union.py` bootstrap was vectorized with NumPy to preserve 10,000 fixture-resamples while eliminating a slow Python-level nested resampling loop; `py_compile` passed and the run completed.
