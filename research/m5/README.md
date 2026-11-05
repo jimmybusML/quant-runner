@@ -412,3 +412,7 @@ Replayed the private archive at generated UTC `2026-11-05T22:28:04.640546Z`; rep
 ## 2026-11-06 archive replay checkpoint 13:00
 
 Generated UTC `2026-11-05T22:31:07.291232Z`, report [checkpoint 13:00](results/m5_source_union_replay_live_20261106T130000Z.json). The source-union set now contains AH 10,642 unique fixture-markets (9,987 Crown + 655 TotalCorner default) and OU 10,641 (9,986 + 655). AH `-246.540U / -2.316670%`, max event-time DD `267.195U`, LL/Brier `1.03420430/0.65050596`, bootstrap 95% ROI `[-3.989640%,-0.613559%]`; settlements W/HW/P/HL/L `4267/721/735/737/4182`. OU `-399.8425U / -3.757565%`, DD `414.9625U`, LL/Brier `0.98951189/0.62439968`, interval `[-5.446810%,-2.060521%]`; settlements `4404/587/536/753/4361`. All API receipts post-kickoff; event-time replay only. Both years (2025 and 2026) remain negative by market.
+
+## 2026-11-06 archive replay checkpoint 13:00 UTC label
+
+Latest replay report generated UTC `2026-11-05T22:31:07.291232Z`: [source-union checkpoint](results/m5_source_union_replay_live_20261106T130000Z.json). AH 10,642 unique fixture-markets, 1U each, net `-246.540U` / ROI `-2.316670%`; OU 10,641, net `-399.8425U` / ROI `-3.757565%`. Source splits, settlement categories, proper scores, drawdown, year splits and bootstrap intervals are recorded in the JSON. Crown and TotalCorner remain distinct; every selected historical API response was received after kickoff. Current source sample increase still does not meet +3%.
