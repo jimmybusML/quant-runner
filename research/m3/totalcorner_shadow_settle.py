@@ -85,7 +85,9 @@ def fetch_final(match_id,token):
 def reconcile(events,finished,lookup,now):
     forecasts={x['forecast_id']:x for x in events if x.get('protocol')=='M3_TOTALCORNER_FORWARD_FORECAST_V1'}
     existing={x.get('event_id') for x in events}
-    candidates=[x for x in events if x.get('protocol')=='M3_SHADOW_ORDER_V1']
+    # Already-settled immutable orders need no repeated FT network request.
+    candidates=[x for x in events if x.get('protocol')=='M3_SHADOW_ORDER_V1'
+                and hashlib.sha256(('M3_RESULT_OBSERVED_V1:'+x['event_id']).encode()).hexdigest() not in existing]
     ids={}
     fixture_by_match={}
     for e in candidates:
