@@ -416,3 +416,14 @@ Generated UTC `2026-11-05T22:31:07.291232Z`, report [checkpoint 13:00](results/m
 ## 2026-11-06 archive replay checkpoint 13:00 UTC label
 
 Latest replay report generated UTC `2026-11-05T22:31:07.291232Z`: [source-union checkpoint](results/m5_source_union_replay_live_20261106T130000Z.json). AH 10,642 unique fixture-markets, 1U each, net `-246.540U` / ROI `-2.316670%`; OU 10,641, net `-399.8425U` / ROI `-3.757565%`. Source splits, settlement categories, proper scores, drawdown, year splits and bootstrap intervals are recorded in the JSON. Crown and TotalCorner remain distinct; every selected historical API response was received after kickoff. Current source sample increase still does not meet +3%.
+
+## Shrunk league calibration research candidate (fixed UTC holdout)
+
+Extended `m5_source_union_goal_rate_temporal_holdout.py` with a league-aware calibration diagnostic. Each league's home/away log-rate correction is partially pooled toward the global prior-period correction using a fixed 100-fixture shrinkage scale; no ROI is used to fit parameters, and there is no league exclusion or market-selection gate. `py_compile` passed and the full private archive replay in the calibration script completed. Report: [shrunk league calibration holdout](results/m5_source_union_league_calibration_holdout_20261106T140000Z.json), generated UTC `2026-11-05T22:36:59.841687Z`. The train period is before 2026-09-01; each holdout has 2,570 disjoint fixture IDs and source composition of 2,295 Crown + 275 TotalCorner default. This holdout was previously inspected and every selected API receipt was post-kickoff.
+
+| Market | Raw ROI | Global calibration ROI | Fixed-shrinkage league calibration ROI | League-calibrated LL / Brier | ROI bootstrap 95% |
+|---|---:|---:|---:|---:|---:|
+| AH | +0.200875% | +0.046595% | +1.169358% | 1.03464075 / 0.64671316 | -2.271304% to +4.497763% |
+| OU | -4.902335% | -4.709339% | -2.870331% | 0.99056481 / 0.62448302 | -6.256323% to +0.588035% |
+
+This candidate improves the point ROI on both markets relative to raw selection but does not reach +3%; both intervals include zero, and AH proper scores worsen slightly relative to raw (LL/Brier 1.03491701/0.64661616). Treat as an exploratory calibration result requiring a fresh future-season test, not evidence of executable profitability. The method and all fitted league coefficients are archived for reproducibility. The latest independent full archive source-union replay at UTC `2026-11-05T22:38:01.235333Z` is [here](results/m5_source_union_replay_live_20261106T143000Z.json): AH n=10,718 ROI -2.255925%; OU n=10,717 ROI -3.683563%. Every API receipt remains post-kickoff.

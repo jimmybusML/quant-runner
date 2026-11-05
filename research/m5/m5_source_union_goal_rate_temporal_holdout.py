@@ -82,7 +82,10 @@ def evaluate(market, rows, calibration, seed):
     scores = []
     sources = Counter()
     for row in rows:
-        grid = row["grid"] if calibration is None else tilt_grid(row["grid"], *calibration)
+        factors = calibration
+        if isinstance(calibration, dict):
+            factors = calibration.get(row.get("league"), calibration.get("__global__"))
+        grid = row["grid"] if factors is None else tilt_grid(row["grid"], *factors)
         evs = [expected_return(grid, market, side, row["line"], price)
                for side, price in zip(sides, row["prices"])]
         side_idx = 0 if evs[0] >= evs[1] else 1
@@ -211,6 +214,37 @@ def fit_score_grid_logloss_factors(rows):
         "training_exact_score_log_loss": round(float(result.fun), 8),
         "method": "two-parameter exponential tilt of the full M5 score grid fitted by prior-period exact-score negative log likelihood; no ROI optimization",
     }
+
+
+def fit_shrunk_league_factors(rows, shrinkage_fixtures=100):
+    """Estimate league-specific log-rate corrections with fixed partial pooling.
+
+    The shrinkage strength is fixed in advance and is not selected on holdout
+    ROI. Sparse or unseen leagues are pulled toward the global prior-period fit.
+    """
+    global_fit = fit_rate_factors(rows)
+    global_logs = (math.log(global_fit["home_rate_multiplier"]),
+                   math.log(global_fit["away_rate_multiplier"]))
+    by_league = defaultdict(dict)
+    for row in rows:
+        by_league[row.get("league") or "UNKNOWN"][row["match_id"]] = row
+    factors = {"__global__": (math.exp(global_logs[0]), math.exp(global_logs[1]))}
+    receipts = {}
+    for league, keyed in sorted(by_league.items()):
+        subset = list(keyed.values())
+        fit = fit_rate_factors(subset)
+        weight = len(subset) / (len(subset) + shrinkage_fixtures)
+        home_log = global_logs[0] + weight * (math.log(fit["home_rate_multiplier"]) - global_logs[0])
+        away_log = global_logs[1] + weight * (math.log(fit["away_rate_multiplier"]) - global_logs[1])
+        factors[league] = (math.exp(home_log), math.exp(away_log))
+        receipts[league] = {"training_unique_fixtures": len(subset),
+                            "shrinkage_weight": round(weight, 8),
+                            "home_rate_multiplier": round(math.exp(home_log), 8),
+                            "away_rate_multiplier": round(math.exp(away_log), 8)}
+    return factors, {"method": "league-specific home/away log-rate calibration, partially pooled toward global prior-period factors; fixed shrinkage equivalent to 100 fixtures; no ROI tuning",
+                     "fixed_shrinkage_fixtures": shrinkage_fixtures,
+                     "global_training_fixtures": global_fit["training_unique_fixtures"],
+                     "league_fits": receipts}
 
 
 def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
@@ -360,6 +394,7 @@ def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
             continue
         factors = fit_rate_factors(training)
         score_grid_factors = fit_score_grid_logloss_factors(training)
+        league_factors, league_factor_receipt = fit_shrunk_league_factors(training)
         report_markets[market] = {
             "cutoff_utc": cutoff + "T00:00:00Z",
             "training_unique_fixture_markets": len(training),
@@ -379,6 +414,8 @@ def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
             "score_grid_logloss_calibrated_holdout": evaluate(market, holdout,
                 (score_grid_factors["home_rate_multiplier"],
                  score_grid_factors["away_rate_multiplier"]), 20261180 + idx),
+            "shrunk_league_calibrated_holdout": evaluate(market, holdout, league_factors, 20261190 + idx),
+            "shrunk_league_parameter_fit": league_factor_receipt,
             "source": "Crown first; TotalCorner default only fills a Crown-missing fixture-market; one latest eligible source-event quote per fixture-market",
             "training_source_fixture_markets": dict(Counter(r["source"] for r in training)),
             "holdout_source_fixture_markets": dict(Counter(r["source"] for r in holdout)),

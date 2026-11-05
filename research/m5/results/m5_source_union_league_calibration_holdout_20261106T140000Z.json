@@ -1,0 +1,988 @@
+{
+  "audit_counts": {
+    "AH_Crown_selected": 9987,
+    "AH_TotalCorner_default_selected": 713,
+    "OU_Crown_selected": 9986,
+    "OU_TotalCorner_default_selected": 713,
+    "receipt_after_kickoff_AH": 10700,
+    "receipt_after_kickoff_OU": 10699
+  },
+  "candidate_fixtures": 127674,
+  "forecast_rows": 127674,
+  "generated_utc": "2026-11-05T22:36:59.841687+00:00",
+  "holdout_start_utc": "2026-09-01T00:00:00Z",
+  "input_hashes": {
+    "candidate_manifest_sha256": "556b16b74911fafeed6559cf0522f3979fdcedb70add97e6d1358af40e7c32c4",
+    "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+    "selected_quote_response_hash_set_sha256": "c2bd8ebd08207299047081f1b36379965fdd0d8f00aefc36645213e009309114"
+  },
+  "limits": [
+    "Crown and TotalCorner historical responses were fetched after fixtures; source-event timestamps support retrospective event-time evaluation, not contemporaneous receipt or executable ROI.",
+    "The 2026 temporal holdout is a research holdout, not a pristine preregistered independent era.",
+    "Calibration is a single global home/away goal-rate tilt per market, fitted only on fixtures before the UTC cutoff; no ROI is used to choose parameters."
+  ],
+  "markets": {
+    "AH": {
+      "calibrated_holdout": {
+        "max_drawdown_units_by_quote_event_time": 37.1275,
+        "net_units": 1.1975,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -3.37072,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": 3.485117
+        },
+        "roi_pct": 0.046595,
+        "settled_bets": 2570,
+        "settlement_brier": 0.64646074,
+        "settlement_counts": {
+          "half_loss": 188,
+          "half_win": 145,
+          "loss": 977,
+          "push": 178,
+          "win": 1082
+        },
+        "settlement_log_loss": 1.03439878,
+        "simulated_bets": 2570,
+        "source_fixture_markets": {
+          "Crown": 2295,
+          "TotalCorner_default": 275
+        },
+        "total_stake_units": 2570,
+        "unique_fixtures": 2570
+      },
+      "cutoff_utc": "2026-09-01T00:00:00Z",
+      "holdout_kickoff_range_utc": [
+        "2026-09-01T01:05:00+00:00",
+        "2026-11-04T17:00:00+00:00"
+      ],
+      "holdout_source_fixture_markets": {
+        "Crown": 2295,
+        "TotalCorner_default": 275
+      },
+      "holdout_unique_fixture_markets": 2570,
+      "parameter_fit": {
+        "away_rate_multiplier": 1.0253164983299967,
+        "home_rate_multiplier": 1.0248893681492925,
+        "method": "separate Poisson log-rate intercept MLE from prior-period actual goals / prior-period score-grid expected goals; no ROI optimization",
+        "training_actual_away_goals": 10092,
+        "training_actual_home_goals": 12477,
+        "training_predicted_away_goals": 9842.81440554,
+        "training_predicted_home_goals": 12173.99690908,
+        "training_unique_fixtures": 8130
+      },
+      "raw_holdout": {
+        "max_drawdown_units_by_quote_event_time": 40.0975,
+        "net_units": 5.1625,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -3.19037,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": 3.613813
+        },
+        "roi_pct": 0.200875,
+        "settled_bets": 2570,
+        "settlement_brier": 0.64661616,
+        "settlement_counts": {
+          "half_loss": 186,
+          "half_win": 147,
+          "loss": 976,
+          "push": 178,
+          "win": 1083
+        },
+        "settlement_log_loss": 1.03491701,
+        "simulated_bets": 2570,
+        "source_fixture_markets": {
+          "Crown": 2295,
+          "TotalCorner_default": 275
+        },
+        "total_stake_units": 2570,
+        "unique_fixtures": 2570
+      },
+      "score_grid_logloss_calibrated_holdout": {
+        "max_drawdown_units_by_quote_event_time": 37.1275,
+        "net_units": 1.1975,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -3.316051,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": 3.45642
+        },
+        "roi_pct": 0.046595,
+        "settled_bets": 2570,
+        "settlement_brier": 0.64646074,
+        "settlement_counts": {
+          "half_loss": 188,
+          "half_win": 145,
+          "loss": 977,
+          "push": 178,
+          "win": 1082
+        },
+        "settlement_log_loss": 1.03439877,
+        "simulated_bets": 2570,
+        "source_fixture_markets": {
+          "Crown": 2295,
+          "TotalCorner_default": 275
+        },
+        "total_stake_units": 2570,
+        "unique_fixtures": 2570
+      },
+      "score_grid_logloss_parameter_fit": {
+        "away_log_tilt": 0.025001512354498896,
+        "away_rate_multiplier": 1.0253166711655368,
+        "home_log_tilt": 0.024585262630835228,
+        "home_rate_multiplier": 1.024889972197321,
+        "method": "two-parameter exponential tilt of the full M5 score grid fitted by prior-period exact-score negative log likelihood; no ROI optimization",
+        "training_exact_score_log_loss": 2.97082747,
+        "training_unique_fixtures": 8130
+      },
+      "shrunk_league_calibrated_holdout": {
+        "max_drawdown_units_by_quote_event_time": 46.6975,
+        "net_units": 30.0525,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -2.271304,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": 4.497763
+        },
+        "roi_pct": 1.169358,
+        "settled_bets": 2570,
+        "settlement_brier": 0.64671316,
+        "settlement_counts": {
+          "half_loss": 182,
+          "half_win": 151,
+          "loss": 965,
+          "push": 178,
+          "win": 1094
+        },
+        "settlement_log_loss": 1.03464075,
+        "simulated_bets": 2570,
+        "source_fixture_markets": {
+          "Crown": 2295,
+          "TotalCorner_default": 275
+        },
+        "total_stake_units": 2570,
+        "unique_fixtures": 2570
+      },
+      "shrunk_league_parameter_fit": {
+        "fixed_shrinkage_fixtures": 100,
+        "global_training_fixtures": 8130,
+        "league_fits": {
+          "Andorra Premier Division": {
+            "away_rate_multiplier": 0.96117073,
+            "home_rate_multiplier": 1.01113708,
+            "shrinkage_weight": 0.18032787,
+            "training_unique_fixtures": 22
+          },
+          "Armenia Premier League": {
+            "away_rate_multiplier": 1.03589366,
+            "home_rate_multiplier": 1.05466637,
+            "shrinkage_weight": 0.4047619,
+            "training_unique_fixtures": 68
+          },
+          "Austria Bundesliga": {
+            "away_rate_multiplier": 0.95424447,
+            "home_rate_multiplier": 1.02359364,
+            "shrinkage_weight": 0.57264957,
+            "training_unique_fixtures": 134
+          },
+          "Azerbaijan Premier League": {
+            "away_rate_multiplier": 1.0706136,
+            "home_rate_multiplier": 1.05262801,
+            "shrinkage_weight": 0.56521739,
+            "training_unique_fixtures": 130
+          },
+          "Belgium First Division A": {
+            "away_rate_multiplier": 1.08768476,
+            "home_rate_multiplier": 1.00118254,
+            "shrinkage_weight": 0.68454259,
+            "training_unique_fixtures": 217
+          },
+          "Bulgaria First League": {
+            "away_rate_multiplier": 0.99045121,
+            "home_rate_multiplier": 0.95755029,
+            "shrinkage_weight": 0.67213115,
+            "training_unique_fixtures": 205
+          },
+          "China Super League": {
+            "away_rate_multiplier": 1.03937047,
+            "home_rate_multiplier": 1.07128575,
+            "shrinkage_weight": 0.66216216,
+            "training_unique_fixtures": 196
+          },
+          "Colombia Primera A": {
+            "away_rate_multiplier": 1.05733645,
+            "home_rate_multiplier": 1.08225107,
+            "shrinkage_weight": 0.72752044,
+            "training_unique_fixtures": 267
+          },
+          "Croatia HNL": {
+            "away_rate_multiplier": 1.09050171,
+            "home_rate_multiplier": 1.03424377,
+            "shrinkage_weight": 0.56521739,
+            "training_unique_fixtures": 130
+          },
+          "Cyprus Division 1": {
+            "away_rate_multiplier": 1.07181239,
+            "home_rate_multiplier": 1.03407994,
+            "shrinkage_weight": 0.6031746,
+            "training_unique_fixtures": 152
+          },
+          "Czechia First League": {
+            "away_rate_multiplier": 1.08255134,
+            "home_rate_multiplier": 0.9721145,
+            "shrinkage_weight": 0.63099631,
+            "training_unique_fixtures": 171
+          },
+          "Denmark Superligaen": {
+            "away_rate_multiplier": 0.99879843,
+            "home_rate_multiplier": 1.01264435,
+            "shrinkage_weight": 0.55156951,
+            "training_unique_fixtures": 123
+          },
+          "England Premier League": {
+            "away_rate_multiplier": 0.98623766,
+            "home_rate_multiplier": 0.97944403,
+            "shrinkage_weight": 0.73333333,
+            "training_unique_fixtures": 275
+          },
+          "Estonia Meistriliiga": {
+            "away_rate_multiplier": 0.97278793,
+            "home_rate_multiplier": 1.06865749,
+            "shrinkage_weight": 0.54751131,
+            "training_unique_fixtures": 121
+          },
+          "Faroe Islands Premier League": {
+            "away_rate_multiplier": 0.9376394,
+            "home_rate_multiplier": 0.96233841,
+            "shrinkage_weight": 0.48717949,
+            "training_unique_fixtures": 95
+          },
+          "Finland Veikkausliiga": {
+            "away_rate_multiplier": 0.94609668,
+            "home_rate_multiplier": 0.99685089,
+            "shrinkage_weight": 0.56709957,
+            "training_unique_fixtures": 131
+          },
+          "France Ligue 1": {
+            "away_rate_multiplier": 1.03538554,
+            "home_rate_multiplier": 0.98706254,
+            "shrinkage_weight": 0.66442953,
+            "training_unique_fixtures": 198
+          },
+          "Georgia Erovnuli Liga": {
+            "away_rate_multiplier": 0.96944842,
+            "home_rate_multiplier": 0.92187881,
+            "shrinkage_weight": 0.5215311,
+            "training_unique_fixtures": 109
+          },
+          "Germany Bundesliga I": {
+            "away_rate_multiplier": 1.05843965,
+            "home_rate_multiplier": 1.08669979,
+            "shrinkage_weight": 0.67741935,
+            "training_unique_fixtures": 210
+          },
+          "Greece Super League 1": {
+            "away_rate_multiplier": 0.98787337,
+            "home_rate_multiplier": 1.01415638,
+            "shrinkage_weight": 0.6124031,
+            "training_unique_fixtures": 158
+          },
+          "Hungary NB I": {
+            "away_rate_multiplier": 1.04885971,
+            "home_rate_multiplier": 1.00882595,
+            "shrinkage_weight": 0.57983193,
+            "training_unique_fixtures": 138
+          },
+          "Iceland Premier League": {
+            "away_rate_multiplier": 1.15325346,
+            "home_rate_multiplier": 1.10452544,
+            "shrinkage_weight": 0.55357143,
+            "training_unique_fixtures": 124
+          },
+          "Israel Premier League": {
+            "away_rate_multiplier": 1.05935528,
+            "home_rate_multiplier": 1.05514601,
+            "shrinkage_weight": 0.59677419,
+            "training_unique_fixtures": 148
+          },
+          "Italy Serie A": {
+            "away_rate_multiplier": 0.99363688,
+            "home_rate_multiplier": 0.9226753,
+            "shrinkage_weight": 0.73333333,
+            "training_unique_fixtures": 275
+          },
+          "Japan J-League": {
+            "away_rate_multiplier": 1.08214153,
+            "home_rate_multiplier": 1.06572069,
+            "shrinkage_weight": 0.6969697,
+            "training_unique_fixtures": 230
+          },
+          "Kazakhstan Premier League": {
+            "away_rate_multiplier": 0.98675111,
+            "home_rate_multiplier": 1.02750694,
+            "shrinkage_weight": 0.62825279,
+            "training_unique_fixtures": 169
+          },
+          "Kosovo Superliga": {
+            "away_rate_multiplier": 1.02037095,
+            "home_rate_multiplier": 1.04604831,
+            "shrinkage_weight": 0.25373134,
+            "training_unique_fixtures": 34
+          },
+          "Latvia Virsliga": {
+            "away_rate_multiplier": 0.96453396,
+            "home_rate_multiplier": 1.0318504,
+            "shrinkage_weight": 0.57627119,
+            "training_unique_fixtures": 136
+          },
+          "Lithuania A Lyga": {
+            "away_rate_multiplier": 1.03686213,
+            "home_rate_multiplier": 1.04306998,
+            "shrinkage_weight": 0.55752212,
+            "training_unique_fixtures": 126
+          },
+          "Malta Premier League": {
+            "away_rate_multiplier": 0.88582049,
+            "home_rate_multiplier": 1.04158728,
+            "shrinkage_weight": 0.51456311,
+            "training_unique_fixtures": 106
+          },
+          "Montenegro Prva Liga": {
+            "away_rate_multiplier": 0.95075517,
+            "home_rate_multiplier": 0.92872941,
+            "shrinkage_weight": 0.46808511,
+            "training_unique_fixtures": 88
+          },
+          "Netherlands Eredivisie": {
+            "away_rate_multiplier": 1.05947228,
+            "home_rate_multiplier": 1.02673811,
+            "shrinkage_weight": 0.68253968,
+            "training_unique_fixtures": 215
+          },
+          "North Macedonia First League": {
+            "away_rate_multiplier": 0.98270778,
+            "home_rate_multiplier": 1.03288458,
+            "shrinkage_weight": 0.43181818,
+            "training_unique_fixtures": 76
+          },
+          "Northern Ireland Premier": {
+            "away_rate_multiplier": 1.10574117,
+            "home_rate_multiplier": 1.04661893,
+            "shrinkage_weight": 0.56331878,
+            "training_unique_fixtures": 129
+          },
+          "Norway Eliteserien": {
+            "away_rate_multiplier": 1.01894854,
+            "home_rate_multiplier": 1.05763108,
+            "shrinkage_weight": 0.60159363,
+            "training_unique_fixtures": 151
+          },
+          "Poland Ekstraklasa": {
+            "away_rate_multiplier": 0.99899145,
+            "home_rate_multiplier": 1.00237003,
+            "shrinkage_weight": 0.67105263,
+            "training_unique_fixtures": 204
+          },
+          "Portugal Primeira Liga": {
+            "away_rate_multiplier": 1.00278352,
+            "home_rate_multiplier": 1.02336279,
+            "shrinkage_weight": 0.69325153,
+            "training_unique_fixtures": 226
+          },
+          "Republic of Ireland Premier Division": {
+            "away_rate_multiplier": 1.11976336,
+            "home_rate_multiplier": 1.08089868,
+            "shrinkage_weight": 0.58677686,
+            "training_unique_fixtures": 142
+          },
+          "Romania Liga I": {
+            "away_rate_multiplier": 0.97684587,
+            "home_rate_multiplier": 1.08918132,
+            "shrinkage_weight": 0.67532468,
+            "training_unique_fixtures": 208
+          },
+          "Saudi Arabia Pro League": {
+            "away_rate_multiplier": 1.03583031,
+            "home_rate_multiplier": 1.02582939,
+            "shrinkage_weight": 0.71751412,
+            "training_unique_fixtures": 254
+          },
+          "Scotland Premiership": {
+            "away_rate_multiplier": 1.03753089,
+            "home_rate_multiplier": 1.06287123,
+            "shrinkage_weight": 0.61977186,
+            "training_unique_fixtures": 163
+          },
+          "Serbia Super Liga": {
+            "away_rate_multiplier": 0.97678751,
+            "home_rate_multiplier": 0.95464845,
+            "shrinkage_weight": 0.67532468,
+            "training_unique_fixtures": 208
+          },
+          "Slovakia Super Liga": {
+            "away_rate_multiplier": 1.09764562,
+            "home_rate_multiplier": 0.99436094,
+            "shrinkage_weight": 0.56896552,
+            "training_unique_fixtures": 132
+          },
+          "Slovenia Prva Liga": {
+            "away_rate_multiplier": 1.02398816,
+            "home_rate_multiplier": 1.10053043,
+            "shrinkage_weight": 0.52606635,
+            "training_unique_fixtures": 111
+          },
+          "South Korea K League 1": {
+            "away_rate_multiplier": 1.04826833,
+            "home_rate_multiplier": 0.91864867,
+            "shrinkage_weight": 0.59839357,
+            "training_unique_fixtures": 149
+          },
+          "Spain La Liga": {
+            "away_rate_multiplier": 1.02943331,
+            "home_rate_multiplier": 1.11487954,
+            "shrinkage_weight": 0.72972973,
+            "training_unique_fixtures": 270
+          },
+          "Sweden Allsvenskan": {
+            "away_rate_multiplier": 1.08113779,
+            "home_rate_multiplier": 1.1032911,
+            "shrinkage_weight": 0.59677419,
+            "training_unique_fixtures": 148
+          },
+          "Switzerland Super League": {
+            "away_rate_multiplier": 1.12323095,
+            "home_rate_multiplier": 1.04505958,
+            "shrinkage_weight": 0.62406015,
+            "training_unique_fixtures": 166
+          },
+          "Türkiye Super Lig": {
+            "away_rate_multiplier": 0.98126225,
+            "home_rate_multiplier": 1.02485713,
+            "shrinkage_weight": 0.6742671,
+            "training_unique_fixtures": 207
+          },
+          "Ukraine Vyscha Liga": {
+            "away_rate_multiplier": 0.97161645,
+            "home_rate_multiplier": 0.97599972,
+            "shrinkage_weight": 0.60159363,
+            "training_unique_fixtures": 151
+          },
+          "Wales Premier League": {
+            "away_rate_multiplier": 0.98499998,
+            "home_rate_multiplier": 0.95144742,
+            "shrinkage_weight": 0.57264957,
+            "training_unique_fixtures": 134
+          }
+        },
+        "method": "league-specific home/away log-rate calibration, partially pooled toward global prior-period factors; fixed shrinkage equivalent to 100 fixtures; no ROI tuning"
+      },
+      "source": "Crown first; TotalCorner default only fills a Crown-missing fixture-market; one latest eligible source-event quote per fixture-market",
+      "timing": {
+        "all_api_receipts_after_kickoff": true,
+        "holdout_quote_event_between_prediction_asof_and_kickoff": true,
+        "holdout_receipts_before_kickoff": 0
+      },
+      "training_fixture_ids_disjoint_from_holdout": true,
+      "training_kickoff_range_utc": [
+        "2025-11-30T11:30:00+00:00",
+        "2026-08-31T23:00:00+00:00"
+      ],
+      "training_source_fixture_markets": {
+        "Crown": 7692,
+        "TotalCorner_default": 438
+      },
+      "training_unique_fixture_markets": 8130
+    },
+    "OU": {
+      "calibrated_holdout": {
+        "max_drawdown_units_by_quote_event_time": 152.05,
+        "net_units": -121.03,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -8.116148,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": -1.26284
+        },
+        "roi_pct": -4.709339,
+        "settled_bets": 2570,
+        "settlement_brier": 0.6265822,
+        "settlement_counts": {
+          "half_loss": 167,
+          "half_win": 148,
+          "loss": 1076,
+          "push": 131,
+          "win": 1048
+        },
+        "settlement_log_loss": 0.99377603,
+        "simulated_bets": 2570,
+        "source_fixture_markets": {
+          "Crown": 2295,
+          "TotalCorner_default": 275
+        },
+        "total_stake_units": 2570,
+        "unique_fixtures": 2570
+      },
+      "cutoff_utc": "2026-09-01T00:00:00Z",
+      "holdout_kickoff_range_utc": [
+        "2026-09-01T01:05:00+00:00",
+        "2026-11-04T17:00:00+00:00"
+      ],
+      "holdout_source_fixture_markets": {
+        "Crown": 2295,
+        "TotalCorner_default": 275
+      },
+      "holdout_unique_fixture_markets": 2570,
+      "parameter_fit": {
+        "away_rate_multiplier": 1.0254264073837474,
+        "home_rate_multiplier": 1.0249180205617396,
+        "method": "separate Poisson log-rate intercept MLE from prior-period actual goals / prior-period score-grid expected goals; no ROI optimization",
+        "training_actual_away_goals": 10092,
+        "training_actual_home_goals": 12476,
+        "training_predicted_away_goals": 9841.75941572,
+        "training_predicted_home_goals": 12172.68088736,
+        "training_unique_fixtures": 8129
+      },
+      "raw_holdout": {
+        "max_drawdown_units_by_quote_event_time": 146.11,
+        "net_units": -125.99,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -8.489397,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": -1.464689
+        },
+        "roi_pct": -4.902335,
+        "settled_bets": 2570,
+        "settlement_brier": 0.63005996,
+        "settlement_counts": {
+          "half_loss": 171,
+          "half_win": 144,
+          "loss": 1076,
+          "push": 131,
+          "win": 1048
+        },
+        "settlement_log_loss": 0.99851295,
+        "simulated_bets": 2570,
+        "source_fixture_markets": {
+          "Crown": 2295,
+          "TotalCorner_default": 275
+        },
+        "total_stake_units": 2570,
+        "unique_fixtures": 2570
+      },
+      "score_grid_logloss_calibrated_holdout": {
+        "max_drawdown_units_by_quote_event_time": 152.05,
+        "net_units": -121.03,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -8.124319,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": -1.231518
+        },
+        "roi_pct": -4.709339,
+        "settled_bets": 2570,
+        "settlement_brier": 0.62658215,
+        "settlement_counts": {
+          "half_loss": 167,
+          "half_win": 148,
+          "loss": 1076,
+          "push": 131,
+          "win": 1048
+        },
+        "settlement_log_loss": 0.99377597,
+        "simulated_bets": 2570,
+        "source_fixture_markets": {
+          "Crown": 2295,
+          "TotalCorner_default": 275
+        },
+        "total_stake_units": 2570,
+        "unique_fixtures": 2570
+      },
+      "score_grid_logloss_parameter_fit": {
+        "away_log_tilt": 0.025108702697465596,
+        "away_rate_multiplier": 1.0254265811017051,
+        "home_log_tilt": 0.024613219673509316,
+        "home_rate_multiplier": 1.024918625490539,
+        "method": "two-parameter exponential tilt of the full M5 score grid fitted by prior-period exact-score negative log likelihood; no ROI optimization",
+        "training_exact_score_log_loss": 2.97093074,
+        "training_unique_fixtures": 8129
+      },
+      "shrunk_league_calibrated_holdout": {
+        "max_drawdown_units_by_quote_event_time": 112.78,
+        "net_units": -73.7675,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -6.256323,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "units": "percent",
+          "upper_95": 0.588035
+        },
+        "roi_pct": -2.870331,
+        "settled_bets": 2570,
+        "settlement_brier": 0.62448302,
+        "settlement_counts": {
+          "half_loss": 164,
+          "half_win": 151,
+          "loss": 1052,
+          "push": 131,
+          "win": 1072
+        },
+        "settlement_log_loss": 0.99056481,
+        "simulated_bets": 2570,
+        "source_fixture_markets": {
+          "Crown": 2295,
+          "TotalCorner_default": 275
+        },
+        "total_stake_units": 2570,
+        "unique_fixtures": 2570
+      },
+      "shrunk_league_parameter_fit": {
+        "fixed_shrinkage_fixtures": 100,
+        "global_training_fixtures": 8129,
+        "league_fits": {
+          "Andorra Premier Division": {
+            "away_rate_multiplier": 0.96125518,
+            "home_rate_multiplier": 1.01116025,
+            "shrinkage_weight": 0.18032787,
+            "training_unique_fixtures": 22
+          },
+          "Armenia Premier League": {
+            "away_rate_multiplier": 1.03595975,
+            "home_rate_multiplier": 1.05468392,
+            "shrinkage_weight": 0.4047619,
+            "training_unique_fixtures": 68
+          },
+          "Austria Bundesliga": {
+            "away_rate_multiplier": 0.95428818,
+            "home_rate_multiplier": 1.02360587,
+            "shrinkage_weight": 0.57264957,
+            "training_unique_fixtures": 134
+          },
+          "Azerbaijan Premier League": {
+            "away_rate_multiplier": 1.0706635,
+            "home_rate_multiplier": 1.0526408,
+            "shrinkage_weight": 0.56521739,
+            "training_unique_fixtures": 130
+          },
+          "Belgium First Division A": {
+            "away_rate_multiplier": 1.08772154,
+            "home_rate_multiplier": 1.00119137,
+            "shrinkage_weight": 0.68454259,
+            "training_unique_fixtures": 217
+          },
+          "Bulgaria First League": {
+            "away_rate_multiplier": 0.99048602,
+            "home_rate_multiplier": 0.95755907,
+            "shrinkage_weight": 0.67213115,
+            "training_unique_fixtures": 205
+          },
+          "China Super League": {
+            "away_rate_multiplier": 1.03940811,
+            "home_rate_multiplier": 1.07129587,
+            "shrinkage_weight": 0.66216216,
+            "training_unique_fixtures": 196
+          },
+          "Colombia Primera A": {
+            "away_rate_multiplier": 1.05736733,
+            "home_rate_multiplier": 1.08225932,
+            "shrinkage_weight": 0.72752044,
+            "training_unique_fixtures": 267
+          },
+          "Croatia HNL": {
+            "away_rate_multiplier": 1.09055253,
+            "home_rate_multiplier": 1.03425634,
+            "shrinkage_weight": 0.56521739,
+            "training_unique_fixtures": 130
+          },
+          "Cyprus Division 1": {
+            "away_rate_multiplier": 1.07185798,
+            "home_rate_multiplier": 1.03409141,
+            "shrinkage_weight": 0.6031746,
+            "training_unique_fixtures": 152
+          },
+          "Czechia First League": {
+            "away_rate_multiplier": 1.08259416,
+            "home_rate_multiplier": 0.97212452,
+            "shrinkage_weight": 0.63099631,
+            "training_unique_fixtures": 171
+          },
+          "Denmark Superligaen": {
+            "away_rate_multiplier": 0.99884644,
+            "home_rate_multiplier": 1.01265704,
+            "shrinkage_weight": 0.55156951,
+            "training_unique_fixtures": 123
+          },
+          "England Premier League": {
+            "away_rate_multiplier": 0.98626585,
+            "home_rate_multiplier": 0.97945134,
+            "shrinkage_weight": 0.73333333,
+            "training_unique_fixtures": 275
+          },
+          "Estonia Meistriliiga": {
+            "away_rate_multiplier": 0.97283511,
+            "home_rate_multiplier": 1.06867101,
+            "shrinkage_weight": 0.54751131,
+            "training_unique_fixtures": 121
+          },
+          "Faroe Islands Premier League": {
+            "away_rate_multiplier": 0.93769095,
+            "home_rate_multiplier": 0.96235221,
+            "shrinkage_weight": 0.48717949,
+            "training_unique_fixtures": 95
+          },
+          "Finland Veikkausliiga": {
+            "away_rate_multiplier": 0.94614058,
+            "home_rate_multiplier": 0.99686296,
+            "shrinkage_weight": 0.56709957,
+            "training_unique_fixtures": 131
+          },
+          "France Ligue 1": {
+            "away_rate_multiplier": 1.03542278,
+            "home_rate_multiplier": 0.9870718,
+            "shrinkage_weight": 0.66442953,
+            "training_unique_fixtures": 198
+          },
+          "Georgia Erovnuli Liga": {
+            "away_rate_multiplier": 0.96949814,
+            "home_rate_multiplier": 0.92189114,
+            "shrinkage_weight": 0.5215311,
+            "training_unique_fixtures": 109
+          },
+          "Germany Bundesliga I": {
+            "away_rate_multiplier": 1.05847625,
+            "home_rate_multiplier": 1.08670959,
+            "shrinkage_weight": 0.67741935,
+            "training_unique_fixtures": 210
+          },
+          "Greece Super League 1": {
+            "away_rate_multiplier": 0.98791442,
+            "home_rate_multiplier": 1.01416737,
+            "shrinkage_weight": 0.6124031,
+            "training_unique_fixtures": 158
+          },
+          "Hungary NB I": {
+            "away_rate_multiplier": 1.04890694,
+            "home_rate_multiplier": 1.0088378,
+            "shrinkage_weight": 0.57983193,
+            "training_unique_fixtures": 138
+          },
+          "Iceland Premier League": {
+            "away_rate_multiplier": 1.15330864,
+            "home_rate_multiplier": 1.10453922,
+            "shrinkage_weight": 0.55357143,
+            "training_unique_fixtures": 124
+          },
+          "Israel Premier League": {
+            "away_rate_multiplier": 1.05940107,
+            "home_rate_multiplier": 1.0551579,
+            "shrinkage_weight": 0.59677419,
+            "training_unique_fixtures": 148
+          },
+          "Italy Serie A": {
+            "away_rate_multiplier": 0.99366528,
+            "home_rate_multiplier": 0.92268218,
+            "shrinkage_weight": 0.73333333,
+            "training_unique_fixtures": 275
+          },
+          "Japan J-League": {
+            "away_rate_multiplier": 1.08217668,
+            "home_rate_multiplier": 1.06572972,
+            "shrinkage_weight": 0.6969697,
+            "training_unique_fixtures": 230
+          },
+          "Kazakhstan Premier League": {
+            "away_rate_multiplier": 0.98679043,
+            "home_rate_multiplier": 1.02751762,
+            "shrinkage_weight": 0.62825279,
+            "training_unique_fixtures": 169
+          },
+          "Kosovo Superliga": {
+            "away_rate_multiplier": 1.02045257,
+            "home_rate_multiplier": 1.04607013,
+            "shrinkage_weight": 0.25373134,
+            "training_unique_fixtures": 34
+          },
+          "Latvia Virsliga": {
+            "away_rate_multiplier": 0.96457777,
+            "home_rate_multiplier": 1.03186263,
+            "shrinkage_weight": 0.57627119,
+            "training_unique_fixtures": 136
+          },
+          "Lithuania A Lyga": {
+            "away_rate_multiplier": 1.0369113,
+            "home_rate_multiplier": 1.04308288,
+            "shrinkage_weight": 0.55752212,
+            "training_unique_fixtures": 126
+          },
+          "Malta Premier League": {
+            "away_rate_multiplier": 0.88586658,
+            "home_rate_multiplier": 1.04160142,
+            "shrinkage_weight": 0.51456311,
+            "training_unique_fixtures": 106
+          },
+          "Montenegro Prva Liga": {
+            "away_rate_multiplier": 0.95080938,
+            "home_rate_multiplier": 0.92874322,
+            "shrinkage_weight": 0.46808511,
+            "training_unique_fixtures": 88
+          },
+          "Netherlands Eredivisie": {
+            "away_rate_multiplier": 1.05950833,
+            "home_rate_multiplier": 1.02674722,
+            "shrinkage_weight": 0.68253968,
+            "training_unique_fixtures": 215
+          },
+          "North Macedonia First League": {
+            "away_rate_multiplier": 0.98276763,
+            "home_rate_multiplier": 1.03290099,
+            "shrinkage_weight": 0.43181818,
+            "training_unique_fixtures": 76
+          },
+          "Northern Ireland Premier": {
+            "away_rate_multiplier": 1.10579292,
+            "home_rate_multiplier": 1.04663171,
+            "shrinkage_weight": 0.56331878,
+            "training_unique_fixtures": 129
+          },
+          "Norway Eliteserien": {
+            "away_rate_multiplier": 1.01899206,
+            "home_rate_multiplier": 1.05764286,
+            "shrinkage_weight": 0.60159363,
+            "training_unique_fixtures": 151
+          },
+          "Poland Ekstraklasa": {
+            "away_rate_multiplier": 0.99902667,
+            "home_rate_multiplier": 1.00237925,
+            "shrinkage_weight": 0.67105263,
+            "training_unique_fixtures": 204
+          },
+          "Portugal Primeira Liga": {
+            "away_rate_multiplier": 1.00281649,
+            "home_rate_multiplier": 1.02337157,
+            "shrinkage_weight": 0.69325153,
+            "training_unique_fixtures": 226
+          },
+          "Republic of Ireland Premier Division": {
+            "away_rate_multiplier": 1.11981296,
+            "home_rate_multiplier": 1.08091117,
+            "shrinkage_weight": 0.58677686,
+            "training_unique_fixtures": 142
+          },
+          "Romania Liga I": {
+            "away_rate_multiplier": 0.98012507,
+            "home_rate_multiplier": 1.0902311,
+            "shrinkage_weight": 0.6742671,
+            "training_unique_fixtures": 207
+          },
+          "Saudi Arabia Pro League": {
+            "away_rate_multiplier": 1.03586168,
+            "home_rate_multiplier": 1.02583749,
+            "shrinkage_weight": 0.71751412,
+            "training_unique_fixtures": 254
+          },
+          "Scotland Premiership": {
+            "away_rate_multiplier": 1.03757318,
+            "home_rate_multiplier": 1.06288253,
+            "shrinkage_weight": 0.61977186,
+            "training_unique_fixtures": 163
+          },
+          "Serbia Super Liga": {
+            "away_rate_multiplier": 0.9768215,
+            "home_rate_multiplier": 0.95465712,
+            "shrinkage_weight": 0.67532468,
+            "training_unique_fixtures": 208
+          },
+          "Slovakia Super Liga": {
+            "away_rate_multiplier": 1.09769633,
+            "home_rate_multiplier": 0.99437292,
+            "shrinkage_weight": 0.56896552,
+            "training_unique_fixtures": 132
+          },
+          "Slovenia Prva Liga": {
+            "away_rate_multiplier": 1.02404018,
+            "home_rate_multiplier": 1.10054501,
+            "shrinkage_weight": 0.52606635,
+            "training_unique_fixtures": 111
+          },
+          "South Korea K League 1": {
+            "away_rate_multiplier": 1.04831346,
+            "home_rate_multiplier": 0.91865898,
+            "shrinkage_weight": 0.59839357,
+            "training_unique_fixtures": 149
+          },
+          "Spain La Liga": {
+            "away_rate_multiplier": 1.02946314,
+            "home_rate_multiplier": 1.11488797,
+            "shrinkage_weight": 0.72972973,
+            "training_unique_fixtures": 270
+          },
+          "Sweden Allsvenskan": {
+            "away_rate_multiplier": 1.08118452,
+            "home_rate_multiplier": 1.10330353,
+            "shrinkage_weight": 0.59677419,
+            "training_unique_fixtures": 148
+          },
+          "Switzerland Super League": {
+            "away_rate_multiplier": 1.12327622,
+            "home_rate_multiplier": 1.04507056,
+            "shrinkage_weight": 0.62406015,
+            "training_unique_fixtures": 166
+          },
+          "Türkiye Super Lig": {
+            "away_rate_multiplier": 0.98129651,
+            "home_rate_multiplier": 1.02486646,
+            "shrinkage_weight": 0.6742671,
+            "training_unique_fixtures": 207
+          },
+          "Ukraine Vyscha Liga": {
+            "away_rate_multiplier": 0.97165794,
+            "home_rate_multiplier": 0.97601059,
+            "shrinkage_weight": 0.60159363,
+            "training_unique_fixtures": 151
+          },
+          "Wales Premier League": {
+            "away_rate_multiplier": 0.9850451,
+            "home_rate_multiplier": 0.95145878,
+            "shrinkage_weight": 0.57264957,
+            "training_unique_fixtures": 134
+          }
+        },
+        "method": "league-specific home/away log-rate calibration, partially pooled toward global prior-period factors; fixed shrinkage equivalent to 100 fixtures; no ROI tuning"
+      },
+      "source": "Crown first; TotalCorner default only fills a Crown-missing fixture-market; one latest eligible source-event quote per fixture-market",
+      "timing": {
+        "all_api_receipts_after_kickoff": true,
+        "holdout_quote_event_between_prediction_asof_and_kickoff": true,
+        "holdout_receipts_before_kickoff": 0
+      },
+      "training_fixture_ids_disjoint_from_holdout": true,
+      "training_kickoff_range_utc": [
+        "2025-11-30T11:30:00+00:00",
+        "2026-08-31T23:00:00+00:00"
+      ],
+      "training_source_fixture_markets": {
+        "Crown": 7691,
+        "TotalCorner_default": 438
+      },
+      "training_unique_fixture_markets": 8129
+    }
+  },
+  "protocol": "M5_CROWN_FIRST_TOTALCORNER_GOAL_RATE_TEMPORAL_HOLDOUT_V1",
+  "strategy_definition": "Each fixture-market selects the side with the greater expected return from the corresponding score grid and the latest valid source-time Crown line/prices, falling back to TotalCorner default only where Crown is absent. Same rule before and after calibration; one unit stake; no EV cutoff or filters."
+}
