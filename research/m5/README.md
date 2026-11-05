@@ -170,3 +170,6 @@ Added a single global home/away scoring-rate tilt, fit from M5 OOS score grids a
 ### Crown checkpoint 9,400 回放
 
 活动采集checkpoint 9,400/127,674候选已处理、AH/OU各8,438场有效Crown报价，完整分市场结果见 [partial receipt](results/m5_source_union_replay_partial_20261105T181254Z.json)。AH ROI -1.671249%，OU -3.952062%，响应全赛后取得，6条无效receipt排除；采集仍运行，结果不是终态或可执行ROI。
+
+
+率校准在新训练样本上的复核（6,169训练/2,295时间留出每市场）见 [最新校准回执](results/m5_crown_goal_rate_temporal_holdout_20261105T181541Z.json)：AH校准ROI -0.162092%，OU -3.968627%；proper score虽改善，但全未达到+3%，且报价receipt均在开赛后。

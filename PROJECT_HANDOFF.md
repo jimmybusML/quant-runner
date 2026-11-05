@@ -1,3 +1,8 @@
+## 2026-11-05T18:15:41.384845+00:00 最新校准留出复核
+- 收据 [`m5_crown_goal_rate_temporal_holdout_20261105T181541Z.json`](research/m5/results/m5_crown_goal_rate_temporal_holdout_20261105T181541Z.json)；同一UTC分界 `2026-09-01`，训练6,169/holdout2,295场每市场，身份集合交集0。只用训练期实际比分与M5分数网格总进球均值拟合Poisson主客rate multiplier（home `1.03715664`、away `1.03330436`），不以holdout ROI调参。
+- 固定AH/OU较高期望回报侧选择规则。AH raw/calibrated留出 ROI `+0.244009%/-0.162092%`，Log Loss/Brier `1.02778536/.64250851`→`1.02692234/.64221580`；OU `-4.723965%/-3.968627%`，LL/Brier `.99662474/.62898185`→`.98973802/.62395207`。AH/OU bootstrap区间分别包含0/完全负。
+- AH/OU各2,295赛后回取Crown response receipt，无真实赛前接收证明；已在总体校准实验中观察到proper score小幅改善但ROI未达+3%。此结果不是新交易规则或ROI确认。
+
 ## 2026-11-05T18:12:54.187679Z M5 Crown 9,400检查点活动回放
 - 聚合回执 [`m5_source_union_replay_partial_20261105T181254Z.json`](research/m5/results/m5_source_union_replay_partial_20261105T181254Z.json) 与持久checkpoint `2026-11-05T18:12:14.461268Z` 对齐：处理9,400/127,674，精确Crown响应9,346，AH/OU各8,438有效源事件赛前价，传输错误54、身份/时间错配0。replay开始后索引继续增长；仍属partial，须最终终态重跑。
 - AH 8,438唯一fixture/投注/结算，W/HW/P/HL/L `3404/568/578/606/3282`，净 `-141.020U`、本金8,438U、ROI `-1.671249%`、DD172.935U、95% bootstrap `[-3.566426%,+0.182567%]`、LL/Brier `1.03367797/.64982883`。OU相同样本数，类别 `3479/457/443/594/3465`，净 `-333.475U`、ROI `-3.952062%`、DD341.405U、区间 `[-5.848483%,-2.074544%]`、LL/Brier `.99032786/.62504509`。
