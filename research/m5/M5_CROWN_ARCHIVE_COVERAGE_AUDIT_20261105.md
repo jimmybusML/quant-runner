@@ -30,6 +30,16 @@ For ongoing M3 pairing, the current research capture archive should be treated a
 - M5 independent AH and OU ROI target: not met.
 - API requests, production writes, Telegram writes, and credential reads: zero.
 
+## Existing authorization and forward-capture paths rechecked (2026-11-05)
+
+The public `quant-runner` repository's GitHub Actions secret metadata lists `TOTALCORNER_TOKEN` and `PRIVATE_REPO_TOKEN`; values were not read. The connected GitHub identity can inspect the private `totalcorner-research-bridge`, whose current root has M1/MR1 material but no M5 historical-capture directory or M5 quote archive. This confirms an existing credential path in Actions, but not that the private-repository token grants the needed checkout from a runner, nor does it provide M5's private per-fixture forecast file to that runner.
+
+The public repository already has an M3-specific Crown prospective pairing workflow on a four-hour schedule. Its latest checked run, [41968378899](https://github.com/ljm198964-alt/quant-runner/actions/runs/41968378899), completed successfully at `2026-11-05T04:31:57Z`. The sanitized report generated at `2026-11-05T02:47:28.510865Z` records 18 M3 quote commitments (9 AH, 9 OU), no raw quote values, no EV or ROI, and `formal_order=false` / `telegram_sent=false`. This is M3's prospective archive only; it is not M5 history or an M5 forecast cohort and must not be added to M5 backtest sample counts.
+
+The private M5 TotalCorner capture remains at 300 of 23,812 unique candidate fixtures processed; 298 exact Crown responses yielded 212 fixtures with valid pre-kickoff AH and 212 with valid pre-kickoff OU, with 2 transport errors. The separate 51-league schedule manifest is incomplete: 4,660 of 4,789 known pages saved, 129 missing, 133,140 completed candidates, and `complete_historical_universe=false`. These are local/private progress records, not public quotes or M5 results.
+
+No M5 request was made in this recheck: the machine has no `TOTALCORNER_TOKEN` environment value, and the extant M3 workflow consumes its token only for M3 data. M5's capture/replay requires its private forecast inputs alongside private raw quote responses; the accessible bridge currently does not contain those M5 inputs. Do not treat M3's successful run as M5 automation acceptance, and do not claim the current auth metadata alone makes M5 historical replay runnable in Actions.
+
 ## Follow-up: V26 archive versus M5 historical forecasts (2026-11-05)
 
 A second, local-only audit inspected the existing `market-resolution/latest` rows for the 47 locked Crown observations and the private M5 forecast file. The public V26 `observations.jsonl` is schema-minimal (status, match ID, signal key and first-seen/freeze timestamps); raw resolved quote/fixture payloads remain outside the public repository. The V26 aggregate `summary.json` has 39 settled scoring rows and aggregate Crown observation P&L, but the scored rows contain no quote prices or market lines.
