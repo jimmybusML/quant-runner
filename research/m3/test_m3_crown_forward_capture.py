@@ -40,18 +40,36 @@ class M3CrownForwardCaptureTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             source_local_to_utc("2026-11-01 01:30:00", "America/New_York")
 
-    def test_only_open_quote_after_forecast_and_before_kickoff_is_eligible(self):
-        forecast = datetime(2026, 11, 6, 1, 0, tzinfo=timezone.utc)
+    def test_only_latest_open_prematch_quote_is_current(self):
         kickoff = datetime(2026, 11, 7, 12, 0, tzinfo=timezone.utc)
         match = {"asianList": [
             [None, "0", 1.9, 1.9, "2026-11-06 08:00:00", 0, 0, 0],
-            [None, "-0.25", 1.9, 2.0, "2026-11-06 10:00:00", 0, 0, 0],
-            [None, "-0.5", 1.9, 2.0, "2026-11-07 21:00:00", 0, 0, 0],
-            [None, "-0.5", 1.9, 2.0, "2026-11-06 11:00:00", 0, 0, 1],
+            [None, "-0.25", 1.9, 2.0, "2026-11-06 08:30:00", 0, 0, 0],
         ]}
-        rows = movement_rows(match, "AH", forecast, kickoff, "Asia/Shanghai")
+        snapshot = datetime(2026, 11, 6, 2, 0, tzinfo=timezone.utc)
+        rows = movement_rows(match, "AH", kickoff, snapshot, "Asia/Shanghai")
         self.assertEqual(len(rows), 1)
         self.assertEqual(rows[0][1][1], "-0.25")
+        self.assertLess(rows[0][0], datetime(2026, 11, 6, 1, 0, tzinfo=timezone.utc))
+
+    def test_latest_suspended_quote_does_not_fall_back_to_older_open_row(self):
+        kickoff = datetime(2026, 11, 7, 12, 0, tzinfo=timezone.utc)
+        match = {"asianList": [
+            [None, "0", 1.9, 1.9, "2026-11-06 08:00:00", 0, 0, 0],
+            [None, None, None, None, "2026-11-06 10:00:00", 0, 0, 1],
+        ]}
+        self.assertEqual(movement_rows(match, "AH", kickoff,
+                         datetime(2026, 11, 6, 2, 0, tzinfo=timezone.utc),
+                         "Asia/Shanghai"), [])
+
+    def test_quote_timestamp_after_api_snapshot_is_rejected(self):
+        kickoff = datetime(2026, 11, 7, 12, 0, tzinfo=timezone.utc)
+        match = {"asianList": [
+            [None, "-0.25", 1.9, 2.0, "2026-11-06 11:00:00", 0, 0, 0],
+        ]}
+        snapshot = datetime(2026, 11, 6, 2, 0, tzinfo=timezone.utc)
+        self.assertEqual(movement_rows(match, "AH", kickoff, snapshot,
+                         "Asia/Shanghai"), [])
 
     def test_fixture_join_requires_exact_curated_identity(self):
         forecast = {"league": "D1", "home_team": "SV Werder Bremen", "away_team": "FC Augsburg"}
@@ -79,7 +97,7 @@ class M3CrownForwardCaptureTest(unittest.TestCase):
           "start": "2026-11-07 20:00:00", "h": "Werder Bremen", "a": "Augsburg",
           "l": "Germany Bundesliga I", "bookmakers": [
             {"slug": "crown", "asianList": [], "goalList": [
-                [None, "2.5", 1.91, 1.91, "2026-11-06 10:00:00", 0, 0, 0]]},
+                [None, "2.5", 1.91, 1.91, "2026-11-06 08:00:00", 0, 0, 0]]},
             {"slug": "default", "asianList": [[None, "0", 1.8, 2.0,
                 "2026-11-06 10:00:00", 0, 0, 0]], "goalList": []},
         ]}]}
@@ -91,9 +109,16 @@ class M3CrownForwardCaptureTest(unittest.TestCase):
         self.assertEqual(event["bookmaker"], "crown")
         self.assertEqual(event["market"], "OU")
         self.assertFalse(event["price_or_line_persisted"])
+        self.assertLess(event["quote_source_updated_at_utc"], forecast["forecasted_at_utc"])
+        self.assertGreater(event["snapshot_received_at_utc"], forecast["forecasted_at_utc"])
+        self.assertEqual(event["snapshot_time_basis"],
+                         "current API response; latest active pre-match Crown movement row")
         self.assertNotIn("price1", event)
         self.assertNotIn("line", event)
         self.assertIn("mean_expected_unit_return", status["mean_ev"]["OU|poisson|over"])
+        pre_forecast_events, _ = build_commitments([forecast], schedule, payload,
+            datetime(2026, 11, 6, 0, 59, tzinfo=timezone.utc), "Asia/Shanghai", "private-key")
+        self.assertEqual(pre_forecast_events, [])
 
     def test_legacy_forecast_direct_probabilities_score_only_supported_lines(self):
         forecast = {"ah_home_0_p_win": 0.5, "ah_home_0_p_push": 0.2,

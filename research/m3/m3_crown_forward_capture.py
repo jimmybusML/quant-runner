@@ -2,9 +2,10 @@
 
 The collector uses the existing TotalCorner credential in the caller's runtime,
 queries only bookmaker=crown, and never writes or prints quote lines/prices or raw
-responses. It records HMAC commitments and UTC provenance in a public append-only
-receipt so that later analysis can distinguish an observed-before-kickoff quote
-from a retrospective history download. M1/M2/MR1 inputs are never opened.
+responses. It records HMAC commitments and both the UTC API-snapshot receipt time
+and provider quote-update time in a public append-only receipt, distinguishing a
+current pre-kickoff snapshot from a retrospective history download. M1/M2/MR1
+inputs are never opened.
 """
 from __future__ import annotations
 
@@ -18,6 +19,7 @@ import math
 import os
 from pathlib import Path
 import re
+import statistics
 import time
 from zoneinfo import ZoneInfo
 
@@ -119,33 +121,34 @@ def canonical_team(value: str) -> str:
     return ALIASES.get(normalized, normalized)
 
 
-def movement_rows(match: dict, market: str, forecast_at: datetime,
-                  kickoff: datetime, source_timezone: str) -> list[tuple[datetime, list]]:
+def movement_rows(match: dict, market: str, kickoff: datetime,
+                  snapshot_at: datetime, source_timezone: str) -> list[tuple[datetime, list]]:
     field = "asian_list" if market == "AH" else "goal_list"
     rows = match.get(field, match.get("asianList" if market == "AH" else "goalList", []))
     if rows is None:
         return []
     if not isinstance(rows, list):
         raise ValueError("Crown movement field must be a list")
-    eligible = []
-    for row in rows:
-        if not isinstance(row, list) or len(row) != 8:
-            continue
-        minute, line, price1, price2, source_time, _hg, _ag, closed = row
-        if minute is not None or closed not in (0, "0", False):
-            continue
-        try:
-            observed = source_local_to_utc(source_time, source_timezone)
-            prices = (float(price1), float(price2))
-            if (not isinstance(line, (str, int, float)) or not str(line).strip()
-                    or any(not math.isfinite(price) or price <= 1 for price in prices)
-                    or any(observed >= bound for bound in (kickoff,))
-                    or observed < forecast_at):
-                continue
-        except (TypeError, ValueError, OverflowError):
-            continue
-        eligible.append((observed, row))
-    return eligible
+    # TotalCorner documents movement arrays as oldest-first and says the last
+    # row reports whether a market is currently suspended. Use that one row;
+    # falling back to an older open row after a later suspension would create
+    # a quote that was not available at the API snapshot time.
+    row = rows[-1] if rows else None
+    if not isinstance(row, list) or len(row) != 8:
+        return []
+    minute, line, price1, price2, source_time, _hg, _ag, closed = row
+    if minute is not None or closed not in (0, "0", False):
+        return []
+    try:
+        updated = source_local_to_utc(source_time, source_timezone)
+        prices = (float(price1), float(price2))
+        if (not isinstance(line, (str, int, float)) or not str(line).strip()
+                or any(not math.isfinite(price) or price <= 1 for price in prices)
+                or updated > snapshot_at or updated >= kickoff):
+            return []
+    except (TypeError, ValueError, OverflowError):
+        return []
+    return [(updated, row)]
 
 
 def _hmac(secret: str, value: object) -> str:
@@ -309,16 +312,22 @@ def build_commitments(forecasts: list[dict], schedule: dict, payload: dict,
     raw_response_hash = _hmac(key, payload)
     for forecast in forecasts:
         forecast_at = parse_utc(forecast["forecasted_at_utc"], "forecasted_at_utc")
+        # The API response itself is the current-snapshot evidence. The quote
+        # row's provider update time can be earlier when an active price did
+        # not move; preserve both timestamps rather than calling it a new
+        # historical odds update.
+        if received_at <= forecast_at:
+            continue
         train_end = (date.fromisoformat(forecast["train_end_calendar_date"])
                      if forecast.get("train_end_calendar_date") else
                      forecast_at.date() - timedelta(days=1))
         if forecast_at >= kickoff or train_end >= kickoff.date():
             continue
         for market in ("AH", "OU"):
-            eligible = movement_rows(bookmaker, market, forecast_at, kickoff, source_timezone)
-            if not eligible:
+            current = movement_rows(bookmaker, market, kickoff, received_at, source_timezone)
+            if not current:
                 continue
-            observed, row = max(eligible, key=lambda item: item[0])
+            observed, row = current[0]
             try:
                 line_ev = _line_ev(forecast, market, row[1], (float(row[2]), float(row[3])))
             except (TypeError, ValueError, OverflowError):
@@ -330,7 +339,7 @@ def build_commitments(forecasts: list[dict], schedule: dict, payload: dict,
                     ev_counts[ev_key] += 1
             row_commitment = _hmac(key, row)
             event = {
-                "protocol": "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V1",
+                "protocol": "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V2",
                 "forecast_id": forecast["forecast_id"],
                 "fixture_identity_id": forecast["fixture_identity_id"],
                 "league": forecast["league"],
@@ -345,8 +354,10 @@ def build_commitments(forecasts: list[dict], schedule: dict, payload: dict,
                 "source_match_id_hmac": _hmac(key, str(schedule["id"])),
                 "source_quote_row_hmac": row_commitment,
                 "source_response_hmac": raw_response_hash,
-                "quote_observed_at_utc": observed.isoformat().replace("+00:00", "Z"),
-                "received_at_utc": received_at.isoformat().replace("+00:00", "Z"),
+                "quote_source_updated_at_utc": observed.isoformat().replace("+00:00", "Z"),
+                "snapshot_received_at_utc": received_at.isoformat().replace("+00:00", "Z"),
+                "quote_update_age_seconds_at_snapshot": max(0, round((received_at - observed).total_seconds())),
+                "snapshot_time_basis": "current API response; latest active pre-match Crown movement row",
                 "kickoff_at_utc": kickoff.isoformat().replace("+00:00", "Z"),
                 "source_timezone": source_timezone,
                 "source_timezone_evidence": "existing TotalCorner profile offset configuration; UTC+08:00",
@@ -486,7 +497,8 @@ def main() -> None:
     commitment_counts_by_market = Counter(row.get("market") for row in prior.values())
     commitment_counts_by_league_market = Counter(
         (row.get("league"), row.get("market")) for row in prior.values())
-    summary = {"protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V1",
+    update_ages = [row["quote_update_age_seconds_at_snapshot"] for row in added]
+    summary = {"protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V2",
         "generated_utc": now.isoformat().replace("+00:00", "Z"),
         "data_source": "TotalCorner bookmaker=crown only",
         "forecast_source": "M3 OpenFootball forward-only shadow; public M3 ledger only",
@@ -498,6 +510,11 @@ def main() -> None:
             forecast_input_fingerprint != previous_forecast_fingerprint or bool(added)),
         "new_learning_information_baseline": "unavailable_first_capture_run" if previous_forecast_fingerprint is None else "previous_capture_report",
         "quote_commitments_added": len(added), "quote_commitments_total": len(prior),
+        "new_commitments_protocol": "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V2",
+        "snapshot_time_basis": "API response received after forecast and before kickoff; latest active Crown pre-match movement row; provider update time retained separately",
+        "new_commitment_quote_update_age_seconds": ({"n": len(update_ages),
+            "median": round(statistics.median(update_ages)),
+            "max": max(update_ages)} if update_ages else {"n": 0, "median": None, "max": None}),
         "quote_commitments_by_market": dict(commitment_counts_by_market),
         "quote_commitments_by_league_market": {"|".join(key): value
             for key, value in sorted(commitment_counts_by_league_market.items())},
