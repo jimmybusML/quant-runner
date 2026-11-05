@@ -411,9 +411,9 @@ def main() -> None:
     token = os.environ.get("TOTALCORNER_TOKEN")
     if not token:
         raise RuntimeError("existing TotalCorner credential is unavailable")
-    now = datetime.now(UTC)
+    capture_started_at = datetime.now(UTC)
     events = [json.loads(line) for line in args.ledger.read_text().splitlines() if line.strip()]
-    forecasts = choose_forecasts(events, now, args.horizon_days)
+    forecasts = choose_forecasts(events, capture_started_at, args.horizon_days)
     forecast_input_fingerprint = hashlib.sha256(json.dumps(sorted(
         [[row["forecast_id"], row["model_version_id"], row["training_input_sha256"]]
          for row in forecasts]), separators=(",", ":")).encode()).hexdigest()
@@ -504,8 +504,10 @@ def main() -> None:
                                 for row in captured}
     captured_by_market = Counter(market for _fixture, market in captured_fixture_markets)
     protocol_counts = Counter(row.get("protocol", "legacy") for row in prior.values())
+    report_generated_at = datetime.now(UTC)
     summary = {"protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V2",
-        "generated_utc": now.isoformat().replace("+00:00", "Z"),
+        "capture_started_utc": capture_started_at.isoformat().replace("+00:00", "Z"),
+        "generated_utc": report_generated_at.isoformat().replace("+00:00", "Z"),
         "data_source": "TotalCorner bookmaker=crown only",
         "forecast_source": "M3 OpenFootball forward-only shadow; public M3 ledger only",
         "forecasts_considered": len(forecasts), "fixtures_with_unique_schedule_identity": len(candidates),
