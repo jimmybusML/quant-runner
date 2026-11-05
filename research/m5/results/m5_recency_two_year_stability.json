@@ -1,0 +1,139 @@
+{
+  "cross_year_league_persistence": {
+    "AH_1X2_brier": {
+      "both_years_improved": 24,
+      "both_years_worsened": 7,
+      "direction_reversed": 19,
+      "leagues": 51
+    },
+    "AH_1X2_log_loss": {
+      "both_years_improved": 21,
+      "both_years_worsened": 6,
+      "direction_reversed": 22,
+      "leagues": 51
+    },
+    "OU_O2_5_brier": {
+      "both_years_improved": 10,
+      "both_years_worsened": 13,
+      "direction_reversed": 27,
+      "leagues": 51
+    },
+    "OU_O2_5_log_loss": {
+      "both_years_improved": 9,
+      "both_years_worsened": 12,
+      "direction_reversed": 30,
+      "leagues": 51
+    }
+  },
+  "crown_prices_used": false,
+  "frozen_scope_complete_historical_universe": false,
+  "generated_utc": "2026-11-05T03:09:07.199119+00:00",
+  "limitations": [
+    "These are forecast proper scores, not Crown-priced AH/OU ROI.",
+    "The 2025 and 2026 OOS identities are in different UTC calendar years and are not duplicated across these cohorts.",
+    "The schedule manifest covers the fixed 51-league scope only partially.",
+    "Only per-league aggregate scores are available here; no fixture-level bootstrap is inferred.",
+    "Cross-year league persistence is descriptive and does not define a league filter."
+  ],
+  "manifest_sha256": "258702e669bd5c1569b16bc191ce66e7117a368f409c3028572de5fd9186d0bf",
+  "protocol": "M5_RECENCY_TWO_YEAR_OOS_STABILITY_AUDIT_V1",
+  "roi": null,
+  "source_receipt_sha256": {
+    "2025": "504481c6e9073838fb21b7afa1b6b7315567555dd43ffdf7bda17731fc49abbf",
+    "2026": "70c9502a8abc55af6b1680453840ddc3760ec14b3658bcbc98eb5b6a00249604"
+  },
+  "years": {
+    "2025": {
+      "chronological_fold_guards_passed": true,
+      "folds": 51,
+      "leagues": 51,
+      "metrics": {
+        "AH_1X2_brier": {
+          "baseline": 0.609162956964323,
+          "candidate": 0.6051898090275685,
+          "candidate_minus_baseline": -0.0039731479367545175,
+          "fixtures": 11967,
+          "league_weighted_delta_reconciled": -0.003973147936751426,
+          "leagues_improved": 34,
+          "leagues_worsened": 17
+        },
+        "AH_1X2_log_loss": {
+          "baseline": 1.017066974484351,
+          "candidate": 1.012220552803639,
+          "candidate_minus_baseline": -0.004846421680712032,
+          "fixtures": 11967,
+          "league_weighted_delta_reconciled": -0.004846421680708216,
+          "leagues_improved": 32,
+          "leagues_worsened": 19
+        },
+        "OU_O2_5_brier": {
+          "baseline": 0.2468550537609188,
+          "candidate": 0.24732213206737833,
+          "candidate_minus_baseline": 0.0004670783064595341,
+          "fixtures": 11967,
+          "league_weighted_delta_reconciled": 0.0004670783064581074,
+          "leagues_improved": 28,
+          "leagues_worsened": 23
+        },
+        "OU_O2_5_log_loss": {
+          "baseline": 0.6870808770436709,
+          "candidate": 0.6885541553001333,
+          "candidate_minus_baseline": 0.0014732782564623736,
+          "fixtures": 11967,
+          "league_weighted_delta_reconciled": 0.0014732782564693216,
+          "leagues_improved": 28,
+          "leagues_worsened": 23
+        }
+      },
+      "time_isolation": "Half-life selected independently per league using 2024 exact-score log loss only. Model refit uses UTC fixtures before 2025-01-01; every scored 2025 fixture is identity-disjoint and strictly later than training. No 2025 outcome is used for selection.",
+      "unique_oos_fixtures": 11967,
+      "validation_year": "2024"
+    },
+    "2026": {
+      "chronological_fold_guards_passed": true,
+      "folds": 51,
+      "leagues": 51,
+      "metrics": {
+        "AH_1X2_brier": {
+          "baseline": 0.6063913352109903,
+          "candidate": 0.6043346108657016,
+          "candidate_minus_baseline": -0.0020567243452886963,
+          "fixtures": 10235,
+          "league_weighted_delta_reconciled": -0.0020567243452933,
+          "leagues_improved": 33,
+          "leagues_worsened": 17
+        },
+        "AH_1X2_log_loss": {
+          "baseline": 1.0146834247192218,
+          "candidate": 1.011134514962054,
+          "candidate_minus_baseline": -0.0035489097571677064,
+          "fixtures": 10235,
+          "league_weighted_delta_reconciled": -0.003548909757162774,
+          "leagues_improved": 33,
+          "leagues_worsened": 16
+        },
+        "OU_O2_5_brier": {
+          "baseline": 0.24823206496226732,
+          "candidate": 0.24883452530444544,
+          "candidate_minus_baseline": 0.0006024603421781183,
+          "fixtures": 10235,
+          "league_weighted_delta_reconciled": 0.0006024603421774641,
+          "leagues_improved": 20,
+          "leagues_worsened": 30
+        },
+        "OU_O2_5_log_loss": {
+          "baseline": 0.6902900797550928,
+          "candidate": 0.691578021424934,
+          "candidate_minus_baseline": 0.0012879416698411417,
+          "fixtures": 10235,
+          "league_weighted_delta_reconciled": 0.00128794166983302,
+          "leagues_improved": 20,
+          "leagues_worsened": 31
+        }
+      },
+      "time_isolation": "Half-life selected independently per league using 2025 exact-score log loss only. Model refit uses UTC fixtures before 2026-01-01; every scored 2026 fixture is identity-disjoint and strictly later than training. No 2026 outcome is used for selection.",
+      "unique_oos_fixtures": 10235,
+      "validation_year": "2025"
+    }
+  }
+}
