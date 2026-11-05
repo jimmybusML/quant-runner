@@ -1,10 +1,14 @@
 # M5 独立融合研究
 
+**最新收益目标（2026-11-05 用户重启）**：AH、OU 独立研究，任一市场的样本外 ROI ≥3% 即达到收益指标；每个市场仍需至少10,000场真实唯一历史比赛。Crown 优先；缺少可用 Crown 市场报价时允许使用 TotalCorner（TOTAL），两种来源分别标识及统计。下方旧报告中的“两个市场均需 >5%”属于早期目标记录，已被本目标覆盖。
+
 生成时间：2026-11-05 UTC。M5 是独立研究身份；本目录不连接 M1/MR1/M3 的生产预测、订单、账本或 Telegram。当前已有真实概率前推实验、Crown AH/OU 回放和同场 OU quote-time 配对诊断，但尚未完成每市场10,000场 Crown 历史收益验证或 M5 Actions 验收。最新报告与新增 quote-time 诊断见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)，当前 M5 forecast 生成于 `2026-11-04T21:39:54Z` UTC，依赖回放于 `2026-11-04T21:41Z` UTC 重算。
 
 截至 2026-11-05 Crown 来源复核，M5 私有 historical capture 仅处理 300/23,812 个候选；已有验证赛前报价目前为 212 AH、212 OU，去重后的同价 MR1 V6 可比 cohort 是每市场 870 场，均未达到每市场 10,000 场。GitHub Actions 中现有 `TOTALCORNER_TOKEN` 与 `PRIVATE_REPO_TOKEN` 只确认了 Secret 名称，未读取值；可访问的 private bridge 当前没有 M5 forecast/raw quote 输入。公开仓库已有 M3 专用 Crown 前瞻采集，最新成功 run [41968378899](https://github.com/ljm198964-alt/quant-runner/actions/runs/41968378899) 只增加 9 AH / 9 OU M3 quote commitments，不含价格、EV 或 ROI，也不计入 M5 样本。详见 [M5 Crown archive coverage audit](M5_CROWN_ARCHIVE_COVERAGE_AUDIT_20261105.md)。
 
-当前权威快照见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md) 末节：133,140 个 partial-scope 完赛候选、127,674 个 UTC 年×联赛 OOS 预测、584 折；forecast SHA `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`。M3 精确共同 OOS 为 7,663 场，嵌套评估 7,252 场；最新 MR1 verified Crown receipt-before-kickoff + 独立 FT 的同价 M5/MR1 V6 对照为 AH/OU 各 870 场；TotalCorner endpoint historical movement AH/OU 各 212 场（response/FT 在赛后，不能算赛前收到）。所有 ROI 均是部分样本描述值；两个市场的 OOS ROI >5% 与每市场 10,000 场合法 Crown 证据目标都未达到，M5 Actions workflow 当前不存在。代码与产物：
+新增的 exact same-quote M5/M1 V23 Crown OU 对照使用 `/private/tmp/m1-m5-private` 现有归档：56 场冻结报价 eligible，严格配对 M5 OOS、赛前收据和独立 FT 后保留 23 场。M5 ROI `-8.804348%`，M1 V23 calibrated ROI `-0.543478%`；两者均低于本次 `>=3%` 收益目标，且样本远不足10,000。聚合结果及复现代码见 [same-quote replay](results/m5_m1_v23_crown_ou_comparison.json) 与 [script](m5_m1_v23_crown_ou_comparison.py)。
+
+当前基础快照见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)：133,140 个 partial-scope 完赛候选、127,674 个 UTC 年×联赛 OOS 预测、584 折；forecast SHA `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`。重启目标下，Crown 仅在两边均达到10,000唯一样本后才满足样本量要求；旧数据仍不足。近期严格 M5/M1 V23 同价 Crown OU 比较只有23场，M5 ROI -8.804348%、M1 calibrated ROI -0.543478%；未达到新目标。正在私有续跑 TotalCorner Crown历史报价回填，见 [`M5_CROWN_ARCHIVE_COVERAGE_AUDIT_20261105.md`](M5_CROWN_ARCHIVE_COVERAGE_AUDIT_20261105.md)。代码与产物：
 
 - [probability_stack_oos.py](probability_stack_oos.py) → [M3 13,234 场逐季前推概率结果](results/m5_probability_stack_oos.json)
 - [m1_ou_crown_small_archive_replay.py](m1_ou_crown_small_archive_replay.py) → [M1 冻结 Crown OU 小样本回放](results/m1_ou_crown_small_archive.json)
@@ -24,6 +28,7 @@
 - [m5_goal_model_totalcorner_crown_partial.json](results/m5_goal_model_totalcorner_crown_partial.json) → TotalCorner Crown endpoint 事件时间来源的独立 212 场/市场 partial 重放；与 MR1 存档样本不混合。
 - [m5_crown_factor_audit.py](m5_crown_factor_audit.py) → 对赛前 quote time、盘线/水位变化做不含逐场明细的分位描述；不是策略筛选器。完整汇总见 [factor audit](results/m5_goal_model_crown_factor_audit.json)。
 - [m5_m1_same_quote_oos_replay.py](m5_m1_same_quote_oos_replay.py) → M1 V23 的OU预测均值与M5在同一 Crown 盘口/水位/verified FT上的精确 fixture 配对回放；当前 OU n=14（AH无样本），不能外推。结果见 [same-quote report](results/m5_goal_model_m1_same_quote_oos.json)。
+- [m5_m1_v23_crown_ou_comparison.py](m5_m1_v23_crown_ou_comparison.py) → 将 M5 年度前推比分网格与私有 `/private/tmp/m1-m5-private` 的 M1 V23 frozen calibrated total 在相同 Crown OU 合约、同一独立 FT 上比较；当前严格共同 n=23，均未达到新目标。报告 [aggregate receipt](results/m5_m1_v23_crown_ou_comparison.json) 不含原始价格、fixture IDs 或逐场记录。
 
 ## 可复核数据现状
 

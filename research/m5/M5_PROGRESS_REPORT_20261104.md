@@ -2,6 +2,8 @@
 
 报告时间：2026-11-04 UTC。M5 保持独立研究身份。本报告没有修改 M1/MR1/M3 生产策略、订单、结算账本、Telegram 或自动任务；没有使用 M1/MR1/M3 正式派单执行 M5 策略。所有收益按 1U 单注、Crown 盘口回放或已有 Crown-only 汇总计算。
 
+> **目标版本说明（2026-11-05 用户重启）**：此报告主体是 2026-11-04 旧目标时期形成的研究记录；其中“两个市场都需 ROI >5%”等句子只保留为历史上下文。最新目标覆盖旧冲突要求：AH 与 OU 独立统计、每市场样本仍需至少 10,000 场，但只要任一市场样本外 ROI ≥3% 即达到收益目标；Crown 优先，无该市场可用 Crown 报价时允许单列 TotalCorner（TOTAL）结果。不得把来源混合成一个报价流或增加未经确认的门槛。重启后新增的 M5/M1 V23 Crown OU 比较见本报告末节及 [`m5_m1_v23_crown_ou_comparison.json`](results/m5_m1_v23_crown_ou_comparison.json)。
+
 ## 结论摘要
 
 - 已在 **13,234 场不重复真实比赛**上，对严格按赛季/时间外推得到的 M3 Poisson、Dixon-Coles、Bivariate Poisson 预测做了逐赛季前推概率融合研究。AH0 与 OU2.5 分开统计。权重每一测试季只用更早测试季的 OOS 预测训练。13,234 场宽口径概率集合不含逐场 Crown 线价；本轮另从 MR1 本机历史归档精确配对出小型 2026/27 Crown OOS 子样本，详见 M5-D。
@@ -806,3 +808,16 @@ Added [`m5_crown_goal_rate_bias_holdout.py`](m5_crown_goal_rate_bias_holdout.py)
 All four fitted goal-rate multipliers exceed 1, indicating that the early training fixtures had higher aggregate home and away scores than the original M5 forecasts implied. The adjustment improves both settlement proper scores for all four later-holdout comparisons; however, its ROI impact is mixed. M5 recency AH improves by 1.605661 percentage points but remains negative and its interval crosses zero. M5 recency OU worsens by 6.477273 points despite slightly better settlement calibration; both OU corrected models remain negative. This distinction shows that better score-distribution calibration alone does not demonstrate a profitable price edge. The chronological holdout is from the already studied 2026 Crown archive, not a pristine new sample. It remains 265 AH / 264 OU later bets, far below the 10,000 Crown-sample objective.
 
 The aggregate receipt [`results/m5_crown_goal_rate_bias_holdout.json`](results/m5_crown_goal_rate_bias_holdout.json) contains source hashes and no fixture identities, prices, or private rows. Reproduction used only local read-only archives. A fresh credential-path audit found no `TOTALCORNER_TOKEN` environment variable and no matching local Keychain item; the private quote capture remains at 300 processed candidates / 298 requests / 212 fixtures with valid Crown AH+OU, plus two transport errors. No GitHub Secret value was read, no API call was attempted, and no production or Telegram changes were made.
+
+## 2026-11-05 M5 versus frozen M1 V23 on exact same Crown OU quotes
+
+The newly available private input directory `/private/tmp/m1-m5-private` contains the frozen M1 V23 Crown archive. Added [`m5_m1_v23_crown_ou_comparison.py`](m5_m1_v23_crown_ou_comparison.py) to compare the M5 annual UTC walk-forward score grid against the frozen M1 calibrated-total forecast on the *same* exact Crown OU contract, independently verified FT, and unique fixture. This comparison does not use a positive-EV gate or any additional bet-count rule: each model independently selects the higher expected-return side on the Crown price pair and stakes 1U.
+
+The M1 archive has 1,705 first-observed fixtures and 56 frozen quote-eligible fixtures, but only 23 passed the strict common M5 forecast, exact identity, UTC timestamp, Crown event/receipt, and independently verified post-kickoff FT join. The other 33 were excluded because 19 lacked an exact M5 forecast, 12 lacked a separate FT receipt in the available private receipt file, and 2 lacked an independent verified FT. For all 23 included rows, `M5 train_end < prediction_asof <= Crown event < receipt < kickoff`, and the verified FT receipt followed kickoff. AH is unavailable in this M1 source cohort and is not inferred.
+
+| Model | Unique fixtures | Bets / settled | W / HW / P / HL / L | Net U | ROI | Max DD U | Settlement LL / Brier | Fixture bootstrap 95% ROI interval |
+|---|---:|---:|---|---:|---:|---:|---|---|
+| M5 annual UTC walk-forward score grid | 23 | 23 / 23 | 9 / 1 / 1 / 3 / 9 | -2.025 | -8.804348% | 5.120 | 1.01699220 / 0.63367145 | -43.413043% to +26.456522% |
+| M1 V23 calibrated total forecast | 23 | 23 / 23 | 9 / 3 / 1 / 1 / 9 | -0.125 | -0.543478% | 4.000 | 1.02615530 / 0.63762130 | -35.282609% to +34.695652% |
+
+This is a small, retrospective same-Crown comparison, not a pristine M5 live-signal test; the 2026 M5 forecast cohort was used in earlier research. M1's point result is less negative on this subset, but both estimates have wide fixture-bootstrap intervals and are below the restarted `ROI >=3%` target. The sanitized receipt [`results/m5_m1_v23_crown_ou_comparison.json`](results/m5_m1_v23_crown_ou_comparison.json) contains aggregate metrics and SHA-256 input receipts only; raw quote values, teams, fixture IDs, and private rows remain outside the public repository. No API request, production write, or Telegram action occurred.

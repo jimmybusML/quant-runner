@@ -1,3 +1,13 @@
+## 2026-11-05 M5 研究重启（收益目标与 Crown/TotalCorner 数据接入更新）
+- 最新用户目标覆盖此前冲突要求：AH、OU 独立统计；每市场仍需至少10,000个唯一真实历史样本；任一市场样本外 ROI ≥3% 即达到收益指标。Crown 优先，单个市场缺少有效 Crown 盘口时可用并单列 TotalCorner（TOTAL）；不增加 EV、联赛、时间或下注数量门槛。
+- 恢复 `research/m5/crown_historical_capture.py`、127,674 行 M5 UTC walk-forward forecast，以及用户指定私有目录 `/private/tmp/m1-m5-private` 的 M1 V23 Crown OU observations、summary 与 verified FT 收据。M1 源目录仅只读；M1/MR1/M3/M4 生产、订单、账本、TG 都未改变。
+- 前次错误地只查环境变量/错误 Keychain 服务。当前本机维护脚本所用服务 `QuantAsiaDesk.TOTALCORNER_TOKEN` 的 Keychain 条目存在。M5 采集由 wrapper 在内存将现有凭证传给原 TotalCorner 客户端；未打印、落盘或提交凭证值，也未请求新授权。
+- 赛程恢复命令核对51个缓存 page-1，无新请求、无错误，但每个缓存 page-1 只报告1页；原 partial schedule receipt 仍是4,660/4,789页，129页缺失，历史赛事全集仍不完整。
+- 从现有 schedule rows 对齐完整 M5 forecast 后，M5 历史 Crown 候选 manifest 从旧狭窄 forecast 子集23,812扩大到127,674个真实 OOS fixture；这是从完整forecast恢复候选交集，不是新比赛或新预测。Crown-only采集已使用专属 bookmaker endpoint、3.1秒请求间隔、10,000 AH 与10,000 OU独立目标，写入权限受限的本机 M5 私有存档。`2026-11-05T05:49Z` 索引已461条响应，其中 AH/OU各295场有有效赛前源事件报价；当时 shell session `46701` 仍运行。请先检查该 session 与 append-only 索引，不可再并行启动第二个 TotalCorner 请求循环。
+- M5/M1 V23 同 Crown OU 收据 `research/m5/results/m5_m1_v23_crown_ou_comparison.json`：1,705首见比赛、56冻结盘口合格、严格 M5/quote/FT共同样本23场/18联赛（kickoff UTC 2026-10-09至11-01）。M5为-2.025U/-8.804348%，M1 V23 calibrated为-0.125U/-0.543478%；两者 bootstrap区间都宽，且样本远小于10,000。赛事预测 train_end < prediction_asof ≤ Crown event < receipt < kickoff，独立FT receipt在开赛后。此为回顾性对照，不是当时发布的M5前瞻信号。
+- 该比较代码/聚合结果已在 `research/m5/m5_m1_v23_crown_ou_comparison.py` 与结果JSON生成；仍需检查新脚本、按新≥3%目标更新报告/README，然后推送 M5 分支。TotalCorner default `/match/odds` 有独立接口代码但 M5 fallback collector/replay 尚待实现；同一fixture-market须Crown优先、TOTAL仅补缺且来源分别报告。
+- 当前新增提交之前的 M5 分支 HEAD 为 `310e3e8e4716e2fd62f1028f35c41497e8b8a0af`；本次重启后的代码、结果与报告尚未 commit。M5目标仍在进行，不得标记成功/blocked；等待当前Crown采集进度及最终严格重放。
+
 ## 2026-11-04 M5 独立融合研究启动与历史回放（仅研究）
 - 公开仓库 `quant-runner/main` commit `bc6488b3bd148fbde04f8edd281fa5b2b75e1383` 保存 M5 独立研究代码、聚合结果和报告：`research/m5/M5_PROGRESS_REPORT_20261104.md`、`README.md`。M5 不接入 M1/MR1/M3 正式订单、结算账本、Telegram 或自动运行；未修改任何生产策略/赛事范围。
 - M3 penaltyblog 输入报告生成于 `2026-11-04T11:59:53.779352Z`。共同预测有效的 14,806 场中，逐季先前 OOS 预测训练融合权重、2019/20 至 2026/27 留出评估为 13,234 场唯一 fixture；AH0 与 OU O2.5 独立。融合 1X2 未超过 Dixon-Coles，OU 权重每季选择 Bivariate Poisson、未超过该单模型。源数据不含可配对 Crown 线价，故无 ROI。

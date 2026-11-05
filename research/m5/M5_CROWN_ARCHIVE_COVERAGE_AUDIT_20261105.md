@@ -1,5 +1,7 @@
 # M5 Crown Archive Coverage Audit — 2026-11-05
 
+> **Goal update:** The user restarted M5 on 2026-11-05: keep AH and OU independent, retain at least 10,000 unique real fixtures per market, and consider the return target met if either market reaches sample-out ROI ≥3%. Crown remains preferred; where a market has no Crown quote, TotalCorner (TOTAL) may be reported as its own source. Earlier sections mentioning the retired dual-market >5% objective are historical context only.
+
 This is an aggregate-only audit of an additional local MR1 research archive discovered during M5 coverage review. The source checkout remains read-only. No raw quote, fixture ID, team, token, or private ledger row is copied into the public repository.
 
 ## Findings
@@ -50,6 +52,18 @@ Re-ran the existing private Crown replay against the unchanged local capture and
 | OU | 212 | 212 / 212 | 88 / 15 / 9 / 19 / 81 | -0.600 | -0.283019% | 16.060 |
 
 These are event-time historical movement backtests: the Crown movement source timestamps precede kickoff, but the API responses and FT data were received after the matches. Keep this cohort separate from contemporaneously received MR1 Crown snapshots. Each market remains below 10,000 unique fixtures, and neither ROI exceeds +5%.
+
+## M5 restart: verified Keychain path and resumed capture (2026-11-05)
+
+The previous credential audit checked environment variables and an incorrect Keychain service name. The existing local maintenance code identifies the credential service as `QuantAsiaDesk.TOTALCORNER_TOKEN`; its Keychain item is present for the current user. The M5 capture was launched by a small in-memory wrapper that passes the credential to the existing TotalCorner client; the value was not printed, written to disk, or committed. No new authorization was requested.
+
+Resumed `crown_historical_capture.py schedules` with the existing private scope file. Its 51 cached page-1 envelopes each reported one current page, so it made zero schedule-page requests and did not repair the older historical page gaps. The separate frozen partial manifest still has 4,660/4,789 known schedule pages and 129 missing; do not treat the 51-page recheck as a complete historical schedule refresh.
+
+The Crown collector then rebuilt its candidate manifest by exact identity against the full M5 UTC annual walk-forward forecast. It found 127,674 common OOS fixture rows, whereas the old checkpoint had been built against a narrower 23,812-row forecast subset. This expands the eligible collection universe; it does not add forecast fixtures or outcomes. The existing capture runs with a 3.1-second minimum interval, Crown-specific `/match/bookmaker_odds` endpoint, 10,000 valid-fixture target separately for AH and OU, and private raw response storage.
+
+At the last progress inspection (`2026-11-05T05:49Z`), the live capture had 461 Crown response-index entries, with 295 fixtures containing source-time-valid AH and 295 containing source-time-valid OU. This is collection progress only, not M5 ROI. The old progress summary updates every 100 processed fixtures and can lag the append-only response index. The capture handle remains active; wait for its next progress checkpoint before freezing/replaying the newly accumulated data.
+
+The existing M3 forward-Crown collector is not reused for M5, and its forecasts/quote commitments are excluded from M5. The existing TotalCorner default `/match/odds` research path is source-distinct from Crown; an M5 historical fallback collector/replay is still pending and must select TOTAL only where the same fixture-market has no valid Crown quote. Never merge prices under a Crown label or count a fixture-market twice.
 
 ## Follow-up: V26 archive versus M5 historical forecasts (2026-11-05)
 

@@ -1,0 +1,94 @@
+{
+  "crown_quote_event_utc_range": [
+    "2026-10-08T13:31:46Z",
+    "2026-10-30T23:04:39Z"
+  ],
+  "crown_quote_receipt_utc_range": [
+    "2026-10-08T16:28:11.822326Z",
+    "2026-10-31T01:53:52.934832Z"
+  ],
+  "exact_common_settled_fixtures": 23,
+  "forecast_rows": 127674,
+  "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+  "generated_utc": "2026-11-05T05:47:32.091419Z",
+  "kickoff_utc_range": [
+    "2026-10-09T01:10:00Z",
+    "2026-11-01T10:30:00Z"
+  ],
+  "limitations": [
+    "This is a small retrospective same-Crown comparison, not 10,000 fixtures and not an M5 prospective live-signal ledger.",
+    "The M1 V23 quote-selection archive was frozen before this M5 comparison; this does not imply the M5 model was contemporaneously issued.",
+    "Only OU is available in this source archive; no AH result is inferred."
+  ],
+  "m5_train_end_and_asof_precede_crown_event_verified": true,
+  "markets": {
+    "OU": {
+      "M1_V23_frozen_calibrated_total_model": {
+        "fixture_bootstrap_roi_95pct": [
+          -35.282609,
+          34.695652
+        ],
+        "max_drawdown_units_by_quote_event": 4.0,
+        "mean_selected_ev_pct": 6.675647,
+        "net_units": -0.125,
+        "roi_pct": -0.543478,
+        "settled_bets": 23,
+        "settlement_brier": 0.6376213,
+        "settlement_counts": {
+          "half_loss": 1,
+          "half_win": 3,
+          "loss": 9,
+          "push": 1,
+          "win": 9
+        },
+        "settlement_log_loss": 1.0261553,
+        "simulated_bets": 23,
+        "unique_fixtures": 23
+      },
+      "M5_annual_walk_forward_full_score_grid": {
+        "fixture_bootstrap_roi_95pct": [
+          -43.413043,
+          26.456522
+        ],
+        "max_drawdown_units_by_quote_event": 5.12,
+        "mean_selected_ev_pct": 14.342244,
+        "net_units": -2.025,
+        "roi_pct": -8.804348,
+        "settled_bets": 23,
+        "settlement_brier": 0.63367145,
+        "settlement_counts": {
+          "half_loss": 3,
+          "half_win": 1,
+          "loss": 9,
+          "push": 1,
+          "win": 9
+        },
+        "settlement_log_loss": 1.0169922,
+        "simulated_bets": 23,
+        "unique_fixtures": 23
+      }
+    }
+  },
+  "outcome_source_independent_post_kickoff_receipt_verified": true,
+  "private_source_hashes": {
+    "M1_Crown_observations": "83929310c0dc0a3b7e62a986513ed19ccd2877fe11f9cf0e5dc2291a7ede69dc",
+    "M1_frozen_summary": "b4e054c8cecd82f7828080d9bea3f5955f54c66531342e016ad3ab3df9a212ce",
+    "independent_verified_FT_receipts": "ebc8623a2bf126be84c276e700ce7e482678b2f53984b61ad51778b7a05710a4"
+  },
+  "protocol": "M5_M1_V23_CROWN_OU_SAME_QUOTE_REPLAY_V1",
+  "quote_received_before_kickoff_verified": true,
+  "raw_quotes_fixture_rows_and_ids_published": false,
+  "selection_method": "On each identical Crown OU line and over/under price pair, each model selects its higher expected-return side and stakes 1U; no EV threshold or other bet-count filter.",
+  "source_bookmaker": "Crown",
+  "source_eligible_fixtures": 56,
+  "source_observations": 1705,
+  "source_protocol": "M1_OU_CROWN_MARKET_CHALLENGER_V23",
+  "unique_fixture_identity": "Exact TotalCorner match ID plus identical UTC kickoff and normalized home/away/league names; one Crown OU contract per fixture.",
+  "unique_leagues": 18,
+  "validation_counts": {
+    "eligible_settled_common_fixtures": 23,
+    "ft_receipt_validation_fail": 12,
+    "no_exact_m5_fixture_id": 19,
+    "no_independent_verified_ft": 2
+  }
+}
