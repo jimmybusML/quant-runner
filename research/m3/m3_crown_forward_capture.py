@@ -464,6 +464,7 @@ def main() -> None:
         except (json.JSONDecodeError, OSError):
             previous_report = {}
     added = []
+    captured = []
     statuses = Counter()
     ev_aggregate = {}
     key = token
@@ -481,6 +482,7 @@ def main() -> None:
                 bucket["n"] += values["n"]
                 bucket["sum"] += values["mean_expected_unit_return"] * values["n"]
             for row in rows:
+                captured.append(row)
                 if row["event_id"] not in prior:
                     added.append(row)
                     prior[row["event_id"]] = row
@@ -497,7 +499,11 @@ def main() -> None:
     commitment_counts_by_market = Counter(row.get("market") for row in prior.values())
     commitment_counts_by_league_market = Counter(
         (row.get("league"), row.get("market")) for row in prior.values())
-    update_ages = [row["quote_update_age_seconds_at_snapshot"] for row in added]
+    update_ages = [row["quote_update_age_seconds_at_snapshot"] for row in captured]
+    captured_fixture_markets = {(row["fixture_identity_id"], row["market"])
+                                for row in captured}
+    captured_by_market = Counter(market for _fixture, market in captured_fixture_markets)
+    protocol_counts = Counter(row.get("protocol", "legacy") for row in prior.values())
     summary = {"protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V2",
         "generated_utc": now.isoformat().replace("+00:00", "Z"),
         "data_source": "TotalCorner bookmaker=crown only",
@@ -510,9 +516,16 @@ def main() -> None:
             forecast_input_fingerprint != previous_forecast_fingerprint or bool(added)),
         "new_learning_information_baseline": "unavailable_first_capture_run" if previous_forecast_fingerprint is None else "previous_capture_report",
         "quote_commitments_added": len(added), "quote_commitments_total": len(prior),
+        "quote_commitments_by_protocol": dict(protocol_counts),
         "new_commitments_protocol": "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V2",
         "snapshot_time_basis": "API response received after forecast and before kickoff; latest active Crown pre-match movement row; provider update time retained separately",
-        "new_commitment_quote_update_age_seconds": ({"n": len(update_ages),
+        "current_snapshot_fixture_coverage_by_market": {market: {
+            "fixtures_with_current_snapshot": captured_by_market[market],
+            "fixtures_with_unique_schedule_identity": len(candidates),
+            "coverage_fraction": round(captured_by_market[market] / len(candidates), 6)
+                if candidates else None,
+        } for market in ("AH", "OU")},
+        "current_snapshot_quote_update_age_seconds": ({"n": len(update_ages),
             "median": round(statistics.median(update_ages)),
             "max": max(update_ages)} if update_ages else {"n": 0, "median": None, "max": None}),
         "quote_commitments_by_market": dict(commitment_counts_by_market),
