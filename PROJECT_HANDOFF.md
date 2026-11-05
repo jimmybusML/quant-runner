@@ -3967,3 +3967,9 @@
 - Formal private progress `2026-11-05T18:51:05Z`: 9,900/127,674 processed; 9,841 exact responses; 59 transport errors; 8,914 valid quotes/market; identity/time mismatches 0; collector PID 19740 active.
 - Replay `m5_source_union_replay_partial_20261105T185223Z.json` at `2026-11-05T18:52:23Z`: 8,919 fixtures/market, AH -156.440U/-1.754008%, OU -337.125U/-3.779852%; eight timestamp-invalid rows excluded and all others post-kickoff receipts.
 - Holdout `m5_crown_goal_rate_temporal_holdout_20261105T185437Z.json` at `2026-11-05T18:54:37Z`: 6,640 train/2,295 disjoint holdout per market; calibrated ROI AH +0.220479%, OU -3.893246%; all API receipts post-kickoff. Crown is below 10,000 valid quotes/market, so TOTAL fallback has not run.
+
+
+## 2026-11-05 M5 10,000-candidate checkpoint
+- Crown progress `2026-11-05T18:59:55Z` processed 10,000/127,674 candidates, but valid quote counts were only 9,008 AH and 9,008 OU. Do not confuse processed candidate count with market sample size. Collector remains active.
+- Response-index replay `m5_source_union_replay_partial_20261105T190047Z.json` generated `2026-11-05T19:00:47Z`: 9,015 fixtures/market, AH -161.845U/-1.795286%, OU -339.700U/-3.768164%; 14 invalid receipt timestamps excluded and all included receipts were post-kickoff.
+- Temporal holdout `m5_crown_goal_rate_temporal_holdout_20261105T190305Z.json` generated `2026-11-05T19:03:05Z`: 6,746 train/2,295 disjoint holdout per market; calibrated AH +0.220044%, OU -3.977778%; no ROI target reached. All receipts post-kickoff.
