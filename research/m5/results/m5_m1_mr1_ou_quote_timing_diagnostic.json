@@ -1,0 +1,225 @@
+{
+  "all_kickoff_years": [
+    2026
+  ],
+  "crown_prices_used_only": true,
+  "descriptive_change_groups": {
+    "OU_line_changed": {
+      "M5_baseline": {
+        "M1_eventtime_ROI_pct": -2.517915,
+        "MR1_later_quote_ROI_pct": -7.0,
+        "fixtures": 307
+      },
+      "M5_recency": {
+        "M1_eventtime_ROI_pct": -3.374593,
+        "MR1_later_quote_ROI_pct": -9.140065,
+        "fixtures": 307
+      }
+    },
+    "OU_line_unchanged": {
+      "M5_baseline": {
+        "M1_eventtime_ROI_pct": -2.709412,
+        "MR1_later_quote_ROI_pct": 0.577647,
+        "fixtures": 425
+      },
+      "M5_recency": {
+        "M1_eventtime_ROI_pct": -2.861176,
+        "MR1_later_quote_ROI_pct": 0.521176,
+        "fixtures": 425
+      }
+    },
+    "both_prices_unchanged": {
+      "M5_baseline": {
+        "M1_eventtime_ROI_pct": 6.71875,
+        "MR1_later_quote_ROI_pct": 3.65625,
+        "fixtures": 16
+      },
+      "M5_recency": {
+        "M1_eventtime_ROI_pct": 8.53125,
+        "MR1_later_quote_ROI_pct": 4.65625,
+        "fixtures": 16
+      }
+    },
+    "either_side_price_changed": {
+      "M5_baseline": {
+        "M1_eventtime_ROI_pct": -2.837989,
+        "MR1_later_quote_ROI_pct": -2.740223,
+        "fixtures": 716
+      },
+      "M5_recency": {
+        "M1_eventtime_ROI_pct": -3.335894,
+        "MR1_later_quote_ROI_pct": -3.713687,
+        "fixtures": 716
+      }
+    }
+  },
+  "generated_utc": "2026-11-05T01:59:31.486180Z",
+  "input_sha256": {
+    "M1_Crown_observations": "83929310c0dc0a3b7e62a986513ed19ccd2877fe11f9cf0e5dc2291a7ede69dc",
+    "M5_baseline_forecasts": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+    "M5_recency_forecasts": "fc2abf89b2ac80eb2ba72bf9e992f25eeda11502f2e87cd2bd965b921843d26d",
+    "MR1_Crown_snapshot_hash_set": "1065121476946e695ea2597b0da3e7bd5284768513b85fab79623626669d8252",
+    "MR1_V6_record_hash_set": "2f579e4cc89a250a8315a45488336a15f9416b673092c1539de6b35e612622d1",
+    "MR1_fixture_registry": "19ed1f31f9dc1204b583048a32957c144520a5daaa5aa72b833db46927c140d2",
+    "MR1_independent_FT_hash_set": "5cd32fec1308515935d46dcec5de6aef3944f80895a2e721287c91616dd80561",
+    "MR1_snapshot_index": "d47466dd79683d47c0917ab0ac50736cb61c4bf882aaa232f82eb0d19eeab138",
+    "finished_fixture_manifest": "7dfd0629afde53d123b273ef18ceef5b2ea54733371fdbc53ebee92af120204a"
+  },
+  "limitations": [
+    "Both quote timestamps precede kickoff and both M5 predictions precede their quote event. The early M1 historical source-event rows were fetched later and do not prove fill or contemporaneous receipt.",
+    "This compares quote times on the same fixtures; line/price movements are descriptive and do not define a new bet gate.",
+    "All fixtures are from 2026 and have appeared in previous M5 exploratory research; this is not an untouched independent profitability confirmation.",
+    "Sample size is below 10,000; ROI changes are not evidence of stable profit."
+  ],
+  "market": "OU",
+  "matched_unique_fixtures": 732,
+  "no_filters_or_gates_added": true,
+  "paired_later_minus_earlier_roi_delta": {
+    "M5_baseline": {
+      "late_minus_early_net_units": 0.21,
+      "late_minus_early_roi_percentage_points": 0.028689,
+      "paired_fixture_bootstrap_95pct_interval_pp": {
+        "lower_2_5_pct": -3.474044,
+        "resamples": 10000,
+        "seed": 20261230,
+        "upper_97_5_pct": 3.54918
+      },
+      "paired_unique_fixtures": 732
+    },
+    "M5_recency": {
+      "late_minus_early_net_units": -3.325,
+      "late_minus_early_roi_percentage_points": -0.454235,
+      "paired_fixture_bootstrap_95pct_interval_pp": {
+        "lower_2_5_pct": -4.078552,
+        "resamples": 10000,
+        "seed": 20261231,
+        "upper_97_5_pct": 3.088798
+      },
+      "paired_unique_fixtures": 732
+    }
+  },
+  "protocol": "M5_M1_MR1_OU_PAIRED_QUOTE_TIMING_DIAGNOSTIC_V1",
+  "quote_timing_and_movement": {
+    "M1_event_before_MR1_event_fixtures": 732,
+    "both_prices_unchanged_fixtures": 16,
+    "either_side_price_changed_fixtures": 716,
+    "forecast_side_flipped_between_quotes": {
+      "M5_baseline": 49,
+      "M5_recency": 52
+    },
+    "line_changed_fixtures": 307,
+    "line_unchanged_fixtures": 425,
+    "mean_absolute_line_change": 0.110656,
+    "mean_absolute_over_price_change": 0.080287,
+    "mean_absolute_under_price_change": 0.081899,
+    "quote_gap_hours_median": 75.712083,
+    "quote_gap_hours_p90": 160.574417
+  },
+  "same_fixture_same_forecast_metrics": {
+    "M5_baseline": {
+      "early_M1_eventtime_quote": {
+        "full_loss": 295,
+        "full_win": 304,
+        "half_loss": 43,
+        "half_win": 45,
+        "max_drawdown_by_quote_event_units": 36.77,
+        "net_units": -19.245,
+        "push": 45,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -9.01776,
+          "resamples": 10000,
+          "seed": 20261210,
+          "upper_97_5_pct": 3.806694
+        },
+        "roi_pct": -2.629098,
+        "settled_bets": 732,
+        "simulated_bets": 732,
+        "unique_fixtures": 732
+      },
+      "later_MR1_receipt_verified_quote": {
+        "full_loss": 291,
+        "full_win": 300,
+        "half_loss": 56,
+        "half_win": 47,
+        "max_drawdown_by_quote_event_units": 45.4,
+        "net_units": -19.035,
+        "push": 38,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -9.092896,
+          "resamples": 10000,
+          "seed": 20261220,
+          "upper_97_5_pct": 3.876366
+        },
+        "roi_pct": -2.60041,
+        "settled_bets": 732,
+        "simulated_bets": 732,
+        "unique_fixtures": 732
+      }
+    },
+    "M5_recency": {
+      "early_M1_eventtime_quote": {
+        "full_loss": 297,
+        "full_win": 302,
+        "half_loss": 42,
+        "half_win": 46,
+        "max_drawdown_by_quote_event_units": 37.065,
+        "net_units": -22.52,
+        "push": 45,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -9.39071,
+          "resamples": 10000,
+          "seed": 20261211,
+          "upper_97_5_pct": 3.282787
+        },
+        "roi_pct": -3.076503,
+        "settled_bets": 732,
+        "simulated_bets": 732,
+        "unique_fixtures": 732
+      },
+      "later_MR1_receipt_verified_quote": {
+        "full_loss": 295,
+        "full_win": 296,
+        "half_loss": 54,
+        "half_win": 49,
+        "max_drawdown_by_quote_event_units": 43.61,
+        "net_units": -25.845,
+        "push": 38,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -9.847678,
+          "resamples": 10000,
+          "seed": 20261221,
+          "upper_97_5_pct": 2.828552
+        },
+        "roi_pct": -3.530738,
+        "settled_bets": 732,
+        "simulated_bets": 732,
+        "unique_fixtures": 732
+      }
+    }
+  },
+  "source_evidence": {
+    "early": "M1 Crown historical source-event timestamp; fetched later and not contemporaneous receipt proof",
+    "late": "MR1 V6 verified Crown snapshot; received before kickoff",
+    "pairing_rule": "Same exact fixture ID, league, UTC kickoff, home/away outcome; early M1 Crown event precedes later MR1 Crown event; both forecast as-of times precede their quote events"
+  },
+  "validation_counts": {
+    "M1": {
+      "M1_Crown_observation_rows": 1705,
+      "M5_forecast_precedes_Crown_event": 1032,
+      "exact_M5_ID_join": 1397,
+      "exact_fixture_identity": 1032,
+      "fixture_identity_conflict": 12,
+      "missing_M5_baseline_or_candidate": 308,
+      "missing_or_invalid_timestamps": 353,
+      "unique_fixture_markets_after_dedup": 1032
+    },
+    "MR1_V6": {
+      "candidate_exact_id_records": 9573,
+      "eligible_quote_records_AH": 6804,
+      "eligible_quote_records_OU": 6804,
+      "forward_record_identity_or_outcome_flag_fail": 87,
+      "independent_ft_fail": 2682,
+      "verified_crown_forward_records": 17338
+    }
+  }
+}
