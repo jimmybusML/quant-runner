@@ -1,3 +1,8 @@
+## 2026-11-05 14:16 北京时间 M1远端持久化与统一协调器更新
+- M1本机结算账本/报告在此前本地更新后未与既有远端同步，已执行原仓库 `m1_commit_state.sh formal`，安全autostash/rebase后成功推送远端master `6a9ecbd9`，无强制推送。新统一协调器追加 `m1_persist_settlements.py`：仅当本地存在远端未有的settlement ID时才提交，避免每轮生成时间变化造成无意义提交；实测 `M1_SETTLEMENT_PERSIST_NO_NEW 763`。
+- MR1统一协调器新增独立远端写入步骤并经06:10:35Z执行验证 `STATE_PERSISTED`。M3全链路报告刷新和持久化06:09:41Z成功，报告 `anomalies=[]`。本机M1/MR1/M3 `settle` 操作均接入统一协调器。
+- 旧MR1独立结算LaunchAgent已卸载并移离LaunchAgents；现有M1 GitHub扫描流程仍内嵌旧结算逻辑，不能误报全系统已彻底替换。外部赛果多来源自动抓取尚未完成，M1仍有未核实旧单。后续必须继续迁移，不能将协调器上线视为全部工作完成。
+
 ## 2026-11-05 14:12 北京时间 补充验证：新MR1自动远端持久化通过
 - 06:10:35Z 使用最新统一协调器单独执行MR1：第1步复核仅剩1场已过原开赛时间未核验的Kolos–Polissya（外部多源显示Postponed），未擅自结算；第2步 `STATE_PERSISTED` 成功写入现有MR1远端；审计06:11:04Z生成；最终 `COMPLETED failed=[]`。正式MR1 588已发送、576已结算、12未结算，其中1延期、11尚未到开赛时间。
 - 旧MR1独立结算LaunchAgent已卸载且从LaunchAgents目录移至本机 `state/retired_com.quantasia.mr1.settle.plist`；新的统一Agent `com.quantasia.unified.settlement` 已启动且首轮exit=0。MR1 collector仍运行，它不是旧结算调度。

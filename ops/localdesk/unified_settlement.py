@@ -59,7 +59,8 @@ def main():
         env={**os.environ,'TOTALCORNER_TOKEN':token.stdout.strip()}
         runner=REPOS/'runner';m1=REPOS/'m1';mr1=REPOS/'mr1'
         commands={
-          'm1':[([PY,'m1_formal_runtime.py','settle'],m1),([PY,'m1_formal_runtime.py','report'],m1)],
+          'm1':[([PY,'m1_formal_runtime.py','settle'],m1),([PY,'m1_formal_runtime.py','report'],m1),
+                (['/usr/bin/python3',str(BASE/'scripts/m1_persist_settlements.py')],BASE)],
           'mr1':[([NODE,str(BASE/'scripts/mr1_formal_result_reconcile.mjs')],mr1),
                  (['/usr/bin/python3',str(BASE/'scripts/mr1_persist_local.py')],BASE)],
           'm3':[([PY,'-m','research.m3.segmented_ledger','materialize'],runner),
