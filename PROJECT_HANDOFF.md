@@ -1,3 +1,13 @@
+## 2026-11-05 08:35 北京时间 M3/MR1 本地生产故障修复与真实验证
+- M3 06:00故障根因已逐字段核实：444条已持久化 `M3_TOTALCORNER_FORWARD_SETTLEMENT_V1` 事件仅 `observed_utc` 不同，其余所有字段完全一致；旧持久化器误判不可变事件冲突。修复 `research/m3/persist_append_ledger.py`：仅该结算协议、仅观察时间差异视为同一不可变事件，保留远端原记录，任何赛果/收益/其他字段差异仍报冲突。代码提交公开main `bff674f`。手动恢复写入成功 `PERSISTED added=1826`。
+- M3 为避免每次重复请求已结算比赛，`research/m3/totalcorner_shadow_settle.py` 在采集赛果前仅选择尚无不可变结算事件的影子订单；不改变下注/模型/结算规则，测试已结算订单不会再触发FT请求通过。公开main提交 `210e5da`。
+- M3 全链路新运行 `20261105T001012Z-da0670a`（北京时间08:10开始）**succeeded**，10/10步骤完成；第8步赛果核验 `settlements_added=444`，第9步 `PERSISTED added=1765 segments=1 attempt=1`，第10步 `REPORTED` 到 `~/QuantAsiaDesk/state/m3_latest.json`，报告生成UTC 00:32:44，`anomalies=[]`。这属于M3影子结算，不是正式TG实战。
+- MR1 GitHub状态持久化故障：原master与远端分歧、旧rebase/abort错误；保留本地数据并用 `git -c rebase.autostash=true rebase origin/master` 成功整合，核对本地settled 571条包含远端569条且重叠无差异。推送成功 `3cac1cdfe7`，修复本机 `src/persist-github-state.js` merge-base判断，正式代码提交私有既有MR1仓库 `9a98be1eee`（只修现有链路，不把新工作部署到私有仓库）。再次直接执行持久化返回 `STATE_PERSISTED`。
+- MR1 08:10新全链路job `20261105T001032Z-03c8caf` **succeeded** 5/5步骤，第5步 `STATE_PERSISTED`，当时正式通知 14候选/0已发/14未知。进一步查明新的中文TG签名 `【MR1 正式投注单】` 未被旧 `sendTelegram` 签名白名单接受，调用在网络前确定性拒绝，造成12个 `UNKNOWN` 误标。根据代码路径、回执内容和尝试时间，仅将这12个确定未发的outbox记录改为NOT_SENT（保留原因），没有重发真正未知的旧消息；允许新正式投注单签名后重试，得到 `sent=12 skipped=2 unknown=0 failed=0`，Telegram返回真实message_id 1691..1702。正式账本由576条增至588条，588个唯一signal_id，已向GitHub远端持久化 `STATE_PERSISTED`，MR1代码修复提交 `e01f5b7df6`。没有发送结算/战绩TG。
+- MR1新发12单中文字段但赛事名曾回退英文，根因是MR1本机缺失 `external/football-display-registry/...`，M1已有共享核实中文库 `~/QuantAsiaDesk/repos/m1/data/football_display_names/display_names.json`，包含12276球队/771联赛。已在本机 `app.py` MR1运行环境和 `scripts/mr1_notify.mjs` 设置 `FOOTBALL_DISPLAY_REGISTRY_DIR` 指向共享M1库，测试哥伦比亚甲级联赛、百万富翁、卡利美洲正确显示；此修复对下一笔TG生效，已发历史TG不自动编辑。
+- TG控制权由用户掌握：本机当前M1/MR1开、M3/M4关，未擅自调整。M4研究报告仍不得自动发TG。M3开关可由用户操作，仅预测比赛单可发，不混入正式战绩。
+- 本机后台重启HTTP200，M3最新报告生成2026-11-05T00:32:44Z、无异常。M3/MR1最新全链路均已成功，但未来每轮仍需按真实执行记录核查，不保证外部API永不故障。
+
 ## 2026-11-05 07:40 北京时间 TG控制权纠正及M3/MR1本机故障调查
 - 用户纠正：TG开关开启/关闭只能由用户选择；此前擅自将M3/M4研究通知全部禁用并禁止重新开启，超越授权。用户明确禁止的是结算、战绩、盈亏、研究报告等非比赛订单的自动TG发送。当前 `settings.json` M1/MR1 true、M3/M4 false，是已有设置，未擅自开启。
 - 本机 `~/QuantAsiaDesk/app.py` 已撤销M3/M4开关强制拒绝；恢复M3在用户开启TG时的预测消息 `research_notify.emit_m3` 路径；`research_notify.py` 恢复M3消息发送函数，但M4 `emit_m4` 改为无发送返回，仅后台显示M4研究报告。语法检查通过、本地控制台HTTP200；未发测试TG。需注意M3仍为影子预测，用户可决定是否开启其通知，不得混入正式实战成绩。
