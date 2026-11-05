@@ -1,0 +1,317 @@
+{
+  "MR1_fixture_registry_sha256": "9a64299c7a754662761965842ffc6ae18dbf25359499bd917cb95e9772d883cc",
+  "MR1_snapshot_index_sha256": "536259f7e5381947db5726294e9a772cac5c0e17680541e70faeacf4b36386fc",
+  "crown_prices_used_only": true,
+  "forecast_sha256": "fc2abf89b2ac80eb2ba72bf9e992f25eeda11502f2e87cd2bd965b921843d26d",
+  "generated_utc": "2026-11-05T00:09:51.957779+00:00",
+  "limitations": [
+    "The verified Crown sample is short and concentrated in one recent period; bins are not strategy tests or evidence of cross-season stability.",
+    "Some training-quantile cut points tie, yielding empty or unequal holdout groups.",
+    "The model expected return uses the M5 full-score probability grid and the quoted Crown line/price; the realized ROI is noisy and the bootstrap interval is descriptive.",
+    "Public artifact contains aggregate counts, metrics, and hashes only."
+  ],
+  "markets": {
+    "AH": {
+      "bin_cutpoints_frozen_from_training_period": true,
+      "bin_definition": "Train-period quartiles of the M5 model's larger of the two Crown-price expected returns; tied cut values may create empty or unequal bins. Descriptive only.",
+      "holdout_all_fixture_baseline": {
+        "fixtures": 262,
+        "mean_predicted_ev_pct": 17.694484,
+        "net_units": -4.155,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -12.416031,
+          "resamples": 10000,
+          "seed": 20261104,
+          "upper_97_5_pct": 9.192748
+        },
+        "roi_minus_mean_predicted_ev_percentage_points": -19.280362,
+        "roi_pct": -1.585878,
+        "settled_bets": 262,
+        "settlements": {
+          "half_loss": 20,
+          "half_win": 21,
+          "loss": 100,
+          "push": 18,
+          "win": 103
+        },
+        "simulated_bets": 262
+      },
+      "holdout_by_training_EV_quartile": {
+        "1": {
+          "fixtures": 64,
+          "mean_predicted_ev_pct": 1.551405,
+          "net_units": -3.435,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -26.539062,
+            "resamples": 10000,
+            "seed": 20261106,
+            "upper_97_5_pct": 16.617187
+          },
+          "roi_minus_mean_predicted_ev_percentage_points": -6.918592,
+          "roi_pct": -5.367188,
+          "settled_bets": 64,
+          "settlements": {
+            "half_loss": 4,
+            "half_win": 6,
+            "loss": 27,
+            "push": 2,
+            "win": 25
+          },
+          "simulated_bets": 64
+        },
+        "2": {
+          "fixtures": 62,
+          "mean_predicted_ev_pct": 9.362436,
+          "net_units": -1.4,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -23.580645,
+            "resamples": 10000,
+            "seed": 20261107,
+            "upper_97_5_pct": 19.306452
+          },
+          "roi_minus_mean_predicted_ev_percentage_points": -11.6205,
+          "roi_pct": -2.258065,
+          "settled_bets": 62,
+          "settlements": {
+            "half_loss": 5,
+            "half_win": 5,
+            "loss": 23,
+            "push": 6,
+            "win": 23
+          },
+          "simulated_bets": 62
+        },
+        "3": {
+          "fixtures": 67,
+          "mean_predicted_ev_pct": 18.907446,
+          "net_units": 4.17,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -15.037313,
+            "resamples": 10000,
+            "seed": 20261108,
+            "upper_97_5_pct": 26.768657
+          },
+          "roi_minus_mean_predicted_ev_percentage_points": -12.683565,
+          "roi_pct": 6.223881,
+          "settled_bets": 67,
+          "settlements": {
+            "half_loss": 4,
+            "half_win": 5,
+            "loss": 24,
+            "push": 4,
+            "win": 30
+          },
+          "simulated_bets": 67
+        },
+        "4": {
+          "fixtures": 69,
+          "mean_predicted_ev_pct": 38.97674,
+          "net_units": -3.49,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -25.855072,
+            "resamples": 10000,
+            "seed": 20261109,
+            "upper_97_5_pct": 15.369565
+          },
+          "roi_minus_mean_predicted_ev_percentage_points": -44.034711,
+          "roi_pct": -5.057971,
+          "settled_bets": 69,
+          "settlements": {
+            "half_loss": 7,
+            "half_win": 5,
+            "loss": 26,
+            "push": 6,
+            "win": 25
+          },
+          "simulated_bets": 69
+        }
+      },
+      "holdout_lower_M5_EV_side_diagnostic": {
+        "fixtures": 262,
+        "mean_predicted_ev_pct": -23.493638,
+        "net_units": -10.575,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -14.94084,
+          "resamples": 10000,
+          "seed": 20261103,
+          "upper_97_5_pct": 6.230916
+        },
+        "roi_minus_mean_predicted_ev_percentage_points": 19.457379,
+        "roi_pct": -4.03626,
+        "settled_bets": 262,
+        "settlements": {
+          "half_loss": 21,
+          "half_win": 20,
+          "loss": 103,
+          "push": 18,
+          "win": 100
+        },
+        "simulated_bets": 262
+      },
+      "holdout_quote_time_range_utc": [
+        "2026-10-22T13:59:01Z",
+        "2026-11-03T10:12:40Z"
+      ],
+      "pre_cutoff_rows_purged_for_late_FT_receipt": 3,
+      "quote_time_cutoff_utc": "2026-10-22T13:59:01Z",
+      "roi_gate_or_selection_rule_added": false,
+      "source_verified_unique_fixture_markets": 871,
+      "train_fixtures_with_FT_received_before_holdout_quote": 606,
+      "untouched_later_quote_time_holdout_fixtures": 262
+    },
+    "OU": {
+      "bin_cutpoints_frozen_from_training_period": true,
+      "bin_definition": "Train-period quartiles of the M5 model's larger of the two Crown-price expected returns; tied cut values may create empty or unequal bins. Descriptive only.",
+      "holdout_all_fixture_baseline": {
+        "fixtures": 262,
+        "mean_predicted_ev_pct": 14.965501,
+        "net_units": -20.75,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -18.501908,
+          "resamples": 10000,
+          "seed": 20261104,
+          "upper_97_5_pct": 2.650763
+        },
+        "roi_minus_mean_predicted_ev_percentage_points": -22.885349,
+        "roi_pct": -7.919847,
+        "settled_bets": 262,
+        "settlements": {
+          "half_loss": 22,
+          "half_win": 13,
+          "loss": 111,
+          "push": 13,
+          "win": 103
+        },
+        "simulated_bets": 262
+      },
+      "holdout_by_training_EV_quartile": {
+        "1": {
+          "fixtures": 69,
+          "mean_predicted_ev_pct": 0.821608,
+          "net_units": 7.49,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -10.246377,
+            "resamples": 10000,
+            "seed": 20261106,
+            "upper_97_5_pct": 30.637681
+          },
+          "roi_minus_mean_predicted_ev_percentage_points": 10.033465,
+          "roi_pct": 10.855072,
+          "settled_bets": 69,
+          "settlements": {
+            "half_loss": 5,
+            "half_win": 3,
+            "loss": 23,
+            "push": 3,
+            "win": 35
+          },
+          "simulated_bets": 69
+        },
+        "2": {
+          "fixtures": 57,
+          "mean_predicted_ev_pct": 7.9045,
+          "net_units": -6.945,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -35.0,
+            "resamples": 10000,
+            "seed": 20261107,
+            "upper_97_5_pct": 11.429825
+          },
+          "roi_minus_mean_predicted_ev_percentage_points": -20.088711,
+          "roi_pct": -12.184211,
+          "settled_bets": 57,
+          "settlements": {
+            "half_loss": 6,
+            "half_win": 3,
+            "loss": 25,
+            "push": 2,
+            "win": 21
+          },
+          "simulated_bets": 57
+        },
+        "3": {
+          "fixtures": 59,
+          "mean_predicted_ev_pct": 15.757801,
+          "net_units": -7.965,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -35.271186,
+            "resamples": 10000,
+            "seed": 20261108,
+            "upper_97_5_pct": 9.025424
+          },
+          "roi_minus_mean_predicted_ev_percentage_points": -29.257801,
+          "roi_pct": -13.5,
+          "settled_bets": 59,
+          "settlements": {
+            "half_loss": 5,
+            "half_win": 4,
+            "loss": 26,
+            "push": 4,
+            "win": 20
+          },
+          "simulated_bets": 59
+        },
+        "4": {
+          "fixtures": 77,
+          "mean_predicted_ev_pct": 32.259787,
+          "net_units": -13.33,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -37.116883,
+            "resamples": 10000,
+            "seed": 20261109,
+            "upper_97_5_pct": 2.753247
+          },
+          "roi_minus_mean_predicted_ev_percentage_points": -49.571475,
+          "roi_pct": -17.311688,
+          "settled_bets": 77,
+          "settlements": {
+            "half_loss": 6,
+            "half_win": 3,
+            "loss": 37,
+            "push": 4,
+            "win": 27
+          },
+          "simulated_bets": 77
+        }
+      },
+      "holdout_lower_M5_EV_side_diagnostic": {
+        "fixtures": 262,
+        "mean_predicted_ev_pct": -21.583373,
+        "net_units": 2.365,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -9.860687,
+          "resamples": 10000,
+          "seed": 20261103,
+          "upper_97_5_pct": 11.616412
+        },
+        "roi_minus_mean_predicted_ev_percentage_points": 22.486044,
+        "roi_pct": 0.902672,
+        "settled_bets": 262,
+        "settlements": {
+          "half_loss": 13,
+          "half_win": 22,
+          "loss": 103,
+          "push": 13,
+          "win": 111
+        },
+        "simulated_bets": 262
+      },
+      "holdout_quote_time_range_utc": [
+        "2026-10-22T11:20:39Z",
+        "2026-11-02T11:31:42Z"
+      ],
+      "pre_cutoff_rows_purged_for_late_FT_receipt": 3,
+      "quote_time_cutoff_utc": "2026-10-22T11:20:39Z",
+      "roi_gate_or_selection_rule_added": false,
+      "source_verified_unique_fixture_markets": 871,
+      "train_fixtures_with_FT_received_before_holdout_quote": 606,
+      "untouched_later_quote_time_holdout_fixtures": 262
+    }
+  },
+  "method": "Using exact MR1 verified Crown receipts and separate post-kickoff FT, one latest quote per fixture-market. Early-period train outcomes must have been received before the holdout quote boundary. Train-period expected-return quartiles are frozen and evaluated on the later quote-time holdout. No threshold is selected or applied.",
+  "protocol": "M5_MR1_CROWN_EV_TIME_SPLIT_CALIBRATION_V1",
+  "verified_Crown_snapshot_count": 871,
+  "verified_Crown_snapshot_hash_set_sha256": "32ad634a363f4869708766b7875b3cbba3cd5e5aa0240550194d05aec5c6152a",
+  "verified_FT_receipt_count": 871,
+  "verified_FT_receipt_hash_set_sha256": "65bc9ca3e891532f6b7e8f6198e052adf78e5f726e81440be329b14323ef7f42"
+}

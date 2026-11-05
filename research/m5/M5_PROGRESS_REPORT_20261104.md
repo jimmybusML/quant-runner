@@ -601,6 +601,21 @@ Post-hoc splits by quote age, chosen side price, open-to-latest line movement an
 
 The source-union/MR1 aggregate and the chronological M3 blend are distinct samples and must not be combined. No M5 GitHub Actions workflow is configured or verified. This work added local research scripts and public aggregate artifacts only; it did not change M1/M2/MR1/M3 production, Telegram, or model promotion.
 
+## 2026-11-05 M5 expected-return calibration diagnostic
+
+To investigate why the M5 model's expected returns did not match realized ROI, [`m5_mr1_crown_ev_calibration.py`](m5_mr1_crown_ev_calibration.py) fixes expected-return quartile cut points on the early quote-time period, then measures them on the later 262-fixture-per-market time holdout. Training uses 606 fixtures with independently verified FT received before the holdout quote boundary; 3 boundary rows are purged. AH and OU are evaluated independently. Each fixture uses one latest verified Crown price and split-line settlement. No EV threshold or bet selection rule is applied.
+
+| Market / holdout comparison | Fixtures | Mean model EV | Realized net U | ROI | 95% fixture-bootstrap ROI interval |
+|---|---:|---:|---:|---:|---:|
+| AH: model's higher-EV side, all fixtures | 262 | +17.694% | -4.155 | -1.586% | -12.416% to +9.193% |
+| AH: model's lower-EV side diagnostic | 262 | -23.494% | -10.575 | -4.036% | -14.941% to +6.231% |
+| OU: model's higher-EV side, all fixtures | 262 | +14.966% | -20.750 | -7.920% | -18.502% to +2.651% |
+| OU: model's lower-EV side diagnostic | 262 | -21.583% | +2.365 | +0.903% | -9.861% to +11.616% |
+
+The frozen train EV quartiles do not show a monotonic relationship between predicted EV and realized ROI. The highest-EV quartile realized AH `-5.058%` against mean predicted EV `+38.977%`, and OU `-17.312%` against `+32.260%`. AH's third quartile was `+6.224%` on 67 fixtures, while OU's lowest quartile was `+10.855%` on 69 fixtures; both intervals are wide and include material losses. The lower-EV-side OU diagnostic is near breakeven and does not reach the >5% goal. These figures indicate severe EV overconfidence / weak ranking on this short period, not a profitable alternative.
+
+This is a post-hoc diagnostic on the same 262-fixture period already used by earlier recency and temperature research; it is not an independent confirmation and cannot be used to claim a new OOS strategy. Quartiles are descriptive and do not define a trading filter. Receipt [`results/m5_mr1_crown_ev_calibration.json`](results/m5_mr1_crown_ev_calibration.json) was generated `2026-11-05T00:09:51.957779Z`; candidate forecast SHA `fc2abf89b2ac80eb2ba72bf9e992f25eeda11502f2e87cd2bd965b921843d26d`, MR1 snapshot index SHA `536259f7e5381947db5726294e9a772cac5c0e17680541e70faeacf4b36386fc`, registry SHA `9a64299c7a754662761965842ffc6ae18dbf25359499bd917cb95e9772d883cc`, Crown snapshot hash-set SHA `32ad634a363f4869708766b7875b3cbba3cd5e5aa0240550194d05aec5c6152a`, and independent FT hash-set SHA `65bc9ca3e891532f6b7e8f6198e052adf78e5f726e81440be329b14323ef7f42`. The generated result contains aggregates and hashes only.
+
 ## 2026-11-05 M5 per-league recency weighting experiment
 
 Added `m5_goal_model_recency_oos.py` and a separate [research report](M5_RECENCY_MODEL_CROWN_OOS_20261105.md). The experiment uses the current frozen partial M1-scope manifest (133,140 unique finished candidates; 51/51 leagues have page-1, 4,660/4,789 known pages saved, 129 missing; `complete_historical_universe=false`). Per league, an exponential history half-life is selected from 0.5, 1, 2, 3, 5, 10 years and no decay using 2025 exact-score log loss only; the 2026 fold's existing regularization-selection procedure is retained. The model is refit using matches strictly before 2026-01-01 UTC and evaluated on exactly the same 10,235 2026 OOS fixture identities as the baseline across 51 leagues. Identity and cutoff guards passed with zero baseline/manifest identity conflicts. No 2026 outcome informed tuning.
