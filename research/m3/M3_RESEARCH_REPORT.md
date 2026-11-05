@@ -262,5 +262,5 @@ Crown 阶段 A 的存档交集为公开混合赛事 artifact 16 场中的 Dortmu
 
 公开持久化的 Crown quote receipt 使用已有 token 的 HMAC 对 source match ID、完整 response 与 movement row 做承诺，另写 M3 model/forecast hash、market 与观测/接收/kickoff UTC。原始响应、match ID、line、price、token 不写公开文件或日志。当前 run 报告只输出 AH/OU × model × side 的 mean expected unit return 和覆盖计数；不产生正式投注、Telegram、模型晋升或新增交易 Gate。由于现阶段 OpenFootball forward 来源没有 B1 fixtures，采集器如实将 B1 覆盖记录为零，不改变 M3 六联赛范围。
 
-实现后的本地全量 M3 单元测试 84/84 通过。真实 Actions run `41956460742` 完成模型刷新与 Crown-only 查询并保存了脱敏 artifact，但最后因空 quote receipt 文件缺失而未能提交结果。artifact 记录144条已记录预测、1场唯一赛程匹配、Crown response unavailable、0 quote commitments、EV/ROI=null；首次 capture fingerprint 无比较基线，学习信息状态为未知。修复持久化和 API 错误分类后需重跑，当前尚无有效前瞻 Crown quote。下一步增加历史承诺回取和赛后独立 FT evaluator，按 AH、OU 分开累积 OOS Log Loss/Brier 与单位回报。不能把既有 AH0 n=24、OU2.5 n=36 的 hindcast ROI 当作此次前瞻成果。
+实现后的本地全量 M3 单元测试 84/84 通过。第一次真实 run `41956460742` 最后因空 receipt 文件缺失未落库；修复后 `41957259557` 于 `2026-11-05T02:50:19Z` 成功，脱敏模型及 quote receipts 落库 commit `1f1721f2`，artifact UTC `02:47:28.510865Z`。报告覆盖144条预测、5场唯一 Crown schedule identity、18条 HMAC commitment（AH 9、OU 9；D1与E0），未写原始赔率/line。此批匹配的旧 forecast 没有 score probability grid；报告没有可计算的 exact-line EV，因此 ROI=null。首轮 fingerprint 无基线，新增学习信息未知。下一步让新 score-grid forecasts 累积，增加历史承诺复核和赛后独立 FT evaluator，按 AH、OU 分开累积 OOS Log Loss/Brier 与单位回报。不能把既有 AH0 n=24、OU2.5 n=36 的 hindcast ROI 当作此次前瞻成果。
 
