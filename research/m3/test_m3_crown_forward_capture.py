@@ -7,12 +7,27 @@ from research.m3.m3_crown_forward_capture import (
     exact_schedule_matches,
     _line_ev,
     movement_rows,
+    pairing_status,
     source_local_to_utc,
     safe_api_error,
 )
 
 
 class M3CrownForwardCaptureTest(unittest.TestCase):
+    def test_pairing_status_counts_only_crown_with_valid_forward_utc_order(self):
+        row = {
+            "provider": "TotalCorner", "bookmaker": "crown", "market": "AH",
+            "fixture_identity_id": "fixture-hash", "forecasted_at_utc": "2026-11-06T01:00:00Z",
+            "quote_observed_at_utc": "2026-11-06T02:00:00Z", "received_at_utc": "2026-11-06T02:01:00Z",
+            "kickoff_at_utc": "2026-11-06T03:00:00Z",
+        }
+        rows = [row, dict(row, bookmaker="default"), dict(row, market="OU", forecasted_at_utc="2026-11-06T02:00:00Z")]
+        result = pairing_status(rows, "2026-11-06T02:02:00Z")
+        self.assertEqual(result["forward_commitment_rows_by_market"], {"AH": 1, "OU": 0})
+        self.assertEqual(result["forward_unique_fixture_markets_by_market"], {"AH": 1, "OU": 0})
+        self.assertEqual(result["quote_receipts_before_kickoff"], 1)
+        self.assertFalse(result["raw_quotes_or_credentials_persisted"])
+
     def test_api_error_classification_is_allowlisted(self):
         self.assertEqual(safe_api_error({"error": {"code": "TOO_MANY_REQUEST"}}), "TOO_MANY_REQUEST")
         self.assertEqual(safe_api_error({"error": {"code": "arbitrary private response detail"}}), "OTHER")
