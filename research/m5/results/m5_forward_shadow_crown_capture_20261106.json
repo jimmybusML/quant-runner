@@ -1,0 +1,33 @@
+{
+  "protocol": "M5_FORWARD_SHADOW_CROWN_CAPTURE_AGGREGATE_V1",
+  "generated_utc": "2026-11-05T23:41:13.935623Z",
+  "forecast_generated_utc": "2026-11-05T22:59:49.604793Z",
+  "forecast_sha256": "f5609935bfb29aa33a38597a977b2092408a75311ac8061c7c07cf3103f9b4a4",
+  "capture_response_hash_set_sha256": "7d0816639c66ba5e55efd9bc55b4a05a682445e28b1de7210b6ab67f1ef28ffb",
+  "forecast_fixture_count": 361,
+  "requests_attempted": 361,
+  "crown_fixture_responses_identity_verified": 355,
+  "fixture_or_crown_identity_mismatch": 3,
+  "transport_errors": 3,
+  "fixtures_with_any_valid_pregame_event_rows": {
+    "AH": 199,
+    "OU": 199
+  },
+  "valid_pregame_event_rows_before_forecast_asof": {
+    "AH": 626,
+    "OU": 529
+  },
+  "valid_event_rows_at_or_after_forecast_asof_and_before_kickoff": {
+    "AH": 0,
+    "OU": 0
+  },
+  "qualifying_crown_fixture_markets": {
+    "AH": 0,
+    "OU": 0
+  },
+  "oos_ev_roi": null,
+  "realized_forward_roi": null,
+  "interpretation": "Crown-only TotalCorner bookmaker endpoint was reachable using the existing local credential. The API returned retrospective pregame movement rows, but none had quote event time on or after the frozen M5 forecast as-of. No Crown OOS EV or ROI is estimable from this run. Raw responses, fixture identities, and quote prices remain private.",
+  "github_actions_run_id": null,
+  "production_or_telegram_changes": false
+}

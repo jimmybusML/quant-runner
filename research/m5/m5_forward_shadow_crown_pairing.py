@@ -40,19 +40,84 @@ def load_jsonl(path):
     return rows
 
 
-def run(forecast_path: Path, mr1_root: Path, output_path: Path):
+def run(forecast_path: Path, mr1_root: Path | None, output_path: Path, capture_index: Path | None = None):
     forecasts = {}
     for row in load_jsonl(forecast_path):
         mid = str(row.get("match_id") or "")
         if mid and mid not in forecasts:
             forecasts[mid] = row
-    base = mr1_root / "data/prospective-market/shadow-v23"
-    index_path, registry_path = base / "snapshot-index.jsonl", base / "fixtures.json"
-    index_raw, registry_raw = index_path.read_bytes(), registry_path.read_bytes()
-    registry = json.loads(registry_raw)
+    if mr1_root is not None:
+        base = mr1_root / "data/prospective-market/shadow-v23"
+        index_path, registry_path = base / "snapshot-index.jsonl", base / "fixtures.json"
+        index_raw, registry_raw = index_path.read_bytes(), registry_path.read_bytes()
+        registry = json.loads(registry_raw)
+    else:
+        base = None
+        index_path = registry_path = None
+        index_raw = registry_raw = b""
+        registry = {}
     snapshots = {}
     counters = Counter()
-    for entry in load_jsonl(index_path):
+
+    # M5's own TotalCorner -> Crown receipts are preferred when supplied.
+    # These are raw-provider receipts for M5 forecasts, not MR1 predictions
+    # or ledgers. Keep the MR1 snapshot path as a read-only alternate source.
+    if capture_index is not None:
+        for entry in load_jsonl(capture_index):
+            mid = str(entry.get("match_id") or "")
+            forecast = forecasts.get(mid)
+            if not forecast:
+                continue
+            counters["m5_capture_index_matches"] += 1
+            if entry.get("status") != "verified_fixture_response":
+                counters["m5_capture_non_verified_entries"] += 1
+                continue
+            kickoff, asof = dt(forecast.get("kickoff_utc")), dt(forecast.get("prediction_asof_utc"))
+            received = dt(entry.get("captured_at_utc"))
+            if (not kickoff or not asof or not received or entry.get("source_bookmaker") != "Crown"
+                    or entry.get("kickoff_utc") != forecast.get("kickoff_utc")
+                    or received >= kickoff):
+                counters["m5_capture_identity_or_time_mismatch"] += 1
+                continue
+            if entry.get("league") != forecast.get("league") or entry.get("home") != forecast.get("home") or entry.get("away") != forecast.get("away"):
+                counters["m5_capture_identity_or_time_mismatch"] += 1
+                continue
+            if not asof <= received < kickoff:
+                counters["m5_capture_receipt_outside_window"] += 1
+                continue
+            for market in ("AH", "OU"):
+                for quote in entry.get("ah_eligible_rows" if market == "AH" else "ou_eligible_rows", []):
+                    observed, line = dt(quote.get("quote_event_utc")), quote.get("line")
+                    prices = quote.get("prices")
+                    if (not observed or not asof <= observed <= received < kickoff
+                            or not isinstance(prices, list) or len(prices) != 2):
+                        continue
+                    try:
+                        line, prices = float(line), tuple(float(p) for p in prices)
+                    except (TypeError, ValueError):
+                        continue
+                    if (not math.isfinite(line) or abs(line * 4 - round(line * 4)) > 1e-8
+                            or any(not math.isfinite(p) or p <= 1 for p in prices)):
+                        continue
+                    prediction = (forecast.get("prediction") or {}).get("grid")
+                    if not isinstance(prediction, list) or not prediction:
+                        counters["missing_score_grid"] += 1
+                        continue
+                    item = {"match_id": mid, "league": forecast["league"], "home": forecast["home"],
+                            "away": forecast["away"], "kickoff_utc": kickoff.isoformat().replace("+00:00", "Z"),
+                            "market": market, "source": "Crown", "line": line, "prices": prices,
+                            "quote_event_utc": observed.isoformat().replace("+00:00", "Z"),
+                            "quote_received_utc": received.isoformat().replace("+00:00", "Z"),
+                            "prediction_asof_utc": asof.isoformat().replace("+00:00", "Z"),
+                            "train_end_utc": forecast.get("train_end_utc"), "score_grid": prediction,
+                            "response_sha256": entry.get("response_sha256")}
+                    key = (mid, market)
+                    previous = snapshots.get(key)
+                    if previous is None or item["quote_event_utc"] > previous["quote_event_utc"]:
+                        snapshots[key] = item
+                    counters["m5_capture_eligible_market_rows"] += 1
+
+    for entry in load_jsonl(index_path) if index_path is not None else []:
         mid = str(entry.get("match_id") or "")
         forecast = forecasts.get(mid)
         if not forecast:
@@ -124,8 +189,8 @@ def run(forecast_path: Path, mr1_root: Path, output_path: Path):
     receipt = {"protocol": "M5_FORWARD_CROWN_PAIRING_V1",
                "generated_utc": datetime.now(timezone.utc).isoformat(),
                "forecast_sha256": hashlib.sha256(forecast_path.read_bytes()).hexdigest(),
-               "snapshot_index_sha256": hashlib.sha256(index_raw).hexdigest(),
-               "fixture_registry_sha256": hashlib.sha256(registry_raw).hexdigest(),
+               "snapshot_index_sha256": hashlib.sha256(index_raw).hexdigest() if mr1_root is not None else None,
+               "fixture_registry_sha256": hashlib.sha256(registry_raw).hexdigest() if mr1_root is not None else None,
                "unique_fixture_markets": dict(counts), "paired_rows": len(rows),
                "audit_counts": dict(counters), "pairs_sha256": hashlib.sha256(raw).hexdigest(),
                "pairs_path": str(output_path),
@@ -142,10 +207,11 @@ def run(forecast_path: Path, mr1_root: Path, output_path: Path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--forecasts", type=Path, required=True)
-    parser.add_argument("--mr1-root", type=Path, required=True)
+    parser.add_argument("--mr1-root", type=Path)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--capture-index", type=Path)
     args = parser.parse_args()
-    run(args.forecasts, args.mr1_root, args.output)
+    run(args.forecasts, args.mr1_root, args.output, args.capture_index)
 
 
 if __name__ == "__main__":

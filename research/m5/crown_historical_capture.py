@@ -42,6 +42,16 @@ def token_value(token_file: Path | None) -> str:
     value = os.environ.get("TOTALCORNER_TOKEN", "").strip()
     if not value and token_file:
         value = token_file.read_text(encoding="utf-8").strip()
+    if not value and sys.platform == "darwin":
+        # Reuse the already configured local credential. Never include its
+        # stdout or any credential-bearing subprocess detail in diagnostics.
+        result = subprocess.run(
+            ["/usr/bin/security", "find-generic-password", "-s",
+             "QuantAsiaDesk.TOTALCORNER_TOKEN", "-w"],
+            capture_output=True, check=False,
+        )
+        if result.returncode == 0:
+            value = result.stdout.decode("utf-8").strip()
     if not value:
         raise RuntimeError("TotalCorner credential is unavailable")
     return value
@@ -70,6 +80,7 @@ def request_json(url: str, token: str, min_interval: float, state: dict) -> tupl
         try:
             with urllib.request.urlopen(request, timeout=40) as response:
                 raw = response.read()
+                received_at_utc = utc_now()
                 headers = {k.lower(): v for k, v in response.headers.items()}
                 status = response.status
         except urllib.error.HTTPError as exc:
@@ -88,7 +99,8 @@ def request_json(url: str, token: str, min_interval: float, state: dict) -> tupl
                 retry_after = 10.0
             time.sleep(retry_after + 0.25)
             continue
-        return parsed, {"http_status": status, "rate_limit_remaining": headers.get("x-rate-limit-remaining"),
+        return parsed, {"http_status": status, "received_at_utc": received_at_utc,
+                        "rate_limit_remaining": headers.get("x-rate-limit-remaining"),
                         "rate_limit_reset": headers.get("x-rate-limit-reset"), "response_sha256": sha(raw)}, raw
     raise RuntimeError("TotalCorner rate limit retry budget exhausted")
 
