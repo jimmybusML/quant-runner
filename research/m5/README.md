@@ -209,3 +209,12 @@ Formal progress reached 9,800/127,674 candidates at `2026-11-05T18:43:58Z`: 9,74
 A response-index replay generated `2026-11-05T18:44:47Z`, with 8,825 unique Crown fixtures per market after excluding 14 invalid receipt-time rows. AH: `-154.380U / -1.749348%`, settlement LL/Brier `1.03266377/0.64933585`, event-time max DD `185.140U`; OU: `-350.190U / -3.968159%`, LL/Brier `0.98851743/0.62391176`, max DD `368.980U`. Every included API receipt was post-kickoff. [Replay receipt](results/m5_source_union_replay_partial_20261105T184447Z.json).
 
 The fixed `2026-09-01 UTC` temporal holdout re-fit generated `2026-11-05T18:46:59Z`: 6,562 train / 2,295 holdout fixtures per market with disjoint IDs. Historical-goal rate factors were home 1.033501 / away 1.035700. Raw/calibrated ROI: AH `+0.244009% / +0.220044%`; OU `-4.723965% / -3.894118%`. Calibrated LL/Brier: AH `1.02685088/0.64218448`, OU `0.98991005/0.62408032`. All quote receipts were post-kickoff, so this remains retrospective model diagnostics, not executable ROI. [Holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T184659Z.json).
+
+
+### 2026-11-05T18:54Z incremental Crown capture checkpoint
+
+Formal progress reached 9,900/127,674 candidates at `2026-11-05T18:51:05Z`: 9,841 exact responses, 59 transport errors, 8,914 valid quotes per market, zero identity/time mismatches; collection remained active.
+
+The response-index replay generated `2026-11-05T18:52:23Z`: 8,919 unique Crown fixtures per market; eight invalid receipt-time rows excluded. AH `-156.440U / -1.754008%` (LL/Brier `1.03282554/0.64948192`, event-time max DD `185.140U`); OU `-337.125U / -3.779852%` (`0.98869150/0.62397048`, max DD `368.980U`). All included API receipts arrived after kickoff. [Replay receipt](results/m5_source_union_replay_partial_20261105T185223Z.json).
+
+The fixed cutoff holdout generated `2026-11-05T18:54:37Z`: 6,640 training / 2,295 disjoint holdout fixtures per market. Fitted home/away factors: 1.033429 / 1.038167. Raw/calibrated ROI AH `+0.244009% / +0.220479%`; OU `-4.723965% / -3.893246%`. Calibrated LL/Brier AH `1.02679508/0.64216577`, OU `0.98975260/0.62396647`. All API receipts were post-kickoff; this remains a retrospective diagnostic. [Holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T185437Z.json).
