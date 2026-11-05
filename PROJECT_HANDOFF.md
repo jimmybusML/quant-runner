@@ -1,3 +1,9 @@
+## 2026-11-05T17:37:23.321288Z M5 Crown-first 活动档案回放（partial）
+- 在活动collector仍写入时对私有归档做聚合回放，代码 `research/m5/m5_source_union_replay.py`；收据 [`m5_source_union_replay_partial_20261105T173723.321288Z.json`](research/m5/results/m5_source_union_replay_partial_20261105T173723.321288Z.json)，generated UTC `2026-11-05T17:37:23.321288Z`，candidate manifest 127,674、M5 OOS forecast 127,674。输入行情仅从私有档案读取，公开文件不含逐场ID/价格/预测。
+- AH：唯一fixture/模拟/结算8,034；W/HW/P/HL/L `3241/550/545/574/3124`；净 `-124.840U`、ROI `-1.553896%`、最大回撤 `153.520U`、95% fixture-bootstrap `[-3.519106%,+0.394075%]`、结算 Log Loss/Brier `1.03472313/0.65060404`。OU：8,034；类别 `3315/436/420/568/3295`；净 `-310.475U`、ROI `-3.864513%`、最大回撤 `321.065U`、bootstrap `[-5.826487%,-1.874658%]`、Log Loss/Brier `0.99060787/0.62514862`。ROI分母均为每场一注的总本金8,034U。
+- 来源仅Crown；所有8,034份响应receipt均晚于kickoff。`train_end < prediction_asof <= quote_event < kickoff`有效样本；6条缺失/无效响应接收时间记录排除；bad chronology/fixture identity mismatch均为0。源事件在开赛前不代表当时已收到或可执行。
+- 仅覆盖2026-02-15至2026-11-04 UTC开赛，采集仍是partial；AH/OU距10,000各差至少1,966。两市场ROI均未达到+3%，不能作为收益目标完成。联赛、开球小时、预测及盘口lead拆分只做描述，不据此选条件或新增gate。此时采集checkpoint尚为8,900/127,674、AH/OU各7,960，私有response index在回放附近增长；须在Crown终态及TotalCorner fallback终态再重算。
+
 ## 2026-11-06 本机共享TotalCorner目录离线盘口审计
 - 搜索 `/Users/mac/QuantAsiaDesk/repos/runner/research/shared_history/totalcorner/` 后发现 `league-15.jsonl`（120条已存fixture）与收集摘要；样本中赛程对象有 `i_asian/i_goal/p_asian/p_goal` 线位字段，但没有两侧赔率，也无盘口movement时间序列。其 `latest_collection_summary.json` 明确 `market_history_verified=false`，且不是正式订单回测。此目录不能作为M5 AH/OU真实历史盘口输入，也没有复制到M5。
 - `/Users/mac/QuantAsiaDesk/data/m5-crown-authorized-refresh-20261105/` 只有候选manifest及赛程收据，无赔率响应；`/private/tmp/m1-m5-private` 是M1 observations/summary/verified FT，不作为M5 TotalCorner历史价格补充。故继续依赖M5自己的Crown回填，并待其终态后由现有合法TotalCorner default fallback实际抓取缺失fixture-market盘口。

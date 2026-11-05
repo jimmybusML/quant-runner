@@ -138,3 +138,8 @@ Crown私有回填仍由单一collector运行。检查点 `2026-11-05T17:21:18.73
 最新运行检查点（2026-11-05T17:30:55Z）：8,900/127,674候选已处理，8,846精确响应，AH/OU各7,960个有效Crown赛前源事件报价；还差2,040/市场。collector和串行等待器仍运行，Crown未终态、TOTAL未启动。详见 [PROJECT_HANDOFF.md](../../PROJECT_HANDOFF.md)。
 
 本机共享TotalCorner离线档案检查发现已存120条只有赛程身份/赛果及线位字段，没有两侧赔率和movement时间；收集摘要标注`market_history_verified=false`，因此不加入M5盘口回放。M5继续等待Crown终态，之后将使用已有合法API接入抓取逐市场缺口。
+
+
+### 2026-11-05T17:37:23Z 活动档案 partial 回放
+
+逐市场结果和审计边界见 [partial aggregate receipt](results/m5_source_union_replay_partial_20261105T173723.321288Z.json)。本次AH/OU各8,034唯一真实赛事，Crown ROI为-1.553896%/-3.864513%，最大回撤153.520U/321.065U；所有API接收收据在开赛后，6条无效receipt时间行排除。它是活动采集中的源事件时间回顾模拟，不代表赛前实际收到的可执行ROI，未达10,000或+3%目标。源输入SHA、proper scores、五类结算及未筛选描述拆分均在receipt内。
