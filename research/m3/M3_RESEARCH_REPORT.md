@@ -254,3 +254,13 @@ Crown 阶段 A 的存档交集为公开混合赛事 artifact 16 场中的 Dortmu
 
 最新可核验状态、实际 Actions 运行、严格样本外指标、Crown 历史快照覆盖和未解决的数据授权/持久化边界，见 [M3_RESEARCH_ACCEPTANCE_20261105.md](M3_RESEARCH_ACCEPTANCE_20261105.md)。最新训练 Actions `41949912425` 成功，76项 M3 单测通过；数据输入 fingerprint 未变。Crown AH0 24 场、OU2.5 36 场样本仅是对历史 Crown 赛前报价的事后 OOS hindcast 回放，不是当时实时预测或实际成交。重复训练的参数/预测 SHA 会变化，逐字节确定性仍需调查。
 
+## 2026-11-05 M3 Crown 前瞻 workflow 实施记录
+
+用户明确要求复用项目已有 Crown 授权，不再次申请。经源码核对，GitHub workflow 引用已有 `TOTALCORNER_TOKEN` 与 `PRIVATE_REPO_TOKEN` Secret 名称；没有读取任何值。成功的历史 M3 Crown probe run 为 `39584036612`，属于当时固定 match ID 的来源诊断，不代表持续采集。OddsPapi 凭证、连接器和历史响应存档未发现；其 `singbet` 命名仍未核验为 Crown，未采用。
+
+新增 `.github/workflows/m3-crown-forward-capture.yml` 和 `m3_crown_forward_capture.py`，安排每四小时 UTC 对 M3 OpenFootball shadow forward forecasts 采集 TotalCorner `bookmaker=crown` AH/OU。观测时间由既有 UTC+08 账户配置映射为 `Asia/Shanghai`，不读取 M1/M2/MR1 forecast/参数/订单/账本；要求 M3 forecast time、quote observed time、kickoff 的 UTC 严格前后关系。由日期不带时区的 OpenFootball 源创建的比赛，只有再匹配到唯一 TotalCorner schedule identity 与精确开赛时间后，才进入报价匹配。训练截止日保存到 forecast event，且必须早于 UTC kickoff 日期。
+
+公开持久化的 Crown quote receipt 使用已有 token 的 HMAC 对 source match ID、完整 response 与 movement row 做承诺，另写 M3 model/forecast hash、market 与观测/接收/kickoff UTC。原始响应、match ID、line、price、token 不写公开文件或日志。当前 run 报告只输出 AH/OU × model × side 的 mean expected unit return 和覆盖计数；不产生正式投注、Telegram、模型晋升或新增交易 Gate。由于现阶段 OpenFootball forward 来源没有 B1 fixtures，采集器如实将 B1 覆盖记录为零，不改变 M3 六联赛范围。
+
+实现后的本地全量 M3 单元测试 83/83 通过，Python 3.12 编译及 `git diff --check` 通过。**尚未有真实 Actions run 验证新 workflow**，因此尚无新增前瞻 Crown pair、Crown EV 实测值或逐场 ROI；推送并完成真实 run 后再更新。下一步增加历史承诺回取和赛后独立 FT evaluator，按 AH、OU 分开累积 OOS Log Loss/Brier 与单位回报。不能把既有 AH0 n=24、OU2.5 n=36 的 hindcast ROI 当作此次前瞻成果。
+

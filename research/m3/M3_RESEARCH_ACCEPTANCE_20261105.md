@@ -4,7 +4,9 @@
 
 M3 已有可复现的 AH 与 OU 真实历史样本外概率评估、每四小时自动更新/重训/评分/留版工作流，且本次 GitHub Actions 成功并写入公开仓库。另以本地已留存的真实 Crown 赛前快照完成了小样本、AH/OU 分开的严格 OOS 概率回放。该回放使用事后生成的历史前推预测，不能代表当时实时预测或实际成交，样本太小且收益区间跨零。
 
-尚未满足“实时前瞻 Crown 配对采集已运行”的验收项。已有 TotalCorner Token Secret 名称和历史探测成功记录，但仓库没有可追溯的提供方书面许可引用/范围；这不证明用户没有既有许可。遵照用户指示不申请新授权、不重复申请；在可核实的既有许可范围尚未找到前，不发起新 API 请求或建立自动采集。不会披露凭证值、私有逐场数据或报价。
+用户已明确要求复用现有授权与合法数据，不申请新授权。本轮确认公开代码里现成的 Actions Secret 名称为 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN`，但绝不读取其值；历史 M3 Crown API 探测 run `39584036612` 成功。OddsPapi 凭证/连接器/历史存档均未发现。另有本地 Crown 历史档案，但只作为独立报价/赛果证据使用，不复用 M1/M2/MR1 预测、参数、订单或正式账本。
+
+本轮新增 M3 专属前瞻采集器和每四小时 UTC workflow，限定 `bookmaker=crown`，仅接受已保存 M3 forward forecast 后、kickoff 前的 AH/OU movement，训练截止按 UTC 日期严格早于比赛。公开落库只包含加密 HMAC 承诺、UTC 时间与聚合 EV，不包含 API 凭证、原始响应、盘口线、水位或逐场价格。workflow 首次真实 Actions 验收尚待本提交推送后运行；因此当前不能声称前瞻采集成功。真实已验证历史 Crown 回放仍为 AH0 n=24、OU2.5 n=36，来自事后生成的严格 OOS hindcast，不代表 contemporaneous forecast 或实际成交。数据范围继续保留六联赛口径；当前 OpenFootball forward 数据没有 B1 fixtures，B1 前瞻覆盖为0，不将此误报为完整覆盖。
 
 ## 最新真实历史样本外模型结果
 
@@ -54,16 +56,18 @@ AH/OU 补充候选 `opisthokonta/goalmodel`：当前检视版本 v0.6.4（2024-0
 
 - `.github/workflows/m3-independent-research.yml` 维持用户已确认的 `0 */4 * * *` UTC 频率，并可手动运行；最新 run `41949912425` 成功，76项 M3 单测通过，同时执行原版 V4、三种 penaltyblog 模型、严格 OOS 评分、输入指纹比较及持久化。模型数、参数哈希、预测哈希、run ID、UTC 生成时间与历史版本均留存。
 - 输入 fingerprint 与前次相同；workflow 如实记录无新增学习信息。但重复拟合后模型参数/预测文件 SHA 改变，分数仅有微小差异（例如 AH0 Dixon-Coles Log Loss 从 1.003793 变为 1.003785）。参数文件162个条目均有变化，可能与优化过程/序列化有关，尚未确定原因。比较报告按同一测试集保留了差异；暂不宣称逐字节可复现，后续应审计 penaltyblog 拟合的确定性。
-- run 结束成功并不代表 Crown collector 已运行。M3 自动流程当前不采集 Crown。
+- 新增 `.github/workflows/m3-crown-forward-capture.yml` 与 `m3_crown_forward_capture.py`，保持四小时 UTC 频率，使用现有 `TOTALCORNER_TOKEN`，但仅访问 TotalCorner 的 Crown bookmaker。脚本只配对 M3 OpenFootball forward forecast；以配置的 `Asia/Shanghai` 源时区无歧义转换为 UTC，要求预测时间 < 行情观测时间 < kickoff，且训练日早于 kickoff UTC 日期。对公开仓库仅追加 forecast/fixture hash、行/响应 HMAC、市场、预测/接收/观测/kickoff UTC 与均值 EV；不保存或打印原始响应、source match ID、盘口线、水位、价格或 token。EV 分 AH/OU、模型和两侧分别汇总；没有有效配对时如实为零/null。
+- 新 workflow 的真实 Actions 首次验收尚未触发；本次本地 M3 全套测试 83/83 通过，含7项新增 source/UTC/privacy 单测。待提交、推送后再记录真实 run ID 与实际覆盖，不把代码完成当成运行成功。
 - 本次修复 M3 手动 Crown 探测脚本：删除 TotalCorner 默认赔率 fallback；日志不再输出源 match ID、bookmaker 字段形状或报价样例，只报告 Crown 识别状态与行数。没有触碰其他模型 workflow 或任何正式链路，也没有执行该探测 workflow。
 - 已检查已有 Crown Secret 名称 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN`，从未读取值。发现 2026-10-21 历史固定 ID Crown 探测成功记录；这不是持续前瞻报价存档。OddsPapi 的凭证/连接器/归档未找到。M3 forward-EV 的 TotalCorner default bookmaker 记录严格排除，不代替 Crown。
-- 官方 TotalCorner 资料列出 Crown AH/goal 赔率移动 API；现行公开条款提到自动抽取需要事前书面许可。公开仓库未发现可追溯的既有许可引用，无法确认现有许可具体覆盖 unattended API、M3 research、留存和发布哪些聚合字段。用户明确要求复用既有授权且不重复申请；此处不请求新的授权。当前精确缺项是**可在既有获准记录中定位的授权范围证据**。不会基于 Secret 存在或过去探测推断权限。
-- 公开 Actions runner 没有 M3 专属、可验证的私有持久化报价仓库与独立加密密钥记录。不得把含原始报价的 artifact 或 commit 公开。前瞻采集仍需在既有授权证据可定位后，用 M3 独立隔离存储/密钥和可审计的 UTC 观测/接收时间做配对；不可复用 M1/MR1 预测或正式 ledger。
+- TotalCorner API 文档和现行公开条款仍提醒自动化抽取、数据保留/公开派生结果须符合供应商授权。用户已明确指示复用项目现有授权；本实现不索取新权限、不把 Secret 存在视为独立许可证明，也不输出原始价格。公开仓库只保留 HMAC 证据与聚合研究指标。此次功能采用用户确认的现有授权运行；如果实际 Action 因授权/Secret 配置失败，记录脱敏错误状态，绝不回退到其他赔率源。
+- 该 workflow 不克隆或写入 M1/MR1 私有仓库，仅读取公开 M3 `shadow_ledger`，并在公开仓库保存 M3 自己的 forward forecast 和 value-free commitment。当前 forward OpenFootball 源仍不含 B1 fixture；B1 仍在六联赛研究范围中，但该采集来源的 B1 覆盖为零，后续须用独立 M3 forecast 源填补。
+- 新 collector 当前只计算尚未赛前报价的 AH/OU 平均 EV；赛后从已承诺 quote row 复核并累积逐市场 OOS ROI 的 evaluator 尚未实现。未来运行需验证 TotalCorner historical movement response 仍可按 HMAC 重识别先前承诺行；实际有效样本前不报告 Crown ROI 或回撤。
 
 ## 完成状态与下一步
 
 已完成：真实历史 AH/OU 样本外预测；独立概率评分；Crown 历史快照小样本概率与 ROI 影子回放；V4 OU 原版评估；另一个开源方案审计；每四小时自动训练、指标比较、哈希追踪及报告留版；M3 探测脚本的 Crown-only 与安全日志修复。
 
-未完成：前瞻 M3 原始预测与新 Crown 报价的同时采集、可持续的 M3 专属私有 quote store、长期 Crown OOS ROI 以及第三方候选 `goalmodel` 的真实独立 OOS 运行。其当前阻碍分别是既有授权范围缺少可追溯证据、专属私有持久化/密钥未配置、历史有效样本只有 24 AH/36 OU、尚未建立可复现 R 运行环境。没有扩大或缩小既定联赛范围。
+未完成：新 Crown workflow 的首次真实 Actions 成功验收；前瞻数据累积；根据赛后 FT 与已承诺 Crown 行情的逐市场 OOS ROI/收益序列；B1 的独立 M3 forward forecast；第三方候选 `goalmodel` 的真实独立 OOS 运行。当前真实历史 Crown 回放只有 AH0 24 场、OU2.5 36 场，预测为 hindcast，不能满足前瞻预测验收；其收益区间宽且跨零。没有扩大或缩小既定联赛范围，也未增加任何 Gate。
 
-最值得继续：在能核实既有授权和安全持久化后，开始 M3 专属前瞻配对；比较长期概率校准、跨季 Log Loss/Brier 和 Crown 同期 quote ROI，逐市场分别积累。此前不加 EV、置信度、数量、时效或联赛 Gate，不自动升版、不启用 Telegram。
+最值得继续：推送后立即手动触发 `m3-crown-forward-capture.yml`，检验现有 Secret 在该研究 workflow 中可用、UTC 配对与私密值抑制均成立；记录实际 Actions ID、报告与落库 commit。随后增加按 HMAC 回取 history row 的赛后 evaluator，分 AH/OU 留存公平 EV、Log Loss/Brier、ROI 和有效收益序列；维持每市场独立样本且等待真实数据。此前不加 EV、置信度、数量、时效或联赛 Gate，不自动升版、不启用 Telegram。

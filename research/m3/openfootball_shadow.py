@@ -367,7 +367,7 @@ def _forecast_key_from_event(event: dict) -> str:
     return _forecast_key(event["fixture_identity_id"], event["schedule_revision_id"],
                          event["model"], event["training_input_sha256"],
                          event["penaltyblog_version"],
-                         event.get("model_semantic_version", FORECAST_MODEL_SEMANTIC_VERSION))
+                         event.get("model_semantic_version", "penaltyblog-goal-distribution-v1"))
 
 
 def _settlement_metrics(events: list[dict]) -> dict:
@@ -519,6 +519,7 @@ def run_shadow(data: pd.DataFrame, fixtures: list[dict], files: list[dict], cove
                     "quant_runner_commit": quant_runner_commit,
                     "penaltyblog_version": penaltyblog_version,
                     "training_input_sha256": train_hash, "train_rows": len(league_train),
+                    "train_end_calendar_date": league_train.match_date_utc.max().strftime("%Y-%m-%d"),
                     "market_data_status": "NO_CROWN_QUOTE_CAPTURED",
                     "crown_snapshot_id": None, "ev_per_unit": None, "roi": None,
                     "formal_order": False, "telegram_sent": False}

@@ -1,3 +1,9 @@
+# 2026-11-05 M3 Crown 前瞻采集验收（用户确认复用现有授权）
+- 用户明确要求先审计公开仓库和既有来源，复用现有 Crown 授权，不申请新授权；本轮只使用公开 `quant-runner` 中的 M3 独立代码及既有 `TOTALCORNER_TOKEN` Secret 引用，不读取凭证值。历史 Crown probe [39584036612](https://github.com/ljm198964-alt/quant-runner/actions/runs/39584036612) 是固定赛事来源诊断，不等于连续历史盘口档案。OddsPapi token/连接器/存档未发现；TotalCorner default 和其他公司水位均排除。
+- 新增 M3 专属 `.github/workflows/m3-crown-forward-capture.yml` 与 `research/m3/m3_crown_forward_capture.py`，限定 `bookmaker=crown`、AH/OU 分开、UTC 严格配对已记录 M3 OpenFootball 预测与开赛前报价；仅保存 HMAC 行/响应承诺、时间及汇总覆盖/EV，不保存原始响应、盘口线、水位或凭证。无 M3 Telegram、订单、Gate、模型自动晋升；不读 M1/M2/MR1 预测、订单、参数或账本。
+- `research/m3` 全量单测 83/83 通过，py_compile 和 `git diff --check` 通过。新 workflow 首次真实 Actions 运行和报告落库待提交推送后验收；未完成前不宣称前瞻 Crown 覆盖、EV 实绩或 ROI。当前历史 AH0 n=24 / OU2.5 n=36 仍是事后 hindcast，不是同期预测。
+- 旧 handoff 中“没有可追溯授权范围证据，因此不发请求”的条目是此前状态记录；以用户本轮明确确认的复用现有授权指示为最新执行依据。若 workflow 失败，仅记录脱敏错误和缺失能力，不回退其他盘口源。
+
 # 2026-11-05 M3 独立研究验收增补
 - M3 验收代码与脱敏 Crown 聚合结果/工作流单测提交 `6217d0446906c00bd939b1f6d4967db50410b6c8`、`457631774d97bf3283affee4585e03e02c854ebe`（分支 `codex/m3-crown-oos-research`）；Actions 结果留版提交 `a2ae20e7`、`1aaf5b37`。最新真实 run [41949912425](https://github.com/ljm198964-alt/quant-runner/actions/runs/41949912425) UTC `2026-11-05T01:38:47Z–01:43:11Z` SUCCESS；V4、penaltyblog 1.13.1 严格 UTC season-forward、76/76 M3 单测、比较与历史留版全通过。报告生成 `2026-11-05T01:43:02.754223Z`；输入 fingerprint `648aa1d7…77cb4e` 未变，标明没有新增学习信息；19,218场可用历史结果、17,152场测试集、14,806场评分覆盖；最新 prediction SHA `b9edca7a…71c33adb3`、model-parameter SHA `4bcde68e…b3aa8f`。结果报告：[research/m3/M3_RESEARCH_ACCEPTANCE_20261105.md](research/m3/M3_RESEARCH_ACCEPTANCE_20261105.md)、[Crown 聚合回放](research/m3/results/m3_crown_oos_replay_20261105.json)，Crown replay UTC `01:44:40.463602Z`。PR [#60](https://github.com/ljm198964-alt/quant-runner/pull/60) 已创建并附加本任务，尚未合并。
 - 同一输入 fingerprint 下，连续重训生成不同的参数/预测哈希，162个参数记录均有差异，而测试指标只发生微小变化；原因尚未确定，不能说位级可复现。Actions 历史 comparison 已记录；后续查明训练优化/序列化确定性。

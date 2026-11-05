@@ -1,0 +1,81 @@
+name: M3 Crown Forward Forecast Pairing
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */4 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: m3-crown-forward-capture-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Checkout M3 independent OpenFootball fixtures and results
+        uses: actions/checkout@v4
+        with:
+          repository: openfootball/football.json
+          path: upstream/football.json
+          persist-credentials: false
+      - name: Install pinned M3 runtime
+        run: python -m pip install penaltyblog==1.13.1 pandas numpy requests
+      - name: Validate the M3 Crown collector and existing M3 safeguards
+        run: python -m unittest discover -s research/m3 -p 'test_*.py' -v
+      - name: Refresh M3 forward forecasts and independent settlements
+        run: |
+          python -m research.m3.openfootball_shadow \
+            --input-root upstream/football.json \
+            --output-dir "$RUNNER_TEMP/m3-openfootball" \
+            --ledger research/m3/results/openfootball/shadow_ledger.jsonl \
+            --source-commit "$(git -C upstream/football.json rev-parse HEAD)" \
+            --quant-runner-commit "$(git rev-parse HEAD)" \
+            --run-id "$GITHUB_RUN_ID"
+      - name: Capture only Crown AH and OU quotes paired after M3 forecasts
+        env:
+          TOTALCORNER_TOKEN: ${{ secrets.TOTALCORNER_TOKEN }}
+        run: |
+          python -m research.m3.m3_crown_forward_capture \
+            --ledger research/m3/results/openfootball/shadow_ledger.jsonl \
+            --output research/m3/results/crown/forward_quote_commitments.jsonl \
+            --report research/m3/results/crown/latest_forward_capture_report.json \
+            --source-timezone Asia/Shanghai \
+            --horizon-days 14
+      - name: Preserve value-free artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: m3-crown-forward-${{ github.run_id }}-${{ github.run_attempt }}
+          path: research/m3/results/crown/latest_forward_capture_report.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Persist M3-only forecast and Crown commitment receipts
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/m3/results/openfootball/shadow_ledger.jsonl \
+            research/m3/results/crown/forward_quote_commitments.jsonl \
+            research/m3/results/crown/latest_forward_capture_report.json
+          if git diff --cached --quiet; then
+            echo 'M3_CROWN_NO_NEW_FORECAST_OR_QUOTE_COMMITMENT'
+            exit 0
+          fi
+          git commit -m 'Persist M3 forward forecasts and Crown quote commitments [skip ci]'
+          for attempt in 1 2 3; do
+            git fetch origin "$GITHUB_REF_NAME"
+            git rebase "origin/$GITHUB_REF_NAME"
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              echo 'M3_CROWN_FORWARD_RECEIPTS_PERSISTED'
+              exit 0
+            fi
+          done
+          echo '::error::M3_CROWN_FORWARD_RECEIPTS_PERSIST_FAILED'
+          exit 1
