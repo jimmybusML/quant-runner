@@ -1,3 +1,11 @@
+## 2026-11-05 14:12 北京时间 统一结算首轮成功、MR1历史漏单补齐
+- 本机新统一 LaunchAgent `com.quantasia.unified.settlement` 已加载，旧 `com.quantasia.mr1.settle` 已卸载。新协调器 2026-11-05 06:00:10Z 启动，M1、MR1、M3全部成功，最终 `COMPLETED failed=[]`。M3 06:09:41Z 全四步完成：赛果候选498、已核验赛事74、影子结算检查444、`NO_NEW_EVENTS`（无新事件）、`REPORTED`，报告生成UTC06:09:41、`anomalies=[]`、1530唯一影子订单；不得误称444条新写入。
+- 本机仪表盘M1/MR1/M3的 `settle` 操作已经路由至统一协调器。旧模型内部计分公式和既有账本格式保留，以保护历史不可变订单；旧扫描流程仍可能调用原有结算，故不是全部旧结算实现已删除。
+- 针对MR1历史5笔逾期订单涉及3场乌克兰联赛，核对外部独立证据：Kryvbas–Dynamo Kyiv 2026-11-02 正式俱乐部报道0:2（https://fcdynamo.com/en/news/upl-krivbas-dinamo-02-zvit-pro-matc-2），Zorya–Epitsentr 2026-11-02 1:0（https://scoremondo.com/en/match/zorya-luhansk-epicentr-kamianets-podilskyi-31273324 及 https://oddseek.com/zh/football/zorya-luhansk-vs-epitsentr-kamianets-podilskyi-13654370）。两场外部FT证据带URL和SHA256写入MR1现有逐场结果缓存，4笔正式订单成功结算，正式MR1由572/588提升至576/588，净盈亏-29.545U、ROI -5.12934%。`result_source` 代码修正为真实证据来源，提交既有MR1仓库 `c49bfefd87`；外部证据与账本已由 `STATE_PERSISTED` 成功推送。
+- Kolos–Polissya 2026-11-01 经Sofascore/OFStats/Sportradar显示Postponed，故剩余1笔逾期MR1订单不能虚构0:0结算。其余11笔MR1未结算订单尚未到原定开赛时间。M1账本还有21条未结算记录（不等于21条正式TG发送），均已过原开赛时间但赛果未核实。
+- 新审计文件 `~/QuantAsiaDesk/state/unified_settlement_pending.json` 于06:10Z生成，M1 21待核实、MR1 12未结算/其中1逾期、M3报告06:09Z。统一协调器已追加MR1远端持久化步骤，本轮成功的首轮在此步骤追加前运行，后续轮次需独立确认新步骤。
+- **未完成**：M1 21条的多来源核验、M3研究线待结算追踪、通用第二赛果来源的自动接入；不能宣布“历史漏单彻底清零”。所有正式投注的盘口来源规则未改变，未发送结算TG。
+
 ## 2026-11-05 14:02 北京时间 统一自动结算迁移（进行中）
 - 用户明确授权以统一赛果核验/自动追踪/幂等账本/自动统计方案替换旧结算调度，不增加模型策略、盘口或TG限制。
 - 新本机统一协调器 `~/QuantAsiaDesk/scripts/unified_settlement.py`（公开仓库副本 `ops/localdesk/unified_settlement.py`），串行处理M1正式、MR1正式、M3影子三条独立账本，进程锁防重入，逐步执行日志写入 `state/unified_settlement_events.jsonl`，任一模型失败不会隐藏其他模型失败；不发TG。

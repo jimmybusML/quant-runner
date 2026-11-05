@@ -60,7 +60,8 @@ def main():
         runner=REPOS/'runner';m1=REPOS/'m1';mr1=REPOS/'mr1'
         commands={
           'm1':[([PY,'m1_formal_runtime.py','settle'],m1),([PY,'m1_formal_runtime.py','report'],m1)],
-          'mr1':[([NODE,str(BASE/'scripts/mr1_formal_result_reconcile.mjs')],mr1)],
+          'mr1':[([NODE,str(BASE/'scripts/mr1_formal_result_reconcile.mjs')],mr1),
+                 (['/usr/bin/python3',str(BASE/'scripts/mr1_persist_local.py')],BASE)],
           'm3':[([PY,'-m','research.m3.segmented_ledger','materialize'],runner),
                 ([PY,'-m','research.m3.totalcorner_shadow_settle','--ledger','research/m3/results/totalcorner/forward_ev_ledger.jsonl'],runner),
                 ([PY,'-m','research.m3.persist_append_ledger','--candidate','research/m3/results/totalcorner/forward_ev_ledger.jsonl'],runner),
