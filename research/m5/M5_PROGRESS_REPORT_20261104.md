@@ -768,3 +768,26 @@ To check whether the recency experiment's probability-score change repeated acro
 | 2026 | 10,235 | OU O2.5 binary | 0.690290 / 0.248232 | 0.691578 / 0.248835 | 20 / 31 |
 
 The recency candidate improves AH aggregate proper scores in both years, but by-league Log Loss improvement persists in only 21/51 leagues; 22/51 reverse direction between years. OU Log Loss is worse in both full cohorts, and improvement persists in 9/51 leagues while 30/51 reverse direction. This suggests an AH probability calibration signal worth preserving for further pre-registered study, but it does not establish better betting returns. These 10k+ counts are unique forecast fixtures per year, **not Crown-price fixtures or settled bets**. Crown ROI remains the separately verified 870-per-market same-price cohort reported above, with negative M5 baseline ROI in both markets. The sanitized audit is [`results/m5_recency_two_year_stability.json`](results/m5_recency_two_year_stability.json); it records source receipt hashes, UTC fold guards, `crown_prices_used=false`, and `roi=null`.
+
+## 2026-11-05 M5/MR1 fixed-vote Crown quote-time holdout
+
+Added [`m5_crown_model_vote_holdout.py`](m5_crown_model_vote_holdout.py) to test whether a fixed direction vote improves the exact same Crown contract outcomes. The three voters are M5 baseline, M5 recency, and MR1 V6's saved side; M5 directions are recomputed from each full score grid at the actual Crown line and two prices, while MR1 V6 is accepted only after its verified selected side, line, and price match the Crown snapshot. Candidate rules were defined without inspecting this holdout's returns: 2-of-3 majority bets one side on every fixture, and unanimous-only bets only when all three choose the same side. These remain research candidates, not approved strategy gates.
+
+For each market independently, the cutoff is the 70th percentile of distinct Crown quote-event UTC instants; all rows at the cutoff go into the later period. Earlier quote rows whose independent FT receipt was not yet available before the cutoff are purged from training. This yields 870 unique quote fixture-markets per market; AH has 605 train / 265 later fixtures, OU 597 train / 9 purged / 264 later fixtures. All training FT receipts precede the cutoff, and training/holdout fixture IDs are disjoint. One 1U bet is made per eligible fixture for majority and each single model; unanimous-only bet count is separately shown.
+
+| Market | Candidate | Later fixtures eligible | Bets / settled | W/HW/P/HL/L | Net U | ROI | Max DD U | Bootstrap 95% ROI interval |
+|---|---|---:|---:|---|---:|---:|---:|---|
+| AH | M5 baseline | 265 | 265 / 265 | 98/19/18/23/107 | -17.445 | -6.583019% | 18.870 | -17.173585% to +4.083019% |
+| AH | M5 recency | 265 | 265 / 265 | 103/22/18/20/102 | -5.425 | -2.047170% | 17.060 | -12.413208% to +8.539623% |
+| AH | MR1 V6 | 265 | 265 / 265 | 92/23/18/19/113 | -26.490 | -9.996226% | 26.960 | -20.426415% to +0.501887% |
+| AH | 2-of-3 majority | 265 | 265 / 265 | 101/21/18/21/104 | -10.515 | -3.967925% | 18.505 | -14.724528% to +6.439623% |
+| AH | Unanimous only | 265 | 180 / 180 | 63/15/12/14/76 | -16.625 | -9.236111% | 18.360 | -21.566667% to +3.538889% |
+| OU | M5 baseline | 264 | 264 / 264 | 97/12/13/24/118 | -34.485 | -13.062500% | 37.325 | -23.808712% to -2.185606% |
+| OU | M5 recency | 264 | 264 / 264 | 105/13/13/23/110 | -18.645 | -7.062500% | 23.710 | -17.761364% to +3.545455% |
+| OU | MR1 V6 | 264 | 264 / 264 | 100/17/13/19/115 | -23.560 | -8.924242% | 25.480 | -19.638258% to +1.867424% |
+| OU | 2-of-3 majority | 264 | 264 / 264 | 102/13/13/23/113 | -23.995 | -9.089015% | 26.835 | -19.632576% to +1.589015% |
+| OU | Unanimous only | 264 | 203 / 203 | 74/12/9/19/89 | -24.195 | -11.918719% | 26.555 | -23.894089% to +0.199507% |
+
+The majority vote improves on MR1 V6's point ROI but trails M5 recency in both markets; it is negative in both. Unanimity reduces bet count and performs worse, especially AH. Neither fusion candidate clears +5%; their bootstrap intervals cross zero in both markets. All fixtures are from the previously studied 2026 archive. The holdout is chronologically later and outcome-safe relative to its cutoff, but it is not a pristine untouched confirmation because the overall source cohort was used by prior M5 analyses. The result is evidence against this simple vote, not grounds for a production gate.
+
+Sanitized receipt [`results/m5_crown_model_vote_holdout.json`](results/m5_crown_model_vote_holdout.json) contains aggregate returns and source hashes only. Current Crown snapshot/registry and V6/FT hash sets are recorded there; no raw odds, fixture IDs, team names, credentials, or ledgers are published. No provider request or production/TG action occurred.
