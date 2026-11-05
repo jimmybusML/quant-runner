@@ -191,3 +191,12 @@ Neither run completes the 10,000-per-market target or provides contemporaneous r
 A read-only replay against the append-only private response index (the collector's progress JSON had not yet refreshed) generated `2026-11-05T18:25:36Z`: 8,596 unique Crown fixture-markets per market. AH `-139.980U / -1.628432%`, settlement LL/Brier `1.03297664/0.64940953`, event-time max DD `172.935U`; OU `-348.570U / -4.055026%`, LL/Brier `0.98905515/0.62437528`, max DD `352.640U`. Six rows lacked a valid receipt timestamp and were excluded. All 8,596 included receipts per market are post-kickoff; this remains retrospective event-time ROI. [Replay receipt](results/m5_source_union_replay_partial_20261105T182536Z.json).
 
 Re-fitting the fixed `2026-09-01 UTC` temporal diagnostic on this response-index snapshot gives 6,318 train / 2,295 holdout fixtures per market, disjoint IDs. Calibration factors (home 1.035241, away 1.029959) are fitted from historical goals, not ROI. AH raw/calibrated ROI `+0.244009% / -0.162092%`; OU `-4.723965% / -3.810022%`. Calibrated LL/Brier are AH `1.02699963/0.64224118`, OU `0.99013928/0.62424450`. All receipts remain post-kickoff and neither market reaches +3%. [Temporal holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T182806Z.json).
+
+
+### 2026-11-05T18:37Z incremental Crown capture checkpoint
+
+The capture progress file reached 9,700/127,674 candidates at `2026-11-05T18:33:56Z`, with 9,643 exact responses, 57 transport errors, 8,724 valid AH and OU quotes, and zero identity/time mismatches. The process remains active; this is not terminal coverage.
+
+Append-only response replay generated `2026-11-05T18:34:56Z`, with 8,733 unique fixture-markets per side: AH `-150.015U / -1.717795%` (LL/Brier `1.03316151/0.64952653`), OU `-355.045U / -4.065556%` (`0.98873384/0.62409367`). Two invalid-receipt rows were excluded; every included API receipt was after kickoff. This remains retrospective source-event-time ROI. [Replay receipt](results/m5_source_union_replay_partial_20261105T183456Z.json).
+
+Fixed `2026-09-01 UTC` holdout re-fit generated `2026-11-05T18:37:08Z`: 6,454 training / 2,295 holdout fixtures per market, disjoint. The fitted home/away factors are 1.034358/1.033627. Raw/calibrated ROI is AH `+0.244009% / +0.001743%`, OU `-4.723965% / -3.813508%`; calibrated LL/Brier AH `1.02690241/0.64220362`, OU `0.98997095/0.62412352`. All quote API receipts are after kickoff, so this is not executable pregame evidence. [Holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T183708Z.json).
