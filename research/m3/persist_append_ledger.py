@@ -49,7 +49,16 @@ def persist(candidate_path: str | Path, max_attempts: int = 8):
     for attempt in range(max_attempts):
         git("fetch", "origin", "main")
         existing = remote_events()
-        conflicts = [eid for eid, e in candidate.items() if eid in existing and existing[eid] != e]
+        # A repeat FT observation may have a new observation timestamp while
+        # referring to exactly the same immutable settlement. Preserve the
+        # original event; reject every other difference, including the result.
+        def same_immutable_event(a, b):
+            if a == b:
+                return True
+            if a.get('protocol') != 'M3_TOTALCORNER_FORWARD_SETTLEMENT_V1' or b.get('protocol') != a.get('protocol'):
+                return False
+            return {k: v for k, v in a.items() if k != 'observed_utc'} == {k: v for k, v in b.items() if k != 'observed_utc'}
+        conflicts = [eid for eid, e in candidate.items() if eid in existing and not same_immutable_event(existing[eid], e)]
         if conflicts:
             raise ValueError("immutable existing event mismatch: " + str(len(conflicts)))
         already = {order_identity(e) for e in existing.values() if e.get("protocol") == "M3_SHADOW_ORDER_V1"}
