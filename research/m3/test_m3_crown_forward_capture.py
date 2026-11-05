@@ -8,10 +8,15 @@ from research.m3.m3_crown_forward_capture import (
     _line_ev,
     movement_rows,
     source_local_to_utc,
+    safe_api_error,
 )
 
 
 class M3CrownForwardCaptureTest(unittest.TestCase):
+    def test_api_error_classification_is_allowlisted(self):
+        self.assertEqual(safe_api_error({"error": {"code": "TOO_MANY_REQUEST"}}), "TOO_MANY_REQUEST")
+        self.assertEqual(safe_api_error({"error": {"code": "arbitrary private response detail"}}), "OTHER")
+
     def test_forecast_selector_requires_forward_grid_and_prior_training_date(self):
         now = datetime(2026, 11, 5, 12, 0, tzinfo=timezone.utc)
         base = {

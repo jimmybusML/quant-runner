@@ -6,7 +6,7 @@
 - [Crown 回放的脱敏聚合数据](results/m3_crown_oos_replay_20261105.json)：不包含队名、fixture ID、赔率或密钥。
 - 当前 OOS 原始可复核报告及预测/参数版本仍在下方既有 results 路径。
 - 新增 [M3 Crown 前瞻采集器](m3_crown_forward_capture.py) 与 [每四小时 UTC workflow](../../.github/workflows/m3-crown-forward-capture.yml)。collector 只请求 `bookmaker=crown`，按 UTC 配对 M3 已记录预测和开赛前 AH/OU 报价；公开收据保存带密钥 HMAC 与汇总 EV，不保存盘口、水位或原响应。须待 workflow 首次成功运行后才能报告真实前瞻覆盖。
-- 本地全量 M3 验证为 83/83 单测通过；新 workflow 的真实 Actions 首次验收及前瞻覆盖仍待记录。
+- 本地全量 M3 验证为 84/84 单测通过。首次 Actions run [41956460742](https://github.com/ljm198964-alt/quant-runner/actions/runs/41956460742) 已跑完预测刷新和 Crown-only 请求，但保存步骤因空 quote 文件缺失失败；脱敏报告为144 forecasts / 1 unique schedule / 0 Crown quote pairs / EV null。已修复后需重跑验证落库。
 - Secret 名称 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN` 只从公开 workflow 引用确认，未读取任何值。历史 Crown 源探测 run `39584036612` 成功；OddsPapi 的凭证、连接器和历史存档未找到。
 - Crown 前瞻输入沿用 OpenFootball M3 forecast 账本，现有来源缺少 B1 前瞻 fixtures；研究固定范围仍为六联赛，B1 覆盖缺口如实保留。手动 Crown probe 已移除非 Crown fallback 并避免输出 ID/赔率字段。
 

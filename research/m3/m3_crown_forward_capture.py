@@ -43,6 +43,42 @@ ALIASES = {
 }
 API = "https://api.totalcorner.com/v1"
 UTC = timezone.utc
+SAFE_API_ERRORS = {"TOO_MANY_REQUEST", "INVALID_TOKEN", "NO_PERMISSION",
+                   "UNAUTHORIZED", "INVALID_PARAMETER", "NOT_FOUND", "INTERNAL_ERROR"}
+
+
+def safe_api_error(payload: object) -> str:
+    if not isinstance(payload, dict):
+        return "UNEXPECTED_RESPONSE"
+    error = payload.get("error")
+    code = error.get("code") if isinstance(error, dict) else None
+    return code if isinstance(code, str) and code in SAFE_API_ERRORS else "OTHER"
+
+
+def request_json(url: str, params: dict) -> dict:
+    for attempt in range(7):
+        try:
+            response = requests.get(url, params=params, headers={"Accept": "application/json"}, timeout=30)
+        except requests.RequestException:
+            if attempt < 6:
+                time.sleep(3 * (attempt + 1))
+                continue
+            raise RuntimeError("TotalCorner network request failed") from None
+        if response.status_code == 429 and attempt < 6:
+            time.sleep(11)
+            continue
+        if response.status_code >= 400:
+            raise RuntimeError(f"TotalCorner HTTP status {response.status_code}")
+        try:
+            payload = response.json()
+        except ValueError:
+            raise RuntimeError("TotalCorner returned malformed JSON") from None
+        if (isinstance(payload, dict) and safe_api_error(payload) == "TOO_MANY_REQUEST"
+                and attempt < 6):
+            time.sleep(11)
+            continue
+        return payload
+    raise RuntimeError("TotalCorner rate limit retry bound exhausted")
 
 
 def parse_utc(value: str, field: str) -> datetime:
@@ -248,7 +284,7 @@ def build_commitments(forecasts: list[dict], schedule: dict, payload: dict,
                       received_at: datetime, source_timezone: str,
                       key: str) -> tuple[list[dict], dict]:
     if not isinstance(payload, dict) or payload.get("success") != 1 or not isinstance(payload.get("data"), list):
-        return [], {"status": "CROWN_RESPONSE_UNAVAILABLE", "records": 0}
+        return [], {"status": "CROWN_RESPONSE_UNAVAILABLE", "api_error": safe_api_error(payload), "records": 0}
     matches = [row for row in payload["data"]
                if isinstance(row, dict) and str(row.get("id")) == str(schedule.get("id"))]
     bookmaker = crown_bookmaker(matches[0]) if len(matches) == 1 else None
@@ -335,13 +371,11 @@ def get_schedule(day: str, token: str) -> list[dict]:
     rows = []
     page = 1
     for _ in range(100):
-        response = requests.get(f"{API}/match/schedule",
-            params={"token": token, "date": day.replace("-", ""), "page": page},
-            headers={"Accept": "application/json"}, timeout=30)
-        response.raise_for_status()
-        payload = response.json()
-        if payload.get("success") != 1 or not isinstance(payload.get("data"), list):
-            raise RuntimeError("TotalCorner schedule request failed")
+        payload = request_json(f"{API}/match/schedule",
+            {"token": token, "date": day.replace("-", ""), "page": page})
+        if not isinstance(payload, dict) or payload.get("success") != 1 or not isinstance(payload.get("data"), list):
+            code = safe_api_error(payload)
+            raise RuntimeError(f"TotalCorner schedule API error {code}")
         rows.extend(payload["data"])
         if not (payload.get("pagination") or {}).get("next"):
             return rows
@@ -351,11 +385,8 @@ def get_schedule(day: str, token: str) -> list[dict]:
 
 
 def get_crown(match_id: str, token: str) -> dict:
-    response = requests.get(f"{API}/match/bookmaker_odds/{match_id}",
-        params={"token": token, "bookmaker": "crown", "columns": "asianList,goalList"},
-        headers={"Accept": "application/json"}, timeout=30)
-    response.raise_for_status()
-    return response.json()
+    return request_json(f"{API}/match/bookmaker_odds/{match_id}",
+        {"token": token, "bookmaker": "crown", "columns": "asianList,goalList"})
 
 
 def main() -> None:
@@ -385,9 +416,13 @@ def main() -> None:
             if local_day not in schedule_cache:
                 try:
                     schedule_cache[local_day] = get_schedule(local_day, token)
-                except (requests.RequestException, RuntimeError, ValueError, TypeError, AttributeError):
+                except (requests.RequestException, RuntimeError, ValueError, TypeError, AttributeError) as exc:
                     schedule_cache[local_day] = []
-                    rejected["schedule_request_failed_redacted"] += 1
+                    message = str(exc)
+                    safe_category = (message.removeprefix("TotalCorner schedule API error ")
+                                     if message.startswith("TotalCorner schedule API error ") else
+                                     "REQUEST_OR_PARSE_FAILURE")
+                    rejected[f"schedule_request_failed_{safe_category}"] += 1
                 time.sleep(2.2)
         schedules = [match for offset in (-1, 0, 1)
                      for match in schedule_cache[(date.fromisoformat(day) + timedelta(days=offset)).isoformat()]]
@@ -428,6 +463,8 @@ def main() -> None:
             rows, status = build_commitments(fixture_forecasts, schedule, payload,
                                              received_at, args.source_timezone, key)
             statuses[status["status"]] += 1
+            if status.get("api_error"):
+                statuses[f"api_error_{status['api_error']}"] += 1
             for key_name, values in status.get("mean_ev", {}).items():
                 bucket = ev_aggregate.setdefault(key_name, {"n": 0, "sum": 0.0})
                 bucket["n"] += values["n"]
@@ -440,6 +477,7 @@ def main() -> None:
             statuses["CAPTURE_ERROR_REDACTED"] += 1
         time.sleep(2.2)
     args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.touch(exist_ok=True)
     if added:
         with args.output.open("a", encoding="utf-8") as stream:
             for row in added:
@@ -456,8 +494,9 @@ def main() -> None:
         "forecast_input_fingerprint_sha256": forecast_input_fingerprint,
         "forecast_input_changed_vs_previous_run": None if previous_forecast_fingerprint is None else
             forecast_input_fingerprint != previous_forecast_fingerprint,
-        "new_learning_information": (bool(added) if previous_forecast_fingerprint is None else
+        "new_learning_information": (None if previous_forecast_fingerprint is None else
             forecast_input_fingerprint != previous_forecast_fingerprint or bool(added)),
+        "new_learning_information_baseline": "unavailable_first_capture_run" if previous_forecast_fingerprint is None else "previous_capture_report",
         "quote_commitments_added": len(added), "quote_commitments_total": len(prior),
         "quote_commitments_by_market": dict(commitment_counts_by_market),
         "quote_commitments_by_league_market": {"|".join(key): value

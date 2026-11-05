@@ -6,7 +6,7 @@ M3 已有可复现的 AH 与 OU 真实历史样本外概率评估、每四小时
 
 用户已明确要求复用现有授权与合法数据，不申请新授权。本轮确认公开代码里现成的 Actions Secret 名称为 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN`，但绝不读取其值；历史 M3 Crown API 探测 run `39584036612` 成功。OddsPapi 凭证/连接器/历史存档均未发现。另有本地 Crown 历史档案，但只作为独立报价/赛果证据使用，不复用 M1/M2/MR1 预测、参数、订单或正式账本。
 
-本轮新增 M3 专属前瞻采集器和每四小时 UTC workflow，限定 `bookmaker=crown`，仅接受已保存 M3 forward forecast 后、kickoff 前的 AH/OU movement，训练截止按 UTC 日期严格早于比赛。公开落库只包含加密 HMAC 承诺、UTC 时间与聚合 EV，不包含 API 凭证、原始响应、盘口线、水位或逐场价格。workflow 首次真实 Actions 验收尚待本提交推送后运行；因此当前不能声称前瞻采集成功。真实已验证历史 Crown 回放仍为 AH0 n=24、OU2.5 n=36，来自事后生成的严格 OOS hindcast，不代表 contemporaneous forecast 或实际成交。数据范围继续保留六联赛口径；当前 OpenFootball forward 数据没有 B1 fixtures，B1 前瞻覆盖为0，不将此误报为完整覆盖。
+本轮新增 M3 专属前瞻采集器和每四小时 UTC workflow，限定 `bookmaker=crown`，仅接受已保存 M3 forward forecast 后、kickoff 前的 AH/OU movement，训练截止按 UTC 日期严格早于比赛。公开落库只包含加密 HMAC 承诺、UTC 时间与聚合 EV，不包含 API 凭证、原始响应、盘口线、水位或逐场价格。首次真实 Actions run `41956460742` 完成了预测刷新、全量测试、Crown-only 查询及脱敏 artifact，但首次因空 quote 文件不存在而在收据落库步骤失败。该 run 检查144条预测，仅1场唯一匹配 TotalCorner schedule；Crown 返回不可用数据，AH/OU 前瞻配对均0，EV/ROI 为 null。没有可用的前次指纹报告，首次运行的“新增学习信息”基线未知。修复后续跑结果及真实落库 commit 将继续更新。真实历史 Crown 回放仍为 AH0 n=24、OU2.5 n=36，来自事后生成的严格 OOS hindcast，不代表 contemporaneous forecast 或实际成交。数据范围继续保留六联赛口径；当前 OpenFootball forward 数据没有 B1 fixtures，B1 前瞻覆盖为0，不将此误报为完整覆盖。
 
 ## 最新真实历史样本外模型结果
 
@@ -57,7 +57,7 @@ AH/OU 补充候选 `opisthokonta/goalmodel`：当前检视版本 v0.6.4（2024-0
 - `.github/workflows/m3-independent-research.yml` 维持用户已确认的 `0 */4 * * *` UTC 频率，并可手动运行；最新 run `41949912425` 成功，76项 M3 单测通过，同时执行原版 V4、三种 penaltyblog 模型、严格 OOS 评分、输入指纹比较及持久化。模型数、参数哈希、预测哈希、run ID、UTC 生成时间与历史版本均留存。
 - 输入 fingerprint 与前次相同；workflow 如实记录无新增学习信息。但重复拟合后模型参数/预测文件 SHA 改变，分数仅有微小差异（例如 AH0 Dixon-Coles Log Loss 从 1.003793 变为 1.003785）。参数文件162个条目均有变化，可能与优化过程/序列化有关，尚未确定原因。比较报告按同一测试集保留了差异；暂不宣称逐字节可复现，后续应审计 penaltyblog 拟合的确定性。
 - 新增 `.github/workflows/m3-crown-forward-capture.yml` 与 `m3_crown_forward_capture.py`，保持四小时 UTC 频率，使用现有 `TOTALCORNER_TOKEN`，但仅访问 TotalCorner 的 Crown bookmaker。脚本只配对 M3 OpenFootball forward forecast；以配置的 `Asia/Shanghai` 源时区无歧义转换为 UTC，要求预测时间 < 行情观测时间 < kickoff，且训练日早于 kickoff UTC 日期。对公开仓库仅追加 forecast/fixture hash、行/响应 HMAC、市场、预测/接收/观测/kickoff UTC 与均值 EV；不保存或打印原始响应、source match ID、盘口线、水位、价格或 token。EV 分 AH/OU、模型和两侧分别汇总；没有有效配对时如实为零/null。
-- 新 workflow 的真实 Actions 首次验收尚未触发；本次本地 M3 全套测试 83/83 通过，含7项新增 source/UTC/privacy 单测。待提交、推送后再记录真实 run ID 与实际覆盖，不把代码完成当成运行成功。
+- 新 workflow 真实 run `41956460742` 的模型刷新、全量 M3 测试及 Crown 查询均通过；run 最后因空报价收据文件不存在而未落库。脱敏 artifact 显示 forecasts_considered=144、fixtures_with_unique_schedule_identity=1、quote commitments=0、Crown response unavailable、EV/ROI=null。修复持久化、API限速重试与安全错误分类后需再运行并验证成功 commit。当前全量 M3 本地测试 84/84 通过。
 - 本次修复 M3 手动 Crown 探测脚本：删除 TotalCorner 默认赔率 fallback；日志不再输出源 match ID、bookmaker 字段形状或报价样例，只报告 Crown 识别状态与行数。没有触碰其他模型 workflow 或任何正式链路，也没有执行该探测 workflow。
 - 已检查已有 Crown Secret 名称 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN`，从未读取值。发现 2026-10-21 历史固定 ID Crown 探测成功记录；这不是持续前瞻报价存档。OddsPapi 的凭证/连接器/归档未找到。M3 forward-EV 的 TotalCorner default bookmaker 记录严格排除，不代替 Crown。
 - TotalCorner API 文档和现行公开条款仍提醒自动化抽取、数据保留/公开派生结果须符合供应商授权。用户已明确指示复用项目现有授权；本实现不索取新权限、不把 Secret 存在视为独立许可证明，也不输出原始价格。公开仓库只保留 HMAC 证据与聚合研究指标。此次功能采用用户确认的现有授权运行；如果实际 Action 因授权/Secret 配置失败，记录脱敏错误状态，绝不回退到其他赔率源。
