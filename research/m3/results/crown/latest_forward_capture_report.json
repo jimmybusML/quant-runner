@@ -1,20 +1,25 @@
 {
   "protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V2",
-  "capture_started_utc": "2026-11-05T04:18:00.118853Z",
-  "generated_utc": "2026-11-05T04:21:05.359425Z",
+  "capture_started_utc": "2026-11-05T04:27:25.629122Z",
+  "generated_utc": "2026-11-05T04:30:34.069696Z",
   "data_source": "TotalCorner bookmaker=crown only",
   "forecast_source": "M3 OpenFootball forward-only shadow; public M3 ledger only",
   "forecasts_considered": 144,
   "fixtures_with_unique_schedule_identity": 5,
   "forecast_input_fingerprint_sha256": "f996272ab8e112711d1cb75ff3c197c2443ebd74c8c28edfd8201d105f50c11e",
   "forecast_input_changed_vs_previous_run": false,
-  "new_learning_information": false,
-  "new_learning_information_baseline": "previous_capture_report",
-  "quote_commitments_added": 0,
-  "quote_commitments_total": 42,
+  "current_snapshot_quote_fingerprint_sha256": "d866c1aa7898f1d509a2325d570119b46387461031a1b4ab7dcabba94e78bfb7",
+  "quote_snapshot_changed_vs_previous_run": null,
+  "new_learning_information": null,
+  "new_learning_information_baseline": "previous_report_missing_quote_fingerprint",
+  "quote_commitments_added": 18,
+  "quote_commitments_total": 60,
+  "unique_fixture_market_quote_rows_total": 8,
+  "new_unique_fixture_market_quote_rows_added": 0,
+  "current_snapshot_unique_fixture_market_quote_rows": 6,
   "quote_commitments_by_protocol": {
     "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V1": 18,
-    "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V2": 24
+    "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V2": 42
   },
   "new_commitments_protocol": "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V2",
   "snapshot_time_basis": "API response received after forecast and before kickoff; latest active Crown pre-match movement row; provider update time retained separately",
@@ -32,18 +37,18 @@
   },
   "current_snapshot_quote_update_age_seconds": {
     "n": 18,
-    "median": 121809,
-    "max": 833111
+    "median": 122377,
+    "max": 833679
   },
   "quote_commitments_by_market": {
-    "AH": 21,
-    "OU": 21
+    "AH": 30,
+    "OU": 30
   },
   "quote_commitments_by_league_market": {
-    "D1|AH": 15,
-    "D1|OU": 15,
-    "E0|AH": 6,
-    "E0|OU": 6
+    "D1|AH": 21,
+    "D1|OU": 21,
+    "E0|AH": 9,
+    "E0|OU": 9
   },
   "status_counts": {
     "CROWN_IDENTIFIED": 5
