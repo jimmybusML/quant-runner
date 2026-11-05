@@ -25,7 +25,9 @@ M3 已有可复现的 AH 与 OU 真实历史样本外概率评估、每四小时
 
 覆盖报告实跑 `41965481211` 于 `2026-11-05T04:04:20Z–04:14:08Z` 成功，报告、6条新增quote commitment及数据版本落库 commit `c6a239c0`。本次仍检查144条预测、精确识别5场；AH、OU 分别有3/5场（60%）具有当前 Crown 快照。累计保留42条（v1 18、v2 24）；不把重复报价行数误当作新增fixture数。当前 quote 更新时间年龄中位数121,386秒（约1.40天）、最大832,676秒（约9.64天）。最新每模型、市场、方向单位期望收益如下，n=3：AH Poisson 主/客 -7.69%/+1.22%，Dixon-Coles -8.37%/+1.88%，Bivariate Poisson -8.11%/+1.65%；OU Poisson 大/小 -19.02%/+13.50%，Dixon-Coles -19.76%/+14.29%，Bivariate Poisson -17.66%/+12.12%。这仍是小样本理论 EV，ROI、已实现单位收益和回撤均为空。
 
-UTC 时间字段修复由真实 run `41966789454` 验证成功，branch head `e5974f79`；最终数据/报告持久化 commit `fb4a4f06`。`capture_started_utc=2026-11-05T04:18:00.118853Z`，报告生成 `generated_utc=2026-11-05T04:21:05.359425Z`，晚于当次 API 捕获并如实保留。该轮 forecast fingerprint 未变，新增报价收据0，明确报告 `new_learning_information=false`；覆盖和 EV 与上一轮一致。下一次的快照事件协议会为每次新的 API 观察生成独立收据，并以唯一报价行 HMAC fingerprint 区分“同一报价再次观测”与“报价本身变化”。
+UTC 时间字段修复由真实 run `41966789454` 验证成功，branch head `e5974f79`；最终数据/报告持久化 commit `fb4a4f06`。`capture_started_utc=2026-11-05T04:18:00.118853Z`，报告生成 `generated_utc=2026-11-05T04:21:05.359425Z`。之后将每次 API 观察改为独立快照 HMAC 收据；唯一 quote-row fingerprint 单独判断盘口数据是否变化，不会将重复观察误计为新学习信息。
+
+新快照协议与学习信息判定由真实 Actions run `41968378899` 通过，branch head `64e21725`；每次运行的18条 AH/OU 快照收据与新报告持久化于 commit `1bbf1c24`。采集起始 `2026-11-05T04:34:18.971522Z`，报告生成 `2026-11-05T04:37:42.077638Z`。当前统计保留78条收据（v1 18、v2 60），历史唯一 fixture-market-quote HMAC 行8条，本轮当前独立行6条；当轮新增独立 quote row 为0。预测输入与 Crown quote-row fingerprint 均未变化，报告明确 `new_learning_information=false`。AH、OU 当前快照各3/5唯一赛程场次（60%）；每模型/市场/方向 n=3。更新时间年龄中位数122,806秒（约1.42天）、最大834,107秒（约9.65天）。逐项理论 EV 与上表相同，赛后结果尚未出现，ROI仍为空。
 
 ## 最新真实历史样本外模型结果
 

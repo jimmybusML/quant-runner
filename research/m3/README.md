@@ -6,8 +6,8 @@
 - [Crown 回放的脱敏聚合数据](results/m3_crown_oos_replay_20261105.json)：不包含队名、fixture ID、赔率或密钥。
 - 当前 OOS 原始可复核报告及预测/参数版本仍在下方既有 results 路径。
 - 新增 [M3 Crown 前瞻采集器](m3_crown_forward_capture.py) 与 [每四小时 UTC workflow](../../.github/workflows/m3-crown-forward-capture.yml)。collector 只请求 `bookmaker=crown`；使用预测后、开赛前收到的 Crown API 当前快照，以该响应中最新、仍开放的赛前 AH/OU 行计算分侧 EV。公开收据同时保留 API 接收 UTC 与供应商更新时间（HMAC化行情内容，不存价格/盘口线/原响应）。
-- 最新结果含 Crown 前瞻 run `41966789454`（SUCCESS，commit `fb4a4f06`），报告生成 UTC `2026-11-05T04:21:05.359425Z`：144 forecasts，5场唯一赛程身份，43场身份不确定被拒；AH、OU 各有3/5场（60%）当前 Crown 快照；累计42条HMAC承诺（v1 18、v2 24）。每模型/市场/方向 n=3。EV 与更新时间年龄详见 [`latest_forward_capture_report.json`](results/crown/latest_forward_capture_report.json)。本轮 forecast fingerprint 未变、未新增 quote commitment，故没有新的报价学习信息；无已结算前瞻比赛，ROI=null。
-- 本地 M3 全套测试 87/87 通过；Actions 同样运行整套测试。UTC 报告现在分别记录采集开始和报告生成时刻。每次之后都将独立追加快照收据；相同报价仍作为新的观测时点留档，同时以唯一 quote-row fingerprint 判断数据是否真的变化。首次迁移运行没有旧指纹基线时会如实标记未知。
+- 最新结果含 Crown 前瞻 run `41968378899`（SUCCESS，commit `1bbf1c24`），报告生成 UTC `2026-11-05T04:37:42.077638Z`：144 forecasts，5场唯一赛程身份，43场身份不确定被拒；AH、OU 各有3/5场（60%）当前 Crown 快照；78条HMAC快照收据（v1 18、v2 60），历史唯一 fixture-market-quote 行8条、当前独立行6条。每模型/市场/方向 n=3；EV、更新时间年龄详见 [`latest_forward_capture_report.json`](results/crown/latest_forward_capture_report.json)。该轮预测及 Crown quote-row 指纹都未变，新增独立报价行0，报告 `new_learning_information=false`；本轮18条重复观测仍留有UTC时间收据。无已结算前瞻比赛，ROI=null。
+- 本地 M3 全套测试 88/88 通过；Actions 同样运行整套测试。报告分别记录采集开始和报告生成 UTC。每次 API 观察均追加独立快照收据；唯一 quote-row 指纹用于识别报价是否改变。
 - Secret 名称 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN` 只从公开 workflow 引用确认，未读取任何值。历史 Crown 源探测 run `39584036612` 成功；OddsPapi 的凭证、连接器和历史存档未找到。
 - Crown 前瞻输入沿用 OpenFootball M3 forecast 账本，现有来源缺少 B1 前瞻 fixtures；研究固定范围仍为六联赛，B1 覆盖缺口如实保留。手动 Crown probe 已移除非 Crown fallback 并避免输出 ID/赔率字段。
 
