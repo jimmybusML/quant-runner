@@ -1,3 +1,10 @@
+## 2026-11-05 M5 采集续跑与7,262场阶段性回放
+- 活动分支 `codex/m5-oos-crown-expansion`；回放由 `/Users/mac/QuantAsiaDesk/data/m5-crown-authorized` 私有原始档案计算，未把原始报价、match IDs 或密钥写入公开仓库。用户指定的 `/private/tmp/m1-m5-private` 目前只检查到既有 M1 observations/summary/verified FT；M5 Crown collector 的现存活动归档实际位于前述 QuantAsiaDesk 目录。
+- Crown 采集 PID `19740` 仍运行；2026-11-05T16:20:38.253997Z checkpoint：候选127,674，处理8,100，精确响应8,049，传输错误51，AH/OU各7,237场有效赛前源事件报价，身份/时间错配0。TOTAL 串行等待器仍等待 Crown 终态，TOTAL 请求尚未启动；私有采集速率约每分钟十余条响应，不能把索引行数代替检查点覆盖。
+- 在 `2026-11-05T16:24:24.501470Z` 对活动归档做了一次聚合式阶段回放，公开收据 `research/m5/results/m5_source_union_replay_partial_20261105T162424Z.json`。AH/OU 各7,262唯一比赛、模拟及结算7,262注；AH `-115.370U / -1.588681%`，全赢/半赢/走水/半输/全输 2,936/483/497/518/2,828，最大回撤144.940U；OU `-299.260U / -4.120903%`，类别 2,990/392/378/511/2,991，最大回撤304.145U。AH/OU bootstrap 95% ROI 区间分别 `[-3.638529%, +0.430942%]` 与 `[-6.169444%, -2.033118%]`。两市报价响应全部赛后回取，开赛覆盖仅2026年；属于源事件时间回顾模拟，不是赛前真实收到/可执行ROI。此部分结果两市均未达到≥3%，也未达到每市10,000样本，不能作为完成结论。
+- 回放用全源事件时间窗口和严格 `train_end < prediction_asof <= quote_event < kickoff`，Crown 来源全覆盖；本次 TOTAL fallback 未参与。AH、OU单独统计，没有新增 EV 或其他 Gate。M1/MR1/M3/M4、正式派单、TG和账本未改动。没有 M5 Actions run。
+- 公开研究 README 已更新该阶段指标；代码/报告变更待提交、推送。下一步继续观察 PID `19740` 与检查点；Crown终态后允许既有串行等待器对实际缺失 fixture-market 启动 TotalCorner default 回退，随后重跑最终 AH/OU分源审计、模型对照并追加公开报告。
+
 ## 2026-11-05 M5 研究重启（收益目标与 Crown/TotalCorner 数据接入更新）
 - 最新用户目标覆盖此前冲突要求：AH、OU 独立统计；每市场仍需至少10,000个唯一真实历史样本；任一市场样本外 ROI ≥3% 即达到收益指标。Crown 优先，单个市场缺少有效 Crown 盘口时可用并单列 TotalCorner（TOTAL）；不增加 EV、联赛、时间或下注数量门槛。
 - 恢复 `research/m5/crown_historical_capture.py`、127,674 行 M5 UTC walk-forward forecast，以及用户指定私有目录 `/private/tmp/m1-m5-private` 的 M1 V23 Crown OU observations、summary 与 verified FT 收据。M1 源目录仅只读；M1/MR1/M3/M4 生产、订单、账本、TG 都未改变。
