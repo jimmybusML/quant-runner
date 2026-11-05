@@ -75,12 +75,24 @@ def summarize(rows, market, seed):
     receipt=Counter('pre_kickoff' if r['receipt_before_kickoff'] else 'post_kickoff' for r in rows)
     byyear=defaultdict(list)
     for r in rows: byyear[r['kickoff_utc'][:4]].append(r['pnl'])
+    categories=('win','half_win','push','half_loss','loss')
+    calibration={}
+    for category in categories:
+        bins=[[] for _ in range(10)]
+        for row in rows:
+            probability=min(1.0,max(0.0,float(row['distribution'].get(category,0.0))))
+            idx=min(9,int(probability*10))
+            bins[idx].append((probability,float(row['category']==category)))
+        calibration[category]=[{'probability_bin':f'{i/10:.1f}-{(i+1)/10:.1f}','fixtures':len(v),
+          'mean_predicted_probability':round(sum(x[0] for x in v)/len(v),8) if v else None,
+          'observed_frequency':round(sum(x[1] for x in v)/len(v),8) if v else None}
+          for i,v in enumerate(bins) if v]
     return {'unique_fixtures':n,'simulated_bets':n,'settled_bets':n,'pending_bets':0,
       'settlement_counts':{k:outcomes[k] for k in ('win','half_win','push','half_loss','loss')},
       'net_units':round(pnl,6),'roi_pct':round(100*pnl/n,6) if n else None,
       'max_drawdown_units_by_source_event_time':round(dd,6) if n else None,
       'roi_bootstrap_95pct':bootstrap([r['pnl'] for r in rows],seed),
-      'settlement_log_loss':ll,'settlement_brier':br,
+      'settlement_log_loss':ll,'settlement_brier':br,'settlement_category_calibration_bins':calibration,
       'source_fixture_markets':dict(sources),'quote_receipt_timing':dict(receipt),
       'by_utc_kickoff_year':{y:{'fixtures':len(v),'net_units':round(sum(v),6),'roi_pct':round(100*sum(v)/len(v),6)} for y,v in sorted(byyear.items())}}
 
