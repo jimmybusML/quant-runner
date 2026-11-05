@@ -3806,3 +3806,5 @@
 
 
 - Calendar coverage audit of all 17,338 MR1 V6 verified Crown-forward records found kickoff year 2026 only; all rows have quote times and `received_at` before kickoff. Thus these forward records cannot create a prior-season validation cohort for the current M5 forecasts; the common Crown/FT cohort remains 870 fixtures per market. The date audit was aggregate-only and disclosed no fixture identifiers or timestamps.
+
+- M3/M5/MR1 V6 same-time coverage audit: among the 870-per-market exact M5/MR1 V6 Crown cohort, 64 unique 2026 fixtures (128 market records) also have all three M3 strict OOS model predictions by exact competition/date/team identity. The source M3 prediction artifact has 44,418 predicted model rows and zero `train_end_utc >= kickoff` violations. Only 5 AH0 and 10 OU2.5 rows among these 64 fixtures have directly comparable Crown contracts; this is too small for ROI inference. No ROI was claimed and no line/league filter was introduced. Full M3 score-grid predictions are not archived on the same quote cohort, so the 870-row arbitrary-line Crown comparison currently supports M5 vs MR1 V6 but not M3.

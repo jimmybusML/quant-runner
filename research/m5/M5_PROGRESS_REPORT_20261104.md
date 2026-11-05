@@ -701,3 +701,7 @@ Reproducibility receipt: code [`m5_mr1_v6_same_crown_oos.py`](m5_mr1_v6_same_cro
 
 
 Archive refresh note: MR1 V23 index and registry changed after the prior report generation, so the exact same-Crown replay was rerun read-only against the latest local files. The matching V6 record, Crown snapshot and FT receipt hash sets, 870-fixture-per-market cohort, settlement counts, ROI, drawdown and bootstrap intervals were unchanged; only the source-index/registry fingerprints and generation UTC advanced. This refresh added no new fixture and is not new OOS evidence.
+
+### M3 strict OOS intersection audit on the Crown V6 cohort
+
+A read-only exact identity join of the 870-per-market M5/MR1 V6 Crown cohort to all three M3 strict OOS model rows found 64 common unique 2026 fixtures (128 fixture-markets). The M3 prediction file has 44,418 predicted model rows and zero `train_end_utc >= kickoff` violations. Only 5 of the 64 fixture-market entries have an AH0 Crown contract and 10 have an OU2.5 Crown contract, the two contracts for which the M3 artifact exposes directly comparable AH/OU probabilities. These counts are not enough for a meaningful ROI or a new strategy claim; no threshold or performance claim is inferred. The larger 870-marketline cohort remains usable for M5 vs MR1 V6, while the M3 comparison stays proper-score-only unless full M3 score grids are archived for the same Crown quotes.
