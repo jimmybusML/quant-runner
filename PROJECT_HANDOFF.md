@@ -1,3 +1,11 @@
+## 2026-11-05 14:02 北京时间 统一自动结算迁移（进行中）
+- 用户明确授权以统一赛果核验/自动追踪/幂等账本/自动统计方案替换旧结算调度，不增加模型策略、盘口或TG限制。
+- 新本机统一协调器 `~/QuantAsiaDesk/scripts/unified_settlement.py`（公开仓库副本 `ops/localdesk/unified_settlement.py`），串行处理M1正式、MR1正式、M3影子三条独立账本，进程锁防重入，逐步执行日志写入 `state/unified_settlement_events.jsonl`，任一模型失败不会隐藏其他模型失败；不发TG。
+- 新待结算审计 `state/unified_settlement_pending.json`：明确按模型逐笔记录已过开赛但赛果未核实、未开赛等状态，**开赛已过不等于完场**；公开副本 `ops/localdesk/settlement_pending_audit.py`。
+- 2026-11-05 05:58Z 直接验证新协调器 M1 两步成功、MR1 一步成功，`COMPLETED failed=[]`。14:00 北京时间审计 M1账本21条未结算（包括非正式发送记录，不等于正式TG未结算21）、MR1 16条未结算（5条已过开赛、11条未开赛）；M3影子报告仍待刷新。
+- 旧本机 `com.quantasia.mr1.settle` 已从 launchctl 卸载；新 `com.quantasia.unified.settlement` 已加载，复用原有300秒定期调度频率，启动后正在执行新一轮全模型结算。旧模型内部的结算函数仍作为模型独立账本写入器被调用，**并非已经删除全部旧结算代码**；生产扫描内嵌结算和GitHub工作流仍需审计后再退役，不能谎称完全替换。
+- 尚未完成：赛果异常的第二可信来源自动核验；历史已完场但TotalCorner无法确认的赛事仍未全部结算；新统一运行的M3端到端完成及远端持久化需等待实际结果。不能把本轮协调器上线当成彻底消除漏结算。
+
 # 2026-11-05 M3 Crown 前瞻采集验收（用户确认复用现有授权）
 - 用户明确要求先审计公开仓库和既有来源，复用现有 Crown 授权，不申请新授权；本轮只使用公开 `quant-runner` 中的 M3 独立代码及既有 `TOTALCORNER_TOKEN` Secret 引用，不读取凭证值。历史 Crown probe [39584036612](https://github.com/ljm198964-alt/quant-runner/actions/runs/39584036612) 是固定赛事来源诊断，不等于连续历史盘口档案。OddsPapi token/连接器/存档未发现；TotalCorner default 和其他公司水位均排除。
 - 新增 M3 专属 `.github/workflows/m3-crown-forward-capture.yml` 与 `research/m3/m3_crown_forward_capture.py`，限定 `bookmaker=crown`、AH/OU 分开、UTC 严格配对已记录 M3 OpenFootball 预测与开赛前报价；仅保存 HMAC 行/响应承诺、时间及汇总覆盖/EV，不保存原始响应、盘口线、水位或凭证。无 M3 Telegram、订单、Gate、模型自动晋升；不读 M1/M2/MR1 预测、订单、参数或账本。
