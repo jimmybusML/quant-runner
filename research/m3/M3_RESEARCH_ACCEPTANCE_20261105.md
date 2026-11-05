@@ -83,4 +83,10 @@ AH/OU 补充候选 `opisthokonta/goalmodel`：当前检视版本 v0.6.4（2024-0
 - `m3-totalcorner-auto-shadow.yml` 的 run [41951424819](https://github.com/ljm198964-alt/quant-runner/actions/runs/41951424819) 失败原因是 workflow 未安装 `requests`，而代码导入它。该工作流使用 `default_unspecified_NOT_CROWN` 数据，仅用于独立旧影子审计；本次不把它重标为 Crown，也不将该非 Crown 的 EV/回报记录混入 Crown 研究。
 - Secret 名称元数据仅确认 `TOTALCORNER_TOKEN`、`PRIVATE_REPO_TOKEN` 存在；没有读取值。OddsPapi 凭据或已存数据仍未发现。成功的 Crown run 证明当前 Crown capture 路径使用的现有 TotalCorner 凭据可执行该次采集，不构成更宽历史回填或公开原始数据权限证明。依用户明确指示，未索取新授权，也未回退至其它公司赔率。
 
-这次复核没有改 M1、M2、MR1 生产链路，没有 Telegram、模型自动晋升、新交易 gate 或用户冻结的赛事范围变更。下一项可验证增量仍是：生成/保存新的前瞻 full-score-grid forecast，确认 AH 与 OU quote-row 的 EV 计数非零；在比赛结束后以独立 FT 复核 quote HMAC，再分市场累计 proper scores 与单位结算结果。当前还没有符合这些条件的 Crown OOS 样本。
+这次复核没有改 M1、M2、MR1 生产链路，没有 Telegram、模型自动晋升、新交易 gate 或用户冻结的赛事范围变更。
+
+## 2026-11-05 前瞻比分分布版本键修复
+
+定位到旧账本没有比分网格却被当前幂等键视为新版预测的原因：早期 8,430 条 forecast 都缺少 `model_semantic_version`、full score grid 和显式 forecast-key；迁移回退把它们视为当前语义版本，同时 `_forecast_key` 的默认参数在模块载入时固定为旧常量。现在将保存比分网格的前瞻记录标记为 `penaltyblog-goal-distribution-v2`，将缺失语义版本的旧记录固定解释为 v1，并令 forecast-key 在运行时读取语义版本。模型算法、训练样本、旧事件与结算结果不变；仍符合 UTC 日期保护的未来 fixture 将以当前时点追加 v2 forecast 和比分分布，旧 v1 行完整保留，不对已过 fixture 追补预测。
+
+新增回归测试验证：同一 fixture 的旧 v1 行不被覆写或 supersede；v2 会追加同训练输入哈希的 current-as-of full-score-grid 预测；下次相同 v2 输入仍保持幂等。隔离 Python 3.12 环境使用 penaltyblog 1.13.1 全量 M3 单测 85/85 通过。真实 Actions 与 Crown 配对验收尚待本代码变更后的 workflow_dispatch run，届时报告新增 v2 forecast 数、唯一 fixture 数、AH/OU quote commitment 和可计算 EV 计数；预期的收益与样本外结算仍需之后的完赛和独立 FT receipt 才能计算。

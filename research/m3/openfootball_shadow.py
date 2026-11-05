@@ -40,7 +40,11 @@ MODELS = {
 }
 SUPPORTED_SEASON_START = 2017
 DATE_GUARD_DAYS = 0
-FORECAST_MODEL_SEMANTIC_VERSION = "penaltyblog-goal-distribution-v1"
+# v2 adds the full score-probability grid to prospective forecast events.  The
+# grid enables exact Crown contract probabilities and must not be backfilled on
+# legacy events.  A distinct semantic key lets still-future fixtures receive a
+# fresh, current as-of forecast while retaining the original v1 event intact.
+FORECAST_MODEL_SEMANTIC_VERSION = "penaltyblog-goal-distribution-v2"
 
 
 def _sha256_bytes(data: bytes) -> str:
@@ -353,7 +357,9 @@ def _model_version(model_name: str, train: pd.DataFrame, params: dict,
 
 def _forecast_key(fixture_identity_id: str, schedule_revision_id: str, model: str,
                   training_input_sha256: str, penaltyblog_version: str,
-                  semantic_version: str = FORECAST_MODEL_SEMANTIC_VERSION) -> str:
+                  semantic_version: str | None = None) -> str:
+    if semantic_version is None:
+        semantic_version = FORECAST_MODEL_SEMANTIC_VERSION
     return _sha256_json(["M3_SHADOW_FORECAST_KEY_V1", fixture_identity_id,
                          schedule_revision_id, model, training_input_sha256,
                          semantic_version, penaltyblog_version])
