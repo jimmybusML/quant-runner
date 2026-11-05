@@ -134,3 +134,5 @@ This is a 262-fixture later-period holdout, still far below 10,000 and not evide
 Crown私有回填仍由单一collector运行。检查点 `2026-11-05T17:21:18.731105Z` 已处理8,800/127,674个forecast候选，8,746个精确Crown响应，AH/OU各7,871场包含至少一条合格赛前源事件报价，54条transport errors，fixture身份/时间错配0。采集进程之后仍写入索引（观察到8,875条响应收据行，最后时间 `2026-11-05T17:28:01.454130Z`），但正在写入的索引行数不等于有效quote覆盖，也不是终态。有效覆盖离10,000/市场各差2,129；回放API响应均赛后取得，仍只支持事件时间回顾模拟。
 
 已存在串行 TotalCorner default fallback 等待器仍在等待Crown `finished_utc`，尚无 fallback progress 或TOTAL请求；启动后会逐市场优先保留Crown，缺口来源会标成 `totalcorner_default_NOT_CROWN` 并单独报告。当前阶段不代表数据源联合10k完成、正ROI目标达成、可执行收益或M5 Actions验收。最新细节见 [PROJECT_HANDOFF.md](../../PROJECT_HANDOFF.md)。
+
+最新运行检查点（2026-11-05T17:30:55Z）：8,900/127,674候选已处理，8,846精确响应，AH/OU各7,960个有效Crown赛前源事件报价；还差2,040/市场。collector和串行等待器仍运行，Crown未终态、TOTAL未启动。详见 [PROJECT_HANDOFF.md](../../PROJECT_HANDOFF.md)。
