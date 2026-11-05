@@ -87,12 +87,32 @@ def summarize(rows, market, seed):
           'mean_predicted_probability':round(sum(x[0] for x in v)/len(v),8) if v else None,
           'observed_frequency':round(sum(x[1] for x in v)/len(v),8) if v else None}
           for i,v in enumerate(bins) if v]
+    def group_summary(key_fn):
+        groups=defaultdict(list)
+        for row in rows: groups[str(key_fn(row))].append(row)
+        result={}
+        for key,items in sorted(groups.items()):
+            net=sum(x['pnl'] for x in items)
+            wins=Counter(x['category'] for x in items)
+            result[key]={'fixtures':len(items),'net_units':round(net,6),
+              'roi_pct':round(100*net/len(items),6) if items else None,
+              'settlement_counts':{c:wins[c] for c in categories}}
+        return result
+    def lead_bin(row,field):
+        h=row[field]
+        return '<=1h' if h<=1 else '1-6h' if h<=6 else '6-24h' if h<=24 else '>24h'
+    descriptive={'by_league':group_summary(lambda r:r['league']),
+      'by_utc_kickoff_hour':group_summary(lambda r:f"{r['kickoff_hour']:02d}"),
+      'by_forecast_lead_hours':group_summary(lambda r:lead_bin(r,'forecast_lead_hours')),
+      'by_quote_event_lead_hours':group_summary(lambda r:lead_bin(r,'quote_lead_hours')),
+      'by_quarter_goal_line':group_summary(lambda r:f"{r['line']:.2f}")}
     return {'unique_fixtures':n,'simulated_bets':n,'settled_bets':n,'pending_bets':0,
       'settlement_counts':{k:outcomes[k] for k in ('win','half_win','push','half_loss','loss')},
       'net_units':round(pnl,6),'roi_pct':round(100*pnl/n,6) if n else None,
       'max_drawdown_units_by_source_event_time':round(dd,6) if n else None,
       'roi_bootstrap_95pct':bootstrap([r['pnl'] for r in rows],seed),
       'settlement_log_loss':ll,'settlement_brier':br,'settlement_category_calibration_bins':calibration,
+      'descriptive_splits_no_filter_applied':descriptive,
       'source_fixture_markets':dict(sources),'quote_receipt_timing':dict(receipt),
       'by_utc_kickoff_year':{y:{'fixtures':len(v),'net_units':round(sum(v),6),'roi_pct':round(100*sum(v)/len(v),6)} for y,v in sorted(byyear.items())}}
 
@@ -167,7 +187,10 @@ def run(a):
                         _,cat=legs_result(market,side,line,h,away);distribution[cat]+=float(prob)
                 market_rows[market].append({'pnl':pnl,'category':category,'distribution':distribution,
                    'event_utc':observed.isoformat(),'kickoff_utc':kickoff.isoformat(),
-                   'source':source,'receipt_before_kickoff':bool(receipt_at and receipt_at<kickoff)})
+                   'source':source,'receipt_before_kickoff':bool(receipt_at and receipt_at<kickoff),
+                   'league':str(fixture.get('league') or 'UNKNOWN'),'kickoff_hour':kickoff.hour,
+                   'forecast_lead_hours':(kickoff-asof).total_seconds()/3600,
+                   'quote_lead_hours':(kickoff-observed).total_seconds()/3600,'line':line})
                 counts[f'{market}_{source}']+=1
             except Exception: counts['invalid_forecast_or_settlement']+=1
     result={'protocol':'M5_CROWN_FIRST_TOTALCORNER_FALLBACK_EVENT_TIME_REPLAY_V1','generated_utc':utc_now(),
