@@ -306,3 +306,12 @@ Formal progress `2026-11-05T20:10:01Z`: 10,800 candidates, 10,738 exact response
 Replay `2026-11-05T20:11:05Z`: AH 9,705 / OU 9,704, below the 10,000 target. UTC coverage: AH 445 in 2025 / 9,260 in 2026; OU 444 / 9,260. AH `-194.565U / -2.004791%` (LL/Brier `1.03162908/0.64887789`, max DD `222.715U`); OU `-340.485U / -3.508708%` (`0.98866252/0.62371967`, max DD `368.980U`). Ten invalid receipt-time rows were excluded; all included API receipts were post-kickoff. [Replay receipt](results/m5_source_union_replay_partial_20261105T201105Z.json).
 
 Temporal holdout `2026-11-05T20:13:23Z`: 7,435 AH / 7,434 OU training fixtures and 2,295 disjoint holdout fixtures each. Raw/calibrated ROI AH `+0.244009% / +0.204139%`, OU `-4.723965% / -4.106100%`. Calibrated LL/Brier AH `1.02690861/0.64220055`, OU `0.99084732/0.62476734`. All API receipts post-kickoff. [Holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T201323Z.json).
+
+
+### 2026-11-05T20:19Z incremental Crown capture checkpoint
+
+Formal progress `2026-11-05T20:15:34Z`: 10,900 candidates, 10,837 exact responses, 63 transport errors, 9,787 valid AH/OU quotes.
+
+Replay `2026-11-05T20:17:01Z`: AH n=9,788 / OU n=9,787 (18 invalid receipt-time records excluded), below 10,000. AH `-201.660U / -2.060278%` (LL/Brier `1.03199300/0.64903922`, max DD `225.955U`); OU `-342.230U / -3.496781%` (`0.98842490/0.62369804`, max DD `368.980U`). All selected receipts were post-kickoff. UTC coverage includes 528 AH / 527 OU in 2025 and 9,260 each in 2026. [Replay receipt](results/m5_source_union_replay_partial_20261105T201701Z.json).
+
+Temporal holdout `2026-11-05T20:19:22Z`: AH 7,511 / OU 7,510 train and 2,295 disjoint holdout each. Raw/calibrated ROI AH `+0.244009% / +0.302179%`, OU `-4.723965% / -3.930501%`; calibrated LL/Brier AH `1.02692203/0.64220440`, OU `0.99072444/0.62467648`. All API receipts post-kickoff. [Holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T201922Z.json).
