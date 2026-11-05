@@ -160,3 +160,8 @@ Added a single global home/away scoring-rate tilt, fit from M5 OOS score grids a
 ### 2026-11-05T17:58Z 活动 Crown partial 回放
 
 全市场每market 8,273场，AH ROI -1.543515%（-127.695U），OU ROI -3.932129%（-325.305U），最大回撤164.805U/331.775U。报价全是Crown，收据全部在赛后，4条receipt时间无效记录排除；仅2026-02-10至11-04 UTC。活动采集中快照，不是终态结果、可执行ROI或达到+3%/10,000场。详情：[aggregate receipt](results/m5_source_union_replay_partial_20261105T175815Z.json).
+
+
+### Crown checkpoint 9,300：最新 partial 与时间留出校准
+
+检查点处理9,300候选，AH/OU各8,343有效Crown事件报价，collector仍活跃。活动档案全市场回放增至每市场8,346场：AH ROI -1.586509%，OU -3.937215%（所有响应receipt在开赛后，partial不可执行）。同时率校准的2026-09-01 UTC时间留出每市场6,065训练/2,295测试；AH校准ROI -0.162092%，OU -4.060566%，proper scores改善但未达收益目标。两个结果及完整审计见 [all-market replay](results/m5_source_union_replay_partial_20261105T180309Z.json) 和 [temporal holdout](results/m5_crown_goal_rate_temporal_holdout_20261105T180523Z.json).
