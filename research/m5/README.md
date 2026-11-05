@@ -252,3 +252,12 @@ Formal progress `2026-11-05T19:15:50Z`: 10,200/127,674 processed; 10,140 exact r
 Replay at `2026-11-05T19:17:42Z`: 9,217 unique fixture-markets per side, two invalid receipt-time rows excluded. AH `-164.505U / -1.784800%` (LL/Brier `1.03195550/0.64889098`, max DD `195.900U`); OU `-302.910U / -3.286427%` (`0.98787868/0.62322958`, max DD `368.980U`). Every included API receipt followed kickoff. [Replay receipt](results/m5_source_union_replay_partial_20261105T191742Z.json).
 
 Temporal holdout re-fit at `2026-11-05T19:19:58Z`: 6,931 train / 2,295 disjoint holdout per market; fitted home/away factors 1.032254 / 1.037426. Raw/calibrated ROI AH `+0.244009% / +0.220479%`, OU `-4.723965% / -4.142484%`. Calibrated LL/Brier AH `1.02681065/0.64217012`, OU `0.98990848/0.62408047`. All holdout receipts post-kickoff. [Holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T191958Z.json).
+
+
+### 2026-11-05T19:29Z incremental Crown capture checkpoint
+
+Formal progress `2026-11-05T19:26:36Z`: 10,300 candidates, 10,239 exact responses, 61 transport errors, 9,302 valid AH and OU quotes, zero identity/time mismatches.
+
+Replay `2026-11-05T19:27:19Z` now spans 9,293 unique fixture-markets per market, including 33 from UTC kickoff year 2025 and 9,260 from 2026. Fourteen invalid receipt times were excluded. AH `-164.985U / -1.775369%` (LL/Brier `1.03171631/0.64871043`, max DD `195.900U`); OU `-315.860U / -3.398902%` (`0.98810240/0.62344654`, max DD `368.980U`). All selected receipts were obtained after kickoff. [Replay receipt](results/m5_source_union_replay_partial_20261105T192719Z.json).
+
+Temporal holdout `2026-11-05T19:29:35Z`: 7,032 training / 2,295 disjoint holdout fixtures per market; training now begins `2025-12-27 UTC`. Fitted home/away goal-rate factors 1.030806 / 1.037342. Raw/calibrated ROI AH `+0.244009% / +0.263399%`, OU `-4.723965% / -4.061874%`. Calibrated LL/Brier AH `1.02681261/0.64217023`, OU `0.99004727/0.62418241`. All receipts remain post-kickoff. [Holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T192935Z.json).

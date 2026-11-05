@@ -129,3 +129,8 @@ At `2026-11-05T19:08:34Z`: 10,100 processed, 10,040 exact responses, 60 transpor
 ### 10,200-candidate Crown checkpoint
 
 At `2026-11-05T19:15:50Z`: 10,200 candidates, 10,140 exact responses, 60 transport errors, 9,204 valid quote fixtures per market, zero identity/time mismatches. Response-index replay at `2026-11-05T19:17:42Z` includes 9,217 per market; AH -1.784800%, OU -3.286427%; two invalid receipt-time records excluded and all other receipts post-kickoff. Temporal holdout at `2026-11-05T19:19:58Z`: 6,931 train / 2,295 disjoint test per market; calibrated AH +0.220479%, OU -4.142484%; all receipts post-kickoff. Receipts: [replay](results/m5_source_union_replay_partial_20261105T191742Z.json), [holdout](results/m5_crown_goal_rate_temporal_holdout_20261105T191958Z.json).
+
+
+### 10,300-candidate Crown checkpoint
+
+At `2026-11-05T19:26:36Z`, 10,300 candidates, 10,239 exact responses, 61 transport errors, 9,302 valid quotes per market and zero fixture identity/time mismatch. Replay `2026-11-05T19:27:19Z` includes 9,293 per market (33 from 2025, 9,260 from 2026). AH -1.775369%, OU -3.398902%; 14 bad receipt-time rows excluded, all other API receipts post-kickoff. Temporal holdout `2026-11-05T19:29:35Z`: 7,032 train / 2,295 disjoint holdout per side, calibrated AH +0.263399%, OU -4.061874%, all receipts post-kickoff. Receipts: [replay](results/m5_source_union_replay_partial_20261105T192719Z.json), [holdout](results/m5_crown_goal_rate_temporal_holdout_20261105T192935Z.json).
