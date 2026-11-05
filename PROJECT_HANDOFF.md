@@ -1,3 +1,8 @@
+## 2026-11-06 本机共享TotalCorner目录离线盘口审计
+- 搜索 `/Users/mac/QuantAsiaDesk/repos/runner/research/shared_history/totalcorner/` 后发现 `league-15.jsonl`（120条已存fixture）与收集摘要；样本中赛程对象有 `i_asian/i_goal/p_asian/p_goal` 线位字段，但没有两侧赔率，也无盘口movement时间序列。其 `latest_collection_summary.json` 明确 `market_history_verified=false`，且不是正式订单回测。此目录不能作为M5 AH/OU真实历史盘口输入，也没有复制到M5。
+- `/Users/mac/QuantAsiaDesk/data/m5-crown-authorized-refresh-20261105/` 只有候选manifest及赛程收据，无赔率响应；`/private/tmp/m1-m5-private` 是M1 observations/summary/verified FT，不作为M5 TotalCorner历史价格补充。故继续依赖M5自己的Crown回填，并待其终态后由现有合法TotalCorner default fallback实际抓取缺失fixture-market盘口。
+- 审计时Crown PID `19740` 与串行等待器PID `19737` 仍存活。最近durable checkpoint仍为 `2026-11-05T17:30:55.596541Z`（8,900候选，AH/OU各7,960有效报价）；私有响应索引观察到8,974行至 `2026-11-05T17:34:30.488891Z`，不能视作有效报价计数或final。TotalCorner fallback仍未请求。
+
 ## 2026-11-05T17:30Z Crown采集8,900检查点
 - Crown collector PID `19740`仍运行，非终态；checkpoint `2026-11-05T17:30:55.596541Z`：处理8,900/127,674，精确身份响应8,846，AH/OU各7,960场含合格赛前源事件行，传输错误54，身份/时间错配0。私有响应索引共8,928行，最后写入 `2026-11-05T17:31:32.685631Z`；索引数不等于合格覆盖。距每市场10,000目标各差2,040。
 - 串行等待器PID `19737`正常存活，尚无Crown `finished_utc`，未启动TOTAL。历史全线ROI仍仅为partial回放；不得按此进度声称收益目标或10k完成。

@@ -136,3 +136,5 @@ Crown私有回填仍由单一collector运行。检查点 `2026-11-05T17:21:18.73
 已存在串行 TotalCorner default fallback 等待器仍在等待Crown `finished_utc`，尚无 fallback progress 或TOTAL请求；启动后会逐市场优先保留Crown，缺口来源会标成 `totalcorner_default_NOT_CROWN` 并单独报告。当前阶段不代表数据源联合10k完成、正ROI目标达成、可执行收益或M5 Actions验收。最新细节见 [PROJECT_HANDOFF.md](../../PROJECT_HANDOFF.md)。
 
 最新运行检查点（2026-11-05T17:30:55Z）：8,900/127,674候选已处理，8,846精确响应，AH/OU各7,960个有效Crown赛前源事件报价；还差2,040/市场。collector和串行等待器仍运行，Crown未终态、TOTAL未启动。详见 [PROJECT_HANDOFF.md](../../PROJECT_HANDOFF.md)。
+
+本机共享TotalCorner离线档案检查发现已存120条只有赛程身份/赛果及线位字段，没有两侧赔率和movement时间；收集摘要标注`market_history_verified=false`，因此不加入M5盘口回放。M5继续等待Crown终态，之后将使用已有合法API接入抓取逐市场缺口。
