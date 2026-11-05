@@ -150,3 +150,8 @@ Partial样本中的不筛选描述拆分显示OU 2.25（n=1,411）/2.75（n=1,73
 ### M3/M5 Crown 固定合约最新重跑
 
 最新运行以2026-09-01 UTC为留出边界，AH0留出38场，训练期Log Loss选M3 Dixon-Coles（M5权重0%），ROI +30.657895%；OU2.5留出59场，选M3 Bivariate Poisson（训练拟合M5权重20%），ROI +8.118644%。未用holdout ROI选模型或权重，报告含所有候选模型、概率分数、最大回撤和bootstrap区间：[aggregate receipt](results/m5_m3_crown_2026_holdout_20261105T174731Z.json)。样本不足10,000/市场且所有API quote receipts在赛后，故是小样本回顾性比较，不满足收益目标正式验收。
+
+
+### M5 Crown 2026 temporal goal-rate calibration holdout
+
+Added a single global home/away scoring-rate tilt, fit from M5 OOS score grids and actual results before `2026-09-01 UTC`, then evaluated on later Crown-only fixture-markets. Training and holdout IDs are disjoint (5,950 train / 2,295 test per market). Calibration improved settlement Log Loss and Brier on both AH and OU but ROI remained negative (`AH -0.162092%`, `OU -3.713290%`; raw baselines `+0.244009%/-4.723965%`). Parameters were fitted by prior outcomes, never holdout ROI; no filters were added. All response receipts came after kickoff, so this is source-event-time retrospective evaluation, not execution evidence. Full score/settlement/source audit: [temporal holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T175546Z.json).
