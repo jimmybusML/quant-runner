@@ -1,3 +1,11 @@
+## 2026-11-06T17:21Z Crown采集持续运行检查点
+- UTC时间核验：Crown collector PID `19740` 从上一检查点继续运行；最新持久进度 `2026-11-05T17:21:18.731105Z` 为8,800/127,674候选已处理，8,746个精确Crown响应、AH/OU各7,871场有至少一条满足赛前源事件时间的Crown盘口行，传输错误54，身份/时间错配0；尚无`finished_utc`，非终态。
+- 随后只读观察到私有 `crown-response-index.jsonl` 从8,700检查点时的8,646条增长到8,875条（最后响应 `2026-11-05T17:28:01.454130Z`）；这是写入中索引行数，不能与检查点有效覆盖混为一谈。请求间隔受API等待影响，约每分钟十余条；transport error档案当前57条（SSLError/timeout等，仅类型与计数，无凭证/响应体）。
+- 源归档在本机 `/Users/mac/QuantAsiaDesk/data/m5-crown-authorized`，raw内容保持私有。公开仓库只发布脱敏聚合与哈希。Crown回填仍按每请求≥3.1秒，单一collector PID；串行TOTAL等待器PID `19737`仍存活，`totalcorner-default-progress.json`尚不存在，因此尚无TOTAL请求。只有Crown写出最终`finished_utc`后才允许既有fallback启动。
+- 最近可核实公开回放仍是 `m5_source_union_replay_partial_20261105T170631Z.json`，AH/OU各7,767场，ROI分别-1.384125%/-3.814021%；这是response receipt赛后回取的源事件时间回顾模拟，不是实际赛前收取/可执行ROI，且终态仍需重跑。AH/OU各距10,000还差至少2,129场有效Crown源事件报价；总体ROI目标未达成。M3/M5固定线AH38、OU59小样本仍不能验收。
+- 本次确认已复用现有TotalCorner凭证入口，没有显示、读取或提交token，也未请求新授权；没有OddsPapi存档。无M5 Actions run、无M1/MR1/M3/M4生产、Telegram、订单或账本改动。公开分支最新已推送提交为 `a070bdafdc6c0fdf1ba979cb7d97ca130fb1d32b`，本条状态记录随后提交。
+- 后续：不并发/重启采集器；等PID `19740`结束且final checkpoint存在，确认PID `19737`按序发起TOTAL default缺口回退，校验按市场source-priority去重与 `train_end < prediction_asof <= quote_event < kickoff`；然后重跑全源事件时间ROI、响应receipt时序、 proper-score和M3/M1/MR1对照，发布最终来源分项/样本量/哈希/UTC运行时间。
+
 ## 2026-11-05T17:07Z M5 8,600检查点回放与模型重算
 - Crown checkpoint `2026-11-05T17:04:32.074795Z`：处理8,600/127,674，精确响应8,546，AH/OU各7,687有效赛前源事件报价，transport errors 54，身份/时间错配0，采集PID `19740`活跃。TotalCorner fallback尚未发请求，继续等待Crown终态。
 - 全线聚合回放 `2026-11-05T17:06:31.655029Z`，receipt `research/m5/results/m5_source_union_replay_partial_20261105T170631Z.json`：AH/OU各7,705唯一fixture-market/下注/已结。AH W/HW/P/HL/L `3121/520/530/550/2984`，净 `-98.065U`、ROI `-1.272745%`、DD `144.940U`、95% bootstrap `[-3.275406%,+0.716548%]`；OU `3179/417/406/542/3161`，净 `-297.715U`、ROI `-3.863920%`、DD `316.700U`、区间 `[-5.833809%,-1.886113%]`。Crown来源；所有receipt在kickoff之后。6条receipt index缺失记录未计入样本，终态需重算。
