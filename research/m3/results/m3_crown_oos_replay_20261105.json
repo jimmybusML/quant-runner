@@ -1,10 +1,10 @@
 {
   "protocol": "M3_STRICT_SEASON_FORWARD_CROWN_ARCHIVE_REPLAY_V1",
-  "generated_utc": "2026-11-05T01:25:37.266167+00:00",
-  "m3_actions_run_id": "41949306821",
-  "m3_prediction_report_generated_utc": "2026-11-05T01:36:35.969415+00:00",
+  "generated_utc": "2026-11-05T01:44:40.463602+00:00",
+  "m3_actions_run_id": "41949912425",
+  "m3_prediction_report_generated_utc": "2026-11-05T01:43:02.754223+00:00",
   "input_changed_vs_previous_snapshot": false,
-  "prediction_sha256": "48857e6d831ee873fbc30b71da8941fe9f482e96dd8e4e6a7a636354c725289a",
+  "prediction_sha256": "b9edca7aac16054b8f1a29c93c2b7f95b124988cb58a30e4e3f837171c33adb3",
   "crown_archive_source": "Locally held, independently verified Crown quote and FT archive; no M3/M1/MR1 predictions, parameters, orders, or ledger values were read.",
   "network_requests": 0,
   "quote_prices_or_fixture_identifiers_published": false,
@@ -20,20 +20,117 @@
     "AH_quote_and_result_fixtures": 24,
     "OU_quote_and_result_fixtures": 36,
     "quote_event_utc_ranges": {
-      "AH": ["2026-10-08T20:53:12+00:00", "2026-11-01T15:15:06+00:00"],
-      "OU": ["2026-10-08T07:17:10+00:00", "2026-11-01T19:08:24+00:00"]
+      "AH": [
+        "2026-10-08T20:53:12+00:00",
+        "2026-11-01T15:15:06+00:00"
+      ],
+      "OU": [
+        "2026-10-08T07:17:10+00:00",
+        "2026-11-01T19:08:24+00:00"
+      ]
     },
-    "crown_quote_fixtures_with_both_markets": 8
+    "crown_quote_fixtures_with_both_markets": 8,
+    "quote_received_utc_ranges": {
+      "AH": [
+        "2026-10-09T15:09:38.841000+00:00",
+        "2026-11-01T15:41:43.193000+00:00"
+      ],
+      "OU": [
+        "2026-10-09T18:20:48.670000+00:00",
+        "2026-11-01T19:10:46.092000+00:00"
+      ]
+    }
   },
   "AH_home_0": {
-    "poisson": {"n": 24, "log_loss": 1.076413, "brier": 0.650943, "wins": 12, "pushes": 7, "losses": 5, "net_units": 5.91, "roi": 0.24625, "max_drawdown_units": 3.0, "roi_bootstrap_95pct": [-0.069167, 0.53125]},
-    "dixon_coles": {"n": 24, "log_loss": 1.073640, "brier": 0.649481, "wins": 12, "pushes": 7, "losses": 5, "net_units": 5.91, "roi": 0.24625, "max_drawdown_units": 3.0, "roi_bootstrap_95pct": [-0.069167, 0.53125]},
-    "bivariate_poisson": {"n": 24, "log_loss": 1.072940, "brier": 0.649093, "wins": 12, "pushes": 7, "losses": 5, "net_units": 5.91, "roi": 0.24625, "max_drawdown_units": 3.0, "roi_bootstrap_95pct": [-0.069167, 0.53125]}
+    "poisson": {
+      "n": 24,
+      "log_loss": 1.076412,
+      "brier": 0.650943,
+      "wins": 12,
+      "pushes": 7,
+      "losses": 5,
+      "net_units": 5.91,
+      "roi": 0.24625,
+      "max_drawdown_units": 3.0,
+      "roi_bootstrap_95pct": [
+        -0.065833,
+        0.546667
+      ]
+    },
+    "dixon_coles": {
+      "n": 24,
+      "log_loss": 1.073643,
+      "brier": 0.649483,
+      "wins": 12,
+      "pushes": 7,
+      "losses": 5,
+      "net_units": 5.91,
+      "roi": 0.24625,
+      "max_drawdown_units": 3.0,
+      "roi_bootstrap_95pct": [
+        -0.065833,
+        0.546667
+      ]
+    },
+    "bivariate_poisson": {
+      "n": 24,
+      "log_loss": 1.072938,
+      "brier": 0.649091,
+      "wins": 12,
+      "pushes": 7,
+      "losses": 5,
+      "net_units": 5.91,
+      "roi": 0.24625,
+      "max_drawdown_units": 3.0,
+      "roi_bootstrap_95pct": [
+        -0.065833,
+        0.546667
+      ]
+    }
   },
   "OU_over_2_5": {
-    "poisson": {"n": 36, "log_loss": 0.694815, "brier": 0.250781, "wins": 16, "losses": 20, "net_units": -5.54, "roi": -0.153889, "max_drawdown_units": 10.09, "roi_bootstrap_95pct": [-0.467222, 0.159722]},
-    "dixon_coles": {"n": 36, "log_loss": 0.694818, "brier": 0.250782, "wins": 16, "losses": 20, "net_units": -5.54, "roi": -0.153889, "max_drawdown_units": 10.09, "roi_bootstrap_95pct": [-0.467222, 0.159722]},
-    "bivariate_poisson": {"n": 36, "log_loss": 0.694174, "brier": 0.250460, "wins": 18, "losses": 18, "net_units": -1.66, "roi": -0.046111, "max_drawdown_units": 8.26, "roi_bootstrap_95pct": [-0.360278, 0.265278]}
+    "poisson": {
+      "n": 36,
+      "log_loss": 0.694815,
+      "brier": 0.250781,
+      "wins": 16,
+      "losses": 20,
+      "net_units": -5.54,
+      "roi": -0.153889,
+      "max_drawdown_units": 10.09,
+      "roi_bootstrap_95pct": [
+        -0.466389,
+        0.157222
+      ]
+    },
+    "dixon_coles": {
+      "n": 36,
+      "log_loss": 0.694818,
+      "brier": 0.250782,
+      "wins": 16,
+      "losses": 20,
+      "net_units": -5.54,
+      "roi": -0.153889,
+      "max_drawdown_units": 10.09,
+      "roi_bootstrap_95pct": [
+        -0.466389,
+        0.157222
+      ]
+    },
+    "bivariate_poisson": {
+      "n": 36,
+      "log_loss": 0.694174,
+      "brier": 0.25046,
+      "wins": 18,
+      "losses": 18,
+      "net_units": -1.66,
+      "roi": -0.046111,
+      "max_drawdown_units": 8.26,
+      "roi_bootstrap_95pct": [
+        -0.362222,
+        0.266111
+      ]
+    }
   },
   "limitations": [
     "These 24 AH and 36 OU observations are small and overlapping fixtures are possible; market samples must not be combined.",
@@ -41,5 +138,12 @@
     "No execution, slippage, limits, or fill receipts are present; results are unit-stake replay, not realized trading ROI.",
     "Historical Crown quotes are actual pre-kickoff snapshots, but M3 predictions are retrospective strict-OOS hindcasts rather than forecasts recorded at those times.",
     "This replay does not establish the scope of provider written permission for new API collection or public quote retention."
-  ]
+  ],
+  "archive_commitments_sha256": {
+    "crown_fixture_registry": "ed48fe7a9f4e47cd7f8680a5931270a7201ed0b54d06e447d75a8fca182ba554",
+    "snapshot_index": "d47466dd79683d47c0917ab0ac50736cb61c4bf882aaa232f82eb0d19eeab138",
+    "crown_quote_snapshot_set": "46d73e49e82990e47216f20086e0f38d141d6c65153ecc3fda5fd5fb9a4273ad",
+    "verified_ft_record_set": "a004197d3b8803be078f1420835cf2ec12d7863f36b1849fe6f20710e8174a39"
+  },
+  "m3_model_parameters_sha256": "4bcde68ed84af02110b0e295e9ae7d49dbb04799003f717b3dc7e89144b3aa8f"
 }

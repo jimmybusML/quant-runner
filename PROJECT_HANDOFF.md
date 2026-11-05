@@ -1,10 +1,11 @@
 # 2026-11-05 M3 独立研究验收增补
-- M3 验收代码与脱敏 Crown 聚合结果提交 `6217d0446906c00bd939b1f6d4967db50410b6c8`（分支 `codex/m3-crown-oos-research`）；公开 M3 workflow 后续生成收据提交 `a2ae20e7`。真实 GitHub Actions run [41949306821](https://github.com/ljm198964-alt/quant-runner/actions/runs/41949306821) 在 UTC `2026-11-05T01:33:21Z–01:36:42Z` 成功，V4 原版、penaltyblog 1.13.1 严格 UTC season-forward、报告比较和历史留版均通过。新收据报告生成于 `2026-11-05T01:36:35.969415Z`，fingerprint `648aa1d7…77cb4e` 与上一版相同，明确记录无新增学习信息。共有19,218场可用历史结果、17,152场测试集、14,806场评分覆盖。报告/结果：[research/m3/M3_RESEARCH_ACCEPTANCE_20261105.md](research/m3/M3_RESEARCH_ACCEPTANCE_20261105.md)、[Crown 聚合回放](research/m3/results/m3_crown_oos_replay_20261105.json)。
-- 使用本机已留存 Crown 赛前 quote 和 kickoff 后独立 FT 仅做回放；不含 M1/M2/MR1 预测、参数、订单或账本。AH0 24场、OU2.5 36场；预测是严格历史前推 hindcast，非当时记录的实时信号；ROI 是无成交回执的单位注额回放且区间跨零。不得宣传成正式交易收益或策略优势。
+- M3 验收代码与脱敏 Crown 聚合结果/工作流单测提交 `6217d0446906c00bd939b1f6d4967db50410b6c8`、`457631774d97bf3283affee4585e03e02c854ebe`（分支 `codex/m3-crown-oos-research`）；Actions 结果留版提交 `a2ae20e7`、`1aaf5b37`。最新真实 run [41949912425](https://github.com/ljm198964-alt/quant-runner/actions/runs/41949912425) UTC `2026-11-05T01:38:47Z–01:43:11Z` SUCCESS；V4、penaltyblog 1.13.1 严格 UTC season-forward、76/76 M3 单测、比较与历史留版全通过。报告生成 `2026-11-05T01:43:02.754223Z`；输入 fingerprint `648aa1d7…77cb4e` 未变，标明没有新增学习信息；19,218场可用历史结果、17,152场测试集、14,806场评分覆盖；最新 prediction SHA `b9edca7a…71c33adb3`、model-parameter SHA `4bcde68e…b3aa8f`。结果报告：[research/m3/M3_RESEARCH_ACCEPTANCE_20261105.md](research/m3/M3_RESEARCH_ACCEPTANCE_20261105.md)、[Crown 聚合回放](research/m3/results/m3_crown_oos_replay_20261105.json)，Crown replay UTC `01:44:40.463602Z`。PR [#60](https://github.com/ljm198964-alt/quant-runner/pull/60) 已创建并附加本任务，尚未合并。
+- 同一输入 fingerprint 下，连续重训生成不同的参数/预测哈希，162个参数记录均有差异，而测试指标只发生微小变化；原因尚未确定，不能说位级可复现。Actions 历史 comparison 已记录；后续查明训练优化/序列化确定性。
+- Crown 回放使用本机已留存的赛前 Crown quote 和 kickoff 后独立 FT 重新按最新预测计算；不含 M1/M2/MR1 预测、参数、订单或账本。AH0 24场、OU2.5 36场；预测为严格历史前推 hindcast，非当时记录的实时信号；ROI 是无成交回执的单位注额回放且bootstrap区间跨零，不得宣传成正式交易收益或策略优势。
 - 用户说明复用现有授权且不重复申请；公开项目中仍未找到既有书面许可的可追溯范围引用，因此未发起新 Crown API 请求或启用前瞻 collector，也未读取 Secret 值。后续若核实权限，仅建设 M3 独立采集与私有持久化，不复用 M1/M2/MR1 预测/订单/参数/正式账本。
-- 修复 `totalcorner_crown_live_probe.py`：移除非 Crown 默认赔率 fallback，日志不再打印 fixture ID、字段形状或报价；专用模拟测试通过。完整本地 M3 test discovery 有3个导入错误，因本机缺 `penaltyblog`（配置的 pip index 无该版本）；其余模块通过。GitHub M3 workflow 本次真实成功，但其没有执行该专用 probe 单测。
+- 修复 `totalcorner_crown_live_probe.py`：移除非 Crown 默认赔率 fallback，日志不再打印 fixture ID、字段形状或报价；专用模拟测试和相关证据/配对测试本机14/14通过。当前本机 pip index 无 `penaltyblog`，故本地完整 discovery 有3个依赖导入错误；已在 M3 workflow 的 penaltyblog venv 加完整测试步骤，GitHub run `41949912425` 全部76/76通过，包括 Crown probe redaction 单测。
 - 另一成熟开源候选 `opisthokonta/goalmodel` 已完成许可证/维护/方法审计；GPL-3、较久未更新、无内置严格 OOS，暂列实验候选，尚无独立运行成绩。R 环境不可用。
-- 本次增补只落在公开 research branch，尚未合并默认分支；创建 PR 后记录 PR URL 和最终合并提交。无 M1/M2/MR1 生产改动、无 Telegram、无新增交易 Gate 或模型自动提升。
+- 本次增补只落在公开 research branch，PR #60 尚未合并默认分支。无 M1/M2/MR1 生产改动、无 Telegram、无新增交易 Gate 或模型自动提升。
 
 ## 2026-11-05 08:57 北京时间 MR1 正式TG仍英文的修复
 - 复核正式TG `sent.jsonl` 最新12条（message_id 1691–1702）：出单/开赛时间与标题已中文，但联赛和球队仍是英文，确认用户反馈属实。此前“设置共享库环境变量”发生在这些消息发送之后，不能冒充已修复历史TG。
