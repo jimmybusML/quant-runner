@@ -124,6 +124,52 @@ class OpenFootballShadowTests(unittest.TestCase):
                     "FORECAST", "FORECAST_DUPLICATE_SUPERSEDED", "SETTLEMENT"])
                 self.assertFalse(all_events[-1]["formal_ledger_write"])
 
+    def test_score_grid_semantic_upgrade_adds_fresh_forecasts_without_rewriting_v1(self):
+        training = pd.DataFrame([{
+            "league": "E0", "season": "2526", "match_date_utc": pd.Timestamp("2026-10-10", tz="UTC"),
+            "home_team": "Home", "away_team": "Away", "home_goals": 2, "away_goals": 1,
+            "fixture_identity_id": shadow._identity("E0", "2526", "Home", "Away"),
+            "actual_result_1x2": "H", "actual_ah_home_0": "win", "actual_ou_over_2_5": 1,
+            "source_file": "2025-26/en.1.json", "source_file_sha256": "abc"}])
+        fixture = {"league": "E0", "season": "2627", "source_date": "2026-10-23",
+            "home_team": "Home", "away_team": "Away", "round": "Matchday 5",
+            "fixture_identity_id": shadow._identity("E0", "2627", "Home", "Away"),
+            "schedule_revision_id": "revision-1", "source_file": "2026-27/en.1.json", "source_row": 5}
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            ledger, output = root / "ledger.jsonl", root / "output"
+            with patch.dict(shadow.MODELS, {"poisson": FakeModel}, clear=True), \
+                    patch.object(shadow, "FORECAST_MODEL_SEMANTIC_VERSION", "penaltyblog-goal-distribution-v1"):
+                first = shadow.run_shadow(training, [fixture], [], {}, "source-a",
+                    datetime(2026, 10, 20, 12, tzinfo=timezone.utc), ledger, output, "v1")
+            self.assertEqual(first["forecasts_appended"], 1)
+            legacy_events = [json.loads(line) for line in ledger.read_text().splitlines()]
+            legacy = next(event for event in legacy_events if event.get("event_type") == "FORECAST")
+            legacy.pop("score_probability_grid", None)
+            legacy.pop("score_probability_grid_semantics", None)
+            legacy.pop("model_semantic_version", None)
+            legacy["forecast_key_id"] = None
+            ledger.write_text(json.dumps(legacy, sort_keys=True) + "\n")
+
+            with patch.dict(shadow.MODELS, {"poisson": FakeModel}, clear=True), \
+                    patch.object(shadow, "FORECAST_MODEL_SEMANTIC_VERSION", "penaltyblog-goal-distribution-v2"):
+                second = shadow.run_shadow(training, [fixture], [], {}, "source-a",
+                    datetime(2026, 10, 20, 16, tzinfo=timezone.utc), ledger, output, "v2")
+            self.assertEqual(second["forecasts_appended"], 1)
+            self.assertEqual(second["superseded_forecasts_appended"], 0)
+
+            forecasts = [json.loads(line) for line in ledger.read_text().splitlines()
+                         if json.loads(line).get("event_type") == "FORECAST"]
+            by_semantic = {event.get("model_semantic_version", "penaltyblog-goal-distribution-v1"): event
+                           for event in forecasts}
+            self.assertEqual(set(by_semantic), {
+                "penaltyblog-goal-distribution-v1", "penaltyblog-goal-distribution-v2"})
+            self.assertNotIn("score_probability_grid", by_semantic["penaltyblog-goal-distribution-v1"])
+            self.assertEqual(by_semantic["penaltyblog-goal-distribution-v2"]["score_probability_grid"],
+                             FakeGrid.grid)
+            self.assertEqual(by_semantic["penaltyblog-goal-distribution-v1"]["training_input_sha256"],
+                             by_semantic["penaltyblog-goal-distribution-v2"]["training_input_sha256"])
+
 
 if __name__ == "__main__":
     unittest.main()

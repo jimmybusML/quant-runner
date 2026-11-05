@@ -1,25 +1,55 @@
 {
-  "protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V1",
-  "generated_utc": "2026-11-05T02:47:28.510865Z",
+  "protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V2",
+  "capture_started_utc": "2026-11-05T04:34:18.971522Z",
+  "generated_utc": "2026-11-05T04:37:42.077638Z",
   "data_source": "TotalCorner bookmaker=crown only",
   "forecast_source": "M3 OpenFootball forward-only shadow; public M3 ledger only",
   "forecasts_considered": 144,
   "fixtures_with_unique_schedule_identity": 5,
-  "forecast_input_fingerprint_sha256": "8c981e167261b2f6ae9d3ae424d131ee6987e091a2ab5a45f05af895283ca9d5",
-  "forecast_input_changed_vs_previous_run": null,
-  "new_learning_information": null,
-  "new_learning_information_baseline": "unavailable_first_capture_run",
+  "forecast_input_fingerprint_sha256": "f996272ab8e112711d1cb75ff3c197c2443ebd74c8c28edfd8201d105f50c11e",
+  "forecast_input_changed_vs_previous_run": false,
+  "current_snapshot_quote_fingerprint_sha256": "d866c1aa7898f1d509a2325d570119b46387461031a1b4ab7dcabba94e78bfb7",
+  "quote_snapshot_changed_vs_previous_run": false,
+  "new_unique_quote_rows_vs_saved_history": false,
+  "new_learning_information": false,
+  "new_learning_information_baseline": "forecast_change_and_unique_quote_rows",
   "quote_commitments_added": 18,
-  "quote_commitments_total": 18,
+  "quote_commitments_total": 78,
+  "unique_fixture_market_quote_rows_total": 8,
+  "new_unique_fixture_market_quote_rows_added": 0,
+  "current_snapshot_unique_fixture_market_quote_rows": 6,
+  "quote_commitments_by_protocol": {
+    "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V1": 18,
+    "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V2": 60
+  },
+  "new_commitments_protocol": "M3_CROWN_FORWARD_QUOTE_COMMITMENT_V2",
+  "snapshot_time_basis": "API response received after forecast and before kickoff; latest active Crown pre-match movement row; provider update time retained separately",
+  "current_snapshot_fixture_coverage_by_market": {
+    "AH": {
+      "fixtures_with_current_snapshot": 3,
+      "fixtures_with_unique_schedule_identity": 5,
+      "coverage_fraction": 0.6
+    },
+    "OU": {
+      "fixtures_with_current_snapshot": 3,
+      "fixtures_with_unique_schedule_identity": 5,
+      "coverage_fraction": 0.6
+    }
+  },
+  "current_snapshot_quote_update_age_seconds": {
+    "n": 18,
+    "median": 122806,
+    "max": 834107
+  },
   "quote_commitments_by_market": {
-    "AH": 9,
-    "OU": 9
+    "AH": 39,
+    "OU": 39
   },
   "quote_commitments_by_league_market": {
-    "D1|AH": 6,
-    "D1|OU": 6,
-    "E0|AH": 3,
-    "E0|OU": 3
+    "D1|AH": 27,
+    "D1|OU": 27,
+    "E0|AH": 12,
+    "E0|OU": 12
   },
   "status_counts": {
     "CROWN_IDENTIFIED": 5
@@ -29,7 +59,56 @@
   },
   "source_timezone": "Asia/Shanghai",
   "timezone_semantics": "configured existing TotalCorner UTC+08:00 profile interpreted as Asia/Shanghai",
-  "mean_ev_by_market_model_side": {},
+  "mean_ev_by_market_model_side": {
+    "AH|bivariate_poisson|away": {
+      "n": 3,
+      "mean_expected_unit_return": 0.01652704
+    },
+    "AH|bivariate_poisson|home": {
+      "n": 3,
+      "mean_expected_unit_return": -0.08111141
+    },
+    "AH|dixon_coles|away": {
+      "n": 3,
+      "mean_expected_unit_return": 0.01882988
+    },
+    "AH|dixon_coles|home": {
+      "n": 3,
+      "mean_expected_unit_return": -0.08374149
+    },
+    "AH|poisson|away": {
+      "n": 3,
+      "mean_expected_unit_return": 0.01218218
+    },
+    "AH|poisson|home": {
+      "n": 3,
+      "mean_expected_unit_return": -0.07689829
+    },
+    "OU|bivariate_poisson|over": {
+      "n": 3,
+      "mean_expected_unit_return": -0.17659867
+    },
+    "OU|bivariate_poisson|under": {
+      "n": 3,
+      "mean_expected_unit_return": 0.12116651
+    },
+    "OU|dixon_coles|over": {
+      "n": 3,
+      "mean_expected_unit_return": -0.19759365
+    },
+    "OU|dixon_coles|under": {
+      "n": 3,
+      "mean_expected_unit_return": 0.14287547
+    },
+    "OU|poisson|over": {
+      "n": 3,
+      "mean_expected_unit_return": -0.19023604
+    },
+    "OU|poisson|under": {
+      "n": 3,
+      "mean_expected_unit_return": 0.13503952
+    }
+  },
   "scope_note": "The research scope remains six M3 leagues; the current OpenFootball forward forecast feed has no B1 fixtures, so B1 coverage is zero until a compatible independent M3 forecast source is available.",
   "quote_values_or_raw_response_persisted": false,
   "m1_m2_mr1_inputs_read": false,
