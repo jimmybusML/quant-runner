@@ -343,3 +343,9 @@ AH: `-234.390U / -2.329457%`, settlement log loss `1.03406769`, Brier `0.6502656
 OU: `-365.0925U / -3.628789%`, settlement log loss `0.98845404`, Brier `0.62366511`, event-time max drawdown `380.2125U`. By UTC kickoff year: 2025 n=726 ROI `-6.420110%`; 2026 n=9,335 ROI `-3.411703%`.
 
 Neither market reaches the +3% target. The historical archive contains source-event timestamps before kickoff, but API receipt timestamps are after kickoff for every selected row; ROI is not executable or prospective performance. No record is categorized as Crown when its source is TotalCorner default. Machine-readable aggregate report: [7-column parser Crown-first replay](results/m5_source_union_replay_7col_checkpoint_20261105T213507Z.json). Private raw responses remain outside the repository.
+
+## 2026-11-05 continued TOTAL capture and source-stratified replay
+
+The corrected collector resumed using the existing Keychain authorization; no new credential was requested. At this replay snapshot (`2026-11-05T21:43:05Z`), 108 fixture-markets per side were filled by TotalCorner default where Crown was unavailable. Source-separated: Crown AH 9,987, `-231.890U / -2.321918%`; TOTAL AH 108, `+1.7625U / +1.631944%`. Crown OU 9,986, `-357.030U / -3.575305%`; TOTAL OU 108, `-4.225U / -3.912037%`. The TOTAL subgroups are descriptive and far smaller than the 10,000-fixture objective; do not select a model or market rule from them.
+
+Merged AH has 10,095 unique fixture-markets, `-230.1275U / -2.279619%`, settlement LL/Brier `1.03346167 / 0.64989846`, event-time max DD `257.135U`. Merged OU has 10,094, `-361.255U / -3.578908%`, LL/Brier `0.98830774 / 0.62355109`, DD `376.375U`. All selected response receipts remain post-kickoff. Neither market reaches +3%. Capture continued after this checkpoint. [Source-stratified replay receipt](results/m5_source_union_replay_live_20261105T214305Z.json).

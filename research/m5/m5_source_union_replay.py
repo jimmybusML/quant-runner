@@ -106,6 +106,7 @@ def summarize(rows, market, seed):
         h=row[field]
         return '<=1h' if h<=1 else '1-6h' if h<=6 else '6-24h' if h<=24 else '>24h'
     descriptive={'by_league':group_summary(lambda r:r['league']),
+      'by_source':group_summary(lambda r:r['source']),
       'by_utc_kickoff_hour':group_summary(lambda r:f"{r['kickoff_hour']:02d}"),
       'by_forecast_lead_hours':group_summary(lambda r:lead_bin(r,'forecast_lead_hours')),
       'by_quote_event_lead_hours':group_summary(lambda r:lead_bin(r,'quote_lead_hours')),
