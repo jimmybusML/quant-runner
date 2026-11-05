@@ -1,0 +1,40 @@
+{
+  "protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V1",
+  "generated_utc": "2026-11-05T02:47:28.510865Z",
+  "data_source": "TotalCorner bookmaker=crown only",
+  "forecast_source": "M3 OpenFootball forward-only shadow; public M3 ledger only",
+  "forecasts_considered": 144,
+  "fixtures_with_unique_schedule_identity": 5,
+  "forecast_input_fingerprint_sha256": "8c981e167261b2f6ae9d3ae424d131ee6987e091a2ab5a45f05af895283ca9d5",
+  "forecast_input_changed_vs_previous_run": null,
+  "new_learning_information": null,
+  "new_learning_information_baseline": "unavailable_first_capture_run",
+  "quote_commitments_added": 18,
+  "quote_commitments_total": 18,
+  "quote_commitments_by_market": {
+    "AH": 9,
+    "OU": 9
+  },
+  "quote_commitments_by_league_market": {
+    "D1|AH": 6,
+    "D1|OU": 6,
+    "E0|AH": 3,
+    "E0|OU": 3
+  },
+  "status_counts": {
+    "CROWN_IDENTIFIED": 5
+  },
+  "rejected_counts": {
+    "schedule_identity_missing_or_ambiguous": 43
+  },
+  "source_timezone": "Asia/Shanghai",
+  "timezone_semantics": "configured existing TotalCorner UTC+08:00 profile interpreted as Asia/Shanghai",
+  "mean_ev_by_market_model_side": {},
+  "scope_note": "The research scope remains six M3 leagues; the current OpenFootball forward forecast feed has no B1 fixtures, so B1 coverage is zero until a compatible independent M3 forecast source is available.",
+  "quote_values_or_raw_response_persisted": false,
+  "m1_m2_mr1_inputs_read": false,
+  "formal_order": false,
+  "telegram_sent": false,
+  "EV": null,
+  "ROI": null
+}
