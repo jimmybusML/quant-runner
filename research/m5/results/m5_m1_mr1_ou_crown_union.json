@@ -1,0 +1,842 @@
+{
+  "coverage": {
+    "M1_eventtime_unique_fixtures": 1032,
+    "M1_validation_counters": {
+      "M1_Crown_observation_rows": 1705,
+      "M5_forecast_precedes_Crown_event": 1032,
+      "exact_M5_ID_join": 1397,
+      "exact_fixture_identity": 1032,
+      "fixture_identity_conflict": 12,
+      "missing_M5_baseline_or_candidate": 308,
+      "missing_or_invalid_timestamps": 353,
+      "unique_fixture_markets_after_dedup": 1032
+    },
+    "MR1_receipt_verified_unique_fixtures": 870,
+    "MR1_validation_counters": {
+      "candidate_exact_id_records": 9573,
+      "eligible_quote_records_AH": 6804,
+      "eligible_quote_records_OU": 6804,
+      "forward_record_identity_or_outcome_flag_fail": 87,
+      "independent_ft_fail": 2682,
+      "verified_crown_forward_records": 17338
+    },
+    "all_kickoff_years": [
+      2026
+    ],
+    "ambiguous_normalized_identity_groups_dropped": 0,
+    "duplicate_baseline_forecast_rows": 0,
+    "duplicate_candidate_forecast_rows": 0,
+    "same_fixture_id_overlap": 746,
+    "union_unique_fixture_markets_after_normalized_dedup": 1156
+  },
+  "crown_prices_used_only": true,
+  "generated_utc": "2026-11-05T01:04:09.376705+00:00",
+  "input_sha256": {
+    "M1_Crown_observations": "83929310c0dc0a3b7e62a986513ed19ccd2877fe11f9cf0e5dc2291a7ede69dc",
+    "M5_baseline_forecasts": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+    "M5_recency_forecasts": "fc2abf89b2ac80eb2ba72bf9e992f25eeda11502f2e87cd2bd965b921843d26d",
+    "MR1_Crown_snapshot_hash_set": "1065121476946e695ea2597b0da3e7bd5284768513b85fab79623626669d8252",
+    "MR1_V6_record_hash_set": "2f579e4cc89a250a8315a45488336a15f9416b673092c1539de6b35e612622d1",
+    "MR1_fixture_registry": "01231e240c0a5243ebe080538b49eacb60dd714b122bf48f654b7ec9c628bdbe",
+    "MR1_independent_FT_hash_set": "5cd32fec1308515935d46dcec5de6aef3944f80895a2e721287c91616dd80561",
+    "MR1_snapshot_index": "e77cde73b00b5c62cd1631f3cbec2e787c1bd164ec8824d6098c4bcf0fb432ab",
+    "finished_fixture_manifest": "258702e669bd5c1569b16bc191ce66e7117a368f409c3028572de5fd9186d0bf"
+  },
+  "limitations": [
+    "The M1 historical quote stratum has source event timestamps but was fetched later; those rows do not prove contemporaneous receipt or fill.",
+    "Results are separated by evidence class. The combined union is a historical event-time reconstruction, not an executable P&L ledger.",
+    "All selected fixtures are from 2026 and the period has prior exploratory analyses; this is not an untouched independent confirmation.",
+    "The deduplicated OU sample remains below 10,000 fixtures."
+  ],
+  "market": "OU",
+  "protocol": "M5_M1_MR1_OU_CROWN_SOURCE_UNION_V1",
+  "quote_evidence": {
+    "M1_V23": "Crown historical source event time before kickoff; archive records fetched later; no contemporaneous receipt proof",
+    "MR1_V6": "Verified Crown snapshot and received time before kickoff"
+  },
+  "source_priority_rule": "Use the latest Crown market event across identity-verified M1/MR1 candidates; on exact event-time ties prefer MR1 receipt-verified snapshot. Preserve evidence class in the output aggregates.",
+  "source_stratum_only_metrics": {
+    "M1_eventtime_only": {
+      "M5_baseline": {
+        "full_loss": 412,
+        "full_win": 439,
+        "half_loss": 66,
+        "half_win": 56,
+        "max_drawdown_by_quote_event_units": 44.835,
+        "net_units": -22.065,
+        "push": 59,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -7.492248,
+          "resamples": 10000,
+          "seed": 20261140,
+          "upper_97_5_pct": 3.28876
+        },
+        "roi_pct": -2.138081,
+        "settled_bets": 1032,
+        "simulated_bets": 1032,
+        "unique_fixtures": 1032
+      },
+      "M5_recency": {
+        "full_loss": 412,
+        "full_win": 439,
+        "half_loss": 64,
+        "half_win": 58,
+        "max_drawdown_by_quote_event_units": 39.05,
+        "net_units": -20.345,
+        "push": 59,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -7.307171,
+          "resamples": 10000,
+          "seed": 20261141,
+          "upper_97_5_pct": 3.309109
+        },
+        "roi_pct": -1.971415,
+        "settled_bets": 1032,
+        "simulated_bets": 1032,
+        "unique_fixtures": 1032
+      }
+    },
+    "MR1_receipt_verified": {
+      "M5_baseline": {
+        "full_loss": 351,
+        "full_win": 359,
+        "half_loss": 64,
+        "half_win": 51,
+        "max_drawdown_by_quote_event_units": 49.405,
+        "net_units": -27.66,
+        "push": 45,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -9.052874,
+          "resamples": 10000,
+          "seed": 20261150,
+          "upper_97_5_pct": 2.697126
+        },
+        "roi_pct": -3.17931,
+        "settled_bets": 870,
+        "simulated_bets": 870,
+        "unique_fixtures": 870
+      },
+      "M5_recency": {
+        "full_loss": 352,
+        "full_win": 358,
+        "half_loss": 62,
+        "half_win": 53,
+        "max_drawdown_by_quote_event_units": 49.08,
+        "net_units": -29.3,
+        "push": 45,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -9.248276,
+          "resamples": 10000,
+          "seed": 20261151,
+          "upper_97_5_pct": 2.498276
+        },
+        "roi_pct": -3.367816,
+        "settled_bets": 870,
+        "simulated_bets": 870,
+        "unique_fixtures": 870
+      }
+    }
+  },
+  "strategy": "One 1U selection per unique OU fixture; each M5 model independently selects the higher expected-return over/under side from its pre-event score grid at the chosen Crown line/prices; no ROI/EV threshold, league filter, or quantity gate; split-line settlement.",
+  "temporal_rule": "train_end < M5 forecast_asof <= selected Crown event < kickoff",
+  "union_metrics": {
+    "M5_baseline": {
+      "full_loss": 463,
+      "full_win": 487,
+      "half_loss": 87,
+      "half_win": 62,
+      "max_drawdown_by_quote_event_units": 52.715,
+      "net_units": -31.97,
+      "push": 57,
+      "roi_fixture_bootstrap_95pct_interval": {
+        "lower_2_5_pct": -7.79109,
+        "resamples": 10000,
+        "seed": 20261130,
+        "upper_97_5_pct": 2.29628
+      },
+      "roi_pct": -2.765571,
+      "settled_bets": 1156,
+      "simulated_bets": 1156,
+      "unique_fixtures": 1156
+    },
+    "M5_recency": {
+      "full_loss": 463,
+      "full_win": 487,
+      "half_loss": 84,
+      "half_win": 65,
+      "max_drawdown_by_quote_event_units": 52.405,
+      "net_units": -30.565,
+      "push": 57,
+      "roi_fixture_bootstrap_95pct_interval": {
+        "lower_2_5_pct": -7.697232,
+        "resamples": 10000,
+        "seed": 20261131,
+        "upper_97_5_pct": 2.454585
+      },
+      "roi_pct": -2.644031,
+      "settled_bets": 1156,
+      "simulated_bets": 1156,
+      "unique_fixtures": 1156
+    }
+  },
+  "union_metrics_by_league": {
+    "Armenia Premier League": {
+      "M5_baseline": {
+        "net_units": 0.81,
+        "roi_pct": 16.2,
+        "unique_fixtures": 5
+      },
+      "M5_recency": {
+        "net_units": 0.81,
+        "roi_pct": 16.2,
+        "unique_fixtures": 5
+      }
+    },
+    "Austria Bundesliga": {
+      "M5_baseline": {
+        "net_units": -5.46,
+        "roi_pct": -22.75,
+        "unique_fixtures": 24
+      },
+      "M5_recency": {
+        "net_units": -4.63,
+        "roi_pct": -19.291667,
+        "unique_fixtures": 24
+      }
+    },
+    "Azerbaijan Premier League": {
+      "M5_baseline": {
+        "net_units": -3.025,
+        "roi_pct": -21.607143,
+        "unique_fixtures": 14
+      },
+      "M5_recency": {
+        "net_units": -2.985,
+        "roi_pct": -21.321429,
+        "unique_fixtures": 14
+      }
+    },
+    "Belgium First Division A": {
+      "M5_baseline": {
+        "net_units": -3.77,
+        "roi_pct": -16.391304,
+        "unique_fixtures": 23
+      },
+      "M5_recency": {
+        "net_units": -3.77,
+        "roi_pct": -16.391304,
+        "unique_fixtures": 23
+      }
+    },
+    "Bulgaria First League": {
+      "M5_baseline": {
+        "net_units": 2.1,
+        "roi_pct": 10.5,
+        "unique_fixtures": 20
+      },
+      "M5_recency": {
+        "net_units": 2.1,
+        "roi_pct": 10.5,
+        "unique_fixtures": 20
+      }
+    },
+    "China Super League": {
+      "M5_baseline": {
+        "net_units": -2.835,
+        "roi_pct": -11.8125,
+        "unique_fixtures": 24
+      },
+      "M5_recency": {
+        "net_units": -2.835,
+        "roi_pct": -11.8125,
+        "unique_fixtures": 24
+      }
+    },
+    "Colombia Primera A": {
+      "M5_baseline": {
+        "net_units": 5.255,
+        "roi_pct": 10.303922,
+        "unique_fixtures": 51
+      },
+      "M5_recency": {
+        "net_units": 3.415,
+        "roi_pct": 6.696078,
+        "unique_fixtures": 51
+      }
+    },
+    "Croatia HNL": {
+      "M5_baseline": {
+        "net_units": -2.0,
+        "roi_pct": -10.0,
+        "unique_fixtures": 20
+      },
+      "M5_recency": {
+        "net_units": -2.0,
+        "roi_pct": -10.0,
+        "unique_fixtures": 20
+      }
+    },
+    "Cyprus Division 1": {
+      "M5_baseline": {
+        "net_units": 3.925,
+        "roi_pct": 14.537037,
+        "unique_fixtures": 27
+      },
+      "M5_recency": {
+        "net_units": -1.755,
+        "roi_pct": -6.5,
+        "unique_fixtures": 27
+      }
+    },
+    "Czechia First League": {
+      "M5_baseline": {
+        "net_units": -0.39,
+        "roi_pct": -1.258065,
+        "unique_fixtures": 31
+      },
+      "M5_recency": {
+        "net_units": -0.39,
+        "roi_pct": -1.258065,
+        "unique_fixtures": 31
+      }
+    },
+    "Denmark Superligaen": {
+      "M5_baseline": {
+        "net_units": 1.675,
+        "roi_pct": 6.979167,
+        "unique_fixtures": 24
+      },
+      "M5_recency": {
+        "net_units": 6.285,
+        "roi_pct": 26.1875,
+        "unique_fixtures": 24
+      }
+    },
+    "England Premier League": {
+      "M5_baseline": {
+        "net_units": 1.03,
+        "roi_pct": 2.641026,
+        "unique_fixtures": 39
+      },
+      "M5_recency": {
+        "net_units": 5.635,
+        "roi_pct": 14.448718,
+        "unique_fixtures": 39
+      }
+    },
+    "Estonia Meistriliiga": {
+      "M5_baseline": {
+        "net_units": -5.32,
+        "roi_pct": -44.333333,
+        "unique_fixtures": 12
+      },
+      "M5_recency": {
+        "net_units": -1.66,
+        "roi_pct": -13.833333,
+        "unique_fixtures": 12
+      }
+    },
+    "Finland Veikkausliiga": {
+      "M5_baseline": {
+        "net_units": -0.48,
+        "roi_pct": -2.086957,
+        "unique_fixtures": 23
+      },
+      "M5_recency": {
+        "net_units": -0.33,
+        "roi_pct": -1.434783,
+        "unique_fixtures": 23
+      }
+    },
+    "France Ligue 1": {
+      "M5_baseline": {
+        "net_units": -3.535,
+        "roi_pct": -9.819444,
+        "unique_fixtures": 36
+      },
+      "M5_recency": {
+        "net_units": -6.655,
+        "roi_pct": -18.486111,
+        "unique_fixtures": 36
+      }
+    },
+    "Georgia Erovnuli Liga": {
+      "M5_baseline": {
+        "net_units": -1.11,
+        "roi_pct": -18.5,
+        "unique_fixtures": 6
+      },
+      "M5_recency": {
+        "net_units": -0.3,
+        "roi_pct": -5.0,
+        "unique_fixtures": 6
+      }
+    },
+    "Germany Bundesliga I": {
+      "M5_baseline": {
+        "net_units": 4.625,
+        "roi_pct": 12.847222,
+        "unique_fixtures": 36
+      },
+      "M5_recency": {
+        "net_units": 2.775,
+        "roi_pct": 7.708333,
+        "unique_fixtures": 36
+      }
+    },
+    "Greece Super League 1": {
+      "M5_baseline": {
+        "net_units": -5.055,
+        "roi_pct": -20.22,
+        "unique_fixtures": 25
+      },
+      "M5_recency": {
+        "net_units": -4.16,
+        "roi_pct": -16.64,
+        "unique_fixtures": 25
+      }
+    },
+    "Hungary NB I": {
+      "M5_baseline": {
+        "net_units": 7.92,
+        "roi_pct": 56.571429,
+        "unique_fixtures": 14
+      },
+      "M5_recency": {
+        "net_units": 7.92,
+        "roi_pct": 56.571429,
+        "unique_fixtures": 14
+      }
+    },
+    "Iceland Premier League": {
+      "M5_baseline": {
+        "net_units": -5.365,
+        "roi_pct": -31.558824,
+        "unique_fixtures": 17
+      },
+      "M5_recency": {
+        "net_units": -3.345,
+        "roi_pct": -19.676471,
+        "unique_fixtures": 17
+      }
+    },
+    "Israel Premier League": {
+      "M5_baseline": {
+        "net_units": 1.24,
+        "roi_pct": 8.266667,
+        "unique_fixtures": 15
+      },
+      "M5_recency": {
+        "net_units": 1.24,
+        "roi_pct": 8.266667,
+        "unique_fixtures": 15
+      }
+    },
+    "Italy Serie A": {
+      "M5_baseline": {
+        "net_units": -1.935,
+        "roi_pct": -9.675,
+        "unique_fixtures": 20
+      },
+      "M5_recency": {
+        "net_units": -3.985,
+        "roi_pct": -19.925,
+        "unique_fixtures": 20
+      }
+    },
+    "Japan J-League": {
+      "M5_baseline": {
+        "net_units": -11.305,
+        "roi_pct": -22.61,
+        "unique_fixtures": 50
+      },
+      "M5_recency": {
+        "net_units": -11.305,
+        "roi_pct": -22.61,
+        "unique_fixtures": 50
+      }
+    },
+    "Kazakhstan Premier League": {
+      "M5_baseline": {
+        "net_units": 2.755,
+        "roi_pct": 15.305556,
+        "unique_fixtures": 18
+      },
+      "M5_recency": {
+        "net_units": 2.755,
+        "roi_pct": 15.305556,
+        "unique_fixtures": 18
+      }
+    },
+    "Latvia Virsliga": {
+      "M5_baseline": {
+        "net_units": 1.02,
+        "roi_pct": 6.0,
+        "unique_fixtures": 17
+      },
+      "M5_recency": {
+        "net_units": 2.86,
+        "roi_pct": 16.823529,
+        "unique_fixtures": 17
+      }
+    },
+    "Lithuania A Lyga": {
+      "M5_baseline": {
+        "net_units": -5.5,
+        "roi_pct": -45.833333,
+        "unique_fixtures": 12
+      },
+      "M5_recency": {
+        "net_units": -3.56,
+        "roi_pct": -29.666667,
+        "unique_fixtures": 12
+      }
+    },
+    "Malta Premier League": {
+      "M5_baseline": {
+        "net_units": 3.09,
+        "roi_pct": 18.176471,
+        "unique_fixtures": 17
+      },
+      "M5_recency": {
+        "net_units": 1.19,
+        "roi_pct": 7.0,
+        "unique_fixtures": 17
+      }
+    },
+    "Montenegro Prva Liga": {
+      "M5_baseline": {
+        "net_units": -1.29,
+        "roi_pct": -21.5,
+        "unique_fixtures": 6
+      },
+      "M5_recency": {
+        "net_units": -1.29,
+        "roi_pct": -21.5,
+        "unique_fixtures": 6
+      }
+    },
+    "Netherlands Eredivisie": {
+      "M5_baseline": {
+        "net_units": -4.8,
+        "roi_pct": -13.714286,
+        "unique_fixtures": 35
+      },
+      "M5_recency": {
+        "net_units": -6.64,
+        "roi_pct": -18.971429,
+        "unique_fixtures": 35
+      }
+    },
+    "North Macedonia First League": {
+      "M5_baseline": {
+        "net_units": 0.4,
+        "roi_pct": 13.333333,
+        "unique_fixtures": 3
+      },
+      "M5_recency": {
+        "net_units": 0.4,
+        "roi_pct": 13.333333,
+        "unique_fixtures": 3
+      }
+    },
+    "Northern Ireland Premier": {
+      "M5_baseline": {
+        "net_units": -1.935,
+        "roi_pct": -8.413043,
+        "unique_fixtures": 23
+      },
+      "M5_recency": {
+        "net_units": -0.9,
+        "roi_pct": -3.913043,
+        "unique_fixtures": 23
+      }
+    },
+    "Norway Eliteserien": {
+      "M5_baseline": {
+        "net_units": -4.61,
+        "roi_pct": -14.40625,
+        "unique_fixtures": 32
+      },
+      "M5_recency": {
+        "net_units": -6.51,
+        "roi_pct": -20.34375,
+        "unique_fixtures": 32
+      }
+    },
+    "Poland Ekstraklasa": {
+      "M5_baseline": {
+        "net_units": -6.08,
+        "roi_pct": -16.432432,
+        "unique_fixtures": 37
+      },
+      "M5_recency": {
+        "net_units": -4.08,
+        "roi_pct": -11.027027,
+        "unique_fixtures": 37
+      }
+    },
+    "Portugal Primeira Liga": {
+      "M5_baseline": {
+        "net_units": 4.715,
+        "roi_pct": 16.839286,
+        "unique_fixtures": 28
+      },
+      "M5_recency": {
+        "net_units": 4.695,
+        "roi_pct": 16.767857,
+        "unique_fixtures": 28
+      }
+    },
+    "Republic of Ireland Premier Division": {
+      "M5_baseline": {
+        "net_units": -4.64,
+        "roi_pct": -23.2,
+        "unique_fixtures": 20
+      },
+      "M5_recency": {
+        "net_units": -4.64,
+        "roi_pct": -23.2,
+        "unique_fixtures": 20
+      }
+    },
+    "Romania Liga I": {
+      "M5_baseline": {
+        "net_units": -0.9,
+        "roi_pct": -2.727273,
+        "unique_fixtures": 33
+      },
+      "M5_recency": {
+        "net_units": -4.06,
+        "roi_pct": -12.30303,
+        "unique_fixtures": 33
+      }
+    },
+    "Saudi Arabia Pro League": {
+      "M5_baseline": {
+        "net_units": -4.71,
+        "roi_pct": -12.72973,
+        "unique_fixtures": 37
+      },
+      "M5_recency": {
+        "net_units": -4.73,
+        "roi_pct": -12.783784,
+        "unique_fixtures": 37
+      }
+    },
+    "Scotland Premiership": {
+      "M5_baseline": {
+        "net_units": -3.805,
+        "roi_pct": -14.092593,
+        "unique_fixtures": 27
+      },
+      "M5_recency": {
+        "net_units": -3.805,
+        "roi_pct": -14.092593,
+        "unique_fixtures": 27
+      }
+    },
+    "Serbia Super Liga": {
+      "M5_baseline": {
+        "net_units": 7.27,
+        "roi_pct": 27.961538,
+        "unique_fixtures": 26
+      },
+      "M5_recency": {
+        "net_units": 3.68,
+        "roi_pct": 14.153846,
+        "unique_fixtures": 26
+      }
+    },
+    "Slovakia Super Liga": {
+      "M5_baseline": {
+        "net_units": 2.05,
+        "roi_pct": 9.318182,
+        "unique_fixtures": 22
+      },
+      "M5_recency": {
+        "net_units": 5.06,
+        "roi_pct": 23.0,
+        "unique_fixtures": 22
+      }
+    },
+    "Slovenia Prva Liga": {
+      "M5_baseline": {
+        "net_units": -1.56,
+        "roi_pct": -8.666667,
+        "unique_fixtures": 18
+      },
+      "M5_recency": {
+        "net_units": -2.13,
+        "roi_pct": -11.833333,
+        "unique_fixtures": 18
+      }
+    },
+    "South Korea K League 1": {
+      "M5_baseline": {
+        "net_units": -6.32,
+        "roi_pct": -26.333333,
+        "unique_fixtures": 24
+      },
+      "M5_recency": {
+        "net_units": -4.43,
+        "roi_pct": -18.458333,
+        "unique_fixtures": 24
+      }
+    },
+    "Spain La Liga": {
+      "M5_baseline": {
+        "net_units": 1.9,
+        "roi_pct": 4.75,
+        "unique_fixtures": 40
+      },
+      "M5_recency": {
+        "net_units": 1.9,
+        "roi_pct": 4.75,
+        "unique_fixtures": 40
+      }
+    },
+    "Sweden Allsvenskan": {
+      "M5_baseline": {
+        "net_units": 12.205,
+        "roi_pct": 31.294872,
+        "unique_fixtures": 39
+      },
+      "M5_recency": {
+        "net_units": 10.265,
+        "roi_pct": 26.320513,
+        "unique_fixtures": 39
+      }
+    },
+    "Switzerland Super League": {
+      "M5_baseline": {
+        "net_units": 2.44,
+        "roi_pct": 13.555556,
+        "unique_fixtures": 18
+      },
+      "M5_recency": {
+        "net_units": 2.44,
+        "roi_pct": 13.555556,
+        "unique_fixtures": 18
+      }
+    },
+    "T\u00fcrkiye Super Lig": {
+      "M5_baseline": {
+        "net_units": 3.37,
+        "roi_pct": 10.53125,
+        "unique_fixtures": 32
+      },
+      "M5_recency": {
+        "net_units": 3.14,
+        "roi_pct": 9.8125,
+        "unique_fixtures": 32
+      }
+    },
+    "Ukraine Vyscha Liga": {
+      "M5_baseline": {
+        "net_units": -6.83,
+        "roi_pct": -32.52381,
+        "unique_fixtures": 21
+      },
+      "M5_recency": {
+        "net_units": -5.05,
+        "roi_pct": -24.047619,
+        "unique_fixtures": 21
+      }
+    },
+    "Wales Premier League": {
+      "M5_baseline": {
+        "net_units": 2.8,
+        "roi_pct": 18.666667,
+        "unique_fixtures": 15
+      },
+      "M5_recency": {
+        "net_units": 2.8,
+        "roi_pct": 18.666667,
+        "unique_fixtures": 15
+      }
+    }
+  },
+  "union_metrics_by_selected_quote_evidence": {
+    "M1_Crown_eventtime_fetched_later": {
+      "M5_baseline": {
+        "full_loss": 112,
+        "full_win": 128,
+        "half_loss": 23,
+        "half_win": 11,
+        "max_drawdown_by_quote_event_units": 16.315,
+        "net_units": -4.31,
+        "push": 12,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -11.66958,
+          "resamples": 10000,
+          "seed": 20261160,
+          "upper_97_5_pct": 8.793706
+        },
+        "roi_pct": -1.506993,
+        "settled_bets": 286,
+        "simulated_bets": 286,
+        "unique_fixtures": 286
+      },
+      "M5_recency": {
+        "full_loss": 111,
+        "full_win": 129,
+        "half_loss": 22,
+        "half_win": 12,
+        "max_drawdown_by_quote_event_units": 10.42,
+        "net_units": -1.265,
+        "push": 12,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -10.653846,
+          "resamples": 10000,
+          "seed": 20261161,
+          "upper_97_5_pct": 9.769231
+        },
+        "roi_pct": -0.442308,
+        "settled_bets": 286,
+        "simulated_bets": 286,
+        "unique_fixtures": 286
+      }
+    },
+    "MR1_V6_Crown_received_before_kickoff": {
+      "M5_baseline": {
+        "full_loss": 351,
+        "full_win": 359,
+        "half_loss": 64,
+        "half_win": 51,
+        "max_drawdown_by_quote_event_units": 49.405,
+        "net_units": -27.66,
+        "push": 45,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -9.26092,
+          "resamples": 10000,
+          "seed": 20261160,
+          "upper_97_5_pct": 2.747126
+        },
+        "roi_pct": -3.17931,
+        "settled_bets": 870,
+        "simulated_bets": 870,
+        "unique_fixtures": 870
+      },
+      "M5_recency": {
+        "full_loss": 352,
+        "full_win": 358,
+        "half_loss": 62,
+        "half_win": 53,
+        "max_drawdown_by_quote_event_units": 49.08,
+        "net_units": -29.3,
+        "push": 45,
+        "roi_fixture_bootstrap_95pct_interval": {
+          "lower_2_5_pct": -9.113793,
+          "resamples": 10000,
+          "seed": 20261161,
+          "upper_97_5_pct": 2.555172
+        },
+        "roi_pct": -3.367816,
+        "settled_bets": 870,
+        "simulated_bets": 870,
+        "unique_fixtures": 870
+      }
+    }
+  }
+}
