@@ -145,3 +145,8 @@ Crown私有回填仍由单一collector运行。检查点 `2026-11-05T17:21:18.73
 逐市场结果和审计边界见 [partial aggregate receipt](results/m5_source_union_replay_partial_20261105T173723.321288Z.json)。本次AH/OU各8,034唯一真实赛事，Crown ROI为-1.553896%/-3.864513%，最大回撤153.520U/321.065U；所有API接收收据在开赛后，6条无效receipt时间行排除。它是活动采集中的源事件时间回顾模拟，不代表赛前实际收到的可执行ROI，未达10,000或+3%目标。源输入SHA、proper scores、五类结算及未筛选描述拆分均在receipt内。
 
 Partial样本中的不筛选描述拆分显示OU 2.25（n=1,411）/2.75（n=1,732）贡献较大净亏损，AH 0.50（n=521）/0.00（n=1,011）亦为较大亏损组；这些分组使用同一活动样本，未用于模型或收益条件选择。durable Crown检查点已进至9,000候选、AH/OU各8,054有效报价，仍未终态。
+
+
+### M3/M5 Crown 固定合约最新重跑
+
+最新运行以2026-09-01 UTC为留出边界，AH0留出38场，训练期Log Loss选M3 Dixon-Coles（M5权重0%），ROI +30.657895%；OU2.5留出59场，选M3 Bivariate Poisson（训练拟合M5权重20%），ROI +8.118644%。未用holdout ROI选模型或权重，报告含所有候选模型、概率分数、最大回撤和bootstrap区间：[aggregate receipt](results/m5_m3_crown_2026_holdout_20261105T174731Z.json)。样本不足10,000/市场且所有API quote receipts在赛后，故是小样本回顾性比较，不满足收益目标正式验收。

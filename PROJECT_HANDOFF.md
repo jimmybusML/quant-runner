@@ -1,3 +1,8 @@
+## 2026-11-05T17:47:31.885165+00:00 M3/M5 Crown AH0/OU2.5严格时间留出重跑
+- 收据 [`m5_m3_crown_2026_holdout_20261105T174731Z.json`](research/m5/results/m5_m3_crown_2026_holdout_20261105T174731Z.json)；训练截止2026-08-31，固定 `2026-09-01 UTC` 起留出。M3/M5按精确联赛/球队/UTC kickoff键匹配；0个fixture key collision，26条实际比分不一致行排除。模型及blend权重仅由训练区间 proper log loss决定，完全不使用留出ROI；全程固定 AH0/OU2.5，每个有效fixture-market一笔，无EV/联赛/时间/数量过滤。
+- AH时间留出38场：训练77场，模型选择Dixon-Coles、M5权重0%；W/P/L 20/11/7，净+11.650U，ROI+30.657895%，DD3.000U，settlement LL/Brier 1.05453363/0.63473806。M5单体同样本25.394737% ROI。OU留出59场：训练156场，选择Bivariate Poisson、训练期M5权重20%；W/L 33/26，净+4.790U，ROI+8.118644%，DD8.450U，LL/Brier 0.68569524/0.49259476。M5单体ROI-0.813559%；嵌套训练定权blend ROI+8.491525%、LL/Brier .68912877/.49587163，没有优于单独Bivariate的proper score。
+- 两个小样本留出均数值>+3%，但38/59远低于每市场10,000；比赛来自2026赛季片段，所有Crown API receipts均为赛后回取，预测也是历史walk-forward重建，并非当时存档信号，因此不满足目标验收或可执行实收ROI。仅作模型研究。
+
 ## 2026-11-05T17:38Z Crown checkpoint推进至9,000及不筛选亏损分解
 - durable Crown checkpoint `2026-11-05T17:38:58.874342Z`：已处理9,000/127,674，精确fixture响应8,946，AH/OU各8,054有效Crown赛前源事件报价，身份/时间错配0，transport errors 54；尚无`finished_utc`。回放过程中的更晚私有索引观察值9,023行只代表API响应收据，不是market quote覆盖。
 - 对刚发布的8,034场/市场partial结果做未筛选描述拆分：OU最大净亏损贡献来自2.25线1,411场/-116.395U及2.75线1,732场/-83.095U；AH来自0.50线521场/-36.180U及0.00线1,011场/-26.620U。各联赛/UTC开球小时/quote lead均有方向差异，且小组样本波动大。这些只是同一活动样本描述，不用于策略筛选、样本剔除或新增gate；后续模型参数只可由嵌套训练窗proper score定。
