@@ -1,3 +1,8 @@
+## 2026-11-05T17:38Z Crown checkpoint推进至9,000及不筛选亏损分解
+- durable Crown checkpoint `2026-11-05T17:38:58.874342Z`：已处理9,000/127,674，精确fixture响应8,946，AH/OU各8,054有效Crown赛前源事件报价，身份/时间错配0，transport errors 54；尚无`finished_utc`。回放过程中的更晚私有索引观察值9,023行只代表API响应收据，不是market quote覆盖。
+- 对刚发布的8,034场/市场partial结果做未筛选描述拆分：OU最大净亏损贡献来自2.25线1,411场/-116.395U及2.75线1,732场/-83.095U；AH来自0.50线521场/-36.180U及0.00线1,011场/-26.620U。各联赛/UTC开球小时/quote lead均有方向差异，且小组样本波动大。这些只是同一活动样本描述，不用于策略筛选、样本剔除或新增gate；后续模型参数只可由嵌套训练窗proper score定。
+- Crown仍运行；唯一保留fallback等待器是主链，重复的PID 29705和36344已停止，避免终态后并发调用TOTAL；collector PID 19740与主等待器PID 19737仍存活。无TOTAL回退请求。
+
 ## 2026-11-05T17:37:23.321288Z M5 Crown-first 活动档案回放（partial）
 - 在活动collector仍写入时对私有归档做聚合回放，代码 `research/m5/m5_source_union_replay.py`；收据 [`m5_source_union_replay_partial_20261105T173723.321288Z.json`](research/m5/results/m5_source_union_replay_partial_20261105T173723.321288Z.json)，generated UTC `2026-11-05T17:37:23.321288Z`，candidate manifest 127,674、M5 OOS forecast 127,674。输入行情仅从私有档案读取，公开文件不含逐场ID/价格/预测。
 - AH：唯一fixture/模拟/结算8,034；W/HW/P/HL/L `3241/550/545/574/3124`；净 `-124.840U`、ROI `-1.553896%`、最大回撤 `153.520U`、95% fixture-bootstrap `[-3.519106%,+0.394075%]`、结算 Log Loss/Brier `1.03472313/0.65060404`。OU：8,034；类别 `3315/436/420/568/3295`；净 `-310.475U`、ROI `-3.864513%`、最大回撤 `321.065U`、bootstrap `[-5.826487%,-1.874658%]`、Log Loss/Brier `0.99060787/0.62514862`。ROI分母均为每场一注的总本金8,034U。
