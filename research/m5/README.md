@@ -234,3 +234,12 @@ Re-ran the existing strict M3/M5 chronological comparator against the current Cr
 AH holdout ROI: M5 25.394737% (+9.65U), selected M3/M5 Poisson blend 26.052632% (+9.90U), M3 bivariate/ Dixon-Coles 30.657895% (+11.65U). OU holdout: M5 -0.813559% (-0.48U); training-selected M3/M5 bivariate blend -0.627119% (-0.37U); M3 bivariate Poisson 8.118644% (+4.79U); M3 Dixon-Coles and Poisson 5.033898% (+2.97U). The M3 OU models' descriptive bootstrap intervals are broad: bivariate `-16.677966% to +31.779661%`, Dixon-Coles `-19.474576% to +29.457627%`. The selected OU blend improved proper scores over M5 (LL/Brier `0.69900917/0.50513803` vs `0.70600004/0.51143449`) but holdout ROI is negative.
 
 This fixed-contract cohort is far below 10,000 fixtures and is not an untouched sample: current 2026 data has been examined in prior studies. Every Crown API receipt was post-kickoff (AH 38/38, OU 59/59), although quote source-event times were between joint forecast as-of and kickoff. The ROI figures are retrospective event-time simulations, not executable pregame records. This is a descriptive M3 complement diagnostic, not a selected production rule. Full aggregate audit and hashes: [M3/M5 blend receipt](results/m5_m3_crown_archive_blend_20261105T190544Z.json).
+
+
+### 2026-11-05T19:11Z incremental Crown capture checkpoint
+
+Formal progress `2026-11-05T19:08:34Z`: 10,100/127,674 candidates, 10,040 exact responses, 60 transport errors, 9,105 valid AH and OU fixtures, zero identity/time mismatches.
+
+Response-index replay at `2026-11-05T19:09:26Z` contains 9,108 fixtures/market; six invalid receipt-time rows excluded. AH `-168.225U / -1.847003%` (LL/Brier `1.03267656/0.64932759`, max event-time DD `195.725U`); OU `-330.615U / -3.629941%` (`0.98874492/0.62384540`, DD `368.980U`). All receipts post-kickoff. [Replay receipt](results/m5_source_union_replay_partial_20261105T190926Z.json).
+
+Temporal holdout re-fit `2026-11-05T19:11:40Z`: 6,827 training / 2,295 disjoint holdout per market; historical goal-rate factors home 1.034194, away 1.036082. Raw/calibrated ROI AH `+0.244009% / +0.057952%`; OU `-4.723965% / -3.975599%`. Calibrated LL/Brier AH `1.02684339/0.64218266`, OU `0.98982137/0.62401544`. The holdout's 2,295 receipts per market are all after kickoff. [Holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T191140Z.json).

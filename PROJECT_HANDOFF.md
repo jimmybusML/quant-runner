@@ -3978,3 +3978,9 @@
 ## 2026-11-05 M3/M5 Crown blend refresh
 - Re-ran `m5_m3_crown_archive_blend_replay.py` on current private Crown archive and public strict M3 OOS CSV. Aggregate `research/m5/results/m5_m3_crown_archive_blend_20261105T190544Z.json`, generated `2026-11-05T19:05:44Z`. Exact contracts only (AH0/OU2.5), weights fitted on prior train-period log loss. Train pairs AH 97 / OU 210; chronological holdout AH 38 / OU 59; zero identity-key collisions.
 - OU M3 bivariate Poisson standalone holdout ROI +8.118644% (+4.79U, n59); M3 Dixon-Coles +5.033898% (+2.97U). However training-selected M3/M5 bivariate blend is -0.627119% (-0.37U), and M5-only is -0.813559%. AH rows are also small (n38, point ROI >25% across several variants). Bootstrap intervals are wide; all API receipts post-kickoff. Treat only as descriptive lead; it does not meet 10k market sample and is not executable Crown ROI evidence. No gate/model promotion.
+
+
+## 2026-11-05 M5 Crown 10,100-candidate checkpoint
+- Formal progress `2026-11-05T19:08:34Z`: 10,100 candidates, 10,040 exact responses, 60 transport errors, 9,105 eligible quotes per market, zero identity/time mismatches; collector remains active.
+- Event-time replay `m5_source_union_replay_partial_20261105T190926Z.json` generated `2026-11-05T19:09:26Z`: 9,108 fixtures/market; AH -168.225U/-1.847003%, OU -330.615U/-3.629941%. Six invalid receipt timestamps excluded; all remaining API receipts post-kickoff.
+- Temporal holdout `m5_crown_goal_rate_temporal_holdout_20261105T191140Z.json` generated `2026-11-05T19:11:40Z`: 6,827 train / 2,295 disjoint holdout per market; calibrated ROI AH +0.057952%, OU -3.975599%. All receipts post-kickoff; ROI target not reached.
