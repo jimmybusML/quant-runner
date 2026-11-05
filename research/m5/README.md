@@ -155,3 +155,8 @@ Partial样本中的不筛选描述拆分显示OU 2.25（n=1,411）/2.75（n=1,73
 ### M5 Crown 2026 temporal goal-rate calibration holdout
 
 Added a single global home/away scoring-rate tilt, fit from M5 OOS score grids and actual results before `2026-09-01 UTC`, then evaluated on later Crown-only fixture-markets. Training and holdout IDs are disjoint (5,950 train / 2,295 test per market). Calibration improved settlement Log Loss and Brier on both AH and OU but ROI remained negative (`AH -0.162092%`, `OU -3.713290%`; raw baselines `+0.244009%/-4.723965%`). Parameters were fitted by prior outcomes, never holdout ROI; no filters were added. All response receipts came after kickoff, so this is source-event-time retrospective evaluation, not execution evidence. Full score/settlement/source audit: [temporal holdout receipt](results/m5_crown_goal_rate_temporal_holdout_20261105T175546Z.json).
+
+
+### 2026-11-05T17:58Z 活动 Crown partial 回放
+
+全市场每market 8,273场，AH ROI -1.543515%（-127.695U），OU ROI -3.932129%（-325.305U），最大回撤164.805U/331.775U。报价全是Crown，收据全部在赛后，4条receipt时间无效记录排除；仅2026-02-10至11-04 UTC。活动采集中快照，不是终态结果、可执行ROI或达到+3%/10,000场。详情：[aggregate receipt](results/m5_source_union_replay_partial_20261105T175815Z.json).
