@@ -1,0 +1,78 @@
+{
+  "crown_capture": {
+    "aggregate_counts": {
+      "AH_qualified_fixture_markets": 49,
+      "OU_qualified_fixture_markets": 44,
+      "fixture_or_crown_identity_mismatch": 3,
+      "identity_or_api_failure": 14,
+      "transport_errors": 1,
+      "verified_fixture_responses": 340
+    },
+    "attempted_fixtures": 358,
+    "response_hash_set_sha256": "03e47edbfec5c7675d4a27c98e039e568a2d4f754b3add9b54e981bf1e016dc8"
+  },
+  "crown_capture_generated_utc": "2026-11-06T13:36:11.924489Z",
+  "crown_capture_receipt_sha256": "6b7892f13157a848819648813ef925ed7a75142afc51f72d2c3b5daba095b03d",
+  "crown_index_sha256": "c4ae55bf12a7eb7e6a06625acf02610a2939d4e8be325681b482e54fa33ce548",
+  "forecast_fixture_count": 361,
+  "forecast_generated_utc": "2026-11-06T07:01:42.001976Z",
+  "forecast_receipt_sha256": "ce4e3f43bc9da40c5948c5fa6212769bbe85819ba75ab5da818a6729aa22ea8f",
+  "forecast_sha256": "80dc6581fefa190cddeaa95ba75a9210e647ea5996456e9c1d08a64aaffb91b7",
+  "generated_utc": "2026-11-06T13:41:03.763943Z",
+  "integrity": {
+    "all_fixture_markets_unique": true,
+    "private_fixture_level_data_published": false,
+    "settlement_performed": false,
+    "source_separated": true,
+    "train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff": true
+  },
+  "kickoff_coverage_utc": [
+    "2026-11-06T11:00:00Z",
+    "2026-11-08T18:00:00Z"
+  ],
+  "limitations": [
+    "This is a prediction/quote pairing receipt, not a simulated wager or ROI result.",
+    "AH and OU paired samples are reported independently and remain below 10,000.",
+    "Crown is preferred per fixture-market; TotalCorner default only fills missing Crown markets.",
+    "Raw fixture identities, score grids, lines, prices and API responses remain private."
+  ],
+  "markets": {
+    "AH": {
+      "fixture_markets_pending_settlement_verification": 60,
+      "max_drawdown_units": null,
+      "net_units": null,
+      "receipt_timing": "all paired receipts were before kickoff",
+      "roi_pct": null,
+      "settled_fixture_markets": 0,
+      "source_fixture_markets": {
+        "Crown": 53,
+        "TotalCorner_default": 7
+      },
+      "unique_fixture_markets": 60
+    },
+    "OU": {
+      "fixture_markets_pending_settlement_verification": 54,
+      "max_drawdown_units": null,
+      "net_units": null,
+      "receipt_timing": "all paired receipts were before kickoff",
+      "roi_pct": null,
+      "settled_fixture_markets": 0,
+      "source_fixture_markets": {
+        "Crown": 49,
+        "TotalCorner_default": 5
+      },
+      "unique_fixture_markets": 54
+    }
+  },
+  "pair_receipt_sha256": "cf8d8b8e3ef55b4d5579ff42fd2030b3be69211fde895a6d797dbd4e56cd3bd8",
+  "pair_sha256": "5dfd5b87fd0b67d5a0381c00b215fdd5d541661cdeb85a4b35d8cdfe2995d807",
+  "paired_fixture_markets": 114,
+  "paired_fixture_markets_by_market": {
+    "AH": 60,
+    "OU": 54
+  },
+  "pairing_generated_utc": "2026-11-06T13:36:24.743994Z",
+  "protocol": "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1",
+  "sanitizer_sha256": "6cc19521c2e775959d72ed8390b3c889b9ab49272d5af556fb391998e5fe73af",
+  "totalcorner_index_sha256": "0e2da1ef82e4d193a1b6a66c5e4500d05507c872ce43daf19b5ca49ca6920331"
+}

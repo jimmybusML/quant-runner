@@ -897,4 +897,12 @@ AH W/HW/P/HL/L 为 3,791/783/650/522/3,771；OU 为 3,900/630/480/538/3,969。�
 
 模型训练截止、预测 as-of、盘口事件时间和开赛顺序均经过现有输入校验；2025与2026赛事 ID 不交叉。但历史 API 收据均为开赛后回取，故 ROI 仅为 event-time 回顾性模拟，不是赛前收据验证或可执行收益；2026已在此前研究中多次检视，也不是未触碰确认集。新增实验未改生产策略、Gate、TG、正式订单或账本。
 
-新增 GitHub Actions [`M5 Research Validation`](../../.github/workflows/m5-research-validation.yml) 会对公开 M5 研究代码运行全套单测，并校验本回执的 runner SHA、来源/样本分母、结算及 ROI 算术。手动触发 run [42219881863](https://github.com/ljm198964-alt/quant-runner/actions/runs/42219881863) 已于 `2026-11-06T12:44:53Z` 成功。该工作流不读取 secrets、不访问逐场私有数据，也不重训；自动数据更新与重训还需要把 M5 私有归档安全接入 Actions，当前 private bridge 文件清单未见 M5 数据。
+新增 GitHub Actions [`M5 Research Validation`](../../.github/workflows/m5-research-validation.yml) 会对公开 M5 研究代码运行全套单测，并校验模型与前瞻回执的运行器 SHA、来源/样本分母、结算及 ROI 算术。此前手动触发 run [42219881863](https://github.com/ljm198964-alt/quant-runner/actions/runs/42219881863) 已成功；包含本次新增前瞻回执校验的 push run 需在本次提交后补录。该工作流不读取 secrets、不访问逐场私有数据，也不重训；自动数据更新与重训还需要把 M5 私有归档安全接入 Actions，当前 private bridge 文件清单未见 M5 数据。
+
+## 2026-11-06T13:39Z 前瞻 Crown 刷新与 TotalCorner default 配对
+
+复用用户已授权的本机 TotalCorner 接口和 2026-11-06T07:01Z 生成的 M5 独立预测队列（361场，51个联赛），仅刷新开赛尚未到来的赛事。Crown 查询队列按 UTC 开赛时间升序，实际运行 `2026-11-06T12:47Z` 至 `13:36Z`，358次请求：340条响应身份核验通过、3条赛事/Crown身份错配、14条身份/API失败、1条传输失败；其中新本轮新增合格盘口事件 AH 49 / OU 44。响应回执与原始响应均保留在本机私有目录，未读取、输出或提交 Token。
+
+随后用现有 TotalCorner default 响应仅补 Crown 缺失的 fixture-market，完成唯一身份和严格时间配对。脱敏回执生成器 [代码](m5_forward_shadow_public_receipt.py) 和[测试](test_m5_forward_shadow_public_receipt.py)验证私有索引后，只输出聚合数与输入/运行器哈希。[前瞻刷新 13:39Z 报告](results/m5_forward_shadow_refresh_20261106T1336Z.json)生成于 `2026-11-06T13:41:03.763943Z`；私有配对输入哈希与事件/回执时间检查均在回执中。AH 配对 60 场（Crown 53、TotalCorner default 7），OU 54 场（Crown 49、TotalCorner default 5），两市场不混算、同场同市场不重复。每条均通过 `train_end < prediction_asof <= quote_event <= quote_received < kickoff`；全体配对的响应实际在各自开赛前收到。
+
+这是概率预测与盘口的前瞻配对，不代表实际下单或已结算投注。此时尚未执行赛果结算，净U、ROI与回撤均为 null；不得将盘口配对数量当作下注数量或收益。样本远低于每市场10,000，M5 ROI≥3%目标尚未验证。已有报告验证工作流在本次新增的前瞻回执上也会检查脱敏、来源分母和未结算字段；全量报告运行记录稍后补录。没有新增交易门槛，也没有修改任何生产链路、正式派单、TG或账本。

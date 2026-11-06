@@ -52,3 +52,25 @@ jobs:
                   assert abs(model["roi_pct"] - 100 * model["net_units"] / model["stake_units"]) < 1e-6
           print("M5 public receipt integrity: PASS")
           PY
+      - name: Validate the public forward pairing receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          code = Path("research/m5/m5_forward_shadow_public_receipt.py")
+          report = json.loads(Path("research/m5/results/m5_forward_shadow_refresh_20261106T1336Z.json").read_text())
+          assert report["sanitizer_sha256"] == hashlib.sha256(code.read_bytes()).hexdigest()
+          assert report["integrity"]["all_fixture_markets_unique"] is True
+          assert report["integrity"]["source_separated"] is True
+          assert report["integrity"]["private_fixture_level_data_published"] is False
+          for market in ("AH", "OU"):
+              result = report["markets"][market]
+              assert result["unique_fixture_markets"] == report["paired_fixture_markets_by_market"][market]
+              assert sum(result["source_fixture_markets"].values()) == result["unique_fixture_markets"]
+              assert result["settled_fixture_markets"] == 0
+              assert result["net_units"] is None and result["roi_pct"] is None
+          serialized = json.dumps(report)
+          assert '"match_id"' not in serialized and '"prices":' not in serialized
+          print("M5 forward pairing receipt integrity: PASS")
+          PY
