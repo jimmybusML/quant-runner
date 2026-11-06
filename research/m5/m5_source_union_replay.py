@@ -117,6 +117,10 @@ def summarize(rows, market, seed):
       'by_utc_kickoff_hour':group_summary(lambda r:f"{r['kickoff_hour']:02d}"),
       'by_forecast_lead_hours':group_summary(lambda r:lead_bin(r,'forecast_lead_hours')),
       'by_quote_event_lead_hours':group_summary(lambda r:lead_bin(r,'quote_lead_hours')),
+      'by_quote_event_lead_hours_and_utc_kickoff_year':group_summary(
+          lambda r:f"{lead_bin(r,'quote_lead_hours')} | {r['kickoff_utc'][:4]}"),
+      'by_source_quote_event_lead_hours_and_utc_kickoff_year':group_summary(
+          lambda r:f"{r['source']} | {lead_bin(r,'quote_lead_hours')} | {r['kickoff_utc'][:4]}"),
       'by_quarter_goal_line':group_summary(lambda r:f"{r['line']:.2f}")}
     # Research-only EV threshold diagnostics. The replay still records every
     # eligible fixture above; thresholds are descriptive candidate policies,

@@ -39,6 +39,12 @@ MR1 同 Crown 交集覆盖全量源并集的 7.518%；各模型按相同盘口�
 
 Crown-only 的 10k+ 样本没有任一市场达到 +3%；TotalCorner-only 尚未达到每市场10k且目前亏损。来源和 recency 变化均没有反转结论。完整结算类别、净U、最大回撤、bootstrap、UTC开赛年份覆盖、来源哈希和时间限制见[来源分离回执](results/m5_source_separated_performance_comparison_20261106.json)；可用 [`m5_source_performance_comparison.py`](m5_source_performance_comparison.py) 从六份冻结聚合回执重新生成，输出不含逐场身份、比分、盘口价格或原始响应。
 
+### 盘口事件时间领先开赛分层
+
+对 Crown-only、TotalCorner-only 和 Crown-first 去重并集重跑后，OU 盘口事件时间领先开赛 6–24 小时组在 Crown-only 全期汇总为 248 场、净 +8.185U、ROI +3.30%；但其中 2025 仅32场/+9.27%，2026有216场/+2.42%。Crown-first并集的2026同分层为319场、净+0.5325U、ROI+0.17%；其中TotalCorner 2026子组103场、净-4.6875U、ROI-4.55%。同一时间分层没有达到万场，也没有在后续2026保持+3%，因此它只是按时段描述的研究发现，不是已验证策略或新增的时间门槛。
+
+AH Crown-only 6–24小时组的2025为17场/-15.68%，2026为108场/-2.53%。来源、盘口时间和开赛年份交叉汇总见[Crown](results/m5_crown_quote_lead_year_20261106.json)、[TotalCorner](results/m5_totalcorner_quote_lead_year_20261106.json)、[Crown-first并集](results/m5_crown_first_quote_lead_year_20261106.json)。所有入选历史API实际回执均晚于开赛，领先时间来自盘口事件时间，仅可回顾研究。
+
 当前最接近改善的 walk-forward 方向诊断，是按 2025 各联赛训练样本 ROI 在 higher-EV / favorite / underdog 中选方向，冻结后跑 2026 全部场次；每市场 10,161 场，AH ROI `-1.373019%`、OU `-3.019732%`，分别较同一2026 higher-EV基准 `-1.855920%`、`-3.418906%` 改善约0.48/0.40个百分点，但仍然亏损。该方向选择对2025每联赛样本有最低20场要求，并因多个方向择优而有明显选择偏差；它不筛除任何2026比赛，只作研究诊断。其2026来源事件时回放ROI没有达成+3%，历史响应回执赛后取得，且该聚合报告没有逐场顺序，不能据此报告最大回撤。[walk-forward 回执](results/m5_league_direction_2025_train_2026_oos_20261106.json)。
 
 ## 前瞻赛果结算器
