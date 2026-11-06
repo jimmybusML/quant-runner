@@ -786,3 +786,5 @@ AH校准后W/HW/P/HL/L为3,591/981/644/329/3,855；OU为3,693/919/475/251/4,062�
 对前一版已有报价的 47 个唯一 fixture 再调用 Crown 专属盘口接口：47 次尝试、46 条身份验证成功、1 次传输错误。随后从同一 07:01Z 冻结预测重新配对，AH 仍为 41 场（Crown 34、TotalCorner default 7），OU 增至 31 场（Crown 25、TotalCorner default 6）。71 个已有配对中有4个市场项的盘口条款/事件时间更新；另增加1个OU报价；模型按更新赔率选择的下注方向没有变化。
 
 截至 `2026-11-06T10:14:11Z`，72个 fixture-market 全部待赛，ROI、净收益和最大回撤为 null。时间、来源优先级与去重检查均通过。脱敏回执：[10:14Z前瞻刷新汇总](results/m5_forward_shadow_refresh_20261106T1014Z.json)。预测、赛事身份、盘口价格和原始响应继续保存在本机私有归档；该样本不与历史赛后回取数据混合，也不能证明正收益。
+
+该结果已以提交 `503de2693e75eed2ab305a961e6176837a79916a` 推送。对应 Actions run [42201498776](https://github.com/ljm198964-alt/quant-runner/actions/runs/42201498776) 是旧 M3-only workflow，`failure` 且 `jobs=[]`，不代表 M5 工作流验收。

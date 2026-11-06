@@ -4229,3 +4229,4 @@
 - 对上一版72个市场项覆盖的47个唯一 fixture 进行 Crown 再采集：47次尝试，46条身份校验成功，1次传输错误。响应集合 SHA `2e5cc01fd751fbd220aa0d7a37f629a60a2981e98bb6ea8f6a611fa63ea0e6c`。
 - 同一冻结 M5 预测重新配对生成 `2026-11-06T10:14:11.477488Z`：AH 41（Crown34/TOTAL7），OU31（Crown25/TOTAL6），共72唯一fixture-market。相比10:01Z配对新增1 OU报价；71个同场市场中4项价格/盘口条款更新，4项盘口事件时间前移，模型因更新赔率改变方向0项。
 - 全部72项在生成时尚未开赛，时间链 `train_end < prediction_asof <= quote_event <= receipt < kickoff` 成立，无重复；因此未结算数分别为AH41/OU31，净U、ROI、回撤为null。脱敏结果 `research/m5/results/m5_forward_shadow_refresh_20261106T1014Z.json`，private pair SHA `3ba833b44166a52a922c5b3f804f8d6c84b475163c2a04b74235e4a845470223`。仍远低于每市场10,000前瞻配对，也没有实现ROI≥3%。
+- 报告与README已以提交 `503de2693e75eed2ab305a961e6176837a79916a` 推送。对应 GitHub Actions run [42201498776](https://github.com/ljm198964-alt/quant-runner/actions/runs/42201498776) 为现有 `.github/workflows/m3-ah-reverse-research.yml`，状态 `failure`、`jobs=[]`，没有执行 M5 任务；仓库仍无独立 M5 Actions workflow。
