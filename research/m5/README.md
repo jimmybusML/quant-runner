@@ -925,3 +925,9 @@ AH W/HW/P/HL/L 为 3,791/783/650/522/3,771；OU 为 3,900/630/480/538/3,969。�
 对同一不可变配对继续核验已开赛赛事。至 `13:55:55Z`，累计70场已查询fixture中 verified FT 对应5个市场行，109个市场行仍待结算。AH 已结2/60，净 `-1.00U`、暂结ROI `-50.00%`；OU 已结3/54，净 `+0.35U`、暂结ROI `+11.67%`。由于AH尚有58项、OU尚有51项未结算，两市场完整队列 ROI 均保持 null；OU 的短期正数不是已实现全样本收益，不能据此宣称达到+3%。目前已结样本均为 Crown 报价来源，尚未结算的队列来源构成仍为 AH Crown53/TOTAL default7、OU Crown49/TOTAL default5。分市场最大回撤按已结算行暂列，样本过少不具判断力。
 
 脱敏增量回执：[13:55Z 前瞻结算](results/m5_forward_shadow_settlement_20261106T1355Z.json)，绑定同一配对 SHA，公开字段只有分市场计数、收益与哈希。GitHub Actions 对所有前瞻结算回执执行输入哈希、分母、来源计数、结算分类和隐私字段检查。没有下单、Telegram 或生产改动。
+
+### 2026-11-06T14:17Z 前瞻 Crown 报价刷新
+
+先按开赛顺序刷新20场，再对同一冻结预测下的47场未充分覆盖目标刷新；目标身份、训练截止、预测as-of和UTC开赛均与原始07:01Z预测完全一致。第二批中43场在请求时仍未开赛，37条Crown响应通过身份核验，2条身份/API失败、4条传输失败；有效赛前Crown盘口事件覆盖AH26、OU27。两批索引一起重放后，AH仍为60个唯一fixture-market（Crown53、TotalCorner default7），OU仍为54个（Crown50、TotalCorner default4）；对比13:36Z的旧队列，唯一市场项新增0、移除0，报价来源变化1项。已配对共同市场中，赔率对变化30项、盘口线变化5项、盘口事件时间变化35项、实际receipt时间变化61项。这说明刷新更新了已配对报价，但没有制造新的唯一比赛样本。
+
+公开脱敏比较回执：[14:17Z 报价刷新对比](results/m5_forward_shadow_refresh_20261106T1417Z.json)。它绑定目标批次、Crown capture receipt、旧/新pair SHA及输入预测哈希，不含fixture身份、球队、价格或原始响应。所有pair仍满足 `train_end < prediction_asof <= quote_event <= quote_received < kickoff`；该回执不包含已结算收益或ROI。新增刷新回执检查和测试，不更改训练或下注规则。

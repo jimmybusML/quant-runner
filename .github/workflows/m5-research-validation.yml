@@ -69,6 +69,24 @@ jobs:
           assert '"match_id"' not in serialized and '"prices":' not in serialized and '"teams"' not in serialized
           print("M5 M1 archive re-audit integrity: PASS")
           PY
+      - name: Validate the public forward quote refresh comparison
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(Path("research/m5/results/m5_forward_shadow_refresh_20261106T1417Z.json").read_text())
+          assert report["refresh_target_fixtures"] == report["refresh_targets_matching_frozen_forecast"]
+          assert report["capture_attempted_fixtures"] == report["capture_aggregate_counts"]["verified_fixture_responses"] + report["capture_aggregate_counts"]["identity_or_api_failure"] + report["capture_aggregate_counts"]["transport_errors"]
+          assert report["added_fixture_markets"] == report["removed_fixture_markets"] == 0
+          assert report["new_unique_fixture_markets"] == sum(report["new_fixture_markets_by_market"].values())
+          assert report["roi_pct"] is None
+          assert report["changed_quote_fields_on_common_fixture_markets"]["odds_pair_changed"] > 0
+          serialized = json.dumps(report)
+          for field in ('"match_id"', '"prices":', '"line":', '"home":', '"away":'):
+              assert field not in serialized
+          print("M5 forward refresh comparison integrity: PASS")
+          PY
       - name: Validate the public forward pairing receipt
         run: |
           python - <<'PY'

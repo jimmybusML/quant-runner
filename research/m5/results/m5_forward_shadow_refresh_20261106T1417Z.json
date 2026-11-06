@@ -1,0 +1,58 @@
+{
+  "added_fixture_markets": 0,
+  "capture_aggregate_counts": {
+    "AH_qualified_fixture_markets": 26,
+    "OU_qualified_fixture_markets": 27,
+    "identity_or_api_failure": 2,
+    "transport_errors": 4,
+    "verified_fixture_responses": 37
+  },
+  "capture_attempted_fixtures": 43,
+  "capture_generated_utc": "2026-11-06T14:17:00.698932Z",
+  "capture_receipt_sha256": "e16236d70ee46217f8bbffbae612a8c406f65d4806b6c48fda33b44c95165720",
+  "changed_quote_fields_on_common_fixture_markets": {
+    "line_changed": 5,
+    "odds_pair_changed": 30,
+    "quote_event_time_changed": 35,
+    "receipt_time_changed": 61,
+    "source_changed": 1
+  },
+  "compared_fixture_markets": 114,
+  "forecast_sha256": "80dc6581fefa190cddeaa95ba75a9210e647ea5996456e9c1d08a64aaffb91b7",
+  "generated_utc": "2026-11-06T14:20:09.773187Z",
+  "kickoff_coverage_utc": {
+    "AH": [
+      "2026-11-06T11:00:00Z",
+      "2026-11-08T18:00:00Z"
+    ],
+    "OU": [
+      "2026-11-06T11:00:00Z",
+      "2026-11-08T17:00:00Z"
+    ]
+  },
+  "new_fixture_markets_by_market": {
+    "AH": 60,
+    "OU": 54
+  },
+  "new_pair_sha256": "74231d96ef2dce4ca50b2adafaf40ee31113a50d9347275be1edcb6cc92dbefc",
+  "new_source_fixture_markets": {
+    "AH": {
+      "Crown": 53,
+      "TotalCorner_default": 7
+    },
+    "OU": {
+      "Crown": 50,
+      "TotalCorner_default": 4
+    }
+  },
+  "new_unique_fixture_markets": 114,
+  "old_pair_sha256": "5dfd5b87fd0b67d5a0381c00b215fdd5d541661cdeb85a4b35d8cdfe2995d807",
+  "privacy": "Aggregate counts and hashes only; fixture identities, team names, lines, prices, score grids and raw responses remain private.",
+  "protocol": "M5_FORWARD_SHADOW_REFRESH_COMPARISON_V1",
+  "refresh_target_fixtures": 47,
+  "refresh_target_sha256": "85ffc088f5d9963f30bbf5da2e32f68af7681682cae3260e2b24aeac6f75a4c4",
+  "refresh_targets_matching_frozen_forecast": 47,
+  "removed_fixture_markets": 0,
+  "roi_pct": null,
+  "timing": "Every paired quote event and actual response receipt preceded kickoff; all targets match the frozen M5 forecast times."
+}

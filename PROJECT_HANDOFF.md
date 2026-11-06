@@ -4295,3 +4295,8 @@
 ## 2026-11-06T13:54:57Z M1 当前扫描归档去重复核
 - 用 M5 扩展赛果manifest与本机当前 `/Users/mac/QuantAsiaDesk/repos/m1/research/m1_replay` 完整扫描归档只读重跑 `m5_m1_expanded_archive_replay.py`。纳入203份扫描manifest；按有效的赛前时间、Crown盘口事件及赛事身份配对后，AH、OU每市场均有10,758条模型输出记录，但这些跨重复扫描记录按赛事-市场去重后只有1,233个唯一赛事市场。最新保存输出ROI与既有结果一致：AH -6.144363%，OU -3.272912%；原有正式候选子集 AH 42/-12.285714%、OU79/+5.5%。不把重复行或正式小子集冒充万场样本，也没有重训/重建未保存的预测。
 - 新增脱敏回执 `research/m5/results/m5_m1_expanded_archive_reaudit_20261106.json`，只存manifest/输入哈希、计数、聚合ROI与状态分布；无fixture ID、队名、赔率或逐场payload。README与M5 Actions validator同步更新，校验扫描数、去重后unique数量、收益算术和脱敏字段。M1报价API receipt时间未单独存档，沿用扫描归档完成早于开赛作为保守接收上界；结果盘口档案本身为事后收集。代码和报告提交 `c63a5a43657770ef4c4327266aa5c18e89010b58` 已推送；Actions run [42230715476](https://github.com/ljm198964-alt/quant-runner/actions/runs/42230715476) 全绿（61项测试，M1审计、joint OOS、forward pair、settlement校验均通过）。此项只收紧“可复现模型输出数”的解释，不改变生产模型。
+
+## 2026-11-06T14:17Z 前瞻 Crown 报价刷新复跑
+- 核实无其他M5 collector运行后，调用现有Crown专用 TotalCorner endpoint，串行间隔3.1秒；首轮刷新20个最近开赛候选，第二轮刷新冻结M5 07:01Z forecast中的47个历史未充分配对目标。第二批因其中4场已开赛，仅尝试43场：37 verified fixture responses、2 identity/API failures、4 transport errors；符合预测后、开赛前盘口事件的有效项AH26、OU27。没有读取、打印或输出凭证值。
+- 使用所有已授权Crown与TotalCorner default快照重建source-union配对，绑定原始冻结预测SHA。和13:36Z旧pair比较：AH仍60个唯一fixture-markets（Crown53/TOTAL default7），OU仍54个（Crown50/TOTAL default4）；新增/移除唯一市场项均为0，1项来源切换为Crown。共同项中赔率对更新30、盘口线更新5、盘口事件时间更新35、实际receipt时间更新61。两批刷新证明部分盘口得到新快照，但未扩大有效赛事样本。所有重配对仍严格满足train_end < forecast as-of <= quote event <= actual receipt < kickoff。
+- 新增 `m5_forward_shadow_refresh_receipt.py` / 单测与脱敏回执 `research/m5/results/m5_forward_shadow_refresh_20261106T1417Z.json`，只公开哈希与聚合变化计数，不含赛事身份或价格。Actions将加入该比较回执校验；全量测试与提交/Actions运行待验证。新增代码只研究/记录报价，不影响M1/MR1/M3/M4正式模型、订单或TG。
