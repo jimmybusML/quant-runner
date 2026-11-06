@@ -1,34 +1,71 @@
-name: M3 TotalCorner Crown Live Quote Probe
+name: M3 TotalCorner Crown AH OU Research
 on:
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  source:
+  manifest:
     runs-on: ubuntu-latest
-    timeout-minutes: 355
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install encrypted research collector dependency
+      - name: Install encryption dependency
         run: python -m pip install --disable-pip-version-check cryptography
-      - name: Collect M3-only historical Crown AH and OU paths and encrypt on runner
+      - name: Match strict-OOS M3 fixtures to scoped TotalCorner schedule and encrypt manifest
         env:
           TOTALCORNER_TOKEN: ${{ secrets.TOTALCORNER_TOKEN }}
           M3_CROWN_RESEARCH_KEY: ${{ secrets.M3_CROWN_RESEARCH_KEY }}
-        run: python research/m3/collect_crown_drop_research.py
-      - name: Upload encrypted data only
-        uses: actions/upload-artifact@v4
+        run: python research/m3/collect_crown_drop_batched.py --stage manifest
+      - uses: actions/upload-artifact@v4
         with:
-          name: m3-crown-encrypted-${{ github.run_id }}
-          path: ${{ runner.temp }}/m3-crown-research/m3_crown_research.bin
+          name: m3-crown-manifest-${{ github.run_id }}
+          path: ${{ runner.temp }}/m3-crown-research/m3_crown_manifest.bin
           retention-days: 1
           if-no-files-found: error
-      - name: Publish value-free research counts
+      - name: Publish value-free manifest counts
         if: always()
         run: |
-          if [ -f "$RUNNER_TEMP/m3-crown-research/public_summary.json" ]; then
-            cat "$RUNNER_TEMP/m3-crown-research/public_summary.json" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f "$RUNNER_TEMP/m3-crown-research/manifest_summary.json" ]; then
+            cat "$RUNNER_TEMP/m3-crown-research/manifest_summary.json" >> "$GITHUB_STEP_SUMMARY"
           fi
+
+  crown_quotes:
+    needs: manifest
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        batch: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install encryption dependency
+        run: python -m pip install --disable-pip-version-check cryptography
+      - uses: actions/download-artifact@v4
+        with:
+          name: m3-crown-manifest-${{ github.run_id }}
+          path: ${{ runner.temp }}/m3-crown-research
+      - name: Collect Crown AH and OU quote paths for this resumable batch
+        env:
+          TOTALCORNER_TOKEN: ${{ secrets.TOTALCORNER_TOKEN }}
+          M3_CROWN_RESEARCH_KEY: ${{ secrets.M3_CROWN_RESEARCH_KEY }}
+          M3_CROWN_MANIFEST: ${{ runner.temp }}/m3-crown-research/m3_crown_manifest.bin
+        run: python research/m3/collect_crown_drop_batched.py --stage quotes --batch ${{ matrix.batch }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: m3-crown-batch-${{ github.run_id }}-${{ matrix.batch }}
+          path: ${{ runner.temp }}/m3-crown-research/m3_crown_batch_${{ matrix.batch }}.bin
+          retention-days: 1
+          if-no-files-found: error
+      - name: Publish value-free batch counts
+        if: always()
+        run: |
+          SUMMARY="$RUNNER_TEMP/m3-crown-research/batch_$(printf '%02d' '${{ matrix.batch }}')_summary.json"
+          if [ -f "$SUMMARY" ]; then cat "$SUMMARY" >> "$GITHUB_STEP_SUMMARY"; fi
