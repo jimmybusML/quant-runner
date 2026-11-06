@@ -74,3 +74,24 @@ jobs:
           assert '"match_id"' not in serialized and '"prices":' not in serialized
           print("M5 forward pairing receipt integrity: PASS")
           PY
+      - name: Validate the public forward settlement receipt
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          pair = json.loads(Path("research/m5/results/m5_forward_shadow_refresh_20261106T1336Z.json").read_text())
+          report = json.loads(Path("research/m5/results/m5_forward_shadow_settlement_20261106T1346Z.json").read_text())
+          assert report["paired_input_sha256"] == pair["pair_sha256"]
+          assert report["settled_fixture_markets"] + report["pending_fixture_markets"] == report["markets"]["AH"]["simulated_bets"] + report["markets"]["OU"]["simulated_bets"]
+          for market in ("AH", "OU"):
+              result = report["markets"][market]
+              assert result["unique_fixture_markets"] == result["simulated_bets"]
+              assert result["settled_bets"] + result["pending_bets"] == result["simulated_bets"]
+              assert sum(result["settlement_counts"].values()) == result["settled_bets"]
+              if result["settled_bets"] < result["simulated_bets"]:
+                  assert result["roi_pct"] is None
+          serialized = json.dumps(report)
+          assert '"match_id"' not in serialized and '"prices":' not in serialized
+          print("M5 forward settlement receipt integrity: PASS")
+          PY
