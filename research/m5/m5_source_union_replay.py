@@ -189,7 +189,10 @@ def run(a):
                 sides=('home','away') if market=='AH' else ('over','under')
                 ev=[expected_return(grid,market,s,line,p) for s,p in zip(sides,prices)]
                 best_idx=0 if ev[0]>=ev[1] else 1
-                side_idx=best_idx if a.side_policy=='higher_ev' else 1-best_idx
+                if a.side_policy=='higher_ev': side_idx=best_idx
+                elif a.side_policy=='lower_ev': side_idx=1-best_idx
+                elif a.side_policy=='favorite': side_idx=0 if prices[0]<=prices[1] else 1
+                else: side_idx=0 if prices[0]>=prices[1] else 1
                 side=sides[side_idx]; price=prices[side_idx]
                 legs,category=legs_result(market,side,line,*score_actual); pnl=payout(legs,price)
                 distribution=defaultdict(float)
@@ -217,5 +220,5 @@ def run(a):
     print(json.dumps({'generated_utc':result['generated_utc'],'markets':result['markets'],'candidate_fixtures':result['candidate_fixtures']},ensure_ascii=False,sort_keys=True))
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--private-dir',type=Path,required=True);p.add_argument('--source-timezone',default='Asia/Shanghai');p.add_argument('--forecast-path',type=Path,help='optional alternate M5-only OOS forecast JSONL with identical fixture identity');p.add_argument('--side-policy',choices=('higher_ev','lower_ev'),default='higher_ev',help='research diagnostic only; bets one side per valid fixture-market without a threshold');p.add_argument('--output',type=Path,required=True);run(p.parse_args())
+    p=argparse.ArgumentParser();p.add_argument('--private-dir',type=Path,required=True);p.add_argument('--source-timezone',default='Asia/Shanghai');p.add_argument('--forecast-path',type=Path,help='optional alternate M5-only OOS forecast JSONL with identical fixture identity');p.add_argument('--side-policy',choices=('higher_ev','lower_ev','favorite','underdog'),default='higher_ev',help='research-only direction diagnostic; always bets one side per valid fixture-market, without a threshold');p.add_argument('--output',type=Path,required=True);run(p.parse_args())
 if __name__=='__main__': main()

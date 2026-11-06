@@ -1,5 +1,29 @@
 # M5 独立融合研究
 
+## 2026-11-06 本地 Crown / TotalCorner 全历史 M5 OOS 回放续审
+
+本机已完成的 M5 Crown 历史回填进度摘要为 11,149 个已处理候选、11,085 个精确身份 Crown 响应；逐场源优先回放实际使用 Crown AH 9,987 / OU 9,986 场，TotalCorner default 仅补 Crown 缺失项 AH 1,084 / OU 1,085 场。来源合并后不重复计数，基础全历史 OOS 每市场 11,071 场，覆盖 2015-01-01 至 2026-11-04 UTC。另有固定范围赛程清单 51 联赛、1,530 场；Crown 历史候选 manifest 127,674 场。TotalCorner fallback 1,100 条索引中 1,094 条为 verified response、6 条 transport error；所有原始请求及预测仍留私有目录，凭证未读取或公开。
+
+同一历史价格选择规则下（预测截止早于 as-of，报价事件在 as-of 与 kickoff 之间；每场/市场一注 1U，按实际 AH/OU 线价分数结算）基准及固定方向对照如下：
+
+| Forecast / side policy | AH 唯一场数 / ROI | OU 唯一场数 / ROI |
+|---|---:|---:|
+| M5 baseline，高期望回报方向 | 11,071 / -2.539766% | 11,071 / -3.541505% |
+| 按报价低赔率侧 favorite | 11,071 / -4.279898% | 11,071 / -3.051757% |
+| 按报价高赔率侧 underdog | 11,071 / -2.071245% | 11,071 / -4.391970% |
+| 近期加权 M5 | 11,035 / -3.052424% | 11,035 / -3.423629% |
+| Bivariate Poisson | 10,125 / -3.014000% | 10,125 / -3.385481% |
+
+Baseline AH 全赢/半赢/走水/半输/全输 `4,421/758/769/764/4,359`，净 `-281.1775U`，最大回撤 `303.8325U`；OU `4,591/625/551/775/4,529`，净 `-392.0800U`，最大回撤 `414.8125U`。Bivariate AH `4,012/715/696/676/4,026`，净 `-305.1675U`；OU `4,214/561/503/712/4,135`，净 `-342.7800U`。每市场 ROI bootstrap 95% 区间均完全低于 0；全部候选策略均未达 +3%。逐年结果、概率评分、联赛/盘口来源拆分在对应 JSON 回执中。
+
+AH/OU 分市场概率融合仅用 2025 OOS 样本拟合，2026 的 10,235 个 baseline/recency OOS 预测作 holdout。AH exact-score proper loss 权重为 baseline/recency/Bivariate `0.327964/0.559322/0.112713`；OU total-goals proper loss 权重为 baseline/recency `0.623921/0.376079`（Bivariate 权重0）。对 2026 Crown-first+TOTAL 样本 10,161 场，AH 融合 ROI `-2.215874%`，OU `-3.285700%`，均没有改善至盈利。模型缺少 Bivariate 预测的比赛保留，用两个可用 M5 模型重归一权重；样本不按结果筛选。
+
+**证据边界：** 真实历史 fixture、FT、盘口事件时间都经过配对校验，严格无重复；但 11,071 条历史 API receipt 全部在开赛后取得。event time 早于 kickoff 不等于报价当时已接收，更不等于可成交。因此这些值是可核查的赛后回取历史盘口 event-time OOS 回放，不是赛前实收、执行 ROI 或实战成绩；不能据此声称收益目标已经通过。TotalCorner default 仍独立标记，不冒充 Crown。当前真正赛前收到 Crown 样本仍远低于 10,000。
+
+回执：[baseline 全 OOS](results/m5_source_union_higher_ev_all_oos.json)、[favorite](results/m5_source_union_favorite_side_all_oos.json)、[underdog](results/m5_source_union_underdog_side_all_oos.json)、[recency 全 OOS](results/m5_source_union_recency_all_oos.json)、[Bivariate 全 OOS](results/m5_source_union_bivariate_all_oos.json)、[2025 拟合的 AH/OU 融合权重及 proper scores](results/m5_goal_model_grid_ensemble_2025_train_2026_oos.json)、[AH 融合回放](results/m5_source_union_market_blend_2025fit_ah_grid_2026_oos.json)、[OU 融合回放](results/m5_source_union_market_blend_2025fit_ou_grid_2026_oos.json)。
+
+各模型全历史样本不是同一集合：baseline n=11,071（2015年36、2025年874、2026年10,161）；recency n=11,035（2025年874、2026年10,161）；Bivariate n=10,125（2025年785、2026年9,340，训练期未见队伍导致预测覆盖较少）。不得将这些指标按样本量直接相加或视为完全配对比较。其训练/预测 UTC 先后关系均通过逐场校验；ROI 分母为一场一注的 1U 本金。完整正确比分 Log Loss / OU 总进球 Log Loss 及模型匹配覆盖写在相应报告里。
+
 ## 2026-11-06：10k样本回放与新模型/校准对照
 
 本轮冻结 M5 候选范围内的 2026 UTC 年度留出，penaltyblog Bivariate Poisson 新增 20,596 个严格按 UTC 年前推的 OOS 全比分网格（2025: 11,187；2026: 9,409），51 个联赛、102/102 个联赛-年份折成功，1,606 场因训练期未见队伍而无预测；训练截止严格早于目标年 1 月 1 日，训练/目标 fixture ID 不相交。`penaltyblog==1.13.1`、固定默认拟合，无按目标期 ROI 或结果选参。它与 M5 既有基础/近期加权模型在 10,125 个完全相同的 Crown-first / TotalCorner-default fixture-market 上比较：
