@@ -4196,4 +4196,4 @@
 ## 2026-11-06T08:44Z Crown OU 6–24h时间信号跨模型复核
 - 用完全相同的 Crown-only 盘口报价/FT归档，分别重放 baseline 和 recency M5 预测，并输出盘口事件lead × UTC开赛年的交叉汇总；recency回执 `m5_crown_recency_quote_lead_year_20261106.json` 生成 `08:44:52.385140Z`。总体市场覆盖与冻结recency摘要一致：AH 10,433/-2.683936%，OU10,432/-3.385832%。
 - Crown-only OU 6–24h组有248场：baseline此前为 +8.185U/+3.300403%；recency为 -9.295U/-3.747984%。recency按年均负：2025 32场/-2.980U/-9.3125%，2026 216场/-6.315U/-2.923611%。同样本事件时间分层的正ROI对模型预测侧敏感，不能当作稳定信号；Crown-first并集2026对应319场仅+0.166928%，TOTAL子组103场-4.550971%。该分层远低于10k、所有API响应receipt在kickoff后，仅供描述、不加时间门槛。
-- recency报告按盘口事件lead×年份计数之和严格等于AH/OU主样本，所有实际receipt为post-kickoff，隐私键检查未发现逐场身份/比分/盘口价格/原始响应/凭证。M5收益目标仍未达到。
+- recency报告按盘口事件lead×年份计数之和严格等于AH/OU主样本，所有实际receipt为post-kickoff，隐私键检查未发现逐场身份/比分/盘口价格/原始响应/凭证。M5收益目标仍未达到。 结果及README已推送代码提交 `c56f6e2b0e5bc043aaed60eeff483edd3dd900ab`；push run `42190279567` 指向既有M3 workflow，failure且无jobs，不是M5验收。
