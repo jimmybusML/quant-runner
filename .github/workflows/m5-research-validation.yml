@@ -151,6 +151,57 @@ jobs:
               assert field not in serialized
           print("M5 MR1-M3 complete-cohort receipt integrity: PASS")
           PY
+      - name: Validate public M1 full-cohort and common Crown comparison receipts
+        run: |
+          python - <<'PY'
+          import hashlib, json, math
+          from pathlib import Path
+
+          m1_runner = Path("research/m5/m5_m1_full_cohort_replay.py")
+          m1 = json.loads(Path("research/m5/results/m5_m1_full_cohort_oos_20261106.json").read_text())
+          assert m1["runner_sha256"] == hashlib.sha256(m1_runner.read_bytes()).hexdigest()
+          assert m1["cohort_unique_fixtures_with_m1_predictions"] == 10568
+          assert m1["fold_count"] == 93
+          assert m1["audit_counts"] == {}
+          assert m1["m1_calibration_cutoff_exclusive"] == "2024-06-01"
+          assert m1["m1_static_shrinkage_prior_fit_before"] == "2023-11-01T00:00:00+00:00"
+          for market, sources in (("AH", {"Crown": 9613, "TotalCorner_default": 955}),
+                                  ("OU", {"Crown": 9612, "TotalCorner_default": 956})):
+              result = m1["markets"][market]["all_years"]
+              assert result["unique_fixtures"] == result["simulated_bets"] == result["settled_bets"] == 10568
+              assert result["quote_sources"] == sources
+              assert result["response_receipt_timing"] == {"post_kickoff": 10568}
+              assert sum(result["settlement_counts"].values()) == 10568
+              assert abs(result["roi_pct"] - 100 * result["net_units"] / result["stake_units"]) < 1e-6
+              assert result["roi_bootstrap_95pct"]["upper_95_roi_pct"] < 0
+              for year in ("2025", "2026"):
+                  assert m1["markets"][market]["by_utc_kickoff_year"][year]["settled_bets"] > 0
+          m1_text = json.dumps(m1)
+          for field in ('"match_id"', '"prices":', '"home_goals"', '"away_goals"', '"/Users/mac/'):
+              assert field not in m1_text
+
+          comparison_runner = Path("research/m5/m5_mr1_m1_m3_same_crown_cohort.py")
+          comparison = json.loads(Path("research/m5/results/m5_mr1_m1_m3_same_crown_cohort_20261106.json").read_text())
+          assert comparison["runner_sha256"] == hashlib.sha256(comparison_runner.read_bytes()).hexdigest()
+          assert comparison["audit_counts"] == {}
+          assert comparison["provider_receipt_timing"] == {"post_kickoff": 19034}
+          model_names = {"m1", "mr1_v6", "m3_poisson", "m3_dixon_coles", "m3_bivariate_poisson"}
+          for market in ("AH", "OU"):
+              result = comparison["markets"][market]
+              assert result["shared_unique_fixtures"] == result["exact_shared_quote_contracts"] == 9517
+              assert result["quote_sources"] == {"Crown": 9517}
+              assert set(result["models"]) == model_names
+              for model in result["models"].values():
+                  assert model["unique_fixtures"] == model["simulated_bets"] == model["settled_bets"] == 9517
+                  assert model["quote_sources"] == {"Crown": 9517}
+                  assert sum(model["settlement_counts"].values()) == 9517
+                  assert abs(model["roi_pct"] - 100 * model["net_units"] / model["stake_units"]) < 1e-6
+                  assert 0 <= model["settlement_brier"] <= 2 and math.isfinite(model["settlement_log_loss"])
+          comparison_text = json.dumps(comparison)
+          for field in ('"match_id"', '"prices":', '"home_goals"', '"away_goals"', '"/Users/mac/'):
+              assert field not in comparison_text
+          print("M5 M1 full-cohort and exact Crown comparison integrity: PASS")
+          PY
       - name: Validate the public forward pairing receipt
         run: |
           python - <<'PY'
