@@ -106,11 +106,32 @@ def summarize(rows, market, seed):
         h=row[field]
         return '<=1h' if h<=1 else '1-6h' if h<=6 else '6-24h' if h<=24 else '>24h'
     descriptive={'by_league':group_summary(lambda r:r['league']),
+      'by_league_and_utc_kickoff_year':group_summary(lambda r:f"{r['league']} | {r['kickoff_utc'][:4]}"),
+      'by_source_and_utc_kickoff_year':group_summary(lambda r:f"{r['source']} | {r['kickoff_utc'][:4]}"),
       'by_source':group_summary(lambda r:r['source']),
       'by_utc_kickoff_hour':group_summary(lambda r:f"{r['kickoff_hour']:02d}"),
       'by_forecast_lead_hours':group_summary(lambda r:lead_bin(r,'forecast_lead_hours')),
       'by_quote_event_lead_hours':group_summary(lambda r:lead_bin(r,'quote_lead_hours')),
       'by_quarter_goal_line':group_summary(lambda r:f"{r['line']:.2f}")}
+    # Research-only EV threshold diagnostics. The replay still records every
+    # eligible fixture above; thresholds are descriptive candidate policies,
+    # never applied to the primary sample or any production path.
+    threshold_rows={}
+    for threshold in (None,0.0,0.01,0.02,0.05,0.10,0.15,0.20):
+        selected=[r for r in rows if threshold is None or r.get('selected_ev',-math.inf)>=threshold]
+        pnl_selected=sum(r['pnl'] for r in selected)
+        label='all' if threshold is None else f'ev_ge_{threshold:.2f}'
+        threshold_rows[label]={
+          'candidate_threshold_only':threshold,
+          'unique_fixtures':len(selected),'simulated_bets':len(selected),'settled_bets':len(selected),
+          'net_units':round(pnl_selected,6),
+          'roi_pct':round(100*pnl_selected/len(selected),6) if selected else None,
+          'settlement_counts':{c:sum(r['category']==c for r in selected) for c in categories},
+          'source_fixture_markets':dict(Counter(r['source'] for r in selected)),
+          'by_utc_kickoff_year':{y:{'fixtures':len(v),'net_units':round(sum(r['pnl'] for r in v),6),
+            'roi_pct':round(100*sum(r['pnl'] for r in v)/len(v),6)}
+            for y in sorted({r['kickoff_utc'][:4] for r in selected})
+            for v in [[r for r in selected if r['kickoff_utc'][:4]==y]]}}
     return {'unique_fixtures':n,'simulated_bets':n,'settled_bets':n,'pending_bets':0,
       'settlement_counts':{k:outcomes[k] for k in ('win','half_win','push','half_loss','loss')},
       'net_units':round(pnl,6),'roi_pct':round(100*pnl/n,6) if n else None,
@@ -122,6 +143,7 @@ def summarize(rows, market, seed):
       'roi_bootstrap_95pct':bootstrap([r['pnl'] for r in rows],seed),
       'settlement_log_loss':ll,'settlement_brier':br,'settlement_category_calibration_bins':calibration,
       'descriptive_splits_no_filter_applied':descriptive,
+      'research_only_ev_threshold_candidates':threshold_rows,
       'source_fixture_markets':dict(sources),'quote_receipt_timing':dict(receipt),
       'by_utc_kickoff_year':{y:{'fixtures':len(v),'net_units':round(sum(v),6),'roi_pct':round(100*sum(v)/len(v),6)} for y,v in sorted(byyear.items())}}
 
@@ -243,6 +265,7 @@ def run(a):
                     distribution=settlement_distribution(selected_grid,market,side,line)
                 else: distribution=side_dists[side_idx]
                 market_rows[market].append({'pnl':pnl,'category':category,'distribution':distribution,
+                   'selected_ev':float(ev[best_idx]),
                    'event_utc':observed.isoformat(),'kickoff_utc':kickoff.isoformat(),
                    'source':source,'receipt_before_kickoff':bool(receipt_at and receipt_at<kickoff),
                    'league':str(fixture.get('league') or 'UNKNOWN'),'kickoff_hour':kickoff.hour,

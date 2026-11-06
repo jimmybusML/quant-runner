@@ -1,5 +1,23 @@
 # M5 独立融合研究
 
+## 2026-11-06 02:18Z M5 前瞻 Crown 批次
+
+按当前 UTC 对固定范围缓存赛程重新训练并生成 361 场 M5 独立预测（预测输入/逐场 ID 保留在本机私有归档）。使用既有本机授权路径完成 361 次 Crown endpoint 尝试：357 条 fixture/Crown 身份校验成功、3 条身份/Crown 校验失败、1 条传输失败。capture 运行终止于 `2026-11-06T02:46:24.606468Z`。严格要求 `prediction_asof <= quote_event <= actual_receipt < kickoff` 后，AH、OU 均为 0 个有效报价；独立配对审计同样为 0 场、0 注、无 ROI。接口成功响应数不能解释为盘口覆盖。
+
+脱敏回执：[forward capture aggregate](results/m5_forward_shadow_capture_20261106T0218Z.json)。回执只含时间、计数和哈希，不含逐场身份、价格、原始响应或密钥。历史 Crown/TOTAL 样本仍各有超过 10,000 场 Crown-first 并集，但接收都在开赛后；新的前瞻采集尚未产生可结算样本。M5 收益目标仍未达到。
+
+## 2026-11-06: 全样本 EV 与按联赛方向 walk-forward 候选
+
+扩展的 Crown-first/TOTAL-default 回放为 AH、OU 各 11,071 场唯一 fixture-market：AH Crown 9,987 + TotalCorner default 1,084，OU Crown 9,986 + TotalCorner default 1,085。原样本无重复；每场每市场固定一注 1U。所有历史 API 回执均晚于开赛，故只能解释为按来源盘口事件时间的回顾性回放。
+
+研究阈值诊断预先固定 EV 候选 0、1、2、5、10、15、20 个百分点，并保留每个市场全部 11,071 场研究母样本。2025 的 874 场训练窗中，各正 EV 子集仍亏损；训练期 ROI 最好的检查点为 AH EV≥20%：322 注、-8.187112%，OU EV≥10%：382 注、-6.743455%。冻结这些阈值后看 2026 留出：AH 3,429 注、-3.043890%；OU 4,655 注、-1.992320%。2026 各枚举阈值 ROI 均为负，候选被否决，不形成交易 Gate。
+
+来源分层也没有显示可直接放大的 TOTAL 优势：2026 AH Crown n=9,260 ROI `-1.763283%`、TOTAL n=901 `-2.807991%`；OU Crown n=9,260 `-3.352268%`、TOTAL n=901 `-4.103774%`。2025 训练窗 AH Crown n=727 `-9.437414%`、TOTAL n=147 `-15.170068%`；OU Crown n=726 `-6.420110%`、TOTAL n=148 `+0.582770%`。这些都是分层描述，不据小样本来源表现挑选来源或改写优先规则。
+
+另按每个市场/联赛在 2025 ROI 最高的预设方向（模型较高期望回报、盘口热门、盘口冷门）训练择向：每联赛 2025 至少 20 场才允许择向，较小组沿用模型高 EV 方向；规则冻结到 2026，未过滤任何比赛，维持 AH/OU 各 10,161 注。训练期合计 874 场。2026 AH ROI `-1.373019%`（基线 `-1.855920%`），OU ROI `-3.019732%`（基线 `-3.418906%`）；方向在训练表现的逐联赛选择有多重比较/过拟合风险，收益目标均未达 +3%。对照回执：[全方向/按联赛年度分层](results/m5_source_union_league_year_diagnostic_20261106.json)、[热门方向](results/m5_source_union_favorite_league_year_diagnostic_20261106.json)、[冷门方向](results/m5_source_union_underdog_league_year_diagnostic_20261106.json)、[阈值诊断](results/m5_source_union_ev_threshold_diagnostic_20261106.json)、[冻结联赛方向留出](results/m5_league_direction_2025_train_2026_oos_20261106.json)。候选方向选择复现代码为 [m5_league_direction_walkforward.py](m5_league_direction_walkforward.py)。所有新方案仅供 M5 研究，没有写入生产策略。
+
+数据时序与模型融合边界：M5 历史概率严格满足 `train_end < prediction_asof < kickoff`；盘口源事件位于预测时间至开赛之间，唯一比赛用最终比分结算。接收时间另行审计；本节所有历史报价 API 回执均在开赛后。此前 M3 AH0/OU2.5 严格 Crown 配对留出只有 38/59 场，虽然 2026 event-time ROI 有局部正值，远低于 10,000 场且回执均为赛后回取；不得用这类小样本替代全样本验收。M1 完整观察档案中唯一完整 FT challenge cohort 为 52 场，M5-M1 OU 严格同价结算配对仅 23 场；MR1/M3 的可比合约同样是局部小 cohort，均不足以解释全市场 10k 结果。具体匹配、身份排除和 proper-score 结果沿用下列各专题回执。
+
 ## 2026-11-06 本地 Crown / TotalCorner 全历史 M5 OOS 回放续审
 
 本机已完成的 M5 Crown 历史回填进度摘要为 11,149 个已处理候选、11,085 个精确身份 Crown 响应；逐场源优先回放实际使用 Crown AH 9,987 / OU 9,986 场，TotalCorner default 仅补 Crown 缺失项 AH 1,084 / OU 1,085 场。来源合并后不重复计数，基础全历史 OOS 每市场 11,071 场，覆盖 2015-01-01 至 2026-11-04 UTC。另有固定范围赛程清单 51 联赛、1,530 场；Crown 历史候选 manifest 127,674 场。TotalCorner fallback 1,100 条索引中 1,094 条为 verified response、6 条 transport error；所有原始请求及预测仍留私有目录，凭证未读取或公开。
