@@ -772,3 +772,11 @@ AH 结算 W/HW/P/HL/L 为 3,742/687/644/623/3,704，结算类别 Log Loss/Brier 
 | OU | 1,168拟合；9,400留出 | 2.00 | -3.091809% / 0.987924 / 0.623317 | -3.496862% / -328.705U / 364.515U / 0.974358 / 0.612994 | 概率分数改善，但ROI恶化0.405个百分点 |
 
 AH校准后W/HW/P/HL/L为3,591/981/644/329/3,855；OU为3,693/919/475/251/4,062。来源仍是Crown 8,607 + TotalCorner default 793，历史receipt皆赛后。概率 Log Loss / Brier 两市场都有改善，但收益没有同步改善；AH/OU ROI仍未达到+3%，2026留出也低于10,000场，不能视为M5验收。报告[温度校准回执](results/m5_m3_selector_settlement_calibration_2025fit_2026holdout_20261106.json)；工具[m5_m3_selector_settlement_calibration.py](m5_m3_selector_settlement_calibration.py)。
+
+## 2026-11-06 10:01Z 同一前瞻队列的 Crown 报价刷新
+
+对 07:01Z 冻结的 361 场 M5 预测队列继续采集 Crown 报价，并与原先 TotalCorner default 回退响应重新按 fixture-market 配对。新增 127 条经身份校验的 Crown 响应，响应哈希集合为 `f89dcd24ef34ad923d4ae262185172584121c0c4a9614505b1fa65f84ab485d3`。最新配对从 AH 17、OU 11 提升到 AH 41、OU 30：AH Crown 34、TotalCorner default 7；OU Crown 24、TotalCorner default 6。每场/市场去重，Crown 优先，TOTAL 只填 Crown 没有合格报价的市场。
+
+所有配对继续满足 `train_end_utc < prediction_asof_utc <= quote_event_utc <= quote_received_utc < kickoff_utc`；独立核验没有重复 fixture-market 或时间顺序错误。报告生成时 71 个市场项全部未开赛/未结算，因此净收益、ROI、最大回撤均为 null。该真实前瞻队列仍远小于每市场 10,000 场；历史 11k+ 回测与本前瞻队列没有混合。脱敏回执：[前瞻刷新聚合报告](results/m5_forward_shadow_refresh_20261106T1001Z.json)，配对哈希 `3f78e9692cda76c869b7c15a75c83c810a49703276319c0e752e9eb4cf2e52bd`。逐场预测、赔率、赛事身份和原始响应仍留在本机私有授权归档，没有发布凭证或逐场资料。
+
+本轮 M5 全量单元测试 42/42 通过。既有 `.github/workflows/m3-ah-reverse-research.yml` run [42197728733](https://github.com/ljm198964-alt/quant-runner/actions/runs/42197728733) 对应提交 `44e480fa9bb1399e3bd3973d57e547d9ce678163`，状态 failure 且 `jobs=[]`；它不是 M5 run，也没有执行 M5 研究验收。仓库仍无 M5 Actions workflow。本次没有改动 M1/MR1/M3/M4 生产策略、订单、TG、账本或 Gate。
