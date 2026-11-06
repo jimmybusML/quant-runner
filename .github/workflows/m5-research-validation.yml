@@ -338,7 +338,8 @@ jobs:
           assert report["added_fixture_markets"] == report["removed_fixture_markets"] == 0
           assert report["new_fixture_markets_by_market"] == {"AH": 60, "OU": 54}
           assert report["changed_quote_fields_on_common_fixture_markets"] == {
-              "line": 10, "odds_pair": 28, "quote_event_utc": 30, "quote_received_utc": 36}
+              "line_changed": 10, "odds_pair_changed": 28,
+              "quote_event_time_changed": 30, "receipt_time_changed": 36}
           for market, n, sources in (("AH", 60, {"Crown": 53, "TotalCorner_default": 7}),
                                      ("OU", 54, {"Crown": 50, "TotalCorner_default": 4})):
               result = report["markets"][market]
