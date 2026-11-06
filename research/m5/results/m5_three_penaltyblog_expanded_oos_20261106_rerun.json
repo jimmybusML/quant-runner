@@ -1,0 +1,2963 @@
+{
+  "candidate_completed_fixtures": 127674,
+  "candidate_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+  "crown_index_sha256": "112ba4dfc347f6ec98347bbebfd9cd7069cc4a811cda6204b773b11c610bf711",
+  "crown_roi_is_executable": false,
+  "data_source": "Private M5 historical candidate manifest; completed scores and UTC fixture identities only for fitting and test outcomes. Crown AH/OU source events are selected first; TotalCorner default is used only for a missing Crown fixture-market.",
+  "fit_failures_by_model_and_type": {
+    "incomplete_three_model_fixture": 969,
+    "no_prior_training_rows": 36,
+    "unseen_team_bivariate_poisson": 969,
+    "unseen_team_dixon_coles": 969,
+    "unseen_team_poisson": 969
+  },
+  "fold_count": 94,
+  "folds": [
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Andorra Premier Division",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 19
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 19
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 19
+        }
+      },
+      "target_quoted_fixtures": 27,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-15T17:30:00Z",
+      "training_matches": 405
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Andorra Premier Division",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 20
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 20
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 20
+        }
+      },
+      "target_quoted_fixtures": 84,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-21T15:00:00Z",
+      "training_matches": 516
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Armenia Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 23
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 23
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 23
+        }
+      },
+      "target_quoted_fixtures": 8,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-04T14:00:00Z",
+      "training_matches": 1097
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Armenia Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 23
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 23
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 23
+        }
+      },
+      "target_quoted_fixtures": 110,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-11-30T15:00:00Z",
+      "training_matches": 1201
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Austria Bundesliga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 25
+        }
+      },
+      "target_quoted_fixtures": 25,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-14T16:00:00Z",
+      "training_matches": 1877
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Austria Bundesliga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 25
+        }
+      },
+      "target_quoted_fixtures": 157,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-14T16:00:00Z",
+      "training_matches": 2076
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Azerbaijan Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 22
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 22
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 22
+        }
+      },
+      "target_quoted_fixtures": 30,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-22T12:30:00Z",
+      "training_matches": 1258
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Azerbaijan Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 24
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 24
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 24
+        }
+      },
+      "target_quoted_fixtures": 161,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-22T15:30:00Z",
+      "training_matches": 1442
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Belgium First Division A",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 28
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 28
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 28
+        }
+      },
+      "target_quoted_fixtures": 48,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-27T19:45:00Z",
+      "training_matches": 2712
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Belgium First Division A",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 29
+        }
+      },
+      "target_quoted_fixtures": 241,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-27T19:45:00Z",
+      "training_matches": 3025
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Bulgaria First League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 35
+        }
+      },
+      "target_quoted_fixtures": 33,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-19T15:00:00Z",
+      "training_matches": 2330
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Bulgaria First League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 36
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 36
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 36
+        }
+      },
+      "target_quoted_fixtures": 230,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-19T15:30:00Z",
+      "training_matches": 2622
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "China Super League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 49
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 49
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 49
+        }
+      },
+      "target_quoted_fixtures": 8,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-11-02T07:30:00Z",
+      "training_matches": 2241
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "China Super League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 51
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 51
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 51
+        }
+      },
+      "target_quoted_fixtures": 232,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-11-22T07:30:00Z",
+      "training_matches": 2480
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Colombia Primera A",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 34
+        }
+      },
+      "target_quoted_fixtures": 25,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-22T23:00:00Z",
+      "training_matches": 4013
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Colombia Primera A",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 35
+        }
+      },
+      "target_quoted_fixtures": 372,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-17T00:30:00Z",
+      "training_matches": 4461
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Croatia HNL",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 11
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 11
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 11
+        }
+      },
+      "target_quoted_fixtures": 24,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-22T16:30:00Z",
+      "training_matches": 366
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Croatia HNL",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 12
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 12
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 12
+        }
+      },
+      "target_quoted_fixtures": 149,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-21T16:45:00Z",
+      "training_matches": 545
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Cyprus Division 1",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 29
+        }
+      },
+      "target_quoted_fixtures": 33,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-23T17:00:00Z",
+      "training_matches": 2169
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Cyprus Division 1",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 31
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 31
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 31
+        }
+      },
+      "target_quoted_fixtures": 188,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-22T17:00:00Z",
+      "training_matches": 2403
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Czechia First League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 26
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 26
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 26
+        }
+      },
+      "target_quoted_fixtures": 32,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-15T17:30:00Z",
+      "training_matches": 2651
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Czechia First League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 26
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 26
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 26
+        }
+      },
+      "target_quoted_fixtures": 227,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-14T17:30:00Z",
+      "training_matches": 2926
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Denmark Superligaen",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 20
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 20
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 20
+        }
+      },
+      "target_quoted_fixtures": 18,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-02T18:00:00Z",
+      "training_matches": 2130
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Denmark Superligaen",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 21
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 21
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 21
+        }
+      },
+      "target_quoted_fixtures": 163,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-08T18:00:00Z",
+      "training_matches": 2329
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "England Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 35
+        }
+      },
+      "target_quoted_fixtures": 76,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-30T20:00:00Z",
+      "training_matches": 3734
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "England Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 35
+        }
+      },
+      "target_quoted_fixtures": 284,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-30T20:15:00Z",
+      "training_matches": 4112
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Estonia Meistriliiga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 21
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 21
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 21
+        }
+      },
+      "target_quoted_fixtures": 174,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-11-08T10:30:00Z",
+      "training_matches": 1899
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Faroe Islands Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 15
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 15
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 15
+        }
+      },
+      "target_quoted_fixtures": 133,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-10-25T13:30:00Z",
+      "training_matches": 800
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Finland Veikkausliiga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 24
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 24
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 24
+        }
+      },
+      "target_quoted_fixtures": 174,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-11-09T13:00:00Z",
+      "training_matches": 1908
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "France Ligue 1",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 33
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 33
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 33
+        }
+      },
+      "target_quoted_fixtures": 36,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-18T20:00:00Z",
+      "training_matches": 3529
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "France Ligue 1",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 34
+        }
+      },
+      "target_quoted_fixtures": 239,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-14T19:45:00Z",
+      "training_matches": 3842
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Georgia Erovnuli Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 22
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 22
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 22
+        }
+      },
+      "target_quoted_fixtures": 12,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-02T14:00:00Z",
+      "training_matches": 1115
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Georgia Erovnuli Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 22
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 22
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 22
+        }
+      },
+      "target_quoted_fixtures": 154,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-01T15:00:00Z",
+      "training_matches": 1257
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Germany Bundesliga I",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 30
+        }
+      },
+      "target_quoted_fixtures": 45,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-22T16:30:00Z",
+      "training_matches": 3000
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Germany Bundesliga I",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 30
+        }
+      },
+      "target_quoted_fixtures": 245,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-21T16:30:00Z",
+      "training_matches": 3306
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Greece Super League 1",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 21
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 21
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 21
+        }
+      },
+      "target_quoted_fixtures": 35,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-23T16:00:00Z",
+      "training_matches": 1191
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Greece Super League 1",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 22
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 22
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 22
+        }
+      },
+      "target_quoted_fixtures": 184,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-22T16:00:00Z",
+      "training_matches": 1419
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Hungary NB I",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 35
+        }
+      },
+      "target_quoted_fixtures": 32,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-15T14:30:00Z",
+      "training_matches": 1940
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Hungary NB I",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 36
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 36
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 36
+        }
+      },
+      "target_quoted_fixtures": 161,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-21T16:30:00Z",
+      "training_matches": 2145
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Iceland Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 23
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 23
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 23
+        }
+      },
+      "target_quoted_fixtures": 160,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-10-26T14:00:00Z",
+      "training_matches": 1530
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Israel Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 30
+        }
+      },
+      "target_quoted_fixtures": 41,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-31T18:00:00Z",
+      "training_matches": 2389
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Israel Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 30
+        }
+      },
+      "target_quoted_fixtures": 191,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-31T18:00:00Z",
+      "training_matches": 2630
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Italy Serie A",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 35
+        }
+      },
+      "target_quoted_fixtures": 56,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-30T19:45:00Z",
+      "training_matches": 3591
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Italy Serie A",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 36
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 36
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 36
+        }
+      },
+      "target_quoted_fixtures": 284,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-29T19:45:00Z",
+      "training_matches": 3959
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Japan J-League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 32
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 32
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 32
+        }
+      },
+      "target_quoted_fixtures": 20,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-08T05:00:00Z",
+      "training_matches": 3205
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Japan J-League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 33
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 33
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 33
+        }
+      },
+      "target_quoted_fixtures": 310,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-06T05:00:00Z",
+      "training_matches": 3585
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Kazakhstan Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 30
+        }
+      },
+      "target_quoted_fixtures": 238,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-10-26T10:00:00Z",
+      "training_matches": 1879
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Kosovo Superliga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 34
+        }
+      },
+      "target_quoted_fixtures": 22,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-22T12:00:00Z",
+      "training_matches": 714
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Kosovo Superliga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 36
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 36
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 36
+        }
+      },
+      "target_quoted_fixtures": 99,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-24T12:00:00Z",
+      "training_matches": 843
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Latvia Virsliga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 23
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 23
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 23
+        }
+      },
+      "target_quoted_fixtures": 175,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-11-09T11:00:00Z",
+      "training_matches": 1482
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Lithuania A Lyga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 26
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 26
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 26
+        }
+      },
+      "target_quoted_fixtures": 1,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-11-09T14:25:18Z",
+      "training_matches": 1414
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Lithuania A Lyga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 27
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 27
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 27
+        }
+      },
+      "target_quoted_fixtures": 156,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-11-22T12:00:00Z",
+      "training_matches": 1593
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Malta Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 29
+        }
+      },
+      "target_quoted_fixtures": 14,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-21T15:00:00Z",
+      "training_matches": 1666
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Malta Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 29
+        }
+      },
+      "target_quoted_fixtures": 169,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-21T15:00:00Z",
+      "training_matches": 1840
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Montenegro Prva Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 27
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 27
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 27
+        }
+      },
+      "target_quoted_fixtures": 21,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-07T13:00:00Z",
+      "training_matches": 1325
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Montenegro Prva Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 27
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 27
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 27
+        }
+      },
+      "target_quoted_fixtures": 144,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-14T13:00:00Z",
+      "training_matches": 1501
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Netherlands Eredivisie",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 28
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 28
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 28
+        }
+      },
+      "target_quoted_fixtures": 44,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-22T15:45:00Z",
+      "training_matches": 2989
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Netherlands Eredivisie",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 30
+        }
+      },
+      "target_quoted_fixtures": 253,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-21T15:45:00Z",
+      "training_matches": 3298
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "North Macedonia First League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 32
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 32
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 32
+        }
+      },
+      "target_quoted_fixtures": 17,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-08T12:00:00Z",
+      "training_matches": 1265
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "North Macedonia First League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 35
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 35
+        }
+      },
+      "target_quoted_fixtures": 127,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-08T12:00:00Z",
+      "training_matches": 1415
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Northern Ireland Premier",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 19
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 19
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 19
+        }
+      },
+      "target_quoted_fixtures": 44,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-30T19:45:00Z",
+      "training_matches": 1995
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Northern Ireland Premier",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 20
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 20
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 20
+        }
+      },
+      "target_quoted_fixtures": 165,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-30T19:45:00Z",
+      "training_matches": 2180
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Norway Eliteserien",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 25
+        }
+      },
+      "target_quoted_fixtures": 16,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-01T16:00:00Z",
+      "training_matches": 2368
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Norway Eliteserien",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 26
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 26
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 26
+        }
+      },
+      "target_quoted_fixtures": 200,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-11-30T16:00:00Z",
+      "training_matches": 2608
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Poland Ekstraklasa",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 34
+        }
+      },
+      "target_quoted_fixtures": 30,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-14T16:30:00Z",
+      "training_matches": 2888
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Poland Ekstraklasa",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 34
+        }
+      },
+      "target_quoted_fixtures": 260,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-14T19:15:00Z",
+      "training_matches": 3192
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Portugal Primeira Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 33
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 33
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 33
+        }
+      },
+      "target_quoted_fixtures": 42,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-30T20:15:00Z",
+      "training_matches": 3058
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Portugal Primeira Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 34
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 34
+        }
+      },
+      "target_quoted_fixtures": 254,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-28T20:30:00Z",
+      "training_matches": 3360
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Republic of Ireland Premier Division",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 20
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 20
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 20
+        }
+      },
+      "target_quoted_fixtures": 180,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-11-01T16:30:00Z",
+      "training_matches": 1919
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Romania Liga I",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 44
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 44
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 44
+        }
+      },
+      "target_quoted_fixtures": 40,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-23T18:00:00Z",
+      "training_matches": 2802
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Romania Liga I",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 46
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 46
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 46
+        }
+      },
+      "target_quoted_fixtures": 260,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-22T18:00:00Z",
+      "training_matches": 3115
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Saudi Arabia Pro League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 38
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 38
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 38
+        }
+      },
+      "target_quoted_fixtures": 27,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-07T17:00:00Z",
+      "training_matches": 1752
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Saudi Arabia Pro League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 40
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 40
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 40
+        }
+      },
+      "target_quoted_fixtures": 308,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-31T17:30:00Z",
+      "training_matches": 2029
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Scotland Premiership",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 16
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 16
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 16
+        }
+      },
+      "target_quoted_fixtures": 47,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-29T17:15:00Z",
+      "training_matches": 2214
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Scotland Premiership",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 17
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 17
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 17
+        }
+      },
+      "target_quoted_fixtures": 181,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-30T20:00:00Z",
+      "training_matches": 2442
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Serbia Super Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 42
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 42
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 42
+        }
+      },
+      "target_quoted_fixtures": 43,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-26T12:00:00Z",
+      "training_matches": 2884
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Serbia Super Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 42
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 42
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 42
+        }
+      },
+      "target_quoted_fixtures": 232,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-22T18:00:00Z",
+      "training_matches": 3180
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Slovakia Super Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 25
+        }
+      },
+      "target_quoted_fixtures": 26,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-15T14:30:00Z",
+      "training_matches": 1859
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Slovakia Super Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 25
+        }
+      },
+      "target_quoted_fixtures": 162,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-14T17:00:00Z",
+      "training_matches": 2054
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Slovenia Prva Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 25
+        }
+      },
+      "target_quoted_fixtures": 15,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-08T16:30:00Z",
+      "training_matches": 1774
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Slovenia Prva Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 25
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 25
+        }
+      },
+      "target_quoted_fixtures": 140,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-07T16:30:00Z",
+      "training_matches": 1953
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "South Korea K League 1",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 21
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 21
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 21
+        }
+      },
+      "target_quoted_fixtures": 12,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-11-24T05:00:00Z",
+      "training_matches": 2020
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "South Korea K League 1",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 23
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 23
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 23
+        }
+      },
+      "target_quoted_fixtures": 174,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-11-30T07:30:00Z",
+      "training_matches": 2247
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Spain La Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 29
+        }
+      },
+      "target_quoted_fixtures": 50,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-22T20:00:00Z",
+      "training_matches": 1886
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Spain La Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 30
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 30
+        }
+      },
+      "target_quoted_fixtures": 318,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-22T20:00:00Z",
+      "training_matches": 2255
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Sweden Allsvenskan",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 31
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 31
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 31
+        }
+      },
+      "target_quoted_fixtures": 216,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-11-09T14:00:00Z",
+      "training_matches": 2633
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Switzerland Super League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 18
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 18
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 18
+        }
+      },
+      "target_quoted_fixtures": 35,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-15T15:30:00Z",
+      "training_matches": 1859
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Switzerland Super League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 18
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 18
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 18
+        }
+      },
+      "target_quoted_fixtures": 189,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-21T15:30:00Z",
+      "training_matches": 2091
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Türkiye Super Lig",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 47
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 47
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 47
+        }
+      },
+      "target_quoted_fixtures": 44,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-23T17:00:00Z",
+      "training_matches": 3485
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Türkiye Super Lig",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 48
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 48
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 48
+        }
+      },
+      "target_quoted_fixtures": 243,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-22T17:00:00Z",
+      "training_matches": 3825
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Ukraine Vyscha Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 52
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 52
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 52
+        }
+      },
+      "target_quoted_fixtures": 31,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-16T11:00:00Z",
+      "training_matches": 1886
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Ukraine Vyscha Liga",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 55
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 55
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 55
+        }
+      },
+      "target_quoted_fixtures": 186,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-14T16:00:00Z",
+      "training_matches": 2117
+    },
+    {
+      "forecast_asof_utc": "2025-01-01T00:00:00Z",
+      "league": "Wales Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 28
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 28
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 28
+        }
+      },
+      "target_quoted_fixtures": 26,
+      "target_utc_year": 2025,
+      "training_end_utc": "2024-12-31T17:45:00Z",
+      "training_matches": 1773
+    },
+    {
+      "forecast_asof_utc": "2026-01-01T00:00:00Z",
+      "league": "Wales Premier League",
+      "models": {
+        "bivariate_poisson": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "dixon_coles": {
+          "status": "fit",
+          "team_count": 29
+        },
+        "poisson": {
+          "status": "fit",
+          "team_count": 29
+        }
+      },
+      "target_quoted_fixtures": 190,
+      "target_utc_year": 2026,
+      "training_end_utc": "2025-12-31T14:30:00Z",
+      "training_matches": 1970
+    }
+  ],
+  "generated_utc": "2026-11-06T10:43:32.386569Z",
+  "league_count_in_candidate_manifest": 51,
+  "limitations": [
+    "Historical source quote events may predate kickoff, but provider responses were retrieved after kickoff; ROI is retrospective event-time replay, not demonstrated executable performance.",
+    "This broad-scope M5 re-evaluation applies the three M3 penaltyblog model implementations over the frozen 51-league M5 result universe; it does not replace M3's six-league production or research artifacts.",
+    "The new M3 forecasts and quote-level rows remain in the private archive; public output is aggregate-only."
+  ],
+  "m5_forecast_identity_and_asof_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+  "markets": {
+    "AH": {
+      "models": {
+        "bivariate_poisson": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 10568
+          },
+          "by_quote_source": {
+            "Crown": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9613
+              },
+              "max_drawdown_units_by_quote_event_time": 307.33,
+              "net_units": -290.2,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 9613
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.018829,
+              "settled_bets": 9613,
+              "settlement_brier": 0.64930886,
+              "settlement_counts": {
+                "half_loss": 644,
+                "half_win": 677,
+                "loss": 3827,
+                "push": 661,
+                "win": 3804
+              },
+              "settlement_log_loss": 1.03557674,
+              "simulated_bets": 9613,
+              "unique_fixtures": 9613
+            },
+            "TotalCorner_default": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 955
+              },
+              "max_drawdown_units_by_quote_event_time": 45.6125,
+              "net_units": -26.9625,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "TotalCorner_default": 955
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -2.823298,
+              "settled_bets": 955,
+              "settlement_brier": 0.66319003,
+              "settlement_counts": {
+                "half_loss": 59,
+                "half_win": 71,
+                "loss": 377,
+                "push": 61,
+                "win": 387
+              },
+              "settlement_log_loss": 1.07521066,
+              "simulated_bets": 955,
+              "unique_fixtures": 955
+            }
+          },
+          "by_utc_kickoff_year": {
+            "2025": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 1168
+              },
+              "max_drawdown_units_by_quote_event_time": 116.6875,
+              "net_units": -107.0275,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 1006,
+                "TotalCorner_default": 162
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -9.163313,
+              "settled_bets": 1168,
+              "settlement_brier": 0.65838468,
+              "settlement_counts": {
+                "half_loss": 77,
+                "half_win": 64,
+                "loss": 505,
+                "push": 78,
+                "win": 444
+              },
+              "settlement_log_loss": 1.04530703,
+              "simulated_bets": 1168,
+              "unique_fixtures": 1168
+            },
+            "2026": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9400
+              },
+              "max_drawdown_units_by_quote_event_time": 229.585,
+              "net_units": -210.135,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 8607,
+                "TotalCorner_default": 793
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -2.235479,
+              "settled_bets": 9400,
+              "settlement_brier": 0.6495914,
+              "settlement_counts": {
+                "half_loss": 626,
+                "half_win": 684,
+                "loss": 3699,
+                "push": 644,
+                "win": 3747
+              },
+              "settlement_log_loss": 1.03839434,
+              "simulated_bets": 9400,
+              "unique_fixtures": 9400
+            }
+          },
+          "max_drawdown_units_by_quote_event_time": 341.2225,
+          "net_units": -317.1625,
+          "pending_bets": 0,
+          "quote_source_fixture_markets": {
+            "Crown": 9613,
+            "TotalCorner_default": 955
+          },
+          "roi_bootstrap_95pct": {
+            "lower_95": -0.04709761,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": -0.01339705
+          },
+          "roi_pct": -3.001159,
+          "settled_bets": 10568,
+          "settlement_brier": 0.65056326,
+          "settlement_counts": {
+            "half_loss": 703,
+            "half_win": 748,
+            "loss": 4204,
+            "push": 722,
+            "win": 4191
+          },
+          "settlement_log_loss": 1.03915834,
+          "simulated_bets": 10568,
+          "unique_fixtures": 10568,
+          "unique_fixtures_with_complete_three_model_forecast_and_quote": 10568
+        },
+        "dixon_coles": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 10568
+          },
+          "by_quote_source": {
+            "Crown": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9613
+              },
+              "max_drawdown_units_by_quote_event_time": 314.16,
+              "net_units": -296.965,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 9613
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.089202,
+              "settled_bets": 9613,
+              "settlement_brier": 0.64853217,
+              "settlement_counts": {
+                "half_loss": 638,
+                "half_win": 683,
+                "loss": 3834,
+                "push": 661,
+                "win": 3797
+              },
+              "settlement_log_loss": 1.03394955,
+              "simulated_bets": 9613,
+              "unique_fixtures": 9613
+            },
+            "TotalCorner_default": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 955
+              },
+              "max_drawdown_units_by_quote_event_time": 50.0125,
+              "net_units": -33.6125,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "TotalCorner_default": 955
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.519634,
+              "settled_bets": 955,
+              "settlement_brier": 0.66224586,
+              "settlement_counts": {
+                "half_loss": 60,
+                "half_win": 70,
+                "loss": 380,
+                "push": 61,
+                "win": 384
+              },
+              "settlement_log_loss": 1.07192268,
+              "simulated_bets": 955,
+              "unique_fixtures": 955
+            }
+          },
+          "by_utc_kickoff_year": {
+            "2025": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 1168
+              },
+              "max_drawdown_units_by_quote_event_time": 112.8075,
+              "net_units": -103.1375,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 1006,
+                "TotalCorner_default": 162
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -8.830265,
+              "settled_bets": 1168,
+              "settlement_brier": 0.65705085,
+              "settlement_counts": {
+                "half_loss": 77,
+                "half_win": 64,
+                "loss": 503,
+                "push": 78,
+                "win": 446
+              },
+              "settlement_log_loss": 1.04237489,
+              "simulated_bets": 1168,
+              "unique_fixtures": 1168
+            },
+            "2026": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9400
+              },
+              "max_drawdown_units_by_quote_event_time": 249.535,
+              "net_units": -227.44,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 8607,
+                "TotalCorner_default": 793
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -2.419574,
+              "settled_bets": 9400,
+              "settlement_brier": 0.64886693,
+              "settlement_counts": {
+                "half_loss": 621,
+                "half_win": 689,
+                "loss": 3711,
+                "push": 644,
+                "win": 3735
+              },
+              "settlement_log_loss": 1.03676057,
+              "simulated_bets": 9400,
+              "unique_fixtures": 9400
+            }
+          },
+          "max_drawdown_units_by_quote_event_time": 352.6125,
+          "net_units": -330.5775,
+          "pending_bets": 0,
+          "quote_source_fixture_markets": {
+            "Crown": 9613,
+            "TotalCorner_default": 955
+          },
+          "roi_bootstrap_95pct": {
+            "lower_95": -0.04818461,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": -0.01458341
+          },
+          "roi_pct": -3.128099,
+          "settled_bets": 10568,
+          "settlement_brier": 0.64977144,
+          "settlement_counts": {
+            "half_loss": 698,
+            "half_win": 753,
+            "loss": 4214,
+            "push": 722,
+            "win": 4181
+          },
+          "settlement_log_loss": 1.03738108,
+          "simulated_bets": 10568,
+          "unique_fixtures": 10568,
+          "unique_fixtures_with_complete_three_model_forecast_and_quote": 10568
+        },
+        "poisson": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 10568
+          },
+          "by_quote_source": {
+            "Crown": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9613
+              },
+              "max_drawdown_units_by_quote_event_time": 311.73,
+              "net_units": -293.31,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 9613
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.051181,
+              "settled_bets": 9613,
+              "settlement_brier": 0.64831459,
+              "settlement_counts": {
+                "half_loss": 647,
+                "half_win": 674,
+                "loss": 3828,
+                "push": 661,
+                "win": 3803
+              },
+              "settlement_log_loss": 1.03358572,
+              "simulated_bets": 9613,
+              "unique_fixtures": 9613
+            },
+            "TotalCorner_default": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 955
+              },
+              "max_drawdown_units_by_quote_event_time": 45.5875,
+              "net_units": -26.9375,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "TotalCorner_default": 955
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -2.820681,
+              "settled_bets": 955,
+              "settlement_brier": 0.66175567,
+              "settlement_counts": {
+                "half_loss": 59,
+                "half_win": 71,
+                "loss": 377,
+                "push": 61,
+                "win": 387
+              },
+              "settlement_log_loss": 1.07118802,
+              "simulated_bets": 955,
+              "unique_fixtures": 955
+            }
+          },
+          "by_utc_kickoff_year": {
+            "2025": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 1168
+              },
+              "max_drawdown_units_by_quote_event_time": 114.5775,
+              "net_units": -104.9175,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 1006,
+                "TotalCorner_default": 162
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -8.982663,
+              "settled_bets": 1168,
+              "settlement_brier": 0.65675085,
+              "settlement_counts": {
+                "half_loss": 77,
+                "half_win": 64,
+                "loss": 504,
+                "push": 78,
+                "win": 445
+              },
+              "settlement_log_loss": 1.04200042,
+              "simulated_bets": 1168,
+              "unique_fixtures": 1168
+            },
+            "2026": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9400
+              },
+              "max_drawdown_units_by_quote_event_time": 239.805,
+              "net_units": -215.33,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 8607,
+                "TotalCorner_default": 793
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -2.290745,
+              "settled_bets": 9400,
+              "settlement_brier": 0.6486319,
+              "settlement_counts": {
+                "half_loss": 629,
+                "half_win": 681,
+                "loss": 3701,
+                "push": 644,
+                "win": 3745
+              },
+              "settlement_log_loss": 1.03636038,
+              "simulated_bets": 9400,
+              "unique_fixtures": 9400
+            }
+          },
+          "max_drawdown_units_by_quote_event_time": 347.2425,
+          "net_units": -320.2475,
+          "pending_bets": 0,
+          "quote_source_fixture_markets": {
+            "Crown": 9613,
+            "TotalCorner_default": 955
+          },
+          "roi_bootstrap_95pct": {
+            "lower_95": -0.04737793,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": -0.01403719
+          },
+          "roi_pct": -3.030351,
+          "settled_bets": 10568,
+          "settlement_brier": 0.64952923,
+          "settlement_counts": {
+            "half_loss": 706,
+            "half_win": 745,
+            "loss": 4205,
+            "push": 722,
+            "win": 4190
+          },
+          "settlement_log_loss": 1.03698373,
+          "simulated_bets": 10568,
+          "unique_fixtures": 10568,
+          "unique_fixtures_with_complete_three_model_forecast_and_quote": 10568
+        }
+      },
+      "quoted_fixture_markets": 11573
+    },
+    "OU": {
+      "models": {
+        "bivariate_poisson": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 10568
+          },
+          "by_quote_source": {
+            "Crown": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9612
+              },
+              "max_drawdown_units_by_quote_event_time": 353.19,
+              "net_units": -339.62,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 9612
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.533292,
+              "settled_bets": 9612,
+              "settlement_brier": 0.62272573,
+              "settlement_counts": {
+                "half_loss": 673,
+                "half_win": 505,
+                "loss": 3942,
+                "push": 486,
+                "win": 4006
+              },
+              "settlement_log_loss": 0.98631885,
+              "simulated_bets": 9612,
+              "unique_fixtures": 9612
+            },
+            "TotalCorner_default": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 956
+              },
+              "max_drawdown_units_by_quote_event_time": 53.975,
+              "net_units": -40.2625,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "TotalCorner_default": 956
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -4.211559,
+              "settled_bets": 956,
+              "settlement_brier": 0.63416335,
+              "settlement_counts": {
+                "half_loss": 62,
+                "half_win": 75,
+                "loss": 391,
+                "push": 40,
+                "win": 388
+              },
+              "settlement_log_loss": 1.00964105,
+              "simulated_bets": 956,
+              "unique_fixtures": 956
+            }
+          },
+          "by_utc_kickoff_year": {
+            "2025": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 1168
+              },
+              "max_drawdown_units_by_quote_event_time": 77.845,
+              "net_units": -61.3575,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 1005,
+                "TotalCorner_default": 163
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -5.253211,
+              "settled_bets": 1168,
+              "settlement_brier": 0.62632834,
+              "settlement_counts": {
+                "half_loss": 77,
+                "half_win": 68,
+                "loss": 493,
+                "push": 51,
+                "win": 479
+              },
+              "settlement_log_loss": 0.99180868,
+              "simulated_bets": 1168,
+              "unique_fixtures": 1168
+            },
+            "2026": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9400
+              },
+              "max_drawdown_units_by_quote_event_time": 365.9675,
+              "net_units": -318.525,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 8607,
+                "TotalCorner_default": 793
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.388564,
+              "settled_bets": 9400,
+              "settlement_brier": 0.62344131,
+              "settlement_counts": {
+                "half_loss": 658,
+                "half_win": 512,
+                "loss": 3840,
+                "push": 475,
+                "win": 3915
+              },
+              "settlement_log_loss": 0.98800863,
+              "simulated_bets": 9400,
+              "unique_fixtures": 9400
+            }
+          },
+          "max_drawdown_units_by_quote_event_time": 393.8275,
+          "net_units": -379.8825,
+          "pending_bets": 0,
+          "quote_source_fixture_markets": {
+            "Crown": 9612,
+            "TotalCorner_default": 956
+          },
+          "roi_bootstrap_95pct": {
+            "lower_95": -0.05297762,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": -0.0188231
+          },
+          "roi_pct": -3.594649,
+          "settled_bets": 10568,
+          "settlement_brier": 0.62376039,
+          "settlement_counts": {
+            "half_loss": 735,
+            "half_win": 580,
+            "loss": 4333,
+            "push": 526,
+            "win": 4394
+          },
+          "settlement_log_loss": 0.98842862,
+          "simulated_bets": 10568,
+          "unique_fixtures": 10568,
+          "unique_fixtures_with_complete_three_model_forecast_and_quote": 10568
+        },
+        "dixon_coles": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 10568
+          },
+          "by_quote_source": {
+            "Crown": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9612
+              },
+              "max_drawdown_units_by_quote_event_time": 362.11,
+              "net_units": -346.44,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 9612
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.604245,
+              "settled_bets": 9612,
+              "settlement_brier": 0.62266179,
+              "settlement_counts": {
+                "half_loss": 682,
+                "half_win": 496,
+                "loss": 3941,
+                "push": 486,
+                "win": 4007
+              },
+              "settlement_log_loss": 0.98636728,
+              "simulated_bets": 9612,
+              "unique_fixtures": 9612
+            },
+            "TotalCorner_default": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 956
+              },
+              "max_drawdown_units_by_quote_event_time": 56.05,
+              "net_units": -35.9625,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "TotalCorner_default": 956
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.761768,
+              "settled_bets": 956,
+              "settlement_brier": 0.63407276,
+              "settlement_counts": {
+                "half_loss": 64,
+                "half_win": 73,
+                "loss": 388,
+                "push": 40,
+                "win": 391
+              },
+              "settlement_log_loss": 1.00962725,
+              "simulated_bets": 956,
+              "unique_fixtures": 956
+            }
+          },
+          "by_utc_kickoff_year": {
+            "2025": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 1168
+              },
+              "max_drawdown_units_by_quote_event_time": 80.5,
+              "net_units": -62.8375,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 1005,
+                "TotalCorner_default": 163
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -5.379923,
+              "settled_bets": 1168,
+              "settlement_brier": 0.62656074,
+              "settlement_counts": {
+                "half_loss": 79,
+                "half_win": 66,
+                "loss": 493,
+                "push": 51,
+                "win": 479
+              },
+              "settlement_log_loss": 0.99227643,
+              "simulated_bets": 1168,
+              "unique_fixtures": 1168
+            },
+            "2026": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9400
+              },
+              "max_drawdown_units_by_quote_event_time": 373.6775,
+              "net_units": -319.565,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 8607,
+                "TotalCorner_default": 793
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.399628,
+              "settled_bets": 9400,
+              "settlement_brier": 0.62333784,
+              "settlement_counts": {
+                "half_loss": 667,
+                "half_win": 503,
+                "loss": 3836,
+                "push": 475,
+                "win": 3919
+              },
+              "settlement_log_loss": 0.98799863,
+              "simulated_bets": 9400,
+              "unique_fixtures": 9400
+            }
+          },
+          "max_drawdown_units_by_quote_event_time": 400.3675,
+          "net_units": -382.4025,
+          "pending_bets": 0,
+          "quote_source_fixture_markets": {
+            "Crown": 9612,
+            "TotalCorner_default": 956
+          },
+          "roi_bootstrap_95pct": {
+            "lower_95": -0.05355436,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": -0.01907433
+          },
+          "roi_pct": -3.618495,
+          "settled_bets": 10568,
+          "settlement_brier": 0.62369404,
+          "settlement_counts": {
+            "half_loss": 746,
+            "half_win": 569,
+            "loss": 4329,
+            "push": 526,
+            "win": 4398
+          },
+          "settlement_log_loss": 0.98847142,
+          "simulated_bets": 10568,
+          "unique_fixtures": 10568,
+          "unique_fixtures_with_complete_three_model_forecast_and_quote": 10568
+        },
+        "poisson": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 10568
+          },
+          "by_quote_source": {
+            "Crown": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9612
+              },
+              "max_drawdown_units_by_quote_event_time": 371.975,
+              "net_units": -356.305,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 9612
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.706877,
+              "settled_bets": 9612,
+              "settlement_brier": 0.62265547,
+              "settlement_counts": {
+                "half_loss": 682,
+                "half_win": 496,
+                "loss": 3946,
+                "push": 486,
+                "win": 4002
+              },
+              "settlement_log_loss": 0.98630114,
+              "simulated_bets": 9612,
+              "unique_fixtures": 9612
+            },
+            "TotalCorner_default": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 956
+              },
+              "max_drawdown_units_by_quote_event_time": 52.375,
+              "net_units": -33.0875,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "TotalCorner_default": 956
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.461036,
+              "settled_bets": 956,
+              "settlement_brier": 0.63389633,
+              "settlement_counts": {
+                "half_loss": 63,
+                "half_win": 74,
+                "loss": 387,
+                "push": 40,
+                "win": 392
+              },
+              "settlement_log_loss": 1.00908287,
+              "simulated_bets": 956,
+              "unique_fixtures": 956
+            }
+          },
+          "by_utc_kickoff_year": {
+            "2025": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 1168
+              },
+              "max_drawdown_units_by_quote_event_time": 79.34,
+              "net_units": -61.6775,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 1005,
+                "TotalCorner_default": 163
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -5.280608,
+              "settled_bets": 1168,
+              "settlement_brier": 0.62640083,
+              "settlement_counts": {
+                "half_loss": 78,
+                "half_win": 67,
+                "loss": 493,
+                "push": 51,
+                "win": 479
+              },
+              "settlement_log_loss": 0.99193836,
+              "simulated_bets": 1168,
+              "unique_fixtures": 1168
+            },
+            "2026": {
+              "actual_response_receipt_timing": {
+                "post_kickoff": 9400
+              },
+              "max_drawdown_units_by_quote_event_time": 386.5275,
+              "net_units": -327.715,
+              "pending_bets": 0,
+              "quote_source_fixture_markets": {
+                "Crown": 8607,
+                "TotalCorner_default": 793
+              },
+              "roi_bootstrap_95pct": null,
+              "roi_pct": -3.48633,
+              "settled_bets": 9400,
+              "settlement_brier": 0.62333331,
+              "settlement_counts": {
+                "half_loss": 667,
+                "half_win": 503,
+                "loss": 3840,
+                "push": 475,
+                "win": 3915
+              },
+              "settlement_log_loss": 0.98791764,
+              "simulated_bets": 9400,
+              "unique_fixtures": 9400
+            }
+          },
+          "max_drawdown_units_by_quote_event_time": 407.3575,
+          "net_units": -389.3925,
+          "pending_bets": 0,
+          "quote_source_fixture_markets": {
+            "Crown": 9612,
+            "TotalCorner_default": 956
+          },
+          "roi_bootstrap_95pct": {
+            "lower_95": -0.05368069,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": -0.01933313
+          },
+          "roi_pct": -3.684638,
+          "settled_bets": 10568,
+          "settlement_brier": 0.62367234,
+          "settlement_counts": {
+            "half_loss": 745,
+            "half_win": 570,
+            "loss": 4333,
+            "push": 526,
+            "win": 4394
+          },
+          "settlement_log_loss": 0.98836202,
+          "simulated_bets": 10568,
+          "unique_fixtures": 10568,
+          "unique_fixtures_with_complete_three_model_forecast_and_quote": 10568
+        }
+      },
+      "quoted_fixture_markets": 11573
+    }
+  },
+  "model_method": "Original penaltyblog PoissonGoalsModel, DixonColesGoalModel, and BivariatePoissonGoalModel; independent default fits; one 1U simulated side per quoted fixture-market, selected by higher expected return, with no threshold.",
+  "models": [
+    "poisson",
+    "dixon_coles",
+    "bivariate_poisson"
+  ],
+  "penaltyblog_version": "1.13.1",
+  "private_forecast_sha256": "61e7488180dc9b05017113663a8d0c6d26f03b30648ad99ac1ea32f3792e01c1",
+  "protocol": "M3_PENALTYBLOG_THREE_MODEL_EXPANDED_M5_UTC_YEAR_OOS_V1",
+  "quote_event_timing": "Each selected source event timestamp is at or after the M5-archived forecast as-of and before kickoff. Provider response receipt is reported independently and is expected to be retrospective for this archive.",
+  "quote_response_hash_set_sha256": "b3dda028db6b8435105ef5538669925f214bb609b920c91bb9c4f7190ace20ae",
+  "quote_selection_audit": {},
+  "source_union_unique_fixture_markets": {
+    "AH": 11573,
+    "OU": 11573
+  },
+  "source_union_unique_fixtures": 11573,
+  "target_utc_years": [
+    2025,
+    2026
+  ],
+  "three_model_complete_oos_forecast_fixtures": 10568,
+  "three_model_quote_matched_fixture_markets": {
+    "AH": 10568,
+    "OU": 10568
+  },
+  "time_order_passed": true,
+  "totalcorner_default_index_sha256": "b793c8b6d5aea540a00a339f4a14f9ed11d1fc6e3717925b7051511daa7099ed",
+  "training_rule": "For each league and target UTC year, train on every completed fixture in the same league with kickoff strictly before January 1 UTC of that year; test only the target year. The target fixture ID is excluded from training. No target-year result enters fit parameters.",
+  "unique_oos_fixture_ids_passed": true
+}

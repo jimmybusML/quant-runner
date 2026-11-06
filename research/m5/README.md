@@ -662,6 +662,18 @@ The 11,573-per-market source-union archive was joined against saved forecasts fr
 
 All historical Crown and TotalCorner responses in the expanded capture were received after kickoff. M1's saved scan quote/decision timestamps and MR1's saved forward quote receipts are pre-kickoff, but M1/MR1 do not cover the entire expanded fixture set. The M3 Crown contracts use source event times after each model's training cutoff and before kickoff, while the API response receipts were post-kickoff. These ROI figures are retrospective model diagnostics, not executable historical Crown ROI. No M1, MR1, M3, or M4 production path changed; no Telegram messages, new gates, or automatic model promotions were added.
 
+### Direct rerun requested for the expanded match archive (2026-11-06 10:43Z)
+
+The three original penaltyblog implementations were independently re-fitted and run again against the frozen 51-league result archive and the selected Crown-first/TotalCorner-default prices. The run used strict UTC-year-forward training and excluded target fixtures from training. There were 10,568 complete, shared M3 forecast fixtures out of 11,573 quoted fixture-markets per market; 969 rows lacked teams known to the earlier-year training fold and 36 had no prior training rows. This was a real rerun, not just a replay of the previous report. The sanitized run receipt is [M3 three-model rerun](results/m5_three_penaltyblog_expanded_oos_20261106_rerun.json); fixture-level grids remain in the private M5 archive.
+
+| M3 model | AH n=10,568 ROI | OU n=10,568 ROI | AH / OU Crown; TotalCorner default |
+| --- | ---: | ---: | --- |
+| Poisson | -3.0304% | -3.6846% | 9,613 / 9,612; 955 / 956 |
+| Dixon–Coles | -3.1281% | -3.6185% | 9,613 / 9,612; 955 / 956 |
+| Bivariate Poisson | -3.0012% | -3.5946% | 9,613 / 9,612; 955 / 956 |
+
+All three M3 models remain below the +3% objective in both markets. Every historical provider response receipt was post-kickoff, so these are retrospective event-time results and not executable ROI. The M1 values in the crosswalk remain saved-output coverage (1,233 per market), MR1 V6 remains an exact pre-kickoff shared Crown cohort (870 per market), and M4 remains a historical MR1-based Pass study rather than a standalone predictor. They cannot honestly be presented as four models retrained over all 11,573 fixtures. The M4 artifact is [`research/m4/M4_MR1_TWO_LEAGUE_PASS_RESULT_20261103.json`](../m4/M4_MR1_TWO_LEAGUE_PASS_RESULT_20261103.json): 497 historical MR1 orders/344 unique matches and a selected post-cutoff 149-order pass subset; no M4 model probabilities exist for the expanded archive.
+
 ## 2026-11-06 refreshed comparison on the collected archive
 
 Following the clarification that the models should be evaluated against the newly collected 11,573 fixture-markets, the latest strict M3 OOS artifact was joined again and replayed separately by Poisson, Dixon–Coles, and Bivariate Poisson. The source union contains 11,573 unique fixture-markets per side: AH has 10,433 Crown + 1,140 TotalCorner default; OU has 10,432 Crown + 1,141 TotalCorner default. Each selected historical provider response was actually received after kickoff.
