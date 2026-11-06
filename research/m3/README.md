@@ -5,6 +5,7 @@ M3 是独立研究模型，不读取 M1、M2、MR1 的预测、订单、参数�
 ## 研究入口与结果
 
 - [完整研究验收报告](M3_RESEARCH_REPORT.md)
+- [2026-11-06 Actions 样本外运行报告](M3_ACTIONS_OOS_REPORT_20261106.md)
 - [Crown 存档线级审计](M3_CROWN_STAGE_A_B_AUDIT.md)
 - [Crown 离线证据录入契约](crown_evidence_contract.md)
 - [Crown TotalCorner 已授权响应离线导入规范](crown_totalcorner_import_contract.md)
@@ -22,6 +23,10 @@ M3 是独立研究模型，不读取 M1、M2、MR1 的预测、订单、参数�
 - [OpenFootball forward-only shadow 校准报告](results/openfootball/latest_shadow_performance.json)
 - [Forward shadow calibration 复算器](openfootball_shadow_performance.py)
 - 历史报告、预测 CSV 与参数快照在 `results/history/`、`results/predictions/`、`results/model_parameters/`。
+
+2026-11-06 复核 Actions run [42132022252](https://github.com/ljm198964-alt/quant-runner/actions/runs/42132022252)，成功完成 Football Predictor V4 原版 OU walk-forward 与 penaltyblog AH/OU 严格 UTC 赛季前推评估，结果生成 UTC `2026-11-05T23:50:55Z`，输出已由 workflow 提交至历史目录。数据输入相对上次有变化，新增到 2026/27 赛季；6 联赛共 19,218 个可用赛果，penaltyblog 测试 17,152 场、每模型产生 14,807 个预测。AH0/DNB 与 OU2.5 proper scores 及 V4 五类 OU 模型对比见 [完整本次 OOS 报告](M3_ACTIONS_OOS_REPORT_20261106.md)。Crown ROI 仍为 null，因为该模型评估没有使用 Crown 价格。
+
+最近复核的 M3 Crown Forward Pairing 成功 run [42109348334](https://github.com/ljm198964-alt/quant-runner/actions/runs/42109348334)：累计 30 个价值抑制的 Crown 盘口承诺（AH 15、OU 15），本次新增0；forecast fingerprint 未变、没有新学习信息，也未持久化赔率值/原始响应，EV 和 ROI 均为空。它与未验证的其他公司赔率无关。M5 独立探针单独记录在 [M5 Crown capture audit](../m5/results/m5_forward_shadow_crown_capture_20261106.json)，未混入 M3 指标。
 
 稳定性工作流在 PR 分支完成 Actions run [39419131182](https://github.com/ljm198964-alt/quant-runner/actions/runs/39419131182) 与 [39419363464](https://github.com/ljm198964-alt/quant-runner/actions/runs/39419363464)：两次均运行现有产物分析和完整 M3 单元测试，不执行模型拟合；结果按 SHA 变化持久化。PR #51 已合并；默认分支每四小时 UTC schedule 已启用，合并后复核见 [39430911655](https://github.com/ljm198964-alt/quant-runner/actions/runs/39430911655)。
 
