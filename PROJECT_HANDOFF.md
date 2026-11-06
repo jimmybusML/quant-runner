@@ -4230,3 +4230,9 @@
 - 同一冻结 M5 预测重新配对生成 `2026-11-06T10:14:11.477488Z`：AH 41（Crown34/TOTAL7），OU31（Crown25/TOTAL6），共72唯一fixture-market。相比10:01Z配对新增1 OU报价；71个同场市场中4项价格/盘口条款更新，4项盘口事件时间前移，模型因更新赔率改变方向0项。
 - 全部72项在生成时尚未开赛，时间链 `train_end < prediction_asof <= quote_event <= receipt < kickoff` 成立，无重复；因此未结算数分别为AH41/OU31，净U、ROI、回撤为null。脱敏结果 `research/m5/results/m5_forward_shadow_refresh_20261106T1014Z.json`，private pair SHA `3ba833b44166a52a922c5b3f804f8d6c84b475163c2a04b74235e4a845470223`。仍远低于每市场10,000前瞻配对，也没有实现ROI≥3%。
 - 报告与README已以提交 `503de2693e75eed2ab305a961e6176837a79916a` 推送。对应 GitHub Actions run [42201498776](https://github.com/ljm198964-alt/quant-runner/actions/runs/42201498776) 为现有 `.github/workflows/m3-ah-reverse-research.yml`，状态 `failure`、`jobs=[]`，没有执行 M5 任务；仓库仍无独立 M5 Actions workflow。
+
+## 2026-11-06T10:26Z M5按盘口线收缩校准（2025拟合/2026时间留出）
+- 新增 `research/m5/m5_line_conditional_settlement_calibration.py`：AH、OU分开拟合结算类别全局温度，再在2025 OOS上拟合 quarter-line 收缩温度；2026不参与调参，全部有预测和有效盘口的市场项均保留，每场1U。固定收缩系数25不用于生产；未加EV门槛、盘口线/联赛/时间筛选。
+- 输入是冻结 M5 OOS forecast、比赛 manifest 与 Crown-first/TotalCorner default历史响应。2025训练 AH/OU 各1,311（Crown 1,117/1,116；TOTAL194/195）；2026留出各10,226，Crown9,316、TOTAL910。逐行检查 `train_end < prediction_asof <= source_event < kickoff`；所有历史receipt均为post-kickoff，属回顾性event-time ROI。
+- 2026 AH原始 ROI `-1.861823%`；全局温度4.00后 `-3.982007%`；盘口线温度 `-4.036182%`。OU原始 `-3.498778%`；全局温度 `-3.679445%`；盘口线温度 `-3.967803%`。线条件温度略改进两市场proper scores，但 ROI 比全局/原始方法更差；未达到+3%。校准候选不采纳。
+- 脱敏回执 `research/m5/results/m5_line_conditional_settlement_calibration_2025fit_2026holdout_20261106.json`，生成 `2026-11-06T10:26:50.978332Z`；input hashes、来源分解、结算分类、最大回撤及2025拟合段诊断均已落在报告。新测试3项、M5全量45/45 PASS；`py_compile`、报告分母/来源/结算/receipt/ROI assertions 和 `git diff --check` 均PASS。未改生产策略、TG、订单、账本或Gate。
