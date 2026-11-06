@@ -24,6 +24,21 @@ AH 的 M3 概率仅能作为三项赛果 proxy，不是亚洲让球合约收益�
 
 MR1 同 Crown 交集覆盖全量源并集的 7.518%；各模型按相同盘口、价格和赛果独立模拟一注，bootstrap 区间均包含零。历史赔率响应均为赛后回取，按赛前盘口事件时间回放，不构成同期实收 ROI。完整模型定义、样本量、结算数、回撤及区间以[扩展跨模型回执](results/m5_expanded_cross_model_comparison_20261106.json)为准。
 
+## Crown 与 TotalCorner 来源拆分
+
+使用来源单独回放以及 Crown-first 去重并集，分别检查 baseline 与 recency 模型。Crown-only 达到每市场 10,000 场门槛；TOTAL-only 目前只有约1,100场；组合并集每市场超过11,500场。所有来源的历史回执时间都在开赛后，所以这些数据只能作为盘口事件时间回顾性样本外回放。
+
+| 盘口来源 / 模型 | AH 场数 / ROI | OU 场数 / ROI |
+|---|---:|---:|
+| Crown-only baseline | 10,433 / -2.37% | 10,432 / -3.65% |
+| Crown-only recency | 10,433 / -2.68% | 10,432 / -3.39% |
+| TotalCorner-only baseline | 1,141 / -3.91% | 1,141 / -3.52% |
+| TotalCorner-only recency | 1,105 / -5.54% | 1,105 / -3.95% |
+| Crown-first + TOTAL缺项回退 baseline | 11,573 / -2.51% | 11,573 / -3.63% |
+| Crown-first + TOTAL缺项回退 recency | 11,537 / -2.95% | 11,537 / -3.44% |
+
+Crown-only 的 10k+ 样本没有任一市场达到 +3%；TotalCorner-only 尚未达到每市场10k且目前亏损。来源和 recency 变化均没有反转结论。完整结算类别、净U、最大回撤、bootstrap、季度/赛季覆盖、来源哈希和时间限制见[来源分离回执](results/m5_source_separated_performance_comparison_20261106.json)；可用 [`m5_source_performance_comparison.py`](m5_source_performance_comparison.py) 从六份冻结聚合回执重新生成，输出不含逐场身份、比分、盘口价格或原始响应。
+
 ## 前瞻赛果结算器
 
 `m5_forward_shadow_settlement.py` 读取不可变的私有赛前预测/报价配对，只在开赛后向 TotalCorner 核验 FT 身份、精确 UTC 开球时间及比分，原始响应与逐场结算留在仓库外；公开摘要只写汇总、输入哈希和计数。AH、OU 独立各按每个配对 1U 模拟，ROI 在整组投注结算前保持 null，并另列已结算本金上的暂计 ROI。工具不产生正式订单或 Telegram 消息。单元测试覆盖身份/时间校验、盘口结算和未开赛样本；实际前瞻批次尚未产生可结算赛果。
