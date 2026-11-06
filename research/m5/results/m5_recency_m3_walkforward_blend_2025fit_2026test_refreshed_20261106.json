@@ -1,0 +1,128 @@
+{
+  "M3_prediction_sha256": "88cda93edc2bacc835ddea02e6d2c2140177e454cd336ab335cb2262a3f633bf",
+  "M5_baseline_2026_forecast_sha256": "6353fec2b339aee7ebe409585f7eff80e692cb020a12c78393ceeabf0404889d",
+  "M5_recency_2025_forecast_sha256": "64363b275eae3e3561edfe93a992ae5ffbb8b20a671361f7552056b709e948a0",
+  "M5_recency_2026_forecast_sha256": "fc2abf89b2ac80eb2ba72bf9e992f25eeda11502f2e87cd2bd965b921843d26d",
+  "MR1_fixture_registry_sha256": "f5c121a46a9fc2821511cd5fcb72f3a78d9dc0d13f66acabc17c37f48a096813",
+  "MR1_quote_snapshot_hash_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "MR1_snapshot_index_sha256": "d6fde3683a5bd0de249c523921313caf62dfa9d708883748bd9780465993e980",
+  "MR1_verified_FT_hash_set_sha256": "401fd86bde91b8fd2afa2f217df571eead8dea016564ed07e327410a7c32c67e",
+  "crown_prices_used_only": true,
+  "crown_same_quote_oos": {
+    "AH": {
+      "by_league": {},
+      "candidate_common_fixture_count": 518,
+      "exact_contract_quote_fixtures": 0,
+      "market_contract": "AH 0.0",
+      "models": {},
+      "verified_MR1_received_quote_count_before_contract_support": 0
+    },
+    "OU": {
+      "by_league": {},
+      "candidate_common_fixture_count": 518,
+      "exact_contract_quote_fixtures": 0,
+      "market_contract": "OU 2.5",
+      "models": {},
+      "verified_MR1_received_quote_count_before_contract_support": 0
+    }
+  },
+  "generated_utc": "2026-11-06T06:40:09.388160+00:00",
+  "holdout_2026_common_fixture_count": 518,
+  "holdout_2026_unique_m3_leagues": 5,
+  "limitations": [
+    "M3 comparison covers six supported leagues only and is a smaller common subset than the 51-league M5 OOS.",
+    "Crown ROI is limited to exact supported AH0/OU2.5 contracts; it does not cover other AH or OU lines.",
+    "2025 is a training/weight-selection period and must not be called holdout performance.",
+    "The 2026 Crown test is a retrospective OOS study, not live M5 deployment; no model promotion, production, or Telegram action."
+  ],
+  "m3_fixtures_rejected_for_training_after_m5_asof": {
+    "2025_train_period": 462,
+    "2026_holdout": 229
+  },
+  "m3_rows_rejected_for_time_order": 0,
+  "method": "For AH 1X2 proxy and OU O2.5 independently, fit nonnegative simplex weights over M3 Poisson/Dixon-Coles/Bivariate-Poisson and M5 recency probabilities by 2025 common-fixture log loss; freeze and evaluate on 2026 common fixtures. Crown ROI uses only exact AH0/OU2.5 verified MR1 received-before-kickoff quotes with independent post-kickoff FT. Each model makes one 1U bet at the same line and prices, selecting its higher expected-return side with no EV threshold. Asian settlement is used; 2026 is not used to fit weights.",
+  "proper_score_blends": {
+    "AH": {
+      "brier": 0.62507717,
+      "fixtures": 518,
+      "holdout": {
+        "bivariate_poisson": {
+          "brier": 0.63459101,
+          "fixtures": 518,
+          "log_loss": 1.04947985
+        },
+        "dixon_coles": {
+          "brier": 0.63409813,
+          "fixtures": 518,
+          "log_loss": 1.04878872
+        },
+        "m5_baseline": {
+          "brier": 0.63351107,
+          "fixtures": 518,
+          "log_loss": 1.04926034
+        },
+        "m5_recency": {
+          "brier": 0.62481252,
+          "fixtures": 518,
+          "log_loss": 1.03637433
+        },
+        "poisson": {
+          "brier": 0.63409402,
+          "fixtures": 518,
+          "log_loss": 1.04887927
+        }
+      },
+      "log_loss": 1.0367054,
+      "training_fixtures": 541,
+      "training_log_loss": 0.99717101,
+      "weights": {
+        "bivariate_poisson": 0.05396139,
+        "dixon_coles": 0.0,
+        "m5_recency": 0.94603861,
+        "poisson": 0.0
+      }
+    },
+    "OU": {
+      "brier": 0.2517939,
+      "fixtures": 518,
+      "holdout": {
+        "bivariate_poisson": {
+          "brier": 0.251316,
+          "fixtures": 518,
+          "log_loss": 0.6958861
+        },
+        "dixon_coles": {
+          "brier": 0.25160997,
+          "fixtures": 518,
+          "log_loss": 0.69649413
+        },
+        "m5_baseline": {
+          "brier": 0.24926146,
+          "fixtures": 518,
+          "log_loss": 0.69172775
+        },
+        "m5_recency": {
+          "brier": 0.25258862,
+          "fixtures": 518,
+          "log_loss": 0.69862015
+        },
+        "poisson": {
+          "brier": 0.25163645,
+          "fixtures": 518,
+          "log_loss": 0.6965486
+        }
+      },
+      "log_loss": 0.69693114,
+      "training_fixtures": 541,
+      "training_log_loss": 0.689243,
+      "weights": {
+        "bivariate_poisson": 0.33295467,
+        "dixon_coles": 0.0,
+        "m5_recency": 0.66704533,
+        "poisson": 0.0
+      }
+    }
+  },
+  "protocol": "M5_M3_RECENCY_2025_FIT_2026_HOLDOUT_V1",
+  "train_2025_common_fixture_count": 541
+}

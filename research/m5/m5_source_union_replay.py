@@ -217,7 +217,7 @@ def run(a):
         for market in ('AH','OU'):
             chosen=None; source=None; receipt_at=None
             cp=root/'crown-responses'/f'{mid}.json'; crown_quote=None
-            if cp.exists():
+            if cp.exists() and a.source_policy != 'totalcorner_only':
                 try:
                     raw=cp.read_bytes(); payload=json.loads(raw); row=fixture_row(payload,mid)
                     if payload.get('success')==1 and row and row.get('h')==fixture['home'] and row.get('a')==fixture['away'] and row.get('l')==fixture['league']:
@@ -229,7 +229,7 @@ def run(a):
                                 receipt_at=instant(crown_receipts.get(mid,{}).get('captured_at_utc'))
                                 hashes.add(hashlib.sha256(raw).hexdigest())
                 except Exception: counts['invalid_crown_response']+=1
-            if chosen is None:
+            if chosen is None and a.source_policy != 'crown_only':
                 tp=root/'totalcorner-default-responses'/f'{mid}.json'; entry=total_receipts.get(mid)
                 if tp.exists() and entry:
                     try:
@@ -281,7 +281,11 @@ def run(a):
     result={'protocol':'M5_CROWN_FIRST_TOTALCORNER_FALLBACK_EVENT_TIME_REPLAY_V1','generated_utc':utc_now(),
       'input_hashes':{'candidate_manifest_sha256':hashlib.sha256(manifest_raw).hexdigest(),'forecast_sha256':hashlib.sha256(forecast_raw).hexdigest(),'quote_response_hash_set_sha256':hashlib.sha256('\n'.join(sorted(hashes)).encode()).hexdigest()},
       'candidate_fixtures':len(manifest.get('rows',[])),'forecast_rows':len(forecasts),
-      'source_selection':'Per fixture-market, latest valid Crown source event at/after prediction as-of and before kickoff; TotalCorner default only if that Crown fixture-market is absent. No duplicate fixture-market bets. One unit per selected side; no EV threshold.',
+      'source_selection_policy':a.source_policy,
+      'source_selection':({'crown_first':'Per fixture-market, latest valid Crown source event at/after prediction as-of and before kickoff; TotalCorner default only if that Crown fixture-market is absent. No duplicate fixture-market bets.'
+                          ,'crown_only':'Use Crown only; no TotalCorner substitution.'
+                          ,'totalcorner_only':'Use TotalCorner default only; no Crown substitution.'}[a.source_policy]
+                         +' One unit per selected side; no EV threshold.'),
       'side_selection_policy':('higher_calibrated_expected_return' if calibration else a.side_policy),
       'calibration':({'protocol':calibration.get('protocol'),'training_year':calibration.get('training_year'),
                       'temperatures':calibration.get('temperatures'),'report_sha256':hashlib.sha256(a.calibration.read_bytes()).hexdigest()} if calibration else None),
@@ -293,5 +297,5 @@ def run(a):
     print(json.dumps({'generated_utc':result['generated_utc'],'markets':result['markets'],'candidate_fixtures':result['candidate_fixtures']},ensure_ascii=False,sort_keys=True))
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--private-dir',type=Path,required=True);p.add_argument('--source-timezone',default='Asia/Shanghai');p.add_argument('--forecast-path',type=Path,help='optional alternate M5-only OOS forecast JSONL with identical fixture identity');p.add_argument('--side-policy',choices=('higher_ev','lower_ev','favorite','underdog'),default='higher_ev',help='research-only direction diagnostic; always bets one side per valid fixture-market, without a threshold');p.add_argument('--calibration',type=Path,help='optional prior-year-fitted M5 market settlement temperature report');p.add_argument('--kickoff-year',type=int,help='optional UTC target-year slice; no filter by default');p.add_argument('--output',type=Path,required=True);run(p.parse_args())
+    p=argparse.ArgumentParser();p.add_argument('--private-dir',type=Path,required=True);p.add_argument('--source-timezone',default='Asia/Shanghai');p.add_argument('--forecast-path',type=Path,help='optional alternate M5-only OOS forecast JSONL with identical fixture identity');p.add_argument('--side-policy',choices=('higher_ev','lower_ev','favorite','underdog'),default='higher_ev',help='research-only direction diagnostic; always bets one side per valid fixture-market, without a threshold');p.add_argument('--source-policy',choices=('crown_first','crown_only','totalcorner_only'),default='crown_first',help='research-only provider comparison; sources are never relabelled or combined as one bookmaker');p.add_argument('--calibration',type=Path,help='optional prior-year-fitted M5 market settlement temperature report');p.add_argument('--kickoff-year',type=int,help='optional UTC target-year slice; no filter by default');p.add_argument('--output',type=Path,required=True);run(p.parse_args())
 if __name__=='__main__': main()

@@ -607,3 +607,37 @@ The 11,573-per-market source-union archive was joined against saved forecasts fr
 | M4 research variants | Not run on expanded cohort | Not run on expanded cohort | No standalone frozen M4 forecast file exists. Existing MR1-based experiments are separate 497-order studies and are not an M4-vs-other-model comparison on this archive. |
 
 All historical Crown and TotalCorner responses in the expanded capture were received after kickoff. M1's saved scan quote/decision timestamps and MR1's saved forward quote receipts are pre-kickoff, but M1/MR1 do not cover the entire expanded fixture set. The M3 Crown contracts use source event times after each model's training cutoff and before kickoff, while the API response receipts were post-kickoff. These ROI figures are retrospective model diagnostics, not executable historical Crown ROI. No M1, MR1, M3, or M4 production path changed; no Telegram messages, new gates, or automatic model promotions were added.
+
+## 2026-11-06 refreshed comparison on the collected archive
+
+Following the clarification that the models should be evaluated against the newly collected 11,573 fixture-markets, the latest strict M3 OOS artifact was joined again and replayed separately by Poisson, Dixon–Coles, and Bivariate Poisson. The source union contains 11,573 unique fixture-markets per side: AH has 10,433 Crown + 1,140 TotalCorner default; OU has 10,432 Crown + 1,141 TotalCorner default. Each selected historical provider response was actually received after kickoff.
+
+The complete sanitized crosswalk is [refreshed cross-model comparison](results/m5_expanded_cross_model_comparison_20261106_refreshed.json). M3's current strict season-forward file has 14,807 predictions per model over 17,152 six-league test matches. Its full strict OOS probability scores are:
+
+| M3 model | AH 1X2 proxy LL / Brier | OU 2.5 LL / Brier |
+| --- | --- | --- |
+| Poisson | 1.003886 / 0.599398 | 0.686555 / 0.246554 |
+| Dixon–Coles | 1.003791 / 0.599230 | 0.686577 / 0.246564 |
+| Bivariate Poisson | 1.003779 / 0.599253 | 0.686578 / 0.246577 |
+
+These scores are on M3's Football-Data.co.uk OOS cohort, not the entire expanded M5 price archive. In the expanded archive, a same-quote M3/M5 comparison additionally required an M5 prediction-as-of time, a valid M3 training cutoff, and an exact AH0 or OU2.5 contract. This leaves 179 AH and 348 OU fixture-markets; Crown supplies all 179 AH and 346 OU, with TotalCorner default filling 2 OU contracts. The same quote is applied to each model, one unit per fixture-market, with no EV threshold:
+
+| Model | AH n=179 ROI | OU n=348 ROI |
+| --- | ---: | ---: |
+| M3 Poisson | +1.2793% | -6.0460% |
+| M3 Dixon–Coles | +2.2570% | -6.0460% |
+| M3 Bivariate Poisson | +2.2570% | -4.5115% |
+| M5 recency | +0.0168% | -3.4052% |
+| M3/M5 blend (weights fit on 2025 proper-score log loss) | +0.0168% | -4.3707% |
+
+The blend used 541 common 2025 fixtures to fit weights and an untouched set of 518 common 2026 fixtures for proper-score holdout evaluation; the exact-contract quote subset is smaller. The blend did not improve the AH point ROI over the best M3 single models; in OU it improved log loss slightly versus M5 recency but had lower ROI. All historical Crown/TotalCorner receipts for these exact-contract matches were post-kickoff, and all fixture-bootstrap intervals are wide and cross zero.
+
+| Other model evidence | AH | OU | Cohort boundary |
+| --- | ---: | ---: | --- |
+| M1 saved scan outputs | n=1,233, -6.1444% | n=1,233, -3.2729% | Existing saved forecasts only; formal-candidate subset is AH n=42, -12.2857%, OU n=79, +5.5000%. |
+| MR1 V6 saved selections | n=870, -3.6695% | n=870, -4.7391% | Same pre-kickoff Crown prices and FT within MR1/M5; not a full archive replay. |
+| M4 | No standalone result | No standalone result | No uniquely versioned M4 predictor/forecast file exists; M4 research variants are MR1-based. |
+
+On the full expanded M5 source union, the baseline remains AH n=11,573 at -2.5099% and OU n=11,573 at -3.6339%. The 2025-fit/2026-forward recency run is AH n=11,537 at -2.9488% and OU n=11,537 at -3.4401%. Crown-only baseline is AH -2.3666% / OU -3.6461%; TotalCorner-default-only is AH -3.9056% / OU -3.5221%. The source-specific cohorts and input hashes are in [source policy comparison](results/m5_source_policy_comparison_20261106.json). No model-market reaches +3% on the 10,000+ source-union cohort. These full-cohort event-time replays cannot establish executable ROI because every historical receipt followed kickoff.
+
+Artifacts: [M3 Crown-first/TotalCorner exact-contract replay](results/m5_m3_expanded_source_union_contract_replay_20261106.json), [M3/M5 common 2026 source-archive replay](results/m5_m3_m5_blend_source_union_replay_20261106.json), and [2025-fit/2026-holdout blend fit](results/m5_recency_m3_walkforward_blend_2025fit_2026test_refreshed_20261106.json). M1, MR1, M3, and M4 do not have compatible saved forecasts across all 11,573 fixture-markets; their sample sizes above must not be ranked as if they were one shared cohort. No formal strategy, production model, Telegram route, or trade gate changed.
