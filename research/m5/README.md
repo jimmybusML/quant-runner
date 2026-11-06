@@ -37,7 +37,9 @@ MR1 同 Crown 交集覆盖全量源并集的 7.518%；各模型按相同盘口�
 | Crown-first + TOTAL缺项回退 baseline | 11,573 / -2.51% | 11,573 / -3.63% |
 | Crown-first + TOTAL缺项回退 recency | 11,537 / -2.95% | 11,537 / -3.44% |
 
-Crown-only 的 10k+ 样本没有任一市场达到 +3%；TotalCorner-only 尚未达到每市场10k且目前亏损。来源和 recency 变化均没有反转结论。完整结算类别、净U、最大回撤、bootstrap、季度/赛季覆盖、来源哈希和时间限制见[来源分离回执](results/m5_source_separated_performance_comparison_20261106.json)；可用 [`m5_source_performance_comparison.py`](m5_source_performance_comparison.py) 从六份冻结聚合回执重新生成，输出不含逐场身份、比分、盘口价格或原始响应。
+Crown-only 的 10k+ 样本没有任一市场达到 +3%；TotalCorner-only 尚未达到每市场10k且目前亏损。来源和 recency 变化均没有反转结论。完整结算类别、净U、最大回撤、bootstrap、UTC开赛年份覆盖、来源哈希和时间限制见[来源分离回执](results/m5_source_separated_performance_comparison_20261106.json)；可用 [`m5_source_performance_comparison.py`](m5_source_performance_comparison.py) 从六份冻结聚合回执重新生成，输出不含逐场身份、比分、盘口价格或原始响应。
+
+当前最接近改善的 walk-forward 方向诊断，是按 2025 各联赛训练样本 ROI 在 higher-EV / favorite / underdog 中选方向，冻结后跑 2026 全部场次；每市场 10,161 场，AH ROI `-1.373019%`、OU `-3.019732%`，分别较同一2026 higher-EV基准 `-1.855920%`、`-3.418906%` 改善约0.48/0.40个百分点，但仍然亏损。该方向选择对2025每联赛样本有最低20场要求，并因多个方向择优而有明显选择偏差；它不筛除任何2026比赛，只作研究诊断。其2026来源事件时回放ROI没有达成+3%，历史响应回执赛后取得，且该聚合报告没有逐场顺序，不能据此报告最大回撤。[walk-forward 回执](results/m5_league_direction_2025_train_2026_oos_20261106.json)。
 
 ## 前瞻赛果结算器
 

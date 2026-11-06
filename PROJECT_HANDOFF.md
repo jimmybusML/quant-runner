@@ -4179,3 +4179,6 @@
 ## 2026-11-06T08:20Z M5来源分离回放验收
 - 六场景来源分离汇总器、单测与脱敏结果文件已推送，代码/报告提交 `f17d0b4a7cd66744dc037576902137704ad273c8`；输出 `m5_source_separated_performance_comparison_20261106.json` 输入hash可追溯，覆盖Crown-only、TotalCorner-only及Crown-first union的baseline/recency。已确认每个scenario × market的settled=simulated、结算类别总数一致且 ROI=`net_units / bets`；aggregate校验PASS，M5全量32/32 unittest PASS，相关py_compile和git diff --check PASS。
 - 对应GitHub push产生既有 workflow run [42186994617](https://github.com/ljm198964-alt/quant-runner/actions/runs/42186994617)，`m3-ah-reverse-research.yml` failure、jobs=[]；这不是M5 Actions验收。仓库仍无M5 workflow。M5历史ROI目标未达到；前瞻28对需待赛果实际可得后运行新settlement tool。
+## 2026-11-06T08:24Z 2025→2026全场数方向诊断复核
+- 已检查固定 2025 训练 / 2026 留出的逐联赛方向诊断 `m5_league_direction_2025_train_2026_oos_20261106.json`。每个市场的 2026 OOS 为10,161场；方向根据 2025 各联赛 higher-EV/favorite/underdog 中 ROI 最高者选择，样本低于20场回退higher-EV，2026不删任何赛事。AH ROI -1.373019%，相较同样本higher-EV -1.855920%改善0.4829pp；OU -3.019732%，相较 -3.418906%改善0.3992pp。两者仍负收益。
+- 该实验因多方向按训练ROI选优而有明显选择偏差；所有历史盘口API receipt仍在开赛后，属事件时间回顾性回放；聚合回执没有逐场时间序列，故不能提供其最大回撤。仅作为下一步实验候选，不转成生产条件或投注规则。已在README标明，并链接可复核报告。
