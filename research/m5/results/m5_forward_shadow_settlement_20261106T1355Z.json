@@ -1,0 +1,71 @@
+{
+  "capture_counts": {
+    "already_verified_ft": 2,
+    "not_yet_kicked_off": 67,
+    "verified_ft": 1
+  },
+  "fixture_count": 70,
+  "generated_utc": "2026-11-06T13:55:55.342182Z",
+  "markets": {
+    "AH": {
+      "max_drawdown_units_by_kickoff": 1.0,
+      "net_units": -1.0,
+      "paired_source_fixture_markets": {
+        "Crown": 53,
+        "TotalCorner_default": 7
+      },
+      "pending_bets": 58,
+      "realized_roi_on_settled_stake_pct": -50.0,
+      "roi_pct": null,
+      "settled_bets": 2,
+      "settled_source_fixture_markets": {
+        "Crown": 2
+      },
+      "settled_stake_units": 2.0,
+      "settlement_counts": {
+        "half_loss": 0,
+        "half_win": 0,
+        "loss": 1,
+        "push": 1,
+        "win": 0
+      },
+      "simulated_bets": 60,
+      "total_stake_units": 60.0,
+      "unique_fixture_markets": 60
+    },
+    "OU": {
+      "max_drawdown_units_by_kickoff": 0.0,
+      "net_units": 0.35,
+      "paired_source_fixture_markets": {
+        "Crown": 49,
+        "TotalCorner_default": 5
+      },
+      "pending_bets": 51,
+      "realized_roi_on_settled_stake_pct": 11.666667,
+      "roi_pct": null,
+      "settled_bets": 3,
+      "settled_source_fixture_markets": {
+        "Crown": 3
+      },
+      "settled_stake_units": 3.0,
+      "settlement_counts": {
+        "half_loss": 0,
+        "half_win": 1,
+        "loss": 0,
+        "push": 2,
+        "win": 0
+      },
+      "simulated_bets": 54,
+      "total_stake_units": 54.0,
+      "unique_fixture_markets": 54
+    }
+  },
+  "method": "Incremental settlement of immutable pregame M5 forecast/quote pairs; one simulated unit per fixture-market; final-cohort ROI stays null until every paired sample is settled.",
+  "paired_input_sha256": "5dfd5b87fd0b67d5a0381c00b215fdd5d541661cdeb85a4b35d8cdfe2995d807",
+  "pending_fixture_markets": 109,
+  "privacy": "Aggregate counts and hashes only; fixture identities, scores, prices, model probabilities and raw provider responses remain private.",
+  "protocol": "M5_FORWARD_SHADOW_SETTLEMENT_V1",
+  "settled_fixture_markets": 5,
+  "timing": "Verified TotalCorner result responses were received after kickoff. No actual wager, production write, or Telegram message.",
+  "verified_result_response_hash_set_sha256": "9475a9f195fd07ef70444397d51b639c8dc5c70a6ce00e5558a0ec1b88ccb870"
+}

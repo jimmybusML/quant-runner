@@ -81,17 +81,20 @@ jobs:
           from pathlib import Path
 
           pair = json.loads(Path("research/m5/results/m5_forward_shadow_refresh_20261106T1336Z.json").read_text())
-          report = json.loads(Path("research/m5/results/m5_forward_shadow_settlement_20261106T1346Z.json").read_text())
-          assert report["paired_input_sha256"] == pair["pair_sha256"]
-          assert report["settled_fixture_markets"] + report["pending_fixture_markets"] == report["markets"]["AH"]["simulated_bets"] + report["markets"]["OU"]["simulated_bets"]
-          for market in ("AH", "OU"):
-              result = report["markets"][market]
-              assert result["unique_fixture_markets"] == result["simulated_bets"]
-              assert result["settled_bets"] + result["pending_bets"] == result["simulated_bets"]
-              assert sum(result["settlement_counts"].values()) == result["settled_bets"]
-              if result["settled_bets"] < result["simulated_bets"]:
-                  assert result["roi_pct"] is None
-          serialized = json.dumps(report)
-          assert '"match_id"' not in serialized and '"prices":' not in serialized
+          for receipt_path in sorted(Path("research/m5/results").glob("m5_forward_shadow_settlement_*.json")):
+              report = json.loads(receipt_path.read_text())
+              assert report["paired_input_sha256"] == pair["pair_sha256"]
+              assert report["settled_fixture_markets"] + report["pending_fixture_markets"] == report["markets"]["AH"]["simulated_bets"] + report["markets"]["OU"]["simulated_bets"]
+              for market in ("AH", "OU"):
+                  result = report["markets"][market]
+                  assert result["unique_fixture_markets"] == result["simulated_bets"]
+                  assert result["settled_bets"] + result["pending_bets"] == result["simulated_bets"]
+                  assert sum(result["settlement_counts"].values()) == result["settled_bets"]
+                  assert sum(result["paired_source_fixture_markets"].values()) == result["simulated_bets"]
+                  assert sum(result["settled_source_fixture_markets"].values()) == result["settled_bets"]
+                  if result["settled_bets"] < result["simulated_bets"]:
+                      assert result["roi_pct"] is None
+              serialized = json.dumps(report)
+              assert '"match_id"' not in serialized and '"prices":' not in serialized
           print("M5 forward settlement receipt integrity: PASS")
           PY
