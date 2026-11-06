@@ -4209,3 +4209,7 @@
 - 选择器同一样本 holdout n=9,400/market：AH `-216.52U/-2.303404%`，较固定最佳Bivariate `-2.235479%`略差；OU `-290.63U/-3.091809%`，较固定最佳Bivariate `-3.388564%`改善0.297个百分点。ROI仍负且holdout少于10,000，不满足M5验收。AH/OU来源均为Crown 8,607、TotalCorner default 793；历史receipt皆赛后。没有新gate、生产更新或TG发送。
 - M5测试 37/37 PASS；报告分母/结算/ROI/来源/赛后receipt核对及敏感逐场字段扫描 PASS；新脚本 py_compile 与 `git diff --check` PASS。之后应继续扩大前瞻真实赛前接收样本并研究盈利驱动，不能把这9,400样本当10,000样本验收。
 - 选择器代码/报告 push commit `5b6f0075d61399676073d57b6808fe4870db744c`。其 Actions run `42195841408` 实际为既有 `.github/workflows/m3-ah-reverse-research.yml` `failure`, `jobs=[]`; 这没有运行 M5 验收，M5 独立 Actions workflow 仍不存在。
+## 2026-11-06T09:36Z M3选择器 / M5 baseline与recency同场同价holdout
+- 新增 `research/m5/m5_m3_selector_same_quote_m5_comparison.py`，从私有M3三模型 OOS 网格、M5 baseline完整预测、M5 recency 2026预测和同一源盘口逐个 fixture ID 精确配对；盘口线、双方价格、结果和来源在各模型间完全一致。逐场核对 M5 forecast 的联赛/队伍/UTC开赛/FT，及 `train_end < prediction_asof < source quote event < kickoff` 通过。AH/OU均为 9,400 场；来源 Crown 8,607、TotalCorner default 793；receipt 9,400/市场全部赛后。
+- 同样本 ROI：AH M5 baseline -1.701330%、M3固定Bivariate -2.235479%、M3 2025逐联赛Log Loss选择器 -2.303404%、M5 recency -2.701090%；OU M3选择器 -3.091809%、M5 baseline -3.327739%、M5 recency -3.330160%、M3固定Bivariate -3.388564%。M5 baseline 当前AH最好、M3选择器当前OU最好，但均负；样本低于10,000且历史receipt赛后，不能验收。
+- 聚合结果 `research/m5/results/m5_m3_selector_same_quote_m5_comparison_20261106.json` 生成 `09:36:42.896835Z`；已通过 common sample/source/settlement/ROI/time-order/receipt/sensitive-field 核验。全套M5单测 39/39 PASS，新脚本 py_compile 与 `git diff --check` PASS。代码及报告待公开提交；未修改任何生产模型、gate、TG或正式账本。

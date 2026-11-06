@@ -750,3 +750,14 @@ Crown 采集 361 次，357 条身份验证成功、3 条身份/盘口源错配�
 | OU | 按联赛 Log Loss；无2025行时用全局 Bivariate（26联赛选Bivariate、18选Dixon–Coles、7选Poisson） | n=9,400；-290.63U / -3.091809%；DD 347.3975U | Bivariate Poisson：-3.388564% | 改善约0.297个百分点，仍亏损 |
 
 AH 结算 W/HW/P/HL/L 为 3,742/687/644/623/3,704，结算类别 Log Loss/Brier 为 1.036882/0.648903；OU 为 3,931/509/475/661/3,824，Log Loss/Brier 为 0.987924/0.623317。两个市场来源均为 Crown 8,607、TotalCorner default 793；本归档的历史 API 回执均晚于开赛，仍是 event-time retrospective 结果。虽然 OU 有样本外改善，但留出样本只有9,400场，且ROI仍为负；因此不满足10,000场与ROI≥3%的M5目标，也不据此改正式模型。完整脱敏回执见[2025选择 / 2026留出报告](results/m5_penaltyblog_2025_logloss_selector_2026_holdout_20261106.json)；复现工具为[m5_penaltyblog_prior_year_selector.py](m5_penaltyblog_prior_year_selector.py)。
+
+## M3 选择器 vs M5 模型：完全相同的 2026 报价样本
+
+把 2025 按联赛 Log Loss 选出的 M3 模型、三个固定 M3 模型、M5 baseline 与 M5 recency 放在同一组 2026 完整预测样本、相同 Crown-first / TotalCorner-default 盘口、相同 AH/OU盘口线及两侧赔率上重放。M5 forecast ID、队伍、比赛时间和比分均与 M3 fixture 精确匹配；M5 的 `train_end < prediction_asof < source quote event < kickoff` 逐场校验通过。
+
+| 市场 | M3 2025选择器 | M3 Poisson | M3 Dixon–Coles | M3 Bivariate | M5 baseline | M5 recency |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| AH ROI | -2.303404% | -2.290745% | -2.419574% | -2.235479% | **-1.701330%** | -2.701090% |
+| OU ROI | **-3.091809%** | -3.486330% | -3.399628% | -3.388564% | -3.327739% | -3.330160% |
+
+每个模型每市场均为同样的9,400注；两市场来源都是 Crown 8,607 + TotalCorner default 793。M5 baseline 是该 holdout 上 AH 点 ROI 最好，M3 选择器是 OU 点 ROI 最好；两者仍分别为 -1.70% 和 -3.09%。M5 recency 的概率评分较好但收益弱于 M5 baseline，说明在此子样本上概率分数与结算收益排序不完全一致。所有 M5 / M3 历史 API receipt 均赛后，且 holdout 低于 10,000 场，不能作为目标验收或可执行 ROI。详细结算、最大回撤、概率评分与哈希见[同价同场对比回执](results/m5_m3_selector_same_quote_m5_comparison_20261106.json)；重放代码为[m5_m3_selector_same_quote_m5_comparison.py](m5_m3_selector_same_quote_m5_comparison.py)。
