@@ -4355,3 +4355,8 @@
 - 最新结算查询时间 `2026-11-06T16:44:46.934327Z`：75个fixture、120 fixture-market，AH 3/63已结（W/HW/P/HL/L=0/0/1/0/2，净-2U），OU4/57已结（1/1/2/0/0，净+1.37U），pending113；两市场完整cohort ROI均null。此为真实赛前接收的预测队列，但仅120市场项，不能证明10k目标或稳定收益。
 - 已生成脱敏回执 `research/m5/results/m5_forward_shadow_crown_refresh_20261106T1644Z.json`，将更新README及Actions校验。M1/MR1/M3/M4生产模型、订单、TG、账本、Gate均未触碰。
 - 研究回执、README及Actions validator commit `b3350010274f0dbadaf7f7970f9a080f61d7925b` 已推送；M5 Actions run [42255516350](https://github.com/ljm198964-alt/quant-runner/actions/runs/42255516350) 成功（全量71项M5测试及新增覆盖回执校验通过）。Actions仅检查脱敏聚合，不访问私有逐场数据。
+
+## 2026-11-06T16:54Z M5前瞻 Crown/TOTAL配对与结算扩展
+- 从当前冻结forecast的未开赛目标再选40场，Crown专用接口响应40/40 verified，AH/OU各11场含合格盘。用总forecast批次和完整Crown/TOTAL index重配对；fixture-market由120增至129（AH68、OU61），新增9项AH5/OU4均来自Crown，TOTAL补缺仍AH7/OU4。120共同项中 odds pair 变化6、line变化1、event time变化6、receipt变化13。所有129项通过 train_end < prediction_asof <= quote_event <= actual receipt < kickoff。新pair SHA `50e2cdd17dcb875c95c2caaf1bb14b0a52ab89db17c7dacc55fb7a0f5017edab`。
+- 用TotalCorner核验结果刷新75场fixture的129项市场配对：累计FT结算AH5/68（W/HW/P/HL/L=2/0/1/0/2，净-0.36U，DD2U）、OU6/61（2/1/2/0/1，净+1.37U，DD1U）；pending118，完整队列ROI两市场均null。Settled-only收益不作为ROI目标结论。该队列为赛前receipt可证的shadow结果，但远低于每市场1万场要求。
+- 脱敏回执 `research/m5/results/m5_forward_shadow_crown_refresh_20261106T1654Z.json` 含run/code/input摘要哈希、来源、变更、结算和时序聚合；无逐场身份/盘口/比分。README及Actions validator同步更新。无生产模型、正式交易、TG、账本或Gate更改。
