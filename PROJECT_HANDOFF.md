@@ -4341,3 +4341,4 @@
 ## 2026-11-06T16:20Z M5真实前瞻队列增量结算
 - 读取最新已冻结的 `m5_forward_pairs_20261106T1417Z.jsonl`（70场，AH60、OU54；receipt/pair SHA `74231d96ef2dce4ca50b2adafaf40ee31113a50d9347275be1edcb6cc92dbefc`），调用现有 TotalCorner result verification，凭证只由Keychain读取且未输出。核验本轮发现1场新verified FT、两项市场结算；累计结算7/114，pending107。AH settled3（W/HW/P/HL/L=0/0/1/0/2），净-2U、回撤2U、全队列ROI=null；OU settled4（1/1/2/0/0），净+1.37U、回撤0U、全队列ROI=null。settled prices全为Crown；pair来源AH53 Crown+7 TOTAL，OU50 Crown+4 TOTAL。settled-only ROI非完整队列结果，不能用作收益目标结论。
 - 脱敏回执 `research/m5/results/m5_forward_shadow_settlement_20261106T1620Z.json` 只含聚合结果、pair/result hash；逐场身份、价格、比分与原始响应仍私有。README已更新。该队列是真实赛前收集配对，但现阶段样本仅114，远低于每市场10,000目标；未改变交易规则、生产、Telegram、订单、账本或Gate。
+- 本节回执和README commit `dd4b5f5bfcf081d073ea0babe1fa577981d4c47c` 已推送；M5 Actions run [42251623858](https://github.com/ljm198964-alt/quant-runner/actions/runs/42251623858) 成功，完整71项M5测试及所有已有forward pair/settlement聚合回执验证通过。Actions只验证聚合/代码，不访问逐场私有存储。
