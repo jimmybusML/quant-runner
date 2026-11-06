@@ -1,0 +1,90 @@
+{
+  "added_fixture_markets": 0,
+  "capture_aggregate_counts": {
+    "AH_qualified_fixture_markets": 18,
+    "OU_qualified_fixture_markets": 18,
+    "verified_fixture_responses": 20
+  },
+  "capture_attempted_fixtures": 20,
+  "capture_receipt_sha256": "ab912f9a7e17d8db48fe4537bc922d82c740f34086f7d81359046c8c5cb5a9db",
+  "capture_runner_sha256": "6c62a206925fe244b7f0c5b05fb987af122db601829e6380d567e3ba11f35c74",
+  "changed_quote_fields_on_common_fixture_markets": {
+    "line_changed": 10,
+    "odds_pair_changed": 28,
+    "quote_event_time_changed": 30,
+    "receipt_time_changed": 36
+  },
+  "compared_fixture_markets": 114,
+  "forecast_sha256": "80dc6581fefa190cddeaa95ba75a9210e647ea5996456e9c1d08a64aaffb91b7",
+  "generated_utc": "2026-11-06T16:27:23.731777Z",
+  "limitations": [
+    "The refreshed pair has the same 114 unique fixture-markets as before; it adds no fixtures.",
+    "Only seven of 114 market bets are settled; full-cohort ROI remains null.",
+    "This small prospective shadow sample is not evidence of the 10,000-match ROI target.",
+    "No model or production strategy was changed."
+  ],
+  "markets": {
+    "AH": {
+      "source_fixture_markets": {
+        "Crown": 53,
+        "TotalCorner_default": 7
+      },
+      "time_order_valid": 60,
+      "unique_fixture_markets": 60
+    },
+    "OU": {
+      "source_fixture_markets": {
+        "Crown": 50,
+        "TotalCorner_default": 4
+      },
+      "time_order_valid": 54,
+      "unique_fixture_markets": 54
+    }
+  },
+  "new_fixture_markets_by_market": {
+    "AH": 60,
+    "OU": 54
+  },
+  "new_pair_metadata_sha256": "205a9928fb22d8070553bfaf765e384fafe33bd6bc2b80d8629ee12615ae308b",
+  "new_pair_sha256": "730fdbec3af36f55bad1f4d0e1f4c9c78adb4ffbfe5a0038a6679b9a7e4d66d2",
+  "new_unique_fixture_markets": 114,
+  "old_pair_sha256": "74231d96ef2dce4ca50b2adafaf40ee31113a50d9347275be1edcb6cc92dbefc",
+  "pairing_runner_sha256": "da9d5d23a6bf963c6f44d93dcadd239192d2e5dbc1df2ac02d4c37f275b1b2c4",
+  "privacy": "Aggregate counts and hashes only; fixture IDs, teams, line values, prices, scores, and raw responses remain private.",
+  "protocol": "M5_FORWARD_CROWN_LIVE_REFRESH_V1",
+  "removed_fixture_markets": 0,
+  "settlement_runner_sha256": "bb890df55e0118650a730b7f5fb361db90b7d4b7216a46ac05e5a80295497cb2",
+  "settlement_snapshot": {
+    "AH": {
+      "max_drawdown_units_by_kickoff": 2.0,
+      "net_units": -2.0,
+      "pending_bets": 57,
+      "roi_pct": null,
+      "settled_bets": 3,
+      "settlement_counts": {
+        "half_loss": 0,
+        "half_win": 0,
+        "loss": 2,
+        "push": 1,
+        "win": 0
+      },
+      "simulated_bets": 60
+    },
+    "OU": {
+      "max_drawdown_units_by_kickoff": 0.0,
+      "net_units": 1.37,
+      "pending_bets": 50,
+      "roi_pct": null,
+      "settled_bets": 4,
+      "settlement_counts": {
+        "half_loss": 0,
+        "half_win": 1,
+        "loss": 0,
+        "push": 2,
+        "win": 1
+      },
+      "simulated_bets": 54
+    }
+  },
+  "timing": "All selected quote event timestamps and actual provider receipt timestamps satisfied train_end_utc < prediction_asof_utc <= quote_event_utc <= quote_received_utc < kickoff_utc. TotalCorner responses and fixture rows remain private."
+}

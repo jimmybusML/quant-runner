@@ -319,3 +319,36 @@ jobs:
           assert '"match_id"' not in serialized and '"prices":' not in serialized and '"home"' not in serialized
           print("M5 TotalCorner restart replay receipt integrity: PASS")
           PY
+      - name: Validate the latest forward Crown refresh receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          report = json.loads(Path("research/m5/results/m5_forward_shadow_crown_refresh_20261106T1627Z.json").read_text())
+          for field, file in (("capture_runner_sha256", "research/m5/m5_forward_shadow_crown_capture.py"),
+                              ("pairing_runner_sha256", "research/m5/m5_forward_shadow_source_union_pairing.py"),
+                              ("settlement_runner_sha256", "research/m5/m5_forward_shadow_settlement.py")):
+              assert report[field] == hashlib.sha256(Path(file).read_bytes()).hexdigest()
+          assert report["capture_attempted_fixtures"] == 20
+          assert report["capture_aggregate_counts"]["verified_fixture_responses"] == 20
+          assert report["capture_aggregate_counts"]["AH_qualified_fixture_markets"] == 18
+          assert report["capture_aggregate_counts"]["OU_qualified_fixture_markets"] == 18
+          assert report["new_unique_fixture_markets"] == report["compared_fixture_markets"] == 114
+          assert report["added_fixture_markets"] == report["removed_fixture_markets"] == 0
+          assert report["new_fixture_markets_by_market"] == {"AH": 60, "OU": 54}
+          assert report["changed_quote_fields_on_common_fixture_markets"] == {
+              "line": 10, "odds_pair": 28, "quote_event_utc": 30, "quote_received_utc": 36}
+          for market, n, sources in (("AH", 60, {"Crown": 53, "TotalCorner_default": 7}),
+                                     ("OU", 54, {"Crown": 50, "TotalCorner_default": 4})):
+              result = report["markets"][market]
+              assert result["unique_fixture_markets"] == result["time_order_valid"] == n
+              assert result["source_fixture_markets"] == sources
+              settlement = report["settlement_snapshot"][market]
+              assert settlement["settled_bets"] + settlement["pending_bets"] == n
+              assert settlement["roi_pct"] is None
+          serialized = json.dumps(report)
+          for field in ('"match_id"', '"prices":', '"line":', '"home":', '"away":'):
+              assert field not in serialized
+          print("M5 latest forward Crown refresh integrity: PASS")
+          PY
