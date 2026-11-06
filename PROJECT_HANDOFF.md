@@ -4192,4 +4192,4 @@
 ## 2026-11-06T08:41Z 2025训练/2026留出策略组解释性输出
 - 扩展 `m5_league_direction_walkforward.py`：保留原来无过滤、每场一注的2025训练→2026完整holdout；新增2026逐选中策略组（league count、fixtures、net U、ROI）、holdout正/负联赛计数及同赛事集合higher-EV基准净U/ROI。对应回归测试覆盖汇总/分母。回执 `m5_league_direction_2025_train_2026_oos_20261106.json` 已重新生成UTC `08:41:40.307083Z`。
 - AH 2026：选向结果ROI -1.373019% vs 同样本higher-EV -1.855920%；21/51联赛为正。按选中组：favorite 2,721场/-1.243017%，underdog 957场/-0.684431%，higher-EV 6,483场/-1.529230%，所有组仍负。OU：-3.019732% vs -3.418906%；15/51联赛为正；favorite 2,353场/-2.754887%，underdog 920场/-4.234239%，higher-EV 6,888场/-2.947989%，所有组仍负。
-- `unittest discover -s research/m5 -p 'test_*.py'` 32/32通过，py_compile及报告分组分母/ROI交叉核验通过。仍属事件时间回顾性回放、2025训练ROI多策略选择有偏差；不更新生产 Gate。目标仍未达+3%。
+- `unittest discover -s research/m5 -p 'test_*.py'` 32/32通过，py_compile及报告分组分母/ROI交叉核验通过。仍属事件时间回顾性回放、2025训练ROI多策略选择有偏差；不更新生产 Gate。目标仍未达+3%。 代码提交 `a5d18309045842bd6540c33019200b303960fa43` 已推送；GitHub push run `42189646488` 为现有M3 workflow失败且无jobs，不是M5验收，仓库无M5 Actions workflow。
