@@ -52,6 +52,23 @@ jobs:
                   assert abs(model["roi_pct"] - 100 * model["net_units"] / model["stake_units"]) < 1e-6
           print("M5 public receipt integrity: PASS")
           PY
+      - name: Validate the public M1 archive re-audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(Path("research/m5/results/m5_m1_expanded_archive_reaudit_20261106.json").read_text())
+          assert report["archived_scan_count"] == 203
+          for market in ("AH", "OU"):
+              result = report["markets"][market]["latest_saved_model_output_per_fixture"]
+              assert result["fixtures"] == 1233
+              assert result["fixtures"] < report["audit_counts"][f"valid_model_output_{market}"]
+              assert abs(result["roi_pct"] - 100 * result["net_units"] / result["fixtures"]) < 1e-6
+          serialized = json.dumps(report)
+          assert '"match_id"' not in serialized and '"prices":' not in serialized and '"teams"' not in serialized
+          print("M5 M1 archive re-audit integrity: PASS")
+          PY
       - name: Validate the public forward pairing receipt
         run: |
           python - <<'PY'

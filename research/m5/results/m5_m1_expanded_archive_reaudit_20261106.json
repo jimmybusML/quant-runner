@@ -1,0 +1,89 @@
+{
+  "archived_scan_count": 203,
+  "audit_counts": {
+    "AH_no_model_side": 2152,
+    "OU_no_model_side": 2152,
+    "decision_or_kickoff_mismatch": 236,
+    "not_in_expanded_fixture_archive": 3592,
+    "valid_model_output_AH": 10758,
+    "valid_model_output_OU": 10758
+  },
+  "candidate_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+  "generated_utc": "2026-11-06T13:54:57.475320+00:00",
+  "limitations": [
+    "This scores saved M1 scans only; it does not retrain or predict all expanded fixtures.",
+    "All-output results include archived forecasts even when M1's own status was outside its formal decision window; statuses are reported separately.",
+    "M1 archives do not separately record Crown response receipt time; pre-kickoff scan archive completion is used as a conservative upper bound on receipt. The expanded result archive itself was collected retrospectively.",
+    "No fixture identifiers, team names, quotes, or scan payloads are included in output."
+  ],
+  "m1_replay_manifest_set_sha256": "52ad16a6cf17b302f4945924f23f83a9e2a8e65f749a8ee304cbf8dd6231d24e",
+  "markets": {
+    "AH": {
+      "existing_M1_formal_candidate_subset": {
+        "fixtures": 42,
+        "max_drawdown_units_by_decision_time": 10.2,
+        "net_units": -5.16,
+        "roi_pct": -12.285714,
+        "settlement_counts": {
+          "loss": 22,
+          "push": 3,
+          "win": 17
+        }
+      },
+      "latest_saved_model_output_per_fixture": {
+        "fixtures": 1233,
+        "max_drawdown_units_by_decision_time": 76.65,
+        "net_units": -75.76,
+        "roi_pct": -6.144363,
+        "settlement_counts": {
+          "loss": 594,
+          "push": 83,
+          "win": 556
+        }
+      },
+      "scan_status_counts_latest_output": {
+        "CANDIDATE": 42,
+        "NO_VALUE": 23,
+        "OUTSIDE_DECISION_WINDOW": 976,
+        "REJECT_DATA_QUALITY": 12,
+        "REJECT_M1_AH_EV_GE_10_PERCENT": 18,
+        "REJECT_STATE_CONFLICT": 132,
+        "WATCHLIST_EDGE_TOO_THIN": 30
+      }
+    },
+    "OU": {
+      "existing_M1_formal_candidate_subset": {
+        "fixtures": 79,
+        "max_drawdown_units_by_decision_time": 4.59,
+        "net_units": 4.345,
+        "roi_pct": 5.5,
+        "settlement_counts": {
+          "loss": 36,
+          "push": 1,
+          "win": 42
+        }
+      },
+      "latest_saved_model_output_per_fixture": {
+        "fixtures": 1233,
+        "max_drawdown_units_by_decision_time": 62.23,
+        "net_units": -40.355,
+        "roi_pct": -3.272912,
+        "settlement_counts": {
+          "loss": 574,
+          "push": 68,
+          "win": 591
+        }
+      },
+      "scan_status_counts_latest_output": {
+        "CANDIDATE": 79,
+        "NO_VALUE": 27,
+        "OUTSIDE_DECISION_WINDOW": 976,
+        "REJECT_DATA_QUALITY": 10,
+        "REJECT_STATE_CONFLICT": 91,
+        "WATCHLIST_EDGE_TOO_THIN": 50
+      }
+    }
+  },
+  "method": "Exact TotalCorner fixture ID, teams, and UTC kickoff join; latest archived M1 model output per fixture-market; verified Crown price event at/before the recorded M1 decision, with saved scan archive completion also before kickoff; one unit per output; exact Asian quarter-line settlement. Formal subset retains the archived M1 formal flag without introducing any new gate.",
+  "protocol": "M5_M1_SAVED_CROWN_FORECAST_EXPANDED_RESULT_REPLAY_V1"
+}
