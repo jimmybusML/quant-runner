@@ -4,9 +4,23 @@ on:
 permissions:
   contents: read
 jobs:
-  manifest:
+  manifest_window:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - { start: '2018-07-27', end: '2019-06-30', index: '00' }
+          - { start: '2019-07-01', end: '2020-06-30', index: '01' }
+          - { start: '2020-07-01', end: '2021-06-30', index: '02' }
+          - { start: '2021-07-01', end: '2022-06-30', index: '03' }
+          - { start: '2022-07-01', end: '2023-06-30', index: '04' }
+          - { start: '2023-07-01', end: '2024-06-30', index: '05' }
+          - { start: '2024-07-01', end: '2025-06-30', index: '06' }
+          - { start: '2025-07-01', end: '2026-06-30', index: '07' }
+          - { start: '2026-07-01', end: '2026-11-04', index: '08' }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -14,33 +28,27 @@ jobs:
           python-version: '3.11'
       - name: Install encryption dependency
         run: python -m pip install --disable-pip-version-check cryptography
-      - name: Match strict-OOS M3 fixtures to scoped TotalCorner schedule and encrypt manifest
+      - name: Match this date window to scoped TotalCorner schedule and encrypt it
         env:
           TOTALCORNER_TOKEN: ${{ secrets.TOTALCORNER_TOKEN }}
           M3_CROWN_RESEARCH_KEY: ${{ secrets.M3_CROWN_RESEARCH_KEY }}
-        run: python research/m3/collect_crown_drop_batched.py --stage manifest
+        run: python research/m3/collect_crown_drop_batched.py --stage manifest-window --start '${{ matrix.start }}' --end '${{ matrix.end }}'
       - uses: actions/upload-artifact@v4
         with:
-          name: m3-crown-manifest-${{ github.run_id }}
-          path: ${{ runner.temp }}/m3-crown-research/m3_crown_manifest.bin
+          name: m3-crown-manifest-${{ github.run_id }}-${{ matrix.index }}
+          path: ${{ runner.temp }}/m3-crown-research/m3_crown_manifest_${{ matrix.start }}_${{ matrix.end }}.bin
           retention-days: 1
           if-no-files-found: error
-      - name: Publish value-free manifest counts
+      - name: Publish value-free manifest window counts
         if: always()
         run: |
-          if [ -f "$RUNNER_TEMP/m3-crown-research/manifest_summary.json" ]; then
-            cat "$RUNNER_TEMP/m3-crown-research/manifest_summary.json" >> "$GITHUB_STEP_SUMMARY"
-          fi
+          SUMMARY="$RUNNER_TEMP/m3-crown-research/manifest_${{ matrix.start }}_${{ matrix.end }}_summary.json"
+          if [ -f "$SUMMARY" ]; then cat "$SUMMARY" >> "$GITHUB_STEP_SUMMARY"; fi
 
-  crown_quotes:
-    needs: manifest
+  manifest:
+    needs: manifest_window
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        batch: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -50,22 +58,64 @@ jobs:
         run: python -m pip install --disable-pip-version-check cryptography
       - uses: actions/download-artifact@v4
         with:
+          pattern: m3-crown-manifest-${{ github.run_id }}-*
+          path: ${{ runner.temp }}/m3-crown-research/windows
+          merge-multiple: true
+      - name: Merge encrypted date windows into a unified fixture manifest
+        env:
+          M3_CROWN_RESEARCH_KEY: ${{ secrets.M3_CROWN_RESEARCH_KEY }}
+        run: python research/m3/collect_crown_drop_batched.py --stage merge-manifests --input-dir "$RUNNER_TEMP/m3-crown-research/windows"
+      - uses: actions/upload-artifact@v4
+        with:
           name: m3-crown-manifest-${{ github.run_id }}
-          path: ${{ runner.temp }}/m3-crown-research
-      - name: Collect Crown AH and OU quote paths for this resumable batch
+          path: ${{ runner.temp }}/m3-crown-research/m3_crown_manifest.bin
+          retention-days: 1
+          if-no-files-found: error
+      - name: Publish unified manifest counts
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/m3-crown-research/manifest_summary.json" ]; then
+            cat "$RUNNER_TEMP/m3-crown-research/manifest_summary.json" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  crown_quotes:
+    needs: manifest
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - { start: '2018-07-27', end: '2019-06-30', index: '00' }
+          - { start: '2019-07-01', end: '2020-06-30', index: '01' }
+          - { start: '2020-07-01', end: '2021-06-30', index: '02' }
+          - { start: '2021-07-01', end: '2022-06-30', index: '03' }
+          - { start: '2022-07-01', end: '2023-06-30', index: '04' }
+          - { start: '2023-07-01', end: '2024-06-30', index: '05' }
+          - { start: '2024-07-01', end: '2025-06-30', index: '06' }
+          - { start: '2025-07-01', end: '2026-06-30', index: '07' }
+          - { start: '2026-07-01', end: '2026-11-04', index: '08' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install encryption dependency
+        run: python -m pip install --disable-pip-version-check cryptography
+      - name: Collect Crown AH and OU quote paths for this date window
         env:
           TOTALCORNER_TOKEN: ${{ secrets.TOTALCORNER_TOKEN }}
           M3_CROWN_RESEARCH_KEY: ${{ secrets.M3_CROWN_RESEARCH_KEY }}
-          M3_CROWN_MANIFEST: ${{ runner.temp }}/m3-crown-research/m3_crown_manifest.bin
-        run: python research/m3/collect_crown_drop_batched.py --stage quotes --batch ${{ matrix.batch }}
+        run: python research/m3/collect_crown_drop_batched.py --stage quotes-window --start '${{ matrix.start }}' --end '${{ matrix.end }}'
       - uses: actions/upload-artifact@v4
         with:
-          name: m3-crown-batch-${{ github.run_id }}-${{ matrix.batch }}
-          path: ${{ runner.temp }}/m3-crown-research/m3_crown_batch_${{ matrix.batch }}.bin
+          name: m3-crown-quotes-${{ github.run_id }}-${{ matrix.index }}
+          path: ${{ runner.temp }}/m3-crown-research/m3_crown_quotes_${{ matrix.start }}_${{ matrix.end }}.bin
           retention-days: 1
           if-no-files-found: error
       - name: Publish value-free batch counts
         if: always()
         run: |
-          SUMMARY="$RUNNER_TEMP/m3-crown-research/batch_$(printf '%02d' '${{ matrix.batch }}')_summary.json"
+          SUMMARY="$RUNNER_TEMP/m3-crown-research/quotes_${{ matrix.start }}_${{ matrix.end }}_summary.json"
           if [ -f "$SUMMARY" ]; then cat "$SUMMARY" >> "$GITHUB_STEP_SUMMARY"; fi

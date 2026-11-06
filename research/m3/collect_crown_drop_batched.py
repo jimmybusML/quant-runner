@@ -207,6 +207,84 @@ def stage_manifest():
  write_public('manifest_summary.json',summary)
  print(json.dumps({'status':'MANIFEST_READY','summary':summary},ensure_ascii=False),flush=True)
 
+def stage_manifest_window(start_text,end_text):
+ key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
+ if not key_text:raise RuntimeError('Research encryption key unavailable')
+ start=day(start_text);end=day(end_text)
+ if end<start:raise RuntimeError('Invalid manifest date window')
+ train,test=prediction_candidates()
+ wanted={}
+ for split,items in (('TRAIN',train),('TEST',test)):
+  for item in items:
+   d=day(item['date'])
+   if start<=d<=end:wanted[key_for_prediction(item)]={'prediction':item,'split':split}
+ found={};ambiguous=set();pages_by_league={}
+ for code,info in LEAGUES.items():
+  page=1;league_pages=0
+  while True:
+   payload=request('/league/schedule/'+info['id'],{'page':page})
+   if payload.get('success')!=1:raise RuntimeError('TotalCorner league schedule returned unsuccessful response')
+   rows=get_matches(payload);league_pages+=1
+   if not rows:break
+   for m in rows:
+    parsed=candidate_key(code,m)
+    if not parsed:continue
+    k,ko,score=parsed
+    if k not in wanted:continue
+    pred=wanted[k]['prediction']
+    if pred['score']!=score:diag['schedule_score_mismatch']+=1;continue
+    mid=str(m.get('id') or '')
+    if not mid:diag['schedule_missing_match_id']+=1;continue
+    record={'split':wanted[k]['split'],'league':pred['league'],'season':pred.get('season'),
+      'm3_date':pred['date'],'home':pred['home'],'away':pred['away'],'m3_score':pred['score'],'models':pred['models'],
+      'source':{'match_id':mid,'league':m.get('l'),'league_id':str(m.get('l_id') or info['id']),
+        'home':m.get('h'),'away':m.get('a'),'start_local':m.get('start'),'kickoff_utc':ko.isoformat(),
+        'status':m.get('status'),'score':[m.get('hg'),m.get('ag')]}}
+    if k in found and found[k]['source']['match_id']!=mid:ambiguous.add(k)
+    else:found[k]=record
+   if not next_page(payload,page):break
+   page+=1
+  pages_by_league[code]=league_pages
+  print(json.dumps({'phase':'league_schedule_window','window':f'{start}_{end}','league':code,'pages':league_pages,
+    'matched':sum(1 for k in found if k[0]==code and k not in ambiguous)}),flush=True)
+ matched=[v for k,v in found.items() if k not in ambiguous]
+ matched.sort(key=lambda r:(r['source']['kickoff_utc'],r['league'],norm(r['home']),norm(r['away'])))
+ summary={'protocol':'M3_CROWN_DROP_MANIFEST_WINDOW_V2','window':{'start':str(start),'end':str(end)},
+  'train_candidate_fixtures':sum(1 for v in wanted.values() if v['split']=='TRAIN'),
+  'test_candidate_fixtures':sum(1 for v in wanted.values() if v['split']=='TEST'),
+  'matched_fixtures':len(matched),'ambiguous_fixtures':len(ambiguous),'schedule_pages':pages_by_league,
+  'diagnostics':dict(diag),'records_digest':hashlib.sha256(json.dumps([x['source']['match_id'] for x in matched]).encode()).hexdigest()}
+ OUT.mkdir(parents=True,exist_ok=True);tag=f'{start}_{end}'
+ encrypt_doc({'summary':summary,'records':matched},key_text,'MANIFEST_WINDOW',OUT/f'm3_crown_manifest_{tag}.bin')
+ write_public(f'manifest_{tag}_summary.json',summary)
+ print(json.dumps({'status':'MANIFEST_WINDOW_READY','summary':summary},ensure_ascii=False),flush=True)
+
+def stage_merge_manifests(input_dir):
+ key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
+ if not key_text:raise RuntimeError('Research encryption key unavailable')
+ folder=Path(input_dir);files=sorted(folder.glob('m3_crown_manifest_*.bin'))
+ if not files:raise RuntimeError('No encrypted date-window manifests found')
+ by_id={};summaries=[];conflicts=0
+ for path in files:
+  doc=decrypt_doc(path,key_text,'MANIFEST_WINDOW');summaries.append(doc['summary'])
+  for record in doc['records']:
+   mid=str(record['source']['match_id'])
+   if mid in by_id and by_id[mid]!=record:conflicts+=1;continue
+   by_id[mid]=record
+ records=sorted(by_id.values(),key=lambda r:(r['source']['kickoff_utc'],r['league'],norm(r['home']),norm(r['away'])))
+ split_counts=Counter(r['split'] for r in records)
+ summary={'protocol':'M3_CROWN_DROP_MANIFEST_V2','sample_design':{
+  'scoped_leagues':list(LEAGUES),'train_candidate_fixtures':sum(x['train_candidate_fixtures'] for x in summaries),
+  'test_candidate_fixtures':sum(x['test_candidate_fixtures'] for x in summaries),
+  'train_start':min(x['window']['start'] for x in summaries),'train_end':max(x['window']['end'] for x in summaries),
+  'test_start':min(x['window']['start'] for x in summaries),'test_end':max(x['window']['end'] for x in summaries)},
+  'matched_train_fixtures':split_counts['TRAIN'],'matched_test_fixtures':split_counts['TEST'],
+  'matched_total_fixtures':len(records),'window_manifests':len(files),'match_id_conflicts':conflicts,
+  'quote_batches':(len(records)+BATCH_SIZE-1)//BATCH_SIZE,'window_summaries':summaries}
+ OUT.mkdir(parents=True,exist_ok=True);encrypt_doc({'summary':summary,'records':records},key_text,'MANIFEST',OUT/'m3_crown_manifest.bin')
+ write_public('manifest_summary.json',summary)
+ print(json.dumps({'status':'MANIFEST_MERGED','summary':summary},ensure_ascii=False),flush=True)
+
 def stage_quotes(batch):
  key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
  if not key_text:raise RuntimeError('Research encryption key unavailable')
@@ -244,9 +322,76 @@ def stage_quotes(batch):
  write_public(f'batch_{batch:02d}_summary.json',summary)
  print(json.dumps({'status':'BATCH_READY','summary':summary},ensure_ascii=False),flush=True)
 
+def stage_quotes_window(start_text,end_text):
+ key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
+ if not key_text:raise RuntimeError('Research encryption key unavailable')
+ start=day(start_text);end=day(end_text)
+ if end<start:raise RuntimeError('Invalid quote date window')
+ train,test=prediction_candidates();wanted={}
+ for split,items in (('TRAIN',train),('TEST',test)):
+  for item in items:
+   if start<=day(item['date'])<=end:wanted[key_for_prediction(item)]={'prediction':item,'split':split}
+ matches_by_id={};counts=Counter();raw=Counter();page_counts={}
+ for code,info in LEAGUES.items():
+  page=1;pages=0
+  while True:
+   payload=request('/league/schedule/'+info['id'],{'page':page});pages+=1
+   if payload.get('success')!=1:raise RuntimeError('TotalCorner league schedule returned unsuccessful response')
+   rows=get_matches(payload)
+   if not rows:break
+   for m in rows:
+    parsed=candidate_key(code,m)
+    if not parsed:continue
+    k,ko,score=parsed
+    if k not in wanted or score!=wanted[k]['prediction']['score']:continue
+    mid=str(m.get('id') or '')
+    if mid:matches_by_id[mid]=(k,ko,m)
+   if not next_page(payload,page):break
+   page+=1
+  page_counts[code]=pages
+ print(json.dumps({'phase':'quote_window_schedule_ready','window':f'{start}_{end}','matched_ids':len(matches_by_id),'pages':page_counts}),flush=True)
+ results=[];seen_keys=set()
+ for n,(mid,(k,ko,sched)) in enumerate(sorted(matches_by_id.items(),key=lambda q:(q[1][1],q[0])),1):
+  if k in seen_keys:continue
+  seen_keys.add(k);predinfo=wanted[k];pred=predinfo['prediction']
+  payload=request('/match/bookmaker_odds/'+urllib.parse.quote(mid,safe=''),{'bookmaker':'crown','columns':'asianList,goalList'})
+  data=payload.get('data') if isinstance(payload,dict) else None
+  fixtures=[x for x in data if isinstance(x,dict) and str(x.get('id'))==mid] if isinstance(data,list) else []
+  if payload.get('success')!=1 or len(fixtures)!=1:
+   counts['odds_api_or_identity_failure']+=1;continue
+  fixture=fixtures[0];books=fixture.get('bookmakers')
+  crowns=[b for b in books if isinstance(b,dict) and b.get('slug')=='crown'] if isinstance(books,list) else []
+  if len(crowns)!=1:counts['crown_missing_or_ambiguous']+=1;continue
+  book=crowns[0];ah=book.get('asian_list') or [];ou=book.get('goal_list') or []
+  results.append({'split':predinfo['split'],'league':pred['league'],'season':pred.get('season'),'m3_date':pred['date'],
+   'home':pred['home'],'away':pred['away'],'m3_score':pred['score'],'models':pred['models'],
+   'source':{'match_id':mid,'league':fixture.get('l'),'league_id':str(fixture.get('l_id') or LEAGUES[k[0]]['id']),
+    'home':fixture.get('h'),'away':fixture.get('a'),'start_local':fixture.get('start'),'kickoff_utc':ko.isoformat(),
+    'status':fixture.get('status'),'score':[fixture.get('hg'),fixture.get('ag')],
+    'canonical_payload_sha256':hashlib.sha256(json.dumps(payload,ensure_ascii=False,separators=(',',':')).encode()).hexdigest()},
+   'crown':{'asian_list':ah,'goal_list':ou}})
+  counts['crown_responses']+=1;raw['AH_raw_rows']+=len(ah);raw['OU_raw_rows']+=len(ou)
+  if n%100==0:print(json.dumps({'phase':'crown_quote_window','window':f'{start}_{end}','completed':n,'crown_responses':counts['crown_responses']}),flush=True)
+ summary={'protocol':'M3_CROWN_DROP_WINDOW_QUOTES_V2','window':{'start':str(start),'end':str(end)},
+  'matched_fixtures':len(matches_by_id),'crown_responses':counts['crown_responses'],'counts':dict(counts),
+  'raw_market_rows':dict(raw),'schedule_pages':page_counts}
+ OUT.mkdir(parents=True,exist_ok=True);tag=f'{start}_{end}'
+ encrypt_doc({'summary':summary,'records':results},key_text,'QUOTE_WINDOW',OUT/f'm3_crown_quotes_{tag}.bin')
+ write_public(f'quotes_{tag}_summary.json',summary)
+ print(json.dumps({'status':'QUOTE_WINDOW_READY','summary':summary},ensure_ascii=False),flush=True)
+
 def main():
- p=argparse.ArgumentParser();p.add_argument('--stage',choices=('manifest','quotes'),required=True);p.add_argument('--batch',type=int,default=0);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--stage',choices=('manifest','manifest-window','merge-manifests','quotes','quotes-window'),required=True);p.add_argument('--batch',type=int,default=0);p.add_argument('--start');p.add_argument('--end');p.add_argument('--input-dir');a=p.parse_args()
  if a.stage=='manifest':stage_manifest()
+ elif a.stage=='manifest-window':
+  if not a.start or not a.end:raise RuntimeError('manifest-window requires --start and --end')
+  stage_manifest_window(a.start,a.end)
+ elif a.stage=='merge-manifests':
+  if not a.input_dir:raise RuntimeError('merge-manifests requires --input-dir')
+  stage_merge_manifests(a.input_dir)
+ elif a.stage=='quotes-window':
+  if not a.start or not a.end:raise RuntimeError('quotes-window requires --start and --end')
+  stage_quotes_window(a.start,a.end)
  else:stage_quotes(a.batch)
 
 if __name__=='__main__':main()
