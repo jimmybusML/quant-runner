@@ -897,4 +897,4 @@ AH W/HW/P/HL/L 为 3,791/783/650/522/3,771；OU 为 3,900/630/480/538/3,969。�
 
 模型训练截止、预测 as-of、盘口事件时间和开赛顺序均经过现有输入校验；2025与2026赛事 ID 不交叉。但历史 API 收据均为开赛后回取，故 ROI 仅为 event-time 回顾性模拟，不是赛前收据验证或可执行收益；2026已在此前研究中多次检视，也不是未触碰确认集。新增实验未改生产策略、Gate、TG、正式订单或账本。
 
-新增 GitHub Actions [`M5 Research Validation`](../../.github/workflows/m5-research-validation.yml) 会对公开 M5 研究代码运行全套单测，并校验本回执的 runner SHA、来源/样本分母、结算及 ROI 算术。该工作流不读取 secrets、不访问逐场私有数据，也不重训；自动数据更新与重训还需要把 M5 私有归档安全接入 Actions，当前 bridge 未包含 M5 数据。
+新增 GitHub Actions [`M5 Research Validation`](../../.github/workflows/m5-research-validation.yml) 会对公开 M5 研究代码运行全套单测，并校验本回执的 runner SHA、来源/样本分母、结算及 ROI 算术。手动触发 run [42219881863](https://github.com/ljm198964-alt/quant-runner/actions/runs/42219881863) 已于 `2026-11-06T12:44:53Z` 成功。该工作流不读取 secrets、不访问逐场私有数据，也不重训；自动数据更新与重训还需要把 M5 私有归档安全接入 Actions，当前 private bridge 文件清单未见 M5 数据。
