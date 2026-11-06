@@ -289,3 +289,33 @@ jobs:
               assert '"match_id"' not in serialized and '"prices":' not in serialized
           print("M5 forward settlement receipt integrity: PASS")
           PY
+      - name: Validate the TotalCorner restart replay receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          receipt = json.loads(Path("research/m5/results/m5_totalcorner_restart_source_replay_20261106.json").read_text())
+          runner = Path("research/m5/m5_source_union_replay.py")
+          assert receipt["replay_runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          assert receipt["capture_resume"]["attempted_totalcorner_requests"] == 0
+          assert receipt["forecast_fixture_manifest_rows"] == 127674
+          assert "post-kickoff" in receipt["timing_note"]
+          expected = {
+              "Crown-only": {"AH": (10433, {"Crown": 10433}), "OU": (10432, {"Crown": 10432})},
+              "TotalCorner-only": {"AH": (1141, {"TotalCorner_default": 1141}), "OU": (1141, {"TotalCorner_default": 1141})},
+              "Crown-first union": {"AH": (11573, {"Crown": 10433, "TotalCorner_default": 1140}), "OU": (11573, {"Crown": 10432, "TotalCorner_default": 1141})},
+          }
+          for policy, markets in expected.items():
+              for market, (n, sources) in markets.items():
+                  result = receipt["source_policies"][policy]["markets"][market]
+                  assert result["unique_fixtures"] == result["simulated_bets"] == result["settled_bets"] == n
+                  assert result["pending_bets"] == 0
+                  assert result["source_fixture_markets"] == sources
+                  assert sum(result["settlement_counts"].values()) == n
+                  assert result["quote_receipt_timing"] == {"post_kickoff": n}
+                  assert abs(result["roi_pct"] - 100 * result["net_units"] / n) < 1e-6
+          serialized = json.dumps(receipt)
+          assert '"match_id"' not in serialized and '"prices":' not in serialized and '"home"' not in serialized
+          print("M5 TotalCorner restart replay receipt integrity: PASS")
+          PY
