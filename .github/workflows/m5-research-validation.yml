@@ -134,7 +134,7 @@ jobs:
               assert result["m3_fallback_fixture_markets"] == n - 9517
               assert sum(result["quote_sources"].values()) == n
               for model, strategies in result["models"].items():
-                  assert model in {"poisson", "dixon_coles", "bivariate_poisson"}
+                  assert model in {"poisson", "dixon_coles", "bivariate_poisson", "m3_equal_ensemble"}
                   assert set(strategies) == {"M3_only", "MR1_M3_fixed_blend_with_M3_fallback"}
                   for entry in strategies.values():
                       overall = entry["all_years"]

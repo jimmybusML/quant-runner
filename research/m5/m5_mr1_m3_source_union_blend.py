@@ -24,6 +24,7 @@ from research.m5.m5_mr1_m3_temporal_probability_blend import (
 
 MARKETS = ("AH", "OU")
 SIDES = {"AH": ("home", "away"), "OU": ("over", "under")}
+MODEL_VARIANTS = (*MODELS, "m3_equal_ensemble")
 
 
 def sha(path: Path) -> str:
@@ -74,7 +75,7 @@ def run(m3_path: Path, mr1_path: Path, output_path: Path, weight: float = 0.5) -
     total_market_counts = {}
     for market in MARKETS:
         sides = SIDES[market]
-        strategy_rows = {strategy: {model: [] for model in MODELS}
+        strategy_rows = {strategy: {model: [] for model in MODEL_VARIANTS}
                          for strategy in ("M3_only", "MR1_M3_fixed_blend_with_M3_fallback")}
         counts = Counter()
         seen_market_ids = set()
@@ -116,9 +117,21 @@ def run(m3_path: Path, mr1_path: Path, output_path: Path, weight: float = 0.5) -
             counts["M3_fallback_fixture_markets"] += int(not compatible)
             counts[f"source_{quote['source']}"] += 1
             actual_home, actual_away = int(fixture["actual_home_goals"]), int(fixture["actual_away_goals"])
-            for model_index, model in enumerate(MODELS):
-                grid = fixture["model_score_grids"][model]
-                m3_probs = {side: normalize(grid_distribution(grid, market, side, line)) for side in sides}
+            for model_index, model in enumerate(MODEL_VARIANTS):
+                if model == "m3_equal_ensemble":
+                    m3_probs = {}
+                    for side in sides:
+                        component_distributions = [
+                            normalize(grid_distribution(fixture["model_score_grids"][component], market, side, line))
+                            for component in MODELS
+                        ]
+                        m3_probs[side] = normalize({
+                            category: math.fsum(dist[category] for dist in component_distributions) / len(MODELS)
+                            for category in CATEGORIES
+                        })
+                else:
+                    grid = fixture["model_score_grids"][model]
+                    m3_probs = {side: normalize(grid_distribution(grid, market, side, line)) for side in sides}
                 mr_probs = mr1_distribution(mr1) if compatible else None
                 candidates = {strategy: [] for strategy in strategy_rows}
                 for side_index, side in enumerate(sides):
@@ -148,7 +161,7 @@ def run(m3_path: Path, mr1_path: Path, output_path: Path, weight: float = 0.5) -
                               for source in sorted(counts) if source.startswith("source_")},
             "models": {},
         }
-        for model_index, model in enumerate(MODELS):
+        for model_index, model in enumerate(MODEL_VARIANTS):
             reports[market]["models"][model] = {}
             for strategy_index, strategy in enumerate(strategy_rows):
                 rows = strategy_rows[strategy][model]
@@ -166,7 +179,7 @@ def run(m3_path: Path, mr1_path: Path, output_path: Path, weight: float = 0.5) -
     result = {
         "protocol": "M5_MR1_M3_FIXED_BLEND_COMPLETE_M3_QUOTED_COHORT_V1",
         "generated_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-        "method": "For each market and M3 model, compare M3-only with a fixed probability blend; use MR1 only when its exact line, quote event, selected side price, fixture identity, and kickoff match the M3 Crown contract. Otherwise retain M3 unchanged. One 1U simulated bet per fixture-market, side selected by higher model expected return; no threshold or result-based filtering.",
+        "method": "For each market and each individual M3 model plus their fixed equal-probability ensemble, compare the M3-only candidate with a fixed 50/50 MR1 blend; use MR1 only when its exact line, quote event, selected side price, fixture identity, and kickoff match the M3 Crown contract. Otherwise retain the M3 distribution unchanged. One 1U simulated bet per fixture-market, side selected by higher model expected return; no threshold or result-based filtering.",
         "blend_weight_mr1": weight,
         "candidate_status": "exploratory; equal blend has already been examined on the overlapping 2026 MR1/M3 cohort, so these metrics are not a fresh untouched holdout",
         "data_scope": "M3 strict UTC-year-forward score grids and Crown-first/TotalCorner-default historical quote archive; 2025 and 2026 quote-matched fixtures only",
