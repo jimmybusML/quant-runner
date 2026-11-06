@@ -899,7 +899,7 @@ AH W/HW/P/HL/L 为 3,791/783/650/522/3,771；OU 为 3,900/630/480/538/3,969。�
 
 模型训练截止、预测 as-of、盘口事件时间和开赛顺序均经过现有输入校验；2025与2026赛事 ID 不交叉。但历史 API 收据均为开赛后回取，故 ROI 仅为 event-time 回顾性模拟，不是赛前收据验证或可执行收益；2026已在此前研究中多次检视，也不是未触碰确认集。新增实验未改生产策略、Gate、TG、正式订单或账本。
 
-新增 GitHub Actions [`M5 Research Validation`](../../.github/workflows/m5-research-validation.yml) 会对公开 M5 研究代码运行全套单测，并校验联合模型、前瞻配对和全部前瞻结算回执的哈希、来源/样本分母、结算及 ROI 算术。Settlement refresh commit `9a66d70bec0477ae459dce873b18501895f71a7e` 对应 push run [42229952105](https://github.com/ljm198964-alt/quant-runner/actions/runs/42229952105)，于 `2026-11-06T14:00Z` 成功；61项测试及所有回执验证通过。该工作流不读取 secrets、不访问逐场私有数据，也不重训；自动数据更新与重训还需要把 M5 私有归档安全接入 Actions，当前 private bridge 文件清单未见 M5 数据。
+新增 GitHub Actions [`M5 Research Validation`](../../.github/workflows/m5-research-validation.yml) 会对公开 M5 研究代码运行全套单测，并校验联合模型、M1扩展归档复核、前瞻配对和全部前瞻结算回执的哈希、来源/样本分母、结算及 ROI 算术。M1 archive audit commit `c63a5a43657770ef4c4327266aa5c18e89010b58` 对应 push run [42230715476](https://github.com/ljm198964-alt/quant-runner/actions/runs/42230715476)，于 `2026-11-06T14:05Z` 成功；61项测试及所有回执验证通过。该工作流不读取 secrets、不访问逐场私有数据，也不重训；自动数据更新与重训还需要把 M5 私有归档安全接入 Actions，当前 private bridge 文件清单未见 M5 数据。
 
 ## 2026-11-06T13:39Z 前瞻 Crown 刷新与 TotalCorner default 配对
 

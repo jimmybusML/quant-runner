@@ -4294,4 +4294,4 @@
 
 ## 2026-11-06T13:54:57Z M1 当前扫描归档去重复核
 - 用 M5 扩展赛果manifest与本机当前 `/Users/mac/QuantAsiaDesk/repos/m1/research/m1_replay` 完整扫描归档只读重跑 `m5_m1_expanded_archive_replay.py`。纳入203份扫描manifest；按有效的赛前时间、Crown盘口事件及赛事身份配对后，AH、OU每市场均有10,758条模型输出记录，但这些跨重复扫描记录按赛事-市场去重后只有1,233个唯一赛事市场。最新保存输出ROI与既有结果一致：AH -6.144363%，OU -3.272912%；原有正式候选子集 AH 42/-12.285714%、OU79/+5.5%。不把重复行或正式小子集冒充万场样本，也没有重训/重建未保存的预测。
-- 新增脱敏回执 `research/m5/results/m5_m1_expanded_archive_reaudit_20261106.json`，只存manifest/输入哈希、计数、聚合ROI与状态分布；无fixture ID、队名、赔率或逐场payload。README与M5 Actions validator同步更新，校验扫描数、去重后unique数量、收益算术和脱敏字段。M1报价API receipt时间未单独存档，沿用扫描归档完成早于开赛作为保守接收上界；结果盘口档案本身为事后收集。此项只收紧“可复现模型输出数”的解释，不改变生产模型。新提交/Actions run待推送后补录。
+- 新增脱敏回执 `research/m5/results/m5_m1_expanded_archive_reaudit_20261106.json`，只存manifest/输入哈希、计数、聚合ROI与状态分布；无fixture ID、队名、赔率或逐场payload。README与M5 Actions validator同步更新，校验扫描数、去重后unique数量、收益算术和脱敏字段。M1报价API receipt时间未单独存档，沿用扫描归档完成早于开赛作为保守接收上界；结果盘口档案本身为事后收集。代码和报告提交 `c63a5a43657770ef4c4327266aa5c18e89010b58` 已推送；Actions run [42230715476](https://github.com/ljm198964-alt/quant-runner/actions/runs/42230715476) 全绿（61项测试，M1审计、joint OOS、forward pair、settlement校验均通过）。此项只收紧“可复现模型输出数”的解释，不改变生产模型。
