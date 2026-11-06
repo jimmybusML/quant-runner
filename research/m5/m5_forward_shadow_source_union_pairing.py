@@ -41,6 +41,8 @@ def pair(forecast_path: Path, crown_index_path: Path, total_index_path: Path,
     forecast_raw, forecasts, duplicate_forecasts = read_forecasts(forecast_path)
     crown_entries = load_jsonl(crown_index_path)
     total_entries = load_jsonl(total_index_path)
+    crown_index_raw = crown_index_path.read_bytes() if crown_index_path.exists() else b""
+    total_index_raw = total_index_path.read_bytes() if total_index_path.exists() else b""
     crown_by_key = {}
     for row in crown_entries:
         if row.get("status") != "verified_fixture_response":
@@ -74,18 +76,24 @@ def pair(forecast_path: Path, crown_index_path: Path, total_index_path: Path,
         total = total_by_key.get((mid, forecast.get("prediction_asof_utc"), forecast_sha))
         if total is None:
             counts["no_totalcorner_response"] += 1
-            continue
         for market, key in (("AH", "selected_default_ah"), ("OU", "selected_default_ou")):
             crown = crown_by_key.get((mid, forecast.get("prediction_asof_utc")), {})
             if crown.get("ah_qualified" if market == "AH" else "ou_qualified"):
                 counts[f"{market}_crown_preferred"] += 1
-                continue
-            quote = total.get(key)
+                eligible_rows = crown.get("ah_eligible_rows" if market == "AH" else "ou_eligible_rows") or []
+                quote = max(eligible_rows, key=lambda r: str(r.get("quote_event_utc") or ""), default=None)
+                source = "Crown"
+                response_sha = crown.get("response_sha256")
+                received = dt(crown.get("captured_at_utc"))
+            else:
+                quote = total.get(key) if total else None
+                source = "TotalCorner_default"
+                response_sha = total.get("response_sha256") if total else None
+                received = dt(total.get("captured_at_utc")) if total else None
             if not isinstance(quote, dict):
                 counts[f"{market}_no_eligible_totalcorner_quote"] += 1
                 continue
             event = dt(quote.get("quote_event_utc"))
-            received = dt(total.get("captured_at_utc"))
             if not event or not received or not asof <= event <= received < kickoff:
                 counts[f"{market}_time_order_rejected"] += 1
                 continue
@@ -97,16 +105,16 @@ def pair(forecast_path: Path, crown_index_path: Path, total_index_path: Path,
                 "match_id": mid, "league": forecast.get("league"),
                 "home": forecast.get("home"), "away": forecast.get("away"),
                 "kickoff_utc": kickoff.isoformat().replace("+00:00", "Z"),
-                "market": market, "source": "TotalCorner_default",
+                "market": market, "source": source,
                 "line": quote["line"], "prices": quote["prices"],
                 "quote_event_utc": event.isoformat().replace("+00:00", "Z"),
                 "quote_received_utc": received.isoformat().replace("+00:00", "Z"),
                 "prediction_asof_utc": asof.isoformat().replace("+00:00", "Z"),
                 "train_end_utc": forecast.get("train_end_utc"),
                 "score_grid": grid,
-                "response_sha256": total.get("response_sha256"),
+                "response_sha256": response_sha,
             }
-            counts[f"{market}_paired_totalcorner_fixture_markets"] += 1
+            counts[f"{market}_paired_{source}_fixture_markets"] += 1
 
     output_path = output_path.expanduser().resolve()
     repo = Path(__file__).resolve().parents[2]
@@ -123,8 +131,10 @@ def pair(forecast_path: Path, crown_index_path: Path, total_index_path: Path,
         "protocol": "M5_FORWARD_SOURCE_UNION_PAIRING_V1",
         "generated_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "forecast_sha256": forecast_sha,
-        "crown_index_sha256": hashlib.sha256(crown_index_path.read_bytes()).hexdigest(),
-        "totalcorner_index_sha256": hashlib.sha256(total_index_path.read_bytes()).hexdigest(),
+        "crown_index_sha256": hashlib.sha256(crown_index_raw).hexdigest(),
+        "totalcorner_index_sha256": hashlib.sha256(total_index_raw).hexdigest(),
+        "crown_index_present": crown_index_path.exists(),
+        "totalcorner_index_present": total_index_path.exists(),
         "paired_fixture_markets": dict(by_market), "paired_rows": len(rows),
         "pair_sha256": hashlib.sha256(raw).hexdigest(), "audit_counts": dict(counts),
         "time_rule": "train_end_utc < prediction_asof_utc <= quote_event_utc <= quote_received_utc < kickoff_utc",

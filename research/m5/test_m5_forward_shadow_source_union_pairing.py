@@ -57,12 +57,32 @@ class ForwardSourceUnionPairingTests(unittest.TestCase):
         crown_row = {
             "status": "verified_fixture_response", "match_id": "private-fixture",
             "quote_event_asof_utc": self.forecast["prediction_asof_utc"], "ah_qualified": True,
+            "captured_at_utc": "2026-11-06T12:05:00Z", "response_sha256": "crown-hash",
+            "ah_eligible_rows": [{"market": "AH", "line": -0.25, "prices": [1.91, 1.97],
+                                  "quote_event_utc": "2026-11-06T12:03:00Z"}],
         }
         self.crown.write_text(json.dumps(crown_row) + "\n", encoding="utf-8")
         self.write_total()
         report = pair(self.forecasts, self.crown, self.total, self.output)
-        self.assertEqual(report["paired_rows"], 0)
+        self.assertEqual(report["paired_rows"], 1)
         self.assertEqual(report["audit_counts"]["AH_crown_preferred"], 1)
+        row = json.loads(self.output.read_text(encoding="utf-8"))
+        self.assertEqual(row["source"], "Crown")
+        self.assertEqual(row["line"], -0.25)
+
+    def test_crown_pair_survives_missing_totalcorner_response(self):
+        crown_row = {
+            "status": "verified_fixture_response", "match_id": "private-fixture",
+            "quote_event_asof_utc": self.forecast["prediction_asof_utc"], "ah_qualified": True,
+            "captured_at_utc": "2026-11-06T12:05:00Z", "response_sha256": "crown-hash",
+            "ah_eligible_rows": [{"market": "AH", "line": 0.0, "prices": [1.90, 1.92],
+                                  "quote_event_utc": "2026-11-06T12:03:00Z"}],
+        }
+        self.crown.write_text(json.dumps(crown_row) + "\n", encoding="utf-8")
+        report = pair(self.forecasts, self.crown, self.total, self.output)
+        self.assertEqual(report["paired_fixture_markets"], {"AH": 1})
+        row = json.loads(self.output.read_text(encoding="utf-8"))
+        self.assertEqual(row["source"], "Crown")
 
 
 if __name__ == "__main__":

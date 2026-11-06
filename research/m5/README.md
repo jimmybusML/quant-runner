@@ -641,3 +641,19 @@ The blend used 541 common 2025 fixtures to fit weights and an untouched set of 5
 On the full expanded M5 source union, the baseline remains AH n=11,573 at -2.5099% and OU n=11,573 at -3.6339%. The 2025-fit/2026-forward recency run is AH n=11,537 at -2.9488% and OU n=11,537 at -3.4401%. Crown-only baseline is AH -2.3666% / OU -3.6461%; TotalCorner-default-only is AH -3.9056% / OU -3.5221%. The source-specific cohorts and input hashes are in [source policy comparison](results/m5_source_policy_comparison_20261106.json). No model-market reaches +3% on the 10,000+ source-union cohort. These full-cohort event-time replays cannot establish executable ROI because every historical receipt followed kickoff.
 
 Artifacts: [M3 Crown-first/TotalCorner exact-contract replay](results/m5_m3_expanded_source_union_contract_replay_20261106.json), [M3/M5 common 2026 source-archive replay](results/m5_m3_m5_blend_source_union_replay_20261106.json), and [2025-fit/2026-holdout blend fit](results/m5_recency_m3_walkforward_blend_2025fit_2026test_refreshed_20261106.json). M1, MR1, M3, and M4 do not have compatible saved forecasts across all 11,573 fixture-markets; their sample sizes above must not be ranked as if they were one shared cohort. No formal strategy, production model, Telegram route, or trade gate changed.
+
+
+## 2026-11-06 07:01Z 新 M5 前瞻 Crown / TotalCorner 配对队列
+
+以现有 361 场未来赛程和 M5 独立 goal-rate Poisson 网格生成新 cohort，预测 as-of 为 `2026-11-06T07:01:42.001976Z`，forecast SHA-256 为 `80dc6581fefa190cddeaa95ba75a9210e647ea5996456e9c1d08a64aaffb91b7`；51 个联赛有训练记录，身份冲突 0。先查 Crown 专属接口，随后只在 Crown 没有本次预测后、赛前实际接收报价的 fixture-market 上调用 TotalCorner default。
+
+| 市场 | 唯一配对 fixture-market | Crown | TotalCorner default | 模拟 1U | 已结算 | 待赛 | 净收益 / ROI | 最大回撤 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| AH | 17 | 1 | 16 | 17 | 0 | 17 | 未结算 / null | null |
+| OU | 11 | 1 | 10 | 11 | 0 | 11 | 未结算 / null | null |
+
+所有配对均校验 `train_end_utc < prediction_asof_utc <= quote_event_utc <= quote_received_utc < kickoff_utc`，每个 fixture-market 最多一行。单注选择按 M5 在实际盘口线与双方赔率的预期收益较高方向，不加 EV 或置信度条件。赛事 kickoff 覆盖 `2026-11-06T15:00Z` 至 `2026-11-08T18:00Z`；生成本回执时全部未赛，不能报告收益。这个队列与 11k+ 历史 event-time 回放完全分开，AH/OU 均远未达到每市场 10,000 场要求。
+
+Crown 采集 361 次，357 条身份验证成功、3 条身份/盘口源错配、1 条传输错误；其中合格报价 AH/OU 各 1。TotalCorner default 采集 361 次，356 条身份验证成功、3 条错配、2 条传输错误；对 Crown 已覆盖的各 1 个市场跳过，补出 AH 16 / OU 10 个合格市场。另有 5 个比赛没有可验证的 TotalCorner response。详细哈希和审计计数见[脱敏前瞻采集回执](results/m5_forward_shadow_capture_20261106T0701Z.json)；逐场预测、身份、line、赔率、grid 与 raw API response 继续留在仓库外私有目录。
+
+本批通过实时 TotalCorner authorized path 真实采集并配对，但样本规模过小且未结算，不能支持 ROI≥3% 结论。M5 历史 11,573/market event-time baseline 仍是回顾性研究，AH -2.51%、OU -3.63%，所有响应均赛后取得。两者均不可混作可执行收益或拼成 10,000 场样本。
