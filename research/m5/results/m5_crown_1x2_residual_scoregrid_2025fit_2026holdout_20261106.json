@@ -1,0 +1,244 @@
+{
+  "fixture_level_data_published": false,
+  "generated_utc": "2026-11-06T12:22:15.933398Z",
+  "input_hashes": {
+    "crown_1x2_response_hash_set_sha256": "b456944a4f079328187d29e547f3da585187b787b2d8cda86f29a08831185704",
+    "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+    "manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+    "quote_response_hash_set_sha256": "2d1d98d2abaa6b2b373d4bdf77a18f3ae33058a671633a8c1d7a150a3dee0f96"
+  },
+  "limitations": [
+    "2026 was previously inspected in M5 research and is not an untouched confirmatory sample.",
+    "The model only has a Crown 1X2 feature on Crown rows; TotalCorner default rows and rows with no qualifying 1X2 retain the base M5 grid but remain in the full union denominator.",
+    "The M5 1X2 feature is a de-vig Crown line, not MR1 forecast reuse; no MR1 predictions, orders, ledger or parameters are inputs."
+  ],
+  "markets": {
+    "AH": {
+      "2026_baseline": {
+        "max_drawdown_units_by_quote_event_time": 215.6125,
+        "net_units": -190.39,
+        "roi_bootstrap_95pct": {
+          "lower": -3.572487,
+          "resamples": 3000,
+          "seed": 20261112,
+          "upper": -0.133092
+        },
+        "roi_pct": -1.861823,
+        "settled_bets": 10226,
+        "settlement_brier": 0.6502463,
+        "settlement_counts": {
+          "half_loss": 705,
+          "half_win": 711,
+          "loss": 3991,
+          "push": 708,
+          "win": 4111
+        },
+        "settlement_log_loss": 1.03493458,
+        "simulated_bets": 10226,
+        "source_fixture_markets": {
+          "Crown": 9316,
+          "TotalCorner_default": 910
+        },
+        "source_split_roi": {
+          "Crown": {
+            "n": 9316,
+            "net_units": -165.915,
+            "roi_pct": -1.780968
+          },
+          "TotalCorner_default": {
+            "n": 910,
+            "net_units": -24.475,
+            "roi_pct": -2.68956
+          }
+        },
+        "stake_units": 10226,
+        "unique_fixture_markets": 10226
+      },
+      "2026_crown_1x2_residual_plus_baseline_fallback": {
+        "max_drawdown_units_by_quote_event_time": 320.54,
+        "net_units": -280.505,
+        "roi_bootstrap_95pct": {
+          "lower": -4.439884,
+          "resamples": 3000,
+          "seed": 20261113,
+          "upper": -1.07498
+        },
+        "roi_pct": -2.743057,
+        "settled_bets": 10226,
+        "settlement_brier": 0.62746631,
+        "settlement_counts": {
+          "half_loss": 677,
+          "half_win": 739,
+          "loss": 4038,
+          "push": 708,
+          "win": 4064
+        },
+        "settlement_log_loss": 1.00364585,
+        "simulated_bets": 10226,
+        "source_fixture_markets": {
+          "Crown": 9316,
+          "TotalCorner_default": 910
+        },
+        "source_split_roi": {
+          "Crown": {
+            "n": 9316,
+            "net_units": -256.03,
+            "roi_pct": -2.748283
+          },
+          "TotalCorner_default": {
+            "n": 910,
+            "net_units": -24.475,
+            "roi_pct": -2.68956
+          }
+        },
+        "stake_units": 10226,
+        "unique_fixture_markets": 10226
+      },
+      "fitted_2025": {
+        "at_search_boundary": false,
+        "baseline_exact_score_log_loss": 2.95932864,
+        "beta": 1.218110221859011,
+        "fit_objective": "2025 exact-score negative log likelihood; not ROI",
+        "fitted_exact_score_log_loss": 2.89748423,
+        "training_rows": 1117
+      },
+      "holdout_crown_rows_with_qualifying_1x2": 9203,
+      "holdout_crown_rows_without_qualifying_1x2_using_baseline_grid": 113,
+      "holdout_fixture_markets": 10226,
+      "holdout_totalcorner_rows_without_1x2_using_baseline_grid": 910,
+      "holdout_utc_year": 2026,
+      "qualifying_1x2_response_receipt_timing": {
+        "2025_training": {
+          "post_kickoff": 1117
+        },
+        "2026_holdout": {
+          "post_kickoff": 9203
+        }
+      },
+      "training_crown_rows_with_qualifying_1x2": 1117,
+      "training_holdout_fixture_ids_disjoint": true,
+      "training_utc_year": 2025
+    },
+    "OU": {
+      "2026_baseline": {
+        "max_drawdown_units_by_quote_event_time": 420.2025,
+        "net_units": -357.785,
+        "roi_bootstrap_95pct": {
+          "lower": -5.261075,
+          "resamples": 3000,
+          "seed": 20261112,
+          "upper": -1.819333
+        },
+        "roi_pct": -3.498778,
+        "settled_bets": 10226,
+        "settlement_brier": 0.62401208,
+        "settlement_counts": {
+          "half_loss": 710,
+          "half_win": 576,
+          "loss": 4183,
+          "push": 517,
+          "win": 4240
+        },
+        "settlement_log_loss": 0.98906036,
+        "simulated_bets": 10226,
+        "source_fixture_markets": {
+          "Crown": 9316,
+          "TotalCorner_default": 910
+        },
+        "source_split_roi": {
+          "Crown": {
+            "n": 9316,
+            "net_units": -321.835,
+            "roi_pct": -3.454648
+          },
+          "TotalCorner_default": {
+            "n": 910,
+            "net_units": -35.95,
+            "roi_pct": -3.950549
+          }
+        },
+        "stake_units": 10226,
+        "unique_fixture_markets": 10226
+      },
+      "2026_crown_1x2_residual_plus_baseline_fallback": {
+        "max_drawdown_units_by_quote_event_time": 374.3875,
+        "net_units": -315.52,
+        "roi_bootstrap_95pct": {
+          "lower": -4.811388,
+          "resamples": 3000,
+          "seed": 20261113,
+          "upper": -1.389962
+        },
+        "roi_pct": -3.085468,
+        "settled_bets": 10226,
+        "settlement_brier": 0.62308364,
+        "settlement_counts": {
+          "half_loss": 703,
+          "half_win": 583,
+          "loss": 4164,
+          "push": 517,
+          "win": 4259
+        },
+        "settlement_log_loss": 0.98768523,
+        "simulated_bets": 10226,
+        "source_fixture_markets": {
+          "Crown": 9316,
+          "TotalCorner_default": 910
+        },
+        "source_split_roi": {
+          "Crown": {
+            "n": 9316,
+            "net_units": -279.57,
+            "roi_pct": -3.000966
+          },
+          "TotalCorner_default": {
+            "n": 910,
+            "net_units": -35.95,
+            "roi_pct": -3.950549
+          }
+        },
+        "stake_units": 10226,
+        "unique_fixture_markets": 10226
+      },
+      "fitted_2025": {
+        "at_search_boundary": false,
+        "baseline_exact_score_log_loss": 2.96010188,
+        "beta": 1.218224543328508,
+        "fit_objective": "2025 exact-score negative log likelihood; not ROI",
+        "fitted_exact_score_log_loss": 2.89819166,
+        "training_rows": 1116
+      },
+      "holdout_crown_rows_with_qualifying_1x2": 9203,
+      "holdout_crown_rows_without_qualifying_1x2_using_baseline_grid": 113,
+      "holdout_fixture_markets": 10226,
+      "holdout_totalcorner_rows_without_1x2_using_baseline_grid": 910,
+      "holdout_utc_year": 2026,
+      "qualifying_1x2_response_receipt_timing": {
+        "2025_training": {
+          "post_kickoff": 1116
+        },
+        "2026_holdout": {
+          "post_kickoff": 9203
+        }
+      },
+      "training_crown_rows_with_qualifying_1x2": 1116,
+      "training_holdout_fixture_ids_disjoint": true,
+      "training_utc_year": 2025
+    }
+  },
+  "method": "Fit one AH-specific and one OU-specific scalar on 2025 Crown 1X2 rows by exact-score log loss: exponentially tilt the M5 grid by log(de-vig Crown 1X2 probability / M5 result probability). On 2026, use the latest open/close Crown 1X2 quote whose local event time converts to UTC after M5 forecast-asof and before kickoff; apply the correction to every qualifying Crown-priced AH/OU row, and retain the base M5 grid on rows without qualifying 1X2 (including TotalCorner default). One bet per fixture-market, no filters or ROI gates.",
+  "new_bet_gate_added": false,
+  "production_changes": false,
+  "protocol": "M5_CROWN_1X2_RESIDUAL_SCOREGRID_2025_FIT_2026_HOLDOUT_V1",
+  "runner_sha256": "ddcc83e14da85a8cfc9a7e7aa28f618baef30f90ac3987f853ffac360385fdfe",
+  "source_and_time_integrity": {
+    "AH_and_OU_fit_separately": true,
+    "Crown_and_TotalCorner_lines_keep_distinct_sources": true,
+    "Crown_only_1x2_feature": true,
+    "TotalCorner_default_used_as_1x2": false,
+    "holdout_fixture_ids_disjoint_from_training": true,
+    "qualifying_1x2_time": "forecast_asof_utc <= Crown odds.open/close event time < kickoff_utc",
+    "response_receipt_limitation": "Each 1X2 receipt is verified not earlier than its quote event; historical Crown API receipts were post-kickoff, so only quote event time is pre-kickoff. ROI is retrospective event-time simulation, not receipt-verified executable ROI.",
+    "source_priority_per_market": "Crown first; TotalCorner default only if Crown market quote absent"
+  }
+}

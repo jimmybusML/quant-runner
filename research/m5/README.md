@@ -864,3 +864,16 @@ AH W/HW/P/HL/L 为 3,791/783/650/522/3,771；OU 为 3,900/630/480/538/3,969。�
 2026 去重并集每市场含 Crown 9,316、TotalCorner default 910；来源独立拟合的训练量分别为 AH Crown 1,117/TOTAL 194、OU Crown 1,116/TOTAL 195。残差方法显著改善结算概率 proper scores，但三种拟合在 AH、OU 的 ROI 都低于同场原始 M5 基准；最佳也仅 AH TOTAL 单独拟合 -2.0481%，并未达到 +3%。95% fixture bootstrap 区间全部低于0（pooled AH -4.03%至-0.55%；pooled OU -6.24%至-2.73%）。这说明概率校准提升不等于正收益。
 
 所有历史 API response receipt 均为赛后取得；时间验证只证明盘口事件发生在预测 as-of 后、开赛前，因此仍属回顾性 event-time ROI，不是实收或可执行 ROI。2026 留出已在更早 M5 研究中多次查看，本实验是新方法评估，不是未触碰的确认集。没有任何正式策略、模型、Telegram、订单、账本或 Gate 改动。
+
+## Crown 1X2 交叉市场残差：2025 拟合 / 2026 留出
+
+新增 Crown 的 MR1 风格跨市场特征检验：从每场 Crown 响应的 `odds.open/close` 选出事件时间处于 M5 forecast-as-of 后、开赛前且不晚于实际 response receipt 的最近一组 1X2 水位，去水后作为 M5 比分网格结果概率残差。AH 与 OU 分别在 2025 Crown 样本按精确比分 Log Loss 拟合一个系数；2026 对整个 Crown-first/TOTAL-default 并集每场回放。只有有合格 Crown 1X2 事件的 Crown 行应用调整；Crown 缺失1X2与 TotalCorner default 全部保留基准概率并计入完整分母。复现代码：[Crown 1X2 残差模型](m5_crown_1x2_residual_scoregrid.py)，测试：[时序与概率不变量](test_m5_crown_1x2_residual_scoregrid.py)，报告：[2025 fit / 2026 holdout](results/m5_crown_1x2_residual_scoregrid_2025fit_2026holdout_20261106.json)。
+
+| 市场 | 训练 Crown 1X2 | 2026 全并集样本 | 基准 ROI / LL / Brier | 1X2残差+缺项基准 ROI / LL / Brier | 95% ROI区间 |
+|---|---:|---:|---:|---:|---:|
+| AH | 1,117 | 10,226 | -1.8618% / 1.03493458 / 0.65024630 | -2.7431% / 1.00364585 / 0.62746631 | -4.4399% 至 -1.0750% |
+| OU | 1,116 | 10,226 | -3.4988% / 0.98906036 / 0.62401208 | -3.0855% / 0.98768523 / 0.62308364 | -4.8114% 至 -1.3900% |
+
+2026 有 9,316 Crown AH/OU 报价和 910 TotalCorner default；其中9,203场有合格 Crown 1X2 事件，113场 Crown 与全部910场 TOTAL 保留基准分布。按盘口来源分拆后，AH Crown ROI -2.7483%、TOTAL -2.6896%；OU Crown -3.0010%、TOTAL -3.9505%。OU 相比基准提高约0.41个百分点，但整体及分来源均负收益；AH明显恶化。两市场95% bootstrap区间都全负，因此目标 ROI ≥3% 未达到。
+
+训练和留出赛事 ID 严格不交叉；Crown 1X2、AH/OU盘口和比分均由相同精确赛事关系核验。所有1X2响应回执均在开赛后，故依旧是按盘口事件时间的回顾模拟，不是开赛前实际收取/执行ROI。1X2价格特征来自Crown，不使用或读取MR1预测、参数、订单或账本；TOTAL盘口及其来源仍单独保留。2026留出已经在此前工作中多次查看，非未触碰确认集。
