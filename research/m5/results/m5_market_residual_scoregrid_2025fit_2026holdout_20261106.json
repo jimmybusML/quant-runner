@@ -1,0 +1,639 @@
+{
+  "fixture_level_data_published": false,
+  "generated_utc": "2026-11-06T12:06:25.734540Z",
+  "input_hashes": {
+    "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+    "manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+    "quote_response_hash_set_sha256": "2d1d98d2abaa6b2b373d4bdf77a18f3ae33058a671633a8c1d7a150a3dee0f96"
+  },
+  "limitations": [
+    "2026 has been examined in earlier M5 research; this is a new method on a previously explored temporal holdout, not an untouched confirmatory test.",
+    "The method assumes no-vig two-way Asian odds provide an approximate side probability after excluding push mass; quarter-line half settlements remain represented exactly in the score grid.",
+    "TotalCorner-only 2026 coverage is smaller than 10,000; the pooled Crown-first union is the only 2026 holdout meeting the per-market sample target."
+  ],
+  "markets": {
+    "AH": {
+      "2026_holdout_results": {
+        "Crown_2025": {
+          "baseline_beta_zero": {
+            "max_drawdown_units_by_quote_event_time": 215.6125,
+            "net_units": -190.39,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -3.56547,
+              "resamples": 1000,
+              "seed": 20261110,
+              "upper": -0.212229
+            },
+            "roi_pct": -1.861823,
+            "settled_bets": 10226,
+            "settlement_brier": 0.6502463,
+            "settlement_counts": {
+              "half_loss": 705,
+              "half_win": 711,
+              "loss": 3991,
+              "push": 708,
+              "win": 4111
+            },
+            "settlement_log_loss": 1.03493458,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -165.915,
+                "roi_pct": -1.780968,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -24.475,
+                "roi_pct": -2.68956,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "fitted_beta": 0.3349028838558452,
+          "market_residual": {
+            "max_drawdown_units_by_quote_event_time": 278.83,
+            "net_units": -235.8375,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -4.044152,
+              "resamples": 1000,
+              "seed": 20261111,
+              "upper": -0.523201
+            },
+            "roi_pct": -2.306254,
+            "settled_bets": 10226,
+            "settlement_brier": 0.61797672,
+            "settlement_counts": {
+              "half_loss": 727,
+              "half_win": 689,
+              "loss": 3991,
+              "push": 708,
+              "win": 4111
+            },
+            "settlement_log_loss": 0.98841476,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -165.425,
+                "roi_pct": -1.775708,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -70.4125,
+                "roi_pct": -7.737637,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "training_rows_by_source": {
+            "Crown": 1117
+          }
+        },
+        "TotalCorner_default_2025": {
+          "baseline_beta_zero": {
+            "max_drawdown_units_by_quote_event_time": 215.6125,
+            "net_units": -190.39,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -3.56547,
+              "resamples": 1000,
+              "seed": 20261110,
+              "upper": -0.212229
+            },
+            "roi_pct": -1.861823,
+            "settled_bets": 10226,
+            "settlement_brier": 0.6502463,
+            "settlement_counts": {
+              "half_loss": 705,
+              "half_win": 711,
+              "loss": 3991,
+              "push": 708,
+              "win": 4111
+            },
+            "settlement_log_loss": 1.03493458,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -165.915,
+                "roi_pct": -1.780968,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -24.475,
+                "roi_pct": -2.68956,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "fitted_beta": 0.32182938429184715,
+          "market_residual": {
+            "max_drawdown_units_by_quote_event_time": 239.3925,
+            "net_units": -209.435,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -3.809261,
+              "resamples": 1000,
+              "seed": 20261111,
+              "upper": -0.30975
+            },
+            "roi_pct": -2.048064,
+            "settled_bets": 10226,
+            "settlement_brier": 0.61778495,
+            "settlement_counts": {
+              "half_loss": 712,
+              "half_win": 704,
+              "loss": 3990,
+              "push": 708,
+              "win": 4112
+            },
+            "settlement_log_loss": 0.9881273,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -158.21,
+                "roi_pct": -1.698261,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -51.225,
+                "roi_pct": -5.629121,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "training_rows_by_source": {
+            "TotalCorner_default": 194
+          }
+        },
+        "pooled_2025": {
+          "baseline_beta_zero": {
+            "max_drawdown_units_by_quote_event_time": 215.6125,
+            "net_units": -190.39,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -3.56547,
+              "resamples": 1000,
+              "seed": 20261110,
+              "upper": -0.212229
+            },
+            "roi_pct": -1.861823,
+            "settled_bets": 10226,
+            "settlement_brier": 0.6502463,
+            "settlement_counts": {
+              "half_loss": 705,
+              "half_win": 711,
+              "loss": 3991,
+              "push": 708,
+              "win": 4111
+            },
+            "settlement_log_loss": 1.03493458,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -165.915,
+                "roi_pct": -1.780968,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -24.475,
+                "roi_pct": -2.68956,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "fitted_beta": 0.332375441354767,
+          "market_residual": {
+            "max_drawdown_units_by_quote_event_time": 284.455,
+            "net_units": -233.2725,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -4.034935,
+              "resamples": 1000,
+              "seed": 20261111,
+              "upper": -0.553711
+            },
+            "roi_pct": -2.281171,
+            "settled_bets": 10226,
+            "settlement_brier": 0.61792915,
+            "settlement_counts": {
+              "half_loss": 748,
+              "half_win": 668,
+              "loss": 3981,
+              "push": 708,
+              "win": 4121
+            },
+            "settlement_log_loss": 0.98834531,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -161.885,
+                "roi_pct": -1.737709,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -71.3875,
+                "roi_pct": -7.84478,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "training_rows_by_source": {
+            "Crown": 1117,
+            "TotalCorner_default": 194
+          }
+        }
+      },
+      "holdout_unique_fixture_markets": 10226,
+      "holdout_utc_kickoff_year": 2026,
+      "training_2025_coefficients": {
+        "Crown_2025": {
+          "beta": 0.3349028838558452,
+          "coefficient_at_search_boundary": false,
+          "fit_objective": "exact score negative log likelihood; ROI not used",
+          "training_rows": 1117,
+          "training_scoregrid_log_loss_baseline": 2.95932864,
+          "training_scoregrid_log_loss_fitted": 2.88634502
+        },
+        "TotalCorner_default_2025": {
+          "beta": 0.32182938429184715,
+          "coefficient_at_search_boundary": false,
+          "fit_objective": "exact score negative log likelihood; ROI not used",
+          "training_rows": 194,
+          "training_scoregrid_log_loss_baseline": 3.09105888,
+          "training_scoregrid_log_loss_fitted": 2.99568429
+        },
+        "pooled_2025": {
+          "beta": 0.332375441354767,
+          "coefficient_at_search_boundary": false,
+          "fit_objective": "exact score negative log likelihood; ROI not used",
+          "training_rows": 1311,
+          "training_scoregrid_log_loss_baseline": 2.9788219,
+          "training_scoregrid_log_loss_fitted": 2.90254422
+        }
+      },
+      "training_and_holdout_fixture_ids_disjoint": true,
+      "training_unique_fixture_markets": 1311,
+      "training_utc_kickoff_year": 2025
+    },
+    "OU": {
+      "2026_holdout_results": {
+        "Crown_2025": {
+          "baseline_beta_zero": {
+            "max_drawdown_units_by_quote_event_time": 420.2025,
+            "net_units": -357.785,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -5.263202,
+              "resamples": 1000,
+              "seed": 20261110,
+              "upper": -1.909104
+            },
+            "roi_pct": -3.498778,
+            "settled_bets": 10226,
+            "settlement_brier": 0.62401208,
+            "settlement_counts": {
+              "half_loss": 710,
+              "half_win": 576,
+              "loss": 4183,
+              "push": 517,
+              "win": 4240
+            },
+            "settlement_log_loss": 0.98906036,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -321.835,
+                "roi_pct": -3.454648,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -35.95,
+                "roi_pct": -3.950549,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "fitted_beta": 0.31972042261066386,
+          "market_residual": {
+            "max_drawdown_units_by_quote_event_time": 421.5425,
+            "net_units": -397.595,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -5.705848,
+              "resamples": 1000,
+              "seed": 20261111,
+              "upper": -2.310434
+            },
+            "roi_pct": -3.888079,
+            "settled_bets": 10226,
+            "settlement_brier": 0.60662827,
+            "settlement_counts": {
+              "half_loss": 837,
+              "half_win": 449,
+              "loss": 4146,
+              "push": 517,
+              "win": 4277
+            },
+            "settlement_log_loss": 0.96587088,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -371.645,
+                "roi_pct": -3.989319,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -25.95,
+                "roi_pct": -2.851648,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "training_rows_by_source": {
+            "Crown": 1116
+          }
+        },
+        "TotalCorner_default_2025": {
+          "baseline_beta_zero": {
+            "max_drawdown_units_by_quote_event_time": 420.2025,
+            "net_units": -357.785,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -5.263202,
+              "resamples": 1000,
+              "seed": 20261110,
+              "upper": -1.909104
+            },
+            "roi_pct": -3.498778,
+            "settled_bets": 10226,
+            "settlement_brier": 0.62401208,
+            "settlement_counts": {
+              "half_loss": 710,
+              "half_win": 576,
+              "loss": 4183,
+              "push": 517,
+              "win": 4240
+            },
+            "settlement_log_loss": 0.98906036,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -321.835,
+                "roi_pct": -3.454648,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -35.95,
+                "roi_pct": -3.950549,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "fitted_beta": 0.35150506938441917,
+          "market_residual": {
+            "max_drawdown_units_by_quote_event_time": 425.42,
+            "net_units": -410.41,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -5.925313,
+              "resamples": 1000,
+              "seed": 20261111,
+              "upper": -2.378007
+            },
+            "roi_pct": -4.013397,
+            "settled_bets": 10226,
+            "settlement_brier": 0.6070167,
+            "settlement_counts": {
+              "half_loss": 559,
+              "half_win": 727,
+              "loss": 4274,
+              "push": 517,
+              "win": 4149
+            },
+            "settlement_log_loss": 0.96634058,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -370.96,
+                "roi_pct": -3.981967,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -39.45,
+                "roi_pct": -4.335165,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "training_rows_by_source": {
+            "TotalCorner_default": 195
+          }
+        },
+        "pooled_2025": {
+          "baseline_beta_zero": {
+            "max_drawdown_units_by_quote_event_time": 420.2025,
+            "net_units": -357.785,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -5.263202,
+              "resamples": 1000,
+              "seed": 20261110,
+              "upper": -1.909104
+            },
+            "roi_pct": -3.498778,
+            "settled_bets": 10226,
+            "settlement_brier": 0.62401208,
+            "settlement_counts": {
+              "half_loss": 710,
+              "half_win": 576,
+              "loss": 4183,
+              "push": 517,
+              "win": 4240
+            },
+            "settlement_log_loss": 0.98906036,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -321.835,
+                "roi_pct": -3.454648,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -35.95,
+                "roi_pct": -3.950549,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "fitted_beta": 0.3264260784902043,
+          "market_residual": {
+            "max_drawdown_units_by_quote_event_time": 465.61,
+            "net_units": -445.3325,
+            "one_bet_per_fixture_market_no_filter": true,
+            "roi_bootstrap_95pct": {
+              "lower": -6.236701,
+              "resamples": 1000,
+              "seed": 20261111,
+              "upper": -2.72944
+            },
+            "roi_pct": -4.354904,
+            "settled_bets": 10226,
+            "settlement_brier": 0.60667412,
+            "settlement_counts": {
+              "half_loss": 859,
+              "half_win": 427,
+              "loss": 4161,
+              "push": 517,
+              "win": 4262
+            },
+            "settlement_log_loss": 0.96592595,
+            "simulated_bets": 10226,
+            "source_fixture_markets": {
+              "Crown": 9316,
+              "TotalCorner_default": 910
+            },
+            "source_split_roi": {
+              "Crown": {
+                "net_units": -416.645,
+                "roi_pct": -4.472359,
+                "unique_fixture_markets": 9316
+              },
+              "TotalCorner_default": {
+                "net_units": -28.6875,
+                "roi_pct": -3.152473,
+                "unique_fixture_markets": 910
+              }
+            },
+            "stake_units": 10226,
+            "unique_fixture_markets": 10226
+          },
+          "training_rows_by_source": {
+            "Crown": 1116,
+            "TotalCorner_default": 195
+          }
+        }
+      },
+      "holdout_unique_fixture_markets": 10226,
+      "holdout_utc_kickoff_year": 2026,
+      "training_2025_coefficients": {
+        "Crown_2025": {
+          "beta": 0.31972042261066386,
+          "coefficient_at_search_boundary": false,
+          "fit_objective": "exact score negative log likelihood; ROI not used",
+          "training_rows": 1116,
+          "training_scoregrid_log_loss_baseline": 2.96010188,
+          "training_scoregrid_log_loss_fitted": 2.93249174
+        },
+        "TotalCorner_default_2025": {
+          "beta": 0.35150506938441917,
+          "coefficient_at_search_boundary": false,
+          "fit_objective": "exact score negative log likelihood; ROI not used",
+          "training_rows": 195,
+          "training_scoregrid_log_loss_baseline": 3.08595806,
+          "training_scoregrid_log_loss_fitted": 3.03319893
+        },
+        "pooled_2025": {
+          "beta": 0.3264260784902043,
+          "coefficient_at_search_boundary": false,
+          "fit_objective": "exact score negative log likelihood; ROI not used",
+          "training_rows": 1311,
+          "training_scoregrid_log_loss_baseline": 2.9788219,
+          "training_scoregrid_log_loss_fitted": 2.94752261
+        }
+      },
+      "training_and_holdout_fixture_ids_disjoint": true,
+      "training_unique_fixture_markets": 1311,
+      "training_utc_kickoff_year": 2025
+    }
+  },
+  "method": "Fit one market-specific residual coefficient, and optional source-specific coefficients, on 2025 exact-score log loss. Adjust the M5 score grid by exponential tilt along goal difference (AH) or total goals (OU), using the logit difference between no-vig two-way price probability and M5 settlement probability at that exact line. In 2026, choose the higher expected-return side for every eligible fixture-market at the same source quote and stake one unit; no filters or ROI gates.",
+  "new_bet_gate_added": false,
+  "production_changes": false,
+  "protocol": "M5_MARKET_RESIDUAL_SCOREGRID_2025_FIT_2026_HOLDOUT_V1",
+  "runner_sha256": "4565834186051d5bfe6b752d689fb83a7419e78a79923f9d7a3137e6f5766b29",
+  "source_and_time_integrity": {
+    "AH_and_OU_fit_and_report_separately": true,
+    "Crown_and_TotalCorner_default_are_distinct": true,
+    "api_receipt_timing": "All selected historical provider receipts were post-kickoff; ROI is event-time retrospective, not pregame receipt-verified or executable ROI.",
+    "fixture_markets_deduplicated": true,
+    "forecast_train_end_before_asof_before_quote_event_before_kickoff": true,
+    "source_priority": "Crown per fixture-market; TotalCorner default only when no eligible Crown quote exists"
+  },
+  "training_holdout_source_counts": {
+    "2025_AH_Crown": 1117,
+    "2025_AH_TotalCorner_default": 194,
+    "2025_OU_Crown": 1116,
+    "2025_OU_TotalCorner_default": 195,
+    "2026_AH_Crown": 9316,
+    "2026_AH_TotalCorner_default": 910,
+    "2026_OU_Crown": 9316,
+    "2026_OU_TotalCorner_default": 910
+  }
+}
