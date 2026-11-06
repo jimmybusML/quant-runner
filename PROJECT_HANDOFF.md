@@ -4188,4 +4188,4 @@
 ## 2026-11-06T08:34Z Crown/TOTAL盘口事件领先时间 × 开赛年交叉回放
 - 扩展 `m5_source_union_replay.py` 增加按“盘口事件领先开赛时长 × UTC kickoff year”以及来源交叉的描述汇总；未改变样本选择或下注规则。对现有冻结私有数据以Crown-only、TotalCorner-only、Crown-first各全量重放一次，生成脱敏汇总：`m5_crown_quote_lead_year_20261106.json`（08:32:03Z）、`m5_totalcorner_quote_lead_year_20261106.json`（08:33:46Z）、`m5_crown_first_quote_lead_year_20261106.json`（08:34:43Z）。每份报告的各时段×年份fixture数之和等于市场主样本量；来源拆分数量与各来源总数吻合；检查报告只含聚合字段/哈希，不含逐场身份、价格、比分、原始响应或凭证。
 - 新诊断：Crown-only OU 6–24h盘口事件lead全期248场、净+8.185U/+3.300403%；按年份，2025仅32场/+2.965U/+9.265625%，2026有216场/+5.220U/+2.416667%。Crown-first并集相同分层2026为319场/+0.5325U/+0.166928%；TOTAL-only在2026该组103场/-4.6875U/-4.550971%。AH Crown-only此组2025 17场/-15.676471%，2026 108场/-2.532407%。因此OU全期3.3%受小样本2025推动，2026测试不到3%；不达到10k且receipt在开赛后，只作描述，不增加时间门槛/正式策略。
-- 接续应重新跑M5测试/编译/JSON交叉计数检查，再提交公开分支。当前28个前瞻fixture-market最早15:00Z开赛，尚不能结算；历史总样本ROI仍未达到目标。
+- 32/32 M5 unittest、`py_compile`、三个来源/市场 JSON 的分组计数、赛后receipt标记、脱敏字段检查、`git diff --check` 均PASS；报告及实现已提交公开分支 `3693cc00900da72bebf682c41a74dc1e59ce7f11`。其push关联既有M3 workflow run `42189138756`（无jobs failure），不是M5 Actions验收；仓库没有M5 workflow。当前28个前瞻fixture-market最早15:00Z开赛，尚不能结算；历史总样本ROI仍未达到目标。
