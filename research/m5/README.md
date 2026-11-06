@@ -780,3 +780,9 @@ AH校准后W/HW/P/HL/L为3,591/981/644/329/3,855；OU为3,693/919/475/251/4,062�
 所有配对继续满足 `train_end_utc < prediction_asof_utc <= quote_event_utc <= quote_received_utc < kickoff_utc`；独立核验没有重复 fixture-market 或时间顺序错误。报告生成时 71 个市场项全部未开赛/未结算，因此净收益、ROI、最大回撤均为 null。该真实前瞻队列仍远小于每市场 10,000 场；历史 11k+ 回测与本前瞻队列没有混合。脱敏回执：[前瞻刷新聚合报告](results/m5_forward_shadow_refresh_20261106T1001Z.json)，配对哈希 `3f78e9692cda76c869b7c15a75c83c810a49703276319c0e752e9eb4cf2e52bd`。逐场预测、赔率、赛事身份和原始响应仍留在本机私有授权归档，没有发布凭证或逐场资料。
 
 本轮 M5 全量单元测试 42/42 通过。刷新结果提交 `12df5b2904789b6686746f0822310d551e0b6d62` 与交接更新 `6bd977909bb72533a6db8b12b8cfb369e6c1d94e` 分别出现既有 `.github/workflows/m3-ah-reverse-research.yml` runs [42200117028](https://github.com/ljm198964-alt/quant-runner/actions/runs/42200117028) 和 [42200250710](https://github.com/ljm198964-alt/quant-runner/actions/runs/42200250710)，均为 `failure` 且 `jobs=[]`；它们不是 M5 runs，也没有执行 M5 研究验收。仓库仍无 M5 Actions workflow。本次没有改动 M1/MR1/M3/M4 生产策略、订单、TG、账本或 Gate。
+
+## 2026-11-06 10:14Z 同一前瞻队列的再次 Crown 刷新
+
+对前一版已有报价的 47 个唯一 fixture 再调用 Crown 专属盘口接口：47 次尝试、46 条身份验证成功、1 次传输错误。随后从同一 07:01Z 冻结预测重新配对，AH 仍为 41 场（Crown 34、TotalCorner default 7），OU 增至 31 场（Crown 25、TotalCorner default 6）。71 个已有配对中有4个市场项的盘口条款/事件时间更新；另增加1个OU报价；模型按更新赔率选择的下注方向没有变化。
+
+截至 `2026-11-06T10:14:11Z`，72个 fixture-market 全部待赛，ROI、净收益和最大回撤为 null。时间、来源优先级与去重检查均通过。脱敏回执：[10:14Z前瞻刷新汇总](results/m5_forward_shadow_refresh_20261106T1014Z.json)。预测、赛事身份、盘口价格和原始响应继续保存在本机私有归档；该样本不与历史赛后回取数据混合，也不能证明正收益。

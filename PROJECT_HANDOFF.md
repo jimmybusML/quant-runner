@@ -4224,3 +4224,8 @@
 - 重新配对报告生成 `2026-11-06T10:01:08.294938Z`，同源时间/预测队列内 AH 41 场（Crown 34、TotalCorner default 7），OU 30 场（Crown 24、TotalCorner default 6）；比初次配对 AH 17 / OU 11 增加 24 / 19。Crown 按 fixture-market 优先，TOTAL 只填 Crown 缺项；两来源未冒名或重复。
 - 71 个配对均通过 `train_end < prediction_asof <= quote_event <= quote_received < kickoff`；没有重复 fixture-market；生成时全部未开赛，故 AH/OU 结算数为0，净U、ROI、最大回撤为 null。新的脱敏报告为 `research/m5/results/m5_forward_shadow_refresh_20261106T1001Z.json`，private pair SHA `3f78e9692cda76c869b7c15a75c83c810a49703276319c0e752e9eb4cf2e52bd`。这只是新增前瞻影子覆盖，不与 11k+ 历史回顾性回测合并，也未满足真实收益目标。
 - M5 全量单测 `unittest discover -s research/m5 -p 'test_*.py'` 为42/42 PASS；公开报告提交 `12df5b2904789b6686746f0822310d551e0b6d62` 对应既有 M3-only `.github/workflows/m3-ah-reverse-research.yml` run [42200117028](https://github.com/ljm198964-alt/quant-runner/actions/runs/42200117028)，交接更新提交 `6bd977909bb72533a6db8b12b8cfb369e6c1d94e` 对应 run [42200250710](https://github.com/ljm198964-alt/quant-runner/actions/runs/42200250710)；两者均 `failure`, `jobs=[]`，没有执行 M5 job，不构成 M5 验收。仓库无 M5 workflow。M1/M2/MR1/M3/M4 生产、正式订单、账本、Telegram 和 Gate 均未修改。
+
+## 2026-11-06T10:14Z M5 已配对前瞻赛事再次刷新盘口
+- 对上一版72个市场项覆盖的47个唯一 fixture 进行 Crown 再采集：47次尝试，46条身份校验成功，1次传输错误。响应集合 SHA `2e5cc01fd751fbd220aa0d7a37f629a60a2981e98bb6ea8f6a611fa63ea0e6c`。
+- 同一冻结 M5 预测重新配对生成 `2026-11-06T10:14:11.477488Z`：AH 41（Crown34/TOTAL7），OU31（Crown25/TOTAL6），共72唯一fixture-market。相比10:01Z配对新增1 OU报价；71个同场市场中4项价格/盘口条款更新，4项盘口事件时间前移，模型因更新赔率改变方向0项。
+- 全部72项在生成时尚未开赛，时间链 `train_end < prediction_asof <= quote_event <= receipt < kickoff` 成立，无重复；因此未结算数分别为AH41/OU31，净U、ROI、回撤为null。脱敏结果 `research/m5/results/m5_forward_shadow_refresh_20261106T1014Z.json`，private pair SHA `3ba833b44166a52a922c5b3f804f8d6c84b475163c2a04b74235e4a845470223`。仍远低于每市场10,000前瞻配对，也没有实现ROI≥3%。
