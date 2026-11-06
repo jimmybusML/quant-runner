@@ -91,8 +91,9 @@ def prediction_candidates():
   if set(grouped[key]['models'])!=MODELS:del grouped[key];diag['incomplete_model_group']+=1
  items=sorted(grouped.values(),key=lambda x:(x['date'],x['league'],norm(x['home']),norm(x['away'])))
  if len(items)<TARGET_TEST+TARGET_TRAIN:raise RuntimeError('Insufficient unique strict-OOS M3 fixtures')
- test=items[-TARGET_TEST:]
- test_start=day(test[0]['date'])
+ start_index=max(0,len(items)-TARGET_TEST)
+ test_start=day(items[start_index]['date'])
+ test=[x for x in items if day(x['date'])>=test_start]
  prior=[x for x in items if day(x['date'])<test_start]
  train=prior[-TARGET_TRAIN:]
  if len(train)<TARGET_TRAIN:raise RuntimeError('Insufficient pre-test training fixtures')
