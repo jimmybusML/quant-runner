@@ -896,3 +896,5 @@ AH W/HW/P/HL/L 为 3,791/783/650/522/3,771；OU 为 3,900/630/480/538/3,969。�
 联合模型虽优于未校准基准的结算 Log Loss / Brier，但其 AH、OU ROI 都比基准和各自单特征模型更差；没有市场达到 +3%。这再次显示较好的概率评分不必然转化为收益。2026留出每市场来源均为 Crown 9,316 + TotalCorner default 910；其中9,203行有可用赛前事件时间 Crown 1X2 特征，其余1,023行仍保留基准 1X2 分量。模型特征只使用 Crown 1X2，不将 TotalCorner 报价当作该特征。
 
 模型训练截止、预测 as-of、盘口事件时间和开赛顺序均经过现有输入校验；2025与2026赛事 ID 不交叉。但历史 API 收据均为开赛后回取，故 ROI 仅为 event-time 回顾性模拟，不是赛前收据验证或可执行收益；2026已在此前研究中多次检视，也不是未触碰确认集。新增实验未改生产策略、Gate、TG、正式订单或账本。
+
+新增 GitHub Actions [`M5 Research Validation`](../../.github/workflows/m5-research-validation.yml) 会对公开 M5 研究代码运行全套单测，并校验本回执的 runner SHA、来源/样本分母、结算及 ROI 算术。该工作流不读取 secrets、不访问逐场私有数据，也不重训；自动数据更新与重训还需要把 M5 私有归档安全接入 Actions，当前 bridge 未包含 M5 数据。

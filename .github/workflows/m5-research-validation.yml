@@ -1,0 +1,54 @@
+name: M5 Research Validation
+
+on:
+  push:
+    paths:
+      - "research/m5/**"
+      - ".github/workflows/m5-research-validation.yml"
+  pull_request:
+    paths:
+      - "research/m5/**"
+      - ".github/workflows/m5-research-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: m5-research-validation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned research dependencies
+        run: python -m pip install numpy scipy pandas pytest penaltyblog==1.13.1
+      - name: Run all M5 research tests
+        run: PYTHONPATH=. python -m pytest research/m5 -q
+      - name: Validate the public joint-model receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          code = Path("research/m5/m5_joint_market_1x2_residual_scoregrid.py")
+          receipt = json.loads(Path("research/m5/results/m5_joint_market_1x2_residual_2025fit_2026holdout_20261106.json").read_text())
+          assert receipt["runner_sha256"] == hashlib.sha256(code.read_bytes()).hexdigest()
+          for market, result in receipt["markets"].items():
+              assert market in {"AH", "OU"}
+              assert result["training_and_holdout_fixture_ids_disjoint"] is True
+              n = result["holdout_fixture_markets"]
+              assert n >= 10_000
+              assert result["holdout_quote_receipt_timing"] == {"post_kickoff": n}
+              assert sum(result["holdout_source_counts"].values()) == n
+              for model in result["2026_holdout"].values():
+                  assert model["simulated_bets"] == model["settled_bets"] == n
+                  assert sum(model["settlement_counts"].values()) == n
+                  assert abs(model["roi_pct"] - 100 * model["net_units"] / model["stake_units"]) < 1e-6
+          print("M5 public receipt integrity: PASS")
+          PY
