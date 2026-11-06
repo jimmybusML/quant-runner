@@ -4366,3 +4366,4 @@
 - 对20个仍未开赛的冻结forecast目标作Crown-only查询。20尝试中19个响应exact身份通过，1个`fixture_or_crown_identity_mismatch`拒绝；AH/OU各自有5/3个合格市场报价。新pair从129增至135（AH71、OU64），新增6项；TOTAL default源仍AH7/OU4，其他项Crown。129个共同市场中价格改变1、event time改变1、receipt time改变2。新pair SHA `665ced85c5d608a59544aff683bfa35d935efb4f99f38c4cd0a94b00a48cf851`，所选135项全部满足 train_end < prediction_asof <= quote_event <= actual receipt < kickoff。
 - 16:59Z重结算结果仍累计FT 11项，AH 5/71、净-0.36U、DD2U，OU6/64、净+1.37U、DD1U；pending124，全cohort ROI均null。前瞻shadow响应批次不能替代每市场10k OOS历史样本目标。
 - 脱敏回执 `research/m5/results/m5_forward_shadow_crown_refresh_20261106T1703Z.json`、README与M5 Actions validator更新待提交；生产模型/交易/Telegram/订单/账本/Gate未变。
+- 研究提交 `5eebedb49338064f29b1291e8276c81d2a8d8a15` 已推送；M5 Actions run [42259239230](https://github.com/ljm198964-alt/quant-runner/actions/runs/42259239230) 成功，包含71项M5测试和新增17:03Z前瞻回执校验。Actions仅读取公开聚合报告。
