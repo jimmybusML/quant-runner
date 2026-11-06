@@ -125,6 +125,38 @@ def summarize(rows, market, seed):
       'source_fixture_markets':dict(sources),'quote_receipt_timing':dict(receipt),
       'by_utc_kickoff_year':{y:{'fixtures':len(v),'net_units':round(sum(v),6),'roi_pct':round(100*sum(v)/len(v),6)} for y,v in sorted(byyear.items())}}
 
+def settlement_distribution(grid, market, side, line):
+    d=Counter()
+    for h,row in enumerate(grid):
+        for away,p in enumerate(row):
+            _,category=legs_result(market,side,line,h,away)
+            d[category]+=float(p)
+    keys=('win','half_win','push','half_loss','loss');total=sum(d.values())
+    return {k:float(d.get(k,0.0))/total for k in keys} if total>0 else {k:0.0 for k in keys}
+
+def temperature_adjust(d, temperature):
+    if temperature is None: return dict(d)
+    keys=('win','half_win','push','half_loss','loss')
+    powered={k:(float(d.get(k,0.0))**(1.0/temperature) if float(d.get(k,0.0))>0 else 0.0) for k in keys}
+    total=sum(powered.values())
+    return {k:v/total for k,v in powered.items()}
+
+def expected_settlement_return(d, price):
+    payoff={'win':price-1.0,'half_win':(price-1.0)/2.0,'push':0.0,'half_loss':-0.5,'loss':-1.0}
+    return sum(float(d.get(k,0.0))*v for k,v in payoff.items())
+
+def adjusted_grid(grid, market, side, line, raw_dist, adjusted_dist):
+    grid_mass=math.fsum(float(p) for row in grid for p in row)
+    out=[]
+    for h,row in enumerate(grid):
+        new=[]
+        for away,p in enumerate(row):
+            _,category=legs_result(market,side,line,h,away)
+            category_mass=float(raw_dist.get(category,0.0))
+            new.append((float(p)/grid_mass)*(float(adjusted_dist.get(category,0.0))/category_mass if category_mass>0 else 0.0))
+        out.append(new)
+    return out
+
 def run(a):
     root=ensure_private_destination(a.private_dir); zone=ZoneInfo(a.source_timezone)
     manifest_raw=(root/'candidate-manifest.json').read_bytes(); manifest=json.loads(manifest_raw)
@@ -135,6 +167,11 @@ def run(a):
             r=json.loads(line); forecasts[str(r['match_id'])]=r
         except Exception: continue
     crown_receipts={str(x.get('match_id')):x for x in read_jsonl(root/'crown-response-index.jsonl')}
+    calibration=None
+    if a.calibration:
+        calibration=json.loads(a.calibration.read_text(encoding='utf-8'))
+        if calibration.get('protocol')!='M5_MARKET_SETTLEMENT_TEMPERATURE_2025_TRAIN_V1':
+            raise ValueError('unsupported calibration report')
     total_receipts={}
     for x in read_jsonl(root/'totalcorner-default-index.jsonl'):
         if x.get('status')=='verified_fixture_response': total_receipts[str(x.get('match_id'))]=x
@@ -142,6 +179,8 @@ def run(a):
     for fixture in manifest.get('rows',[]):
         mid=str(fixture.get('match_id') or ''); f=forecasts.get(mid)
         if not f: continue
+        kickoff_year=(instant(f.get('kickoff')).year if instant(f.get('kickoff')) else None)
+        if a.kickoff_year is not None and kickoff_year!=a.kickoff_year: continue
         asof=instant(f.get('prediction_asof_utc')); train=instant(f.get('train_end_utc')); kickoff=instant(f.get('kickoff'))
         if not asof or not train or not kickoff or train>=asof or asof>=kickoff:
             counts['bad_forecast_chronology']+=1; continue
@@ -187,7 +226,11 @@ def run(a):
                 mass=math.fsum(float(v) for row in grid for v in row)
                 if abs(mass-1)>1e-7 or any(not math.isfinite(float(v)) or float(v)<0 for row in grid for v in row): raise ValueError
                 sides=('home','away') if market=='AH' else ('over','under')
-                ev=[expected_return(grid,market,s,line,p) for s,p in zip(sides,prices)]
+                temperatures=(calibration or {}).get('temperatures',{})
+                temp=temperatures.get(market)
+                side_dists=[settlement_distribution(grid,market,s,line) for s in sides]
+                adjusted_dists=[temperature_adjust(d,temp) for d in side_dists]
+                ev=[expected_settlement_return(d,p) for d,p in zip(adjusted_dists,prices)] if calibration else [expected_return(grid,market,s,line,p) for s,p in zip(sides,prices)]
                 best_idx=0 if ev[0]>=ev[1] else 1
                 if a.side_policy=='higher_ev': side_idx=best_idx
                 elif a.side_policy=='lower_ev': side_idx=1-best_idx
@@ -195,10 +238,10 @@ def run(a):
                 else: side_idx=0 if prices[0]>=prices[1] else 1
                 side=sides[side_idx]; price=prices[side_idx]
                 legs,category=legs_result(market,side,line,*score_actual); pnl=payout(legs,price)
-                distribution=defaultdict(float)
-                for h,row in enumerate(grid):
-                    for away,prob in enumerate(row):
-                        _,cat=legs_result(market,side,line,h,away);distribution[cat]+=float(prob)
+                if calibration:
+                    selected_grid=adjusted_grid(grid,market,side,line,side_dists[side_idx],adjusted_dists[side_idx])
+                    distribution=settlement_distribution(selected_grid,market,side,line)
+                else: distribution=side_dists[side_idx]
                 market_rows[market].append({'pnl':pnl,'category':category,'distribution':distribution,
                    'event_utc':observed.isoformat(),'kickoff_utc':kickoff.isoformat(),
                    'source':source,'receipt_before_kickoff':bool(receipt_at and receipt_at<kickoff),
@@ -211,7 +254,9 @@ def run(a):
       'input_hashes':{'candidate_manifest_sha256':hashlib.sha256(manifest_raw).hexdigest(),'forecast_sha256':hashlib.sha256(forecast_raw).hexdigest(),'quote_response_hash_set_sha256':hashlib.sha256('\n'.join(sorted(hashes)).encode()).hexdigest()},
       'candidate_fixtures':len(manifest.get('rows',[])),'forecast_rows':len(forecasts),
       'source_selection':'Per fixture-market, latest valid Crown source event at/after prediction as-of and before kickoff; TotalCorner default only if that Crown fixture-market is absent. No duplicate fixture-market bets. One unit per selected side; no EV threshold.',
-      'side_selection_policy':a.side_policy,
+      'side_selection_policy':('higher_calibrated_expected_return' if calibration else a.side_policy),
+      'calibration':({'protocol':calibration.get('protocol'),'training_year':calibration.get('training_year'),
+                      'temperatures':calibration.get('temperatures'),'report_sha256':hashlib.sha256(a.calibration.read_bytes()).hexdigest()} if calibration else None),
       'timing_note':'Historical API responses were fetched after fixtures. Pre-kickoff source event timestamps support event-time retrospective replay only; they do not prove contemporaneous pre-kickoff receipt or executable price.',
       'markets':{m:summarize(rows,m,seed=20261105+(0 if m=='AH' else 1)) for m,rows in market_rows.items()},
       'audit_counts':dict(counts)}
@@ -220,5 +265,5 @@ def run(a):
     print(json.dumps({'generated_utc':result['generated_utc'],'markets':result['markets'],'candidate_fixtures':result['candidate_fixtures']},ensure_ascii=False,sort_keys=True))
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--private-dir',type=Path,required=True);p.add_argument('--source-timezone',default='Asia/Shanghai');p.add_argument('--forecast-path',type=Path,help='optional alternate M5-only OOS forecast JSONL with identical fixture identity');p.add_argument('--side-policy',choices=('higher_ev','lower_ev','favorite','underdog'),default='higher_ev',help='research-only direction diagnostic; always bets one side per valid fixture-market, without a threshold');p.add_argument('--output',type=Path,required=True);run(p.parse_args())
+    p=argparse.ArgumentParser();p.add_argument('--private-dir',type=Path,required=True);p.add_argument('--source-timezone',default='Asia/Shanghai');p.add_argument('--forecast-path',type=Path,help='optional alternate M5-only OOS forecast JSONL with identical fixture identity');p.add_argument('--side-policy',choices=('higher_ev','lower_ev','favorite','underdog'),default='higher_ev',help='research-only direction diagnostic; always bets one side per valid fixture-market, without a threshold');p.add_argument('--calibration',type=Path,help='optional prior-year-fitted M5 market settlement temperature report');p.add_argument('--kickoff-year',type=int,help='optional UTC target-year slice; no filter by default');p.add_argument('--output',type=Path,required=True);run(p.parse_args())
 if __name__=='__main__': main()
