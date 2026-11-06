@@ -4204,3 +4204,7 @@
 - 本轮 `unittest discover -s research/m5 -p 'test_*.py'` 35/35 PASS；模型预测文件 10,568 唯一 fixture、AH/OU 各一行市场配对、三模型矩阵全覆盖、ROI/结算计数重算、训练/预测/盘口事件 UTC 顺序、赛后receipt标记、私有文件权限与公开脱敏检查均 PASS。`py_compile`、`git diff --check` PASS。提交及 push / Actions 状态待提交后补录。研究仍未实现任一市场 ROI≥3%；不改 M1/MR1/M3/M4 生产，不启用 TG、不加 Gate。
 - `09:21:41.215560Z` 基于同一私有冻结网格补入年份与盘口来源分组，且逐项重算总表对账通过。每市场共同预测样本为2025年1,168场、2026年9,400场；AH/OU六个模型年ROI全为负。来源组同样全负：各AH模型Crown 9,613 / TotalCorner default 955，OU 9,612 / 956。报告回执已保留这些逐年和分来源指标，未重新训练或改变原始预测。
 - 模型代码/脱敏报告 commit `527ba0fa5422d206541a5867328f3955ef9fa44d` 已推送到 `codex/m5-oos-crown-expansion`。其 push 触发既有 `.github/workflows/m3-ah-reverse-research.yml` run `42194717461`，实际结果 `failure` 且 `jobs=[]`；这不是 M5 workflow，也没有执行 M5 验收任务。仓库仍没有独立 M5 GitHub Actions workflow。
+## 2026-11-06T09:29Z 2025按联赛概率分数选择M3模型 / 2026留出
+- 新增研究工具 `research/m5/m5_penaltyblog_prior_year_selector.py`：AH/OU 独立选择，使用2025严格OOS输出的逐联赛结算 Log Loss 选 Poisson / Dixon–Coles / Bivariate Poisson，再应用于全部2026可完整配对fixture；联赛没有2025记录时用该市场2025全局最低Log Loss模型。2026结果没有参与选型，也没有过滤任何已预测比赛。脱敏回执 `research/m5/results/m5_penaltyblog_2025_logloss_selector_2026_holdout_20261106.json` 生成 `09:29:57.086466Z`。
+- 选择器同一样本 holdout n=9,400/market：AH `-216.52U/-2.303404%`，较固定最佳Bivariate `-2.235479%`略差；OU `-290.63U/-3.091809%`，较固定最佳Bivariate `-3.388564%`改善0.297个百分点。ROI仍负且holdout少于10,000，不满足M5验收。AH/OU来源均为Crown 8,607、TotalCorner default 793；历史receipt皆赛后。没有新gate、生产更新或TG发送。
+- M5测试 37/37 PASS；报告分母/结算/ROI/来源/赛后receipt核对及敏感逐场字段扫描 PASS；新脚本 py_compile 与 `git diff --check` PASS。之后应继续扩大前瞻真实赛前接收样本并研究盈利驱动，不能把这9,400样本当10,000样本验收。

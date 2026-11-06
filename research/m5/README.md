@@ -739,3 +739,14 @@ Crown 采集 361 次，357 条身份验证成功、3 条身份/盘口源错配�
 | OU | Poisson | -5.280608% | -3.486330% | -3.706877% | -3.461036% |
 | OU | Dixon–Coles | -5.379923% | -3.399628% | -3.604245% | -3.761768% |
 | OU | Bivariate Poisson | -5.253211% | -3.388564% | -3.533292% | -4.211559% |
+
+## 2025 概率评分选模型 → 2026 留出验证
+
+为检查 M3 三模型之间是否有可利用的互补优势，另做固定方法的时间前推研究：AH、OU 分开处理，按联赛在 2025 OOS 结算概率 Log Loss 选模型；对 2026 所有可完整预测且有源盘口的比赛应用选择，不过滤联赛、不加投注门槛。该规则未使用 2026 的比赛结果，所有比较使用同一 9,400 场 2026 fixture-market holdout；2025 选择样本每市场1,168场。
+
+| 市场 | 2025训练选择 | 2026模型选择结果 | 2026固定最佳单模型 | 比较 |
+| --- | --- | ---: | ---: | --- |
+| AH | 按联赛 Log Loss；无2025行时用全局 Poisson（29联赛选Poisson、17选Dixon–Coles、5选Bivariate） | n=9,400；-216.52U / -2.303404%；DD 241.885U | Bivariate Poisson：-2.235479% | 选择器略差，未改善 |
+| OU | 按联赛 Log Loss；无2025行时用全局 Bivariate（26联赛选Bivariate、18选Dixon–Coles、7选Poisson） | n=9,400；-290.63U / -3.091809%；DD 347.3975U | Bivariate Poisson：-3.388564% | 改善约0.297个百分点，仍亏损 |
+
+AH 结算 W/HW/P/HL/L 为 3,742/687/644/623/3,704，结算类别 Log Loss/Brier 为 1.036882/0.648903；OU 为 3,931/509/475/661/3,824，Log Loss/Brier 为 0.987924/0.623317。两个市场来源均为 Crown 8,607、TotalCorner default 793；本归档的历史 API 回执均晚于开赛，仍是 event-time retrospective 结果。虽然 OU 有样本外改善，但留出样本只有9,400场，且ROI仍为负；因此不满足10,000场与ROI≥3%的M5目标，也不据此改正式模型。完整脱敏回执见[2025选择 / 2026留出报告](results/m5_penaltyblog_2025_logloss_selector_2026_holdout_20261106.json)；复现工具为[m5_penaltyblog_prior_year_selector.py](m5_penaltyblog_prior_year_selector.py)。

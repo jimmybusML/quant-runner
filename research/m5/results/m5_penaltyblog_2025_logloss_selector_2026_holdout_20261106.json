@@ -1,0 +1,252 @@
+{
+  "all_historical_response_receipts_post_kickoff": true,
+  "candidate_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+  "generated_utc": "2026-11-06T09:29:57.086466Z",
+  "holdout_2026_not_used_for_selection": true,
+  "holdout_scope_boundary": "All 2026 fixture-markets with complete three-model OOS forecasts and a valid selected source quote; no post-hoc outcome or league exclusions.",
+  "interpretation": "Research-only, retrospective event-time results. The 2026 holdout is below the separate 10,000-match threshold; this experiment cannot satisfy the M5 acceptance target even if its ROI were positive.",
+  "markets": {
+    "AH": {
+      "fixed_model_same_holdout": {
+        "bivariate_poisson": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 9400
+          },
+          "fixtures": 9400,
+          "max_drawdown_units_by_quote_event_time": 229.585,
+          "net_units": -210.135,
+          "quote_source_fixture_markets": {
+            "Crown": 8607,
+            "TotalCorner_default": 793
+          },
+          "roi_pct": -2.235479,
+          "settled_bets": 9400,
+          "settlement_brier": 0.6495914,
+          "settlement_counts": {
+            "half_loss": 626,
+            "half_win": 684,
+            "loss": 3699,
+            "push": 644,
+            "win": 3747
+          },
+          "settlement_log_loss": 1.03839434,
+          "simulated_bets": 9400
+        },
+        "dixon_coles": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 9400
+          },
+          "fixtures": 9400,
+          "max_drawdown_units_by_quote_event_time": 249.535,
+          "net_units": -227.44,
+          "quote_source_fixture_markets": {
+            "Crown": 8607,
+            "TotalCorner_default": 793
+          },
+          "roi_pct": -2.419574,
+          "settled_bets": 9400,
+          "settlement_brier": 0.64886693,
+          "settlement_counts": {
+            "half_loss": 621,
+            "half_win": 689,
+            "loss": 3711,
+            "push": 644,
+            "win": 3735
+          },
+          "settlement_log_loss": 1.03676057,
+          "simulated_bets": 9400
+        },
+        "poisson": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 9400
+          },
+          "fixtures": 9400,
+          "max_drawdown_units_by_quote_event_time": 239.805,
+          "net_units": -215.33,
+          "quote_source_fixture_markets": {
+            "Crown": 8607,
+            "TotalCorner_default": 793
+          },
+          "roi_pct": -2.290745,
+          "settled_bets": 9400,
+          "settlement_brier": 0.6486319,
+          "settlement_counts": {
+            "half_loss": 629,
+            "half_win": 681,
+            "loss": 3701,
+            "push": 644,
+            "win": 3745
+          },
+          "settlement_log_loss": 1.03636038,
+          "simulated_bets": 9400
+        }
+      },
+      "holdout_fixtures": 9400,
+      "selected_by_league_holdout": {
+        "actual_response_receipt_timing": {
+          "post_kickoff": 9400
+        },
+        "fixtures": 9400,
+        "max_drawdown_units_by_quote_event_time": 241.885,
+        "net_units": -216.52,
+        "quote_source_fixture_markets": {
+          "Crown": 8607,
+          "TotalCorner_default": 793
+        },
+        "roi_pct": -2.303404,
+        "settled_bets": 9400,
+        "settlement_brier": 0.64890346,
+        "settlement_counts": {
+          "half_loss": 623,
+          "half_win": 687,
+          "loss": 3704,
+          "push": 644,
+          "win": 3742
+        },
+        "settlement_log_loss": 1.03688206,
+        "simulated_bets": 9400
+      },
+      "selected_model_by_league": {
+        "fixture_count_by_selected_model": {
+          "bivariate_poisson": 956,
+          "dixon_coles": 3219,
+          "poisson": 5225
+        },
+        "global_fallback": "poisson",
+        "league_count_by_selected_model": {
+          "bivariate_poisson": 5,
+          "dixon_coles": 17,
+          "poisson": 29
+        }
+      },
+      "selection_method": "Per league, select lowest 2025 OOS settlement log loss; if a league has no 2025 predictions, use the global lowest-2025-log-loss model. Apply to all 2026 fixtures without exclusions.",
+      "selection_training_fixtures": 1168
+    },
+    "OU": {
+      "fixed_model_same_holdout": {
+        "bivariate_poisson": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 9400
+          },
+          "fixtures": 9400,
+          "max_drawdown_units_by_quote_event_time": 365.9675,
+          "net_units": -318.525,
+          "quote_source_fixture_markets": {
+            "Crown": 8607,
+            "TotalCorner_default": 793
+          },
+          "roi_pct": -3.388564,
+          "settled_bets": 9400,
+          "settlement_brier": 0.62344131,
+          "settlement_counts": {
+            "half_loss": 658,
+            "half_win": 512,
+            "loss": 3840,
+            "push": 475,
+            "win": 3915
+          },
+          "settlement_log_loss": 0.98800863,
+          "simulated_bets": 9400
+        },
+        "dixon_coles": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 9400
+          },
+          "fixtures": 9400,
+          "max_drawdown_units_by_quote_event_time": 373.6775,
+          "net_units": -319.565,
+          "quote_source_fixture_markets": {
+            "Crown": 8607,
+            "TotalCorner_default": 793
+          },
+          "roi_pct": -3.399628,
+          "settled_bets": 9400,
+          "settlement_brier": 0.62333784,
+          "settlement_counts": {
+            "half_loss": 667,
+            "half_win": 503,
+            "loss": 3836,
+            "push": 475,
+            "win": 3919
+          },
+          "settlement_log_loss": 0.98799863,
+          "simulated_bets": 9400
+        },
+        "poisson": {
+          "actual_response_receipt_timing": {
+            "post_kickoff": 9400
+          },
+          "fixtures": 9400,
+          "max_drawdown_units_by_quote_event_time": 386.5275,
+          "net_units": -327.715,
+          "quote_source_fixture_markets": {
+            "Crown": 8607,
+            "TotalCorner_default": 793
+          },
+          "roi_pct": -3.48633,
+          "settled_bets": 9400,
+          "settlement_brier": 0.62333331,
+          "settlement_counts": {
+            "half_loss": 667,
+            "half_win": 503,
+            "loss": 3840,
+            "push": 475,
+            "win": 3915
+          },
+          "settlement_log_loss": 0.98791764,
+          "simulated_bets": 9400
+        }
+      },
+      "holdout_fixtures": 9400,
+      "selected_by_league_holdout": {
+        "actual_response_receipt_timing": {
+          "post_kickoff": 9400
+        },
+        "fixtures": 9400,
+        "max_drawdown_units_by_quote_event_time": 347.3975,
+        "net_units": -290.63,
+        "quote_source_fixture_markets": {
+          "Crown": 8607,
+          "TotalCorner_default": 793
+        },
+        "roi_pct": -3.091809,
+        "settled_bets": 9400,
+        "settlement_brier": 0.62331707,
+        "settlement_counts": {
+          "half_loss": 661,
+          "half_win": 509,
+          "loss": 3824,
+          "push": 475,
+          "win": 3931
+        },
+        "settlement_log_loss": 0.98792361,
+        "simulated_bets": 9400
+      },
+      "selected_model_by_league": {
+        "fixture_count_by_selected_model": {
+          "bivariate_poisson": 5057,
+          "dixon_coles": 3279,
+          "poisson": 1064
+        },
+        "global_fallback": "bivariate_poisson",
+        "league_count_by_selected_model": {
+          "bivariate_poisson": 26,
+          "dixon_coles": 18,
+          "poisson": 7
+        }
+      },
+      "selection_method": "Per league, select lowest 2025 OOS settlement log loss; if a league has no 2025 predictions, use the global lowest-2025-log-loss model. Apply to all 2026 fixtures without exclusions.",
+      "selection_training_fixtures": 1168
+    }
+  },
+  "models": [
+    "poisson",
+    "dixon_coles",
+    "bivariate_poisson"
+  ],
+  "private_forecast_sha256": "61e7488180dc9b05017113663a8d0c6d26f03b30648ad99ac1ea32f3792e01c1",
+  "production_changes": false,
+  "protocol": "M5_M3_PENALTYBLOG_2025_SCORE_SELECTOR_2026_HOLDOUT_V1",
+  "selection_data_is_strict_oos": true,
+  "source_m3_run_report_sha256": "78fca985d759c3df9894baff24297371fa8221dbcf8b3f58024a7c1db6137add"
+}
