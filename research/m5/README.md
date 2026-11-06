@@ -819,3 +819,18 @@ AH校准后W/HW/P/HL/L为3,591/981/644/329/3,855；OU为3,693/919/475/251/4,062�
 所有 20,452 个 2026 市场回执都在开赛后取得；报价事件时间位于模型 as-of 与开赛之间，因此这是严格 OOS 的 event-time 回顾性 ROI，不是可执行收益。结算类别、来源/时间审计、训练重代入与留出回执见[脱敏校准结果](results/m5_line_conditional_settlement_calibration_2025fit_2026holdout_20261106.json)；脚本为[`m5_line_conditional_settlement_calibration.py`](m5_line_conditional_settlement_calibration.py)，单元测试覆盖概率归一、温度收缩与留出隔离。
 
 代码与报告已推送在提交 `aedcd6c7713c556464e85c03d0f4f2822e818659`。对应 Actions run [42203113817](https://github.com/ljm198964-alt/quant-runner/actions/runs/42203113817) 来自既有 M3 AH workflow，状态为 `failure`、`jobs=[]`；它没有执行 M5 验收。
+
+## 2026-11-06 MR1 V6 万场级重跑与 M4 配对回放
+
+M5 Crown response 同时保存 1X2 `odds.open/close`。严格身份和 UTC 时间筛选后，9,517 场拥有 M3 严格 OOS 预测及 Crown AH、OU、1X2 三类有效盘口事件，且各事件时间都在预测 as-of 后、kickoff 前。实际调用本机 MR1 V6 原始 cross-market 核心重跑了全部 9,517 场；模型分布/选边不使用赛果。公共批次准备器输出只写私有目录，MR1 公共适配器导入本机原核心，并记录源仓库提交和源码哈希。结果：[MR1 V6 扩展 Crown 回执](results/m5_mr1_v6_cross_market_expanded_crown_20261106.json)、[私有批次准备脚本](m5_mr1_v6_prepare_expanded_crown.py)、[MR1 核心适配器](m5_mr1_v6_expanded_crown_oos.mjs)。
+
+| 模型 | 市场 | 唯一比赛 / 已结算 | 净 U | ROI | 最大回撤 U | Log Loss / Brier |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| MR1 V6 cross-market | AH | 9,517 / 9,517 | -144.230 | -1.5155% | 209.275 | 0.98734780 / 0.61738791 |
+| MR1 V6 cross-market | OU | 9,517 / 9,517 | -359.915 | -3.7818% | 373.400 | 0.97330859 / 0.61316344 |
+
+AH W/HW/P/HL/L 为 3,791/783/650/522/3,771；OU 为 3,900/630/480/538/3,969。全部报价来源为 Crown。所有 provider response receipts 均在 kickoff 后取得，因此是 event-time 回顾模拟，不是同期实收或可执行 ROI。2025/2026 分年结果见报告。
+
+另将已有 M4 “Japan J-League、Türkiye Super Lig Pass”规则作为探索性反事实，配对应用到 M3 同一批 10,568 场预测和相同报价。过滤后每市场 10,046 场；AH（Poisson / Dixon–Coles / Bivariate Poisson）ROI 为 -3.3594% / -3.4134% / -3.2700%，OU 为 -3.5469% / -3.4480% / -3.6039%，没有达到 +3%。M4 是 MR1 账本联赛跳过研究，不是独立预测器；两个联赛是看过既往结果后选的，因此此处仍属探索分析，不是未触碰的前瞻验证。回执和脚本：[M4 规则配对回放](results/m5_m4_pass_rule_m3_expanded_oos_20261106.json)、[回放代码](m5_m4_pass_rule_m3_expanded_oos.py)。
+
+当前可执行覆盖对比：M1 仅有每市场 1,233 场保存预测；MR1 V6 本次实际重跑每市场 9,517 场；M3 三模型本次实际重跑每市场 10,568 场（9,612/9,613 Crown，余下 955/956 明确标记 TotalCorner default）；M4 没有独立模型预测，只能运行上述规则反事实。M1 没有其余比赛的冻结预测或可追溯特征快照，不能合法补造 11,573 场输出。可用模型的万场级 ROI 均未达到 AH/OU +3% 目标。

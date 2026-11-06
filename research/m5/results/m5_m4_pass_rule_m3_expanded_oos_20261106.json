@@ -1,0 +1,682 @@
+{
+  "audit": {
+    "fixture_id_counts": {
+      "AH": 10568,
+      "OU": 10568
+    },
+    "skipped": {}
+  },
+  "excluded_leagues": [
+    "Japan J-League",
+    "Türkiye Super Lig"
+  ],
+  "generated_utc": "2026-11-06T10:50:34.912214Z",
+  "input_private_archive_sha256": "61e7488180dc9b05017113663a8d0c6d26f03b30648ad99ac1ea32f3792e01c1",
+  "limitations": [
+    "M4 is a retrospective MR1-ledger league Pass study, not an independently trained prediction model.",
+    "The two excluded leagues were selected after observing MR1 historical outcomes; applying that selected rule to this expanded archive is exploratory and not an untouched validation.",
+    "Historical provider response receipts may be post-kickoff; simulated ROI does not establish executable prices.",
+    "This research-only counterfactual does not modify any formal model or production gate."
+  ],
+  "markets": {
+    "AH": {
+      "common_fixture_count": 10568,
+      "models": {
+        "bivariate_poisson": {
+          "M4_two_league_pass_exploratory": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1111,
+                "net_units": -94.4875,
+                "roi_pct": -8.504725
+              },
+              "2026": {
+                "bets": 8935,
+                "net_units": -234.02,
+                "roi_pct": -2.619138
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 355.435,
+            "net_units": -328.5075,
+            "quote_sources": {
+              "Crown": 9101,
+              "TotalCorner_default": 945
+            },
+            "response_receipts": {
+              "post_kickoff": 10046
+            },
+            "roi_pct": -3.270033,
+            "settled_bets": 10046,
+            "settlement_counts": {
+              "half_loss": 663,
+              "half_win": 716,
+              "loss": 4009,
+              "push": 691,
+              "win": 3967
+            },
+            "simulated_bets": 10046,
+            "stake_units": 10046,
+            "unique_fixtures": 10046
+          },
+          "all_M3_rows": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1168,
+                "net_units": -107.0275,
+                "roi_pct": -9.163313
+              },
+              "2026": {
+                "bets": 9400,
+                "net_units": -210.135,
+                "roi_pct": -2.235479
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 341.2225,
+            "net_units": -317.1625,
+            "quote_sources": {
+              "Crown": 9613,
+              "TotalCorner_default": 955
+            },
+            "response_receipts": {
+              "post_kickoff": 10568
+            },
+            "roi_pct": -3.001159,
+            "settled_bets": 10568,
+            "settlement_counts": {
+              "half_loss": 703,
+              "half_win": 748,
+              "loss": 4204,
+              "push": 722,
+              "win": 4191
+            },
+            "simulated_bets": 10568,
+            "stake_units": 10568,
+            "unique_fixtures": 10568
+          },
+          "excluded_by_existing_M4_rule": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 57,
+                "net_units": -12.54,
+                "roi_pct": -22.0
+              },
+              "2026": {
+                "bets": 465,
+                "net_units": 23.885,
+                "roi_pct": 5.136559
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 22.025,
+            "net_units": 11.345,
+            "quote_sources": {
+              "Crown": 512,
+              "TotalCorner_default": 10
+            },
+            "response_receipts": {
+              "post_kickoff": 522
+            },
+            "roi_pct": 2.173372,
+            "settled_bets": 522,
+            "settlement_counts": {
+              "half_loss": 40,
+              "half_win": 32,
+              "loss": 195,
+              "push": 31,
+              "win": 224
+            },
+            "simulated_bets": 522,
+            "stake_units": 522,
+            "unique_fixtures": 522
+          }
+        },
+        "dixon_coles": {
+          "M4_two_league_pass_exploratory": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1111,
+                "net_units": -92.5475,
+                "roi_pct": -8.330108
+              },
+              "2026": {
+                "bets": 8935,
+                "net_units": -250.365,
+                "roi_pct": -2.802071
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 366.915,
+            "net_units": -342.9125,
+            "quote_sources": {
+              "Crown": 9101,
+              "TotalCorner_default": 945
+            },
+            "response_receipts": {
+              "post_kickoff": 10046
+            },
+            "roi_pct": -3.413423,
+            "settled_bets": 10046,
+            "settlement_counts": {
+              "half_loss": 659,
+              "half_win": 720,
+              "loss": 4019,
+              "push": 691,
+              "win": 3957
+            },
+            "simulated_bets": 10046,
+            "stake_units": 10046,
+            "unique_fixtures": 10046
+          },
+          "all_M3_rows": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1168,
+                "net_units": -103.1375,
+                "roi_pct": -8.830265
+              },
+              "2026": {
+                "bets": 9400,
+                "net_units": -227.44,
+                "roi_pct": -2.419574
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 352.6125,
+            "net_units": -330.5775,
+            "quote_sources": {
+              "Crown": 9613,
+              "TotalCorner_default": 955
+            },
+            "response_receipts": {
+              "post_kickoff": 10568
+            },
+            "roi_pct": -3.128099,
+            "settled_bets": 10568,
+            "settlement_counts": {
+              "half_loss": 698,
+              "half_win": 753,
+              "loss": 4214,
+              "push": 722,
+              "win": 4181
+            },
+            "simulated_bets": 10568,
+            "stake_units": 10568,
+            "unique_fixtures": 10568
+          },
+          "excluded_by_existing_M4_rule": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 57,
+                "net_units": -10.59,
+                "roi_pct": -18.578947
+              },
+              "2026": {
+                "bets": 465,
+                "net_units": 22.925,
+                "roi_pct": 4.930108
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 19.105,
+            "net_units": 12.335,
+            "quote_sources": {
+              "Crown": 512,
+              "TotalCorner_default": 10
+            },
+            "response_receipts": {
+              "post_kickoff": 522
+            },
+            "roi_pct": 2.363027,
+            "settled_bets": 522,
+            "settlement_counts": {
+              "half_loss": 39,
+              "half_win": 33,
+              "loss": 195,
+              "push": 31,
+              "win": 224
+            },
+            "simulated_bets": 522,
+            "stake_units": 522,
+            "unique_fixtures": 522
+          }
+        },
+        "poisson": {
+          "M4_two_league_pass_exploratory": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1111,
+                "net_units": -92.3775,
+                "roi_pct": -8.314806
+              },
+              "2026": {
+                "bets": 8935,
+                "net_units": -245.105,
+                "roi_pct": -2.743201
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 364.695,
+            "net_units": -337.4825,
+            "quote_sources": {
+              "Crown": 9101,
+              "TotalCorner_default": 945
+            },
+            "response_receipts": {
+              "post_kickoff": 10046
+            },
+            "roi_pct": -3.359372,
+            "settled_bets": 10046,
+            "settlement_counts": {
+              "half_loss": 666,
+              "half_win": 713,
+              "loss": 4013,
+              "push": 691,
+              "win": 3963
+            },
+            "simulated_bets": 10046,
+            "stake_units": 10046,
+            "unique_fixtures": 10046
+          },
+          "all_M3_rows": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1168,
+                "net_units": -104.9175,
+                "roi_pct": -8.982663
+              },
+              "2026": {
+                "bets": 9400,
+                "net_units": -215.33,
+                "roi_pct": -2.290745
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 347.2425,
+            "net_units": -320.2475,
+            "quote_sources": {
+              "Crown": 9613,
+              "TotalCorner_default": 955
+            },
+            "response_receipts": {
+              "post_kickoff": 10568
+            },
+            "roi_pct": -3.030351,
+            "settled_bets": 10568,
+            "settlement_counts": {
+              "half_loss": 706,
+              "half_win": 745,
+              "loss": 4205,
+              "push": 722,
+              "win": 4190
+            },
+            "simulated_bets": 10568,
+            "stake_units": 10568,
+            "unique_fixtures": 10568
+          },
+          "excluded_by_existing_M4_rule": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 57,
+                "net_units": -12.54,
+                "roi_pct": -22.0
+              },
+              "2026": {
+                "bets": 465,
+                "net_units": 29.775,
+                "roi_pct": 6.403226
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 20.025,
+            "net_units": 17.235,
+            "quote_sources": {
+              "Crown": 512,
+              "TotalCorner_default": 10
+            },
+            "response_receipts": {
+              "post_kickoff": 522
+            },
+            "roi_pct": 3.301724,
+            "settled_bets": 522,
+            "settlement_counts": {
+              "half_loss": 40,
+              "half_win": 32,
+              "loss": 192,
+              "push": 31,
+              "win": 227
+            },
+            "simulated_bets": 522,
+            "stake_units": 522,
+            "unique_fixtures": 522
+          }
+        }
+      }
+    },
+    "OU": {
+      "common_fixture_count": 10568,
+      "models": {
+        "bivariate_poisson": {
+          "M4_two_league_pass_exploratory": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1111,
+                "net_units": -61.8275,
+                "roi_pct": -5.565032
+              },
+              "2026": {
+                "bets": 8935,
+                "net_units": -300.22,
+                "roi_pct": -3.360045
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 375.3625,
+            "net_units": -362.0475,
+            "quote_sources": {
+              "Crown": 9100,
+              "TotalCorner_default": 946
+            },
+            "response_receipts": {
+              "post_kickoff": 10046
+            },
+            "roi_pct": -3.603897,
+            "settled_bets": 10046,
+            "settlement_counts": {
+              "half_loss": 700,
+              "half_win": 562,
+              "loss": 4118,
+              "push": 491,
+              "win": 4175
+            },
+            "simulated_bets": 10046,
+            "stake_units": 10046,
+            "unique_fixtures": 10046
+          },
+          "all_M3_rows": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1168,
+                "net_units": -61.3575,
+                "roi_pct": -5.253211
+              },
+              "2026": {
+                "bets": 9400,
+                "net_units": -318.525,
+                "roi_pct": -3.388564
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 393.8275,
+            "net_units": -379.8825,
+            "quote_sources": {
+              "Crown": 9612,
+              "TotalCorner_default": 956
+            },
+            "response_receipts": {
+              "post_kickoff": 10568
+            },
+            "roi_pct": -3.594649,
+            "settled_bets": 10568,
+            "settlement_counts": {
+              "half_loss": 735,
+              "half_win": 580,
+              "loss": 4333,
+              "push": 526,
+              "win": 4394
+            },
+            "simulated_bets": 10568,
+            "stake_units": 10568,
+            "unique_fixtures": 10568
+          },
+          "excluded_by_existing_M4_rule": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 57,
+                "net_units": 0.47,
+                "roi_pct": 0.824561
+              },
+              "2026": {
+                "bets": 465,
+                "net_units": -18.305,
+                "roi_pct": -3.936559
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 27.445,
+            "net_units": -17.835,
+            "quote_sources": {
+              "Crown": 512,
+              "TotalCorner_default": 10
+            },
+            "response_receipts": {
+              "post_kickoff": 522
+            },
+            "roi_pct": -3.416667,
+            "settled_bets": 522,
+            "settlement_counts": {
+              "half_loss": 35,
+              "half_win": 18,
+              "loss": 215,
+              "push": 35,
+              "win": 219
+            },
+            "simulated_bets": 522,
+            "stake_units": 522,
+            "unique_fixtures": 522
+          }
+        },
+        "dixon_coles": {
+          "M4_two_league_pass_exploratory": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1111,
+                "net_units": -61.2175,
+                "roi_pct": -5.510126
+              },
+              "2026": {
+                "bets": 8935,
+                "net_units": -285.17,
+                "roi_pct": -3.191606
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 364.3025,
+            "net_units": -346.3875,
+            "quote_sources": {
+              "Crown": 9100,
+              "TotalCorner_default": 946
+            },
+            "response_receipts": {
+              "post_kickoff": 10046
+            },
+            "roi_pct": -3.448014,
+            "settled_bets": 10046,
+            "settlement_counts": {
+              "half_loss": 710,
+              "half_win": 552,
+              "loss": 4105,
+              "push": 491,
+              "win": 4188
+            },
+            "simulated_bets": 10046,
+            "stake_units": 10046,
+            "unique_fixtures": 10046
+          },
+          "all_M3_rows": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1168,
+                "net_units": -62.8375,
+                "roi_pct": -5.379923
+              },
+              "2026": {
+                "bets": 9400,
+                "net_units": -319.565,
+                "roi_pct": -3.399628
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 400.3675,
+            "net_units": -382.4025,
+            "quote_sources": {
+              "Crown": 9612,
+              "TotalCorner_default": 956
+            },
+            "response_receipts": {
+              "post_kickoff": 10568
+            },
+            "roi_pct": -3.618495,
+            "settled_bets": 10568,
+            "settlement_counts": {
+              "half_loss": 746,
+              "half_win": 569,
+              "loss": 4329,
+              "push": 526,
+              "win": 4398
+            },
+            "simulated_bets": 10568,
+            "stake_units": 10568,
+            "unique_fixtures": 10568
+          },
+          "excluded_by_existing_M4_rule": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 57,
+                "net_units": -1.62,
+                "roi_pct": -2.842105
+              },
+              "2026": {
+                "bets": 465,
+                "net_units": -34.395,
+                "roi_pct": -7.396774
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 43.535,
+            "net_units": -36.015,
+            "quote_sources": {
+              "Crown": 512,
+              "TotalCorner_default": 10
+            },
+            "response_receipts": {
+              "post_kickoff": 522
+            },
+            "roi_pct": -6.899425,
+            "settled_bets": 522,
+            "settlement_counts": {
+              "half_loss": 36,
+              "half_win": 17,
+              "loss": 224,
+              "push": 35,
+              "win": 210
+            },
+            "simulated_bets": 522,
+            "stake_units": 522,
+            "unique_fixtures": 522
+          }
+        },
+        "poisson": {
+          "M4_two_league_pass_exploratory": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1111,
+                "net_units": -60.0575,
+                "roi_pct": -5.405716
+              },
+              "2026": {
+                "bets": 8935,
+                "net_units": -296.26,
+                "roi_pct": -3.315725
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 374.2325,
+            "net_units": -356.3175,
+            "quote_sources": {
+              "Crown": 9100,
+              "TotalCorner_default": 946
+            },
+            "response_receipts": {
+              "post_kickoff": 10046
+            },
+            "roi_pct": -3.546859,
+            "settled_bets": 10046,
+            "settlement_counts": {
+              "half_loss": 710,
+              "half_win": 552,
+              "loss": 4110,
+              "push": 491,
+              "win": 4183
+            },
+            "simulated_bets": 10046,
+            "stake_units": 10046,
+            "unique_fixtures": 10046
+          },
+          "all_M3_rows": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 1168,
+                "net_units": -61.6775,
+                "roi_pct": -5.280608
+              },
+              "2026": {
+                "bets": 9400,
+                "net_units": -327.715,
+                "roi_pct": -3.48633
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 407.3575,
+            "net_units": -389.3925,
+            "quote_sources": {
+              "Crown": 9612,
+              "TotalCorner_default": 956
+            },
+            "response_receipts": {
+              "post_kickoff": 10568
+            },
+            "roi_pct": -3.684638,
+            "settled_bets": 10568,
+            "settlement_counts": {
+              "half_loss": 745,
+              "half_win": 570,
+              "loss": 4333,
+              "push": 526,
+              "win": 4394
+            },
+            "simulated_bets": 10568,
+            "stake_units": 10568,
+            "unique_fixtures": 10568
+          },
+          "excluded_by_existing_M4_rule": {
+            "by_utc_kickoff_year": {
+              "2025": {
+                "bets": 57,
+                "net_units": -1.62,
+                "roi_pct": -2.842105
+              },
+              "2026": {
+                "bets": 465,
+                "net_units": -31.455,
+                "roi_pct": -6.764516
+              }
+            },
+            "max_drawdown_units_by_quote_event_time": 40.595,
+            "net_units": -33.075,
+            "quote_sources": {
+              "Crown": 512,
+              "TotalCorner_default": 10
+            },
+            "response_receipts": {
+              "post_kickoff": 522
+            },
+            "roi_pct": -6.336207,
+            "settled_bets": 522,
+            "settlement_counts": {
+              "half_loss": 35,
+              "half_win": 18,
+              "loss": 223,
+              "push": 35,
+              "win": 211
+            },
+            "simulated_bets": 522,
+            "stake_units": 522,
+            "unique_fixtures": 522
+          }
+        }
+      }
+    }
+  },
+  "method": "Recompute each existing M3 model's selected side on its exact M3-expanded archive quote and verified result; paired counterfactual removes Japan J-League and Türkiye Super Lig rows under the pre-existing M4 Pass research rule. One 1U per included fixture-market; no other filters or thresholds.",
+  "models": [
+    "poisson",
+    "dixon_coles",
+    "bivariate_poisson"
+  ],
+  "protocol": "M5_M4_EXISTING_PASS_RULE_ON_M3_EXPANDED_OOS_V1"
+}

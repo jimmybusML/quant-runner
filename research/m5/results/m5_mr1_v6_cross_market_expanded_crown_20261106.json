@@ -1,0 +1,96 @@
+{
+  "protocol": "M5_MR1_V6_CROSS_MARKET_CORE_EXPANDED_CROWN_OOS_V1",
+  "generated_utc": "2026-11-06T11:28:49.796Z",
+  "source_repo_head": "aafc2d12f22884e05375ae20e0ba88a3bfdf6bf6",
+  "source_file_sha256": {
+    "src/v6-cross-market-core.js": "598d50dea44f8ba8e4559ab252858146c1ded0b3063a0a045de2d26ec27f390c",
+    "src/market-implied-v2.js": "73db735b0ca44679018afe6d6224c78235b381e6104767e58ce4c286eb6343c3"
+  },
+  "runner_sha256": "eb90f1a637dadf5b36e245f5d65d5d287bb0df5d98d30b31b36c6b2d15170f99",
+  "input_private_batch_sha256": "e79fe83dca48c2d68ad753c177404eb9f3bc2a551f7fd395f0d8651287dba2a6",
+  "unique_input_fixtures": 9517,
+  "invalid_model_rows": 0,
+  "markets": {
+    "AH": {
+      "unique_fixtures": 9517,
+      "simulated_bets": 9517,
+      "settled_bets": 9517,
+      "stake_units": 9517,
+      "net_units": -144.23,
+      "roi_pct": -1.515499,
+      "settlement_counts": {
+        "win": 3791,
+        "half_win": 783,
+        "push": 650,
+        "half_loss": 522,
+        "loss": 3771
+      },
+      "max_drawdown_units_by_quote_event_time": 209.275,
+      "settlement_log_loss": 0.9873478,
+      "settlement_brier": 0.61738791,
+      "quote_sources": {
+        "Crown": 9517
+      },
+      "response_receipts": {
+        "pre_kickoff": 0,
+        "post_kickoff": 9517
+      },
+      "by_utc_kickoff_year": {
+        "2025": {
+          "bets": 1005,
+          "net_units": -48.885,
+          "roi_pct": -4.864179
+        },
+        "2026": {
+          "bets": 8512,
+          "net_units": -95.345,
+          "roi_pct": -1.120125
+        }
+      }
+    },
+    "OU": {
+      "unique_fixtures": 9517,
+      "simulated_bets": 9517,
+      "settled_bets": 9517,
+      "stake_units": 9517,
+      "net_units": -359.915,
+      "roi_pct": -3.781811,
+      "settlement_counts": {
+        "win": 3900,
+        "half_win": 630,
+        "push": 480,
+        "half_loss": 538,
+        "loss": 3969
+      },
+      "max_drawdown_units_by_quote_event_time": 373.4,
+      "settlement_log_loss": 0.97330859,
+      "settlement_brier": 0.61316344,
+      "quote_sources": {
+        "Crown": 9517
+      },
+      "response_receipts": {
+        "pre_kickoff": 0,
+        "post_kickoff": 9517
+      },
+      "by_utc_kickoff_year": {
+        "2025": {
+          "bets": 1005,
+          "net_units": -17.115,
+          "roi_pct": -1.702985
+        },
+        "2026": {
+          "bets": 8512,
+          "net_units": -342.8,
+          "roi_pct": -4.027256
+        }
+      }
+    }
+  },
+  "method": "Actual MR1 V6 cross-market core: fit a Poisson score distribution to Crown de-vigged 1X2 odds; independently select the higher expected-return side at the exact same Crown AH or OU line/prices; settle the AH handicap in the home-line frame, one 1U stake per fixture-market with Asian split-line settlement. Quote events are after the M3 prediction as-of and before kickoff; no results enter MR1 fit or selection.",
+  "limitations": [
+    "Crown response receipts for these historical event quotes were obtained after kickoff; this is retrospective event-time OOS, not contemporaneously executable ROI.",
+    "Cohort is the intersection with M3 strict OOS forecasts and valid pregame Crown AH, OU, and 1X2 quote events, not all source-union rows.",
+    "Only aggregate outcomes are written to the public repository; fixture identifiers and odds remain in the authorized private archive.",
+    "No production model, Telegram route, ledger, or trade gate was changed."
+  ]
+}
