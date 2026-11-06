@@ -113,6 +113,44 @@ jobs:
               assert field not in serialized
           print("M5 MR1-M3 temporal blend integrity: PASS")
           PY
+      - name: Validate the MR1-M3 full M3-quoted cohort receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json, math
+          from pathlib import Path
+
+          runner = Path("research/m5/m5_mr1_m3_source_union_blend.py")
+          receipt = json.loads(Path("research/m5/results/m5_mr1_m3_source_union_blend_20261106.json").read_text())
+          assert receipt["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          assert receipt["time_order_passed"] is True
+          assert receipt["AH_OU_fixture_id_sets_equal"] is True
+          assert receipt["blend_weight_mr1"] == 0.5
+          assert "not a fresh untouched holdout" in receipt["candidate_status"]
+          for market in ("AH", "OU"):
+              result = receipt["markets"][market]
+              n = result["unique_m3_quoted_fixtures"]
+              assert n == 10568
+              assert result["mr1_exact_quote_fixture_markets"] == 9517
+              assert result["m3_fallback_fixture_markets"] == n - 9517
+              assert sum(result["quote_sources"].values()) == n
+              for model, strategies in result["models"].items():
+                  assert model in {"poisson", "dixon_coles", "bivariate_poisson"}
+                  assert set(strategies) == {"M3_only", "MR1_M3_fixed_blend_with_M3_fallback"}
+                  for entry in strategies.values():
+                      overall = entry["all_years"]
+                      assert overall["unique_fixture_markets"] == overall["simulated_bets"] == overall["settled_bets"] == n
+                      assert sum(overall["settlement_counts"].values()) == n
+                      assert abs(overall["roi_pct"] - 100 * overall["net_units"] / overall["stake_units"]) < 1e-6
+                      assert overall["response_receipt_timing"] == {"post_kickoff": n}
+                      yearly = entry["by_utc_kickoff_year"]
+                      assert set(yearly) == {"2025", "2026"}
+                      assert sum(x["settled_bets"] for x in yearly.values()) == n
+                      assert math.isclose(sum(x["net_units"] for x in yearly.values()), overall["net_units"], abs_tol=1e-5)
+          serialized = json.dumps(receipt)
+          for field in ('"match_id"', '"prices":', '"home_goals"', '"away_goals"'):
+              assert field not in serialized
+          print("M5 MR1-M3 complete-cohort receipt integrity: PASS")
+          PY
       - name: Validate the public forward pairing receipt
         run: |
           python - <<'PY'
@@ -142,9 +180,11 @@ jobs:
           from pathlib import Path
 
           pair = json.loads(Path("research/m5/results/m5_forward_shadow_refresh_20261106T1336Z.json").read_text())
+          latest_refresh = json.loads(Path("research/m5/results/m5_forward_shadow_refresh_20261106T1417Z.json").read_text())
+          allowed_pair_hashes = {pair["pair_sha256"], latest_refresh["new_pair_sha256"]}
           for receipt_path in sorted(Path("research/m5/results").glob("m5_forward_shadow_settlement_*.json")):
               report = json.loads(receipt_path.read_text())
-              assert report["paired_input_sha256"] == pair["pair_sha256"]
+              assert report["paired_input_sha256"] in allowed_pair_hashes
               assert report["settled_fixture_markets"] + report["pending_fixture_markets"] == report["markets"]["AH"]["simulated_bets"] + report["markets"]["OU"]["simulated_bets"]
               for market in ("AH", "OU"):
                   result = report["markets"][market]
