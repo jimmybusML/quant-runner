@@ -761,3 +761,14 @@ AH 结算 W/HW/P/HL/L 为 3,742/687/644/623/3,704，结算类别 Log Loss/Brier 
 | OU ROI | **-3.091809%** | -3.486330% | -3.399628% | -3.388564% | -3.327739% | -3.330160% |
 
 每个模型每市场均为同样的9,400注；两市场来源都是 Crown 8,607 + TotalCorner default 793。M5 baseline 是该 holdout 上 AH 点 ROI 最好，M3 选择器是 OU 点 ROI 最好；两者仍分别为 -1.70% 和 -3.09%。M5 recency 的概率评分较好但收益弱于 M5 baseline，说明在此子样本上概率分数与结算收益排序不完全一致。所有 M5 / M3 历史 API receipt 均赛后，且 holdout 低于 10,000 场，不能作为目标验收或可执行 ROI。详细结算、最大回撤、概率评分与哈希见[同价同场对比回执](results/m5_m3_selector_same_quote_m5_comparison_20261106.json)；重放代码为[m5_m3_selector_same_quote_m5_comparison.py](m5_m3_selector_same_quote_m5_comparison.py)。
+
+## M3 选择器结算概率校准：2025拟合 / 2026留出
+
+在上面的 M3 逐联赛选择器基础上，仅用2025结算 Log Loss 从温度 `0.50` 至 `2.00`、步长 `0.01` 选择全局市场温度；2026原样留作holdout，依旧每个fixture-market下注1U并按校准后预期收益较高的一侧选边，不设EV门槛。两市场选中的温度都是搜索区间上界 `2.00`，因此该参数需要未来独立时间样本复验。
+
+| 市场 | 样本 | 2025拟合温度 | 2026未校准 ROI / LL / Brier | 2026校准 ROI / 净U / DD / LL / Brier | 结果 |
+| --- | ---: | ---: | --- | --- | --- |
+| AH | 1,168拟合；9,400留出 | 2.00 | -2.303404% / 1.036882 / 0.648903 | -2.140798% / -201.235U / 232.7025U / 1.002394 / 0.627491 | ROI改善0.163个百分点，仍亏损 |
+| OU | 1,168拟合；9,400留出 | 2.00 | -3.091809% / 0.987924 / 0.623317 | -3.496862% / -328.705U / 364.515U / 0.974358 / 0.612994 | 概率分数改善，但ROI恶化0.405个百分点 |
+
+AH校准后W/HW/P/HL/L为3,591/981/644/329/3,855；OU为3,693/919/475/251/4,062。来源仍是Crown 8,607 + TotalCorner default 793，历史receipt皆赛后。概率 Log Loss / Brier 两市场都有改善，但收益没有同步改善；AH/OU ROI仍未达到+3%，2026留出也低于10,000场，不能视为M5验收。报告[温度校准回执](results/m5_m3_selector_settlement_calibration_2025fit_2026holdout_20261106.json)；工具[m5_m3_selector_settlement_calibration.py](m5_m3_selector_settlement_calibration.py)。
