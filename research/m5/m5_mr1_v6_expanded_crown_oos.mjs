@@ -14,6 +14,7 @@ const args = Object.fromEntries(process.argv.slice(2).reduce((a, x, i, xs) => {
 for (const key of ['input', 'report', 'mr1-core', 'mr1-market-core', 'source-repo-head']) {
   if (!args[key]) throw new Error(`missing --${key}`);
 }
+const traceRows = [];
 const { evaluateCrossMarket } = await import(pathToFileURL(path.resolve(args['mr1-core'])));
 const cats = ['win', 'half_win', 'push', 'half_loss', 'loss'];
 const probKey = { win: 'full_win', half_win: 'half_win', push: 'push', half_loss: 'half_loss', loss: 'full_loss' };
@@ -89,6 +90,10 @@ for (const r of rows) {
     const commonLine = Number(q[market].line);
     const settled = settle(market, selected.side, Number(q.AH.line), commonLine,
       Number(r.actual_home_goals), Number(r.actual_away_goals), Number(selected.price));
+    traceRows.push({ match_id: String(r.match_id), league: r.league, year: r.year, market,
+      line: commonLine, side: selected.side, price: Number(selected.price), ...settled,
+      probabilities: selected.five_state_probabilities, event_utc: q[market].event_utc,
+      receipt_utc: q.X1X2.receipt_utc, kickoff_utc: r.kickoff_utc });
     marketRows[market].push({ ...settled, probs: selected.five_state_probabilities,
       year: String(r.kickoff_utc).slice(0, 4), event: q[market].event_utc,
       receipt: q.X1X2.receipt_utc, kickoff: r.kickoff_utc });
@@ -96,11 +101,24 @@ for (const r of rows) {
 }
 const digest = p => crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
 const markets = { AH: summarize(marketRows.AH), OU: summarize(marketRows.OU) };
+let traceDigest = null;
+if (args['trace-private']) {
+  const tracePath = path.resolve(args['trace-private']);
+  const repoRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
+  if (tracePath === repoRoot || tracePath.startsWith(repoRoot + path.sep)) throw new Error('fixture-level trace must remain outside the public repository');
+  fs.mkdirSync(path.dirname(tracePath), { recursive: true, mode: 0o700 });
+  fs.chmodSync(path.dirname(tracePath), 0o700);
+  const bytes = traceRows.map(x => JSON.stringify(x)).join('\n') + '\n';
+  fs.writeFileSync(tracePath, bytes, { mode: 0o600 });
+  fs.chmodSync(tracePath, 0o600);
+  traceDigest = digest(tracePath);
+}
 const report = {
   protocol: 'M5_MR1_V6_CROSS_MARKET_CORE_EXPANDED_CROWN_OOS_V1', generated_utc: new Date().toISOString(),
   source_repo_head: args['source-repo-head'],
   source_file_sha256: { 'src/v6-cross-market-core.js': digest(args['mr1-core']), 'src/market-implied-v2.js': digest(args['mr1-market-core']) },
   runner_sha256: digest(new URL(import.meta.url).pathname), input_private_batch_sha256: digest(args.input),
+  private_trace_sha256: traceDigest,
   unique_input_fixtures: rows.length, invalid_model_rows: invalid, markets,
   method: 'Actual MR1 V6 cross-market core: fit a Poisson score distribution to Crown de-vigged 1X2 odds; independently select the higher expected-return side at the exact same Crown AH or OU line/prices; settle the AH handicap in the home-line frame, one 1U stake per fixture-market with Asian split-line settlement. Quote events are after the M3 prediction as-of and before kickoff; no results enter MR1 fit or selection.',
   limitations: [
