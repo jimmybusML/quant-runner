@@ -4361,3 +4361,8 @@
 - 用TotalCorner核验结果刷新75场fixture的129项市场配对：累计FT结算AH5/68（W/HW/P/HL/L=2/0/1/0/2，净-0.36U，DD2U）、OU6/61（2/1/2/0/1，净+1.37U，DD1U）；pending118，完整队列ROI两市场均null。Settled-only收益不作为ROI目标结论。该队列为赛前receipt可证的shadow结果，但远低于每市场1万场要求。
 - 脱敏回执 `research/m5/results/m5_forward_shadow_crown_refresh_20261106T1654Z.json` 含run/code/input摘要哈希、来源、变更、结算和时序聚合；无逐场身份/盘口/比分。README及Actions validator同步更新。无生产模型、正式交易、TG、账本或Gate更改。
 - 本节研究提交 `9a40fc30f6fe0ac96383f78f34f0bdbe87b158d4` 已推送；GitHub Actions M5 Research Validation run [42257094827](https://github.com/ljm198964-alt/quant-runner/actions/runs/42257094827) 成功，包含全部71项M5测试及新增结算扩展回执校验。Actions不访问私有逐场数据。
+
+## 2026-11-06T17:03Z M5前瞻Crown覆盖刷新
+- 对20个仍未开赛的冻结forecast目标作Crown-only查询。20尝试中19个响应exact身份通过，1个`fixture_or_crown_identity_mismatch`拒绝；AH/OU各自有5/3个合格市场报价。新pair从129增至135（AH71、OU64），新增6项；TOTAL default源仍AH7/OU4，其他项Crown。129个共同市场中价格改变1、event time改变1、receipt time改变2。新pair SHA `665ced85c5d608a59544aff683bfa35d935efb4f99f38c4cd0a94b00a48cf851`，所选135项全部满足 train_end < prediction_asof <= quote_event <= actual receipt < kickoff。
+- 16:59Z重结算结果仍累计FT 11项，AH 5/71、净-0.36U、DD2U，OU6/64、净+1.37U、DD1U；pending124，全cohort ROI均null。前瞻shadow响应批次不能替代每市场10k OOS历史样本目标。
+- 脱敏回执 `research/m5/results/m5_forward_shadow_crown_refresh_20261106T1703Z.json`、README与M5 Actions validator更新待提交；生产模型/交易/Telegram/订单/账本/Gate未变。

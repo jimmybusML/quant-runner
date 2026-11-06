@@ -1,0 +1,99 @@
+{
+  "added_fixture_markets": 6,
+  "capture_aggregate_counts": {
+    "AH_qualified_fixture_markets": 5,
+    "OU_qualified_fixture_markets": 3,
+    "fixture_or_crown_identity_mismatch": 1,
+    "verified_fixture_responses": 19
+  },
+  "capture_attempted_fixtures": 20,
+  "capture_forecast_subset_sha256": "7ce556df1b506c899eeac5b3529b7d9a25339091e9c72ca94c445a3083b1128c",
+  "capture_receipt_sha256": "0ce07fa8de7bea0cf2bdd96315f721ccab26c24574f49cfdb0042cc1d571980f",
+  "capture_runner_sha256": "6c62a206925fe244b7f0c5b05fb987af122db601829e6380d567e3ba11f35c74",
+  "changed_quote_fields_on_common_fixture_markets": {
+    "odds_pair_changed": 1,
+    "quote_event_time_changed": 1,
+    "receipt_time_changed": 2
+  },
+  "compared_fixture_markets": 129,
+  "generated_utc": "2026-11-06T17:03:32.075477Z",
+  "limitations": [
+    "This is a small prospective shadow cohort, not the 10,000-match historical target.",
+    "Only 11 of 135 markets are settled; full-cohort ROI remains null.",
+    "No model weights or production strategy were changed."
+  ],
+  "markets": {
+    "AH": {
+      "kickoff_coverage_utc": [
+        "2026-11-06T11:00:00Z",
+        "2026-11-08T18:00:00Z"
+      ],
+      "source_fixture_markets": {
+        "Crown": 64,
+        "TotalCorner_default": 7
+      },
+      "time_order_valid": 71,
+      "unique_fixture_markets": 71
+    },
+    "OU": {
+      "kickoff_coverage_utc": [
+        "2026-11-06T11:00:00Z",
+        "2026-11-08T17:00:00Z"
+      ],
+      "source_fixture_markets": {
+        "Crown": 60,
+        "TotalCorner_default": 4
+      },
+      "time_order_valid": 64,
+      "unique_fixture_markets": 64
+    }
+  },
+  "new_fixture_markets_by_market": {
+    "AH": 71,
+    "OU": 64
+  },
+  "new_pair_metadata_sha256": "41695651d8879d1536b93876920c863238fd6c7b160c8e8948a3271d443a4bd8",
+  "new_pair_sha256": "665ced85c5d608a59544aff683bfa35d935efb4f99f38c4cd0a94b00a48cf851",
+  "new_unique_fixture_markets": 135,
+  "old_pair_sha256": "50e2cdd17dcb875c95c2caaf1bb14b0a52ab89db17c7dacc55fb7a0f5017edab",
+  "pairing_runner_sha256": "da9d5d23a6bf963c6f44d93dcadd239192d2e5dbc1df2ac02d4c37f275b1b2c4",
+  "pending_fixture_markets": 124,
+  "privacy": "Aggregate fields/hashes only; no fixture IDs, teams, prices, lines, scores, or raw responses.",
+  "protocol": "M5_FORWARD_CROWN_LIVE_REFRESH_V1",
+  "removed_fixture_markets": 0,
+  "settled_fixture_markets": 11,
+  "settlement_runner_sha256": "bb890df55e0118650a730b7f5fb361db90b7d4b7216a46ac05e5a80295497cb2",
+  "settlement_snapshot": {
+    "AH": {
+      "max_drawdown_units_by_kickoff": 2.0,
+      "net_units": -0.36,
+      "pending_bets": 66,
+      "roi_pct": null,
+      "settled_bets": 5,
+      "settlement_counts": {
+        "half_loss": 0,
+        "half_win": 0,
+        "loss": 2,
+        "push": 1,
+        "win": 2
+      },
+      "simulated_bets": 71
+    },
+    "OU": {
+      "max_drawdown_units_by_kickoff": 1.0,
+      "net_units": 1.37,
+      "pending_bets": 58,
+      "roi_pct": null,
+      "settled_bets": 6,
+      "settlement_counts": {
+        "half_loss": 0,
+        "half_win": 1,
+        "loss": 1,
+        "push": 2,
+        "win": 2
+      },
+      "simulated_bets": 64
+    }
+  },
+  "timing": "All selected quotes satisfy train_end_utc < prediction_asof_utc <= quote_event_utc <= quote_received_utc < kickoff_utc. Identity mismatches are excluded."
+}

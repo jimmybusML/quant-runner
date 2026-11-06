@@ -1055,3 +1055,7 @@ AH 的2025 Log Loss最优权重退化为MR1单模；OU的概率融合改善了 p
 ### 2026-11-06T16:54Z 前瞻覆盖与 FT 增量
 
 再对下一批40场未开赛目标请求Crown：40/40身份通过，AH/OU各11场有合格报价。配对从AH63/OU57扩至AH68/OU61，新增9个唯一fixture-markets（AH5、OU4），均为Crown；TOTAL来源仍AH7/OU4。120个旧项中，6项赔率对、1项盘口线、6项盘口事件时间、13项实际接收时间更新。完整新队列129项全部满足 `train_end < prediction_asof ≤ quote_event ≤ quote_received < kickoff`。新发生结算的赛果使累计AH结算5/68、净-0.36U、W/HW/P/HL/L=`2/0/1/0/2`；OU结算6/61、净+1.37U、`2/1/2/0/1`。pending合计118，全队列ROI仍null。数据是赛前实收的前瞻shadow样本，但量级与10k收益目标仍相距很大。见[16:54Z Crown/结算扩展回执](results/m5_forward_shadow_crown_refresh_20261106T1654Z.json)。
+
+### 2026-11-06T17:03Z 前瞻 Crown 刷新
+
+下一批20个未开赛目标中19个响应身份通过，1个 Crown/fixture 身份不匹配被排除。AH有5、OU有3个市场返回合格赛前报价。配对由AH68/OU61扩至AH71/OU64，新增6项均来自Crown。队列135项全部满足严格UTC时间顺序；AH已结5/71、净-0.36U，OU已结6/64、净+1.37U，pending 124，两市场完整队列ROI均null。只有19/20响应有效且只有8项在盘口层合格；本次不表示预测成功或达到历史收益目标。详见[17:03Z刷新回执](results/m5_forward_shadow_crown_refresh_20261106T1703Z.json)。
