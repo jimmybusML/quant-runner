@@ -1,5 +1,21 @@
 # M5 独立融合研究
 
+## 2026-11-06：10k样本回放与新模型/校准对照
+
+本轮冻结 M5 候选范围内的 2026 UTC 年度留出，penaltyblog Bivariate Poisson 新增 20,596 个严格按 UTC 年前推的 OOS 全比分网格（2025: 11,187；2026: 9,409），51 个联赛、102/102 个联赛-年份折成功，1,606 场因训练期未见队伍而无预测；训练截止严格早于目标年 1 月 1 日，训练/目标 fixture ID 不相交。`penaltyblog==1.13.1`、固定默认拟合，无按目标期 ROI 或结果选参。它与 M5 既有基础/近期加权模型在 10,125 个完全相同的 Crown-first / TotalCorner-default fixture-market 上比较：
+
+| 模型 | AH ROI / LL / Brier | OU ROI / LL / Brier |
+|---|---:|---:|
+| 基础 M5 | -2.461704% / 1.03262740 / 0.64914976 | -3.378222% / 0.98760091 / 0.62329791 |
+| 近期加权 M5 | -3.050914% / 1.02802253 / 0.64615411 | -3.435852% / 0.98850025 / 0.62421681 |
+| 新增 Bivariate Poisson | -3.014000% / 1.03939273 / 0.65061921 | -3.385481% / 0.98915584 / 0.62417022 |
+
+另以 2025 年 11,967 个 OOS 赛果拟合固定三种 score-grid 校准（全局 rate、精确比分 Log Loss tilt、固定等效 100 场联赛收缩），2026 年 10,235 个基础模型 OOS forecast 作严格未触碰 holdout；校准未使用 ROI/盘口或 holdout 赛果拟合。前两种的回放结果相同（数值差异仅在最末位），AH ROI -1.831365%、LL/Brier 1.03527174/0.65061678；OU -3.533264%、0.98740118/0.62266518。固定联赛收缩方案 AH -2.704458%、1.03593176/0.65101905；OU -4.275391%、0.99106094/0.62544291。每方案均有 10,161 场/市场，AH 和 OU 独立计数。三者均未达 +3%，其中每个市场的 fixture-bootstrap 95% 区间均完全低于零。
+
+该 10,161 样本的来源组成是 Crown 9,260 + TotalCorner default 901（只填 Crown 缺口，绝非其他公司交易盘替代），覆盖 2026-01-01 至 2026-11-04 UTC；每一条所选历史 API receipt 都在 kickoff 后收到。盘口 source-event 时间虽然严格早于 kickoff 且不早于 forecast as-of，但不证明赛前已收到或可执行成交。因此上述 ROI 只是事后回取报价上的 event-time 研究回放；有效赛前收到的 Crown 历史覆盖仍不足以支持 10k 场可执行 ROI 验收。最大回撤等序列仅作为历史模拟描述，不作为真实账本表现。
+
+新模型评估报告：[Bivariate Poisson OOS 聚合](results/m5_goal_model_penaltyblog_bivariate_oos_20261106.json)；三组匹配回放：[基础](results/m5_source_union_baseline_penaltyblog_matched_20261106T010824Z.json)、[近期加权](results/m5_source_union_recency_penaltyblog_matched_20261106T010824Z.json)、[Bivariate Poisson](results/m5_source_union_penaltyblog_bivariate_replay_20261106T010509Z.json)。校准拟合及边界：[2025→2026校准审计](results/m5_goal_model_calibration_2025_train_2026_oos_20261106.json)；对应[全局rate回放](results/m5_source_union_calibrated_2025_global_rate_2026_oos.json)、[score-grid Log Loss回放](results/m5_source_union_calibrated_2025_scoregrid_logloss_2026_oos.json)、[固定联赛收缩回放](results/m5_source_union_calibrated_2025_shrunk_league_2026_oos.json)。私有逐场预测、fixture 身份和原始 quote 保留在仓库外。
+
 **最新收益目标（2026-11-05 用户重启）**：AH、OU 独立研究，任一市场的样本外 ROI ≥3% 即达到收益指标；每个市场仍需至少10,000场真实唯一历史比赛。Crown 优先；缺少可用 Crown 市场报价时允许使用 TotalCorner（TOTAL），两种来源分别标识及统计。下方旧报告中的“两个市场均需 >5%”属于早期目标记录，已被本目标覆盖。
 
 生成时间：2026-11-05 UTC。M5 是独立研究身份；本目录不连接 M1/MR1/M3 的生产预测、订单、账本或 Telegram。当前已有真实概率前推实验、Crown AH/OU回放和同场OU quote-time配对诊断。Crown-first加TotalCorner default的事件时间样本已超过每市场10,000场，但Crown-only不足10,000场，且全部API历史回执在kickoff之后；因此不构成赛前已收到盘口的收益验证。M5 Actions尚未验收。最新报告与新增 quote-time 诊断见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)，当前 M5 forecast 生成于 `2026-11-04T21:39:54Z` UTC，依赖回放于 `2026-11-04T21:41Z` UTC 重算。

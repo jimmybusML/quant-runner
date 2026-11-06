@@ -1,0 +1,40 @@
+{
+  "candidate_manifest_sha256": "556b16b74911fafeed6559cf0522f3979fdcedb70add97e6d1358af40e7c32c4",
+  "crown_roi": null,
+  "failure_counts": {
+    "unseen_team": 1606
+  },
+  "fold_count": 102,
+  "fold_status_counts": {
+    "predicted": 102
+  },
+  "forecast_count": 20596,
+  "forecast_coverage_by_year": {
+    "2025": 11187,
+    "2026": 9409
+  },
+  "generated_utc": "2026-11-06T01:05:09.045409Z",
+  "id_split_passed": true,
+  "league_count_in_scope": 51,
+  "model": "penaltyblog BivariatePoissonGoalModel; fixed default fit; no ROI or target-year score used for model or parameter selection.",
+  "penaltyblog_version": "1.13.1",
+  "private_forecast_sha256": "19302088dc828e5df80b7832b2730bb4186a9bc7a92e2e45cc51c6f7363b286d",
+  "proper_scores": {
+    "1x2_brier": 0.60734763,
+    "1x2_log_loss": 1.01927354,
+    "exact_score_log_loss": 2.97785862,
+    "ou_over_2_5_brier": 0.24782024,
+    "ou_over_2_5_log_loss": 0.68997936,
+    "unique_fixtures": 20596
+  },
+  "protocol": "M5_PENALTYBLOG_BIVARIATE_POISSON_UTC_YEAR_FORWARD_V1",
+  "quote_source": null,
+  "scope_note": "M5-only public aggregate. Per-fixture predictions and identifiers remain in the protected private archive; no M1/MR1/M3 forecasts, ledgers, orders, or production routes are consumed.",
+  "target_utc_years": [
+    2025,
+    2026
+  ],
+  "time_order_passed": true,
+  "training_rule": "For each league and target UTC year, train on every earlier kickoff in that league; predict only target-year fixtures. Train cutoff < January 1 UTC; no same-year match outcomes enter fitting.",
+  "unique_forecast_fixtures": 20596
+}
