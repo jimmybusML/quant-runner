@@ -56,6 +56,11 @@ class LeagueDirectionWalkforwardTests(unittest.TestCase):
         self.assertEqual(ah["simulated_bets"], 25)
         self.assertEqual(ah["policy_fixture_counts"], {"underdog": 15, "higher_ev": 10})
         self.assertEqual(ah["source_fixture_markets"], {"Crown": 22, "TotalCorner_default": 3})
+        self.assertEqual(ah["positive_holdout_leagues"], 2)
+        self.assertEqual(ah["negative_or_flat_holdout_leagues"], 0)
+        self.assertEqual(ah["base_policy_same_holdout_net_units"], 0.25)
+        self.assertEqual(ah["by_selected_policy_2026"]["underdog"],
+                         {"leagues": 1, "fixtures": 15, "net_units": 0.45, "roi_pct": 3.0})
 
     def test_uses_higher_ev_when_training_cohort_is_below_minimum(self):
         with tempfile.TemporaryDirectory() as tmp:

@@ -11,7 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -64,18 +64,29 @@ def build(paths: dict[str, Path]):
 
         total_n = 0
         total_net = 0.0
+        baseline_same_cohort_net = 0.0
         category_totals = Counter()
         policy_counts = Counter()
+        policy_holdout = defaultdict(lambda: {"leagues": 0, "fixtures": 0, "net_units": 0.0})
+        positive_holdout_leagues = 0
         market_source = base["descriptive_splits_no_filter_applied"][
             "by_source_and_utc_kickoff_year"]
         train_n = base["by_utc_kickoff_year"].get("2025", {}).get("fixtures", 0)
         for league, policy in chosen.items():
             row = yearly[policy].get(f"{league} | 2026")
+            base_row = yearly["higher_ev"].get(f"{league} | 2026")
             if row is None:
                 raise ValueError(f"missing 2026 result for {market}/{league}/{policy}")
+            if base_row is None:
+                raise ValueError(f"missing higher-EV comparison for {market}/{league}")
             total_n += row["fixtures"]
             total_net += row["net_units"]
+            baseline_same_cohort_net += base_row["net_units"]
             policy_counts[policy] += row["fixtures"]
+            policy_holdout[policy]["leagues"] += 1
+            policy_holdout[policy]["fixtures"] += row["fixtures"]
+            policy_holdout[policy]["net_units"] += row["net_units"]
+            positive_holdout_leagues += int(row["net_units"] > 0)
             for category, count in row["settlement_counts"].items():
                 category_totals[category] += count
         source_counts = {
@@ -98,6 +109,17 @@ def build(paths: dict[str, Path]):
                                   ("win", "half_win", "push", "half_loss", "loss")},
             "net_units": round(total_net, 6),
             "roi_pct": round(100 * total_net / total_n, 6) if total_n else None,
+            "positive_holdout_leagues": positive_holdout_leagues,
+            "negative_or_flat_holdout_leagues": len(chosen) - positive_holdout_leagues,
+            "base_policy_same_holdout_net_units": round(baseline_same_cohort_net, 6),
+            "base_policy_same_holdout_roi_pct": round(100 * baseline_same_cohort_net / total_n, 6)
+                if total_n else None,
+            "by_selected_policy_2026": {
+                policy: {"leagues": values["leagues"], "fixtures": values["fixtures"],
+                         "net_units": round(values["net_units"], 6),
+                         "roi_pct": round(100 * values["net_units"] / values["fixtures"], 6)
+                            if values["fixtures"] else None}
+                for policy, values in sorted(policy_holdout.items())},
             "base_policy_2026_roi_pct": base["by_utc_kickoff_year"]["2026"]["roi_pct"],
             "policy_fixture_counts": dict(policy_counts),
             "minimum_training_fixtures_for_direction_selection": MIN_TRAIN_FIXTURES,
