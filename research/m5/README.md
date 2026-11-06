@@ -41,9 +41,10 @@ Crown-only 的 10k+ 样本没有任一市场达到 +3%；TotalCorner-only 尚未
 
 ### 盘口事件时间领先开赛分层
 
-对 Crown-only、TotalCorner-only 和 Crown-first 去重并集重跑后，OU 盘口事件时间领先开赛 6–24 小时组在 Crown-only 全期汇总为 248 场、净 +8.185U、ROI +3.30%；但其中 2025 仅32场/+9.27%，2026有216场/+2.42%。Crown-first并集的2026同分层为319场、净+0.5325U、ROI+0.17%；其中TotalCorner 2026子组103场、净-4.6875U、ROI-4.55%。同一时间分层没有达到万场，也没有在后续2026保持+3%，因此它只是按时段描述的研究发现，不是已验证策略或新增的时间门槛。
+对 Crown-only、TotalCorner-only 和 Crown-first 去重并集重跑后，baseline 的 OU 盘口事件时间领先开赛 6–24 小时组在 Crown-only 全期汇总为 248 场、净 +8.185U、ROI +3.30%；但其中 2025 仅32场/+9.27%，2026有216场/+2.42%。把同一 Crown-only 报价与结果换成 recency 预测后，该组仍是248场，但ROI变为 -3.75%（2025 32场/-9.31%，2026 216场/-2.92%）。Crown-first并集的2026 baseline同分层为319场、净+0.5325U、ROI+0.17%；其中TotalCorner 2026子组103场、净-4.6875U、ROI-4.55%。因此3.30%的正结果既未达到万场，也不跨模型保持，且2026未达+3%，只是研究发现，不是已验证策略或新增时间门槛。
 
 AH Crown-only 6–24小时组的2025为17场/-15.68%，2026为108场/-2.53%。来源、盘口时间和开赛年份交叉汇总见[Crown](results/m5_crown_quote_lead_year_20261106.json)、[TotalCorner](results/m5_totalcorner_quote_lead_year_20261106.json)、[Crown-first并集](results/m5_crown_first_quote_lead_year_20261106.json)。所有入选历史API实际回执均晚于开赛，领先时间来自盘口事件时间，仅可回顾研究。
+AH Crown-only baseline 6–24小时组的2025为17场/-15.68%，2026为108场/-2.53%。各来源 baseline 的事件时间/年份交叉汇总见[Crown](results/m5_crown_quote_lead_year_20261106.json)、[TotalCorner](results/m5_totalcorner_quote_lead_year_20261106.json)、[Crown-first并集](results/m5_crown_first_quote_lead_year_20261106.json)；Crown recency 复跑见[recency Crown报告](results/m5_crown_recency_quote_lead_year_20261106.json)。所有入选历史API实际回执均晚于开赛，领先时间来自盘口事件时间，仅可回顾研究。
 
 当前最接近改善的 walk-forward 方向诊断，是按 2025 各联赛训练样本 ROI 在 higher-EV / favorite / underdog 中选方向，冻结后跑 2026 全部场次；每市场 10,161 场，AH ROI `-1.373019%`、OU `-3.019732%`，分别较同一2026 higher-EV基准 `-1.855920%`、`-3.418906%` 改善约0.48/0.40个百分点，但仍然亏损。AH 2026 有21/51联赛为正、OU有15/51为正；按训练选择的三种策略类别分别汇总后，AH favorite/underdog/higher-EV均为负（n=2,721/957/6,483，ROI -1.24%/-0.68%/-1.53%），OU也均为负（n=2,353/920/6,888，ROI -2.75%/-4.23%/-2.95%）。代码现为每个测试市场输出这些策略组的场数、净U、ROI、正负联赛数及完全匹配的higher-EV基准结果。
 
