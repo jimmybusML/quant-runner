@@ -805,3 +805,5 @@ AH校准后W/HW/P/HL/L为3,591/981/644/329/3,855；OU为3,693/919/475/251/4,062�
 本实验显示校准改善 proper score 并未带来收益改善：相较全局校准，线条件校准的 2026 Log Loss/Brier 仅小幅改善，但 ROI 在 AH、OU 都更差；相较未校准，高温校准在两个市场均显著恶化 ROI。AH 全局温度落在搜索上界附近，需视为参数不稳定。2026留出上无任何方法达到 +3%，该候选不进入 M5 生产或任何交易规则。
 
 所有 20,452 个 2026 市场回执都在开赛后取得；报价事件时间位于模型 as-of 与开赛之间，因此这是严格 OOS 的 event-time 回顾性 ROI，不是可执行收益。结算类别、来源/时间审计、训练重代入与留出回执见[脱敏校准结果](results/m5_line_conditional_settlement_calibration_2025fit_2026holdout_20261106.json)；脚本为[`m5_line_conditional_settlement_calibration.py`](m5_line_conditional_settlement_calibration.py)，单元测试覆盖概率归一、温度收缩与留出隔离。
+
+代码与报告已推送在提交 `aedcd6c7713c556464e85c03d0f4f2822e818659`。对应 Actions run [42203113817](https://github.com/ljm198964-alt/quant-runner/actions/runs/42203113817) 来自既有 M3 AH workflow，状态为 `failure`、`jobs=[]`；它没有执行 M5 验收。
