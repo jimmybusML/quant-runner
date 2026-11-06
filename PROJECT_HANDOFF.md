@@ -4208,3 +4208,4 @@
 - 新增研究工具 `research/m5/m5_penaltyblog_prior_year_selector.py`：AH/OU 独立选择，使用2025严格OOS输出的逐联赛结算 Log Loss 选 Poisson / Dixon–Coles / Bivariate Poisson，再应用于全部2026可完整配对fixture；联赛没有2025记录时用该市场2025全局最低Log Loss模型。2026结果没有参与选型，也没有过滤任何已预测比赛。脱敏回执 `research/m5/results/m5_penaltyblog_2025_logloss_selector_2026_holdout_20261106.json` 生成 `09:29:57.086466Z`。
 - 选择器同一样本 holdout n=9,400/market：AH `-216.52U/-2.303404%`，较固定最佳Bivariate `-2.235479%`略差；OU `-290.63U/-3.091809%`，较固定最佳Bivariate `-3.388564%`改善0.297个百分点。ROI仍负且holdout少于10,000，不满足M5验收。AH/OU来源均为Crown 8,607、TotalCorner default 793；历史receipt皆赛后。没有新gate、生产更新或TG发送。
 - M5测试 37/37 PASS；报告分母/结算/ROI/来源/赛后receipt核对及敏感逐场字段扫描 PASS；新脚本 py_compile 与 `git diff --check` PASS。之后应继续扩大前瞻真实赛前接收样本并研究盈利驱动，不能把这9,400样本当10,000样本验收。
+- 选择器代码/报告 push commit `5b6f0075d61399676073d57b6808fe4870db744c`。其 Actions run `42195841408` 实际为既有 `.github/workflows/m3-ah-reverse-research.yml` `failure`, `jobs=[]`; 这没有运行 M5 验收，M5 独立 Actions workflow 仍不存在。
