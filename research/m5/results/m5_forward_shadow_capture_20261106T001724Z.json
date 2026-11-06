@@ -1,0 +1,29 @@
+{
+  "capture": {
+    "attempted_fixtures": 361,
+    "fixture_or_crown_identity_mismatch": 3,
+    "response_hash_set_sha256": "d106f2bc42f03cc75cfbd44fb779ad6ccf04e5125348fc9f5dca7b1a13782008",
+    "transport_errors": 1,
+    "verified_fixture_responses": 357
+  },
+  "capture_generated_utc": "2026-11-06T00:48:38.150559Z",
+  "ev_and_roi": null,
+  "forecast_generated_utc": "2026-11-06T00:17:24.085673Z",
+  "forecast_rows": 361,
+  "forecast_sha256": "881c61bec416c099f63615ac14a8c308f243eee14e4aa04a617e601638923cc8",
+  "identity_conflicts_excluded": 0,
+  "interpretation": "357 fixture responses were identity-verified, but no AH/OU movement row passed the strict forecast-to-kickoff event-time rule. Successful API response receipts alone do not establish a usable price. This cohort has no estimable EV or ROI.",
+  "pair_audit_generated_utc": "2026-11-06T00:48:45.750648Z",
+  "production_orders_telegram_model_promotion_or_gate_changes": false,
+  "protocol": "M5_FORWARD_CROWN_CAPTURE_AGGREGATE_V1",
+  "raw_responses_fixture_ids_prices_and_forecasts_remain_private": true,
+  "source": "TotalCorner Crown bookmaker endpoint only",
+  "strict_pregame_pairing": {
+    "AH_unique_fixture_markets": 0,
+    "OU_unique_fixture_markets": 0,
+    "paired_rows": 0,
+    "pairs_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "time_rule": "prediction_asof_utc <= quote_event_utc <= actual_quote_receipt_utc < kickoff_utc"
+  },
+  "totalcorner_default_comparison": "not collected for this cohort"
+}
