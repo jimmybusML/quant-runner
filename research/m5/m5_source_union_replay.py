@@ -128,7 +128,7 @@ def summarize(rows, market, seed):
 def run(a):
     root=ensure_private_destination(a.private_dir); zone=ZoneInfo(a.source_timezone)
     manifest_raw=(root/'candidate-manifest.json').read_bytes(); manifest=json.loads(manifest_raw)
-    forecast_path=root/'m5-model-oos'/'m5_goal_model_forecasts.jsonl'; forecast_raw=forecast_path.read_bytes()
+    forecast_path=(a.forecast_path if a.forecast_path else root/'m5-model-oos'/'m5_goal_model_forecasts.jsonl').expanduser().resolve(); forecast_raw=forecast_path.read_bytes()
     forecasts={}
     for line in forecast_raw.decode().splitlines():
         try:
@@ -188,7 +188,9 @@ def run(a):
                 if abs(mass-1)>1e-7 or any(not math.isfinite(float(v)) or float(v)<0 for row in grid for v in row): raise ValueError
                 sides=('home','away') if market=='AH' else ('over','under')
                 ev=[expected_return(grid,market,s,line,p) for s,p in zip(sides,prices)]
-                side_idx=0 if ev[0]>=ev[1] else 1; side=sides[side_idx]; price=prices[side_idx]
+                best_idx=0 if ev[0]>=ev[1] else 1
+                side_idx=best_idx if a.side_policy=='higher_ev' else 1-best_idx
+                side=sides[side_idx]; price=prices[side_idx]
                 legs,category=legs_result(market,side,line,*score_actual); pnl=payout(legs,price)
                 distribution=defaultdict(float)
                 for h,row in enumerate(grid):
@@ -206,6 +208,7 @@ def run(a):
       'input_hashes':{'candidate_manifest_sha256':hashlib.sha256(manifest_raw).hexdigest(),'forecast_sha256':hashlib.sha256(forecast_raw).hexdigest(),'quote_response_hash_set_sha256':hashlib.sha256('\n'.join(sorted(hashes)).encode()).hexdigest()},
       'candidate_fixtures':len(manifest.get('rows',[])),'forecast_rows':len(forecasts),
       'source_selection':'Per fixture-market, latest valid Crown source event at/after prediction as-of and before kickoff; TotalCorner default only if that Crown fixture-market is absent. No duplicate fixture-market bets. One unit per selected side; no EV threshold.',
+      'side_selection_policy':a.side_policy,
       'timing_note':'Historical API responses were fetched after fixtures. Pre-kickoff source event timestamps support event-time retrospective replay only; they do not prove contemporaneous pre-kickoff receipt or executable price.',
       'markets':{m:summarize(rows,m,seed=20261105+(0 if m=='AH' else 1)) for m,rows in market_rows.items()},
       'audit_counts':dict(counts)}
@@ -214,5 +217,5 @@ def run(a):
     print(json.dumps({'generated_utc':result['generated_utc'],'markets':result['markets'],'candidate_fixtures':result['candidate_fixtures']},ensure_ascii=False,sort_keys=True))
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--private-dir',type=Path,required=True);p.add_argument('--source-timezone',default='Asia/Shanghai');p.add_argument('--output',type=Path,required=True);run(p.parse_args())
+    p=argparse.ArgumentParser();p.add_argument('--private-dir',type=Path,required=True);p.add_argument('--source-timezone',default='Asia/Shanghai');p.add_argument('--forecast-path',type=Path,help='optional alternate M5-only OOS forecast JSONL with identical fixture identity');p.add_argument('--side-policy',choices=('higher_ev','lower_ev'),default='higher_ev',help='research diagnostic only; bets one side per valid fixture-market without a threshold');p.add_argument('--output',type=Path,required=True);run(p.parse_args())
 if __name__=='__main__': main()

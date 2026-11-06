@@ -2,7 +2,7 @@
 
 **最新收益目标（2026-11-05 用户重启）**：AH、OU 独立研究，任一市场的样本外 ROI ≥3% 即达到收益指标；每个市场仍需至少10,000场真实唯一历史比赛。Crown 优先；缺少可用 Crown 市场报价时允许使用 TotalCorner（TOTAL），两种来源分别标识及统计。下方旧报告中的“两个市场均需 >5%”属于早期目标记录，已被本目标覆盖。
 
-生成时间：2026-11-05 UTC。M5 是独立研究身份；本目录不连接 M1/MR1/M3 的生产预测、订单、账本或 Telegram。当前已有真实概率前推实验、Crown AH/OU 回放和同场 OU quote-time 配对诊断，但尚未完成每市场10,000场 Crown 历史收益验证或 M5 Actions 验收。最新报告与新增 quote-time 诊断见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)，当前 M5 forecast 生成于 `2026-11-04T21:39:54Z` UTC，依赖回放于 `2026-11-04T21:41Z` UTC 重算。
+生成时间：2026-11-05 UTC。M5 是独立研究身份；本目录不连接 M1/MR1/M3 的生产预测、订单、账本或 Telegram。当前已有真实概率前推实验、Crown AH/OU回放和同场OU quote-time配对诊断。Crown-first加TotalCorner default的事件时间样本已超过每市场10,000场，但Crown-only不足10,000场，且全部API历史回执在kickoff之后；因此不构成赛前已收到盘口的收益验证。M5 Actions尚未验收。最新报告与新增 quote-time 诊断见 [M5_PROGRESS_REPORT_20261104.md](M5_PROGRESS_REPORT_20261104.md)，当前 M5 forecast 生成于 `2026-11-04T21:39:54Z` UTC，依赖回放于 `2026-11-04T21:41Z` UTC 重算。
 
 截至 2026-11-05 M5 Crown 回填重启，已按完整 UTC OOS forecast 重建 127,674 个候选；截至 `2026-11-05T17:04:32Z` 私有 Crown 采集 checkpoint 为8,600/127,674处理、8,546个精确响应，AH/OU各7,687场有赛前源事件报价，身份/时间错配0；采集仍在运行，不能把进度当作 ROI。重启前已有验证赛前报价212 AH、212 OU；去重后的同价 MR1 V6 可比 cohort 每市场870场。所有样本均未达到每市场10,000场。GitHub Actions 中现有 `TOTALCORNER_TOKEN` 与 `PRIVATE_REPO_TOKEN` 只确认了 Secret 名称，未读取值；可访问的 private bridge 当前没有 M5 forecast/raw quote 输入。公开仓库已有 M3 专用 Crown 前瞻采集，最新成功 run [41968378899](https://github.com/ljm198964-alt/quant-runner/actions/runs/41968378899) 只增加 9 AH / 9 OU M3 quote commitments，不含价格、EV 或 ROI，也不计入 M5 样本。详见 [M5 Crown archive coverage audit](M5_CROWN_ARCHIVE_COVERAGE_AUDIT_20261105.md)。
 
@@ -487,3 +487,21 @@ The current M5 forward-shadow Crown cohort remains the earlier frozen forecast s
 A fresh M5-only forecast cohort was generated at `2026-11-06T00:17:24.085673Z`: 361 unique scheduled fixtures, 51 leagues, zero identity conflicts, and prior-result training cutoffs before forecast time. The private forecast SHA is recorded in the sanitized [capture receipt](results/m5_forward_shadow_capture_20261106T001724Z.json). Crown's bookmaker-specific endpoint was queried after forecast generation, with actual API receive timestamps retained privately. Of 361 requests, 357 responses passed fixture/Crown identity checks, three failed identity/Crown validation, and one had a transport error.
 
 The final strict pairing audit at `2026-11-06T00:48:45.750648Z` found zero AH and zero OU usable fixture-markets under `prediction_asof_utc <= quote_event_utc <= quote_received_utc < kickoff_utc`. This is not evidence of zero live Crown prices everywhere: it means no returned movement row in this capture passed the documented event-time condition. No EV or ROI is estimable, and no TotalCorner-default comparison was collected for this forward cohort. The API response receipt by itself was not promoted to a quote event. These outcomes are kept distinct from the 11,071-market retrospective event-time replay above. The collector run was local; it did not run through GitHub Actions.
+
+
+### 2026-11-06 same-quote baseline vs recency replay
+
+为恢复 M5 数据源并检验模型改进，在完全相同的 11,035 个唯一 fixture-market 上分别重放 M5 baseline 与 2025/2026 recency walk-forward forecasts。预测 ID 与赛程、比分逐项核验一致；两套预测各自满足 `train_end < prediction_asof < kickoff`。同一 Crown-first / TotalCorner-default（仅当 Crown 市场报价缺失时补位）盘口、1U 每场和亚洲盘结算规则用于两模型。公共回执：[baseline matched sample](results/m5_source_union_baseline_matched_20261106T005454Z.json)、[recency model](results/m5_source_union_recency_replay_20261106T005234Z.json)。样本包括 2025 年 874 场与 2026 年 10,161 场；每场按市场去重。
+
+| Market / model | Unique, simulated, settled | Crown / TotalCorner-default | W/HW/P/HL/L | Net U | ROI | Max DD U | Settlement LL / Brier | 95% fixture bootstrap ROI |
+|---|---:|---:|---|---:|---:|---:|---|---|
+| AH baseline | 11,035 | 9,987 / 1,048 | 4,410/752/766/762/4,345 | -279.490 | -2.532759% | 301.345 | 1.03621020 / 0.65125357 | -4.200997% to -0.854667% |
+| AH recency | 11,035 | 9,987 / 1,048 | 4,380/752/766/762/4,375 | -336.835 | -3.052424% | 344.9925 | 1.03091615 / 0.64778398 | -4.721749% to -1.363095% |
+| OU baseline | 11,035 | 9,986 / 1,049 | 4,575/622/550/774/4,514 | -393.1425 | -3.562687% | 414.8125 | 0.99000926 / 0.62469853 | -5.216810% to -1.889941% |
+| OU recency | 11,035 | 9,986 / 1,049 | 4,568/659/551/737/4,521 | -377.7975 | -3.423629% | 418.450 | 0.99046806 / 0.62531568 | -5.074422% to -1.798369% |
+
+Recency improves AH proper scores but worsens AH ROI by 0.519665 percentage points. OU recency improves ROI by 0.139058 points while slightly worsening both proper scores. Neither model reaches +3%. Crown source-only and TotalCorner-default subgroups are also negative in both markets and both models. The bootstrap intervals are wholly negative. This is still a retrospective source-event-time replay: all 11,035 selected historical API receipts per market occurred after kickoff. It does not establish executable ROI.
+
+Added `--forecast-path` and `--side-policy` to the aggregate replay so alternate M5 OOS forecasts can be reproduced without copying private fixture rows into the repository. The default `higher_ev` policy retains the existing side-selection method. A fixed `lower_ev` direction diagnostic on the same matched sample returned AH -4.167127% and OU -3.982125%; it also fails, with no filters or gates. See [`m5_source_union_baseline_lower_ev_20261106T005735Z.json`](results/m5_source_union_baseline_lower_ev_20261106T005735Z.json).
+
+The `/private/tmp/m1-m5-private` directory was rechecked and still contains only the M1 observation/FT files, not an M5 forecast archive. The M5 historical archive is the existing `/Users/mac/QuantAsiaDesk/data/m5-crown-authorized` dataset. Its Crown capture and TotalCorner-default fallback checkpoints are terminal; the M5 source-union history already exceeds 10,000 unique fixture-markets per market when separately labeled sources are deduplicated. Receipt-time evidence remains post-kickoff. No new TotalCorner historical requests were needed for this same-source model comparison.
