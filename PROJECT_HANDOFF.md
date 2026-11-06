@@ -1,3 +1,8 @@
+## 2026-11-06T17:21:21Z M5 最新冻结前瞻队列结算复核
+- 恢复分支 `codex/m5-oos-crown-expansion`，发现 `/private/tmp/m1-m5-private/m5_forward_pairs_latest.jsonl` 实际是 16:54Z 的 129 项旧别名；按已登记最新 17:03Z 配对文件重跑，pair SHA `665ced85c5d608a59544aff683bfa35d935efb4f99f38c4cd0a94b00a48cf851`、135项（AH71、OU64）。TotalCorner 结果核验在 `2026-11-06T17:21:21.787477Z` 生成，6个fixture复用既有FT、9个返回时未完场、71个尚未开赛；本轮没有新增 verified FT。
+- 结果保持 AH 5/71 已结、净 -0.36U、待结66；OU 6/64已结、净+1.37U、待结58。AH/OU全队列ROI均为 null；settled-only ROI仅分别 -7.2% / +22.8333%，小样本不作为目标结果。已结六项报价全为Crown；配对盘口源AH Crown64/TOTAL default7、OU Crown60/TOTAL default4，未混淆来源。
+- 脱敏聚合回执 `research/m5/results/m5_forward_shadow_settlement_20261106T1721Z.json`，生成UTC如上；真实身份、盘口价格、比分、响应仍在私有档案。没有新学习信息或完整ROI。M1/MR1/M3/M4正式系统、订单、Telegram、账本及交易门槛未变。代码与回执待本次提交和Actions验证。
+
 ## 2026-11-05T18:15:41.384845+00:00 最新校准留出复核
 - 收据 [`m5_crown_goal_rate_temporal_holdout_20261105T181541Z.json`](research/m5/results/m5_crown_goal_rate_temporal_holdout_20261105T181541Z.json)；同一UTC分界 `2026-09-01`，训练6,169/holdout2,295场每市场，身份集合交集0。只用训练期实际比分与M5分数网格总进球均值拟合Poisson主客rate multiplier（home `1.03715664`、away `1.03330436`），不以holdout ROI调参。
 - 固定AH/OU较高期望回报侧选择规则。AH raw/calibrated留出 ROI `+0.244009%/-0.162092%`，Log Loss/Brier `1.02778536/.64250851`→`1.02692234/.64221580`；OU `-4.723965%/-3.968627%`，LL/Brier `.99662474/.62898185`→`.98973802/.62395207`。AH/OU bootstrap区间分别包含0/完全负。

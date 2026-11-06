@@ -271,7 +271,8 @@ jobs:
 
           pair = json.loads(Path("research/m5/results/m5_forward_shadow_refresh_20261106T1336Z.json").read_text())
           latest_refresh = json.loads(Path("research/m5/results/m5_forward_shadow_refresh_20261106T1417Z.json").read_text())
-          allowed_pair_hashes = {pair["pair_sha256"], latest_refresh["new_pair_sha256"]}
+          latest_crown_refresh = json.loads(Path("research/m5/results/m5_forward_shadow_crown_refresh_20261106T1703Z.json").read_text())
+          allowed_pair_hashes = {pair["pair_sha256"], latest_refresh["new_pair_sha256"], latest_crown_refresh["new_pair_sha256"]}
           for receipt_path in sorted(Path("research/m5/results").glob("m5_forward_shadow_settlement_*.json")):
               report = json.loads(receipt_path.read_text())
               assert report["paired_input_sha256"] in allowed_pair_hashes

@@ -1059,3 +1059,7 @@ AH 的2025 Log Loss最优权重退化为MR1单模；OU的概率融合改善了 p
 ### 2026-11-06T17:03Z 前瞻 Crown 刷新
 
 下一批20个未开赛目标中19个响应身份通过，1个 Crown/fixture 身份不匹配被排除。AH有5、OU有3个市场返回合格赛前报价。配对由AH68/OU61扩至AH71/OU64，新增6项均来自Crown。队列135项全部满足严格UTC时间顺序；AH已结5/71、净-0.36U，OU已结6/64、净+1.37U，pending 124，两市场完整队列ROI均null。只有19/20响应有效且只有8项在盘口层合格；本次不表示预测成功或达到历史收益目标。详见[17:03Z刷新回执](results/m5_forward_shadow_crown_refresh_20261106T1703Z.json)。
+
+### 2026-11-06T17:21Z 前瞻 shadow 结算复核
+
+使用带时间戳的最新 17:03Z 配对文件（pair SHA `665ced85c5d608a59544aff683bfa35d935efb4f99f38c4cd0a94b00a48cf851`）重新核验 TotalCorner FT。结算请求本轮完成 6 个既有已验证 fixture 的复用、9 个 fixture 当时尚未完场、71 个 fixture 尚未开赛；没有新增 verified FT。最新冻结队列仍为 AH 5/71 已结、净 -0.36U，OU 6/64 已结、净 +1.37U；待结分别 66、58，全队列 ROI 仍为 null。已结价格均为 Crown；完整配对来源 AH Crown64/TOTAL default7、OU Crown60/TOTAL default4。旧别名 `m5_forward_pairs_latest.jsonl` 指向 16:54Z 的旧队列，复核时明确使用时间戳文件。脱敏结果见[17:21Z结算回执](results/m5_forward_shadow_settlement_20261106T1721Z.json)。这次没有新增学习信息或可计算的完整队列ROI。
