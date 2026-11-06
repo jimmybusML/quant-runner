@@ -87,6 +87,32 @@ jobs:
               assert field not in serialized
           print("M5 forward refresh comparison integrity: PASS")
           PY
+      - name: Validate the public MR1-M3 temporal blend receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          runner = Path("research/m5/m5_mr1_m3_temporal_probability_blend.py")
+          report = json.loads(Path("research/m5/results/m5_mr1_m3_2025fit_2026holdout_blend_20261106.json").read_text())
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          assert report["common_fixture_count"] == 9517
+          assert report["audit"] == {"m3_post_kickoff_receipts": 19034, "mr1_post_kickoff_receipts": 19034, "pre_kickoff_event_quotes": 19034}
+          for market in ("AH", "OU"):
+              result = report["markets"][market]
+              assert result["train_fixture_markets"] == 1005
+              assert result["holdout_fixture_markets"] == 8512
+              assert result["train_test_fixture_ids_disjoint"] is True
+              for model in result["models"].values():
+                  test = model["holdout_2026"]
+                  assert test["simulated_bets"] == test["settled_bets"] == 8512
+                  assert sum(test["settlement_counts"].values()) == 8512
+                  assert abs(test["roi_pct"] - 100 * test["net_units"] / test["stake_units"]) < 1e-6
+          serialized = json.dumps(report)
+          for field in ('"match_id"', '"prices":', '"home_goals"', '"away_goals"'):
+              assert field not in serialized
+          print("M5 MR1-M3 temporal blend integrity: PASS")
+          PY
       - name: Validate the public forward pairing receipt
         run: |
           python - <<'PY'
