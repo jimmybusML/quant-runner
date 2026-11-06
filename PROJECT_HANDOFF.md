@@ -1,7 +1,7 @@
-## 2026-11-06T17:44Z TotalCorner 回退请求优化与 M5 新前瞻批次启动
-- 对新完成的 M5 私有 forecast batch（345场，40联赛，生成 `2026-11-06T17:27:12.149031Z`）按 UTC 开赛升序运行 Crown 专用采集。接口保持既有 ≥3.1 秒最小请求间隔，采集仍在进行；截至 `17:44Z` 身份核验成功 97/345。逐场预测和 Crown 原始响应仅在本机私有目录。
+## 2026-11-06T17:45Z TotalCorner 回退请求优化与 M5 新前瞻批次启动
+- 对新 M5 私有 forecast batch（345场，40联赛，生成 `2026-11-06T17:27:12.149031Z`）按 UTC 开赛升序运行 Crown 专用采集。接口保持既有 ≥3.1 秒最小请求间隔，采集仍在进行；截至 `17:45Z` 身份核验成功 115/345。逐场预测和 Crown 原始响应仅在本机私有目录。
 - 审计发现既有 TotalCorner default 回退器即使 AH/OU 均已有合格 Crown 盘口也会请求一次 TOTAL，再丢弃两边报价。新增 `needs_totalcorner_fallback`：两市场已有合格 Crown 时跳过整场 TOTAL 请求；任一市场缺盘时仍请求，并仅为 Crown 缺失的 fixture-market 选用 TotalCorner default。新增四态单测，不改变模型、盘口来源优先级、投注筛选或生产链路。
-- 当前 `test_m5_forward_totalcorner_capture.py` 3/3 PASS，`git diff --check` PASS。Crown 新队列仍在异步采集，完成后继续 TotalCorner 缺口回退、配对、结算及脱敏回执；本条关联提交/Actions 尚未产生。
+- 回退请求优化提交 `d2d3ba96434c6793b492bdd4872d92a6cb2db2a6` 已推送；GitHub Actions M5 Research Validation run [42264423864](https://github.com/ljm198964-alt/quant-runner/actions/runs/42264423864) 成功，全套 M5 测试与所有公开回执校验通过。本地回退器相关测试3/3 PASS，`git diff --check` PASS。Crown 新队列仍在异步采集，完成后继续 TotalCorner 缺口回退、配对、结算及脱敏回执。
 
 ## 2026-11-06T17:21:21Z M5 最新冻结前瞻队列结算复核
 - 恢复分支 `codex/m5-oos-crown-expansion`，发现 `/private/tmp/m1-m5-private/m5_forward_pairs_latest.jsonl` 实际是 16:54Z 的 129 项旧别名；按已登记最新 17:03Z 配对文件重跑，pair SHA `665ced85c5d608a59544aff683bfa35d935efb4f99f38c4cd0a94b00a48cf851`、135项（AH71、OU64）。TotalCorner 结果核验在 `2026-11-06T17:21:21.787477Z` 生成，6个fixture复用既有FT、9个返回时未完场、71个尚未开赛；本轮没有新增 verified FT。
