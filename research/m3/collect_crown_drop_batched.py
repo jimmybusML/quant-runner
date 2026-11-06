@@ -102,6 +102,10 @@ def prediction_candidates():
  if len(train)<TARGET_TRAIN:raise RuntimeError('Insufficient pre-test training fixtures')
  return train,test
 
+def stage_dates():
+ train,test=prediction_candidates();dates=sorted({x['date'] for x in train+test})
+ print(json.dumps(dates,separators=(',',':')))
+
 def kickoff_utc(m):
  try:
   x=dt.datetime.strptime(str(m['start']),'%Y-%m-%d %H:%M:%S').replace(tzinfo=TZ)
@@ -218,18 +222,23 @@ def stage_manifest_window(start_text,end_text):
   for item in items:
    d=day(item['date'])
    if start<=d<=end:wanted[key_for_prediction(item)]={'prediction':item,'split':split}
- found={};ambiguous=set();pages_by_league={}
- for code,info in LEAGUES.items():
-  page=1;league_pages=0
+ found={};ambiguous=set();pages_by_league=Counter();days=sorted({day(x['date']) for x in [v['prediction'] for v in wanted.values()]})
+ for day_index,match_day in enumerate(days,1):
+  page=1;pages_for_day=0
   while True:
-   payload=request('/league/schedule/'+info['id'],{'page':page})
-   if payload.get('success')!=1:raise RuntimeError('TotalCorner league schedule returned unsuccessful response')
-   rows=get_matches(payload);league_pages+=1
+   payload=request('/match/schedule',{'date':match_day.strftime('%Y%m%d'),'page':page})
+   if payload.get('success')!=1:raise RuntimeError('TotalCorner date schedule returned unsuccessful response')
+   rows=get_matches(payload);pages_for_day+=1
    if not rows:break
    for m in rows:
-    parsed=candidate_key(code,m)
-    if not parsed:continue
-    k,ko,score=parsed
+    ko=kickoff_utc(m)
+    if not ko:continue
+    code=next((c for c,v in LEAGUES.items() if str(m.get('l_id') or '')==v['id']),None)
+    if not code:code=next((c for c,v in LEAGUES.items() if norm(m.get('l'))==norm(v['name'])),None)
+    if not code:continue
+    try:score=[int(float(m['hg'])),int(float(m['ag']))]
+    except Exception:continue
+    k=(code,ko.date().isoformat(),norm(m.get('h')),norm(m.get('a')))
     if k not in wanted:continue
     pred=wanted[k]['prediction']
     if pred['score']!=score:diag['schedule_score_mismatch']+=1;continue
@@ -237,27 +246,70 @@ def stage_manifest_window(start_text,end_text):
     if not mid:diag['schedule_missing_match_id']+=1;continue
     record={'split':wanted[k]['split'],'league':pred['league'],'season':pred.get('season'),
       'm3_date':pred['date'],'home':pred['home'],'away':pred['away'],'m3_score':pred['score'],'models':pred['models'],
-      'source':{'match_id':mid,'league':m.get('l'),'league_id':str(m.get('l_id') or info['id']),
+      'source':{'match_id':mid,'league':m.get('l'),'league_id':str(m.get('l_id') or LEAGUES[code]['id']),
         'home':m.get('h'),'away':m.get('a'),'start_local':m.get('start'),'kickoff_utc':ko.isoformat(),
         'status':m.get('status'),'score':[m.get('hg'),m.get('ag')]}}
     if k in found and found[k]['source']['match_id']!=mid:ambiguous.add(k)
     else:found[k]=record
    if not next_page(payload,page):break
    page+=1
-  pages_by_league[code]=league_pages
-  print(json.dumps({'phase':'league_schedule_window','window':f'{start}_{end}','league':code,'pages':league_pages,
-    'matched':sum(1 for k in found if k[0]==code and k not in ambiguous)}),flush=True)
+  pages_by_league.update({code:pages_for_day for code in LEAGUES})
+  print(json.dumps({'phase':'date_schedule_window','window':f'{start}_{end}','day':str(match_day),'completed_days':day_index,'total_days':len(days),'matched':len(found)}),flush=True)
  matched=[v for k,v in found.items() if k not in ambiguous]
  matched.sort(key=lambda r:(r['source']['kickoff_utc'],r['league'],norm(r['home']),norm(r['away'])))
  summary={'protocol':'M3_CROWN_DROP_MANIFEST_WINDOW_V2','window':{'start':str(start),'end':str(end)},
   'train_candidate_fixtures':sum(1 for v in wanted.values() if v['split']=='TRAIN'),
   'test_candidate_fixtures':sum(1 for v in wanted.values() if v['split']=='TEST'),
-  'matched_fixtures':len(matched),'ambiguous_fixtures':len(ambiguous),'schedule_pages':pages_by_league,
+  'matched_fixtures':len(matched),'ambiguous_fixtures':len(ambiguous),'schedule_pages_by_league':dict(pages_by_league),
   'diagnostics':dict(diag),'records_digest':hashlib.sha256(json.dumps([x['source']['match_id'] for x in matched]).encode()).hexdigest()}
  OUT.mkdir(parents=True,exist_ok=True);tag=f'{start}_{end}'
  encrypt_doc({'summary':summary,'records':matched},key_text,'MANIFEST_WINDOW',OUT/f'm3_crown_manifest_{tag}.bin')
  write_public(f'manifest_{tag}_summary.json',summary)
  print(json.dumps({'status':'MANIFEST_WINDOW_READY','summary':summary},ensure_ascii=False),flush=True)
+
+def stage_manifest_date(date_text):
+ key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
+ if not key_text:raise RuntimeError('Research encryption key unavailable')
+ match_day=day(date_text);train,test=prediction_candidates();wanted={}
+ for split,items in (('TRAIN',train),('TEST',test)):
+  for item in items:
+   if day(item['date'])==match_day:wanted[key_for_prediction(item)]={'prediction':item,'split':split}
+ found={};ambiguous=set();page=1;pages=0
+ while True:
+  payload=request('/match/schedule',{'date':match_day.strftime('%Y%m%d'),'page':page})
+  if payload.get('success')!=1:raise RuntimeError('TotalCorner date schedule returned unsuccessful response')
+  rows=get_matches(payload);pages+=1
+  if not rows:break
+  for m in rows:
+   ko=kickoff_utc(m)
+   if not ko:continue
+   code=next((c for c,v in LEAGUES.items() if str(m.get('l_id') or '')==v['id']),None)
+   if not code:code=next((c for c,v in LEAGUES.items() if norm(m.get('l'))==norm(v['name'])),None)
+   if not code:continue
+   try:score=[int(float(m['hg'])),int(float(m['ag']))]
+   except Exception:continue
+   k=(code,ko.date().isoformat(),norm(m.get('h')),norm(m.get('a')))
+   if k not in wanted:continue
+   pred=wanted[k]['prediction']
+   if score!=pred['score']:diag['schedule_score_mismatch']+=1;continue
+   mid=str(m.get('id') or '')
+   if not mid:diag['schedule_missing_match_id']+=1;continue
+   record={'split':wanted[k]['split'],'league':pred['league'],'season':pred.get('season'),'m3_date':pred['date'],
+    'home':pred['home'],'away':pred['away'],'m3_score':pred['score'],'models':pred['models'],
+    'source':{'match_id':mid,'league':m.get('l'),'league_id':str(m.get('l_id') or LEAGUES[code]['id']),
+     'home':m.get('h'),'away':m.get('a'),'start_local':m.get('start'),'kickoff_utc':ko.isoformat(),
+     'status':m.get('status'),'score':[m.get('hg'),m.get('ag')]}}
+   if k in found and found[k]['source']['match_id']!=mid:ambiguous.add(k)
+   else:found[k]=record
+  if not next_page(payload,page):break
+  page+=1
+ records=[r for k,r in found.items() if k not in ambiguous]
+ summary={'protocol':'M3_CROWN_DROP_MANIFEST_DATE_V2','date':str(match_day),'candidate_fixtures':len(wanted),
+  'matched_fixtures':len(records),'ambiguous_fixtures':len(ambiguous),'schedule_pages':pages,'diagnostics':dict(diag)}
+ OUT.mkdir(parents=True,exist_ok=True);dest=OUT/f'm3_crown_manifest_{match_day}.bin'
+ encrypt_doc({'summary':summary,'records':records},key_text,'MANIFEST_DATE',dest)
+ write_public(f'manifest_{match_day}_summary.json',summary)
+ print(json.dumps({'status':'MANIFEST_DATE_READY','summary':summary},ensure_ascii=False),flush=True)
 
 def stage_merge_manifests(input_dir):
  key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
@@ -284,6 +336,30 @@ def stage_merge_manifests(input_dir):
  OUT.mkdir(parents=True,exist_ok=True);encrypt_doc({'summary':summary,'records':records},key_text,'MANIFEST',OUT/'m3_crown_manifest.bin')
  write_public('manifest_summary.json',summary)
  print(json.dumps({'status':'MANIFEST_MERGED','summary':summary},ensure_ascii=False),flush=True)
+
+def stage_merge_dates(input_dir):
+ key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
+ if not key_text:raise RuntimeError('Research encryption key unavailable')
+ files=sorted(Path(input_dir).glob('m3_crown_manifest_*.bin'))
+ if not files:raise RuntimeError('No encrypted daily manifests found')
+ by_id={};summaries=[];conflicts=0
+ for path in files:
+  doc=decrypt_doc(path,key_text,'MANIFEST_DATE');summaries.append(doc['summary'])
+  for record in doc['records']:
+   mid=str(record['source']['match_id'])
+   if mid in by_id and by_id[mid]!=record:conflicts+=1;continue
+   by_id[mid]=record
+ records=sorted(by_id.values(),key=lambda r:(r['source']['kickoff_utc'],r['league'],norm(r['home']),norm(r['away'])))
+ counts=Counter(r['split'] for r in records)
+ candidates={s:sum(x['candidate_fixtures'] for x in summaries if any(r['split']==s for r in by_id.values())) for s in ('TRAIN','TEST')}
+ summary={'protocol':'M3_CROWN_DROP_MANIFEST_V2','sample_design':{'scoped_leagues':list(LEAGUES),
+  'train_candidate_fixtures':sum(1 for x in prediction_candidates()[0]),'test_candidate_fixtures':sum(1 for x in prediction_candidates()[1]),
+  'test_start':max(r['m3_date'] for r in records if r['split']=='TEST') if any(r['split']=='TEST' for r in records) else None},
+  'matched_train_fixtures':counts['TRAIN'],'matched_test_fixtures':counts['TEST'],'matched_total_fixtures':len(records),
+  'daily_manifests':len(files),'match_id_conflicts':conflicts,'quote_batches':(len(records)+BATCH_SIZE-1)//BATCH_SIZE}
+ OUT.mkdir(parents=True,exist_ok=True);encrypt_doc({'summary':summary,'records':records},key_text,'MANIFEST',OUT/'m3_crown_manifest.bin')
+ write_public('manifest_summary.json',summary)
+ print(json.dumps({'status':'MANIFEST_DATES_MERGED','summary':summary},ensure_ascii=False),flush=True)
 
 def stage_quotes(batch):
  key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
@@ -331,24 +407,31 @@ def stage_quotes_window(start_text,end_text):
  for split,items in (('TRAIN',train),('TEST',test)):
   for item in items:
    if start<=day(item['date'])<=end:wanted[key_for_prediction(item)]={'prediction':item,'split':split}
- matches_by_id={};counts=Counter();raw=Counter();page_counts={}
- for code,info in LEAGUES.items():
+ matches_by_id={};counts=Counter();raw=Counter();page_counts=Counter()
+ days=sorted({day(v['prediction']['date']) for v in wanted.values()})
+ for day_index,match_day in enumerate(days,1):
   page=1;pages=0
   while True:
-   payload=request('/league/schedule/'+info['id'],{'page':page});pages+=1
-   if payload.get('success')!=1:raise RuntimeError('TotalCorner league schedule returned unsuccessful response')
+   payload=request('/match/schedule',{'date':match_day.strftime('%Y%m%d'),'page':page});pages+=1
+   if payload.get('success')!=1:raise RuntimeError('TotalCorner date schedule returned unsuccessful response')
    rows=get_matches(payload)
    if not rows:break
    for m in rows:
-    parsed=candidate_key(code,m)
-    if not parsed:continue
-    k,ko,score=parsed
+    ko=kickoff_utc(m)
+    if not ko:continue
+    code=next((c for c,v in LEAGUES.items() if str(m.get('l_id') or '')==v['id']),None)
+    if not code:code=next((c for c,v in LEAGUES.items() if norm(m.get('l'))==norm(v['name'])),None)
+    if not code:continue
+    try:score=[int(float(m['hg'])),int(float(m['ag']))]
+    except Exception:continue
+    k=(code,ko.date().isoformat(),norm(m.get('h')),norm(m.get('a')))
     if k not in wanted or score!=wanted[k]['prediction']['score']:continue
     mid=str(m.get('id') or '')
     if mid:matches_by_id[mid]=(k,ko,m)
    if not next_page(payload,page):break
    page+=1
-  page_counts[code]=pages
+  for code in LEAGUES:page_counts[code]+=pages
+  if day_index%25==0:print(json.dumps({'phase':'quote_window_dates','window':f'{start}_{end}','completed_days':day_index,'total_days':len(days),'matched_ids':len(matches_by_id)}),flush=True)
  print(json.dumps({'phase':'quote_window_schedule_ready','window':f'{start}_{end}','matched_ids':len(matches_by_id),'pages':page_counts}),flush=True)
  results=[];seen_keys=set()
  for n,(mid,(k,ko,sched)) in enumerate(sorted(matches_by_id.items(),key=lambda q:(q[1][1],q[0])),1):
@@ -381,14 +464,21 @@ def stage_quotes_window(start_text,end_text):
  print(json.dumps({'status':'QUOTE_WINDOW_READY','summary':summary},ensure_ascii=False),flush=True)
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--stage',choices=('manifest','manifest-window','merge-manifests','quotes','quotes-window'),required=True);p.add_argument('--batch',type=int,default=0);p.add_argument('--start');p.add_argument('--end');p.add_argument('--input-dir');a=p.parse_args()
- if a.stage=='manifest':stage_manifest()
+ p=argparse.ArgumentParser();p.add_argument('--stage',choices=('manifest','manifest-window','manifest-date','merge-manifests','merge-dates','quotes','quotes-window','dates'),required=True);p.add_argument('--batch',type=int,default=0);p.add_argument('--start');p.add_argument('--end');p.add_argument('--date');p.add_argument('--input-dir');a=p.parse_args()
+ if a.stage=='dates':stage_dates()
+ elif a.stage=='manifest':stage_manifest()
  elif a.stage=='manifest-window':
   if not a.start or not a.end:raise RuntimeError('manifest-window requires --start and --end')
   stage_manifest_window(a.start,a.end)
+ elif a.stage=='manifest-date':
+  if not a.date:raise RuntimeError('manifest-date requires --date')
+  stage_manifest_date(a.date)
  elif a.stage=='merge-manifests':
   if not a.input_dir:raise RuntimeError('merge-manifests requires --input-dir')
   stage_merge_manifests(a.input_dir)
+ elif a.stage=='merge-dates':
+  if not a.input_dir:raise RuntimeError('merge-dates requires --input-dir')
+  stage_merge_dates(a.input_dir)
  elif a.stage=='quotes-window':
   if not a.start or not a.end:raise RuntimeError('quotes-window requires --start and --end')
   stage_quotes_window(a.start,a.end)

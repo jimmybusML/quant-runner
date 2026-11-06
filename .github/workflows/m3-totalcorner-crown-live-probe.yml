@@ -28,7 +28,7 @@ jobs:
           python-version: '3.11'
       - name: Install encryption dependency
         run: python -m pip install --disable-pip-version-check cryptography
-      - name: Match this date window to scoped TotalCorner schedule and encrypt it
+      - name: Match this date window to scoped TotalCorner daily schedules and encrypt it
         env:
           TOTALCORNER_TOKEN: ${{ secrets.TOTALCORNER_TOKEN }}
           M3_CROWN_RESEARCH_KEY: ${{ secrets.M3_CROWN_RESEARCH_KEY }}
