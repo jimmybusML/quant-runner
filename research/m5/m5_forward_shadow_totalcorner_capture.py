@@ -60,6 +60,11 @@ def totalcorner_rows(rows, asof, kickoff, zone):
     return sorted(valid, key=lambda x: x["quote_event_utc"])
 
 
+def needs_totalcorner_fallback(crown_qualified_ah: bool, crown_qualified_ou: bool) -> bool:
+    """Only request TOTAL when at least one M5 market lacks a valid Crown quote."""
+    return not (crown_qualified_ah and crown_qualified_ou)
+
+
 def load_jsonl(path):
     rows = []
     if path.exists():
@@ -124,6 +129,9 @@ def run(private_dir: Path, forecasts_path: Path, source_timezone="Asia/Shanghai"
                              if x.get("quote_event_asof_utc") == forecast.get("prediction_asof_utc")), {})
         crown_ah = bool(latest_crown.get("ah_qualified"))
         crown_ou = bool(latest_crown.get("ou_qualified"))
+        if not needs_totalcorner_fallback(crown_ah, crown_ou):
+            counts["crown_preferred_all_market_skips"] += 1
+            continue
         url = f"{API}/match/odds/{urllib.parse.quote(mid, safe='')}?" + urllib.parse.urlencode(
             {"columns": "asianList,goalList"})
         try:

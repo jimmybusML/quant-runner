@@ -2,7 +2,9 @@ import unittest
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
-from research.m5.m5_forward_shadow_totalcorner_capture import totalcorner_rows
+from research.m5.m5_forward_shadow_totalcorner_capture import (
+    needs_totalcorner_fallback, totalcorner_rows,
+)
 
 
 class ForwardTotalCornerCaptureTests(unittest.TestCase):
@@ -10,6 +12,12 @@ class ForwardTotalCornerCaptureTests(unittest.TestCase):
         self.zone = ZoneInfo("Asia/Shanghai")
         self.asof = datetime(2026, 11, 6, 4, 0, tzinfo=timezone.utc)
         self.kickoff = datetime(2026, 11, 6, 5, 0, tzinfo=timezone.utc)
+
+    def test_skips_totalcorner_request_only_when_crown_covers_both_markets(self):
+        self.assertFalse(needs_totalcorner_fallback(True, True))
+        self.assertTrue(needs_totalcorner_fallback(False, True))
+        self.assertTrue(needs_totalcorner_fallback(True, False))
+        self.assertTrue(needs_totalcorner_fallback(False, False))
 
     def test_accepts_only_post_forecast_open_pregame_rows(self):
         rows = [
