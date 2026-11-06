@@ -48,7 +48,12 @@ def raw_event(rows, market, asof, kickoff, zone):
         try:
             parts=[float(x.strip()) for x in str(line_raw).replace('/',',').split(',')]
             prices=(float(p1),float(p2)); line=sum(parts)/len(parts)
-            if len(parts) not in (1,2) or any(not math.isfinite(x) for x in parts+list(prices)) or any(x<=1 for x in prices): continue
+            if (len(parts) not in (1,2)
+                    or any(not math.isfinite(x) for x in parts+list(prices))
+                    or any(x<=1 for x in prices)
+                    or abs(line*4-round(line*4))>1e-8
+                    or (len(parts)==2 and abs(abs(parts[0]-parts[1])-.5)>1e-8)):
+                continue
             split_line(line)
         except (ValueError,TypeError,ZeroDivisionError): continue
         valid.append((observed,line,prices))

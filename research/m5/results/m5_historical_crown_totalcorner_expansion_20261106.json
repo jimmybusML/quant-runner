@@ -1,0 +1,40 @@
+{
+  "candidate_fixture_count": 127674,
+  "candidate_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea809d8a26e36b1350ea49eecf4751223b960",
+  "crown_capture_batch": {
+    "crown_source_event_eligible_fixture_markets": {
+      "AH": 10447,
+      "OU": 10446
+    },
+    "identity_verified": 497,
+    "new_requests": 497,
+    "processed_candidates_total": 11585,
+    "transport_errors": 3
+  },
+  "full_oos_forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+  "full_oos_replay": "m5_source_union_expanded_oos_20261106.json",
+  "generated_utc": "2026-11-06T04:49:48.985384Z",
+  "m5_roi_target_met": false,
+  "notes": [
+    "Both models exceed 10000 unique event-time OOS fixture-markets per market.",
+    "No result is evidence of real-time executable ROI because actual provider response receipts were post-kickoff.",
+    "No production model, Telegram route, or strategy gate changed."
+  ],
+  "private_data_note": "Fixture IDs, predictions, prices, raw responses, credentials and pair-level data remain private; no secret values are included.",
+  "protocol": "M5_CROWN_TOTALCORNER_HISTORICAL_EXPANSION_RECEIPT_V1",
+  "recency_2025_2026_forecast_sha256": "72f196921fb7d4345f828599529255cad8e7d58c5bc5ab42e98e8d747ae0ed3a",
+  "recency_replay": "m5_source_union_recency_expanded_oos_20261106.json",
+  "scope": "Frozen private M5 OOS fixtures, 51-league scope",
+  "source_rule": "Crown first per fixture-market; TotalCorner default only fills a fixture-market without a qualifying Crown quote.",
+  "time_rule": "train_end_utc < prediction_asof_utc <= source_quote_event_utc < kickoff_utc; actual API receipt time retained separately and later than kickoff for all replay rows.",
+  "totalcorner_default_capture_batch": {
+    "indexed_verified_response_rows_total": 1150,
+    "new_requests": 51,
+    "source_union_fill_fixture_markets_total": {
+      "AH": 1065,
+      "OU": 1066
+    },
+    "transport_errors_in_archive_total": 6,
+    "verified_rows": 51
+  }
+}

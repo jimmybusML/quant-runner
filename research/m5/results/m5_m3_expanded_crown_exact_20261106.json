@@ -1,0 +1,183 @@
+{
+  "audit_counts": {
+    "m3_result_or_training_time_mismatch": 1,
+    "valid_fixture_market_AH": 15,
+    "valid_fixture_market_OU": 6
+  },
+  "candidate_fixture_count": 127674,
+  "candidate_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+  "crown_response_hash_set_sha256": "2bb8fbccdccad7a9545e7966e7f0e3d91f28817bca048ab8f67b7587c0785496",
+  "crown_response_index_sha256": "112ba4dfc347f6ec98347bbebfd9cd7069cc4a811cda6204b773b11c610bf711",
+  "generated_utc": "2026-11-06T05:54:13.697122+00:00",
+  "limitations": [
+    "AH0 and OU2.5 do not cover arbitrary Asian lines.",
+    "M3 forecasts are frozen historical season-forward predictions, not newly retrained on all M5 fixtures.",
+    "Historical Crown API responses were received after kickoff; source event timestamps support event-time replay only.",
+    "Public output contains no fixture IDs, team names, odds, or raw provider responses."
+  ],
+  "m3_all_three_model_oos_fixture_keys": 11254,
+  "m3_oos_prediction_sha256": "24eccf0152e1c8961c29cfd0512fb9a237ebbaaedc8d83390d1f7a96da0d3fe7",
+  "markets": {
+    "AH": {
+      "bivariate_poisson": {
+        "actual_response_receipt_timing": {
+          "post_kickoff": 5
+        },
+        "max_drawdown_units_by_quote_event_time": 1.0,
+        "net_units": 0.14,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -0.8,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "upper_95": 0.856
+        },
+        "roi_pct": 2.8,
+        "settled_bets": 5,
+        "settlement_counts": {
+          "half_loss": 0,
+          "half_win": 0,
+          "loss": 2,
+          "push": 1,
+          "win": 2
+        },
+        "simulated_bets": 5,
+        "unique_fixtures": 5
+      },
+      "dixon_coles": {
+        "actual_response_receipt_timing": {
+          "post_kickoff": 5
+        },
+        "max_drawdown_units_by_quote_event_time": 1.0,
+        "net_units": 0.14,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -0.8,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "upper_95": 0.856
+        },
+        "roi_pct": 2.8,
+        "settled_bets": 5,
+        "settlement_counts": {
+          "half_loss": 0,
+          "half_win": 0,
+          "loss": 2,
+          "push": 1,
+          "win": 2
+        },
+        "simulated_bets": 5,
+        "unique_fixtures": 5
+      },
+      "poisson": {
+        "actual_response_receipt_timing": {
+          "post_kickoff": 5
+        },
+        "max_drawdown_units_by_quote_event_time": 1.0,
+        "net_units": 0.14,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -0.8,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "upper_95": 0.848
+        },
+        "roi_pct": 2.8,
+        "settled_bets": 5,
+        "settlement_counts": {
+          "half_loss": 0,
+          "half_win": 0,
+          "loss": 2,
+          "push": 1,
+          "win": 2
+        },
+        "simulated_bets": 5,
+        "unique_fixtures": 5
+      }
+    },
+    "OU": {
+      "bivariate_poisson": {
+        "actual_response_receipt_timing": {
+          "post_kickoff": 2
+        },
+        "max_drawdown_units_by_quote_event_time": 2.0,
+        "net_units": -2.0,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -1.0,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "upper_95": -1.0
+        },
+        "roi_pct": -100.0,
+        "settled_bets": 2,
+        "settlement_counts": {
+          "half_loss": 0,
+          "half_win": 0,
+          "loss": 2,
+          "push": 0,
+          "win": 0
+        },
+        "simulated_bets": 2,
+        "unique_fixtures": 2
+      },
+      "dixon_coles": {
+        "actual_response_receipt_timing": {
+          "post_kickoff": 2
+        },
+        "max_drawdown_units_by_quote_event_time": 2.0,
+        "net_units": -2.0,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -1.0,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "upper_95": -1.0
+        },
+        "roi_pct": -100.0,
+        "settled_bets": 2,
+        "settlement_counts": {
+          "half_loss": 0,
+          "half_win": 0,
+          "loss": 2,
+          "push": 0,
+          "win": 0
+        },
+        "simulated_bets": 2,
+        "unique_fixtures": 2
+      },
+      "poisson": {
+        "actual_response_receipt_timing": {
+          "post_kickoff": 2
+        },
+        "max_drawdown_units_by_quote_event_time": 2.0,
+        "net_units": -2.0,
+        "pending_bets": 0,
+        "roi_bootstrap_95pct": {
+          "lower_95": -1.0,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "upper_95": -1.0
+        },
+        "roi_pct": -100.0,
+        "settled_bets": 2,
+        "settlement_counts": {
+          "half_loss": 0,
+          "half_win": 0,
+          "loss": 2,
+          "push": 0,
+          "win": 0
+        },
+        "simulated_bets": 2,
+        "unique_fixtures": 2
+      }
+    }
+  },
+  "model_names": [
+    "poisson",
+    "dixon_coles",
+    "bivariate_poisson"
+  ],
+  "protocol": "M5_M3_THREE_MODEL_EXPANDED_CROWN_EXACT_CONTRACT_REPLAY_V1",
+  "scope": "Only the six frozen M3-supported leagues and exact AH0/OU2.5 contracts exposed by saved M3 probabilities; exact UTC kickoff and team/date identity joined to the larger M5 fixture archive. Each model uses its strict season-forward M3 probabilities and only quote events later than its training cutoff and before kickoff. Per model/market, one 1U bet on the higher expected-return side; no EV gate."
+}

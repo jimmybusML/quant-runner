@@ -1,5 +1,23 @@
 # M5 独立融合研究
 
+## 2026-11-06 05:02Z 扩展 Crown / TotalCorner 历史盘口后重放
+
+在既有 127,674 场严格 UTC M5 OOS forecast / FT 冻结样本上扩展 Crown 历史候选：新增 500 个请求尝试，497 条响应通过身份核验、3 条传输失败；累计 Crown source-event 合格 AH 10,447、OU 10,446。随后对 Crown 缺市场作 51 次 TotalCorner default 回退，51 条身份核验通过。抓取索引中的 TOTAL 合格计数是在采集时预测版本上生成；本次总回放对原始 TOTAL 响应按当前冻结 forecast 的逐场 as-of 时间戳重新校验，并应用 Crown 优先，最终补入 AH 1,140、OU 1,141 个 fixture-market。两种来源严格分开，按每场/市场去重。
+
+| 模型/方向 | AH 全 OOS 场数 / ROI | AH 2026 留出 ROI | OU 全 OOS 场数 / ROI | OU 2026 留出 ROI |
+|---|---:|---:|---:|---:|
+| M5 baseline，高模型 EV 方向 | 11,573 / -2.51% | -1.86% (10,226) | 11,573 / -3.63% | -3.50% (10,226) |
+| M5 recency 加权，高 EV 方向 | 11,537 / -2.95% | -2.79% (10,226) | 11,537 / -3.44% | -3.38% (10,226) |
+| 固定盘口热门方向 | 11,573 / -4.22% | -4.43% | 11,573 / -3.18% | **-3.33% (OU 2026 方向比较最好)** |
+| 固定盘口冷门方向 | 11,573 / -2.07% | **-1.79% (AH 2026 方向比较最好)** | 11,573 / -4.29% | -4.08% |
+| 2025 ROI 训练逐联赛择方向、冻结到 2026 | — | -3.48% | — | -4.04% |
+
+固定方向均为研究诊断，不做联赛或比赛筛选；逐联赛候选每个市场在 2025 的训练段分别有 1,311 场，2026 留出均为 10,226 场，逐场仍一注。新增盘口后，先前逐联赛方案的 AH ROI 从旧报告的 -1.37% 变为 -3.48%，显示方向选择结果对样本覆盖敏感，不能认为该方案稳定优于 baseline。当前扩展数据下，2026 的固定冷门 AH -1.79% 仅比 higher-EV AH -1.86% 高约 0.08 个百分点；OU 固定热门 -3.33% 比 higher-EV -3.50% 高约 0.17 个百分点，均不能证明统计优势。完整样本中，AH ROI 最好的固定方向仍为冷门（-2.07%），OU 为热门（-3.18%）；两者都亏损，且所有候选市场都未达 +3%。
+
+Baseline 结算记录：AH 净 -290.4675U、最大回撤 315.1075U；OU 净 -420.5525U、最大回撤 439.1050U。所有回放盘口 API 实际回执都发生在开赛后；赔率行的事件时间在赛前只支持回顾性 event-time OOS 回放，不能称为同期接收或可执行 ROI。校准分数、结算数、bootstrap 区间、UTC 覆盖、各年结果与来源数见 [扩展 baseline 回执](results/m5_source_union_expanded_oos_20261106.json)、[recency 回执](results/m5_source_union_recency_expanded_oos_20261106.json) 和[同样本方向比较](results/m5_source_union_expanded_side_policy_comparison_20261106.json)；采集量与哈希见[历史扩样回执](results/m5_historical_crown_totalcorner_expansion_20261106.json)。
+
+本轮只给历史采集器加每次运行的 `--max-requests` 断点批次上限，默认采集口径不变。原始比赛身份、预测、价格和接口响应仍在私有目录；没有新增交易 Gate、改动生产模型或启用 Telegram。
+
 ## 2026-11-06 03:21Z 前瞻 Crown-first / TotalCorner default 采集
 
 在既有 02:18Z 的 361 场 M5 独立预测批次上，先检查 Crown：本批次没有符合预测后、赛前实际接收约束的 Crown AH/OU 报价；因此按既定来源优先级采集 TotalCorner default 回退报价。15 场沿用小批试采，其余 346 场请求中 344 场通过 fixture/API 身份校验，2 场错配拒绝，0 场传输失败。最终仅配对 AH 13 场、OU 11 场，时间顺序满足 `train_end < prediction_asof <= quote_event <= actual_receipt < kickoff`。来源标记为 TotalCorner default，绝不计作 Crown 价格。
@@ -577,3 +595,15 @@ Added a market-specific power-temperature calibration over the five Asian settle
 The untouched 2026 UTC kickoff-year replay contains 10,161 unique fixtures per market (Crown 9,260 + TotalCorner default 901), from 2026-01-01 through 2026-11-04. AH ROI is -3.845635% (-390.755U), settlement LL/Brier 0.99674875/0.62373094 and event-time drawdown 399.455U. OU ROI is -3.785159% (-384.610U), LL/Brier 0.97630762/0.61373902 and event-time drawdown 436.405U. Fixture bootstrap 95% ROI intervals are [-5.580358%, -2.109118%] AH and [-5.540572%, -2.055728%] OU. The proper scores improve versus the uncalibrated forecasts, but ROI worsens; neither market meets the +3% target.
 
 Temporal evidence remains limiting: all 10,161 selected historical API receipts per market were received after kickoff. This is a retrospective event-time replay only, not proof of pregame receipt, execution, or realizable Crown ROI. TotalCorner is separately marked and fills only absent Crown fixture-market entries. Reports: [2025 fit](results/m5_market_settlement_temperature_2025_train.json) and [2025-fit/2026-holdout replay](results/m5_source_union_market_temperature_2025fit_2026_oos.json). The fit used 2025 outcomes; the 2026 period was not used for parameter fitting. M5 remains independent; no production strategy, Telegram, model promotion, or trade gates changed.
+# Cross-model replay on the expanded match archive (2026-11-06)
+
+The 11,573-per-market source-union archive was joined against saved forecasts from M1, MR1 V6, and the three M3 models. This is a coverage audit and replay, not a claim that every model was retrained or forecast all 11,573 matches. Aggregate results and input hashes are recorded in [cross-model comparison](results/m5_expanded_cross_model_comparison_20261106.json); sanitized model receipts are [M1](results/m5_m1_expanded_archive_replay_20261106.json) and [M3 Crown exact-contract replay](results/m5_m3_expanded_crown_exact_20261106.json).
+
+| Model output | AH sample and result | OU sample and result | Evidence boundary |
+| --- | --- | --- | --- |
+| M1 saved scan output | 1,233; -6.1444% ROI | 1,233; -3.2729% ROI | Latest saved pre-kickoff Crown scan per fixture; scan archive completion also precedes kickoff. Full output includes statuses outside M1's formal decision window. Existing formal-candidate subset: AH 42, -12.2857%; OU 79, +5.5000%. |
+| MR1 V6 | 870; -3.6695% ROI | 870; -4.7391% ROI | Exact shared pre-kickoff Crown quotes and FT results; compared on the same 870 fixtures with M5 baseline and recency models. |
+| M3 Poisson / Dixon-Coles / Bivariate Poisson | AH0: 5, each +2.8% event-time ROI | OU2.5: 2, each -100% event-time ROI | Too few exact Crown contracts for an ROI conclusion. Separate strict common OOS proper scores cover 7,663 fixtures without Crown prices. |
+| M4 research variants | Not run on expanded cohort | Not run on expanded cohort | No standalone frozen M4 forecast file exists. Existing MR1-based experiments are separate 497-order studies and are not an M4-vs-other-model comparison on this archive. |
+
+All historical Crown and TotalCorner responses in the expanded capture were received after kickoff. M1's saved scan quote/decision timestamps and MR1's saved forward quote receipts are pre-kickoff, but M1/MR1 do not cover the entire expanded fixture set. The M3 Crown contracts use source event times after each model's training cutoff and before kickoff, while the API response receipts were post-kickoff. These ROI figures are retrospective model diagnostics, not executable historical Crown ROI. No M1, MR1, M3, or M4 production path changed; no Telegram messages, new gates, or automatic model promotions were added.

@@ -1,0 +1,123 @@
+{
+  "audit_source_rows": {
+    "AH_Crown": 10433,
+    "AH_TotalCorner_default": 1104,
+    "OU_Crown": 10432,
+    "OU_TotalCorner_default": 1105
+  },
+  "candidate_fixture_count": 127674,
+  "candidate_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+  "forecast_row_count": 22202,
+  "forecast_sha256": "72f196921fb7d4345f828599529255cad8e7d58c5bc5ab42e98e8d747ae0ed3a",
+  "generated_utc": "2026-11-06T04:52:39.784709Z",
+  "limitations": [
+    "All historical provider responses were received after the fixture kickoff; source-event-time pre-kickoff rows support retrospective event-time replay, not contemporaneous receipt or executable ROI.",
+    "Crown and TotalCorner default are distinct providers/bookmakers; source-union selection deduplicates by fixture-market and gives Crown priority when a qualifying Crown row exists.",
+    "ROI uses one unit per selected fixture-market and Asian quarter-line settlement; no market, league, time, EV, or bet-count filters were applied.",
+    "AH and OU are separate samples. The historical OOS baseline is not live performance."
+  ],
+  "markets": {
+    "AH": {
+      "by_utc_kickoff_year": {
+        "2025": {
+          "fixtures": 1311,
+          "net_units": -55.0175,
+          "roi_pct": -4.196606
+        },
+        "2026": {
+          "fixtures": 10226,
+          "net_units": -285.185,
+          "roi_pct": -2.788823
+        }
+      },
+      "max_drawdown_units_by_source_event_time": 361.43,
+      "net_units": -340.2025,
+      "pending_bets": 0,
+      "quote_receipt_timing": {
+        "post_kickoff": 11537
+      },
+      "roi_bootstrap_95pct": {
+        "lower_95": -0.04538377,
+        "method": "fixture percentile bootstrap, descriptive only",
+        "repetitions": 10000,
+        "upper_95": -0.01316807
+      },
+      "roi_pct": -2.948795,
+      "settled_bets": 11537,
+      "settlement_brier": 0.64762033,
+      "settlement_counts": {
+        "half_loss": 795,
+        "half_win": 794,
+        "loss": 4569,
+        "push": 795,
+        "win": 4584
+      },
+      "settlement_log_loss": 1.03069794,
+      "simulated_bets": 11537,
+      "source_fixture_markets": {
+        "Crown": 10433,
+        "TotalCorner_default": 1104
+      },
+      "unique_fixtures": 11537,
+      "utc_coverage": {
+        "first_kickoff": "2025-11-15T14:30:00+00:00",
+        "first_quote_event": "2025-11-03T17:55:42+00:00",
+        "last_kickoff": "2026-11-04T17:00:00+00:00",
+        "last_quote_event": "2026-11-04T16:57:15+00:00"
+      }
+    },
+    "OU": {
+      "by_utc_kickoff_year": {
+        "2025": {
+          "fixtures": 1311,
+          "net_units": -51.5625,
+          "roi_pct": -3.933066
+        },
+        "2026": {
+          "fixtures": 10226,
+          "net_units": -345.3225,
+          "roi_pct": -3.376907
+        }
+      },
+      "max_drawdown_units_by_source_event_time": 423.44,
+      "net_units": -396.885,
+      "pending_bets": 0,
+      "quote_receipt_timing": {
+        "post_kickoff": 11537
+      },
+      "roi_bootstrap_95pct": {
+        "lower_95": -0.05051465,
+        "method": "fixture percentile bootstrap, descriptive only",
+        "repetitions": 10000,
+        "upper_95": -0.0178803
+      },
+      "roi_pct": -3.440106,
+      "settled_bets": 11537,
+      "settlement_brier": 0.62510298,
+      "settlement_counts": {
+        "half_loss": 762,
+        "half_win": 685,
+        "loss": 4733,
+        "push": 579,
+        "win": 4778
+      },
+      "settlement_log_loss": 0.99003479,
+      "simulated_bets": 11537,
+      "source_fixture_markets": {
+        "Crown": 10432,
+        "TotalCorner_default": 1105
+      },
+      "unique_fixtures": 11537,
+      "utc_coverage": {
+        "first_kickoff": "2025-11-15T14:30:00+00:00",
+        "first_quote_event": "2025-11-03T17:55:43+00:00",
+        "last_kickoff": "2026-11-04T17:00:00+00:00",
+        "last_quote_event": "2026-11-04T16:28:46+00:00"
+      }
+    }
+  },
+  "model": "M5 recency weighted strict UTC walk-forward 2025-2026",
+  "protocol": "M5_CROWN_FIRST_TOTALCORNER_EXPANDED_RECENCY_EVENT_TIME_V1",
+  "quote_response_hash_set_sha256": "2d1d98d2abaa6b2b373d4bdf77a18f3ae33058a671633a8c1d7a150a3dee0f96",
+  "time_note": "Historical API responses were fetched after fixtures. Pre-kickoff source event timestamps support event-time retrospective replay only; they do not prove contemporaneous pre-kickoff receipt or executable price."
+}

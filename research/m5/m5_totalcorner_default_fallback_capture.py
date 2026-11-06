@@ -198,6 +198,8 @@ def run(args) -> dict:
     state = {"last_start": 0.0}
     attempted = 0
     for fixture in candidates:
+        if args.max_requests is not None and attempted >= args.max_requests:
+            break
         mid = str(fixture.get("match_id") or "")
         if mid not in processed_ids or mid in prior_index:
             continue
@@ -276,9 +278,13 @@ def main() -> None:
     parser.add_argument("--source-timezone", default="Asia/Shanghai")
     parser.add_argument("--min-interval", type=float, default=3.1)
     parser.add_argument("--target-market-fixtures", type=int, default=10000)
+    parser.add_argument("--max-requests", type=int,
+                        help="optional per-invocation request cap; rerunning resumes from private indexes")
     args = parser.parse_args()
     if args.min_interval < 2.6:
         raise SystemExit("min-interval must be at least 2.6 seconds")
+    if args.max_requests is not None and args.max_requests < 1:
+        raise SystemExit("max-requests must be positive")
     run(args)
 
 

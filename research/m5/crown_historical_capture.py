@@ -382,7 +382,10 @@ def fetch_crown(args) -> None:
     counts["processed"] = counts["crown_exact_identity"] + counts["no_crown_or_invalid_response"]
     counts["requests"] = counts["processed"]
     transient_dir = out / "transient-errors"
+    new_requests = 0
     for fixture in candidate_rows:
+        if args.max_requests is not None and new_requests >= args.max_requests:
+            break
         mid = fixture["match_id"]
         raw_path = out / "crown-responses" / f"{mid}.json"
         no_path = out / "no-crown" / f"{mid}.json"
@@ -393,8 +396,10 @@ def fetch_crown(args) -> None:
         try:
             payload, receipt, raw_body = request_json(url, token, args.min_interval, state)
             counts["requests"] += 1
+            new_requests += 1
         except Exception as exc:
             counts["transport_errors"] += 1
+            new_requests += 1
             save_json(transient_dir / f"{mid}.json", {"status": "transport_error", "error_type": type(exc).__name__,
                                                        "captured_at_utc": utc_now()})
             counts["processed"] += 1
@@ -632,6 +637,8 @@ def main() -> None:
     quotes.add_argument("--source-timezone", required=True)
     quotes.add_argument("--min-interval", type=float, default=3.1)
     quotes.add_argument("--target-market-fixtures", type=int, default=10000)
+    quotes.add_argument("--max-requests", type=int,
+                        help="optional per-invocation request cap; rerunning resumes from private checkpoints")
     quotes.set_defaults(func=fetch_crown)
     replay = sub.add_parser("replay")
     replay.add_argument("--private-dir", type=Path, required=True)
@@ -643,6 +650,8 @@ def main() -> None:
     args = parser.parse_args()
     if hasattr(args, "min_interval") and args.min_interval < 2.6:
         raise SystemExit("min-interval must be at least 2.6 seconds")
+    if getattr(args, "max_requests", None) is not None and args.max_requests < 1:
+        raise SystemExit("max-requests must be positive")
     args.func(args)
 
 

@@ -1,0 +1,382 @@
+{
+  "M1": {
+    "contract": "Actual archived M1 scan forecasts, latest forecast per match and market, exact match ID, teams, and UTC kickoff joined to expanded M5 results.",
+    "eligible_saved_forecast_fixtures": {
+      "AH": 1233,
+      "OU": 1233
+    },
+    "limitations": [
+      "Actual archived forecasts only; no retraining or prediction over all 11,573 source-union rows.",
+      "All saved model outputs include archived statuses outside M1 formal decision window; status counts shown. The formal subset preserves M1 original formal flags.",
+      "M1 archives do not separately record Crown response receipt time; pre-kickoff scan archive completion is used as its conservative upper bound. The expanded result archive was captured retrospectively."
+    ],
+    "markets": {
+      "AH": {
+        "all_saved_model_outputs_latest_per_fixture": {
+          "fixtures": 1233,
+          "max_drawdown_units_by_decision_time": 76.65,
+          "net_units": -75.76,
+          "roi_pct": -6.144363,
+          "settlement_counts": {
+            "loss": 594,
+            "push": 83,
+            "win": 556
+          }
+        },
+        "existing_M1_formal_candidate_subset": {
+          "fixtures": 42,
+          "max_drawdown_units_by_decision_time": 10.2,
+          "net_units": -5.16,
+          "roi_pct": -12.285714,
+          "settlement_counts": {
+            "loss": 22,
+            "push": 3,
+            "win": 17
+          }
+        },
+        "scan_status_counts": {
+          "CANDIDATE": 42,
+          "NO_VALUE": 23,
+          "OUTSIDE_DECISION_WINDOW": 976,
+          "REJECT_DATA_QUALITY": 12,
+          "REJECT_M1_AH_EV_GE_10_PERCENT": 18,
+          "REJECT_STATE_CONFLICT": 132,
+          "WATCHLIST_EDGE_TOO_THIN": 30
+        }
+      },
+      "OU": {
+        "all_saved_model_outputs_latest_per_fixture": {
+          "fixtures": 1233,
+          "max_drawdown_units_by_decision_time": 62.23,
+          "net_units": -40.355,
+          "roi_pct": -3.272912,
+          "settlement_counts": {
+            "loss": 574,
+            "push": 68,
+            "win": 591
+          }
+        },
+        "existing_M1_formal_candidate_subset": {
+          "fixtures": 79,
+          "max_drawdown_units_by_decision_time": 4.59,
+          "net_units": 4.345,
+          "roi_pct": 5.5,
+          "settlement_counts": {
+            "loss": 36,
+            "push": 1,
+            "win": 42
+          }
+        },
+        "scan_status_counts": {
+          "CANDIDATE": 79,
+          "NO_VALUE": 27,
+          "OUTSIDE_DECISION_WINDOW": 976,
+          "REJECT_DATA_QUALITY": 10,
+          "REJECT_STATE_CONFLICT": 91,
+          "WATCHLIST_EDGE_TOO_THIN": 50
+        }
+      }
+    },
+    "timing": "Verified Crown quote event \u2264 recorded M1 decision < exact kickoff; archived scan completion was also required to precede kickoff as an upper bound on quote receipt."
+  },
+  "M3": {
+    "Crown_exact_contract_sample": {
+      "AH0": 5,
+      "OU2_5": 2
+    },
+    "limitations": [
+      "The 7,663-row strict common OOS score set uses no Crown prices; AH is a 1X2 probability proxy.",
+      "Crown replay is only 5 AH0 and 2 OU2.5 fixtures; M3 has no probabilities for other lines.",
+      "Historical API receipts were after kickoff; these are retrospective source-event-time Crown results."
+    ],
+    "per_model_crown_event_time_roi": {
+      "AH0": {
+        "bivariate_poisson": {
+          "bootstrap_95_fraction": {
+            "lower_95": -0.8,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": 0.856
+          },
+          "net_units": 0.14,
+          "roi_pct": 2.8,
+          "settled": 5
+        },
+        "dixon_coles": {
+          "bootstrap_95_fraction": {
+            "lower_95": -0.8,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": 0.856
+          },
+          "net_units": 0.14,
+          "roi_pct": 2.8,
+          "settled": 5
+        },
+        "poisson": {
+          "bootstrap_95_fraction": {
+            "lower_95": -0.8,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": 0.848
+          },
+          "net_units": 0.14,
+          "roi_pct": 2.8,
+          "settled": 5
+        }
+      },
+      "OU2_5": {
+        "bivariate_poisson": {
+          "bootstrap_95_fraction": {
+            "lower_95": -1.0,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": -1.0
+          },
+          "net_units": -2.0,
+          "roi_pct": -100.0,
+          "settled": 2
+        },
+        "dixon_coles": {
+          "bootstrap_95_fraction": {
+            "lower_95": -1.0,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": -1.0
+          },
+          "net_units": -2.0,
+          "roi_pct": -100.0,
+          "settled": 2
+        },
+        "poisson": {
+          "bootstrap_95_fraction": {
+            "lower_95": -1.0,
+            "method": "fixture percentile bootstrap, descriptive only",
+            "repetitions": 10000,
+            "upper_95": -1.0
+          },
+          "net_units": -2.0,
+          "roi_pct": -100.0,
+          "settled": 2
+        }
+      }
+    },
+    "prior_strict_common_OOS_proper_scores": {
+      "AH_1X2_log_loss_brier": {
+        "bivariate_poisson": [
+          1.01021695,
+          0.6037282
+        ],
+        "dixon_coles": [
+          1.01000095,
+          0.6036712
+        ],
+        "poisson": [
+          1.01027396,
+          0.60390806
+        ]
+      },
+      "Crown_prices_used": false,
+      "OU_O2_5_log_loss_brier": {
+        "bivariate_poisson": [
+          0.69326355,
+          0.24976546
+        ],
+        "dixon_coles": [
+          0.69322096,
+          0.24972945
+        ],
+        "poisson": [
+          0.69321624,
+          0.24972808
+        ]
+      },
+      "fixtures": 7663
+    },
+    "supported_scope": "Six M3-supported leagues and exact AH0 / OU2.5 contracts only."
+  },
+  "M4": {
+    "independent_model_status": "No standalone frozen M4 predictor or forecast file exists for the expanded dataset. M4 currently comprises MR1-based research variants, not one uniquely versioned model in this comparison.",
+    "latest_relevant_chronological_evidence": {
+      "EV_calibration_MSE_all_497": {
+        "global_bias_adjusted": 0.781539,
+        "price_ridge_adjusted": 0.781121,
+        "raw": 0.77781
+      },
+      "EV_calibration_MSE_later_249": {
+        "global_bias_adjusted": 0.767402,
+        "price_ridge_adjusted": 0.767107,
+        "raw": 0.765672
+      },
+      "sequential_direction_reverse_candidate": {
+        "net_units": -38.605,
+        "roi_pct": -7.97624,
+        "simulated_bets": 484
+      },
+      "sequential_pass_candidate": {
+        "net_units": -40.165,
+        "roi_pct": -12.95645,
+        "simulated_bets": 310
+      },
+      "source_sample": 497
+    },
+    "limitations": [
+      "Separate 497-order research experiments; not rerun on 11,573 fixtures.",
+      "They do not establish improvement over MR1 or provide standalone M4 OOS forecasts."
+    ]
+  },
+  "MR1_V6_and_M5_same_Crown_quote_and_result": {
+    "coverage_of_expanded_source_union_per_market_pct": 7.518,
+    "limitations": [
+      "This exact shared cohort is smaller than the 11,573-per-market source-union cohort.",
+      "All paired fixture bootstrap intervals include zero."
+    ],
+    "models": {
+      "AH": {
+        "M5_baseline": {
+          "full_loss": 338,
+          "full_win": 354,
+          "half_loss": 66,
+          "half_win": 56,
+          "max_drawdown_units_by_quote_time": 28.135,
+          "net_units": -15.025,
+          "push": 56,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -7.58908,
+            "resamples": 10000,
+            "seed": 20261110,
+            "upper_97_5_pct": 4.131609
+          },
+          "roi_pct": -1.727011,
+          "settled_bets": 870,
+          "simulated_bets": 870,
+          "unique_forecast_fixtures": 870
+        },
+        "M5_recency": {
+          "full_loss": 339,
+          "full_win": 353,
+          "half_loss": 62,
+          "half_win": 60,
+          "max_drawdown_units_by_quote_time": 21.065,
+          "net_units": -13.435,
+          "push": 56,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -7.458046,
+            "resamples": 10000,
+            "seed": 20261111,
+            "upper_97_5_pct": 4.334483
+          },
+          "roi_pct": -1.544253,
+          "settled_bets": 870,
+          "simulated_bets": 870,
+          "unique_forecast_fixtures": 870
+        },
+        "MR1_V6_cross_market": {
+          "full_loss": 351,
+          "full_win": 341,
+          "half_loss": 53,
+          "half_win": 69,
+          "max_drawdown_units_by_quote_time": 36.935,
+          "net_units": -31.925,
+          "push": 56,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -9.575862,
+            "resamples": 10000,
+            "seed": 20261112,
+            "upper_97_5_pct": 2.132184
+          },
+          "roi_pct": -3.66954,
+          "settled_bets": 870,
+          "simulated_bets": 870,
+          "unique_forecast_fixtures": 870
+        }
+      },
+      "OU": {
+        "M5_baseline": {
+          "full_loss": 351,
+          "full_win": 359,
+          "half_loss": 64,
+          "half_win": 51,
+          "max_drawdown_units_by_quote_time": 49.405,
+          "net_units": -27.66,
+          "push": 45,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -9.086207,
+            "resamples": 10000,
+            "seed": 20261110,
+            "upper_97_5_pct": 2.720115
+          },
+          "roi_pct": -3.17931,
+          "settled_bets": 870,
+          "simulated_bets": 870,
+          "unique_forecast_fixtures": 870
+        },
+        "M5_recency": {
+          "full_loss": 352,
+          "full_win": 358,
+          "half_loss": 62,
+          "half_win": 53,
+          "max_drawdown_units_by_quote_time": 49.08,
+          "net_units": -29.3,
+          "push": 45,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -9.321264,
+            "resamples": 10000,
+            "seed": 20261111,
+            "upper_97_5_pct": 2.605747
+          },
+          "roi_pct": -3.367816,
+          "settled_bets": 870,
+          "simulated_bets": 870,
+          "unique_forecast_fixtures": 870
+        },
+        "MR1_V6_cross_market": {
+          "full_loss": 362,
+          "full_win": 348,
+          "half_loss": 57,
+          "half_win": 58,
+          "max_drawdown_units_by_quote_time": 43.31,
+          "net_units": -41.23,
+          "push": 45,
+          "roi_fixture_bootstrap_95pct_interval": {
+            "lower_2_5_pct": -10.531034,
+            "resamples": 10000,
+            "seed": 20261112,
+            "upper_97_5_pct": 1.143678
+          },
+          "roi_pct": -4.73908,
+          "settled_bets": 870,
+          "simulated_bets": 870,
+          "unique_forecast_fixtures": 870
+        }
+      }
+    },
+    "quote_timing": "MR1 Crown snapshots and independent FT receipts were pre-kickoff; identical Crown quote and result rows are used for all listed models.",
+    "sample_per_market": 870
+  },
+  "comparison_interpretation": "A valid four-way ranking on all 11,573 matches is not possible yet: saved predictions and exact compatible input features do not cover the full set for M1, MR1, M3, and M4. Results keep each true compatible cohort separate; M1 and MR1/M5 use different samples, M3 Crown samples are tiny, and M4 has no standalone forecast cohort.",
+  "generated_utc": "2026-11-06T06:11:52.609058+00:00",
+  "protocol": "M5_CROSS_MODEL_EXPANDED_DATA_CROSSWALK_V1",
+  "safety_and_scope": {
+    "M1_MR1_M3_M4_production_modified": false,
+    "Telegram_sent": false,
+    "automatic_model_promotion": false,
+    "new_EV_confidence_league_or_time_gate_added": false
+  },
+  "source_union": {
+    "AH_source_counts": {
+      "Crown": 10433,
+      "TotalCorner_default": 1140
+    },
+    "AH_unique_fixture_markets": 11573,
+    "OU_source_counts": {
+      "Crown": 10432,
+      "TotalCorner_default": 1141
+    },
+    "OU_unique_fixture_markets": 11573,
+    "candidate_fixture_count": 127674,
+    "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+    "manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+    "quote_receipts": "All historical Crown and TotalCorner responses were received after kickoff; source-event-time replay only."
+  }
+}
