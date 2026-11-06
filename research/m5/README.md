@@ -1,5 +1,11 @@
 # M5 独立融合研究
 
+## 2026-11-06 03:21Z 前瞻 Crown-first / TotalCorner default 采集
+
+在既有 02:18Z 的 361 场 M5 独立预测批次上，先检查 Crown：本批次没有符合预测后、赛前实际接收约束的 Crown AH/OU 报价；因此按既定来源优先级采集 TotalCorner default 回退报价。15 场沿用小批试采，其余 346 场请求中 344 场通过 fixture/API 身份校验，2 场错配拒绝，0 场传输失败。最终仅配对 AH 13 场、OU 11 场，时间顺序满足 `train_end < prediction_asof <= quote_event <= actual_receipt < kickoff`。来源标记为 TotalCorner default，绝不计作 Crown 价格。
+
+这些比赛尚未结算，所以 ROI、最大回撤均为 `null`；本批次也远低于每市场 10,000 场目标。完整原始报价、比赛身份、预测和逐场配对保留在本机既有私有授权归档，公开报告只保存脱敏汇总与哈希：[前瞻采集回执](results/m5_forward_shadow_totalcorner_capture_20261106T0321Z.json)。该采集用既有本机授权路径，没有打印或公开凭证；不改 M1/M2/MR1/M3/M4 生产流程，不启用 Telegram，也没有新增交易 Gate 或模型自动晋升。仓库没有 M5 Actions workflow，本轮无 Actions run。
+
 ## 2026-11-06 02:18Z M5 前瞻 Crown 批次
 
 按当前 UTC 对固定范围缓存赛程重新训练并生成 361 场 M5 独立预测（预测输入/逐场 ID 保留在本机私有归档）。使用既有本机授权路径完成 361 次 Crown endpoint 尝试：357 条 fixture/Crown 身份校验成功、3 条身份/Crown 校验失败、1 条传输失败。capture 运行终止于 `2026-11-06T02:46:24.606468Z`。严格要求 `prediction_asof <= quote_event <= actual_receipt < kickoff` 后，AH、OU 均为 0 个有效报价；独立配对审计同样为 0 场、0 注、无 ROI。接口成功响应数不能解释为盘口覆盖。

@@ -1,0 +1,30 @@
+{
+  "protocol": "M5_FORWARD_TOTALCORNER_DEFAULT_SOURCE_UNION_V1",
+  "forecast_generated_utc": "2026-11-06T02:18:10.868712Z",
+  "forecast_fixture_count": 361,
+  "forecast_sha256": "eee44973483f412f7751553db9f0667d34a5faf42da43b498fa6b19be4dc291f",
+  "capture_completed_utc": "2026-11-06T03:21:19.847573Z",
+  "totalcorner_requests_attempted": 346,
+  "already_captured_from_pilot": 15,
+  "verified_fixture_responses": 344,
+  "fixture_or_api_identity_mismatch": 2,
+  "transport_errors": 0,
+  "crown_qualified_fixture_market_skips": {"AH": 0, "OU": 0},
+  "totalcorner_default_selected_fixture_markets": {"AH": 13, "OU": 11},
+  "source_union_pairs": {"AH": 13, "OU": 11},
+  "pair_generated_utc": "2026-11-06T03:22:25.294469Z",
+  "pair_sha256": "635cc1685499473df4738a1c7db85f3733da9eefd8d362f4778b1b8bd7a5042c",
+  "source_response_hash_set_sha256": "f204a483c9ad16a1b0c3031da83e309ecbf46908b76f9b8b2b0175c881996456",
+  "time_rule": "train_end_utc < prediction_asof_utc <= quote_event_utc <= actual_quote_receipt_utc < kickoff_utc",
+  "source_priority": "Crown per fixture-market; TotalCorner default only when no qualifying Crown quote exists for that fixture-market.",
+  "settlement_status": "unsettled prospective cohort; no ROI or maximum drawdown is available",
+  "roi": null,
+  "maximum_drawdown": null,
+  "raw_responses_fixture_ids_predictions_and_prices_published": false,
+  "notes": [
+    "The captured TotalCorner market is separately identified as the provider default source and is not Crown pricing.",
+    "Only sanitized aggregate counts and cryptographic receipts are public; raw quote rows remain in the existing private authorized archive.",
+    "No M5 Actions workflow exists in this repository, so no GitHub Actions run was triggered.",
+    "This prospective sample does not satisfy the 10000-fixture-per-market objective and cannot validate return until settlement."
+  ]
+}
