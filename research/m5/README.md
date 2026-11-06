@@ -1047,3 +1047,7 @@ AH 的2025 Log Loss最优权重退化为MR1单模；OU的概率融合改善了 p
 ### 2026-11-06T16:27Z Crown 当前报价刷新
 
 同一冻结预测批次中最早的20场未开赛fixture再次请求 Crown 专用盘口端点，20/20身份通过，AH和OU各有18场返回合格报价。与14:17Z pair比较仍是114项（AH60、OU54），没有新增或移除赛事市场；共同项目中28项赔率对、10项盘口线、30项盘口事件时间、36项receipt时间更新，来源构成不变。新pair所有114项均满足 `train_end < prediction_asof ≤ quote_event ≤ quote_received < kickoff`。7项已结、107项待结，AH净-2U、OU净+1.37U，完整队列两市场ROI均为null。它证明当前可用的赛前Crown收价流程能够写入真实receipt时间，但样本规模太小，不能证明收益目标。脱敏汇总及代码/输入哈希见[Crown刷新回执](results/m5_forward_shadow_crown_refresh_20261106T1627Z.json)；逐场原始报价仍在私有归档。
+
+### 2026-11-06T16:44Z Crown 覆盖扩展
+
+从同一冻结预测的未开赛目标中再抓取40场Crown报价，40/40身份响应通过，AH/OU各18场有合格报价。重配对后唯一fixture-market从114增至120：新增AH3、OU3，均来自Crown；本批不是用TOTAL填补这些新增项。新队列来源为AH Crown56/TOTAL7、OU Crown53/TOTAL4。旧114项共同样本中15项赔率对、6项盘口线、17项报价事件时间、30项实际receipt时间更新。新队列120/120均满足严格 UTC 时间顺序并在开赛前收到。增量结算未发现新FT：AH已结3/63、净-2U，OU已结4/57、净+1.37U；其余113项待结，所以全队列ROI均为null。它实际扩大了前瞻影子覆盖，但离每市场10,000场及收益目标仍远。报告见[16:44Z Crown刷新与覆盖回执](results/m5_forward_shadow_crown_refresh_20261106T1644Z.json)，身份及逐场价位继续留在私有档案。

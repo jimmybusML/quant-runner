@@ -4348,3 +4348,9 @@
 - 以新 Crown index、TotalCorner index和冻结预测重配对，并与14:17Z pair比较。AH/OU仍60/54个唯一fixture-market，新增/移除均0，源分布不变（AH Crown53/TOTAL7；OU Crown50/TOTAL4）；共同114项中赔率变化28、线变化10、盘口event时间变化30、receipt变化36。新配对 SHA `730fdbec3af36f55bad1f4d0e1f4c9c78adb4ffbfe5a0038a6679b9a7e4d66d2`，所有114项通过 `train_end < prediction_asof <= event <= receipt < kickoff`。刷新后复核结果无新FT：总计7已结、107待结，AH/OU全cohort ROI仍null。
 - 公共脱敏回执 `research/m5/results/m5_forward_shadow_crown_refresh_20261106T1627Z.json` 记录实际capture/pair/settlement runner哈希、旧新pair哈希、差异字段计数、来源及时间验证；无逐场字段/价位。README与M5 Actions validator同步更新。该步骤扩充的是真实赛前接收和价格更新证据，不是有效样本量或收益证明；M5 10k/ROI目标仍未达，生产/TG/订单/账本/Gate不变。
 - 报告提交 `a3eb2064e7b382f8a4bb520ed461a702d43bfe96` 的首个Actions run [42253268625](https://github.com/ljm198964-alt/quant-runner/actions/runs/42253268625) 因新校验器键名映射不一致失败（研究测试及其余报告检查通过）；修复提交 `743ffe7595594dff1c4bc9598c6704ca2bad9af4` 后Actions run [42253547044](https://github.com/ljm198964-alt/quant-runner/actions/runs/42253547044) 成功，71项M5测试、新回执与全部历史报告检查通过。
+
+## 2026-11-06T16:44Z M5前瞻 Crown覆盖增量
+- 16:27Z后按目标剩余冻结预测ID生成私有队列（不输出行级身份），在已有TotalCorner合法认证下对最早40场未开赛赛事串行刷新Crown专用赔率。API收取40/40 verified responses，AH、OU各18有合格赛前盘。原始payload/赛事ID/价格只留私有归档。
+- 用完整冻结forecast和Crown/TOTAL索引重新配对。unique fixture-market由114增至120（AH63、OU57），新增6项（AH3/OU3）都来自Crown，TOTAL仍AH7/OU4。旧114共同市场中odds pair变15、line变6、event time变17、receipt time变30。所有120项均满足 `train_end < prediction_asof <= quote_event <= quote_received < kickoff`；new pair SHA `4943ffd4bb99ec6907f820590089c36af066e3997e3120c9a5193463e915d5f4`。
+- 最新结算查询时间 `2026-11-06T16:44:46.934327Z`：75个fixture、120 fixture-market，AH 3/63已结（W/HW/P/HL/L=0/0/1/0/2，净-2U），OU4/57已结（1/1/2/0/0，净+1.37U），pending113；两市场完整cohort ROI均null。此为真实赛前接收的预测队列，但仅120市场项，不能证明10k目标或稳定收益。
+- 已生成脱敏回执 `research/m5/results/m5_forward_shadow_crown_refresh_20261106T1644Z.json`，将更新README及Actions校验。M1/MR1/M3/M4生产模型、订单、TG、账本、Gate均未触碰。
