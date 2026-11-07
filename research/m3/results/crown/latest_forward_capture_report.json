@@ -1,31 +1,32 @@
 {
   "protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V1",
-  "generated_utc": "2026-11-06T19:00:18.384320Z",
+  "generated_utc": "2026-11-07T00:00:13.625348Z",
   "data_source": "TotalCorner bookmaker=crown only",
   "forecast_source": "M3 OpenFootball forward-only shadow; public M3 ledger only",
-  "forecasts_considered": 150,
-  "fixtures_with_unique_schedule_identity": 5,
-  "forecast_input_fingerprint_sha256": "79fe668fe370aa4bbb6c03dedd18011f5d6ba1759acd8b1253897e1b20ce23ce",
-  "forecast_input_changed_vs_previous_run": false,
+  "forecasts_considered": 225,
+  "fixtures_with_unique_schedule_identity": 9,
+  "forecast_input_fingerprint_sha256": "1839a1a99402c27b242ac48838ac6f3cbfad4cdb0d73383e0f795f61d0e88af5",
+  "forecast_input_changed_vs_previous_run": true,
   "new_learning_information": true,
   "new_learning_information_baseline": "previous_capture_report",
-  "quote_commitments_added": 18,
-  "quote_commitments_total": 69,
+  "quote_commitments_added": 3,
+  "quote_commitments_total": 72,
   "quote_commitments_by_market": {
-    "AH": 39,
+    "AH": 42,
     "OU": 30
   },
   "quote_commitments_by_league_market": {
-    "D1|AH": 30,
+    "D1|AH": 33,
     "D1|OU": 21,
     "E0|AH": 9,
     "E0|OU": 9
   },
   "status_counts": {
-    "CROWN_IDENTIFIED": 5
+    "CROWN_IDENTIFIED": 8,
+    "RESPONSE_AFTER_KICKOFF": 1
   },
   "rejected_counts": {
-    "schedule_identity_missing_or_ambiguous": 45
+    "schedule_identity_missing_or_ambiguous": 66
   },
   "source_timezone": "Asia/Shanghai",
   "timezone_semantics": "configured existing TotalCorner UTC+08:00 profile interpreted as Asia/Shanghai",
