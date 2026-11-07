@@ -82,17 +82,41 @@ def build_diagnostic(samples: dict, hashes: dict, kickoff_by_id: dict[str, str])
                 quarter = (kickoff.month - 1) // 3 + 1
                 scored = {"pnl": payout(legs, row["prices"][idx]), "category": category,
                           "distribution": distributions[idx], "event_utc": row["event_utc"],
-                          "source": row["source"], "receipt_timing": row["receipt_timing"]}
+                          "source": row["source"], "receipt_timing": row["receipt_timing"],
+                          "league": row["league"]}
                 all_rows.append(scored)
                 partitions[(str(year), f"Q{quarter}")].append(scored)
                 partitions[(str(year), f"Q{quarter}", row["source"])].append(scored)
+                partitions[(str(year), f"Q{quarter}", row["source"], str(row["league"]))].append(scored)
         report = {"all_years": summarize(all_rows), "by_utc_year_quarter": {},
-                  "by_utc_year_quarter_and_source": {}}
+                  "by_utc_year_quarter_and_source": {},
+                  "by_utc_year_quarter_league_and_source": {},
+                  "common_league_source_comparison_by_utc_quarter": {}}
+        league_source_rows = defaultdict(list)
         for key, rows in sorted(partitions.items()):
             if len(key) == 2:
                 report["by_utc_year_quarter"][f"{key[0]}-{key[1]}"] = summarize(rows)
             else:
-                report["by_utc_year_quarter_and_source"][f"{key[0]}-{key[1]}|{key[2]}"] = summarize(rows)
+                if len(key) == 3:
+                    report["by_utc_year_quarter_and_source"][f"{key[0]}-{key[1]}|{key[2]}"] = summarize(rows)
+                else:
+                    year, quarter, source, league = key
+                    year_quarter = f"{year}-{quarter}"
+                    report["by_utc_year_quarter_league_and_source"][f"{year_quarter}|{league}|{source}"] = summarize(rows)
+                    league_source_rows[(year, quarter, source)].append((league, rows))
+        for year, quarter in sorted({key[:2] for key in league_source_rows}):
+            year_quarter = f"{year}-{quarter}"
+            by_source = {}
+            for source in ("Crown", "TotalCorner_default"):
+                by_source[source] = {league: rows for league, rows in league_source_rows.get((year, quarter, source), [])}
+            common_leagues = sorted(set(by_source["Crown"]) & set(by_source["TotalCorner_default"]))
+            report["common_league_source_comparison_by_utc_quarter"][year_quarter] = {
+                "shared_league_count": len(common_leagues),
+                "Crown": summarize([row for league in common_leagues for row in by_source["Crown"][league]]),
+                "TotalCorner_default": summarize([row for league in common_leagues
+                                                   for row in by_source["TotalCorner_default"][league]]),
+                "interpretation": "Descriptive same-league support comparison; different fixtures and non-contemporaneous receipts, not paired bets or a source-selection rule.",
+            }
         output[market] = report
     runner_path = Path(__file__).resolve()
     return {"protocol": "M5_BASELINE_UTC_QUARTER_AND_SOURCE_DIAGNOSTIC_V1",
