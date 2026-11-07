@@ -1,3 +1,8 @@
+## 2026-11-07T09:27Z M5 Crown/TOTAL历史同场报价重叠审计
+- 新增 `research/m5/m5_cross_source_quote_overlap_audit.py`、2项单测及脱敏报告 `research/m5/results/m5_cross_source_quote_overlap_audit_20261107.json`（生成UTC `2026-11-07T09:27:09.158029Z`），对Crown和TotalCorner原始回执索引交集执行 M5 as-of、精确UTC kickoff、赛前盘口事件及fixture身份重验，公开输入SHA与聚合统计，不输出逐场ID/盘口/价格。
+- 2026 Q3中 AH/OU 同场索引重叠和 M5 as-of 后两源都有效的市场项均为0。全历史索引虽然有AH15、OU14个原始有效行交集，但严格重放后只有AH1场、OU0场双源报价可配对。该AH行同盘口线，双方报价最大差0.07，盘口事件时差5,284秒；两源事件均赛前，但全部API回执赛后。现有数据不能做同场同时点 provider 价差或归因，也不能将独立Crown/TOTAL子组收益差解释为价格优势。
+- 报告检查 runner SHA、Q3零重叠、AH/OU分母、fixture隐私通过；`pytest research/m5 -q` 84 passed。README和交接已更新。代码/回执待提交。本次仅只读私有授权归档；未发网络请求，未改生产模型、策略、TG、订单、账本或交易门槛。
+
 ## 2026-11-07T09:15Z M5 Q3 Crown/TOTAL同联赛支持诊断扩展
 - 扩展 `research/m5/m5_quarterly_source_diagnostic.py`：在完整11,537项历史留出/原有选边样本均保留的前提下，另按UTC kickoff季度、联赛和实际盘口来源聚合；新增两项同联赛/跨季度索引测试。公共聚合报告 `research/m5/results/m5_quarterly_source_diagnostic_20261107.json` 于 `2026-11-07T09:15:53.551944Z` 重生成，含逐联赛聚合但无fixture ID/报价/比分；源及时序仍可由输入hash、source分母和receipt分类审计。
 - 2026Q3 共有29个联赛同时有Crown及TOTAL观测。在共同联赛集合里，AH Crown 1,468场/-49.745U/-3.388624%，TOTAL 206场/+17.2125U/+8.355583%；OU Crown 1,468场/-40.405U/-2.752384%，TOTAL 206场/+6.725U/+3.264563%。这不是fixture配对（源覆盖不同比赛、盘口时点），且TOTAL收益集中：Estonia Meistriliiga单联赛贡献AH +7.1875U、OU +5.8375U；29个联赛里正收益数AH18/OU19。描述结果说明单纯联赛构成不能解释全部点估计差异，但不能推断provider因果/可泛化；未增加来源选择规则或交易门槛。

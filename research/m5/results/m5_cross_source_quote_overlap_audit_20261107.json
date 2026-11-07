@@ -1,0 +1,71 @@
+{
+  "duplicate_response_index_rows_collapsed_to_latest_receipt": {
+    "TotalCorner_default": 6
+  },
+  "fixture_level_data_published": false,
+  "generated_utc": "2026-11-07T09:27:09.158029Z",
+  "input_sha256": {
+    "Crown_response_index": "112ba4dfc347f6ec98347bbebfd9cd7069cc4a811cda6204b773b11c610bf711",
+    "TotalCorner_response_index": "b793c8b6d5aea540a00a339f4a14f9ed11d1fc6e3717925b7051511daa7099ed",
+    "candidate_manifest": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+    "m5_forecasts": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+    "overlap_raw_response_hash_set": "e2c92ea42742a30f5ebb50d6148087ba7d1dc993b76dc18c4ec8e780c985acab"
+  },
+  "limitations": [
+    "This is quote overlap/price diagnostic only; no provider-specific ROI is calculated because paired source quotes have different event times and coverage is very small.",
+    "Provider responses were retrieved after kickoff even when quote event times were pre-kickoff.",
+    "The existing TotalCorner collector fills Crown gaps; absent same-fixture pairs reflect capture design and are not evidence that provider prices are equal.",
+    "No provider-switching rule or trade gate is proposed."
+  ],
+  "markets": {
+    "AH": {
+      "Q3_M5_asof_valid_quote_pairs": 0,
+      "Q3_index_fixture_overlap": 0,
+      "all_years": {
+        "both_event_times_pregame": 1,
+        "both_provider_receipts_post_kickoff": 1,
+        "event_times_within_60_seconds": 0,
+        "mean_max_side_price_difference": 0.07,
+        "median_absolute_event_time_gap_seconds": 5284.0,
+        "prices_both_sides_within_0_01": 0,
+        "same_contract_line_pairs": 1,
+        "same_event_timestamp_pairs": 0,
+        "same_fixture_market_quote_pairs": 1
+      },
+      "by_utc_year_quarter": {
+        "2025-Q4": {
+          "both_event_times_pregame": 1,
+          "both_provider_receipts_post_kickoff": 1,
+          "event_times_within_60_seconds": 0,
+          "mean_max_side_price_difference": 0.07,
+          "median_absolute_event_time_gap_seconds": 5284.0,
+          "prices_both_sides_within_0_01": 0,
+          "same_contract_line_pairs": 1,
+          "same_event_timestamp_pairs": 0,
+          "same_fixture_market_quote_pairs": 1
+        }
+      },
+      "index_fixture_overlap": 15
+    },
+    "OU": {
+      "Q3_M5_asof_valid_quote_pairs": 0,
+      "Q3_index_fixture_overlap": 0,
+      "all_years": {
+        "both_event_times_pregame": 0,
+        "both_provider_receipts_post_kickoff": 0,
+        "event_times_within_60_seconds": 0,
+        "mean_max_side_price_difference": null,
+        "median_absolute_event_time_gap_seconds": null,
+        "prices_both_sides_within_0_01": 0,
+        "same_contract_line_pairs": 0,
+        "same_event_timestamp_pairs": 0,
+        "same_fixture_market_quote_pairs": 0
+      },
+      "by_utc_year_quarter": {},
+      "index_fixture_overlap": 14
+    }
+  },
+  "method": "Intersect provider indexes with at least one pre-kickoff quote row, then revalidate exact M5 forecast identity, UTC kickoff, train_end < prediction_asof < kickoff, and each provider's market quote event within [prediction_asof, kickoff). Compare source events only on exact fixture-market overlap.",
+  "protocol": "M5_CROWN_TOTALCORNER_SAME_FIXTURE_QUOTE_OVERLAP_AUDIT_V1",
+  "runner_sha256": "ddaf16e3923bb51bf85cbbf2faad2b9ecf3569c23179e402d116709407a23d2c"
+}
