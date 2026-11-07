@@ -31,9 +31,11 @@ def sha256(path: Path) -> str:
 
 def build_receipt(forecast_path: Path, forecast_meta_path: Path,
                   crown_capture_path: Path, pair_path: Path,
-                  pair_meta_path: Path) -> dict:
+                  pair_meta_path: Path, totalcorner_capture_path: Path | None = None) -> dict:
     forecast_meta = json.loads(forecast_meta_path.read_text(encoding="utf-8"))
     crown_capture = json.loads(crown_capture_path.read_text(encoding="utf-8"))
+    totalcorner_capture = (json.loads(totalcorner_capture_path.read_text(encoding="utf-8"))
+                           if totalcorner_capture_path else None)
     pair_meta = json.loads(pair_meta_path.read_text(encoding="utf-8"))
     forecast_raw = forecast_path.read_bytes()
     pair_raw = pair_path.read_bytes()
@@ -45,6 +47,8 @@ def build_receipt(forecast_path: Path, forecast_meta_path: Path,
         raise ValueError("pairing receipt references another forecast batch")
     if pair_hash != pair_meta.get("pair_sha256"):
         raise ValueError("pair hash does not match its receipt")
+    if totalcorner_capture and totalcorner_capture.get("forecast_sha256") != forecast_hash:
+        raise ValueError("TotalCorner capture receipt references another forecast batch")
 
     forecast_rows = []
     fixture_ids = set()
@@ -102,7 +106,7 @@ def build_receipt(forecast_path: Path, forecast_meta_path: Path,
         }
     chronology_start = min_kickoff.isoformat().replace("+00:00", "Z") if min_kickoff else None
     chronology_end = max_kickoff.isoformat().replace("+00:00", "Z") if max_kickoff else None
-    return {
+    receipt = {
         "protocol": "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1",
         "generated_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "sanitizer_sha256": sha256(Path(__file__)),
@@ -121,6 +125,7 @@ def build_receipt(forecast_path: Path, forecast_meta_path: Path,
         },
         "paired_fixture_markets": len(seen),
         "paired_fixture_markets_by_market": dict(sorted(market_counts.items())),
+        "pairing_audit_counts": pair_meta.get("audit_counts", {}),
         "markets": per_market,
         "kickoff_coverage_utc": [chronology_start, chronology_end],
         "pair_sha256": pair_hash,
@@ -140,6 +145,16 @@ def build_receipt(forecast_path: Path, forecast_meta_path: Path,
             "Raw fixture identities, score grids, lines, prices and API responses remain private.",
         ],
     }
+    if totalcorner_capture:
+        receipt["totalcorner_capture"] = {
+            "generated_utc": totalcorner_capture.get("generated_utc"),
+            "attempted_fixtures": totalcorner_capture.get("attempted_fixtures"),
+            "forecast_candidate_fixtures": totalcorner_capture.get("forecast_candidate_fixtures"),
+            "aggregate_counts": totalcorner_capture.get("aggregate_counts", {}),
+            "response_hash_set_sha256": totalcorner_capture.get("response_hash_set_sha256"),
+            "source_rule": totalcorner_capture.get("source_rule"),
+        }
+    return receipt
 
 
 def main():
@@ -147,12 +162,13 @@ def main():
     parser.add_argument("--forecasts", type=Path, required=True)
     parser.add_argument("--forecast-meta", type=Path, required=True)
     parser.add_argument("--crown-capture", type=Path, required=True)
+    parser.add_argument("--totalcorner-capture", type=Path)
     parser.add_argument("--pairs", type=Path, required=True)
     parser.add_argument("--pair-meta", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     report = build_receipt(args.forecasts, args.forecast_meta, args.crown_capture,
-                           args.pairs, args.pair_meta)
+                           args.pairs, args.pair_meta, args.totalcorner_capture)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, sort_keys=True, indent=2) + "\n",
                            encoding="utf-8")

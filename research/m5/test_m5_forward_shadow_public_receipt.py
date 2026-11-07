@@ -54,6 +54,27 @@ class ForwardShadowPublicReceiptTests(unittest.TestCase):
             self.assertNotIn(fixture_id, serialized)
             self.assertNotIn('"prices":', serialized)
 
+            totalcorner_capture = root / "totalcorner-capture.json"
+            totalcorner_capture.write_text(json.dumps({
+                "forecast_sha256": forecast_hash, "generated_utc": "2026-11-06T12:01:00Z",
+                "attempted_fixtures": 1, "forecast_candidate_fixtures": 1,
+                "aggregate_counts": {"verified_fixture_responses": 1,
+                                     "AH_default_qualified_fixture_markets": 0,
+                                     "OU_default_qualified_fixture_markets": 1},
+                "response_hash_set_sha256": "d" * 64,
+                "source_rule": "Crown first; TOTAL fills missing markets"}))
+            report = build_receipt(forecast_path, forecast_meta, crown_capture,
+                                   pairs_path, pair_meta, totalcorner_capture)
+            self.assertEqual(report["totalcorner_capture"]["aggregate_counts"][
+                "OU_default_qualified_fixture_markets"], 1)
+            self.assertNotIn(fixture_id, json.dumps(report))
+
+            totalcorner_capture.write_text(json.dumps({
+                "forecast_sha256": "f" * 64, "aggregate_counts": {}}))
+            with self.assertRaisesRegex(ValueError, "another forecast batch"):
+                build_receipt(forecast_path, forecast_meta, crown_capture,
+                              pairs_path, pair_meta, totalcorner_capture)
+
     def test_rejects_post_kickoff_receipt(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
