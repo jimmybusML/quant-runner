@@ -1,0 +1,777 @@
+{
+  "fixture_level_data_published": false,
+  "generated_utc": "2026-11-07T09:02:29.942690Z",
+  "interpretation": {
+    "accounting": "One unique fixture-market and 1U stake per simulated selection; AH and OU are independent. No duplicated source overlaps in the expanded source union.",
+    "chronology": "M3 forecasts are strict walk-forward forecasts. Historical provider response receipts for archived quotes were post-kickoff, so ROI is retrospective event-time simulation rather than contemporaneously received executable return.",
+    "common_crown": "MR1 V6 and M3 single models are additionally compared on 9,517 exact shared Crown contracts. This is a separate cohort, not directly rankable with the expanded union.",
+    "expanded_union": "M1, each M3 model and MR1/M3 with documented M3 fallback are evaluated on 10,568 unique fixture-markets per market. MR1 prediction coverage is 9,517 exact Crown contracts; the other 1,051 rows use M3, not invented MR1 predictions. Crown and TotalCorner-default source counts stay separate.",
+    "m4": "M4 is an existing two-league pass rule applied to M3 selections and covers 10,046 fixture-markets; it is a rule-strategy result, not a standalone model. The included 10,568 M3 baseline rows in source_report are not labelled as M4.",
+    "target": "No reported strategy reaches +3% ROI in either market. No production routes, model rules, gates, Telegram, order flow, or ledgers changed."
+  },
+  "markets": {
+    "AH": [
+      {
+        "cohort": "expanded_source_union_full_period",
+        "max_drawdown_units_by_quote_event_time": 270.535,
+        "model": "M1",
+        "net_units": -252.745,
+        "quote_sources": {
+          "Crown": 9613,
+          "TotalCorner_default": 955
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -2.391607,
+        "settled_bets": 10568,
+        "settlement_brier": 0.63843553,
+        "settlement_counts": {
+          "half_loss": 728,
+          "half_win": 723,
+          "loss": 4160,
+          "push": 722,
+          "win": 4235
+        },
+        "settlement_log_loss": 1.01612719,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixtures": 10568
+      },
+      {
+        "cohort": "expanded_source_union_full_period",
+        "max_drawdown_units_by_quote_event_time": 347.2425,
+        "model": "M3_poisson",
+        "net_units": -320.2475,
+        "quote_sources": {
+          "Crown": 9613,
+          "TotalCorner_default": 955
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -3.030351,
+        "settled_bets": 10568,
+        "settlement_brier": 0.64952923,
+        "settlement_counts": {
+          "half_loss": 706,
+          "half_win": 745,
+          "loss": 4205,
+          "push": 722,
+          "win": 4190
+        },
+        "settlement_log_loss": 1.03698373,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "strict_common_Crown",
+        "max_drawdown_units_by_quote_event_time": 295.465,
+        "model": "M3_poisson",
+        "net_units": -277.045,
+        "quote_sources": {
+          "Crown": 9517
+        },
+        "response_receipts": {
+          "post_kickoff": 9517
+        },
+        "roi_pct": -2.911054,
+        "settled_bets": 9517,
+        "settlement_brier": 0.64784279,
+        "settlement_counts": {
+          "half_loss": 640,
+          "half_win": 665,
+          "loss": 3786,
+          "push": 650,
+          "win": 3776
+        },
+        "settlement_log_loss": 1.03309261,
+        "simulated_bets": 9517,
+        "stake_units": 9517,
+        "unique_fixtures": 9517
+      },
+      {
+        "cohort": "expanded_source_union_with_M3_fallback",
+        "max_drawdown_units_by_quote_event_time": 341.1875,
+        "model": "MR1_M3_blend_poisson",
+        "net_units": -314.2925,
+        "quote_sources": {
+          "Crown": 9613,
+          "TotalCorner_default": 955
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -2.974002,
+        "settled_bets": 10568,
+        "settlement_brier": 0.62944913,
+        "settlement_counts": {
+          "half_loss": 696,
+          "half_win": 755,
+          "loss": 4208,
+          "push": 722,
+          "win": 4187
+        },
+        "settlement_log_loss": 1.00528615,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "existing_M4_pass_rule",
+        "max_drawdown_units_by_quote_event_time": 364.695,
+        "model": "M4_existing_pass_on_poisson",
+        "net_units": -337.4825,
+        "quote_sources": {
+          "Crown": 9101,
+          "TotalCorner_default": 945
+        },
+        "response_receipts": {
+          "post_kickoff": 10046
+        },
+        "roi_pct": -3.359372,
+        "settled_bets": 10046,
+        "settlement_counts": {
+          "half_loss": 666,
+          "half_win": 713,
+          "loss": 4013,
+          "push": 691,
+          "win": 3963
+        },
+        "simulated_bets": 10046,
+        "stake_units": 10046,
+        "unique_fixtures": 10046
+      },
+      {
+        "cohort": "expanded_source_union_full_period",
+        "max_drawdown_units_by_quote_event_time": 352.6125,
+        "model": "M3_dixon_coles",
+        "net_units": -330.5775,
+        "quote_sources": {
+          "Crown": 9613,
+          "TotalCorner_default": 955
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -3.128099,
+        "settled_bets": 10568,
+        "settlement_brier": 0.64977144,
+        "settlement_counts": {
+          "half_loss": 698,
+          "half_win": 753,
+          "loss": 4214,
+          "push": 722,
+          "win": 4181
+        },
+        "settlement_log_loss": 1.03738108,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "strict_common_Crown",
+        "max_drawdown_units_by_quote_event_time": 300.22,
+        "model": "M3_dixon_coles",
+        "net_units": -280.86,
+        "quote_sources": {
+          "Crown": 9517
+        },
+        "response_receipts": {
+          "post_kickoff": 9517
+        },
+        "roi_pct": -2.95114,
+        "settled_bets": 9517,
+        "settlement_brier": 0.64806062,
+        "settlement_counts": {
+          "half_loss": 631,
+          "half_win": 674,
+          "loss": 3792,
+          "push": 650,
+          "win": 3770
+        },
+        "settlement_log_loss": 1.0334584,
+        "simulated_bets": 9517,
+        "stake_units": 9517,
+        "unique_fixtures": 9517
+      },
+      {
+        "cohort": "expanded_source_union_with_M3_fallback",
+        "max_drawdown_units_by_quote_event_time": 357.2375,
+        "model": "MR1_M3_blend_dixon_coles",
+        "net_units": -325.0675,
+        "quote_sources": {
+          "Crown": 9613,
+          "TotalCorner_default": 955
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -3.07596,
+        "settled_bets": 10568,
+        "settlement_brier": 0.62955867,
+        "settlement_counts": {
+          "half_loss": 693,
+          "half_win": 758,
+          "loss": 4214,
+          "push": 722,
+          "win": 4181
+        },
+        "settlement_log_loss": 1.00542656,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "existing_M4_pass_rule",
+        "max_drawdown_units_by_quote_event_time": 366.915,
+        "model": "M4_existing_pass_on_dixon_coles",
+        "net_units": -342.9125,
+        "quote_sources": {
+          "Crown": 9101,
+          "TotalCorner_default": 945
+        },
+        "response_receipts": {
+          "post_kickoff": 10046
+        },
+        "roi_pct": -3.413423,
+        "settled_bets": 10046,
+        "settlement_counts": {
+          "half_loss": 659,
+          "half_win": 720,
+          "loss": 4019,
+          "push": 691,
+          "win": 3957
+        },
+        "simulated_bets": 10046,
+        "stake_units": 10046,
+        "unique_fixtures": 10046
+      },
+      {
+        "cohort": "expanded_source_union_full_period",
+        "max_drawdown_units_by_quote_event_time": 341.2225,
+        "model": "M3_bivariate_poisson",
+        "net_units": -317.1625,
+        "quote_sources": {
+          "Crown": 9613,
+          "TotalCorner_default": 955
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -3.001159,
+        "settled_bets": 10568,
+        "settlement_brier": 0.65056326,
+        "settlement_counts": {
+          "half_loss": 703,
+          "half_win": 748,
+          "loss": 4204,
+          "push": 722,
+          "win": 4191
+        },
+        "settlement_log_loss": 1.03915834,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "strict_common_Crown",
+        "max_drawdown_units_by_quote_event_time": 291.065,
+        "model": "M3_bivariate_poisson",
+        "net_units": -273.935,
+        "quote_sources": {
+          "Crown": 9517
+        },
+        "response_receipts": {
+          "post_kickoff": 9517
+        },
+        "roi_pct": -2.878376,
+        "settled_bets": 9517,
+        "settlement_brier": 0.64884847,
+        "settlement_counts": {
+          "half_loss": 637,
+          "half_win": 668,
+          "loss": 3785,
+          "push": 650,
+          "win": 3777
+        },
+        "settlement_log_loss": 1.03510561,
+        "simulated_bets": 9517,
+        "stake_units": 9517,
+        "unique_fixtures": 9517
+      },
+      {
+        "cohort": "expanded_source_union_with_M3_fallback",
+        "max_drawdown_units_by_quote_event_time": 339.4025,
+        "model": "MR1_M3_blend_bivariate_poisson",
+        "net_units": -312.5075,
+        "quote_sources": {
+          "Crown": 9613,
+          "TotalCorner_default": 955
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -2.957111,
+        "settled_bets": 10568,
+        "settlement_brier": 0.62979555,
+        "settlement_counts": {
+          "half_loss": 694,
+          "half_win": 757,
+          "loss": 4207,
+          "push": 722,
+          "win": 4188
+        },
+        "settlement_log_loss": 1.00592105,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "existing_M4_pass_rule",
+        "max_drawdown_units_by_quote_event_time": 355.435,
+        "model": "M4_existing_pass_on_bivariate_poisson",
+        "net_units": -328.5075,
+        "quote_sources": {
+          "Crown": 9101,
+          "TotalCorner_default": 945
+        },
+        "response_receipts": {
+          "post_kickoff": 10046
+        },
+        "roi_pct": -3.270033,
+        "settled_bets": 10046,
+        "settlement_counts": {
+          "half_loss": 663,
+          "half_win": 716,
+          "loss": 4009,
+          "push": 691,
+          "win": 3967
+        },
+        "simulated_bets": 10046,
+        "stake_units": 10046,
+        "unique_fixtures": 10046
+      },
+      {
+        "cohort": "strict_common_Crown",
+        "max_drawdown_units_by_quote_event_time": 209.275,
+        "model": "MR1_V6",
+        "net_units": -144.23,
+        "quote_sources": {
+          "Crown": 9517
+        },
+        "response_receipts": {
+          "post_kickoff": 9517
+        },
+        "roi_pct": -1.515499,
+        "settled_bets": 9517,
+        "settlement_brier": 0.61738791,
+        "settlement_counts": {
+          "half_loss": 522,
+          "half_win": 783,
+          "loss": 3771,
+          "push": 650,
+          "win": 3791
+        },
+        "settlement_log_loss": 0.9873478,
+        "simulated_bets": 9517,
+        "stake_units": 9517,
+        "unique_fixtures": 9517
+      }
+    ],
+    "OU": [
+      {
+        "cohort": "expanded_source_union_full_period",
+        "max_drawdown_units_by_quote_event_time": 347.665,
+        "model": "M1",
+        "net_units": -333.615,
+        "quote_sources": {
+          "Crown": 9612,
+          "TotalCorner_default": 956
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -3.156841,
+        "settled_bets": 10568,
+        "settlement_brier": 0.61973346,
+        "settlement_counts": {
+          "half_loss": 699,
+          "half_win": 616,
+          "loss": 4326,
+          "push": 526,
+          "win": 4401
+        },
+        "settlement_log_loss": 0.9821655,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixtures": 10568
+      },
+      {
+        "cohort": "expanded_source_union_full_period",
+        "max_drawdown_units_by_quote_event_time": 407.3575,
+        "model": "M3_poisson",
+        "net_units": -389.3925,
+        "quote_sources": {
+          "Crown": 9612,
+          "TotalCorner_default": 956
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -3.684638,
+        "settled_bets": 10568,
+        "settlement_brier": 0.62367234,
+        "settlement_counts": {
+          "half_loss": 745,
+          "half_win": 570,
+          "loss": 4333,
+          "push": 526,
+          "win": 4394
+        },
+        "settlement_log_loss": 0.98836202,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "strict_common_Crown",
+        "max_drawdown_units_by_quote_event_time": 370.5,
+        "model": "M3_poisson",
+        "net_units": -354.83,
+        "quote_sources": {
+          "Crown": 9517
+        },
+        "response_receipts": {
+          "post_kickoff": 9517
+        },
+        "roi_pct": -3.728381,
+        "settled_bets": 9517,
+        "settlement_brier": 0.62279713,
+        "settlement_counts": {
+          "half_loss": 675,
+          "half_win": 493,
+          "loss": 3909,
+          "push": 480,
+          "win": 3960
+        },
+        "settlement_log_loss": 0.98670585,
+        "simulated_bets": 9517,
+        "stake_units": 9517,
+        "unique_fixtures": 9517
+      },
+      {
+        "cohort": "expanded_source_union_with_M3_fallback",
+        "max_drawdown_units_by_quote_event_time": 266.0925,
+        "model": "MR1_M3_blend_poisson",
+        "net_units": -242.3675,
+        "quote_sources": {
+          "Crown": 9612,
+          "TotalCorner_default": 956
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -2.293409,
+        "settled_bets": 10568,
+        "settlement_brier": 0.61530829,
+        "settlement_counts": {
+          "half_loss": 684,
+          "half_win": 631,
+          "loss": 4285,
+          "push": 526,
+          "win": 4442
+        },
+        "settlement_log_loss": 0.97666645,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "existing_M4_pass_rule",
+        "max_drawdown_units_by_quote_event_time": 374.2325,
+        "model": "M4_existing_pass_on_poisson",
+        "net_units": -356.3175,
+        "quote_sources": {
+          "Crown": 9100,
+          "TotalCorner_default": 946
+        },
+        "response_receipts": {
+          "post_kickoff": 10046
+        },
+        "roi_pct": -3.546859,
+        "settled_bets": 10046,
+        "settlement_counts": {
+          "half_loss": 710,
+          "half_win": 552,
+          "loss": 4110,
+          "push": 491,
+          "win": 4183
+        },
+        "simulated_bets": 10046,
+        "stake_units": 10046,
+        "unique_fixtures": 10046
+      },
+      {
+        "cohort": "expanded_source_union_full_period",
+        "max_drawdown_units_by_quote_event_time": 400.3675,
+        "model": "M3_dixon_coles",
+        "net_units": -382.4025,
+        "quote_sources": {
+          "Crown": 9612,
+          "TotalCorner_default": 956
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -3.618495,
+        "settled_bets": 10568,
+        "settlement_brier": 0.62369404,
+        "settlement_counts": {
+          "half_loss": 746,
+          "half_win": 569,
+          "loss": 4329,
+          "push": 526,
+          "win": 4398
+        },
+        "settlement_log_loss": 0.98847142,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "strict_common_Crown",
+        "max_drawdown_units_by_quote_event_time": 362.555,
+        "model": "M3_dixon_coles",
+        "net_units": -346.885,
+        "quote_sources": {
+          "Crown": 9517
+        },
+        "response_receipts": {
+          "post_kickoff": 9517
+        },
+        "roi_pct": -3.644899,
+        "settled_bets": 9517,
+        "settlement_brier": 0.62280564,
+        "settlement_counts": {
+          "half_loss": 675,
+          "half_win": 493,
+          "loss": 3905,
+          "push": 480,
+          "win": 3964
+        },
+        "settlement_log_loss": 0.98677438,
+        "simulated_bets": 9517,
+        "stake_units": 9517,
+        "unique_fixtures": 9517
+      },
+      {
+        "cohort": "expanded_source_union_with_M3_fallback",
+        "max_drawdown_units_by_quote_event_time": 275.4025,
+        "model": "MR1_M3_blend_dixon_coles",
+        "net_units": -249.7675,
+        "quote_sources": {
+          "Crown": 9612,
+          "TotalCorner_default": 956
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -2.363432,
+        "settled_bets": 10568,
+        "settlement_brier": 0.61530181,
+        "settlement_counts": {
+          "half_loss": 687,
+          "half_win": 628,
+          "loss": 4287,
+          "push": 526,
+          "win": 4440
+        },
+        "settlement_log_loss": 0.97668951,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "existing_M4_pass_rule",
+        "max_drawdown_units_by_quote_event_time": 364.3025,
+        "model": "M4_existing_pass_on_dixon_coles",
+        "net_units": -346.3875,
+        "quote_sources": {
+          "Crown": 9100,
+          "TotalCorner_default": 946
+        },
+        "response_receipts": {
+          "post_kickoff": 10046
+        },
+        "roi_pct": -3.448014,
+        "settled_bets": 10046,
+        "settlement_counts": {
+          "half_loss": 710,
+          "half_win": 552,
+          "loss": 4105,
+          "push": 491,
+          "win": 4188
+        },
+        "simulated_bets": 10046,
+        "stake_units": 10046,
+        "unique_fixtures": 10046
+      },
+      {
+        "cohort": "expanded_source_union_full_period",
+        "max_drawdown_units_by_quote_event_time": 393.8275,
+        "model": "M3_bivariate_poisson",
+        "net_units": -379.8825,
+        "quote_sources": {
+          "Crown": 9612,
+          "TotalCorner_default": 956
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -3.594649,
+        "settled_bets": 10568,
+        "settlement_brier": 0.62376039,
+        "settlement_counts": {
+          "half_loss": 735,
+          "half_win": 580,
+          "loss": 4333,
+          "push": 526,
+          "win": 4394
+        },
+        "settlement_log_loss": 0.98842862,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "strict_common_Crown",
+        "max_drawdown_units_by_quote_event_time": 353.845,
+        "model": "M3_bivariate_poisson",
+        "net_units": -340.275,
+        "quote_sources": {
+          "Crown": 9517
+        },
+        "response_receipts": {
+          "post_kickoff": 9517
+        },
+        "roi_pct": -3.575444,
+        "settled_bets": 9517,
+        "settlement_brier": 0.62285988,
+        "settlement_counts": {
+          "half_loss": 666,
+          "half_win": 502,
+          "loss": 3906,
+          "push": 480,
+          "win": 3963
+        },
+        "settlement_log_loss": 0.98671203,
+        "simulated_bets": 9517,
+        "stake_units": 9517,
+        "unique_fixtures": 9517
+      },
+      {
+        "cohort": "expanded_source_union_with_M3_fallback",
+        "max_drawdown_units_by_quote_event_time": 247.4475,
+        "model": "MR1_M3_blend_bivariate_poisson",
+        "net_units": -225.6725,
+        "quote_sources": {
+          "Crown": 9612,
+          "TotalCorner_default": 956
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10568
+        },
+        "roi_pct": -2.135432,
+        "settled_bets": 10568,
+        "settlement_brier": 0.61548186,
+        "settlement_counts": {
+          "half_loss": 677,
+          "half_win": 638,
+          "loss": 4279,
+          "push": 526,
+          "win": 4448
+        },
+        "settlement_log_loss": 0.97689218,
+        "simulated_bets": 10568,
+        "stake_units": 10568,
+        "unique_fixture_markets": 10568
+      },
+      {
+        "cohort": "existing_M4_pass_rule",
+        "max_drawdown_units_by_quote_event_time": 375.3625,
+        "model": "M4_existing_pass_on_bivariate_poisson",
+        "net_units": -362.0475,
+        "quote_sources": {
+          "Crown": 9100,
+          "TotalCorner_default": 946
+        },
+        "response_receipts": {
+          "post_kickoff": 10046
+        },
+        "roi_pct": -3.603897,
+        "settled_bets": 10046,
+        "settlement_counts": {
+          "half_loss": 700,
+          "half_win": 562,
+          "loss": 4118,
+          "push": 491,
+          "win": 4175
+        },
+        "simulated_bets": 10046,
+        "stake_units": 10046,
+        "unique_fixtures": 10046
+      },
+      {
+        "cohort": "strict_common_Crown",
+        "max_drawdown_units_by_quote_event_time": 373.4,
+        "model": "MR1_V6",
+        "net_units": -359.915,
+        "quote_sources": {
+          "Crown": 9517
+        },
+        "response_receipts": {
+          "post_kickoff": 9517
+        },
+        "roi_pct": -3.781811,
+        "settled_bets": 9517,
+        "settlement_brier": 0.61316344,
+        "settlement_counts": {
+          "half_loss": 538,
+          "half_win": 630,
+          "loss": 3969,
+          "push": 480,
+          "win": 3900
+        },
+        "settlement_log_loss": 0.97330859,
+        "simulated_bets": 9517,
+        "stake_units": 9517,
+        "unique_fixtures": 9517
+      }
+    ]
+  },
+  "protocol": "M5_MODEL_FAMILY_FULL_COHORT_AND_COMMON_CROWN_COMPARISON_V2",
+  "source_reports": {
+    "m1": {
+      "generated_utc": "2026-11-06T15:37:52.100850+00:00",
+      "path": "m5_m1_full_cohort_oos_20261106.json",
+      "sha256": "b0003661719881cf0342bf18dd1ea5b440d52086f5dda5e391a83c422270202c"
+    },
+    "m4": {
+      "generated_utc": "2026-11-06T10:50:34.912214Z",
+      "path": "m5_m4_pass_rule_m3_expanded_oos_20261106.json",
+      "sha256": "a8dedd2786a0f0104a976deb6830199ae125264b9288a906aadef73715507c19"
+    },
+    "mr1_m3_crown": {
+      "generated_utc": "2026-11-06T11:47:49.754890Z",
+      "path": "m5_mr1_m3_same_crown_cohort_20261106.json",
+      "sha256": "0f37ea0f8a8b68c63235a75e03d13bc64fd45188dd506cfd0c34b4367d47e621"
+    },
+    "mr1_m3_union": {
+      "generated_utc": "2026-11-06T15:05:30.480501Z",
+      "path": "m5_mr1_m3_source_union_blend_20261106.json",
+      "sha256": "249b2e6ec2966b428e4e98ee06882468153ee9ff2e8f224ec9265cfbc94956d4"
+    }
+  }
+}

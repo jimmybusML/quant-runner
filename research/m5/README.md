@@ -1,5 +1,22 @@
 # M5 独立融合研究
 
+## 2026-11-07 M1 / MR1 / M3 / M4 已有大样本对照复核
+
+针对每市场一万多场的数据，汇总现存且可追溯的同一扩展 source-union 研究回放：[完整聚合对照与输入报告哈希](results/m5_m1_mr1_m3_m4_expanded_cohort_comparison_20261107.json)。AH、OU独立核算，每市场扩展集10,568个唯一fixture-market；AH来源为Crown 9,613 / TotalCorner-default 955，OU为Crown 9,612 / TotalCorner-default 956。每个模型选择按1U结算，来源未混淆。
+
+| 市场 | 方案 | 样本 | 净U | ROI |
+| --- | --- | ---: | ---: | ---: |
+| AH | M1 | 10,568 | -252.745 | -2.3916% |
+| AH | MR1 V6 + M3 Bivariate Poisson（9,517场MR1、1,051场M3回退） | 10,568 | -312.5075 | -2.9571% |
+| AH | M3 Poisson / Dixon-Coles / Bivariate Poisson | 各10,568 | -320.2475 / -330.5775 / -317.1625 | -3.0304% / -3.1281% / -3.0012% |
+| AH | M4现有Pass规则（Poisson / Dixon-Coles / Bivariate输入） | 各10,046 | -337.4825 / -342.9125 / -328.5075 | -3.3594% / -3.4134% / -3.2700% |
+| OU | M1 | 10,568 | -333.615 | -3.1568% |
+| OU | MR1 V6 + M3 Bivariate Poisson（9,517场MR1、1,051场M3回退） | 10,568 | -225.6725 | -2.1354% |
+| OU | M3 Poisson / Dixon-Coles / Bivariate Poisson | 各10,568 | -389.3925 / -382.4025 / -379.8825 | -3.6846% / -3.6185% / -3.5946% |
+| OU | M4现有Pass规则（Poisson / Dixon-Coles / Bivariate输入） | 各10,046 | -356.3175 / -346.3875 / -362.0475 | -3.5469% / -3.4480% / -3.6039% |
+
+这纠正了此前把M4的“M3全量基线”误称为M4 Pass结果的汇总问题。M4原有Pass覆盖10,046场；MR1 V6单体严格共同Crown样本为9,517场，ROI为AH -1.5155%、OU -3.7818%；不能把这组较小样本与source-union全量直接当作同样本排名。MR1缺少的1,051场只在明确标记的MR1/M3组合中以M3回退，未复制或伪造MR1预测。历史盘口API回执均赛后取得，所有ROI是回顾性event-time回测，非同期可执行收益；本组任何市场均未达到+3%。
+
 ## 2026-11-07 all-prior-OOS calibration: 11,537 场市场级留出
 
 使用 Crown-first、TotalCorner-default 补缺的真实历史档案，对 AH 和 OU 分开训练及评估。截止时间为 `2025-01-01T00:00:00Z`：每市场 105,472 个更早的 M5 OOS 预测/赛果用于拟合概率校准，不使用训练报价；训练 fixture IDs 与测试集互斥。随后在 11,537 个唯一 fixture-market 上比较原始预测、全局校准、score-grid log-loss 校准及联赛收缩校准。训练范围为 2014-01 至 2024-12 UTC，留出开赛范围为 2025-11-15 至 2026-11-04 UTC。
