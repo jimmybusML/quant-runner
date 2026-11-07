@@ -1065,3 +1065,11 @@ AH 的2025 Log Loss最优权重退化为MR1单模；OU的概率融合改善了 p
 ### 2026-11-06T17:21Z 前瞻 shadow 结算复核
 
 使用带时间戳的最新 17:03Z 配对文件（pair SHA `665ced85c5d608a59544aff683bfa35d935efb4f99f38c4cd0a94b00a48cf851`）重新核验 TotalCorner FT。结算请求本轮完成 6 个既有已验证 fixture 的复用、9 个 fixture 当时尚未完场、71 个 fixture 尚未开赛；没有新增 verified FT。最新冻结队列仍为 AH 5/71 已结、净 -0.36U，OU 6/64 已结、净 +1.37U；待结分别 66、58，全队列 ROI 仍为 null。已结价格均为 Crown；完整配对来源 AH Crown64/TOTAL default7、OU Crown60/TOTAL default4。旧别名 `m5_forward_pairs_latest.jsonl` 指向 16:54Z 的旧队列，复核时明确使用时间戳文件。脱敏结果见[17:21Z结算回执](results/m5_forward_shadow_settlement_20261106T1721Z.json)。这次没有新增学习信息或可计算的完整队列ROI。
+
+## 2026-11-07T05:40Z 新 M5 前瞻 Crown / TotalCorner 队列
+
+使用 M5 自有模型重新拟合 40 个有历史训练数据的联赛，在 UTC `2026-11-06T17:27:12Z` 为 345 场未来赛事生成逐场比分网格；训练截止时间均早于预测 as-of，赛事身份冲突为0。随后按开赛时间顺序采集 Crown，345次尝试中331条身份验证通过、2条赛事/Crown身份错配、10条API/身份失败、2条传输失败；只有 AH 3、OU 1 场取得预测后、赛前有效 Crown 盘口。对 Crown 缺盘项继续调用 TotalCorner default，343次请求中334条身份核验通过、9条赛事/API身份错配；Crown优先去重后补得 AH 27、OU 20 个 TOTAL 市场项。
+
+配对最终为 AH 30（Crown 3、TotalCorner default 27），OU 21（Crown 1、TotalCorner default 20），共51个唯一 fixture-market；盘口覆盖率为 AH 30/345 forecast、OU 21/345 forecast。各项均满足 `train_end < prediction_asof <= quote_event <= quote_received < kickoff`。接收时间都在开赛前；逐场身份、比分网格、盘口线、赔率、原始响应继续仅存私有目录。脱敏收据：[05:39Z 前瞻配对](results/m5_forward_shadow_capture_20261107T0539Z.json)。
+
+截至结算检查 `2026-11-07T05:40:32Z`，38场 fixture 中16个市场项已有 verified FT、35项待结；本轮尚有1个fixture在查收时未完场、27个fixture未开赛。AH已结9/30，净 -1.50U，结算 W/HW/P/HL/L=`3/1/0/1/4`，已结子集ROI -16.67%；OU已结7/21，净 -2.75U，结算=`2/0/0/1/4`，已结子集ROI -39.29%。AH/OU剩余待结21/14项，因此全队列ROI均为 null，不能用已结子集宣称收益达标。当前已结赔率都来自 TotalCorner default；完整队列保持来源分离。脱敏结算回执：[05:40Z前瞻结算](results/m5_forward_shadow_settlement_20261107T0540Z.json)。

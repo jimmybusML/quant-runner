@@ -1,3 +1,10 @@
+## 2026-11-07T05:40Z M5 新前瞻批次生成、双源配对与首轮结算
+- 使用独立 M5 score-grid 模型在 `2026-11-06T17:27:12.149031Z` UTC 重新预测当前 TotalCorner schedule 缓存中的345场未来赛事，覆盖40个有历史训练数据联赛、训练截止均早于as-of、身份冲突0。forecast SHA `b11414f57ca45d878b5fe7f394bfa869dd013eec8232dfb3ebf1ba1d9d94ded5`；逐场数据留在 `/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/forward-shadow/`。
+- Crown 345次请求：331身份核验通过、2赛事/Crown身份错配、10 API/身份失败、2传输失败；有效赛前盘口 AH3、OU1。随后TotalCorner default 343次请求：334身份核验通过、9身份错配；按Crown优先配对仅用 TOTAL 补缺，AH27、OU20。两源分列，未把不合格行纳入。
+- 双源去重后AH30项（Crown3/TOTAL27）、OU21项（Crown1/TOTAL20），共51唯一fixture-market；所有配对通过 `train_end < prediction_asof <= quote_event <= quote_received < kickoff`。私有配对SHA `fdd50567f2d912482bbd2d538081daabb81092998251ea73830d71b26d8696e5`。赛前接收证据完整，样本规模仍很小。
+- TotalCorner FT结算检查生成UTC `2026-11-07T05:40:32.656225Z`：38场fixture，已结16项、待结35项。AH 9/30已结、净 -1.50U、W/HW/P/HL/L `3/1/0/1/4`；OU 7/21已结、净 -2.75U、`2/0/0/1/4`。全cohort ROI均null；已结赔率均来自TotalCorner default。脱敏公开回执 `m5_forward_shadow_capture_20261107T0539Z.json` 与 `m5_forward_shadow_settlement_20261107T0540Z.json` 已由聚合生成器写出，workflow新增配对/结算完整性与隐私核验；本节提交及Actions待推送验证。
+- 同步优化 TotalCorner default collector：AH与OU均有有效Crown时跳过该场TOTAL请求；任一市场缺盘仍发请求，且只选择缺失fixture-market。实现与测试提交 `d2d3ba96434c6793b492bdd4872d92a6cb2db2a6` 已通过Actions run [42264423864](https://github.com/ljm198964-alt/quant-runner/actions/runs/42264423864)。
+
 ## 2026-11-06T17:45Z TotalCorner 回退请求优化与 M5 新前瞻批次启动
 - 对新 M5 私有 forecast batch（345场，40联赛，生成 `2026-11-06T17:27:12.149031Z`）按 UTC 开赛升序运行 Crown 专用采集。接口保持既有 ≥3.1 秒最小请求间隔，采集仍在进行；截至 `17:45Z` 身份核验成功 115/345。逐场预测和 Crown 原始响应仅在本机私有目录。
 - 审计发现既有 TotalCorner default 回退器即使 AH/OU 均已有合格 Crown 盘口也会请求一次 TOTAL，再丢弃两边报价。新增 `needs_totalcorner_fallback`：两市场已有合格 Crown 时跳过整场 TOTAL 请求；任一市场缺盘时仍请求，并仅为 Crown 缺失的 fixture-market 选用 TotalCorner default。新增四态单测，不改变模型、盘口来源优先级、投注筛选或生产链路。
