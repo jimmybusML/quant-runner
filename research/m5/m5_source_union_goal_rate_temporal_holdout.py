@@ -247,7 +247,10 @@ def fit_shrunk_league_factors(rows, shrinkage_fixtures=100):
                      "league_fits": receipts}
 
 
-def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
+def run(private_path: Path, output: Path, cutoff: str, source_timezone: str,
+        calibration_training_scope: str = "priced_fixture_markets"):
+    if calibration_training_scope not in ("priced_fixture_markets", "all_prior_oos_forecasts"):
+        raise ValueError("unsupported calibration training scope")
     root = ensure_private_destination(private_path)
     zone = ZoneInfo(source_timezone)
     split = instant(cutoff + "T00:00:00Z")
@@ -284,6 +287,7 @@ def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
             continue
 
     markets = {m: {} for m in ("AH", "OU")}
+    prior_oos_outcomes = {}
     counters = Counter()
     hashes = set()
     for mid, forecast in forecasts.items():
@@ -309,6 +313,11 @@ def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
             continue
         if sum(map(len, grid)) < 1:
             continue
+        if kickoff < split:
+            prior_oos_outcomes[mid] = {"match_id": mid, "grid": grid,
+                                       "actual": score_actual,
+                                       "league": fixture.get("league"),
+                                       "kickoff": kickoff}
         crown_provider = None
         crown_raw = None
         crown_receipt = instant(receipt_by_id.get(mid, {}).get("captured_at_utc"))
@@ -385,7 +394,10 @@ def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
 
     report_markets = {}
     for idx, market in enumerate(("AH", "OU")):
-        training = list(markets[market].get("train", {}).values())
+        priced_training = list(markets[market].get("train", {}).values())
+        training = (list(prior_oos_outcomes.values())
+                    if calibration_training_scope == "all_prior_oos_forecasts"
+                    else priced_training)
         holdout = list(markets[market].get("holdout", {}).values())
         if not training or not holdout:
             report_markets[market] = {"status": "insufficient_temporal_rows",
@@ -397,6 +409,8 @@ def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
         league_factors, league_factor_receipt = fit_shrunk_league_factors(training)
         report_markets[market] = {
             "cutoff_utc": cutoff + "T00:00:00Z",
+            "calibration_training_scope": calibration_training_scope,
+            "training_unique_fixtures": len({r["match_id"] for r in training}),
             "training_unique_fixture_markets": len(training),
             "holdout_unique_fixture_markets": len(holdout),
             "training_fixture_ids_disjoint_from_holdout": not bool(
@@ -417,7 +431,9 @@ def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
             "shrunk_league_calibrated_holdout": evaluate(market, holdout, league_factors, 20261190 + idx),
             "shrunk_league_parameter_fit": league_factor_receipt,
             "source": "Crown first; TotalCorner default only fills a Crown-missing fixture-market; one latest eligible source-event quote per fixture-market",
-            "training_source_fixture_markets": dict(Counter(r["source"] for r in training)),
+            "training_source_fixture_markets": (dict(Counter(r["source"] for r in priced_training))
+                if calibration_training_scope == "priced_fixture_markets"
+                else {"market_quotes_used_for_calibration": 0}),
             "holdout_source_fixture_markets": dict(Counter(r["source"] for r in holdout)),
             "timing": {"holdout_quote_event_between_prediction_asof_and_kickoff": True,
                        "all_api_receipts_after_kickoff": all(r["receipt"] >= r["kickoff"] for r in holdout),
@@ -428,6 +444,7 @@ def run(private_path: Path, output: Path, cutoff: str, source_timezone: str):
         "protocol": "M5_CROWN_FIRST_TOTALCORNER_GOAL_RATE_TEMPORAL_HOLDOUT_V1",
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "holdout_start_utc": cutoff + "T00:00:00Z",
+        "calibration_training_scope": calibration_training_scope,
         "input_hashes": {"candidate_manifest_sha256": hashlib.sha256(manifest_raw).hexdigest(),
                          "forecast_sha256": hashlib.sha256(forecast_raw).hexdigest(),
                          "selected_quote_response_hash_set_sha256": hashlib.sha256("\n".join(sorted(hashes)).encode()).hexdigest()},
@@ -450,8 +467,12 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--holdout-start", default="2026-09-01")
     parser.add_argument("--source-timezone", default="Asia/Shanghai")
+    parser.add_argument("--calibration-training-scope",
+                        choices=("priced_fixture_markets", "all_prior_oos_forecasts"),
+                        default="priced_fixture_markets")
     args = parser.parse_args()
-    run(args.private_dir, args.output, args.holdout_start, args.source_timezone)
+    run(args.private_dir, args.output, args.holdout_start, args.source_timezone,
+        args.calibration_training_scope)
 
 
 if __name__ == "__main__":

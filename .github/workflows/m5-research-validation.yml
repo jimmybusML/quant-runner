@@ -318,6 +318,49 @@ jobs:
               assert field not in serialized
           print("M5 2026-11-07T0549Z forecast receipt integrity: PASS")
           PY
+      - name: Validate the 2025+ all-prior-OOS M5 calibration holdout receipt
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          receipt = json.loads(Path("research/m5/results/m5_all_prior_oos_calibration_2025plus_holdout_20261107.json").read_text())
+          assert receipt["protocol"] == "M5_SOURCE_UNION_ALL_PRIOR_OOS_CALIBRATION_HOLDOUT_V1"
+          assert receipt["calibration_training_scope"] == "all_prior_oos_forecasts"
+          assert receipt["holdout_start_utc"] == "2025-01-01T00:00:00Z"
+          expected = {
+              "AH": {"raw_holdout": -2.503077, "calibrated_holdout": -2.371327,
+                     "score_grid_logloss_calibrated_holdout": -2.371327,
+                     "shrunk_league_calibrated_holdout": -2.439499,
+                     "sources": {"Crown": 10433, "TotalCorner_default": 1104}},
+              "OU": {"raw_holdout": -3.654460, "calibrated_holdout": -3.943443,
+                     "score_grid_logloss_calibrated_holdout": -3.927321,
+                     "shrunk_league_calibrated_holdout": -4.056362,
+                     "sources": {"Crown": 10432, "TotalCorner_default": 1105}},
+          }
+          for market, variants in expected.items():
+              result = receipt["markets"][market]
+              assert result["training_unique_fixtures"] == 105472
+              assert result["holdout_unique_fixture_markets"] == 11537
+              assert result["training_fixture_ids_disjoint_from_holdout"] is True
+              assert result["training_quotes_used_for_calibration"] == 0
+              assert result["holdout_source_fixture_markets"] == variants["sources"]
+              assert result["timing"]["all_api_receipts_after_kickoff"] is True
+              assert result["timing"]["holdout_quote_event_between_prediction_asof_and_kickoff"] is True
+              for variant, roi in variants.items():
+                  if variant == "sources":
+                      continue
+                  score = result["variants"][variant]
+                  assert score["simulated_bets"] == score["settled_bets"] == 11537
+                  assert score["pending_bets"] == 0
+                  assert score["roi_pct"] == roi
+                  assert score["roi_target_3pct_reached"] is False
+                  assert sum(score["settlement_counts"].values()) == 11537
+          serialized = json.dumps(receipt)
+          for field in ('"match_id"', '"home"', '"away"', '"line"', '"prices"', '/Users/mac/', '/private/tmp/'):
+              assert field not in serialized
+          print("M5 all-prior-OOS calibrated 11,537-match holdout receipt: PASS")
+          PY
       - name: Validate the public forward settlement receipt
         run: |
           python - <<'PY'
