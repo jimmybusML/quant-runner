@@ -1,0 +1,811 @@
+{
+  "fixture_level_data_published": false,
+  "generated_utc": "2026-11-07T09:11:22.022150Z",
+  "input_hashes": {
+    "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+    "manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+    "quote_response_hash_set_sha256": "2d1d98d2abaa6b2b373d4bdf77a18f3ae33058a671633a8c1d7a150a3dee0f96"
+  },
+  "limitations": [
+    "Historical source receipts were retrieved post-kickoff; ROI is retrospective event-time simulation.",
+    "Quarter/source partitions are descriptive and are not evidence to add production filters.",
+    "2026 has been repeatedly inspected and is not a fresh confirmatory holdout."
+  ],
+  "markets": {
+    "AH": {
+      "all_years": {
+        "max_drawdown_units_by_quote_event_time": 315.1075,
+        "net_units": -288.78,
+        "quote_receipt_timing": {
+          "post_kickoff": 11537
+        },
+        "quote_sources": {
+          "Crown": 10433,
+          "TotalCorner_default": 1104
+        },
+        "roi_pct": -2.503077,
+        "settled_bets": 11537,
+        "settlement_brier": 0.65112183,
+        "settlement_counts": {
+          "half_loss": 797,
+          "half_win": 792,
+          "loss": 4541,
+          "push": 795,
+          "win": 4612
+        },
+        "settlement_log_loss": 1.03599293,
+        "simulated_bets": 11537,
+        "stake_units": 11537,
+        "unique_fixture_markets": 11537
+      },
+      "by_utc_year_quarter": {
+        "2025-Q4": {
+          "max_drawdown_units_by_quote_event_time": 109.24,
+          "net_units": -98.39,
+          "quote_receipt_timing": {
+            "post_kickoff": 1311
+          },
+          "quote_sources": {
+            "Crown": 1117,
+            "TotalCorner_default": 194
+          },
+          "roi_pct": -7.504958,
+          "settled_bets": 1311,
+          "settlement_brier": 0.65795107,
+          "settlement_counts": {
+            "half_loss": 92,
+            "half_win": 81,
+            "loss": 550,
+            "push": 87,
+            "win": 501
+          },
+          "settlement_log_loss": 1.04424823,
+          "simulated_bets": 1311,
+          "stake_units": 1311,
+          "unique_fixture_markets": 1311
+        },
+        "2026-Q1": {
+          "max_drawdown_units_by_quote_event_time": 89.755,
+          "net_units": -56.93,
+          "quote_receipt_timing": {
+            "post_kickoff": 2899
+          },
+          "quote_sources": {
+            "Crown": 2623,
+            "TotalCorner_default": 276
+          },
+          "roi_pct": -1.963781,
+          "settled_bets": 2899,
+          "settlement_brier": 0.64281863,
+          "settlement_counts": {
+            "half_loss": 184,
+            "half_win": 224,
+            "loss": 1134,
+            "push": 206,
+            "win": 1151
+          },
+          "settlement_log_loss": 1.02549804,
+          "simulated_bets": 2899,
+          "stake_units": 2899,
+          "unique_fixture_markets": 2899
+        },
+        "2026-Q2": {
+          "max_drawdown_units_by_quote_event_time": 83.2375,
+          "net_units": -78.2575,
+          "quote_receipt_timing": {
+            "post_kickoff": 3069
+          },
+          "quote_sources": {
+            "Crown": 2844,
+            "TotalCorner_default": 225
+          },
+          "roi_pct": -2.549935,
+          "settled_bets": 3069,
+          "settlement_brier": 0.6591399,
+          "settlement_counts": {
+            "half_loss": 204,
+            "half_win": 228,
+            "loss": 1209,
+            "push": 220,
+            "win": 1208
+          },
+          "settlement_log_loss": 1.04411136,
+          "simulated_bets": 3069,
+          "stake_units": 3069,
+          "unique_fixture_markets": 3069
+        },
+        "2026-Q3": {
+          "max_drawdown_units_by_quote_event_time": 90.0525,
+          "net_units": -38.3675,
+          "quote_receipt_timing": {
+            "post_kickoff": 2820
+          },
+          "quote_sources": {
+            "Crown": 2572,
+            "TotalCorner_default": 248
+          },
+          "roi_pct": -1.36055,
+          "settled_bets": 2820,
+          "settlement_brier": 0.65029819,
+          "settlement_counts": {
+            "half_loss": 213,
+            "half_win": 188,
+            "loss": 1089,
+            "push": 184,
+            "win": 1146
+          },
+          "settlement_log_loss": 1.03405932,
+          "simulated_bets": 2820,
+          "stake_units": 2820,
+          "unique_fixture_markets": 2820
+        },
+        "2026-Q4": {
+          "max_drawdown_units_by_quote_event_time": 34.27,
+          "net_units": -16.835,
+          "quote_receipt_timing": {
+            "post_kickoff": 1438
+          },
+          "quote_sources": {
+            "Crown": 1277,
+            "TotalCorner_default": 161
+          },
+          "roi_pct": -1.170723,
+          "settled_bets": 1438,
+          "settlement_brier": 0.64613787,
+          "settlement_counts": {
+            "half_loss": 104,
+            "half_win": 71,
+            "loss": 559,
+            "push": 98,
+            "win": 606
+          },
+          "settlement_log_loss": 1.03608983,
+          "simulated_bets": 1438,
+          "stake_units": 1438,
+          "unique_fixture_markets": 1438
+        }
+      },
+      "by_utc_year_quarter_and_source": {
+        "2025-Q4|Crown": {
+          "max_drawdown_units_by_quote_event_time": 86.91,
+          "net_units": -80.99,
+          "quote_receipt_timing": {
+            "post_kickoff": 1117
+          },
+          "quote_sources": {
+            "Crown": 1117
+          },
+          "roi_pct": -7.250671,
+          "settled_bets": 1117,
+          "settlement_brier": 0.66077954,
+          "settlement_counts": {
+            "half_loss": 77,
+            "half_win": 76,
+            "loss": 466,
+            "push": 77,
+            "win": 421
+          },
+          "settlement_log_loss": 1.04661811,
+          "simulated_bets": 1117,
+          "stake_units": 1117,
+          "unique_fixture_markets": 1117
+        },
+        "2025-Q4|TotalCorner_default": {
+          "max_drawdown_units_by_quote_event_time": 31.475,
+          "net_units": -17.4,
+          "quote_receipt_timing": {
+            "post_kickoff": 194
+          },
+          "quote_sources": {
+            "TotalCorner_default": 194
+          },
+          "roi_pct": -8.969072,
+          "settled_bets": 194,
+          "settlement_brier": 0.64166548,
+          "settlement_counts": {
+            "half_loss": 15,
+            "half_win": 5,
+            "loss": 84,
+            "push": 10,
+            "win": 80
+          },
+          "settlement_log_loss": 1.0306031,
+          "simulated_bets": 194,
+          "stake_units": 194,
+          "unique_fixture_markets": 194
+        },
+        "2026-Q1|Crown": {
+          "max_drawdown_units_by_quote_event_time": 85.43,
+          "net_units": -52.505,
+          "quote_receipt_timing": {
+            "post_kickoff": 2623
+          },
+          "quote_sources": {
+            "Crown": 2623
+          },
+          "roi_pct": -2.001716,
+          "settled_bets": 2623,
+          "settlement_brier": 0.64026015,
+          "settlement_counts": {
+            "half_loss": 169,
+            "half_win": 198,
+            "loss": 1030,
+            "push": 181,
+            "win": 1045
+          },
+          "settlement_log_loss": 1.01907338,
+          "simulated_bets": 2623,
+          "stake_units": 2623,
+          "unique_fixture_markets": 2623
+        },
+        "2026-Q1|TotalCorner_default": {
+          "max_drawdown_units_by_quote_event_time": 21.3125,
+          "net_units": -4.425,
+          "quote_receipt_timing": {
+            "post_kickoff": 276
+          },
+          "quote_sources": {
+            "TotalCorner_default": 276
+          },
+          "roi_pct": -1.603261,
+          "settled_bets": 276,
+          "settlement_brier": 0.66713338,
+          "settlement_counts": {
+            "half_loss": 15,
+            "half_win": 26,
+            "loss": 104,
+            "push": 25,
+            "win": 106
+          },
+          "settlement_log_loss": 1.08655556,
+          "simulated_bets": 276,
+          "stake_units": 276,
+          "unique_fixture_markets": 276
+        },
+        "2026-Q2|Crown": {
+          "max_drawdown_units_by_quote_event_time": 68.425,
+          "net_units": -63.17,
+          "quote_receipt_timing": {
+            "post_kickoff": 2844
+          },
+          "quote_sources": {
+            "Crown": 2844
+          },
+          "roi_pct": -2.221167,
+          "settled_bets": 2844,
+          "settlement_brier": 0.65909838,
+          "settlement_counts": {
+            "half_loss": 194,
+            "half_win": 213,
+            "loss": 1112,
+            "push": 206,
+            "win": 1119
+          },
+          "settlement_log_loss": 1.04437964,
+          "simulated_bets": 2844,
+          "stake_units": 2844,
+          "unique_fixture_markets": 2844
+        },
+        "2026-Q2|TotalCorner_default": {
+          "max_drawdown_units_by_quote_event_time": 20.4375,
+          "net_units": -15.0875,
+          "quote_receipt_timing": {
+            "post_kickoff": 225
+          },
+          "quote_sources": {
+            "TotalCorner_default": 225
+          },
+          "roi_pct": -6.705556,
+          "settled_bets": 225,
+          "settlement_brier": 0.65966478,
+          "settlement_counts": {
+            "half_loss": 10,
+            "half_win": 15,
+            "loss": 97,
+            "push": 14,
+            "win": 89
+          },
+          "settlement_log_loss": 1.04072031,
+          "simulated_bets": 225,
+          "stake_units": 225,
+          "unique_fixture_markets": 225
+        },
+        "2026-Q3|Crown": {
+          "max_drawdown_units_by_quote_event_time": 91.12,
+          "net_units": -43.055,
+          "quote_receipt_timing": {
+            "post_kickoff": 2572
+          },
+          "quote_sources": {
+            "Crown": 2572
+          },
+          "roi_pct": -1.673989,
+          "settled_bets": 2572,
+          "settlement_brier": 0.64950448,
+          "settlement_counts": {
+            "half_loss": 196,
+            "half_win": 168,
+            "loss": 998,
+            "push": 171,
+            "win": 1039
+          },
+          "settlement_log_loss": 1.03277117,
+          "simulated_bets": 2572,
+          "stake_units": 2572,
+          "unique_fixture_markets": 2572
+        },
+        "2026-Q3|TotalCorner_default": {
+          "max_drawdown_units_by_quote_event_time": 8.225,
+          "net_units": 4.6875,
+          "quote_receipt_timing": {
+            "post_kickoff": 248
+          },
+          "quote_sources": {
+            "TotalCorner_default": 248
+          },
+          "roi_pct": 1.890121,
+          "settled_bets": 248,
+          "settlement_brier": 0.65852969,
+          "settlement_counts": {
+            "half_loss": 17,
+            "half_win": 20,
+            "loss": 91,
+            "push": 13,
+            "win": 107
+          },
+          "settlement_log_loss": 1.04741862,
+          "simulated_bets": 248,
+          "stake_units": 248,
+          "unique_fixture_markets": 248
+        },
+        "2026-Q4|Crown": {
+          "max_drawdown_units_by_quote_event_time": 27.6,
+          "net_units": -7.185,
+          "quote_receipt_timing": {
+            "post_kickoff": 1277
+          },
+          "quote_sources": {
+            "Crown": 1277
+          },
+          "roi_pct": -0.562647,
+          "settled_bets": 1277,
+          "settlement_brier": 0.6399507,
+          "settlement_counts": {
+            "half_loss": 90,
+            "half_win": 59,
+            "loss": 496,
+            "push": 88,
+            "win": 544
+          },
+          "settlement_log_loss": 1.02507316,
+          "simulated_bets": 1277,
+          "stake_units": 1277,
+          "unique_fixture_markets": 1277
+        },
+        "2026-Q4|TotalCorner_default": {
+          "max_drawdown_units_by_quote_event_time": 18.2875,
+          "net_units": -9.65,
+          "quote_receipt_timing": {
+            "post_kickoff": 161
+          },
+          "quote_sources": {
+            "TotalCorner_default": 161
+          },
+          "roi_pct": -5.993789,
+          "settled_bets": 161,
+          "settlement_brier": 0.69521255,
+          "settlement_counts": {
+            "half_loss": 14,
+            "half_win": 12,
+            "loss": 63,
+            "push": 10,
+            "win": 62
+          },
+          "settlement_log_loss": 1.12347046,
+          "simulated_bets": 161,
+          "stake_units": 161,
+          "unique_fixture_markets": 161
+        }
+      }
+    },
+    "OU": {
+      "all_years": {
+        "max_drawdown_units_by_quote_event_time": 439.105,
+        "net_units": -421.615,
+        "quote_receipt_timing": {
+          "post_kickoff": 11537
+        },
+        "quote_sources": {
+          "Crown": 10432,
+          "TotalCorner_default": 1105
+        },
+        "roi_pct": -3.65446,
+        "settled_bets": 11537,
+        "settlement_brier": 0.62412506,
+        "settlement_counts": {
+          "half_loss": 802,
+          "half_win": 645,
+          "loss": 4729,
+          "push": 579,
+          "win": 4782
+        },
+        "settlement_log_loss": 0.98900922,
+        "simulated_bets": 11537,
+        "stake_units": 11537,
+        "unique_fixture_markets": 11537
+      },
+      "by_utc_year_quarter": {
+        "2025-Q4": {
+          "max_drawdown_units_by_quote_event_time": 86.565,
+          "net_units": -63.83,
+          "quote_receipt_timing": {
+            "post_kickoff": 1311
+          },
+          "quote_sources": {
+            "Crown": 1116,
+            "TotalCorner_default": 195
+          },
+          "roi_pct": -4.868802,
+          "settled_bets": 1311,
+          "settlement_brier": 0.62500631,
+          "settlement_counts": {
+            "half_loss": 92,
+            "half_win": 69,
+            "loss": 546,
+            "push": 62,
+            "win": 542
+          },
+          "settlement_log_loss": 0.98861037,
+          "simulated_bets": 1311,
+          "stake_units": 1311,
+          "unique_fixture_markets": 1311
+        },
+        "2026-Q1": {
+          "max_drawdown_units_by_quote_event_time": 115.75,
+          "net_units": -59.0025,
+          "quote_receipt_timing": {
+            "post_kickoff": 2899
+          },
+          "quote_sources": {
+            "Crown": 2623,
+            "TotalCorner_default": 276
+          },
+          "roi_pct": -2.035271,
+          "settled_bets": 2899,
+          "settlement_brier": 0.61956472,
+          "settlement_counts": {
+            "half_loss": 206,
+            "half_win": 171,
+            "loss": 1166,
+            "push": 133,
+            "win": 1223
+          },
+          "settlement_log_loss": 0.98446239,
+          "simulated_bets": 2899,
+          "stake_units": 2899,
+          "unique_fixture_markets": 2899
+        },
+        "2026-Q2": {
+          "max_drawdown_units_by_quote_event_time": 155.5325,
+          "net_units": -124.09,
+          "quote_receipt_timing": {
+            "post_kickoff": 3069
+          },
+          "quote_sources": {
+            "Crown": 2844,
+            "TotalCorner_default": 225
+          },
+          "roi_pct": -4.043337,
+          "settled_bets": 3069,
+          "settlement_brier": 0.62226844,
+          "settlement_counts": {
+            "half_loss": 229,
+            "half_win": 169,
+            "loss": 1250,
+            "push": 160,
+            "win": 1261
+          },
+          "settlement_log_loss": 0.98400752,
+          "simulated_bets": 3069,
+          "stake_units": 3069,
+          "unique_fixture_markets": 3069
+        },
+        "2026-Q3": {
+          "max_drawdown_units_by_quote_event_time": 143.6825,
+          "net_units": -96.985,
+          "quote_receipt_timing": {
+            "post_kickoff": 2820
+          },
+          "quote_sources": {
+            "Crown": 2572,
+            "TotalCorner_default": 248
+          },
+          "roi_pct": -3.439184,
+          "settled_bets": 2820,
+          "settlement_brier": 0.62499735,
+          "settlement_counts": {
+            "half_loss": 178,
+            "half_win": 159,
+            "loss": 1162,
+            "push": 150,
+            "win": 1171
+          },
+          "settlement_log_loss": 0.99153172,
+          "simulated_bets": 2820,
+          "stake_units": 2820,
+          "unique_fixture_markets": 2820
+        },
+        "2026-Q4": {
+          "max_drawdown_units_by_quote_event_time": 99.25,
+          "net_units": -77.7075,
+          "quote_receipt_timing": {
+            "post_kickoff": 1438
+          },
+          "quote_sources": {
+            "Crown": 1277,
+            "TotalCorner_default": 161
+          },
+          "roi_pct": -5.40386,
+          "settled_bets": 1438,
+          "settlement_brier": 0.63476704,
+          "settlement_counts": {
+            "half_loss": 97,
+            "half_win": 77,
+            "loss": 605,
+            "push": 74,
+            "win": 585
+          },
+          "settlement_log_loss": 1.0042672,
+          "simulated_bets": 1438,
+          "stake_units": 1438,
+          "unique_fixture_markets": 1438
+        }
+      },
+      "by_utc_year_quarter_and_source": {
+        "2025-Q4|Crown": {
+          "max_drawdown_units_by_quote_event_time": 78.34,
+          "net_units": -58.53,
+          "quote_receipt_timing": {
+            "post_kickoff": 1116
+          },
+          "quote_sources": {
+            "Crown": 1116
+          },
+          "roi_pct": -5.244624,
+          "settled_bets": 1116,
+          "settlement_brier": 0.62088935,
+          "settlement_counts": {
+            "half_loss": 80,
+            "half_win": 51,
+            "loss": 468,
+            "push": 54,
+            "win": 463
+          },
+          "settlement_log_loss": 0.98233971,
+          "simulated_bets": 1116,
+          "stake_units": 1116,
+          "unique_fixture_markets": 1116
+        },
+        "2025-Q4|TotalCorner_default": {
+          "max_drawdown_units_by_quote_event_time": 16.7125,
+          "net_units": -5.3,
+          "quote_receipt_timing": {
+            "post_kickoff": 195
+          },
+          "quote_sources": {
+            "TotalCorner_default": 195
+          },
+          "roi_pct": -2.717949,
+          "settled_bets": 195,
+          "settlement_brier": 0.64856802,
+          "settlement_counts": {
+            "half_loss": 12,
+            "half_win": 18,
+            "loss": 78,
+            "push": 8,
+            "win": 79
+          },
+          "settlement_log_loss": 1.0244978,
+          "simulated_bets": 195,
+          "stake_units": 195,
+          "unique_fixture_markets": 195
+        },
+        "2026-Q1|Crown": {
+          "max_drawdown_units_by_quote_event_time": 112.275,
+          "net_units": -61.215,
+          "quote_receipt_timing": {
+            "post_kickoff": 2623
+          },
+          "quote_sources": {
+            "Crown": 2623
+          },
+          "roi_pct": -2.333778,
+          "settled_bets": 2623,
+          "settlement_brier": 0.61862146,
+          "settlement_counts": {
+            "half_loss": 190,
+            "half_win": 151,
+            "loss": 1058,
+            "push": 122,
+            "win": 1102
+          },
+          "settlement_log_loss": 0.98294433,
+          "simulated_bets": 2623,
+          "stake_units": 2623,
+          "unique_fixture_markets": 2623
+        },
+        "2026-Q1|TotalCorner_default": {
+          "max_drawdown_units_by_quote_event_time": 17.15,
+          "net_units": 2.2125,
+          "quote_receipt_timing": {
+            "post_kickoff": 276
+          },
+          "quote_sources": {
+            "TotalCorner_default": 276
+          },
+          "roi_pct": 0.80163,
+          "settled_bets": 276,
+          "settlement_brier": 0.62852907,
+          "settlement_counts": {
+            "half_loss": 16,
+            "half_win": 20,
+            "loss": 108,
+            "push": 11,
+            "win": 121
+          },
+          "settlement_log_loss": 0.99888946,
+          "simulated_bets": 276,
+          "stake_units": 276,
+          "unique_fixture_markets": 276
+        },
+        "2026-Q2|Crown": {
+          "max_drawdown_units_by_quote_event_time": 120.32,
+          "net_units": -94.59,
+          "quote_receipt_timing": {
+            "post_kickoff": 2844
+          },
+          "quote_sources": {
+            "Crown": 2844
+          },
+          "roi_pct": -3.325949,
+          "settled_bets": 2844,
+          "settlement_brier": 0.61981459,
+          "settlement_counts": {
+            "half_loss": 212,
+            "half_win": 150,
+            "loss": 1152,
+            "push": 146,
+            "win": 1184
+          },
+          "settlement_log_loss": 0.97994218,
+          "simulated_bets": 2844,
+          "stake_units": 2844,
+          "unique_fixture_markets": 2844
+        },
+        "2026-Q2|TotalCorner_default": {
+          "max_drawdown_units_by_quote_event_time": 41.0125,
+          "net_units": -29.5,
+          "quote_receipt_timing": {
+            "post_kickoff": 225
+          },
+          "quote_sources": {
+            "TotalCorner_default": 225
+          },
+          "roi_pct": -13.111111,
+          "settled_bets": 225,
+          "settlement_brier": 0.65328516,
+          "settlement_counts": {
+            "half_loss": 17,
+            "half_win": 19,
+            "loss": 98,
+            "push": 14,
+            "win": 77
+          },
+          "settlement_log_loss": 1.03539333,
+          "simulated_bets": 225,
+          "stake_units": 225,
+          "unique_fixture_markets": 225
+        },
+        "2026-Q3|Crown": {
+          "max_drawdown_units_by_quote_event_time": 143.245,
+          "net_units": -102.535,
+          "quote_receipt_timing": {
+            "post_kickoff": 2572
+          },
+          "quote_sources": {
+            "Crown": 2572
+          },
+          "roi_pct": -3.986586,
+          "settled_bets": 2572,
+          "settlement_brier": 0.6253928,
+          "settlement_counts": {
+            "half_loss": 157,
+            "half_win": 144,
+            "loss": 1071,
+            "push": 140,
+            "win": 1060
+          },
+          "settlement_log_loss": 0.99223545,
+          "simulated_bets": 2572,
+          "stake_units": 2572,
+          "unique_fixture_markets": 2572
+        },
+        "2026-Q3|TotalCorner_default": {
+          "max_drawdown_units_by_quote_event_time": 14.45,
+          "net_units": 5.55,
+          "quote_receipt_timing": {
+            "post_kickoff": 248
+          },
+          "quote_sources": {
+            "TotalCorner_default": 248
+          },
+          "roi_pct": 2.237903,
+          "settled_bets": 248,
+          "settlement_brier": 0.62089614,
+          "settlement_counts": {
+            "half_loss": 21,
+            "half_win": 15,
+            "loss": 91,
+            "push": 10,
+            "win": 111
+          },
+          "settlement_log_loss": 0.98423335,
+          "simulated_bets": 248,
+          "stake_units": 248,
+          "unique_fixture_markets": 248
+        },
+        "2026-Q4|Crown": {
+          "max_drawdown_units_by_quote_event_time": 86.71,
+          "net_units": -63.495,
+          "quote_receipt_timing": {
+            "post_kickoff": 1277
+          },
+          "quote_sources": {
+            "Crown": 1277
+          },
+          "roi_pct": -4.9722,
+          "settled_bets": 1277,
+          "settlement_brier": 0.63491849,
+          "settlement_counts": {
+            "half_loss": 88,
+            "half_win": 63,
+            "loss": 533,
+            "push": 70,
+            "win": 523
+          },
+          "settlement_log_loss": 1.0042102,
+          "simulated_bets": 1277,
+          "stake_units": 1277,
+          "unique_fixture_markets": 1277
+        },
+        "2026-Q4|TotalCorner_default": {
+          "max_drawdown_units_by_quote_event_time": 21.2375,
+          "net_units": -14.2125,
+          "quote_receipt_timing": {
+            "post_kickoff": 161
+          },
+          "quote_sources": {
+            "TotalCorner_default": 161
+          },
+          "roi_pct": -8.82764,
+          "settled_bets": 161,
+          "settlement_brier": 0.63356584,
+          "settlement_counts": {
+            "half_loss": 9,
+            "half_win": 14,
+            "loss": 72,
+            "push": 4,
+            "win": 62
+          },
+          "settlement_log_loss": 1.00471935,
+          "simulated_bets": 161,
+          "stake_units": 161,
+          "unique_fixture_markets": 161
+        }
+      }
+    }
+  },
+  "method": "Re-score every eligible M5 score grid at the exact saved source-union line and prices; select the higher expected-return side, stake 1U, settle actual Asian contract. Partition only after scoring by UTC kickoff quarter and recorded source. No rows are dropped and no thresholds or gates are added.",
+  "protocol": "M5_BASELINE_UTC_QUARTER_AND_SOURCE_DIAGNOSTIC_V1",
+  "runner_sha256": "f85cad919295d31a12bc2a8121e74022591c3a6d4719b7f2e64745cfec781acd"
+}

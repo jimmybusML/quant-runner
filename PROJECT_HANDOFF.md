@@ -1,3 +1,8 @@
+## 2026-11-07T09:11Z M5 11,537场留出按UTC季度及来源诊断
+- 新增 `research/m5/m5_quarterly_source_diagnostic.py` 与2项单测；对每市场11,537项真实all-prior-OOS留出，用M5原始选边/一注1U规则重评，按UTC kickoff季度和已记录source分组，未丢行/未设门槛。来源AH Crown 10,433/TOTAL 1,104，OU Crown 10,432/TOTAL 1,105。脱敏聚合报告 `research/m5/results/m5_quarterly_source_diagnostic_20261107.json` 生成UTC `2026-11-07T09:11:22.022150Z`，包括runner/input hashes、概率分数、结算分类、净额/ROI/DD/source及receipt时序。
+- AH季度ROI 2025Q4 -7.504958%、2026Q1 -1.963781%、Q2 -2.549935%、Q3 -1.360550%、Q4 -1.170723%；OU分别-4.868802%、-2.035271%、-4.043337%、-3.439184%、-5.403860%。总体ROI保持AH -2.503077%、OU -3.654460%，均未达+3%。TOTAL在2026Q3的248项小组AH +1.890121%、OU +2.237903%，但TOTAL全期ROI AH -3.793025%、OU -3.733032%；只作描述线索，未变成来源切换规则。
+- 该历史档案所有11,537项API receipt均为post-kickoff，ROI仍是回顾性的event-time模拟，非可执行收益。README已记录季度/来源表和解释限制。完整M5 `pytest research/m5 -q` 本地82 passed，报表分母、ROI、settlement与hash检查通过。研究代码/报告/README/交接待提交；未改生产链路、Gate、TG、订单或账本。
+
 ## 2026-11-07T09:02Z M1/MR1/M3/M4 一万场扩展 cohort 对照更正
 - 核对现存研究报告并生成脱敏统一索引 `research/m5/results/m5_m1_mr1_m3_m4_expanded_cohort_comparison_20261107.json`，输入报告SHA均写入索引。M1、M3 Poisson/DC/Bivariate及其MR1/M3回退方案的AH、OU各10,568 unique fixture-market；source union AH Crown 9,613/TOTAL 955、OU Crown 9,612/TOTAL 956。M4现有两联赛Pass规则对M3各模型实际覆盖10,046场；MR1 V6单体仅严格共同Crown集9,517场。
 - AH全量回放ROI：M1 -2.391607%；M3 Poisson/DC/Bivariate -3.030351/-3.128099/-3.001159%；MR1/M3回退组合分别为-2.974002/-3.075960/-2.957111%；M4 Pass分别为-3.359372/-3.413423/-3.270033%。OU：M1 -3.156841%；M3 Poisson/DC/Bivariate -3.684638/-3.618495/-3.594649%；MR1/M3回退组合 -2.293409/-2.363432/-2.135432%；M4 Pass -3.546859/-3.448014/-3.603897%。完整净额、结算分类、回撤、概率评分和来源分别见公开JSON。无策略达+3%。
