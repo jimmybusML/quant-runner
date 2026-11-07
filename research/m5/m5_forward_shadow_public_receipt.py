@@ -31,11 +31,14 @@ def sha256(path: Path) -> str:
 
 def build_receipt(forecast_path: Path, forecast_meta_path: Path,
                   crown_capture_path: Path, pair_path: Path,
-                  pair_meta_path: Path, totalcorner_capture_path: Path | None = None) -> dict:
+                  pair_meta_path: Path, totalcorner_capture_path: Path | None = None,
+                  settlement_path: Path | None = None) -> dict:
     forecast_meta = json.loads(forecast_meta_path.read_text(encoding="utf-8"))
     crown_capture = json.loads(crown_capture_path.read_text(encoding="utf-8"))
     totalcorner_capture = (json.loads(totalcorner_capture_path.read_text(encoding="utf-8"))
                            if totalcorner_capture_path else None)
+    settlement = (json.loads(settlement_path.read_text(encoding="utf-8"))
+                  if settlement_path else None)
     pair_meta = json.loads(pair_meta_path.read_text(encoding="utf-8"))
     forecast_raw = forecast_path.read_bytes()
     pair_raw = pair_path.read_bytes()
@@ -47,8 +50,16 @@ def build_receipt(forecast_path: Path, forecast_meta_path: Path,
         raise ValueError("pairing receipt references another forecast batch")
     if pair_hash != pair_meta.get("pair_sha256"):
         raise ValueError("pair hash does not match its receipt")
+    if (crown_capture.get("forecast_sha256")
+            and crown_capture.get("forecast_sha256") != forecast_hash):
+        raise ValueError("Crown capture receipt references another forecast batch")
     if totalcorner_capture and totalcorner_capture.get("forecast_sha256") != forecast_hash:
         raise ValueError("TotalCorner capture receipt references another forecast batch")
+    if settlement:
+        if settlement.get("protocol") != "M5_FORWARD_SHADOW_SETTLEMENT_V1":
+            raise ValueError("unexpected settlement receipt protocol")
+        if settlement.get("paired_input_sha256") != pair_hash:
+            raise ValueError("settlement receipt references another pair batch")
 
     forecast_rows = []
     fixture_ids = set()
@@ -91,6 +102,20 @@ def build_receipt(forecast_path: Path, forecast_meta_path: Path,
         raise ValueError("pair market counts differ from private pairing receipt")
     if len(seen) != pair_meta.get("paired_rows"):
         raise ValueError("pair row count differs from private pairing receipt")
+    if settlement:
+        if (settlement.get("settled_fixture_markets", 0)
+                + settlement.get("pending_fixture_markets", 0) != len(seen)):
+            raise ValueError("settlement fixture-market counts differ from pair batch")
+        for market in ("AH", "OU"):
+            result = settlement["markets"][market]
+            if not (result["unique_fixture_markets"] == result["simulated_bets"]
+                    and result["settled_bets"] + result["pending_bets"] == result["simulated_bets"]
+                    and sum(result["settlement_counts"].values()) == result["settled_bets"]
+                    and result["paired_source_fixture_markets"]
+                    == dict(source_counts[market])):
+                raise ValueError(f"{market} settlement counts do not reconcile")
+            if result["pending_bets"] and result["roi_pct"] is not None:
+                raise ValueError(f"{market} incomplete settlement cannot have full-cohort ROI")
     per_market = {}
     for market in ("AH", "OU"):
         count = market_counts[market]
@@ -136,10 +161,12 @@ def build_receipt(forecast_path: Path, forecast_meta_path: Path,
             "source_separated": True,
             "train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff": True,
             "private_fixture_level_data_published": False,
-            "settlement_performed": False,
+            "settlement_performed": settlement is not None,
         },
         "limitations": [
-            "This is a prediction/quote pairing receipt, not a simulated wager or ROI result.",
+            ("This is a prediction/quote pairing receipt, not a simulated wager or ROI result."
+             if not settlement else
+             "The paired cohort settlement has pending fixture-markets; full-cohort ROI remains null."),
             "AH and OU paired samples are reported independently and remain below 10,000.",
             "Crown is preferred per fixture-market; TotalCorner default only fills missing Crown markets.",
             "Raw fixture identities, score grids, lines, prices and API responses remain private.",
@@ -154,6 +181,27 @@ def build_receipt(forecast_path: Path, forecast_meta_path: Path,
             "response_hash_set_sha256": totalcorner_capture.get("response_hash_set_sha256"),
             "source_rule": totalcorner_capture.get("source_rule"),
         }
+    if settlement:
+        settlement_metrics = (
+            "unique_fixture_markets", "simulated_bets", "settled_bets", "pending_bets",
+            "settlement_counts", "settled_stake_units", "total_stake_units", "net_units",
+            "roi_pct", "realized_roi_on_settled_stake_pct", "max_drawdown_units_by_kickoff",
+            "paired_source_fixture_markets", "settled_source_fixture_markets")
+        receipt["settlement"] = {
+            "generated_utc": settlement.get("generated_utc"),
+            "fixture_count": settlement.get("fixture_count"),
+            "settled_fixture_markets": settlement.get("settled_fixture_markets"),
+            "pending_fixture_markets": settlement.get("pending_fixture_markets"),
+            "capture_counts": settlement.get("capture_counts", {}),
+            "markets": {market: {key: settlement["markets"][market][key]
+                                 for key in settlement_metrics}
+                        for market in ("AH", "OU")},
+            "paired_input_sha256": settlement.get("paired_input_sha256"),
+            "verified_result_response_hash_set_sha256": settlement.get(
+                "verified_result_response_hash_set_sha256"),
+            "timing": settlement.get("timing"),
+            "production_or_telegram_changes": False,
+        }
     return receipt
 
 
@@ -163,12 +211,14 @@ def main():
     parser.add_argument("--forecast-meta", type=Path, required=True)
     parser.add_argument("--crown-capture", type=Path, required=True)
     parser.add_argument("--totalcorner-capture", type=Path)
+    parser.add_argument("--settlement-input", type=Path)
     parser.add_argument("--pairs", type=Path, required=True)
     parser.add_argument("--pair-meta", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     report = build_receipt(args.forecasts, args.forecast_meta, args.crown_capture,
-                           args.pairs, args.pair_meta, args.totalcorner_capture)
+                           args.pairs, args.pair_meta, args.totalcorner_capture,
+                           args.settlement_input)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, sort_keys=True, indent=2) + "\n",
                            encoding="utf-8")

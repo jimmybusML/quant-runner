@@ -17,6 +17,17 @@
 
 每行每个唯一 fixture-market 模拟 1U，无筛场、EV 门槛或回测期内调参。全局校准改善 AH 点 ROI，但仍亏损；OU 校准改善 Log Loss/Brier，却没有改善收益。所有 ROI 区间均低于零，任一市场均未达 +3%。留出市场报价来源：AH Crown 10,433、TotalCorner 1,104；OU Crown 10,432、TotalCorner 1,105。盘口事件在预测之后、开赛之前，但所选历史 API receipts 全部在开赛后，因此本结果是回顾性 event-time OOS，不是同期可执行或实际成交 ROI。公开报告只保留聚合指标和哈希：[脱敏回执](results/m5_all_prior_oos_calibration_2025plus_holdout_20261107.json)；逐场数据仍在私有档案。
 
+## 2026-11-07T05:49Z M5 前瞻 Crown / TOTAL 配对与结算检查
+
+使用同一份 M5 forecast batch（317 个未来 fixture，generated UTC `2026-11-07T05:49:28.660813Z`），先采 Crown，再仅对 Crown 未覆盖市场回退采 TotalCorner default。Crown 315 次请求中 282 条身份核验成功、6 条赛事/Crown 身份错配拒绝、27 条身份/API 失败；有效合约 AH 12、OU 10。TOTAL 313 次请求中 305 条验证成功、8 条身份错配拒绝；有效补盘 AH 42、OU 37，另有 10 项 AH、8 项 OU 因 Crown 已覆盖而跳过，2 场两个市场都由 Crown 覆盖并跳过 TOTAL。
+
+| 市场 | 唯一配对数 | Crown | TotalCorner default | 已结算 | 待结算 | 净 U / ROI | 最大回撤 |
+| --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| AH | 54 | 12 | 42 | 0 | 54 | 0 / null | null |
+| OU | 47 | 10 | 37 | 0 | 47 | 0 / null | null |
+
+以上两市场合计101个唯一 fixture-market、65场唯一 fixture。全部配对通过 `train_end < prediction_asof <= quote_event <= quote_received < kickoff`；结算核验查询时有64场尚未开赛、1场开赛但未完场，因此全队列净收益暂为0U、ROI保持 null、没有任何已结算样本。这里的0U仅表示尚无结算，不代表盈亏平衡。完整脱敏采集、配对、pending/来源计数和输入哈希见[前瞻回执](results/m5_forward_shadow_capture_20261107T0549Z.json)。逐场身份、盘口线、赔率、预测概率和结果响应仅保存在本机私有归档。
+
 TotalCorner default 前瞻回退器仅对至少一个市场没有合格 Crown 报价的比赛发请求；AH 与 OU 都已有 Crown 报价时直接跳过，减少不必要的接口调用。存在单侧缺口时仍按 fixture-market 保留 Crown 优先、TOTAL 只补缺市场的原规则。测试覆盖两市场均覆盖及任一缺盘四种情形。
 
 ## M3 三模型在扩展归档上的独立评分

@@ -321,6 +321,63 @@ jobs:
               assert field not in serialized
           print("M5 2026-11-07T0549Z forecast receipt integrity: PASS")
           PY
+      - name: Validate the 2026-11-07T0549Z M5 Crown/TOTAL shadow receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          receipt = json.loads(Path("research/m5/results/m5_forward_shadow_capture_20261107T0549Z.json").read_text())
+          sanitizer = Path("research/m5/m5_forward_shadow_public_receipt.py")
+          assert receipt["protocol"] == "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1"
+          assert receipt["sanitizer_sha256"] == hashlib.sha256(sanitizer.read_bytes()).hexdigest()
+          assert receipt["forecast_generated_utc"] == "2026-11-07T05:49:28.660813Z"
+          assert receipt["forecast_fixture_count"] == 317
+          assert receipt["forecast_sha256"] == "5508b8ac2ee95893698598812449a55c83a0bc316e84f472d776fc51a7382a48"
+          assert receipt["crown_capture"]["attempted_fixtures"] == 315
+          assert receipt["crown_capture"]["aggregate_counts"] == {
+              "AH_qualified_fixture_markets": 12, "OU_qualified_fixture_markets": 10,
+              "fixture_or_crown_identity_mismatch": 6, "identity_or_api_failure": 27,
+              "verified_fixture_responses": 282}
+          assert receipt["totalcorner_capture"]["attempted_fixtures"] == 313
+          assert receipt["totalcorner_capture"]["forecast_candidate_fixtures"] == 315
+          assert receipt["totalcorner_capture"]["aggregate_counts"] == {
+              "AH_default_qualified_fixture_markets": 42, "OU_default_qualified_fixture_markets": 37,
+              "crown_preferred_AH_skips": 10, "crown_preferred_OU_skips": 8,
+              "crown_preferred_all_market_skips": 2, "fixture_or_api_identity_mismatch": 8,
+              "request_attempts": 313, "verified_fixture_responses": 305}
+          assert receipt["paired_fixture_markets"] == 101
+          assert receipt["paired_fixture_markets_by_market"] == {"AH": 54, "OU": 47}
+          expected = {"AH": {"Crown": 12, "TotalCorner_default": 42},
+                      "OU": {"Crown": 10, "TotalCorner_default": 37}}
+          for market, sources in expected.items():
+              result = receipt["markets"][market]
+              assert result["unique_fixture_markets"] == sum(sources.values())
+              assert result["source_fixture_markets"] == sources
+              assert result["settled_fixture_markets"] == 0
+              assert result["fixture_markets_pending_settlement_verification"] == result["unique_fixture_markets"]
+              assert result["roi_pct"] is None and result["net_units"] is None
+              settled = receipt["settlement"]["markets"][market]
+              assert settled["simulated_bets"] == settled["pending_bets"] == sum(sources.values())
+              assert settled["settled_bets"] == 0 and settled["roi_pct"] is None
+              assert settled["paired_source_fixture_markets"] == sources
+              assert sum(settled["settlement_counts"].values()) == 0
+          assert receipt["settlement"]["fixture_count"] == 65
+          assert receipt["settlement"]["pending_fixture_markets"] == 101
+          assert receipt["settlement"]["settled_fixture_markets"] == 0
+          assert receipt["settlement"]["production_or_telegram_changes"] is False
+          assert receipt["integrity"] == {
+              "all_fixture_markets_unique": True,
+              "private_fixture_level_data_published": False,
+              "settlement_performed": True,
+              "source_separated": True,
+              "train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff": True}
+          serialized = json.dumps(receipt)
+          for value in ('"match_id"', '"home"', '"away"', '"line"', '"prices"',
+                        '/Users/mac/', '/private/tmp/', 'api_token', 'api_key'):
+              assert value not in serialized
+          print("M5 05:49Z forward Crown/TOTAL 101-market receipt: PASS")
+          PY
       - name: Validate the 2025+ all-prior-OOS M5 calibration holdout receipt
         run: |
           python - <<'PY'

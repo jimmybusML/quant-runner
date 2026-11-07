@@ -1,3 +1,9 @@
+## 2026-11-07T07:27Z M5 05:49前瞻批次 Crown/TOTAL配对与结算状态
+- 对 forecast `2026-11-07T05:49:28.660813Z`（317场、SHA `5508b8ac2ee95893698598812449a55c83a0bc316e84f472d776fc51a7382a48`）按顺序完成 Crown 和 TOTAL 采集。Crown receipt UTC `06:49:10.840930Z`：315次请求、282 verified、6身份错配、27身份/API失败，合格AH12/OU10。TOTAL receipt UTC `07:22:01.773991Z`：313次请求、305 verified、8身份错配，合格补盘AH42/OU37；Crown已覆盖而跳过市场AH10/OU8，两市场均覆盖的比赛2场。
+- 双源去重配对UTC `07:22:46.476535Z`，pair SHA `041a0d3d270445c120d7b5f51c705c67fe710bf75abc51de4bcf816edb79930b`：AH54（Crown12/TOTAL42），OU47（Crown10/TOTAL37），合计101唯一fixture-market、65唯一比赛。全部满足 `train_end < prediction_asof <= quote_event <= quote_received < kickoff`。TotalCorner结果核验UTC `07:23:03.575003Z`：0已结、101 pending；64场尚未开赛、1场开赛未完，AH/OU ROI均null，不能将当前净0U误解为盈亏平衡。
+- 脱敏公开回执 `research/m5/results/m5_forward_shadow_capture_20261107T0549Z.json` 正在本地最终更新，含Crown/TOTAL聚合、独立来源、配对时间完整性和pending结算状态，行级赛事、盘口、价格、概率与原始响应未公开。README已新增本批覆盖与限制。公开代码HEAD `f545d0b9f66c5972b838e62d5cdd8f7e1ed4606f` 的Actions run [42350468425](https://github.com/ljm198964-alt/quant-runner/actions/runs/42350468425) 成功；本轮加入TOTAL采集与结算摘要白名单，以及forecast/pair hash绑定校验，M5全套本地测试74项通过；新回执/validator/README/handoff待提交并触发下一次Actions验收。
+- 前瞻队列仍仅数十个配对市场、全部未结，不构成ROI目标证据。M1/M2/MR1/M3/M4正式链路、TG、订单、正式账本、Gate和自动晋升均未改。
+
 ## 2026-11-07T06:19Z M5 11,537场 all-prior-OOS 概率校准留出
 - 在全量前缀 OOS 预测与真实赛果上完成 AH、OU 分开校准：每市场训练 105,472 个 UTC 2025-01-01 前的唯一 fixture，严格与 2025+ 留出 ID 不相交；留出每市场 11,537 个 fixture-market，覆盖 UTC kickoff `2025-11-15T14:30Z` 至 `2026-11-04T17:00Z`。训练未使用任何历史盘口价格，所有校准只由更早的 M5 OOS 预测概率与结果拟合。
 - Crown 优先、TotalCorner-default 只补缺：AH Crown 10,433 / TOTAL 1,104；OU Crown 10,432 / TOTAL 1,105。各方案每个唯一 fixture-market 计 1U，不加过滤。AH 原始 ROI `-2.503077%`，全局/score-grid 校准 `-2.371327%`，联赛收缩 `-2.439499%`；OU 原始 `-3.654460%`，全局校准 `-3.943443%`，score-grid `-3.927321%`，联赛收缩 `-4.056362%`。两市场所有95% fixture-bootstrap区间都低于0；无市场达+3%。OU proper score校准改善但ROI变差，AH校准点估计略有改善但仍负。
