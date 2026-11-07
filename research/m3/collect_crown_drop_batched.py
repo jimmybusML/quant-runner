@@ -355,6 +355,60 @@ def stage_manifest_league(code):
  write_public(f'manifest_league_{code}_summary.json',summary)
  print(json.dumps({'status':'MANIFEST_LEAGUE_READY','summary':summary},ensure_ascii=False),flush=True)
 
+def stage_league_page_chunks(page_size=25):
+ if page_size<1:raise RuntimeError('Page chunk size must be positive')
+ chunks=[];page_counts={}
+ for code,info in LEAGUES.items():
+  payload=request('/league/schedule/'+info['id'],{'page':1})
+  if payload.get('success')!=1:raise RuntimeError('TotalCorner league schedule page 1 failed')
+  pag=payload.get('pagination') or {}
+  pages=int(pag.get('pages') or 1);page_counts[code]=pages
+  for start in range(1,pages+1,page_size):
+   end=min(pages,start+page_size-1)
+   chunks.append({'league':code,'start':start,'end':end,'part':f'{code}-{start:04d}-{end:04d}'})
+ print('page_counts='+json.dumps(page_counts,separators=(',',':')),flush=True)
+ print('chunks='+json.dumps(chunks,separators=(',',':')),flush=True)
+
+def stage_manifest_league_range(code,page_start,page_end):
+ key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
+ if not key_text:raise RuntimeError('Research encryption key unavailable')
+ if code not in LEAGUES or page_start<1 or page_end<page_start:raise RuntimeError('Invalid league page range')
+ train,test=prediction_candidates();wanted={}
+ for split,items in (('TRAIN',train),('TEST',test)):
+  for item in items:
+   if item['league']==code:wanted[key_for_prediction(item)]={'prediction':item,'split':split}
+ info=LEAGUES[code];found={};ambiguous=set();pages_read=0
+ for page in range(page_start,page_end+1):
+  payload=request('/league/schedule/'+info['id'],{'page':page})
+  if payload.get('success')!=1:raise RuntimeError('TotalCorner league schedule page failed')
+  rows=get_matches(payload);pages_read+=1
+  if not rows:continue
+  for m in rows:
+   parsed=candidate_key(code,m)
+   if not parsed:continue
+   k,ko,score=parsed
+   if k not in wanted:continue
+   pred=wanted[k]['prediction']
+   if pred['score']!=score:diag['schedule_score_mismatch']+=1;continue
+   mid=str(m.get('id') or '')
+   if not mid:diag['schedule_missing_match_id']+=1;continue
+   record={'split':wanted[k]['split'],'league':pred['league'],'season':pred.get('season'),'m3_date':pred['date'],
+    'home':pred['home'],'away':pred['away'],'m3_score':pred['score'],'models':pred['models'],
+    'source':{'match_id':mid,'league':m.get('l'),'league_id':str(m.get('l_id') or info['id']),
+     'home':m.get('h'),'away':m.get('a'),'start_local':m.get('start'),'kickoff_utc':ko.isoformat(),
+     'status':m.get('status'),'score':[m.get('hg'),m.get('ag')]}}
+   if k in found and found[k]['source']['match_id']!=mid:ambiguous.add(k)
+   else:found[k]=record
+ records=[r for k,r in found.items() if k not in ambiguous]
+ summary={'protocol':'M3_CROWN_DROP_MANIFEST_CHUNK_V2','league':code,'league_id':info['id'],
+  'page_start':page_start,'page_end':page_end,'pages_read':pages_read,'matched_fixtures':len(records),
+  'ambiguous_fixtures':len(ambiguous),'train_matches':sum(r['split']=='TRAIN' for r in records),
+  'test_matches':sum(r['split']=='TEST' for r in records),'diagnostics':dict(diag)}
+ OUT.mkdir(parents=True,exist_ok=True);part=f'{code}-{page_start:04d}-{page_end:04d}'
+ encrypt_doc({'summary':summary,'records':records},key_text,'MANIFEST_CHUNK',OUT/f'm3_crown_manifest_chunk_{part}.bin')
+ write_public(f'manifest_chunk_{part}_summary.json',summary)
+ print(json.dumps({'status':'MANIFEST_CHUNK_READY','summary':summary},ensure_ascii=False),flush=True)
+
 def stage_merge_manifests(input_dir):
  key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
  if not key_text:raise RuntimeError('Research encryption key unavailable')
@@ -427,6 +481,31 @@ def stage_merge_leagues(input_dir):
  OUT.mkdir(parents=True,exist_ok=True);encrypt_doc({'summary':summary,'records':records},key_text,'MANIFEST',OUT/'m3_crown_manifest.bin')
  write_public('manifest_summary.json',summary)
  print(json.dumps({'status':'MANIFEST_LEAGUES_MERGED','summary':summary},ensure_ascii=False),flush=True)
+
+def stage_merge_league_chunks(input_dir):
+ key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
+ if not key_text:raise RuntimeError('Research encryption key unavailable')
+ files=sorted(Path(input_dir).glob('m3_crown_manifest_chunk_*.bin'))
+ if not files:raise RuntimeError('No encrypted league page chunks found')
+ by_id={};summaries=[];conflicts=0
+ for path in files:
+  doc=decrypt_doc(path,key_text,'MANIFEST_CHUNK');summaries.append(doc['summary'])
+  for record in doc['records']:
+   mid=str(record['source']['match_id'])
+   if mid in by_id and by_id[mid]!=record:conflicts+=1;continue
+   by_id[mid]=record
+ records=sorted(by_id.values(),key=lambda r:(r['source']['kickoff_utc'],r['league'],norm(r['home']),norm(r['away'])))
+ counts=Counter(r['split'] for r in records);train,test=prediction_candidates()
+ page_totals={code:sum(s['pages_read'] for s in summaries if s['league']==code) for code in LEAGUES}
+ summary={'protocol':'M3_CROWN_DROP_MANIFEST_V2','sample_design':{'scoped_leagues':list(LEAGUES),
+  'train_candidate_fixtures':len(train),'test_candidate_fixtures':len(test),
+  'train_start':train[0]['date'],'train_end':train[-1]['date'],'test_start':test[0]['date'],'test_end':test[-1]['date']},
+  'matched_train_fixtures':counts['TRAIN'],'matched_test_fixtures':counts['TEST'],'matched_total_fixtures':len(records),
+  'schedule_pages_by_league':page_totals,'manifest_chunks':len(files),'match_id_conflicts':conflicts,
+  'quote_batches':(len(records)+BATCH_SIZE-1)//BATCH_SIZE,'chunk_summaries':summaries}
+ OUT.mkdir(parents=True,exist_ok=True);encrypt_doc({'summary':summary,'records':records},key_text,'MANIFEST',OUT/'m3_crown_manifest.bin')
+ write_public('manifest_summary.json',summary)
+ print(json.dumps({'status':'MANIFEST_CHUNKS_MERGED','summary':summary},ensure_ascii=False),flush=True)
 
 def stage_quotes(batch):
  key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
@@ -567,7 +646,7 @@ def stage_quotes_window(start_text,end_text):
  print(json.dumps({'status':'QUOTE_WINDOW_READY','summary':summary},ensure_ascii=False),flush=True)
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--stage',choices=('manifest','manifest-window','manifest-date','manifest-league','merge-manifests','merge-dates','merge-leagues','quotes','quotes-window','quotes-league','dates'),required=True);p.add_argument('--batch',type=int,default=0);p.add_argument('--start');p.add_argument('--end');p.add_argument('--date');p.add_argument('--league');p.add_argument('--input-dir');a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--stage',choices=('manifest','manifest-window','manifest-date','manifest-league','league-page-chunks','manifest-league-range','merge-manifests','merge-dates','merge-leagues','merge-league-chunks','quotes','quotes-window','quotes-league','dates'),required=True);p.add_argument('--batch',type=int,default=0);p.add_argument('--start');p.add_argument('--end');p.add_argument('--date');p.add_argument('--league');p.add_argument('--page-start',type=int);p.add_argument('--page-end',type=int);p.add_argument('--input-dir');a=p.parse_args()
  if a.stage=='dates':stage_dates()
  elif a.stage=='manifest':stage_manifest()
  elif a.stage=='manifest-window':
@@ -579,6 +658,10 @@ def main():
  elif a.stage=='manifest-league':
   if not a.league:raise RuntimeError('manifest-league requires --league')
   stage_manifest_league(a.league)
+ elif a.stage=='league-page-chunks':stage_league_page_chunks()
+ elif a.stage=='manifest-league-range':
+  if not a.league or a.page_start is None or a.page_end is None:raise RuntimeError('manifest-league-range requires league and page bounds')
+  stage_manifest_league_range(a.league,a.page_start,a.page_end)
  elif a.stage=='merge-manifests':
   if not a.input_dir:raise RuntimeError('merge-manifests requires --input-dir')
   stage_merge_manifests(a.input_dir)
@@ -588,6 +671,9 @@ def main():
  elif a.stage=='merge-leagues':
   if not a.input_dir:raise RuntimeError('merge-leagues requires --input-dir')
   stage_merge_leagues(a.input_dir)
+ elif a.stage=='merge-league-chunks':
+  if not a.input_dir:raise RuntimeError('merge-league-chunks requires --input-dir')
+  stage_merge_league_chunks(a.input_dir)
  elif a.stage=='quotes-window':
   if not a.start or not a.end:raise RuntimeError('quotes-window requires --start and --end')
   stage_quotes_window(a.start,a.end)

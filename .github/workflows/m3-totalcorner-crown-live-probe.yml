@@ -4,14 +4,11 @@ on:
 permissions:
   contents: read
 jobs:
-  manifest_league:
+  page_plan:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        league: [E0, D1, F1, I1, SP1, B1]
+    timeout-minutes: 10
+    outputs:
+      chunks: ${{ steps.pages.outputs.chunks }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -19,25 +16,49 @@ jobs:
           python-version: '3.11'
       - name: Install encryption dependency
         run: python -m pip install --disable-pip-version-check cryptography
-      - name: Match strict OOS M3 fixtures to this scoped league and encrypt
+      - id: pages
+        name: Read scoped league schedule page totals
+        env:
+          TOTALCORNER_TOKEN: ${{ secrets.TOTALCORNER_TOKEN }}
+        run: |
+          python research/m3/collect_crown_drop_batched.py --stage league-page-chunks > "$RUNNER_TEMP/page_plan.txt"
+          cat "$RUNNER_TEMP/page_plan.txt" >> "$GITHUB_OUTPUT"
+
+  manifest_chunks:
+    needs: page_plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        chunk: ${{ fromJson(needs.page_plan.outputs.chunks) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install encryption dependency
+        run: python -m pip install --disable-pip-version-check cryptography
+      - name: Collect one scoped schedule page range and encrypt it
         env:
           TOTALCORNER_TOKEN: ${{ secrets.TOTALCORNER_TOKEN }}
           M3_CROWN_RESEARCH_KEY: ${{ secrets.M3_CROWN_RESEARCH_KEY }}
-        run: python research/m3/collect_crown_drop_batched.py --stage manifest-league --league '${{ matrix.league }}'
+        run: python research/m3/collect_crown_drop_batched.py --stage manifest-league-range --league '${{ matrix.chunk.league }}' --page-start ${{ matrix.chunk.start }} --page-end ${{ matrix.chunk.end }}
       - uses: actions/upload-artifact@v4
         with:
-          name: m3-crown-manifest-${{ github.run_id }}-${{ matrix.league }}
-          path: ${{ runner.temp }}/m3-crown-research/m3_crown_manifest_league_${{ matrix.league }}.bin
+          name: m3-crown-manifest-chunk-${{ github.run_id }}-${{ matrix.chunk.part }}
+          path: ${{ runner.temp }}/m3-crown-research/m3_crown_manifest_chunk_${{ matrix.chunk.part }}.bin
           retention-days: 1
           if-no-files-found: error
-      - name: Publish value free manifest counts
+      - name: Publish value free chunk counts
         if: always()
         run: |
-          SUMMARY="$RUNNER_TEMP/m3-crown-research/manifest_league_${{ matrix.league }}_summary.json"
+          SUMMARY="$RUNNER_TEMP/m3-crown-research/manifest_chunk_${{ matrix.chunk.part }}_summary.json"
           if [ -f "$SUMMARY" ]; then cat "$SUMMARY" >> "$GITHUB_STEP_SUMMARY"; fi
 
   manifest:
-    needs: manifest_league
+    needs: manifest_chunks
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -49,13 +70,13 @@ jobs:
         run: python -m pip install --disable-pip-version-check cryptography
       - uses: actions/download-artifact@v4
         with:
-          pattern: m3-crown-manifest-${{ github.run_id }}-*
-          path: ${{ runner.temp }}/m3-crown-research/leagues
+          pattern: m3-crown-manifest-chunk-${{ github.run_id }}-*
+          path: ${{ runner.temp }}/m3-crown-research/chunks
           merge-multiple: true
-      - name: Merge encrypted league manifests and deduplicate match IDs
+      - name: Merge encrypted page chunks and deduplicate exact TotalCorner match IDs
         env:
           M3_CROWN_RESEARCH_KEY: ${{ secrets.M3_CROWN_RESEARCH_KEY }}
-        run: python research/m3/collect_crown_drop_batched.py --stage merge-leagues --input-dir "$RUNNER_TEMP/m3-crown-research/leagues"
+        run: python research/m3/collect_crown_drop_batched.py --stage merge-league-chunks --input-dir "$RUNNER_TEMP/m3-crown-research/chunks"
       - uses: actions/upload-artifact@v4
         with:
           name: m3-crown-manifest-${{ github.run_id }}
