@@ -17,6 +17,17 @@
 
 每行每个唯一 fixture-market 模拟 1U，无筛场、EV 门槛或回测期内调参。全局校准改善 AH 点 ROI，但仍亏损；OU 校准改善 Log Loss/Brier，却没有改善收益。所有 ROI 区间均低于零，任一市场均未达 +3%。留出市场报价来源：AH Crown 10,433、TotalCorner 1,104；OU Crown 10,432、TotalCorner 1,105。盘口事件在预测之后、开赛之前，但所选历史 API receipts 全部在开赛后，因此本结果是回顾性 event-time OOS，不是同期可执行或实际成交 ROI。公开报告只保留聚合指标和哈希：[脱敏回执](results/m5_all_prior_oos_calibration_2025plus_holdout_20261107.json)；逐场数据仍在私有档案。
 
+## 2026-11-07 市场残差参数按 ROI 拟合的时间留出诊断
+
+为检验“训练期收益目标直接选市场残差参数”能否改善 AH 或 OU，分别在 2025 训练样本上对 score-grid 的连续残差倾斜参数 beta 做固定 121 点网格搜索（-3 到 +3），以训练期 1U ROI 选参数；2026 所有 eligible fixture-market 均保留，一场一项，不加 EV 门槛、联赛/时间过滤或数量限制。两年 fixture IDs 不相交。2025 训练各市场 1,311 项；2026 留出各 10,226 项，来源均为 Crown 优先、TotalCorner default 补缺。
+
+| 市场 | beta | 2025 训练 ROI | 2026 beta=0 ROI | 2026 ROI 拟合 beta ROI | 留出净 U / 最大回撤 U | 留出 Log Loss / Brier | 95% fixture bootstrap ROI | 留出来源 Crown / TOTAL |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| AH | 0.45 | +0.7921% | -1.8618% | **-4.9097%** | -502.07 / 514.45 | 0.998756 / 0.625154 | -6.584% 至 -3.120% | 9,316 / 910 |
+| OU | 0.35 | -2.0370% | -3.4988% | **-4.0521%** | -414.37 / 429.38 | 0.966306 / 0.606989 | -5.819% 至 -2.302% | 9,316 / 910 |
+
+按训练 ROI 选择 beta 未能泛化，两市场 2026 留出都比 beta=0 基线更差。作为对照，按 exact-score Log Loss 选出的 beta 为 AH 0.3324、OU 0.3264，留出 ROI 分别 -2.2812% 和 -4.3549%；proper-score 优化与收益优化仍不一致。2026 已在既有 M5 研究中多次检查，因此本诊断是时间隔离但非未触碰的确认性留出。历史报价事件在 kickoff 前，但 provider API receipts 在 kickoff 后，收益属于回顾性 event-time OOS，非同期执行 ROI。详细分数、结算类别、来源、bootstrap 与输入哈希见[聚合回执](results/m5_market_residual_roi_fit_2025_train_2026_holdout_20261107.json)；可复现实现见[`m5_market_residual_roi_fit_diagnostic.py`](m5_market_residual_roi_fit_diagnostic.py)。不改生产模型或交易规则。
+
 ## 2026-11-07T08:14Z M5 前瞻批次报价刷新与结算检查
 
 对同一冻结 M5 forecast（317 个 fixture，generated UTC `2026-11-07T05:49:28.660813Z`）刷新 Crown 捕获，再用 TotalCorner default 仅补缺，并以最新来源索引重新配对。Crown 刷新 UTC `08:10:51Z`：313 次尝试、301 条身份核验响应，AH/OU 合格报价分别49/39；5条赛事/Crown身份错配拒绝，4条身份/API失败，3条传输错误。TotalCorner 回退器 UTC `08:13:53Z` 发现311场已捕获、2场因两市场均有 Crown 而跳过，没有重复请求。

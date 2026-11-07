@@ -465,6 +465,41 @@ jobs:
               assert field not in serialized
           print("M5 all-prior-OOS calibrated 11,537-match holdout receipt: PASS")
           PY
+      - name: Validate the 2025 ROI-fit market-residual diagnostic
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(Path("research/m5/results/m5_market_residual_roi_fit_2025_train_2026_holdout_20261107.json").read_text())
+          assert report["protocol"] == "M5_MARKET_RESIDUAL_ROI_FIT_2025_TRAIN_2026_HOLDOUT_V1"
+          assert report["fixture_level_data_published"] is False
+          assert report["production_changes"] is False
+          assert report["new_bet_gate_added"] is False
+          expected = {"AH": (1311, 10226, 0.45, 0.792143, -4.90974, -1.861823),
+                      "OU": (1311, 10226, 0.35, -2.036995, -4.052122, -3.498778)}
+          for market, values in expected.items():
+              train_n, test_n, beta, train_roi, test_roi, baseline_roi = values
+              result = report["markets"][market]
+              assert result["training_fixture_markets"] == train_n
+              assert result["holdout_fixture_markets"] == test_n
+              assert result["training_holdout_fixture_ids_disjoint"] is True
+              fit = result["roi_fit"]
+              assert fit["selected_beta"] == beta
+              assert fit["search_values"] == 121
+              assert fit["training_metrics"]["roi_pct"] == train_roi
+              assert fit["holdout_metrics"]["roi_pct"] == test_roi
+              assert fit["holdout_metrics"]["settled_bets"] == test_n
+              assert sum(fit["holdout_metrics"]["settlement_counts"].values()) == test_n
+              assert result["holdout_comparators"]["unadjusted_beta_zero"]["roi_pct"] == baseline_roi
+              assert fit["holdout_metrics"]["source_fixture_markets"] == {
+                  "Crown": 9316, "TotalCorner_default": 910}
+              assert fit["holdout_metrics"]["receipt_timing"] == {"post_kickoff": test_n}
+          serialized = json.dumps(report)
+          for field in ('"match_id"', '"prices"', '/Users/mac/', '/private/tmp/', 'api_token', 'api_key'):
+              assert field not in serialized
+          print("M5 ROI-fit 2025/2026 market-residual diagnostic: PASS")
+          PY
       - name: Validate the public forward settlement receipt
         run: |
           python - <<'PY'
