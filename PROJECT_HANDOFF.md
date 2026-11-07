@@ -2,7 +2,8 @@
 - 核对现存研究报告并生成脱敏统一索引 `research/m5/results/m5_m1_mr1_m3_m4_expanded_cohort_comparison_20261107.json`，输入报告SHA均写入索引。M1、M3 Poisson/DC/Bivariate及其MR1/M3回退方案的AH、OU各10,568 unique fixture-market；source union AH Crown 9,613/TOTAL 955、OU Crown 9,612/TOTAL 956。M4现有两联赛Pass规则对M3各模型实际覆盖10,046场；MR1 V6单体仅严格共同Crown集9,517场。
 - AH全量回放ROI：M1 -2.391607%；M3 Poisson/DC/Bivariate -3.030351/-3.128099/-3.001159%；MR1/M3回退组合分别为-2.974002/-3.075960/-2.957111%；M4 Pass分别为-3.359372/-3.413423/-3.270033%。OU：M1 -3.156841%；M3 Poisson/DC/Bivariate -3.684638/-3.618495/-3.594649%；MR1/M3回退组合 -2.293409/-2.363432/-2.135432%；M4 Pass -3.546859/-3.448014/-3.603897%。完整净额、结算分类、回撤、概率评分和来源分别见公开JSON。无策略达+3%。
 - 严格共同Crown样本MR1 V6：AH 9,517场 -1.515499%，OU 9,517场 -3.781811%；M3单体在此同一组也有结果。不得将其与source-union大样本混作同口径排名。MR1/M3组合在另1,051场没有MR1原生输出处使用M3回退；报告如实注明。M4是Pass规则策略，不是独立概率预测模型。
-- 所有历史盘口API实际receipt均在开赛后，ROI属预测时间/盘口事件时间回顾重放，不是同期可执行收益。README已补充表格及纠错说明。M1/MR1/M3/M4正式流程、TG、订单、账本、Gate未改；本汇总尚未提交，待运行M5研究验证并推送。
+- 所有历史盘口API实际receipt均在开赛后，ROI属预测时间/盘口事件时间回顾重放，不是同期可执行收益。README已补充表格及纠错说明。M1/MR1/M3/M4正式流程、TG、订单、账本、Gate未改。
+- 对照索引及README提交 `cd2466f3306407e6c57561a250b90ae82ab24465` 已推送到 `codex/m5-oos-crown-expansion`；M5 Research Validation Actions run [42358138623](https://github.com/ljm198964-alt/quant-runner/actions/runs/42358138623) 于 `2026-11-07T09:05:07Z` SUCCESS，全套M5测试/既有报告回执检查通过；本地 `pytest research/m5 -q` 为80 passed。M1/M5 2025训练、2026留出分布组合诊断及测试也同提交，精确配对 M1预测AH/OU各2026年9,400/10,226，AH组合ROI -2.487092%（M5单体 -1.861823%），OU组合 -3.107642%（M5单体 -3.498778%）；这不替代各原模型全 cohort 回放，也未达+3%。
 
 ## 2026-11-07T08:37Z M5市场残差参数按ROI拟合（2025训练、2026留出）
 - 新增研究 runner `research/m5/m5_market_residual_roi_fit_diagnostic.py` 和3项参数选择测试。AH、OU分开在2025训练集各1,311项上，对beta∈[-3,3]的121点网格按1U训练ROI选参；2026完整留出每市场10,226项，不加EV/联赛/时间/数量Gate。2025/2026 fixture IDs严格不相交；Crown与TotalCorner-default来源分别保留。
