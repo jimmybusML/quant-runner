@@ -1073,3 +1073,9 @@ AH 的2025 Log Loss最优权重退化为MR1单模；OU的概率融合改善了 p
 配对最终为 AH 30（Crown 3、TotalCorner default 27），OU 21（Crown 1、TotalCorner default 20），共51个唯一 fixture-market；盘口覆盖率为 AH 30/345 forecast、OU 21/345 forecast。各项均满足 `train_end < prediction_asof <= quote_event <= quote_received < kickoff`。接收时间都在开赛前；逐场身份、比分网格、盘口线、赔率、原始响应继续仅存私有目录。脱敏收据：[05:39Z 前瞻配对](results/m5_forward_shadow_capture_20261107T0539Z.json)。
 
 截至结算检查 `2026-11-07T05:40:32Z`，38场 fixture 中16个市场项已有 verified FT、35项待结；本轮尚有1个fixture在查收时未完场、27个fixture未开赛。AH已结9/30，净 -1.50U，结算 W/HW/P/HL/L=`3/1/0/1/4`，已结子集ROI -16.67%；OU已结7/21，净 -2.75U，结算=`2/0/0/1/4`，已结子集ROI -39.29%。AH/OU剩余待结21/14项，因此全队列ROI均为 null，不能用已结子集宣称收益达标。当前已结赔率都来自 TotalCorner default；完整队列保持来源分离。脱敏结算回执：[05:40Z前瞻结算](results/m5_forward_shadow_settlement_20261107T0540Z.json)。
+
+## 2026-11-07T05:49Z M5 forecast-only batch
+
+重新读取固定 M5 历史 manifest 与 TotalCorner 赛程缓存并按当前 UTC 重新拟合。共 317 条未来 schedule / forecast，39 个有训练历史的联赛分别拟合；0 identity conflict、0 league without training。所有逐场行满足 `train_end < prediction_asof < kickoff`。训练截止范围 `2026-10-24T07:30:00Z` 至 `2026-11-04T17:00:00Z`，目标开赛时间范围 `2026-11-07T06:00:00Z` 至 `2026-11-23T20:00:00Z`。forecast SHA `5508b8ac2ee95893698598812449a55c83a0bc316e84f472d776fc51a7382a48`，历史 manifest SHA `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`。脱敏聚合回执：[05:49Z forecast receipt](results/m5_forward_forecast_20261107T0549Z.json)。
+
+这份回执只证明模型批次可追溯，不含盘口、下注或ROI。模型输出及赛事身份留在私有目录。生成后发现用户侧 M3 TotalCorner schedule audit PID 33622 仍运行并持有接口代理连接；为避免与共享 API 限速冲突，M5 新批次的 Crown 与 TotalCorner 采集待该进程结束后顺序执行。

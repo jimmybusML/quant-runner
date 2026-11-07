@@ -297,6 +297,27 @@ jobs:
               assert field not in serialized
           print("M5 2026-11-07 Crown/TOTAL forward cohort receipts: PASS")
           PY
+      - name: Validate the 2026-11-07T0549Z M5 forecast batch receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          receipt = json.loads(Path("research/m5/results/m5_forward_forecast_20261107T0549Z.json").read_text())
+          assert receipt["protocol"] == "M5_FORWARD_SHADOW_FORECAST_PUBLIC_RECEIPT_V1"
+          assert receipt["forecast_fixture_count"] == receipt["future_schedule_rows"] == 317
+          assert receipt["model_fit_count"] == 39
+          assert receipt["forecast_sha256"] == "5508b8ac2ee95893698598812449a55c83a0bc316e84f472d776fc51a7382a48"
+          assert receipt["historical_manifest_sha256"] == "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960"
+          assert receipt["identity_conflicts_excluded"] == 0
+          assert receipt["integrity"]["unique_forecast_fixture_ids"] is True
+          assert receipt["integrity"]["train_end_before_prediction_asof_before_kickoff"] is True
+          assert receipt["integrity"]["private_fixture_rows_published"] is False
+          serialized = json.dumps(receipt)
+          for field in ('"match_id"', '"home"', '"away"', '"prices"', '"line"', '/Users/mac/', '/private/tmp/'):
+              assert field not in serialized
+          print("M5 2026-11-07T0549Z forecast receipt integrity: PASS")
+          PY
       - name: Validate the public forward settlement receipt
         run: |
           python - <<'PY'
