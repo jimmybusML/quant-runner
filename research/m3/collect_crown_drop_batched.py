@@ -311,6 +311,50 @@ def stage_manifest_date(date_text):
  write_public(f'manifest_{match_day}_summary.json',summary)
  print(json.dumps({'status':'MANIFEST_DATE_READY','summary':summary},ensure_ascii=False),flush=True)
 
+def stage_manifest_league(code):
+ key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
+ if not key_text:raise RuntimeError('Research encryption key unavailable')
+ if code not in LEAGUES:raise RuntimeError('Unknown in-scope league code')
+ train,test=prediction_candidates();wanted={}
+ for split,items in (('TRAIN',train),('TEST',test)):
+  for item in items:
+   if item['league']==code:wanted[key_for_prediction(item)]={'prediction':item,'split':split}
+ info=LEAGUES[code];page=1;pages=0;found={};ambiguous=set()
+ while True:
+  payload=request('/league/schedule/'+info['id'],{'page':page})
+  if payload.get('success')!=1:raise RuntimeError('TotalCorner league schedule returned unsuccessful response')
+  rows=get_matches(payload);pages+=1
+  if not rows:break
+  for m in rows:
+   parsed=candidate_key(code,m)
+   if not parsed:continue
+   k,ko,score=parsed
+   if k not in wanted:continue
+   pred=wanted[k]['prediction']
+   if pred['score']!=score:diag['schedule_score_mismatch']+=1;continue
+   mid=str(m.get('id') or '')
+   if not mid:diag['schedule_missing_match_id']+=1;continue
+   record={'split':wanted[k]['split'],'league':pred['league'],'season':pred.get('season'),'m3_date':pred['date'],
+    'home':pred['home'],'away':pred['away'],'m3_score':pred['score'],'models':pred['models'],
+    'source':{'match_id':mid,'league':m.get('l'),'league_id':str(m.get('l_id') or info['id']),
+     'home':m.get('h'),'away':m.get('a'),'start_local':m.get('start'),'kickoff_utc':ko.isoformat(),
+     'status':m.get('status'),'score':[m.get('hg'),m.get('ag')]}}
+   if k in found and found[k]['source']['match_id']!=mid:ambiguous.add(k)
+   else:found[k]=record
+  if not next_page(payload,page):break
+  page+=1
+ records=[r for k,r in found.items() if k not in ambiguous]
+ records.sort(key=lambda r:(r['source']['kickoff_utc'],norm(r['home']),norm(r['away'])))
+ counts=Counter(r['split'] for r in records)
+ summary={'protocol':'M3_CROWN_DROP_MANIFEST_LEAGUE_V2','league':code,'league_id':info['id'],
+  'train_candidate_fixtures':sum(v['split']=='TRAIN' for v in wanted.values()),
+  'test_candidate_fixtures':sum(v['split']=='TEST' for v in wanted.values()),
+  'matched_train_fixtures':counts['TRAIN'],'matched_test_fixtures':counts['TEST'],
+  'matched_total_fixtures':len(records),'ambiguous_fixtures':len(ambiguous),'schedule_pages':pages,'diagnostics':dict(diag)}
+ OUT.mkdir(parents=True,exist_ok=True);encrypt_doc({'summary':summary,'records':records},key_text,'MANIFEST_LEAGUE',OUT/f'm3_crown_manifest_league_{code}.bin')
+ write_public(f'manifest_league_{code}_summary.json',summary)
+ print(json.dumps({'status':'MANIFEST_LEAGUE_READY','summary':summary},ensure_ascii=False),flush=True)
+
 def stage_merge_manifests(input_dir):
  key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
  if not key_text:raise RuntimeError('Research encryption key unavailable')
@@ -361,6 +405,29 @@ def stage_merge_dates(input_dir):
  write_public('manifest_summary.json',summary)
  print(json.dumps({'status':'MANIFEST_DATES_MERGED','summary':summary},ensure_ascii=False),flush=True)
 
+def stage_merge_leagues(input_dir):
+ key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
+ if not key_text:raise RuntimeError('Research encryption key unavailable')
+ folder=Path(input_dir);by_id={};summaries=[];conflicts=0
+ for code in LEAGUES:
+  path=folder/f'm3_crown_manifest_league_{code}.bin'
+  if not path.exists():raise RuntimeError('A scoped league manifest artifact is missing')
+  doc=decrypt_doc(path,key_text,'MANIFEST_LEAGUE');summaries.append(doc['summary'])
+  for record in doc['records']:
+   mid=str(record['source']['match_id'])
+   if mid in by_id and by_id[mid]!=record:conflicts+=1;continue
+   by_id[mid]=record
+ records=sorted(by_id.values(),key=lambda r:(r['source']['kickoff_utc'],r['league'],norm(r['home']),norm(r['away'])))
+ counts=Counter(r['split'] for r in records);train,test=prediction_candidates()
+ summary={'protocol':'M3_CROWN_DROP_MANIFEST_V2','sample_design':{'scoped_leagues':list(LEAGUES),
+  'train_candidate_fixtures':len(train),'test_candidate_fixtures':len(test),
+  'train_start':train[0]['date'],'train_end':train[-1]['date'],'test_start':test[0]['date'],'test_end':test[-1]['date']},
+  'matched_train_fixtures':counts['TRAIN'],'matched_test_fixtures':counts['TEST'],'matched_total_fixtures':len(records),
+  'match_id_conflicts':conflicts,'quote_batches':(len(records)+BATCH_SIZE-1)//BATCH_SIZE,'league_summaries':summaries}
+ OUT.mkdir(parents=True,exist_ok=True);encrypt_doc({'summary':summary,'records':records},key_text,'MANIFEST',OUT/'m3_crown_manifest.bin')
+ write_public('manifest_summary.json',summary)
+ print(json.dumps({'status':'MANIFEST_LEAGUES_MERGED','summary':summary},ensure_ascii=False),flush=True)
+
 def stage_quotes(batch):
  key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
  if not key_text:raise RuntimeError('Research encryption key unavailable')
@@ -397,6 +464,42 @@ def stage_quotes(batch):
  encrypt_doc({'summary':summary,'records':results},key_text,'BATCH',dest)
  write_public(f'batch_{batch:02d}_summary.json',summary)
  print(json.dumps({'status':'BATCH_READY','summary':summary},ensure_ascii=False),flush=True)
+
+def stage_quotes_league(code):
+ key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
+ if not key_text:raise RuntimeError('Research encryption key unavailable')
+ if code not in LEAGUES:raise RuntimeError('Unknown in-scope league code')
+ manifest_path=Path(os.environ.get('M3_CROWN_MANIFEST',''))
+ if not manifest_path.exists():raise RuntimeError('Encrypted M3 Crown manifest artifact missing')
+ manifest=decrypt_doc(manifest_path,key_text,'MANIFEST')
+ selected=[r for r in manifest['records'] if r['league']==code]
+ results=[];counts=Counter();raw=Counter()
+ for n,source_record in enumerate(selected,1):
+  mid=str(source_record['source']['match_id'])
+  payload=request('/match/bookmaker_odds/'+urllib.parse.quote(mid,safe=''),{'bookmaker':'crown','columns':'asianList,goalList'})
+  data=payload.get('data') if isinstance(payload,dict) else None
+  fixtures=[x for x in data if isinstance(x,dict) and str(x.get('id'))==mid] if isinstance(data,list) else []
+  record=dict(source_record)
+  if payload.get('success')!=1 or len(fixtures)!=1:
+   counts['odds_api_or_identity_failure']+=1;record['crown']={'asian_list':[],'goal_list':[]};results.append(record);continue
+  books=fixtures[0].get('bookmakers');crowns=[b for b in books if isinstance(b,dict) and b.get('slug')=='crown'] if isinstance(books,list) else []
+  if len(crowns)!=1:
+   counts['crown_missing_or_ambiguous']+=1;record['crown']={'asian_list':[],'goal_list':[]}
+  else:
+   book=crowns[0];ah=book.get('asian_list') or [];ou=book.get('goal_list') or []
+   record['crown']={'asian_list':ah,'goal_list':ou};counts['crown_responses']+=1
+   raw['AH_raw_rows']+=len(ah);raw['OU_raw_rows']+=len(ou)
+  results.append(record)
+  if n%100==0:print(json.dumps({'phase':'crown_quotes_league','league':code,'completed_matches':n,
+    'total_matches':len(selected),'crown_responses':counts['crown_responses'],'ah_raw_rows':raw['AH_raw_rows'],
+    'ou_raw_rows':raw['OU_raw_rows']}),flush=True)
+ summary={'protocol':'M3_CROWN_DROP_QUOTE_LEAGUE_V2','league':code,'manifest_matches':len(selected),
+  'quote_responses':len(results),'counts':dict(counts),'raw_market_rows':dict(raw),
+  'manifest_digest':hashlib.sha256(manifest_path.read_bytes()).hexdigest()}
+ OUT.mkdir(parents=True,exist_ok=True);dest=OUT/f'm3_crown_quotes_league_{code}.bin'
+ encrypt_doc({'summary':summary,'records':results},key_text,'QUOTE_LEAGUE',dest)
+ write_public(f'quotes_league_{code}_summary.json',summary)
+ print(json.dumps({'status':'QUOTE_LEAGUE_READY','summary':summary},ensure_ascii=False),flush=True)
 
 def stage_quotes_window(start_text,end_text):
  key_text=os.environ.get('M3_CROWN_RESEARCH_KEY')
@@ -464,7 +567,7 @@ def stage_quotes_window(start_text,end_text):
  print(json.dumps({'status':'QUOTE_WINDOW_READY','summary':summary},ensure_ascii=False),flush=True)
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--stage',choices=('manifest','manifest-window','manifest-date','merge-manifests','merge-dates','quotes','quotes-window','dates'),required=True);p.add_argument('--batch',type=int,default=0);p.add_argument('--start');p.add_argument('--end');p.add_argument('--date');p.add_argument('--input-dir');a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--stage',choices=('manifest','manifest-window','manifest-date','manifest-league','merge-manifests','merge-dates','merge-leagues','quotes','quotes-window','quotes-league','dates'),required=True);p.add_argument('--batch',type=int,default=0);p.add_argument('--start');p.add_argument('--end');p.add_argument('--date');p.add_argument('--league');p.add_argument('--input-dir');a=p.parse_args()
  if a.stage=='dates':stage_dates()
  elif a.stage=='manifest':stage_manifest()
  elif a.stage=='manifest-window':
@@ -473,15 +576,24 @@ def main():
  elif a.stage=='manifest-date':
   if not a.date:raise RuntimeError('manifest-date requires --date')
   stage_manifest_date(a.date)
+ elif a.stage=='manifest-league':
+  if not a.league:raise RuntimeError('manifest-league requires --league')
+  stage_manifest_league(a.league)
  elif a.stage=='merge-manifests':
   if not a.input_dir:raise RuntimeError('merge-manifests requires --input-dir')
   stage_merge_manifests(a.input_dir)
  elif a.stage=='merge-dates':
   if not a.input_dir:raise RuntimeError('merge-dates requires --input-dir')
   stage_merge_dates(a.input_dir)
+ elif a.stage=='merge-leagues':
+  if not a.input_dir:raise RuntimeError('merge-leagues requires --input-dir')
+  stage_merge_leagues(a.input_dir)
  elif a.stage=='quotes-window':
   if not a.start or not a.end:raise RuntimeError('quotes-window requires --start and --end')
   stage_quotes_window(a.start,a.end)
+ elif a.stage=='quotes-league':
+  if not a.league:raise RuntimeError('quotes-league requires --league')
+  stage_quotes_league(a.league)
  else:stage_quotes(a.batch)
 
 if __name__=='__main__':main()
