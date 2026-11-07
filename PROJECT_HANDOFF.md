@@ -1,3 +1,8 @@
+## 2026-11-07T09:38Z M1/MR1/M3严格共同 Crown 样本重跑复核
+- 用本机私有档案 `m1_full_cohort_trace_20261106.jsonl`、`mr1_m3_samecohort_trace_20261106.jsonl`、`m3_three_model_expanded_20261106.jsonl` 重跑 `m5_mr1_m1_m3_same_crown_cohort.py`；AH/OU 各 9,517 个完全相同 fixture-market，M1/MR1/M3三种模型均一场一注，行级输入 SHA 与 cohort ID 集合 SHA 写入脱敏回执 `research/m5/results/m5_m1_mr1_m3_same_crown_rerun_20261107.json`（生成 UTC `2026-11-07T09:38:35.876673Z`）。
+- AH ROI：M1 -2.204371%、MR1 V6 -1.515499%、M3 Poisson -2.911054%、Dixon–Coles -2.951140%、Bivariate Poisson -2.878376%；OU：M1 -3.185983%、MR1 V6 -3.781811%、Poisson -3.728381%、Dixon–Coles -3.644899%、Bivariate Poisson -3.575444%。MR1两市场 proper score 最佳，但全部方案 ROI 为负；不满足任一市场+3%目标。此队列严格同 Crown 但每市场9,517场，不是 10,000+ 扩展源并集。
+- 输入逐行 UTC 时序检查：M1/MR1 预测 as-of 早于 kickoff，M3 训练截止早于 as-of 且 as-of 早于 kickoff；M1/M3 fixture-market 集合完全相同，MR1 比两者各少1,051项。所有选中历史 Crown API receipt 均为赛后，因此 ROI 是 retrospective event-time replay，不是同期可执行收益。仅新增脱敏聚合报告/README/交接记录；M1/MR1/M3/M4生产策略、TG、订单、账本及交易规则未改。
+
 ## 2026-11-07T09:27Z M5 Crown/TOTAL历史同场报价重叠审计
 - 新增 `research/m5/m5_cross_source_quote_overlap_audit.py`、2项单测及脱敏报告 `research/m5/results/m5_cross_source_quote_overlap_audit_20261107.json`（生成UTC `2026-11-07T09:27:09.158029Z`），对Crown和TotalCorner原始回执索引交集执行 M5 as-of、精确UTC kickoff、赛前盘口事件及fixture身份重验，公开输入SHA与聚合统计，不输出逐场ID/盘口/价格。
 - 2026 Q3中 AH/OU 同场索引重叠和 M5 as-of 后两源都有效的市场项均为0。全历史索引虽然有AH15、OU14个原始有效行交集，但严格重放后只有AH1场、OU0场双源报价可配对。该AH行同盘口线，双方报价最大差0.07，盘口事件时差5,284秒；两源事件均赛前，但全部API回执赛后。现有数据不能做同场同时点 provider 价差或归因，也不能将独立Crown/TOTAL子组收益差解释为价格优势。

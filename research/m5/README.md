@@ -37,6 +37,8 @@
 
 这纠正了此前把M4的“M3全量基线”误称为M4 Pass结果的汇总问题。M4原有Pass覆盖10,046场；MR1 V6单体严格共同Crown样本为9,517场，ROI为AH -1.5155%、OU -3.7818%；不能把这组较小样本与source-union全量直接当作同样本排名。MR1缺少的1,051场只在明确标记的MR1/M3组合中以M3回退，未复制或伪造MR1预测。历史盘口API回执均赛后取得，所有ROI是回顾性event-time回测，非同期可执行收益；本组任何市场均未达到+3%。
 
+2026-11-07 UTC 对 M1、MR1 V6、M3 Poisson、Dixon–Coles、Bivariate Poisson 又以同一 Crown 合约/赛果交集独立复跑，AH、OU 各 9,517 场，复核回执为[脱敏逐模型重跑报告](results/m5_m1_mr1_m3_same_crown_rerun_20261107.json)。AH ROI 依次为 M1 -2.2044%、MR1 -1.5155%、Poisson -2.9111%、Dixon–Coles -2.9511%、Bivariate -2.8784%；OU 为 M1 -3.1860%、MR1 -3.7818%、Poisson -3.7284%、Dixon–Coles -3.6449%、Bivariate -3.5754%。概率评分方面两市场 MR1 的 settlement Log Loss/Brier 最低，但全部 ROI 为负。逐场输入和报价来源均以 SHA-256 留证，公开回执不含比赛身份；历史 API 回执仍全部在开赛后。
+
 ## 2026-11-07 all-prior-OOS calibration: 11,537 场市场级留出
 
 使用 Crown-first、TotalCorner-default 补缺的真实历史档案，对 AH 和 OU 分开训练及评估。截止时间为 `2025-01-01T00:00:00Z`：每市场 105,472 个更早的 M5 OOS 预测/赛果用于拟合概率校准，不使用训练报价；训练 fixture IDs 与测试集互斥。随后在 11,537 个唯一 fixture-market 上比较原始预测、全局校准、score-grid log-loss 校准及联赛收缩校准。训练范围为 2014-01 至 2024-12 UTC，留出开赛范围为 2025-11-15 至 2026-11-04 UTC。
