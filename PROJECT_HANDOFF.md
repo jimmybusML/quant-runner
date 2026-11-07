@@ -1,3 +1,9 @@
+## 2026-11-07T08:14Z M5 前瞻批次 Crown 刷新、TOTAL 缺口核验及重新配对
+- 恢复同一冻结 forecast batch（generated UTC `2026-11-07T05:49:28.660813Z`，317 fixtures，SHA `5508b8ac2ee95893698598812449a55c83a0bc316e84f472d776fc51a7382a48`）；刷新 Crown capture UTC `2026-11-07T08:10:51.745556Z`：313尝试、301 verified，AH/OU合格盘口49/39；5身份错配、4身份/API失败、3传输错误。TotalCorner default gap runner UTC `08:13:53.218460Z` 发现311场已捕获、2场两市场Crown均覆盖而跳过，本次未重复请求。
+- 使用最新Crown index与TotalCorner index重新配对，UTC `08:14:07.822523Z`，pair SHA `ee5dece19f97e24ab965a385460c7abd28202780b126ea2d9fff9fffa2148b35`：AH76（Crown52/TOTAL24），OU69（Crown39/TOTAL30），共145唯一fixture-market、87 fixtures。相比旧pair 101项增加44项（AH22、OU22）。配对器以 fixture-market 去重且验证 `train_end < prediction_asof <= quote_event <= quote_received < kickoff`。
+- TotalCorner verified FT结算状态查询 UTC `08:14:29.264117Z`：已结0/145，pending145（85场未开赛、2场开赛未完）；AH/OU完整队列净额暂不可定且ROI均null，不能以0U作盈亏平衡。脱敏公开回执 `research/m5/results/m5_forward_shadow_capture_20261107T0549Z_refresh.json`，生成 UTC `08:14:40.298909Z`；报告未发布逐场身份、盘口或赔率。README和M5 workflow 新增对应记录及CI校验。
+- 该刷新只推进一个小型前瞻队列，不改变既有11,537场历史event-time OOS负ROI结论；本轮尚未提交、尚未触发/通过GitHub Actions。M1/MR1/M3/M4正式链路、Telegram、订单、账本、生产规则与自动晋升未改。
+
 ## 2026-11-07T07:27Z M5 05:49前瞻批次 Crown/TOTAL配对与结算状态
 - 对 forecast `2026-11-07T05:49:28.660813Z`（317场、SHA `5508b8ac2ee95893698598812449a55c83a0bc316e84f472d776fc51a7382a48`）按顺序完成 Crown 和 TOTAL 采集。Crown receipt UTC `06:49:10.840930Z`：315次请求、282 verified、6身份错配、27身份/API失败，合格AH12/OU10。TOTAL receipt UTC `07:22:01.773991Z`：313次请求、305 verified、8身份错配，合格补盘AH42/OU37；Crown已覆盖而跳过市场AH10/OU8，两市场均覆盖的比赛2场。
 - 双源去重配对UTC `07:22:46.476535Z`，pair SHA `041a0d3d270445c120d7b5f51c705c67fe710bf75abc51de4bcf816edb79930b`：AH54（Crown12/TOTAL42），OU47（Crown10/TOTAL37），合计101唯一fixture-market、65唯一比赛。全部满足 `train_end < prediction_asof <= quote_event <= quote_received < kickoff`。TotalCorner结果核验UTC `07:23:03.575003Z`：0已结、101 pending；64场尚未开赛、1场开赛未完，AH/OU ROI均null，不能将当前净0U误解为盈亏平衡。
