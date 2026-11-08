@@ -73,6 +73,51 @@ jobs:
               assert forbidden not in serialized
           print("M5 canonical Crown live receipt integrity: PASS")
           PY
+      - name: Validate canonical Crown historical 10k OOS replay
+        run: |
+          python - <<'PY'
+          import hashlib, json, math, re
+          from pathlib import Path
+
+          report = json.loads(Path("research/m5/results/m5_canonical_crown_summary_replay_20261108.json").read_text())
+          runner = Path("research/m5/m5_canonical_crown_summary_replay.py")
+          assert report["protocol"] == "M5_CANONICAL_CROWN_SUMMARY_EVENT_TIME_OOS_REPLAY_V1"
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          for key in ("runner_sha256", "forecast_sha256", "candidate_manifest_sha256", "response_hash_set_sha256"):
+              assert re.fullmatch(r"[0-9a-f]{64}", report[key])
+          assert report["canonical_capture_fixtures"] == report["forecasts_joined_to_capture_ids"] == 11582
+          assert report["training_test_fixture_id_overlap"] == 0
+          assert report["integrity"] == {
+              "actual_response_time_separate_from_quote_event_time": True,
+              "fixture_identity_score_and_utc_kickoff_verified": True,
+              "private_fixture_level_rows_published": False,
+              "quote_event_at_or_after_asof_and_before_kickoff": True,
+              "time_order_passed": True,
+              "training_end_before_prediction_asof_before_kickoff": True,
+              "unique_fixture_markets": True}
+          expected_n = {"AH": 10400, "OU": 10399}
+          for market, n in expected_n.items():
+              result = report["markets"][market]
+              assert result["unique_fixture_markets"] == result["simulated_bets"] == result["settled_bets"] == n
+              assert result["pending_bets"] == 0 and result["stake_units"] == n
+              assert result["quote_source_fixture_markets"] == {"Crown": n}
+              assert result["actual_response_receipt_timing"] == {"post_kickoff": n}
+              assert sum(result["settlement_counts"].values()) == n
+              assert abs(result["roi_pct"] - 100 * result["net_units"] / n) < 1e-6
+              assert sum(result["selected_quote_kinds"].values()) == n
+              assert sum(row["fixtures"] for row in result["by_utc_kickoff_year"].values()) == n
+              assert result["roi_bootstrap_95pct"]["upper_95_roi_pct"] < 0
+          assert report["research_objective"] == {
+              "minimum_fixture_markets_per_market": 10000,
+              "sample_target_reached": {"AH": True, "OU": True},
+              "roi_3pct_reached": {"AH": False, "OU": False},
+              "executable_roi_demonstrated": False}
+          serialized = json.dumps(report)
+          for forbidden in ('"match_id"', '"prices"', '"score_grid"', '"home_goals"',
+                            '"away_goals"', '"/Users/mac/', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 canonical Crown historical OOS replay integrity: PASS")
+          PY
       - name: Validate the public joint-model receipt
         run: |
           python - <<'PY'

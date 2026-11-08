@@ -1,5 +1,16 @@
 # M5 独立融合研究
 
+## 2026-11-08 canonical Crown 历史 summary 10k+ OOS 复跑
+
+将统一 SQLite 中与冻结 M5 51 联赛候选清单核对过 fixture ID、球队/联赛、UTC kickoff、比分和原始响应 SHA 的 Crown 历史 summary 原件（11,582 场）连接回归档的 M5 独立 score-grid OOS 预测。每个市场只保留一条同 fixture-market 的 Crown 盘口：从 `asian.open/close` 或 `goal.open/close` 中，选择预测 as-of 后、kickoff 前、且源事件时间不晚于实际接收时间的最新报价；每项按模型两侧期望收益较高的一侧模拟 1U，不设 EV 阈值或额外筛选。该次重新采集/入库仍属 `historical`，实际响应收到时间与盘口源事件时间分开验证。
+
+| 市场 | 唯一比赛 / 注数 | 净 U | ROI | W / HW / P / HL / L | 最大回撤 U | 结算 Log Loss / Brier | 95% bootstrap ROI |
+| --- | ---: | ---: | ---: | --- | ---: | --- | --- |
+| AH | 10,400 | -279.54 | -2.687885% | 4,146 / 725 / 707 / 722 / 4,100 | 307.305 | 1.030758 / 0.648482 | -4.394760% 至 -0.984279% |
+| OU | 10,399 | -361.57 | -3.476969% | 4,348 / 558 / 507 / 724 / 4,262 | 381.330 | 0.982684 / 0.620602 | -5.202952% 至 -1.739783% |
+
+2025/2026 kickoff 年 ROI 分别为 AH -7.518800% / -2.106593%、OU -5.662634% / -3.214209%；每条入选报价的原始 API 实际接收均在 kickoff 后，故仍是历史事件时间 OOS 回放，不是可执行 ROI。两市场均覆盖50个联赛，kickoff 范围 `2025-11-15T14:30Z`–`2026-11-04T17:00Z`；预测 as-of 范围 `2025-01-01T00:00Z`–`2026-01-01T00:00Z`；Crown source event 覆盖 AH `2025-11-03T17:55:42Z`–`2026-11-04T16:57:15Z`、OU `2025-11-03T17:55:43Z`–`2026-11-04T16:28:46Z`。provider response 实际接收覆盖 `2026-11-04T17:54:57Z`–`2026-11-06T04:10:50Z`，全部赛后取得。两个市场都达到本轮10,000场历史样本数量，但 ROI 均未达到+3%，bootstrap 区间上界也低于0。可复跑 runner [`m5_canonical_crown_summary_replay.py`](m5_canonical_crown_summary_replay.py)、脱敏聚合回执 [`m5_canonical_crown_summary_replay_20261108.json`](results/m5_canonical_crown_summary_replay_20261108.json)；逐场预测、报价和赛果留在本机私有目录。此处预测来自 M5 自己的 goal-rate score-grid 模型，不代表 M1/MR1/M3；跨模型结果见前述独立对照报告。
+
 ## 2026-11-08 统一 Crown 现场采集器接入 M5 前瞻样本
 
 对 2026-11-07 生成的 M5-only forecast（313 场，SHA `ada46761fa4a86a7cf81527ebc1f8ddad128e8d519a52a04fe990ad10a04c20a`），从共享 Crown 采集器中只选择当时尚未开赛的 162 场，使用已确认的 `crown_capture_store.py`、`live/summary` 保存真实响应。采集响应时间为 `2026-11-08T13:04:49Z` 至 `13:19:40Z`，162 条均有赛前接收标记；再以原始响应 SHA、TotalCorner fixture ID、球队/联赛及精确 UTC kickoff 对照预测身份。85 场身份与开赛时间验证通过；75 场响应无 Crown bookmaker，2 场身份或 UTC kickoff 不符而拒绝。对验证通过的响应，AH 有83、OU有82个盘口事件满足 `prediction_asof <= quote_source_time <= response_received < kickoff`。OU 从同一 Crown 原始响应 `goal.open/close` 单独解析；共享采集库的 AH 规范表不被误当作 OU 表。
