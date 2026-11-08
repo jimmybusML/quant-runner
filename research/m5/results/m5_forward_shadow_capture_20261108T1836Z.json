@@ -1,0 +1,170 @@
+{
+  "crown_capture": {
+    "aggregate_counts": {
+      "NO_CROWN_AH_QUOTES": 76,
+      "SAVED": 10,
+      "canonical_quote_rows": 20,
+      "identity_verified_responses": 86,
+      "other_statuses": {},
+      "prospective_observation": 86
+    },
+    "attempted_fixtures": 86,
+    "response_hash_set_sha256": "61064a0d1e85044e4f4259f0e391461caab4ddfe2cccc62a7ae15a6f824959f5"
+  },
+  "crown_capture_generated_utc": "2026-11-08T18:49:27.794676Z",
+  "crown_capture_receipt_sha256": "ae96c9d545cefe9cadaa76997322aa3299ca722f5d4e90a395c91c62966f62e1",
+  "crown_index_sha256": "03594d7a9953a3af0de45df5b07c6e457e310a488b4cfd29d645710290127385",
+  "forecast_fixture_count": 86,
+  "forecast_generated_utc": "2026-11-08T18:36:09.735019Z",
+  "forecast_receipt_sha256": "f1b3b3488e8a0fffd36ea473c25f0d3b46b47fb98b405a24ff4190b51da0427f",
+  "forecast_sha256": "7300dcccea47c781fc93ebcf59889a0f13edd39188e1e204a7f7c8fd4a6ce491",
+  "generated_utc": "2026-11-08T19:05:29.430513Z",
+  "integrity": {
+    "all_fixture_markets_unique": true,
+    "private_fixture_level_data_published": false,
+    "settlement_performed": true,
+    "source_separated": true,
+    "train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff": true
+  },
+  "kickoff_coverage_utc": [
+    "2026-11-08T19:00:00Z",
+    "2026-11-22T16:30:00Z"
+  ],
+  "limitations": [
+    "The paired cohort settlement has pending fixture-markets; full-cohort ROI remains null.",
+    "AH and OU paired samples are reported independently and remain below 10,000.",
+    "Crown is preferred per fixture-market; TotalCorner default only fills missing Crown markets.",
+    "Raw fixture identities, score grids, lines, prices and API responses remain private."
+  ],
+  "markets": {
+    "AH": {
+      "fixture_markets_pending_settlement_verification": 4,
+      "max_drawdown_units": null,
+      "net_units": null,
+      "receipt_timing": "all paired receipts were before kickoff",
+      "roi_pct": null,
+      "settled_fixture_markets": 0,
+      "source_fixture_markets": {
+        "Crown": 2,
+        "TotalCorner_default": 2
+      },
+      "unique_fixture_markets": 4
+    },
+    "OU": {
+      "fixture_markets_pending_settlement_verification": 4,
+      "max_drawdown_units": null,
+      "net_units": null,
+      "receipt_timing": "all paired receipts were before kickoff",
+      "roi_pct": null,
+      "settled_fixture_markets": 0,
+      "source_fixture_markets": {
+        "Crown": 2,
+        "TotalCorner_default": 2
+      },
+      "unique_fixture_markets": 4
+    }
+  },
+  "pair_receipt_sha256": "b51d258285c14ca086a7865bbcd22472cfccef9de2df347b3ac9345e2cc37dc9",
+  "pair_sha256": "30e771e6f561fe1ff94302a5a7ab13d439dee31cdc5896dc5201002f5533b364",
+  "paired_fixture_markets": 8,
+  "paired_fixture_markets_by_market": {
+    "AH": 4,
+    "OU": 4
+  },
+  "pairing_audit_counts": {
+    "AH_crown_preferred": 2,
+    "AH_no_eligible_totalcorner_quote": 82,
+    "AH_paired_Crown_fixture_markets": 2,
+    "AH_paired_TotalCorner_default_fixture_markets": 2,
+    "OU_crown_preferred": 2,
+    "OU_no_eligible_totalcorner_quote": 82,
+    "OU_paired_Crown_fixture_markets": 2,
+    "OU_paired_TotalCorner_default_fixture_markets": 2,
+    "no_totalcorner_response": 9
+  },
+  "pairing_generated_utc": "2026-11-08T19:04:11.495676Z",
+  "protocol": "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1",
+  "sanitizer_sha256": "f9a90af8325f3968a36594accedcf737d472e4d0df93e1f40082c03b9aeeeae0",
+  "settlement": {
+    "capture_counts": {
+      "not_ft_at_receipt": 2,
+      "not_yet_kicked_off": 3
+    },
+    "fixture_count": 5,
+    "generated_utc": "2026-11-08T19:04:57.207333Z",
+    "markets": {
+      "AH": {
+        "max_drawdown_units_by_kickoff": null,
+        "net_units": 0.0,
+        "paired_source_fixture_markets": {
+          "Crown": 2,
+          "TotalCorner_default": 2
+        },
+        "pending_bets": 4,
+        "realized_roi_on_settled_stake_pct": null,
+        "roi_pct": null,
+        "settled_bets": 0,
+        "settled_source_fixture_markets": {},
+        "settled_stake_units": 0.0,
+        "settlement_counts": {
+          "half_loss": 0,
+          "half_win": 0,
+          "loss": 0,
+          "push": 0,
+          "win": 0
+        },
+        "simulated_bets": 4,
+        "total_stake_units": 4.0,
+        "unique_fixture_markets": 4
+      },
+      "OU": {
+        "max_drawdown_units_by_kickoff": null,
+        "net_units": 0.0,
+        "paired_source_fixture_markets": {
+          "Crown": 2,
+          "TotalCorner_default": 2
+        },
+        "pending_bets": 4,
+        "realized_roi_on_settled_stake_pct": null,
+        "roi_pct": null,
+        "settled_bets": 0,
+        "settled_source_fixture_markets": {},
+        "settled_stake_units": 0.0,
+        "settlement_counts": {
+          "half_loss": 0,
+          "half_win": 0,
+          "loss": 0,
+          "push": 0,
+          "win": 0
+        },
+        "simulated_bets": 4,
+        "total_stake_units": 4.0,
+        "unique_fixture_markets": 4
+      }
+    },
+    "paired_input_sha256": "30e771e6f561fe1ff94302a5a7ab13d439dee31cdc5896dc5201002f5533b364",
+    "pending_fixture_markets": 8,
+    "production_or_telegram_changes": false,
+    "settled_fixture_markets": 0,
+    "timing": "FT scores accepted only from verified TotalCorner /match/view responses received after UTC kickoff; raw responses and row-level settlements remain private.",
+    "verified_result_response_hash_set_sha256": "db4726ca28e08263ed735a5c43dea85a3133bc8196272a7f6fd1c0f618e1e5c5"
+  },
+  "totalcorner_capture": {
+    "aggregate_counts": {
+      "AH_default_qualified_fixture_markets": 2,
+      "OU_default_qualified_fixture_markets": 2,
+      "crown_preferred_AH_skips": 1,
+      "crown_preferred_OU_skips": 1,
+      "crown_preferred_all_market_skips": 1,
+      "fixture_or_api_identity_mismatch": 8,
+      "request_attempts": 85,
+      "verified_fixture_responses": 77
+    },
+    "attempted_fixtures": 85,
+    "forecast_candidate_fixtures": 86,
+    "generated_utc": "2026-11-08T19:04:02.021779Z",
+    "response_hash_set_sha256": "6df442fc5f9250002493797779c7d2bad889dc59842eeacc1930ba452bef908c",
+    "source_rule": "Crown is preferred per fixture-market; TotalCorner default is selected only when Crown has no qualifying post-asof pre-kickoff quote."
+  },
+  "totalcorner_index_sha256": "d68bf578990ceb153e598f4cb1ae28b29f63a5b0ee9afd082db2db7feef6b5c7"
+}

@@ -1231,6 +1231,12 @@ AH、OU均未完成本队列结算，故已结子集 ROI 不代表最终队列�
 
 采价前的严格配对核验显示：截至 `2026-11-08T17:44Z` 有94场未开赛；Crown有93个赛事身份匹配，但 AH/OU 都没有同时满足预测后报价事件、开赛前实际接收的有效市场项；新 forecast SHA 下尚无 TotalCorner 回执。故本批尚无盘口配对、结算或 ROI。共享 TotalCorner API 当时仍被另一采集进程使用，因此未并发请求。该预测批次不构成下注或收益证据，未改生产策略。
 
+### 2026-11-08T17:45Z 前瞻报价配对与首轮结算
+
+对冻结的94场 forecast SHA `22182e912e9c962b59d2d342edc0096e1aa0a2b45f8b202deae97c50991355b9` 按 Crown 优先采价。Crown 共请求94场，88条响应通过赛事身份核验，5条API/身份失败、1条赛事身份不匹配；得到赛前且报价事件晚于预测时点的Crown AH 7场、OU 2场。随后 TotalCorner default 针对90个当时仍未开赛候选发起89次请求（1场 AH/OU 均已有合格 Crown 报价而跳过），85条身份核验成功、4条身份不匹配；只补入 Crown 缺盘项，新增AH 8场、OU 10场。来源分开后，共27个唯一 fixture-market：AH 15（Crown 7、TotalCorner 8），OU 12（Crown 2、TotalCorner 10），无同场同市场重复。
+
+配对逐场均通过 `train_end_utc < prediction_asof_utc <= quote_event_utc <= quote_received_utc < kickoff_utc`。首次 FT 核验时间 `2026-11-08T18:26:10.607937Z` 查询16个赛事，尚无已验证终场比分；AH 0/15、OU 0/12 已结，全部27项待结，因此净值/ROI/回撤均为null，不能把0记作亏盈或宣称收益。脱敏回执见[17:45Z Crown/TOTAL配对与结算状态](results/m5_forward_shadow_capture_20261108T1745Z.json)。本批是前瞻shadow小样本，远未达到每市场10,000场历史研究目标；未改变模型、交易、TG、账本或Gate。
+
 ### 2026-11-08T17:18Z Crown 移动盘口离线回放
 
 对 M5 已有逐场样本外预测和本地已存 Crown 历史响应做离线匹配，不发起新 API 请求。只保留精确响应 SHA、赛事身份、比分及 UTC kickoff 一致的样本，并要求预测训练截止时间早于预测时点、Crown 报价事件时点早于 kickoff；实际响应接收均发生在 kickoff 后，因此只能称为按盘口事件时间回放，不能称为赛前实收成交。2025–2026 预测与已存 Crown movement 交集共4,890场；AH有4,876条有效盘口，OU有4,875条，分别有14/15条无合格 movement 盘口。AH每场一笔1U回放净亏135.21U、ROI -2.7730%、最大回撤152.68U；OU净亏152.945U、ROI -3.1373%、最大回撤166.54U。用同赛事最新 open/close summary 报价回放分别为AH -2.8561%、OU -3.1899%。逐场 movement 相对 summary 的配对ROI差异95%区间均跨过0，暂未显示稳定优势。AH/OU分别独立核算，报告不包含逐场身份、精确盘口或比分，见[脱敏结果](results/m5_canonical_crown_movement_replay_20261109.json)。这是既有预测/赛果上的探索性分析，不是新独立留出集；不改变任何生产模型、订单、TG、Gate或账本。
@@ -1238,3 +1244,11 @@ AH、OU均未完成本队列结算，故已结子集 ROI 不代表最终队列�
 ### 2026-11-08T17:30Z Crown movement 新增采集复核
 
 在共享 TotalCorner 采集器仍运行时仅做 SQLite read-only 离线刷新，没有发起网络请求。movement 库持续增加记录，但当前 M5 2025–2026 OOS forecast 对应的精确响应集合未改变：forecast匹配仍4,890，AH/OU合格报价仍4,876/4,875，输入M5索引和响应SHA均与17:18Z报告相同；净值/ROI也不变。故这轮底层库采集没有给当前 M5 OOS 队列增加新学习信息。刷新回执为[17:30Z聚合报告](results/m5_canonical_crown_movement_replay_refresh_20261108T1729Z.json)。
+
+### 2026-11-08T18:36Z 新增 M5 前瞻预测、Crown 现场采集与 TOTAL 补缺
+
+从冻结 M5 范围内缓存赛程生成 86 场独立前瞻预测，生成 UTC `2026-11-08T18:36:09.735019Z`，训练清单 SHA 与前批一致，训练结束早于预测时间、预测时间早于 kickoff。按已确认本地统一采集器进行 Crown `live/summary` 采集：86 个赛事响应均完成身份核验并在开赛前实际收到，76 场响应无 Crown AH 报价，10 场有规范盘口行；其中只有少量盘口源事件晚于本次预测时点，旧源事件报价不配给本批预测。
+
+对 Crown 无合格预测后盘口的赛事调用 TotalCorner default 补缺，85 次请求、77 次赛事身份核验通过、8 次身份不匹配剔除。按 `train_end < prediction_asof <= quote_event <= quote_received < kickoff` 配对后，AH 4 项（Crown 2、TotalCorner default 2），OU 4 项（Crown 2、TotalCorner default 2），共8个唯一 fixture-market，无重复。已查询5个已开赛 fixture 的 FT，0项返回已验证完场结果；8项全部待结，AH/OU全队列 ROI 均为 null。
+
+脱敏聚合回执见[18:36Z 前瞻 Crown/TOTAL 配对](results/m5_forward_shadow_capture_20261108T1836Z.json)。模型预测、身份、盘口、比分和 API 原始响应均留在本机私有目录；本批不是 10,000 场收益证据，也不满足 M5 ROI≥3% 目标。未改 M1/MR1/M3/M4 生产策略、TG、订单、正式账本或 Gate。

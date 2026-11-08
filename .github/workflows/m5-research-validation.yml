@@ -1012,3 +1012,72 @@ jobs:
               assert field not in json.dumps(report)
           print("M5 17:45Z public forecast receipt integrity: PASS")
           PY
+      - name: Validate 2026-11-08T1745Z M5 Crown and TotalCorner pairing
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(Path("research/m5/results/m5_forward_shadow_capture_20261108T1745Z.json").read_text())
+          assert report["protocol"] == "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1"
+          assert report["forecast_fixture_count"] == 94
+          assert report["forecast_sha256"] == "22182e912e9c962b59d2d342edc0096e1aa0a2b45f8b202deae97c50991355b9"
+          assert report["crown_capture"]["aggregate_counts"] == {
+              "AH_qualified_fixture_markets": 7, "OU_qualified_fixture_markets": 2,
+              "fixture_or_crown_identity_mismatch": 1, "identity_or_api_failure": 5,
+              "verified_fixture_responses": 88}
+          assert report["totalcorner_capture"]["aggregate_counts"]["verified_fixture_responses"] == 85
+          assert report["totalcorner_capture"]["aggregate_counts"]["fixture_or_api_identity_mismatch"] == 4
+          assert report["pairing"]["paired_fixture_markets"] == {"AH": 15, "OU": 12}
+          assert report["pairing"]["source_fixture_markets_by_market"] == {
+              "AH": {"Crown": 7, "TotalCorner_default": 8},
+              "OU": {"Crown": 2, "TotalCorner_default": 10}}
+          assert report["pairing"]["unique_fixture_market_keys"] == report["pairing"]["time_order_valid_rows"] == 27
+          assert report["pairing"]["time_order_invalid_rows"] == 0
+          assert report["settlement"]["settled_fixture_markets"] == 0
+          assert report["settlement"]["pending_fixture_markets"] == 27
+          assert all(report["settlement"]["markets"][m]["roi_pct"] is None for m in ("AH", "OU"))
+          assert report["integrity"]["fixture_level_data_published"] is False
+          assert report["integrity"]["sources_kept_separate"] is True
+          assert report["integrity"]["no_duplicate_fixture_market_bets"] is True
+          assert report["integrity"]["all_paired_quotes_received_before_kickoff"] is True
+          assert report["integrity"]["train_end_before_asof_before_quote_before_receipt_before_kickoff"] is True
+          assert report["integrity"]["production_or_telegram_changes"] is False
+          serialized = json.dumps(report)
+          for field in ('"match_id"', '"home"', '"away"', '"line"', '"prices"', '"score_grid"'):
+              assert field not in serialized
+          print("M5 17:45Z Crown and TotalCorner pairing integrity: PASS")
+          PY
+      - name: Validate 2026-11-08T1836Z M5 forward Crown and TotalCorner pairing
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+
+          report = json.loads(Path("research/m5/results/m5_forward_shadow_capture_20261108T1836Z.json").read_text())
+          assert report["protocol"] == "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1"
+          assert report["forecast_fixture_count"] == 86
+          assert re.fullmatch(r"[0-9a-f]{64}", report["forecast_sha256"])
+          assert report["crown_capture"]["attempted_fixtures"] == 86
+          assert report["crown_capture"]["aggregate_counts"]["identity_verified_responses"] == 86
+          assert report["crown_capture"]["aggregate_counts"]["NO_CROWN_AH_QUOTES"] == 76
+          assert report["totalcorner_capture"]["attempted_fixtures"] == 85
+          assert report["totalcorner_capture"]["aggregate_counts"]["verified_fixture_responses"] == 77
+          assert report["totalcorner_capture"]["aggregate_counts"]["fixture_or_api_identity_mismatch"] == 8
+          assert report["paired_fixture_markets_by_market"] == {"AH": 4, "OU": 4}
+          for market in ("AH", "OU"):
+              assert report["markets"][market]["source_fixture_markets"] == {"Crown": 2, "TotalCorner_default": 2}
+              assert report["markets"][market]["settled_fixture_markets"] == 0
+              assert report["markets"][market]["fixture_markets_pending_settlement_verification"] == 4
+              assert report["markets"][market]["net_units"] is None
+              assert report["markets"][market]["roi_pct"] is None
+          assert report["integrity"]["all_fixture_markets_unique"] is True
+          assert report["integrity"]["source_separated"] is True
+          assert report["integrity"]["train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff"] is True
+          assert report["integrity"]["private_fixture_level_data_published"] is False
+          assert report["settlement"]["production_or_telegram_changes"] is False
+          serialized = json.dumps(report)
+          for field in ('"match_id"', '"home"', '"away"', '"line"', '"prices"', '"score_grid"', '"private/tmp'):
+              assert field not in serialized
+          print("M5 18:36Z forward Crown and TotalCorner receipt integrity: PASS")
+          PY
