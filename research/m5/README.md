@@ -1199,3 +1199,11 @@ AH 的2025 Log Loss最优权重退化为MR1单模；OU的概率融合改善了 p
 M3 的 Poisson、Dixon–Coles、Bivariate Poisson 保存了完整比分网格，按本轮 Crown 的实际盘口线和双方价格重新选边、计算 settlement probabilities 并结算；有效覆盖 AH 9,591 / OU 9,590。M1 与 MR1 V6 只保存旧合约线上的五类结算概率；严格要求预测档案存在、原盘口线与本轮 Crown 线精确相同且预测事件不晚于本轮 quote event。可用覆盖 AH：M1 8,191、MR1 8,129；OU：M1 8,300、MR1 8,237。其余不跨盘口线套用概率。报告另列五方案完全相同 fixture-market 的共同样本：AH 8,129、OU 8,237，作为模型间最公平的同场比较。MR1 单体未补齐缺失场次。M4 仅是现有 Japan J-League / Türkiye Super Lig Pass 研究规则应用于 M3；同时报告其全覆盖与共同样本结果，并明确该 Pass 是事后研究，不是独立模型或未触碰留出。
 
 全样本可用行的 ROI 均为负。严格共同样本 ROI：AH MR1 -0.95%、M1 -2.15%、M3 Bivariate -2.74%、M3 Poisson -2.85%、M3 Dixon–Coles -2.95%；OU M1 -2.73%、M3 Bivariate -3.31%、M3 Dixon–Coles -3.35%、M3 Poisson -3.44%、MR1 -3.52%。共同样本 proper scores、逐年、最大回撤、结算分布及重抽样区间均见 JSON 回执。M4共同样本两市场也为负。没有任何方案达到 +3%。逐场输入/输出仅留本机私有目录；公开回执只包含聚合指标和文件哈希。
+
+## 2026-11-09 M3 penaltyblog 原版在新 Crown 万场上的重新前推训练
+
+为扩展 M3 对新归档的覆盖，新增 [`m5_canonical_crown_penaltyblog_refit.py`](m5_canonical_crown_penaltyblog_refit.py) 与脱敏聚合报告 [逐年重新拟合结果](results/m5_canonical_crown_penaltyblog_refit_20261109.json)。训练只使用冻结 51 联赛候选赛果清单里同联赛、目标 UTC 年 1 月 1 日之前完赛的比赛；分别拟合 penaltyblog 默认 Poisson、Dixon–Coles 和 Bivariate Poisson。各测试场次按 ID/联赛/UTC kickoff/赛果与清单核验，训练截止严格早于该年 1 月 1 日，再用 Crown quote event（event < kickoff）及双方真实价格独立选边结算。仅 Crown，不使用 TotalCorner。AH 新队列 10,400，OU 10,399；完整的三套原版模型可预测 9,591 / 9,590 场。缺少的 809 场是年初训练集中的未知队伍，原版严格结果不作填补。
+
+另做了明确标记的 `LeagueAvgFallback` 研究版本：仅当对应原版模型不能识别参赛队时，用同联赛、同年初训练集主客场均进球率构造独立 Poisson 分布。该版本完整覆盖 AH 10,400 / OU 10,399 场，仍是一场一项、1U结算，没有投注数量或 EV 条件。AH ROI：严格原版 Bivariate -3.067%、Poisson -3.095%、Dixon–Coles -3.241%；联赛平均回退版分别 -3.335%、-3.361%、-3.495%。OU 严格原版分别 -3.684%、-3.748%、-3.820%；回退版分别 -3.924%、-3.983%、-4.050%。回退还使 Log Loss/Brier 变差；全部 95% bootstrap ROI 区间上界仍低于0。2025单独子样本各模型约 -6% 至 -9%，2026亦均为负。此轮成功达到三模型每市场万场覆盖，不满足 ROI ≥3% 目标。
+
+报价 source event 为赛前，但 Crown 历史响应实际接收范围在 2026-11-04 至 2026-11-06，均晚于比赛 kickoff；因此结果是严格按训练截止与盘口事件前推的 retrospective OOS，不是同期可执行收益。91 个联赛/UTC年训练折，目标队伍不在训练集的场次只进入显式回退对照，输入/模型/赔率/赛果逐场结果保存在机密目录。报告含候选清单和 quote 输入 SHA、运行器 SHA、逐年覆盖和校准/收益指标，不含 fixture identity 或价格。

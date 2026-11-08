@@ -153,6 +153,41 @@ jobs:
               assert forbidden not in serialized
           print("M5 model-family canonical Crown comparison integrity: PASS")
           PY
+      - name: Validate annual-refit penaltyblog Crown OOS report
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_canonical_crown_penaltyblog_refit_20261109.json")
+          runner = Path("research/m5/m5_canonical_crown_penaltyblog_refit.py")
+          report = json.loads(path.read_text())
+          assert report["protocol"] == "M5_CANONICAL_CROWN_PENALTYBLOG_ANNUAL_WALK_FORWARD_OOS_V1"
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          for value in (report["runner_sha256"], *report["inputs"].values()):
+              assert re.fullmatch(r"[0-9a-f]{64}", value)
+          assert report["canonical_crown_fixture_markets_by_market"] == {"AH": 10400, "OU": 10399}
+          assert report["unique_target_fixtures"] == 10400
+          assert report["three_model_predictions_with_league_average_unseen_team_fallback"] == 10400
+          assert report["complete_three_model_oos_fixture_predictions"] == 9591
+          assert report["fold_count"] == 91 and report["target_utc_years"] == [2025, 2026]
+          assert report["time_order_passed"] is True and report["training_test_fixture_ids_disjoint"] is True
+          assert report["fixture_level_rows_published"] is False
+          assert report["quote_source"] == "Crown only; no TotalCorner substitution."
+          for market, expected in (("AH", 10400), ("OU", 10399)):
+              for name, model in report["markets"][market].items():
+                  n = expected if name.endswith("LeagueAvgFallback") else (9591 if market == "AH" else 9590)
+                  assert model["simulated_bets"] == model["settled_bets"] == n
+                  assert sum(model["settlement_counts"].values()) == n
+                  assert abs(model["roi_pct"] - 100 * model["net_units"] / n) < 1e-6
+                  assert model["quote_sources"] == {"Crown": n}
+                  assert model["response_receipt_timing"] == {"post_kickoff": n}
+                  assert model["bootstrap_95_roi_pct"]["upper"] < 0
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"prices"', '"grids"', '"home_goals"', '"away_goals"', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 annual-refit penaltyblog Crown OOS integrity: PASS")
+          PY
       - name: Validate the public joint-model receipt
         run: |
           python - <<'PY'
