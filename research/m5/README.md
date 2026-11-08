@@ -1224,3 +1224,7 @@ AH、OU均未完成本队列结算，故已结子集 ROI 不代表最终队列�
 从现有 M5 私有历史 manifest 与已缓存的范围内 TotalCorner schedule 生成独立 M5 预测，没有读取 M1/MR1 预测、盘口、订单或账本。共生成 106 个唯一未来 fixture，覆盖 24 个有历史训练数据的联赛；identity conflict 0、无训练记录联赛 0。每联赛训练行数 695–4,833（中位数 3,551），训练赛果截止 `2026-11-01T13:00:00Z` 至 `2026-11-04T17:00:00Z`，预测 as-of `2026-11-08T16:37:08.219144Z`，目标 kickoff 范围 `2026-11-08T17:00:00Z` 至 `2026-11-23T20:00:00Z`。逐场比分网格和赛事身份留在私有目录；脱敏批次回执见[forecast receipt](results/m5_forward_forecast_20261108T1637Z.json)，forecast SHA `f74db0cafec6ca6b361410aa85a638a468982541db0c157236760b7aaaf4cd9d`，历史 manifest SHA `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`。
 
 该文件目前只证明预测批次可追溯，尚未配对赛前 Crown 或 TotalCorner 盘口，也未结算或计算 ROI。发现已有 M3 historical movement collector 正在使用共享 TotalCorner 接口，因此此批次暂缓采价，避免并发占用接口。M5 收益与每市场10,000场目标均未达到；未改生产策略或任何交易规则。
+
+### 2026-11-08T17:18Z Crown 移动盘口离线回放
+
+对 M5 已有逐场样本外预测和本地已存 Crown 历史响应做离线匹配，不发起新 API 请求。只保留精确响应 SHA、赛事身份、比分及 UTC kickoff 一致的样本，并要求预测训练截止时间早于预测时点、Crown 报价事件时点早于 kickoff；实际响应接收均发生在 kickoff 后，因此只能称为按盘口事件时间回放，不能称为赛前实收成交。2025–2026 预测与已存 Crown movement 交集共4,890场；AH有4,876条有效盘口，OU有4,875条，分别有14/15条无合格 movement 盘口。AH每场一笔1U回放净亏135.21U、ROI -2.7730%、最大回撤152.68U；OU净亏152.945U、ROI -3.1373%、最大回撤166.54U。用同赛事最新 open/close summary 报价回放分别为AH -2.8561%、OU -3.1899%。逐场 movement 相对 summary 的配对ROI差异95%区间均跨过0，暂未显示稳定优势。AH/OU分别独立核算，报告不包含逐场身份、精确盘口或比分，见[脱敏结果](results/m5_canonical_crown_movement_replay_20261109.json)。这是既有预测/赛果上的探索性分析，不是新独立留出集；不改变任何生产模型、订单、TG、Gate或账本。
