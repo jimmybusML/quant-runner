@@ -1,3 +1,7 @@
+## 2026-11-08T20:15Z M5 17:45Z前瞻批次首轮FT结算
+
+在共享采集负载下以3.1秒最小间隔复用既有 TotalCorner 授权，只查询17:45Z批次已开赛 fixture；未开赛项跳过。16个fixture中5个收到并通过身份/开赛UTC核验的FT，8个响应时尚未FT、3个尚未开赛；本次结算覆盖AH/OU配对8项，另19项仍待结。AH：15注、已结5、待结10；W/HW/P/HL/L=`0/2/1/0/2`，已结净额 `-1.11U`，已结本金ROI `-22.2%`，全队列ROI `null`，DD `1.11U`。OU：12注、已结3、待结9；`1/0/0/0/2`，净额 `-1.07U`，已结本金ROI `-35.666667%`，全队列ROI `null`，DD `2.0U`。结算来源分别为AH Crown 5、OU Crown 2 / TotalCorner-default 1；样本极小且未全部结算，不代表完整队列收益。脱敏回执 [`m5_forward_shadow_settlement_20261108T1745Z_refresh_20261108T2014Z.json`](results/m5_forward_shadow_settlement_20261108T1745Z_refresh_20261108T2014Z.json)；逐场比赛、分数、价格和raw响应留在本机私有目录。本次无TG通知、生产策略或交易账本变更。
+
 ## 2026-11-08T20:04Z Crown历史库增长后的M1/MR1/M3逐模型复跑核验
 
 复用本机授权 M5 manifest（127,674个候选）、冻结 M5 OOS forecast（SHA-256 `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`）和当前 Crown SQLite，只读重跑 `m5_canonical_crown_summary_replay.py` 与 `m5_model_family_canonical_crown_comparison.py`。Crown historical/summary 捕获数从先前交接的11,582增至12,160，全部属于冻结候选；预测连接12,138场，身份/UTC赛果/原始响应校验后可用市场仍为 AH 10,400、OU 10,399。新增捕获没有带来新的预测as-of之后且kickoff之前的有效报价；选中报价和模型逐场结果的输入哈希及聚合输出与既有公开回执一致，故本次无新增学习信息。
