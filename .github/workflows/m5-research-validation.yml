@@ -1095,6 +1095,10 @@ jobs:
           assert report["totalcorner_capture"]["aggregate_counts"] == {"fixture_or_api_identity_mismatch": 8, "verified_fixture_response": 75}
           assert report["totalcorner_capture"]["eligible_default_fixture_markets"] == {"AH": 0, "OU": 0}
           assert report["pairing"]["paired_fixture_markets_by_market"] == {"AH": 3, "OU": 1}
+          assert report["latest_crown_refresh"]["aggregate_counts"] == {"SAVED": 1}
+          assert report["latest_crown_refresh"]["source_event_eligible_after_prediction"] is False
+          assert report["latest_crown_refresh"]["eligible_fixture_markets_added"] == {"AH": 0, "OU": 0}
+          assert report["latest_crown_refresh"]["pairing_and_markets_unchanged"] is True
           assert report["pairing"]["integrity"] == {"fixture_markets_unique": True, "fixture_rows_published": False, "source_separated": True, "train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff": True}
           for market, n in (("AH", 3), ("OU", 1)):
               result = report["markets"][market]

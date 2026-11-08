@@ -6,6 +6,8 @@ M5 独立模型基于未变化的历史 manifest 生成84场预测。统一 Crow
 
 采集过程中发现并修复 `X-Rate-Limit-Reset` 被误作相对等待秒数的问题；当前按 TotalCorner 的 reset 时间解释 Unix 秒时间戳，并兼容相对秒数。新增测试覆盖两种表达与无效值回退。该改动只影响研究采集的请求节奏，不改变盘口、模型或交易规则。
 
+随后在最后一场未开赛 fixture 上刷新 Crown 一次；API 实际响应为开赛前，但返回的盘口源事件早于本批预测，所以不合格且没有增加配对。刷新后仍为 AH 3 / OU 1，来源全部 Crown，赛果待结；细节已追加到同一脱敏回执。
+
 ## 2026-11-08 canonical Crown 历史 summary 10k+ OOS 复跑
 
 将统一 SQLite 中与冻结 M5 51 联赛候选清单核对过 fixture ID、球队/联赛、UTC kickoff、比分和原始响应 SHA 的 Crown 历史 summary 原件（11,582 场）连接回归档的 M5 独立 score-grid OOS 预测。每个市场只保留一条同 fixture-market 的 Crown 盘口：从 `asian.open/close` 或 `goal.open/close` 中，选择预测 as-of 后、kickoff 前、且源事件时间不晚于实际接收时间的最新报价；每项按模型两侧期望收益较高的一侧模拟 1U，不设 EV 阈值或额外筛选。该次重新采集/入库仍属 `historical`，实际响应收到时间与盘口源事件时间分开验证。
