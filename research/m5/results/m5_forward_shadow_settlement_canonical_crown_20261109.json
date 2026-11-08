@@ -1,0 +1,75 @@
+{
+  "capture_counts": {
+    "already_verified_ft": 21,
+    "not_ft_at_receipt": 33,
+    "not_yet_kicked_off": 32,
+    "verification_error": 1,
+    "verified_ft": 18
+  },
+  "fixture_count": 105,
+  "generated_utc": "2026-11-08T16:24:54.934674Z",
+  "markets": {
+    "AH": {
+      "max_drawdown_units_by_kickoff": 6.47,
+      "net_units": 0.42,
+      "paired_source_fixture_markets": {
+        "Crown": 83,
+        "TotalCorner_default": 19
+      },
+      "pending_bets": 66,
+      "realized_roi_on_settled_stake_pct": 1.166667,
+      "roi_pct": null,
+      "settled_bets": 36,
+      "settled_source_fixture_markets": {
+        "Crown": 18,
+        "TotalCorner_default": 18
+      },
+      "settled_stake_units": 36.0,
+      "settlement_counts": {
+        "half_loss": 1,
+        "half_win": 3,
+        "loss": 15,
+        "push": 1,
+        "win": 16
+      },
+      "simulated_bets": 102,
+      "total_stake_units": 102.0,
+      "unique_fixture_markets": 102
+    },
+    "OU": {
+      "max_drawdown_units_by_kickoff": 4.16,
+      "net_units": -0.4275,
+      "paired_source_fixture_markets": {
+        "Crown": 82,
+        "TotalCorner_default": 16
+      },
+      "pending_bets": 64,
+      "realized_roi_on_settled_stake_pct": -1.257353,
+      "roi_pct": null,
+      "settled_bets": 34,
+      "settled_source_fixture_markets": {
+        "Crown": 18,
+        "TotalCorner_default": 16
+      },
+      "settled_stake_units": 34.0,
+      "settlement_counts": {
+        "half_loss": 1,
+        "half_win": 3,
+        "loss": 15,
+        "push": 0,
+        "win": 15
+      },
+      "simulated_bets": 98,
+      "total_stake_units": 98.0,
+      "unique_fixture_markets": 98
+    }
+  },
+  "method": "One 1U shadow bet per unique pregame-paired fixture-market; choose the higher M5 model expected return at the observed line and two prices; Asian quarter/half-line settlement; no extra filter. Final cohort ROI is null until every simulated bet settles; settled-only ROI is reported separately.",
+  "paired_input_sha256": "8374dceff535fd6e605bf05a27f916947902c475810f46939a177f1d8dc31132",
+  "pending_fixture_markets": 130,
+  "production_or_telegram_changes": false,
+  "protocol": "M5_FORWARD_SHADOW_SETTLEMENT_V1",
+  "settled_fixture_markets": 70,
+  "timing": "FT scores accepted only from verified TotalCorner /match/view responses received after UTC kickoff; raw responses and row-level settlements remain private.",
+  "verified_result_response_hash_set_sha256": "fc19069d8a2f31bbc0e61607c046e4f54316c9e25945e276556ba9a109caf9e9"
+}

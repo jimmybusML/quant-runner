@@ -669,7 +669,7 @@ jobs:
           latest_refresh = json.loads(Path("research/m5/results/m5_forward_shadow_refresh_20261106T1417Z.json").read_text())
           latest_crown_refresh = json.loads(Path("research/m5/results/m5_forward_shadow_crown_refresh_20261106T1703Z.json").read_text())
           latest_m5_capture = json.loads(Path("research/m5/results/m5_forward_shadow_capture_20261107T0539Z.json").read_text())
-          allowed_pair_hashes = {pair["pair_sha256"], latest_refresh["new_pair_sha256"], latest_crown_refresh["new_pair_sha256"], latest_m5_capture["pair_sha256"]}
+          allowed_pair_hashes = {pair["pair_sha256"], latest_refresh["new_pair_sha256"], latest_crown_refresh["new_pair_sha256"], latest_m5_capture["pair_sha256"], "8374dceff535fd6e605bf05a27f916947902c475810f46939a177f1d8dc31132"}
           for receipt_path in sorted(Path("research/m5/results").glob("m5_forward_shadow_settlement_*.json")):
               report = json.loads(receipt_path.read_text())
               assert report["paired_input_sha256"] in allowed_pair_hashes
@@ -685,6 +685,37 @@ jobs:
                       assert result["roi_pct"] is None
               serialized = json.dumps(report)
               assert '"match_id"' not in serialized and '"prices":' not in serialized
+          latest = json.loads(Path("research/m5/results/m5_forward_shadow_settlement_canonical_crown_20261109.json").read_text())
+          assert latest["protocol"] == "M5_FORWARD_SHADOW_SETTLEMENT_V1"
+          assert latest["generated_utc"] == "2026-11-08T16:24:54.934674Z"
+          assert latest["fixture_count"] == 105
+          assert latest["settled_fixture_markets"] == 70 and latest["pending_fixture_markets"] == 130
+          assert latest["capture_counts"] == {"already_verified_ft": 21, "not_ft_at_receipt": 33,
+                                               "not_yet_kicked_off": 32, "verification_error": 1,
+                                               "verified_ft": 18}
+          expected = {
+              "AH": (102, 36, 66, 0.42, 1.166667,
+                     {"win": 16, "half_win": 3, "push": 1, "half_loss": 1, "loss": 15},
+                     {"Crown": 83, "TotalCorner_default": 19},
+                     {"Crown": 18, "TotalCorner_default": 18}),
+              "OU": (98, 34, 64, -0.4275, -1.257353,
+                     {"win": 15, "half_win": 3, "push": 0, "half_loss": 1, "loss": 15},
+                     {"Crown": 82, "TotalCorner_default": 16},
+                     {"Crown": 18, "TotalCorner_default": 16}),
+          }
+          for market, values in expected.items():
+              result = latest["markets"][market]
+              n, settled, pending, net, settled_roi, counts, sources, settled_sources = values
+              assert (result["simulated_bets"], result["settled_bets"], result["pending_bets"]) == (n, settled, pending)
+              assert result["net_units"] == net
+              assert result["realized_roi_on_settled_stake_pct"] == settled_roi
+              assert result["settlement_counts"] == counts
+              assert result["paired_source_fixture_markets"] == sources
+              assert result["settled_source_fixture_markets"] == settled_sources
+              assert result["roi_pct"] is None
+          serialized = json.dumps(latest)
+          for forbidden in ('"match_id"', '"prices"', '/private/tmp/', '/Users/mac/', 'api_token', 'api_key'):
+              assert forbidden not in serialized
           print("M5 forward settlement receipt integrity: PASS")
           PY
       - name: Validate the TotalCorner restart replay receipt

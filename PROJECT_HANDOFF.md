@@ -4466,3 +4466,10 @@
 - 16:59Z重结算结果仍累计FT 11项，AH 5/71、净-0.36U、DD2U，OU6/64、净+1.37U、DD1U；pending124，全cohort ROI均null。前瞻shadow响应批次不能替代每市场10k OOS历史样本目标。
 - 脱敏回执 `research/m5/results/m5_forward_shadow_crown_refresh_20261106T1703Z.json`、README与M5 Actions validator更新待提交；生产模型/交易/Telegram/订单/账本/Gate未变。
 - 研究提交 `5eebedb49338064f29b1291e8276c81d2a8d8a15` 已推送；M5 Actions run [42259239230](https://github.com/ljm198964-alt/quant-runner/actions/runs/42259239230) 成功，包含71项M5测试和新增17:03Z前瞻回执校验。Actions仅读取公开聚合报告。
+
+## 2026-11-08 M5 前瞻 Crown / TotalCorner 结算更新
+
+- 本机 UTC `2026-11-08T16:24:54.934674Z`，用已有 TotalCorner 凭证接入再次结算冻结的 pair `8374dceff535fd6e605bf05a27f916947902c475810f46939a177f1d8dc31132`；凭证值没有读取输出或落库。105个 fixture 中21个复用已验证FT，18个本轮新验FT，33个响应尚非FT，32个尚未开赛，1个核验错误。累计唯一市场项已结70、待结130。
+- AH配对102（Crown83 / TotalCorner default19），已结36、待结66，已结净+0.42U、settled-only ROI +1.166667%、最大回撤6.47U，W/HW/P/HL/L=`16/3/1/1/15`。OU配对98（Crown82 / TotalCorner default16），已结34、待结64，净-0.4275U、settled-only ROI -1.257353%、最大回撤4.16U，结算=`15/3/0/1/15`。由于仍有130项未结，两市场完整队列ROI为null；短期已结子集不构成M5收益目标证据。
+- Crown与TotalCorner逐场盘口严格分源；赛前响应 receipt 与 UTC 时间链用于前瞻配对。结果 FT 仅在 TotalCorner响应通过身份、UTC kickoff和FT状态验证后结算。逐场身份、预测、赔率、比分及原始响应在 `/private/tmp/m1-m5-private`，未提交；公开脱敏报告 `research/m5/results/m5_forward_shadow_settlement_canonical_crown_20261109.json`，README及Actions校验器均已更新。
+- 代码/报告提交和远程Actions验收待本次写入完成后补录。M5任一市场历史样本外 ROI≥3% 且每市场至少10,000场的目标仍未达到。无正式模型、订单、TG、Gate或账本变更。
