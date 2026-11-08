@@ -953,3 +953,39 @@ jobs:
           assert settlement["production_or_telegram_changes"] is False
           print("M5 2026-11-07T0942Z forward cohort receipt integrity: PASS")
           PY
+      - name: Validate canonical Crown movement replay receipts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          base = Path("research/m5/results")
+          paths = [
+              base / "m5_canonical_crown_movement_replay_20261109.json",
+              base / "m5_canonical_crown_movement_replay_refresh_20261108T1729Z.json",
+          ]
+          reports = [json.loads(path.read_text()) for path in paths]
+          first, refreshed = reports
+          assert all(r["protocol"] == "M5_CROWN_MOVEMENT_VS_SUMMARY_OOS_REPLAY_V1" for r in reports)
+          assert first["inputs"] == refreshed["inputs"]
+          assert first["inputs"]["quote_source"] == "Crown only"
+          assert first["inputs"]["forecast_fixtures_matching_movement_sha"] == 4890
+          assert first["inputs"]["kickoff_years"] == [2025, 2026]
+          assert first["response_receipt_timing"] == {"post_kickoff": 4890}
+          for report in reports:
+              assert report["audit_counts"] == {"AH_no_eligible_movement": 14, "OU_no_eligible_movement": 15}
+              for market, n in (("AH", 4876), ("OU", 4875)):
+                  result = report["markets"][market]
+                  assert result["movement"]["settled_bets"] == n
+                  assert result["movement"]["simulated_bets"] == n
+                  assert result["movement"]["stake_units"] == n
+                  assert result["paired_fixture_markets"] == n
+              serialized = json.dumps(report)
+              for field in ('"match_id"', '"home"', '"away"', '"line"', '"prices"'):
+                  assert field not in serialized
+          for market in ("AH", "OU"):
+              a = first["markets"][market]["movement"]
+              b = refreshed["markets"][market]["movement"]
+              assert (a["net_units"], a["roi_pct"]) == (b["net_units"], b["roi_pct"])
+          print("M5 canonical Crown movement replay receipts: PASS")
+          PY
