@@ -1,3 +1,11 @@
+## 2026-11-08T20:04Z Crown历史库增长后的M1/MR1/M3逐模型复跑核验
+
+复用本机授权 M5 manifest（127,674个候选）、冻结 M5 OOS forecast（SHA-256 `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`）和当前 Crown SQLite，只读重跑 `m5_canonical_crown_summary_replay.py` 与 `m5_model_family_canonical_crown_comparison.py`。Crown historical/summary 捕获数从先前交接的11,582增至12,160，全部属于冻结候选；预测连接12,138场，身份/UTC赛果/原始响应校验后可用市场仍为 AH 10,400、OU 10,399。新增捕获没有带来新的预测as-of之后且kickoff之前的有效报价；选中报价和模型逐场结果的输入哈希及聚合输出与既有公开回执一致，故本次无新增学习信息。
+
+最新模型家族复跑与既有回执相同：AH共同样本8,129，MR1 V6 ROI -0.945258%、M1 -2.154878%、M3 Bivariate -2.742957%、Poisson -2.850966%、Dixon-Coles -2.947411%；OU共同样本8,237，M1 -2.729149%、MR1 -3.517846%、Bivariate -3.305815%、Dixon-Coles -3.352009%、Poisson -3.436749%。独立完整覆盖中M3每市场9,590/9,591注，M1 8,191/8,300，MR1 8,129/8,237；覆盖差异源于模型原有可用预测及盘口线精确匹配，不做跨线概率填补。完整结算、概率评分、最大回撤、来源数和输入 SHA 见既有脱敏回执 [`m5_model_family_canonical_crown_comparison_20261108.json`](results/m5_model_family_canonical_crown_comparison_20261108.json)。选中历史 provider response 全为kickoff后接收，ROI是历史盘口事件时间回放，不是同期可执行收益。两市场样本数达到10,000的仅是完整 Crown 合约队列；五模型共同比较样本低于10,000，所有模型ROI仍为负，M5 +3%目标未达成。
+
+运行UTC约 `2026-11-08T20:02Z`–`20:04Z`。私有逐场重算留在 `/private/tmp/m1-m5-private/`，没有写入公开仓库。未调用网络采集、未改生产模型/Gate/TG/订单/账本。
+
 ## 2026-11-08T19:12Z M5 前瞻批次 Crown / TotalCorner 补缺和限流修复
 - 从 M5-only 预测刷新（UTC `2026-11-08T19:12:03.995800Z`，84场，forecast SHA `8ac6ef3671fa714e1eeaf92f31be163b357f592f3ddad0c3692de2b326ba0046`；历史 manifest SHA 与上一批相同）开始真实赛前 Crown 采集。84场响应为75 `NO_CROWN_AH_QUOTES`、8 `SAVED`、1 `FETCH_FAILED`；按原始响应、身份及盘口源事件时间核验后，合格 Crown AH 3项、OU 1项。TOTAL 回退83场，身份核验75、错配拒绝8；没有预测 as-of 后的合格 AH / OU 行。Crown 优先配对最终4个唯一 fixture-market（AH3/OU1），均 Crown，UTC train_end < as-of <= quote event <= response receipt < kickoff，当前均待结，ROI/净额/DD为null。脱敏报告 `research/m5/results/m5_forward_shadow_capture_20261108T1912Z.json`。
 - 排查卡住的 TOTAL 请求发现 `X-Rate-Limit-Reset` 单位处理错误：TotalCorner 官方说明该字段表示限流窗口重置时间（秒），旧采集代码却直接当等待秒数。修复为将 Unix reset 时间转换成相对等待时间，同时兼容相对秒数；429 和 JSON 限流响应均使用同一 helper。新增3项单测。未修改 M1/MR1/M3/M4生产链路、Gate、TG、订单或账本。当前仅完成本地代码/报告；测试、Actions、提交/推送状态待本轮验收更新。

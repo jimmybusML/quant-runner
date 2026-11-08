@@ -1,3 +1,11 @@
+## 2026-11-08T20:04Z Crown历史库增长后的M1/MR1/M3逐模型复跑核验
+
+复用本机授权 M5 manifest（127,674个候选）、冻结 M5 OOS forecast（SHA-256 `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`）和当前 Crown SQLite，只读重跑 `m5_canonical_crown_summary_replay.py` 与 `m5_model_family_canonical_crown_comparison.py`。Crown historical/summary 捕获数从先前交接的11,582增至12,160，全部属于冻结候选；预测连接12,138场，身份/UTC赛果/原始响应校验后可用市场仍为 AH 10,400、OU 10,399。新增捕获没有带来新的预测as-of之后且kickoff之前的有效报价；选中报价和模型逐场结果的输入哈希及聚合输出与既有公开回执一致，故本次无新增学习信息。
+
+最新模型家族复跑与既有回执相同：AH共同样本8,129，MR1 V6 ROI -0.945258%、M1 -2.154878%、M3 Bivariate -2.742957%、Poisson -2.850966%、Dixon-Coles -2.947411%；OU共同样本8,237，M1 -2.729149%、MR1 -3.517846%、Bivariate -3.305815%、Dixon-Coles -3.352009%、Poisson -3.436749%。独立完整覆盖中M3每市场9,590/9,591注，M1 8,191/8,300，MR1 8,129/8,237；覆盖差异源于模型原有可用预测及盘口线精确匹配，不做跨线概率填补。完整结算、概率评分、最大回撤、来源数和输入 SHA 见既有脱敏回执 [`m5_model_family_canonical_crown_comparison_20261108.json`](results/m5_model_family_canonical_crown_comparison_20261108.json)。选中历史 provider response 全为kickoff后接收，ROI是历史盘口事件时间回放，不是同期可执行收益。两市场样本数达到10,000的仅是完整 Crown 合约队列；五模型共同比较样本低于10,000，所有模型ROI仍为负，M5 +3%目标未达成。
+
+运行UTC约 `2026-11-08T20:02Z`–`20:04Z`。私有逐场重算留在 `/private/tmp/m1-m5-private/`，没有写入公开仓库。未调用网络采集、未改生产模型/Gate/TG/订单/账本。
+
 # M5 独立融合研究
 
 ## 2026-11-08T19:12Z M5 前瞻批次 Crown / TotalCorner 补缺
