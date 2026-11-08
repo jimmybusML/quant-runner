@@ -30,6 +30,49 @@ jobs:
         run: python -m pip install numpy scipy pandas pytest penaltyblog==1.13.1
       - name: Run all M5 research tests
         run: PYTHONPATH=. python -m pytest research/m5 -q
+      - name: Validate the 2026-11-08 canonical Crown live capture receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json, math, re
+          from pathlib import Path
+
+          report = json.loads(Path("research/m5/results/m5_canonical_crown_live_capture_20261108.json").read_text())
+          adapter = Path("research/m5/m5_canonical_crown_capture_index.py")
+          assert report["protocol"] == "M5_CANONICAL_CROWN_LIVE_CAPTURE_AND_SETTLEMENT_V1"
+          assert report["adapter_sha256"] == hashlib.sha256(adapter.read_bytes()).hexdigest()
+          for key in ("forecast_sha256", "canonical_collector_sha256", "adapter_sha256",
+                      "capture_index_sha256", "totalcorner_fallback_index_sha256",
+                      "paired_rows_sha256", "settlement_input_sha256"):
+              assert re.fullmatch(r"[0-9a-f]{64}", report[key])
+          capture = report["capture"]
+          assert capture["capture_mode"] == "live" and capture["source"] == "Crown"
+          assert capture["fixture_requests"] == capture["live_responses_recorded"] == 162
+          assert capture["actual_prospective_capture_flags_total"] == 162
+          assert capture["verified_live_fixture_responses"] == 85
+          assert capture["eligible_post_asof_premarket_fixture_markets"] == {"AH": 83, "OU": 82}
+          assert capture["failed_attempts"] == 0
+          pairing = report["pairing"]
+          assert pairing["unique_fixture_markets"] == 200 and pairing["unique_fixtures"] == 105
+          assert pairing["time_order_passed"] and pairing["deduplication_passed"]
+          assert pairing["fixture_markets_by_market"] == {"AH": 102, "OU": 98}
+          assert pairing["source_fixture_markets_by_market"] == {
+              "AH": {"Crown": 83, "TotalCorner_default": 19},
+              "OU": {"Crown": 82, "TotalCorner_default": 16}}
+          for market in ("AH", "OU"):
+              result = report["markets"][market]
+              assert result["simulated_bets"] == result["unique_fixture_markets"]
+              assert result["settled_bets"] + result["pending_bets"] == result["simulated_bets"]
+              assert sum(result["settlement_counts"].values()) == result["settled_bets"]
+              assert abs(result["roi_pct_on_settled_stake"] -
+                         100 * result["net_units_on_settled_bets"] / result["settled_stake_units"]) < 1e-6
+              assert result["roi_pct_full_cohort"] is None
+          assert report["interpretation"]["roi_goal_3pct_reached"] is False
+          serialized = json.dumps(report)
+          for forbidden in ('"match_id"', '"prices":', '"home_goals"', '"away_goals"',
+                            '"score_grid"', '"/Users/mac/', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 canonical Crown live receipt integrity: PASS")
+          PY
       - name: Validate the public joint-model receipt
         run: |
           python - <<'PY'

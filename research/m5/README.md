@@ -1,5 +1,11 @@
 # M5 独立融合研究
 
+## 2026-11-08 统一 Crown 现场采集器接入 M5 前瞻样本
+
+对 2026-11-07 生成的 M5-only forecast（313 场，SHA `ada46761fa4a86a7cf81527ebc1f8ddad128e8d519a52a04fe990ad10a04c20a`），从共享 Crown 采集器中只选择当时尚未开赛的 162 场，使用已确认的 `crown_capture_store.py`、`live/summary` 保存真实响应。采集响应时间为 `2026-11-08T13:04:49Z` 至 `13:19:40Z`，162 条均有赛前接收标记；再以原始响应 SHA、TotalCorner fixture ID、球队/联赛及精确 UTC kickoff 对照预测身份。85 场身份与开赛时间验证通过；75 场响应无 Crown bookmaker，2 场身份或 UTC kickoff 不符而拒绝。对验证通过的响应，AH 有83、OU有82个盘口事件满足 `prediction_asof <= quote_source_time <= response_received < kickoff`。OU 从同一 Crown 原始响应 `goal.open/close` 单独解析；共享采集库的 AH 规范表不被误当作 OU 表。
+
+与同一冻结预测批次原先实收、且赛前有效的 TotalCorner default 报价合并后，按 fixture-market 去重并遵守 Crown 优先：AH 102项（Crown 83、TotalCorner 19），OU 98项（Crown 82、TotalCorner 16），共105场。无 EV/置信度、联赛、时间或投注数量门槛；每项按原 M5 规则模拟1U。结果核验至 `2026-11-08T15:07:51Z` 时，AH 18/102、OU 16/98已结，另有166项待结；已结的34项均来自旧 TotalCorner fallback，新的 Crown live 项仍待赛果。AH 已结净额 +3.5U、已结本金 ROI +19.4444%；OU -1.6375U、-10.234375%。两市场完整 cohort ROI 均为 null，不能把 AH 小样本已结 ROI 当成目标达成；此批远低于每市场10,000场。脱敏聚合回执：[canonical Crown live capture 与结算](results/m5_canonical_crown_live_capture_20261108.json)。逐场身份、score grid、盘口/水位和 raw 响应留在本机权限受限目录。适配器 [`m5_canonical_crown_capture_index.py`](m5_canonical_crown_capture_index.py) 只读取共享 SQLite 的 live response/hash 并验证两市场报价时序，不发请求；网络采集由确认的统一本地程序完成。本次没有修改任何正式模型、生产规则、TG、订单或账本。
+
 ## 2026-11-07 M5 基线按 UTC 季度与盘口来源诊断
 
 对 Crown-first、TotalCorner-default 补缺的 11,537 场 all-prior-OOS 留出逐场重新按原规则选边和结算，完整样本按 UTC kickoff 季度及实际报价来源拆分：[聚合诊断和输入哈希](results/m5_quarterly_source_diagnostic_20261107.json)。所有市场项均保留，未把季度/来源子组转成投注筛选规则。

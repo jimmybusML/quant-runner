@@ -1,0 +1,118 @@
+{
+  "adapter_sha256": "8c22eb40602f3d06173d13378b53ad9289a4ce7717e8bb3887ee8c91ea40179b",
+  "canonical_collector_sha256": "ee98878ce72c920dba85fa05b6520c16d5d312f933eb96f1d0dd6809854bb727",
+  "capture": {
+    "actual_prospective_capture_flags_total": 162,
+    "actual_response_received_span_utc": {
+      "first": "2026-11-08T13:04:49.393689Z",
+      "last": "2026-11-08T13:19:40.373247Z"
+    },
+    "capture_mode": "live",
+    "data_layer": "summary",
+    "eligible_post_asof_premarket_fixture_markets": {
+      "AH": 83,
+      "OU": 82
+    },
+    "failed_attempts": 0,
+    "fixture_requests": 162,
+    "identity_or_utc_kickoff_mismatches": 2,
+    "live_responses_recorded": 162,
+    "local_capture_records_total": 162,
+    "no_crown_book_responses": 75,
+    "prospective_capture_flags": 162,
+    "response_timing": "Each joined raw response was received before the exact UTC kickoff; source quote timestamps were checked separately.",
+    "source": "Crown",
+    "verified_live_fixture_responses": 85
+  },
+  "capture_index_sha256": "b4665c25e254c68d4d17a3763ab644be1a843d0d3141f0025919873f89531aae",
+  "forecast_generated_utc": "2026-11-07T09:43:03.280146Z",
+  "forecast_sha256": "ada46761fa4a86a7cf81527ebc1f8ddad128e8d519a52a04fe990ad10a04c20a",
+  "generated_utc": "2026-11-08T15:07:51.172366Z",
+  "interpretation": {
+    "complete_cohort_roi_available": false,
+    "historical_sample_target_10000_reached": false,
+    "note": "Only TotalCorner fallback rows have settled so far; live Crown rows remain pending. Settled-only ROI is provisional and cannot establish the 10,000-match M5 objective.",
+    "roi_goal_3pct_reached": false
+  },
+  "markets": {
+    "AH": {
+      "max_drawdown_units_on_settled_bets": 2.125,
+      "net_units_on_settled_bets": 3.5,
+      "paired_source_fixture_markets": {
+        "Crown": 83,
+        "TotalCorner_default": 19
+      },
+      "pending_bets": 84,
+      "roi_pct_full_cohort": null,
+      "roi_pct_on_settled_stake": 19.444444,
+      "settled_bets": 18,
+      "settled_source_fixture_markets": {
+        "TotalCorner_default": 18
+      },
+      "settled_stake_units": 18.0,
+      "settlement_counts": {
+        "half_loss": 0,
+        "half_win": 3,
+        "loss": 6,
+        "push": 0,
+        "win": 9
+      },
+      "simulated_bets": 102,
+      "stake_units": 102.0,
+      "unique_fixture_markets": 102
+    },
+    "OU": {
+      "max_drawdown_units_on_settled_bets": 3.2,
+      "net_units_on_settled_bets": -1.6375,
+      "paired_source_fixture_markets": {
+        "Crown": 82,
+        "TotalCorner_default": 16
+      },
+      "pending_bets": 82,
+      "roi_pct_full_cohort": null,
+      "roi_pct_on_settled_stake": -10.234375,
+      "settled_bets": 16,
+      "settled_source_fixture_markets": {
+        "TotalCorner_default": 16
+      },
+      "settled_stake_units": 16.0,
+      "settlement_counts": {
+        "half_loss": 0,
+        "half_win": 2,
+        "loss": 8,
+        "push": 0,
+        "win": 6
+      },
+      "simulated_bets": 98,
+      "stake_units": 98.0,
+      "unique_fixture_markets": 98
+    }
+  },
+  "paired_rows_sha256": "8374dceff535fd6e605bf05a27f916947902c475810f46939a177f1d8dc31132",
+  "pairing": {
+    "deduplication_passed": true,
+    "fixture_markets_by_market": {
+      "AH": 102,
+      "OU": 98
+    },
+    "source_fixture_markets_by_market": {
+      "AH": {
+        "Crown": 83,
+        "TotalCorner_default": 19
+      },
+      "OU": {
+        "Crown": 82,
+        "TotalCorner_default": 16
+      }
+    },
+    "source_priority": "Crown per fixture-market; pre-kickoff TotalCorner default only when Crown has no eligible quote.",
+    "time_order_passed": true,
+    "unique_fixture_markets": 200,
+    "unique_fixtures": 105
+  },
+  "private_fixture_level_data_published": false,
+  "production_or_telegram_changes": false,
+  "protocol": "M5_CANONICAL_CROWN_LIVE_CAPTURE_AND_SETTLEMENT_V1",
+  "settlement_input_sha256": "8374dceff535fd6e605bf05a27f916947902c475810f46939a177f1d8dc31132",
+  "totalcorner_fallback_index_sha256": "8d3122def35d85b4703b128ea5a156a8f5be7a10bef1dff9a3434cfee79dc82a"
+}
