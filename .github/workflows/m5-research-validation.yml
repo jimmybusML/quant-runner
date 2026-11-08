@@ -479,6 +479,31 @@ jobs:
               assert field not in serialized
           print("M5 2026-11-07T0549Z forecast receipt integrity: PASS")
           PY
+      - name: Validate the 2026-11-08T1637Z M5 forecast batch receipt
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          receipt = json.loads(Path("research/m5/results/m5_forward_forecast_20261108T1637Z.json").read_text())
+          assert receipt["protocol"] == "M5_FORWARD_SHADOW_FORECAST_PUBLIC_RECEIPT_V1"
+          assert receipt["forecast_generated_utc"] == "2026-11-08T16:37:08.219144Z"
+          assert receipt["forecast_fixture_count"] == 106
+          assert receipt["unique_leagues"] == receipt["model_fit_count"] == 24
+          assert receipt["forecast_sha256"] == "f74db0cafec6ca6b361410aa85a638a468982541db0c157236760b7aaaf4cd9d"
+          assert receipt["historical_manifest_sha256"] == "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960"
+          assert receipt["identity_conflicts_excluded"] == receipt["leagues_without_training_count"] == 0
+          assert receipt["training_fixture_rows_by_league"] == {"min": 695, "median": 3551.0, "max": 4833}
+          assert receipt["training_end_utc_range"] == ["2026-11-01T13:00:00Z", "2026-11-04T17:00:00Z"]
+          assert receipt["kickoff_coverage_utc"] == ["2026-11-08T17:00:00Z", "2026-11-23T20:00:00Z"]
+          assert receipt["integrity"]["train_end_before_prediction_asof_before_kickoff"] is True
+          assert receipt["integrity"]["quote_pairing_performed"] is False
+          assert receipt["integrity"]["roi_calculated"] is False
+          serialized = json.dumps(receipt)
+          for forbidden in ('"match_id"', '"home"', '"away"', '"prices"', '"score_grid"', '/Users/mac/', '/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 2026-11-08T1637Z forecast receipt integrity: PASS")
+          PY
       - name: Validate the 2026-11-07T0549Z M5 Crown/TOTAL shadow receipt
         run: |
           python - <<'PY'

@@ -1218,3 +1218,9 @@ M3 的 Poisson、Dixon–Coles、Bivariate Poisson 保存了完整比分网格�
 | OU | 82 / 16 | 34 / 64 | 15 / 3 / 0 / 1 / 15 | -0.4275 | -1.2574% | 未计算（仍有未结） |
 
 AH、OU均未完成本队列结算，故已结子集 ROI 不代表最终队列收益，也不满足 M5 历史样本规模或 ROI 目标。所有预测后取得的 Crown/TotalCorner 盘口均在 UTC 开赛前真实接收；FT 则由赛后带身份与 kickoff 校验的 TotalCorner 响应确认。来源始终分开记录。全量原始回执留存私有，公开结果只含汇总与哈希；没有生产模型、Gate、TG、订单或账本变更。
+
+### 2026-11-08T16:37Z M5 新前瞻预测批次
+
+从现有 M5 私有历史 manifest 与已缓存的范围内 TotalCorner schedule 生成独立 M5 预测，没有读取 M1/MR1 预测、盘口、订单或账本。共生成 106 个唯一未来 fixture，覆盖 24 个有历史训练数据的联赛；identity conflict 0、无训练记录联赛 0。每联赛训练行数 695–4,833（中位数 3,551），训练赛果截止 `2026-11-01T13:00:00Z` 至 `2026-11-04T17:00:00Z`，预测 as-of `2026-11-08T16:37:08.219144Z`，目标 kickoff 范围 `2026-11-08T17:00:00Z` 至 `2026-11-23T20:00:00Z`。逐场比分网格和赛事身份留在私有目录；脱敏批次回执见[forecast receipt](results/m5_forward_forecast_20261108T1637Z.json)，forecast SHA `f74db0cafec6ca6b361410aa85a638a468982541db0c157236760b7aaaf4cd9d`，历史 manifest SHA `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`。
+
+该文件目前只证明预测批次可追溯，尚未配对赛前 Crown 或 TotalCorner 盘口，也未结算或计算 ROI。发现已有 M3 historical movement collector 正在使用共享 TotalCorner 接口，因此此批次暂缓采价，避免并发占用接口。M5 收益与每市场10,000场目标均未达到；未改生产策略或任何交易规则。
