@@ -67,6 +67,25 @@ def ensure_private_destination(path: Path) -> Path:
     return resolved
 
 
+def rate_limit_retry_seconds(reset_value: str | None, now_epoch: float | None = None) -> float:
+    """Convert TotalCorner reset metadata into a seconds-to-wait value.
+
+    TotalCorner documents X-Rate-Limit-Reset as the reset time in seconds.
+    Treat Unix timestamps as absolute times and smaller values as durations
+    for compatibility with intermediaries that expose a relative delay.
+    """
+    try:
+        value = float(reset_value) if reset_value is not None else 0.0
+    except (TypeError, ValueError):
+        value = 0.0
+    if not math.isfinite(value) or value <= 0:
+        return 10.0
+    if value >= 1_000_000_000:
+        now = time.time() if now_epoch is None else float(now_epoch)
+        return max(1.0, value - now)
+    return max(1.0, value)
+
+
 def request_json(url: str, token: str, min_interval: float, state: dict) -> tuple[dict, dict, bytes]:
     # The token is added here and is never included in logs or exception text.
     joiner = "&" if "?" in url else "?"
@@ -86,17 +105,15 @@ def request_json(url: str, token: str, min_interval: float, state: dict) -> tupl
         except urllib.error.HTTPError as exc:
             # Do not stringify exc: urllib errors can include the credential-bearing URL.
             if exc.code == 429 and attempt < 5:
-                time.sleep(10.5)
+                reset = exc.headers.get("x-rate-limit-reset") if exc.headers else None
+                time.sleep(rate_limit_retry_seconds(reset) + 0.25)
                 continue
             return {"success": 0, "error": {"code": f"HTTP_{exc.code}"}}, {"http_status": exc.code}, b""
         parsed = json.loads(raw.decode("utf-8"))
         error = parsed.get("error") if isinstance(parsed, dict) else None
         code = error.get("code") if isinstance(error, dict) else None
         if code == "TOO_MANY_REQUEST" and attempt < 5:
-            try:
-                retry_after = max(10.0, float(headers.get("x-rate-limit-reset") or 10))
-            except (TypeError, ValueError):
-                retry_after = 10.0
+            retry_after = rate_limit_retry_seconds(headers.get("x-rate-limit-reset"))
             time.sleep(retry_after + 0.25)
             continue
         return parsed, {"http_status": status, "received_at_utc": received_at_utc,

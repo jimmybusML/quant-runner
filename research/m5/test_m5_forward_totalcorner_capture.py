@@ -2,6 +2,7 @@ import unittest
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
+from research.m5.crown_historical_capture import rate_limit_retry_seconds
 from research.m5.m5_forward_shadow_totalcorner_capture import (
     needs_totalcorner_fallback, totalcorner_rows,
 )
@@ -12,6 +13,15 @@ class ForwardTotalCornerCaptureTests(unittest.TestCase):
         self.zone = ZoneInfo("Asia/Shanghai")
         self.asof = datetime(2026, 11, 6, 4, 0, tzinfo=timezone.utc)
         self.kickoff = datetime(2026, 11, 6, 5, 0, tzinfo=timezone.utc)
+
+    def test_rate_limit_reset_epoch_is_converted_to_relative_wait(self):
+        self.assertEqual(rate_limit_retry_seconds("1794163207", now_epoch=1794163200), 7)
+
+    def test_rate_limit_reset_relative_duration_is_preserved(self):
+        self.assertEqual(rate_limit_retry_seconds("12"), 12)
+
+    def test_invalid_rate_limit_reset_uses_short_fallback(self):
+        self.assertEqual(rate_limit_retry_seconds("invalid"), 10)
 
     def test_skips_totalcorner_request_only_when_crown_covers_both_markets(self):
         self.assertFalse(needs_totalcorner_fallback(True, True))

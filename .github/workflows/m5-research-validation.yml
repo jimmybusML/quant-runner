@@ -1081,3 +1081,30 @@ jobs:
               assert field not in serialized
           print("M5 18:36Z forward Crown and TotalCorner receipt integrity: PASS")
           PY
+      - name: Validate 2026-11-08T1912Z M5 forward capture receipt
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          report = json.loads(Path("research/m5/results/m5_forward_shadow_capture_20261108T1912Z.json").read_text())
+          assert report["protocol"] == "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1"
+          assert report["forecast"]["fixture_count"] == 84
+          assert report["forecast"]["training_data_changed"] is False
+          assert report["crown_capture"]["aggregate_counts"] == {"FETCH_FAILED": 1, "NO_CROWN_AH_QUOTES": 75, "SAVED": 8}
+          assert report["crown_capture"]["eligible_fixture_markets"] == {"AH": 3, "OU": 1}
+          assert report["totalcorner_capture"]["aggregate_counts"] == {"fixture_or_api_identity_mismatch": 8, "verified_fixture_response": 75}
+          assert report["totalcorner_capture"]["eligible_default_fixture_markets"] == {"AH": 0, "OU": 0}
+          assert report["pairing"]["paired_fixture_markets_by_market"] == {"AH": 3, "OU": 1}
+          assert report["pairing"]["integrity"] == {"fixture_markets_unique": True, "fixture_rows_published": False, "source_separated": True, "train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff": True}
+          for market, n in (("AH", 3), ("OU", 1)):
+              result = report["markets"][market]
+              assert result["simulated_bets"] == result["pending_bets"] == result["unique_fixture_markets"] == n
+              assert result["source_fixture_markets"] == {"Crown": n}
+              assert result["settled_bets"] == 0 and result["roi_pct"] is None and result["net_units"] is None
+          serialized = json.dumps(report)
+          for field in ('"match_id"', '"home"', '"away"', '"prices"', '"score_grid"', '/private/tmp/', '/Users/mac/'):
+              assert field not in serialized
+          for key in ("sha256",):
+              assert re.fullmatch(r"[0-9a-f]{64}", report["forecast"][key])
+          print("M5 19:12Z forward capture receipt integrity: PASS")
+          PY

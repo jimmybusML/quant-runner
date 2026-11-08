@@ -1,0 +1,107 @@
+{
+  "crown_capture": {
+    "aggregate_counts": {
+      "FETCH_FAILED": 1,
+      "NO_CROWN_AH_QUOTES": 75,
+      "SAVED": 8
+    },
+    "attempted_fixtures": 84,
+    "capture_log_sha256": "d8218556ae24266a7e77cd751c6231a613395dcd7b0a2bd6ce4b5998b724c407",
+    "capture_window_utc": [
+      "2026-11-08T19:18:11.066769Z",
+      "2026-11-08T19:28:10.508295Z"
+    ],
+    "eligible_fixture_markets": {
+      "AH": 3,
+      "OU": 1
+    },
+    "index_sha256": "4fd6f45c2d6d5eae31b1d3f29684b475b27d9d941ee88981604e069da8afd442",
+    "qualifying_quote_rows": {
+      "AH": 3,
+      "OU": 1
+    }
+  },
+  "forecast": {
+    "fixture_count": 84,
+    "generated_utc": "2026-11-08T19:12:03.995800Z",
+    "historical_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+    "sha256": "8ac6ef3671fa714e1eeaf92f31be163b357f592f3ddad0c3692de2b326ba0046",
+    "training_data_changed": false
+  },
+  "generated_utc": "2026-11-08T19:47:08.852131Z",
+  "limitations": [
+    "Only 4 fixture-markets were paired; AH and OU remain far below the 10,000 historical sample target.",
+    "All current pairs are pending settlement; ROI and drawdown remain null.",
+    "No qualifying TotalCorner default quote was available after forecast as-of in this batch.",
+    "This prospective shadow batch is separate from historical retrospective OOS replays."
+  ],
+  "markets": {
+    "AH": {
+      "kickoff_range_utc": [
+        "2026-11-08T19:45:00Z",
+        "2026-11-08T20:00:00Z"
+      ],
+      "max_drawdown_units": null,
+      "net_units": null,
+      "pending_bets": 3,
+      "roi_pct": null,
+      "settled_bets": 0,
+      "settlement_counts": null,
+      "simulated_bets": 3,
+      "source_fixture_markets": {
+        "Crown": 3
+      },
+      "unique_fixture_markets": 3
+    },
+    "OU": {
+      "kickoff_range_utc": [
+        "2026-11-08T19:45:00Z",
+        "2026-11-08T19:45:00Z"
+      ],
+      "max_drawdown_units": null,
+      "net_units": null,
+      "pending_bets": 1,
+      "roi_pct": null,
+      "settled_bets": 0,
+      "settlement_counts": null,
+      "simulated_bets": 1,
+      "source_fixture_markets": {
+        "Crown": 1
+      },
+      "unique_fixture_markets": 1
+    }
+  },
+  "pairing": {
+    "integrity": {
+      "fixture_markets_unique": true,
+      "fixture_rows_published": false,
+      "source_separated": true,
+      "train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff": true
+    },
+    "paired_fixture_markets": 4,
+    "paired_fixture_markets_by_market": {
+      "AH": 3,
+      "OU": 1
+    },
+    "sha256": "50eacdd178f5f676aeb20d5a385ac96939bdf698589681bbd8273d9418ba1769"
+  },
+  "private_fixture_level_data_published": false,
+  "production_or_telegram_changes": false,
+  "protocol": "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1",
+  "totalcorner_capture": {
+    "aggregate_counts": {
+      "fixture_or_api_identity_mismatch": 8,
+      "verified_fixture_response": 75
+    },
+    "capture_window_utc": [
+      "2026-11-08T19:29:13.556097Z",
+      "2026-11-08T19:43:15.675018Z"
+    ],
+    "eligible_default_fixture_markets": {
+      "AH": 0,
+      "OU": 0
+    },
+    "forecast_candidates": 83,
+    "index_sha256": "2278ed39d9374ef627741b79651f3b9babec77b03f7be7d9ff13a2195f6e8c07"
+  }
+}
