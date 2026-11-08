@@ -1,0 +1,41 @@
+{
+  "forecast_fixture_count": 94,
+  "forecast_generated_utc": "2026-11-08T17:45:33.556981Z",
+  "forecast_receipt_sha256": "da5726e24de17540bc76417d62270485150b8b58f4dddf0ee8b93cc9e7cca6e8",
+  "forecast_sha256": "22182e912e9c962b59d2d342edc0096e1aa0a2b45f8b202deae97c50991355b9",
+  "generated_utc": "2026-11-08T17:47:36.812889Z",
+  "historical_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+  "identity_conflicts_excluded": 0,
+  "integrity": {
+    "private_fixture_rows_published": false,
+    "quote_pairing_performed": false,
+    "roi_calculated": false,
+    "train_end_before_prediction_asof_before_kickoff": true,
+    "unique_forecast_fixture_ids": true
+  },
+  "kickoff_coverage_utc": [
+    "2026-11-08T18:00:00Z",
+    "2026-11-23T20:00:00Z"
+  ],
+  "leagues_without_training_count": 0,
+  "limitations": [
+    "This receipt records a forecast batch only; no Crown or TotalCorner quote has been paired yet.",
+    "No new historical training data were added since the prior batch, so this run records new-asof forecasts but no new model learning information.",
+    "It is not a simulated wager, settled cohort, ROI result, or 10,000-match validation.",
+    "Per-fixture identities and score grids remain in the private archive."
+  ],
+  "model": "M5 independent league-specific regularized Poisson score grid",
+  "model_fit_count": 19,
+  "protocol": "M5_FORWARD_SHADOW_FORECAST_PUBLIC_RECEIPT_V1",
+  "training_data_change_since_previous_batch": false,
+  "training_end_utc_range": [
+    "2026-11-01T13:00:00Z",
+    "2026-11-03T23:20:00Z"
+  ],
+  "training_fixture_rows_by_league": {
+    "max": 4833,
+    "median": 3412,
+    "min": 1603
+  },
+  "unique_leagues": 19
+}

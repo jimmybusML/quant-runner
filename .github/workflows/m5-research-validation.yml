@@ -989,3 +989,26 @@ jobs:
               assert (a["net_units"], a["roi_pct"]) == (b["net_units"], b["roi_pct"])
           print("M5 canonical Crown movement replay receipts: PASS")
           PY
+      - name: Validate 2026-11-08T1745Z M5 forecast receipt
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(Path("research/m5/results/m5_forward_forecast_20261108T1745Z.json").read_text())
+          assert report["protocol"] == "M5_FORWARD_SHADOW_FORECAST_PUBLIC_RECEIPT_V1"
+          assert report["forecast_fixture_count"] == 94
+          assert report["unique_leagues"] == report["model_fit_count"] == 19
+          assert report["identity_conflicts_excluded"] == report["leagues_without_training_count"] == 0
+          assert report["training_data_change_since_previous_batch"] is False
+          assert report["integrity"] == {
+              "private_fixture_rows_published": False,
+              "unique_forecast_fixture_ids": True,
+              "train_end_before_prediction_asof_before_kickoff": True,
+              "quote_pairing_performed": False,
+              "roi_calculated": False,
+          }
+          for field in ('"match_id"', '"home"', '"away"', '"prices"', '"score_grid"'):
+              assert field not in json.dumps(report)
+          print("M5 17:45Z public forecast receipt integrity: PASS")
+          PY
