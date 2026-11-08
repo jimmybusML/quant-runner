@@ -708,3 +708,34 @@ jobs:
               assert field not in serialized
           print("M5 17:03Z forward Crown receipt integrity: PASS")
           PY
+      - name: Validate 2026-11-07T0942Z forward M5 source and settlement receipt
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(Path("research/m5/results/m5_forward_shadow_capture_20261107T0942Z.json").read_text())
+          assert report["protocol"] == "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1"
+          assert report["forecast_fixture_count"] == 313
+          assert report["paired_fixture_markets_by_market"] == {"AH": 21, "OU": 18}
+          assert report["paired_fixture_markets"] == 39
+          assert report["markets"]["AH"]["source_fixture_markets"] == {"TotalCorner_default": 21}
+          assert report["markets"]["OU"]["source_fixture_markets"] == {"TotalCorner_default": 18}
+          assert report["integrity"]["all_fixture_markets_unique"] is True
+          assert report["integrity"]["source_separated"] is True
+          assert report["integrity"]["train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff"] is True
+          assert report["integrity"]["private_fixture_level_data_published"] is False
+          settlement = report["settlement"]
+          assert settlement["settled_fixture_markets"] == 34
+          assert settlement["pending_fixture_markets"] == 5
+          assert settlement["markets"]["AH"]["settled_bets"] == 18
+          assert settlement["markets"]["AH"]["pending_bets"] == 3
+          assert settlement["markets"]["AH"]["net_units"] == 3.5
+          assert settlement["markets"]["AH"]["roi_pct"] is None
+          assert settlement["markets"]["OU"]["settled_bets"] == 16
+          assert settlement["markets"]["OU"]["pending_bets"] == 2
+          assert settlement["markets"]["OU"]["net_units"] == -1.6375
+          assert settlement["markets"]["OU"]["roi_pct"] is None
+          assert settlement["production_or_telegram_changes"] is False
+          print("M5 2026-11-07T0942Z forward cohort receipt integrity: PASS")
+          PY
