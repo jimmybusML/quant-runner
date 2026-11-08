@@ -1228,3 +1228,7 @@ AH、OU均未完成本队列结算，故已结子集 ROI 不代表最终队列�
 ### 2026-11-08T17:18Z Crown 移动盘口离线回放
 
 对 M5 已有逐场样本外预测和本地已存 Crown 历史响应做离线匹配，不发起新 API 请求。只保留精确响应 SHA、赛事身份、比分及 UTC kickoff 一致的样本，并要求预测训练截止时间早于预测时点、Crown 报价事件时点早于 kickoff；实际响应接收均发生在 kickoff 后，因此只能称为按盘口事件时间回放，不能称为赛前实收成交。2025–2026 预测与已存 Crown movement 交集共4,890场；AH有4,876条有效盘口，OU有4,875条，分别有14/15条无合格 movement 盘口。AH每场一笔1U回放净亏135.21U、ROI -2.7730%、最大回撤152.68U；OU净亏152.945U、ROI -3.1373%、最大回撤166.54U。用同赛事最新 open/close summary 报价回放分别为AH -2.8561%、OU -3.1899%。逐场 movement 相对 summary 的配对ROI差异95%区间均跨过0，暂未显示稳定优势。AH/OU分别独立核算，报告不包含逐场身份、精确盘口或比分，见[脱敏结果](results/m5_canonical_crown_movement_replay_20261109.json)。这是既有预测/赛果上的探索性分析，不是新独立留出集；不改变任何生产模型、订单、TG、Gate或账本。
+
+### 2026-11-08T17:30Z Crown movement 新增采集复核
+
+在共享 TotalCorner 采集器仍运行时仅做 SQLite read-only 离线刷新，没有发起网络请求。movement 库持续增加记录，但当前 M5 2025–2026 OOS forecast 对应的精确响应集合未改变：forecast匹配仍4,890，AH/OU合格报价仍4,876/4,875，输入M5索引和响应SHA均与17:18Z报告相同；净值/ROI也不变。故这轮底层库采集没有给当前 M5 OOS 队列增加新学习信息。刷新回执为[17:30Z聚合报告](results/m5_canonical_crown_movement_replay_refresh_20261108T1729Z.json)。
