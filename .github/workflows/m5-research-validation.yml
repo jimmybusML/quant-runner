@@ -118,6 +118,41 @@ jobs:
               assert forbidden not in serialized
           print("M5 canonical Crown historical OOS replay integrity: PASS")
           PY
+      - name: Validate M1 MR1 M3 M4 matched canonical Crown comparison
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          report_path = Path("research/m5/results/m5_model_family_canonical_crown_comparison_20261108.json")
+          runner_path = Path("research/m5/m5_model_family_canonical_crown_comparison.py")
+          report = json.loads(report_path.read_text())
+          assert report["protocol"] == "M5_MODEL_FAMILY_CANONICAL_CROWN_MATCHED_COMPARISON_V1"
+          assert report["data"]["runner_sha256"] == hashlib.sha256(runner_path.read_bytes()).hexdigest()
+          assert report["data"]["crown_fixture_markets_by_market"] == {"AH": 10400, "OU": 10399}
+          for key in ("runner_sha256", "crown_input_sha256", "m1_trace_sha256", "mr1_trace_sha256", "m3_grid_archive_sha256"):
+              assert re.fullmatch(r"[0-9a-f]{64}", report["data"][key])
+          for market in ("AH", "OU"):
+              result = report["markets"][market]
+              assert result["canonical_cohort_n"] == report["data"]["crown_fixture_markets_by_market"][market]
+              common = result["same_fixture_common_cohort"]
+              n = common["unique_fixture_markets"]
+              assert n > 0 and all(model["simulated_bets"] == n for model in common["models"].values())
+              for name, model in result.items():
+                  if not isinstance(model, dict) or "simulated_bets" not in model:
+                      continue
+                  assert model["simulated_bets"] == model["settled_bets"]
+                  assert sum(model["settlement_counts"].values()) == model["settled_bets"]
+                  assert abs(model["roi_pct"] - 100 * model["net_units"] / model["stake_units"]) < 1e-6
+                  assert model["quote_sources"] == {"Crown": model["simulated_bets"]}
+                  assert model["receipt_timing"] == {"post_kickoff": model["simulated_bets"]}
+              assert result["M1"]["simulated_bets"] < result["canonical_cohort_n"]
+              assert result["MR1_V6"]["simulated_bets"] < result["canonical_cohort_n"]
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"prices"', '"score_grid"', '"home_goals"', '"away_goals"', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 model-family canonical Crown comparison integrity: PASS")
+          PY
       - name: Validate the public joint-model receipt
         run: |
           python - <<'PY'

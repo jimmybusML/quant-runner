@@ -1191,3 +1191,11 @@ AH 的2025 Log Loss最优权重退化为MR1单模；OU的概率融合改善了 p
 重新读取固定 M5 历史 manifest 与 TotalCorner 赛程缓存并按当前 UTC 重新拟合。共 317 条未来 schedule / forecast，39 个有训练历史的联赛分别拟合；0 identity conflict、0 league without training。所有逐场行满足 `train_end < prediction_asof < kickoff`。训练截止范围 `2026-10-24T07:30:00Z` 至 `2026-11-04T17:00:00Z`，目标开赛时间范围 `2026-11-07T06:00:00Z` 至 `2026-11-23T20:00:00Z`。forecast SHA `5508b8ac2ee95893698598812449a55c83a0bc316e84f472d776fc51a7382a48`，历史 manifest SHA `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`。脱敏聚合回执：[05:49Z forecast receipt](results/m5_forward_forecast_20261107T0549Z.json)。
 
 这份回执只证明模型批次可追溯，不含盘口、下注或ROI。模型输出及赛事身份留在私有目录。生成后发现用户侧 M3 TotalCorner schedule audit PID 33622 仍运行并持有接口代理连接；为避免与共享 API 限速冲突，M5 新批次的 Crown 与 TotalCorner 采集待该进程结束后顺序执行。
+
+## 2026-11-08 M1 / MR1 / M3 / M4 在新增 Crown 万场回执上的逐模型复跑
+
+新增 [统一 Crown 样本逐模型对照报告](results/m5_model_family_canonical_crown_comparison_20261108.json) 和可复跑程序 [`m5_model_family_canonical_crown_comparison.py`](m5_model_family_canonical_crown_comparison.py)。输入是截至本轮离线补齐的规范 Crown summary 历史缓存，并连接各系统既有逐场 OOS 预测档案。AH 10,400、OU 10,399 个唯一 Crown fixture-market；全部盘口 source 为 Crown，且历史 API response receipt 均在开赛后，所以这里只能称为按赛前 source-event 盘口做的回顾性 OOS 回放，不能视为当时已收到或可执行收益。
+
+M3 的 Poisson、Dixon–Coles、Bivariate Poisson 保存了完整比分网格，按本轮 Crown 的实际盘口线和双方价格重新选边、计算 settlement probabilities 并结算；有效覆盖 AH 9,591 / OU 9,590。M1 与 MR1 V6 只保存旧合约线上的五类结算概率；严格要求预测档案存在、原盘口线与本轮 Crown 线精确相同且预测事件不晚于本轮 quote event。可用覆盖 AH：M1 8,191、MR1 8,129；OU：M1 8,300、MR1 8,237。其余不跨盘口线套用概率。报告另列五方案完全相同 fixture-market 的共同样本：AH 8,129、OU 8,237，作为模型间最公平的同场比较。MR1 单体未补齐缺失场次。M4 仅是现有 Japan J-League / Türkiye Super Lig Pass 研究规则应用于 M3；同时报告其全覆盖与共同样本结果，并明确该 Pass 是事后研究，不是独立模型或未触碰留出。
+
+全样本可用行的 ROI 均为负。严格共同样本 ROI：AH MR1 -0.95%、M1 -2.15%、M3 Bivariate -2.74%、M3 Poisson -2.85%、M3 Dixon–Coles -2.95%；OU M1 -2.73%、M3 Bivariate -3.31%、M3 Dixon–Coles -3.35%、M3 Poisson -3.44%、MR1 -3.52%。共同样本 proper scores、逐年、最大回撤、结算分布及重抽样区间均见 JSON 回执。M4共同样本两市场也为负。没有任何方案达到 +3%。逐场输入/输出仅留本机私有目录；公开回执只包含聚合指标和文件哈希。
