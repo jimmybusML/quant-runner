@@ -4491,3 +4491,4 @@
 ## 2026-11-08T17:45Z M5前瞻forecast刷新
 - 用现有冻结M5历史manifest和本地TotalCorner schedule缓存重拟合19个联赛，生成94场仍未开赛forecast。生成UTC `2026-11-08T17:45:33.556981Z`，forecast SHA `22182e912e9c962b59d2d342edc0096e1aa0a2b45f8b202deae97c50991355b9`，manifest SHA `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`；训练赛果范围至 `2026-11-04T17:00:00Z`，样本1,603–4,833/联赛，中位数3,412，身份冲突及无训练联赛均0。manifest未变化，本次没有新增训练学习信息。
 - 94场中93场在Crown捕获索引按fixture身份精确匹配，但没有AH/OU盘口同时满足该forecast之后的报价事件和kickoff之前的实际receipt；严格forecast SHA下TotalCorner匹配0。M5总角盘共享API当时仍被另一采集占用，未请求网络。公开聚合回执 `research/m5/results/m5_forward_forecast_20261108T1745Z.json`；逐场数据留在私有目录。待接口空闲后对此forecast SHA的未来赛事运行Crown优先/TotalCorner补缺采集。
+- forecast receipt、README与Actions校验提交 `41abdee70e59ced5bbe0b231a0cc4a7abd17f976` 已推送；GitHub M5 Research Validation run [42506794934](https://github.com/jimmybusML/quant-runner/actions/runs/42506794934) 成功，含99项M5测试及17:45Z forecast receipt校验。下一步先采集Crown，再对Crown缺失的AH/OU市场用TotalCorner补缺。
