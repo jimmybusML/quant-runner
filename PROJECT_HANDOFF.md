@@ -4473,3 +4473,10 @@
 - AH配对102（Crown83 / TotalCorner default19），已结36、待结66，已结净+0.42U、settled-only ROI +1.166667%、最大回撤6.47U，W/HW/P/HL/L=`16/3/1/1/15`。OU配对98（Crown82 / TotalCorner default16），已结34、待结64，净-0.4275U、settled-only ROI -1.257353%、最大回撤4.16U，结算=`15/3/0/1/15`。由于仍有130项未结，两市场完整队列ROI为null；短期已结子集不构成M5收益目标证据。
 - Crown与TotalCorner逐场盘口严格分源；赛前响应 receipt 与 UTC 时间链用于前瞻配对。结果 FT 仅在 TotalCorner响应通过身份、UTC kickoff和FT状态验证后结算。逐场身份、预测、赔率、比分及原始响应在 `/private/tmp/m1-m5-private`，未提交；公开脱敏报告 `research/m5/results/m5_forward_shadow_settlement_canonical_crown_20261109.json`，README及Actions校验器均已更新。
 - 研究与回执提交 `333c74bb32b88b5834d8d60dde30bdc8066183d3` 已推送到 `codex/m5-oos-crown-expansion`；GitHub M5 Research Validation run [42500481413](https://github.com/jimmybusML/quant-runner/actions/runs/42500481413) 成功，执行全量 M5 pytest 与新结算回执验证。报告生成时间 `2026-11-08T16:24:54.934674Z`。本交接补录提交另见 Git 历史。M5任一市场历史样本外 ROI≥3% 且每市场至少10,000场的目标仍未达到。无正式模型、订单、TG、Gate或账本变更。
+
+## 2026-11-08T16:37Z M5 新前瞻预测批次
+
+- 使用冻结 M5 历史 manifest 与现有范围内 TotalCorner schedule 缓存运行 M5 独立模型，生成 106 个唯一 future fixtures，24 个联赛分别拟合；ID 冲突0、缺少历史训练联赛0。训练样本每联赛695–4,833（中位数3,551），训练比赛截止 UTC `2026-11-01T13:00:00Z` 至 `2026-11-04T17:00:00Z`；forecast as-of `2026-11-08T16:37:08.219144Z`；预测赛事 kickoff `2026-11-08T17:00:00Z` 至 `2026-11-23T20:00:00Z`。所有逐场满足 `train_end < prediction_asof < kickoff`，forecast SHA `f74db0cafec6ca6b361410aa85a638a468982541db0c157236760b7aaaf4cd9d`，历史 manifest SHA `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`。
+- 逐场预测/score grids 留在 `/private/tmp/m1-m5-private`；公开脱敏 forecast receipt 为 `research/m5/results/m5_forward_forecast_20261108T1637Z.json`。本报告只证明预测批次和时序可追溯，尚无 Crown / TotalCorner quote pairing、结算或 ROI。
+- 发现本机 M3 历史 movement collector 仍在使用共享 TotalCorner 接口，因此本批 Crown 与 TotalCorner 请求暂缓，避免并发请求；待该独立采集结束后继续。目标赛事范围截至 Nov 23 UTC，后续仍有可采赛前赛事。
+- 预测批次提交 `92d8c22c624458f907a0f6bc0a90b176a9d9290c` 已推送；GitHub M5 Research Validation run [42501181424](https://github.com/jimmybusML/quant-runner/actions/runs/42501181424) 成功，全量 M5 tests 与新增 forecast receipt validator 通过。M5 每市场10,000场与任一市场 ROI≥3% 目标仍未达到；无正式模型、TG、订单、账本或交易 Gate 改动。
