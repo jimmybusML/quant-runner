@@ -1,3 +1,9 @@
+## 2026-11-08T20:41Z M5 前瞻报价采集核验（无合格市场）
+
+使用未变化的 M5 历史 manifest（SHA-256 `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`）和已有赛程缓存，生成78场 M5-only 前瞻预测，forecast as-of 为 `2026-11-08T20:41:24.781801Z`。本次没有新增训练赛果，预测只用于当前独立影子研究。随后按 Crown 优先、TotalCorner-default 补缺分别采集：Crown 78次尝试、77个响应通过身份核验、1个身份错配；TotalCorner 78次尝试、77个响应通过身份核验、1个身份错配。两个来源均未找到预测 as-of 之后且开赛前的 AH 或 OU 报价，因此唯一配对市场为 AH 0、OU 0，ROI、净额和回撤均为 null；本回执不是回测收益结果，也没有新增可结算预测样本。
+
+脱敏回执 [`m5_forward_shadow_capture_20261108T2041Z.json`](results/m5_forward_shadow_capture_20261108T2041Z.json) 记录输入/索引哈希、分来源响应数、时序规则和无配对状态。逐场身份、预测网格、盘口、赔率和原始响应仍仅在本机私有目录。历史 manifest 未变化，所以本次无新增训练信息；没有改动 M1/MR1/M3/M4 生产策略、Gate、Telegram、订单或账本。当前 M5 的 AH/OU ≥10,000 研究样本与任一市场 ROI ≥3% 目标仍未达到。
+
 ## 2026-11-08T20:15Z M5 17:45Z前瞻批次首轮FT结算
 
 在共享采集负载下以3.1秒最小间隔复用既有 TotalCorner 授权，只查询17:45Z批次已开赛 fixture；未开赛项跳过。16个fixture中5个收到并通过身份/开赛UTC核验的FT，8个响应时尚未FT、3个尚未开赛；本次结算覆盖AH/OU配对8项，另19项仍待结。AH：15注、已结5、待结10；W/HW/P/HL/L=`0/2/1/0/2`，已结净额 `-1.11U`，已结本金ROI `-22.2%`，全队列ROI `null`，DD `1.11U`。OU：12注、已结3、待结9；`1/0/0/0/2`，净额 `-1.07U`，已结本金ROI `-35.666667%`，全队列ROI `null`，DD `2.0U`。结算来源分别为AH Crown 5、OU Crown 2 / TotalCorner-default 1；样本极小且未全部结算，不代表完整队列收益。脱敏回执 [`m5_forward_shadow_settlement_20261108T1745Z_refresh_20261108T2014Z.json`](results/m5_forward_shadow_settlement_20261108T1745Z_refresh_20261108T2014Z.json)；逐场比赛、分数、价格和raw响应留在本机私有目录。本次无TG通知、生产策略或交易账本变更。

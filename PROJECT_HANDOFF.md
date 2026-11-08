@@ -1,3 +1,9 @@
+## 2026-11-08T20:41Z M5 新前瞻 forecast / Crown / TotalCorner 批次
+- 从冻结 M5 历史 manifest（SHA-256 `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`）与本地赛程缓存生成78场 M5-only 预测，as-of UTC `2026-11-08T20:41:24.781801Z`，forecast SHA-256 `2e7e6b21fe92819d149659a9ad22d52f4b34d4e50ee5361a0ed5b03234ca5eab`。历史 manifest 未变化，本次无新增训练赛果/学习信息；逐场预测留在本机私有目录。
+- 使用已确认的统一 Crown 采集器完成78次现场摘要采集；M5按冻结 forecast 的比赛身份、UTC kickoff、原始响应哈希和 `asof <= quote_event <= received < kickoff` 核验，77条响应身份通过、1条身份错配，合格 Crown AH/OU均为0。随后 TotalCorner-default 对78场补缺，77条响应身份通过、1条错配，as-of 后且赛前有效的 AH/OU 默认盘口均为0。来源各自记录，没有赔率来源互换或重复 fixture-market。
+- 唯一市场配对数 AH=0 / OU=0；故没有模拟投注、结算、净盈利、ROI 或回撤（均 null）。这次是数据采集与覆盖核验，不是收益评估。公开脱敏结果 `research/m5/results/m5_forward_shadow_capture_20261108T2041Z.json`，生成 UTC `2026-11-08T20:57:59.640652Z`；仅公开汇总与 SHA，逐场身份/预测/报价/raw响应留在本机私有目录。`m5_forward_shadow_public_receipt.py` 已把零配对情况明确标为 `no paired receipts`，避免给人已存在赛前收据的印象；新增校验覆盖脱敏和空分母语义。
+- 代码、报告与 M5 Research Validation Actions 尚待本轮提交/执行验收。现有数据采集不改变 M1/MR1/M3/M4 生产策略、Gate、Telegram、订单或账本；M5两市场10,000场目标和任一市场 ROI ≥3% 目标均未达成。
+
 ## 2026-11-08T20:15Z M5 17:45Z前瞻批次首轮FT结算
 
 在共享采集负载下以3.1秒最小间隔复用既有 TotalCorner 授权，只查询17:45Z批次已开赛 fixture；未开赛项跳过。16个fixture中5个收到并通过身份/开赛UTC核验的FT，8个响应时尚未FT、3个尚未开赛；本次结算覆盖AH/OU配对8项，另19项仍待结。AH：15注、已结5、待结10；W/HW/P/HL/L=`0/2/1/0/2`，已结净额 `-1.11U`，已结本金ROI `-22.2%`，全队列ROI `null`，DD `1.11U`。OU：12注、已结3、待结9；`1/0/0/0/2`，净额 `-1.07U`，已结本金ROI `-35.666667%`，全队列ROI `null`，DD `2.0U`。结算来源分别为AH Crown 5、OU Crown 2 / TotalCorner-default 1；样本极小且未全部结算，不代表完整队列收益。脱敏回执 [`m5_forward_shadow_settlement_20261108T1745Z_refresh_20261108T2014Z.json`](results/m5_forward_shadow_settlement_20261108T1745Z_refresh_20261108T2014Z.json)；逐场比赛、分数、价格和raw响应留在本机私有目录。本次无TG通知、生产策略或交易账本变更。

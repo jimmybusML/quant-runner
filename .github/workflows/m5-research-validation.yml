@@ -1142,3 +1142,32 @@ jobs:
               assert re.fullmatch(r"[0-9a-f]{64}", report["forecast"][key])
           print("M5 19:12Z forward capture receipt integrity: PASS")
           PY
+      - name: Validate 2026-11-08T2041Z empty forward capture receipt
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          report = json.loads(Path("research/m5/results/m5_forward_shadow_capture_20261108T2041Z.json").read_text())
+          assert report["protocol"] == "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1"
+          assert report["forecast_fixture_count"] == 78
+          assert report["forecast_generated_utc"] == "2026-11-08T20:41:24.781801Z"
+          assert report["crown_capture"]["attempted_fixtures"] == 78
+          assert report["crown_capture"]["aggregate_counts"] == {"AH_qualified_fixture_markets": 0, "OU_qualified_fixture_markets": 0, "fixture_or_crown_identity_mismatch": 1, "verified_fixture_responses": 77}
+          assert report["totalcorner_capture"]["attempted_fixtures"] == 78
+          assert report["totalcorner_capture"]["aggregate_counts"] == {"AH_default_qualified_fixture_markets": 0, "OU_default_qualified_fixture_markets": 0, "crown_preferred_AH_skips": 0, "crown_preferred_OU_skips": 0, "fixture_or_api_identity_mismatch": 1, "request_attempts": 78, "verified_fixture_responses": 77}
+          assert report["paired_fixture_markets"] == 0 and report["paired_fixture_markets_by_market"] == {}
+          assert report["markets"]["AH"]["unique_fixture_markets"] == 0
+          assert report["markets"]["OU"]["unique_fixture_markets"] == 0
+          for market in ("AH", "OU"):
+              assert report["markets"][market]["receipt_timing"] == "no paired receipts"
+              assert report["markets"][market]["roi_pct"] is None
+              assert report["markets"][market]["net_units"] is None
+              assert report["markets"][market]["source_fixture_markets"] == {}
+          assert report["integrity"] == {"all_fixture_markets_unique": True, "private_fixture_level_data_published": False, "settlement_performed": False, "source_separated": True, "train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff": True}
+          serialized = json.dumps(report)
+          for forbidden in ('"match_id"', '"home"', '"away"', '"prices"', '"score_grid"', '/private/tmp/', '/Users/mac/', 'api_token', 'api_key'):
+              assert forbidden not in serialized
+          for field in ("forecast_sha256", "forecast_receipt_sha256", "crown_capture_receipt_sha256", "pair_receipt_sha256", "pair_sha256", "sanitizer_sha256", "crown_index_sha256", "totalcorner_index_sha256"):
+              assert re.fullmatch(r"[0-9a-f]{64}", report[field])
+          print("M5 20:41Z zero-coverage forward receipt integrity: PASS")
+          PY

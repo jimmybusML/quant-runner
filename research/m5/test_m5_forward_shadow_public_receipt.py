@@ -153,6 +153,41 @@ class ForwardShadowPublicReceiptTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "chronology"):
                 build_receipt(forecast_path, forecast_meta, crown, pairs, pair_meta)
 
+    def test_empty_pairing_reports_no_receipts_and_null_roi(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            forecast = {"match_id": "private-id", "train_end_utc": "2026-11-01T00:00:00Z",
+                        "prediction_asof_utc": "2026-11-06T10:00:00Z",
+                        "kickoff_utc": "2026-11-06T15:00:00Z", "prediction": {"grid": [[1.0]]}}
+            forecast_path = root / "forecast.jsonl"
+            forecast_path.write_text(json.dumps(forecast) + "\n")
+            forecast_hash = hashlib.sha256(forecast_path.read_bytes()).hexdigest()
+            forecast_meta = root / "forecast-meta.json"
+            forecast_meta.write_text(json.dumps({"forecast_sha256": forecast_hash}))
+            crown = root / "crown.json"
+            crown.write_text(json.dumps({"forecast_sha256": forecast_hash,
+                "generated_utc": "2026-11-06T12:00:00Z", "attempted_fixtures": 1,
+                "aggregate_counts": {}, "response_hash_set_sha256": "a" * 64}))
+            totalcorner = root / "totalcorner.json"
+            totalcorner.write_text(json.dumps({"forecast_sha256": forecast_hash,
+                "generated_utc": "2026-11-06T12:01:00Z", "attempted_fixtures": 1,
+                "forecast_candidate_fixtures": 1, "aggregate_counts": {},
+                "response_hash_set_sha256": "b" * 64}))
+            pairs = root / "pairs.jsonl"
+            pairs.write_text("")
+            pair_hash = hashlib.sha256(b"").hexdigest()
+            pair_meta = root / "pair-meta.json"
+            pair_meta.write_text(json.dumps({"forecast_sha256": forecast_hash,
+                "pair_sha256": pair_hash, "paired_rows": 0, "paired_fixture_markets": {},
+                "generated_utc": "2026-11-06T12:02:00Z"}))
+            report = build_receipt(forecast_path, forecast_meta, crown, pairs,
+                                   pair_meta, totalcorner)
+            self.assertEqual(report["markets"]["AH"]["receipt_timing"], "no paired receipts")
+            self.assertEqual(report["markets"]["OU"]["receipt_timing"], "no paired receipts")
+            self.assertIsNone(report["markets"]["AH"]["roi_pct"])
+            self.assertIsNone(report["markets"]["OU"]["roi_pct"])
+            self.assertNotIn("private-id", json.dumps(report))
+
 
 if __name__ == "__main__":
     unittest.main()

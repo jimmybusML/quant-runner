@@ -122,7 +122,8 @@ def build_receipt(forecast_path: Path, forecast_meta_path: Path,
         per_market[market] = {
             "unique_fixture_markets": count,
             "source_fixture_markets": dict(sorted(source_counts[market].items())),
-            "receipt_timing": "all paired receipts were before kickoff",
+            "receipt_timing": ("no paired receipts" if count == 0
+                                else "all paired receipts were before kickoff"),
             "settled_fixture_markets": 0,
             "fixture_markets_pending_settlement_verification": count,
             "net_units": None,
