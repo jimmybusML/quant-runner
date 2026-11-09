@@ -1323,3 +1323,19 @@ AH、OU均未完成本队列结算，故已结子集 ROI 不代表最终队列�
 2025选择了 AH、OU 均为 lower-expected-return 方向（AH +0.218917%，OU -2.996377%）。到2026留出，反向方案 AH `-4.797184%`（净 `-490.56U`，DD `500.865U`），OU `-4.000220%`（净 `-409.0625U`，DD `429.6075U`）；同队列 higher-expected-return 基线分别为 AH `-1.861823%`（`-190.39U`，DD `215.6125U`）和 OU `-3.498778%`（`-357.785U`，DD `420.2025U`）。因此方向翻转在两个市场均未改善，作为候选予以拒绝。2026两个方向的每市场样本均为 Crown 9,316、TotalCorner-default 910，无重复 fixture-market，均达到10,000场；2025和2026所有历史 API response receipt 都在开赛后，收益只代表 source-event 回顾性 OOS，不是当时可执行收益。AH、OU均未达到 ROI≥3%。
 
 完整结算分类、proper scores、bootstrap 区间、数据来源计数、UTC 覆盖及 SHA 在脱敏 JSON 中。M5 生产策略未改动，不将反向方案晋升或用于下注。
+## 2026-11-09T01:31Z M5 完整历史 Crown SQLite 归档扩展
+
+在不调用网络接口的条件下，只读联结本地统一 Crown SQLite、M5 冻结样本外预测和候选赛果。冻结预测档案和 manifest 各有 127,674 行；其中 12,144 场在本地有 Crown 捕获记录，精确核验原始响应 SHA、Crown book、球队/联赛、UTC 开赛及完场比分。仅保留满足 `train_end < prediction_asof <= quote_source_at < kickoff` 的报价。SQLite 当前滚动写入，因此本报告以响应哈希集合和生成 UTC 固定本次输入；摘要/走势分开核算，并额外给出两层中时间最新的每场报价。来源只有 Crown。
+
+| 市场 | 报价层 | 唯一场次 | 1U ROI | Log Loss | Brier | 最大回撤 |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| AH | summary | 10,400 | -2.6879% | 1.030758 | 0.648482 | 307.31U |
+| AH | movement | 6,075 | -2.2985% | 1.026056 | 0.645396 | 154.81U |
+| AH | 每场最新可用层 | 11,599 | -2.4161% | 1.029888 | 0.647658 | 305.61U |
+| OU | summary | 10,399 | -3.4770% | 0.982684 | 0.620602 | 381.33U |
+| OU | movement | 4,875 | -3.1373% | 0.979178 | 0.618795 | 166.54U |
+| OU | 每场最新可用层 | 10,399 | -3.4903% | 0.982804 | 0.620725 | 382.72U |
+
+此结果使用的是已存 M5 全比分概率网格，不是本轮重新训练，也不是 M1/MR1/M3/M4 的新增跑分；这些模型在 00:54Z 的独立比较仍使用各自合格的 Crown 交集。此处历史 Crown API 响应全部在开赛后回取，盘口 source time 虽满足预测时点后、开赛前，仍只能作事件时间回放，不代表当时可成交。10,000 次 fixture bootstrap 的 ROI 95% 区间上界 AH summary -0.9769%、AH movement -0.0982%、AH 每场最新层 -0.8409%；OU summary -1.7745%、OU movement -0.6099%、OU 每场最新层 -1.8014%，全为负值。没有达到 M5 收益目标。
+
+可复跑 [`m5_crown_sqlite_full_oos_replay.py`](m5_crown_sqlite_full_oos_replay.py)，只读输入；公开回执 [`m5_crown_sqlite_full_oos_replay_20261109.json`](results/m5_crown_sqlite_full_oos_replay_20261109.json) 只含市场/年份聚合及哈希，逐场 join 留在本机私有目录。响应实际接收时点单独记录，接收均为赛后或缺失，不能作为真实赛前实收 ROI。

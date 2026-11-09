@@ -1341,3 +1341,39 @@ jobs:
               assert forbidden not in serialized
           print("M5 source-union direction diagnostic integrity: PASS")
           PY
+      - name: Validate full local Crown SQLite M5 OOS replay receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_crown_sqlite_full_oos_replay_20261109.json")
+          runner = Path("research/m5/m5_crown_sqlite_full_oos_replay.py")
+          report = json.loads(path.read_text())
+          assert report["protocol"] == "M5_CROWN_SQLITE_FULL_OOS_REPLAY_V1"
+          for value in (report["runner_sha256"], *report["input_hashes"].values()):
+              assert re.fullmatch(r"[0-9a-f]{64}", value)
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          assert report["coverage"]["forecast_rows_total"] == 127674
+          assert report["coverage"]["manifest_fixture_rows"] == 127674
+          assert report["coverage"]["forecast_rows_with_canonical_captures"] == report["coverage"]["forecast_ids_with_canonical_captures"]
+          assert report["coverage"]["fixture_markets_with_quote"] == {
+              market: report["markets"][market]["latest_any_layer"]["unique_fixture_markets"]
+              for market in ("AH", "OU")}
+          assert report["integrity"]["fixture_level_rows_public"] is False
+          assert all(value for key, value in report["integrity"].items()
+                     if key != "fixture_level_rows_public")
+          for market, target_n in (("AH", 10000), ("OU", 10000)):
+              result = report["markets"][market]["latest_any_layer"]
+              assert result["unique_fixture_markets"] >= target_n
+              assert result["simulated_bets"] == result["settled_bets"] == result["unique_fixture_markets"]
+              assert sum(result["settlement_counts"].values()) == result["unique_fixture_markets"]
+              assert abs(result["roi_pct"] - 100 * result["net_units"] / result["unique_fixture_markets"]) < 1e-6
+              assert result["roi_bootstrap_95pct"]["upper_95_roi_pct"] < 0
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"match_id"', '"prices"', '"score_grid"',
+                            '"home_goals"', '"away_goals"', '"api_token"', '"api_key"',
+                            '"private_rows_path"', '"/Users/mac/', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 full Crown SQLite OOS replay receipt integrity: PASS")
+          PY
