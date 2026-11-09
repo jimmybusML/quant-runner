@@ -207,7 +207,7 @@ jobs:
           import json, re
           from pathlib import Path
 
-          path = Path("research/m5/results/m5_m1_mr1_m3_same_crown_cohort_fresh_20261109.json")
+          path = Path("research/m5/results/m5_mr1_m1_m3_same_crown_cohort_fresh_20261109.json")
           report = json.loads(path.read_text())
           assert report["protocol"] == "M5_MR1_M1_M3_EXACT_CROWN_COMMON_COHORT_V1"
           assert report["generated_utc"].startswith("2026-11-09T06:13:")
