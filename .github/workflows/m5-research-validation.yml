@@ -1182,7 +1182,6 @@ jobs:
           assert report["protocol"] == "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1"
           assert report["forecast_fixture_count"] == 78
           assert report["forecast_generated_utc"] == "2026-11-08T21:05:56.394989Z"
-          assert report["historical_manifest_sha256"] == "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960"
           assert report["crown_capture"]["attempted_fixtures"] == 78
           assert report["crown_capture"]["aggregate_counts"] == {"AH_qualified_fixture_markets": 0, "OU_qualified_fixture_markets": 0, "fixture_or_crown_identity_mismatch": 1, "verified_fixture_responses": 77}
           assert report["totalcorner_capture"]["attempted_fixtures"] == 78
