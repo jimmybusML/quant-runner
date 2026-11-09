@@ -458,7 +458,7 @@ jobs:
           assert report["common_unique_fixtures_per_market"] == 9517
           assert report["audit_counts"] == {}
           assert report["timing_counts"] == {"AH_post_kickoff_provider_receipt": 9517, "AH_prefixture_quote_event": 9517, "OU_post_kickoff_provider_receipt": 9517, "OU_prefixture_quote_event": 9517}
-          assert report["input_sha256"] == {"m1_prediction_trace": "f41d1d3885c3bdc4572c44b27da291ea6bbe1c2c49a0f6d1966f7c77f03137a8", "mr1_prediction_trace": "91eebb6f6d397f77addc8f73cdba80f6050453e1dacaa8701", "m3_predictions_and_crown_quotes": "61e7488180dc9b05017113663a8d0c6d26f03b30648ad99ac1ea32f3792e01c1"}
+          assert report["input_sha256"] == {"m1_prediction_trace": "f41d1d3885c3bdc4572c44b27da291ea6bbe1c2c49a0f6d1966f7c77f03137a8", "mr1_prediction_trace": "91eebb6f6d3971ae1683027ef8b4f77addc8f73cdba80f6050453e1dacaa8701", "m3_predictions_and_crown_quotes": "61e7488180dc9b05017113663a8d0c6d26f03b30648ad99ac1ea32f3792e01c1"}
           for market in ("AH", "OU"):
               result = report["markets"][market]
               assert result["training_fixture_markets_2025"] == 1005
