@@ -1,3 +1,9 @@
+## 2026-11-09T07:58Z Crown movement 回填期间的 M5 OOS 快照回放
+
+- 回填期间再次只读运行 `m5_crown_sqlite_full_oos_replay.py`；冻结输入 SHA 与候选清单不变，报告生成UTC `2026-11-09T07:58:53.344016Z`。唯一 OOS Crown AH 12,730场/投注/已结，W/HW/P/HL/L `5088/888/879/883/4992`，净 `-287.010U`、ROI `-2.254595%`、回撤 `312.370U`、Log Loss/Brier `1.02896606/0.64715527`、bootstrap `[-3.757234%,-0.753451%]`。OU 10,399场，`4347/557/509/723/4263`，净 `-362.960U`、ROI `-3.490336%`、回撤 `382.720U`、LL/Brier `0.98280393/0.62072536`、bootstrap `[-5.193599%,-1.801409%]`。AH movement-only 7,206场，ROI `-2.031640%`、区间 `[-4.064358%,+0.016493%]`；OU movement-only 4,875场，ROI `-3.137333%`。全部Crown，历史response赛后收到，不是可执行同期收益。公开脱敏回执 `research/m5/results/m5_crown_sqlite_full_oos_replay_incremental_20261109T0757Z.json` SHA `29dbe1fc29293eb6815fb71c20ae43dbe2b7298c7c1c71fd7e60b75ee6a47667`；runner SHA `c3ed999dc233160c11a12439793cfd0bdf6e75fecf8a632101d8fc59d1e5de2d`。AH较上一快照增加70场并小幅改善；OU未增加。两市场仍未达+3%。
+- collector PID `97661` 仍运行；SQLite movement 为18,142 captures / 933,294 quotes。当前批次显示第4/566批处理中（上次完整进度第3批、300/56,566；SAVED 168、NO_CROWN_AH_QUOTES 424、FETCH_FAILED 8）。报告属于中间快照，终态后须最终重放。
+- 此回放公开文档/报告/Actions validator待提交及Actions验收；没有改生产模型或M1/MR1/M3/M4链路。
+
 ## 2026-11-09T07:48Z M1/MR1/M3 双边市场锚定校准实验
 
 - 新增 `research/m5/m5_sidewise_market_anchored_calibration.py`：在 M1、MR1 V6、M3 Poisson、Dixon–Coles、Bivariate Poisson 每个模型与 AH/OU 各自精确线 Crown 行上，按两侧五类结算概率、两边赔率和盘口线拟合正则化 multinomial softmax。用2025前75%日期拟合、后25%按 settlement Log Loss 选择 C，再用完整2025重拟合；2026作为外层测试，未用 ROI 调参。每个测试 fixture-market 都保留一注、校准后选择收益更高一侧，无阈值。输入私有行 SHA `51e8fe1763941e7a7a4e7f2977e9c6f3c3957a6dc8056837c25ab498b7dd5f82`，既有 Crown 对照报告 SHA `e9ef6942bca087f0029c12610d54d39f00899aa5a3db734953cd8b99f27f6a36`；脱敏报告 SHA `51dd5f97fb5367f5ec03e909c1bcf6066e0fe45ddb54ca212f7613c88fdde78b`。代码、测试、报告及验证器已加入本分支，等待提交/Actions。
