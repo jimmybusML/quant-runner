@@ -4,7 +4,7 @@
 - 使用现有 `m5_canonical_crown_penaltyblog_refit.py` 和 penaltyblog 1.13.1，按目标 UTC 年 Jan-1 cutoff、同联赛历史完整赛果逐年拟合原版 Poisson、Dixon–Coles、Bivariate Poisson，覆盖2019、2021、2022、2025、2026共103折；train/test fixture IDs互斥，cutoff < Crown source event < UTC kickoff。原版完成AH 11,665、OU 9,590；显式LeagueAvgFallback覆盖AH12,730、OU10,399。全样本详细W/HW/P/HL/L、净U、ROI、回撤、Log Loss/Brier及95% bootstrap已见 `research/m5/results/m5_canonical_crown_penaltyblog_expanded_oos_incremental_20261109T0757Z.json`。
 - 严格原版 ROI：AH Bivariate `-2.621389%`、Dixon–Coles `-2.714445%`、Poisson `-2.621646%`；OU Bivariate `-3.721794%`、Dixon–Coles `-3.764755%`、Poisson `-3.857560%`。完整覆盖回退版本亦均负，且概率评分更差。全部 bootstrap 95%上界低于0。新增 AH年份/样本未使任一市场达到+3%；OU历史报价量没有扩展。
 - 所有历史响应实际收到时间均在 kickoff 后，因此这是严格按年切分和 quote event 的 retrospective OOS，不是同期可执行 ROI。报告继承来源 M5 forecast、candidate manifest、raw-response hash-set 核验；逐场 quote/prediction/output 留在 `/private/tmp/m1-m5-private/`。此 07:58Z 回放来自共享回填中的间歇快照，回填终态后需再生成最终报告。
-- 本地 `PYTHONPATH=. /Users/mac/QuantAsiaDesk/venv/bin/python -m pytest research/m5 -q`：122 passed。新增公共回执校验已写入 M5 workflow，提交、Actions与结果落库等待下文追加记录。没有触碰任何生产模型、Gate、TG、订单或账本。
+- 本地 `PYTHONPATH=. /Users/mac/QuantAsiaDesk/venv/bin/python -m pytest research/m5 -q`：122 passed；公开回执算术、来源与 response SHA、逐年/样本计数、UTC时序、fixture ID隔离和隐私校验通过。报告、README、workflow validator、handoff 初稿提交 `9910c580e663aecb3026f95f6bea494f69ab0c99` 已推送公开分支 `codex/m5-oos-crown-expansion`。GitHub M5 Research Validation run [42585567731](https://github.com/jimmybusML/quant-runner/actions/runs/42585567731) 于 `2026-11-09T08:24Z` SUCCESS；包含全量 M5 tests 和本新增扩展年度重训回执校验。此次代码/报告不触碰任何生产模型、Gate、TG、订单或账本。
 
 ## 2026-11-09T07:58Z Crown movement 回填期间的 M5 OOS 快照回放
 
