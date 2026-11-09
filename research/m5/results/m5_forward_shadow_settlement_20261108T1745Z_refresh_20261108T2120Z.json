@@ -1,0 +1,81 @@
+{
+  "capture_counts": {
+    "already_verified_ft": 5,
+    "not_ft_at_receipt": 4,
+    "not_yet_kicked_off": 2,
+    "verified_ft": 5
+  },
+  "capture_receipt_sha256": "d64e9cf371fd1d5f6ee5295c0c8a87e388f81b5b26f4171be5d2de31e9e09750",
+  "generated_utc": "2026-11-08T21:24:06.243007Z",
+  "integrity": {
+    "AH_and_OU_accounted_independently": true,
+    "fixture_level_data_published": false,
+    "full_cohort_roi_null_while_pending": true,
+    "production_or_telegram_changes": false,
+    "same_immutable_pairing": true,
+    "source_separated": true
+  },
+  "markets": {
+    "AH": {
+      "max_drawdown_units": 3.11,
+      "net_units": -2.285,
+      "newly_verified_settlements_since_previous_receipt": 4,
+      "paired_source_fixture_markets": {
+        "Crown": 7,
+        "TotalCorner_default": 8
+      },
+      "pending_bets": 6,
+      "roi_pct": null,
+      "settled_bets": 9,
+      "settled_roi_pct": -25.388889,
+      "settled_source_fixture_markets": {
+        "Crown": 5,
+        "TotalCorner_default": 4
+      },
+      "settlement_counts": {
+        "half_loss": 0,
+        "half_win": 2,
+        "loss": 4,
+        "push": 2,
+        "win": 1
+      },
+      "simulated_bets": 15,
+      "unique_fixture_markets": 15
+    },
+    "OU": {
+      "max_drawdown_units": 2.0,
+      "net_units": -0.895,
+      "newly_verified_settlements_since_previous_receipt": 5,
+      "paired_source_fixture_markets": {
+        "Crown": 2,
+        "TotalCorner_default": 10
+      },
+      "pending_bets": 4,
+      "roi_pct": null,
+      "settled_bets": 8,
+      "settled_roi_pct": -11.1875,
+      "settled_source_fixture_markets": {
+        "Crown": 2,
+        "TotalCorner_default": 6
+      },
+      "settlement_counts": {
+        "half_loss": 0,
+        "half_win": 1,
+        "loss": 4,
+        "push": 0,
+        "win": 3
+      },
+      "simulated_bets": 12,
+      "unique_fixture_markets": 12
+    }
+  },
+  "paired_input_sha256": "271b75af7c5f3958673e46136bb28c8e87db48338425a08a808391e54866a44b",
+  "pending_fixture_markets": 10,
+  "previous_settled_fixture_markets": 8,
+  "previous_settlement_receipt_sha256": "1430d0ca648c7c1e9002e6c7b1b933bcffa8589db08209e819082fba2da95141",
+  "protocol": "M5_FORWARD_SHADOW_SETTLEMENT_REFRESH_PUBLIC_RECEIPT_V1",
+  "settled_fixture_markets": 17,
+  "settlement_receipt_sha256": "6927c80075b4268e97c1b1e80059b289ccffcdee26ad8495ae93a791c00a34f2",
+  "timing": "FT results were received after kickoff and identity/UTC kickoff verified; this is a forward shadow settlement, not formal trading performance.",
+  "verified_result_response_hash_set_sha256": "6fa795e3a557d8453ef385c906c629b17e65d7d4424966569ceeaad98b80cb7f"
+}

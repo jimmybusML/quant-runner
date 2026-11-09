@@ -1278,3 +1278,19 @@ AH、OU均未完成本队列结算，故已结子集 ROI 不代表最终队列�
 对 Crown 无合格预测后盘口的赛事调用 TotalCorner default 补缺，85 次请求、77 次赛事身份核验通过、8 次身份不匹配剔除。按 `train_end < prediction_asof <= quote_event <= quote_received < kickoff` 配对后，AH 4 项（Crown 2、TotalCorner default 2），OU 4 项（Crown 2、TotalCorner default 2），共8个唯一 fixture-market，无重复。已查询5个已开赛 fixture 的 FT，0项返回已验证完场结果；8项全部待结，AH/OU全队列 ROI 均为 null。
 
 脱敏聚合回执见[18:36Z 前瞻 Crown/TOTAL 配对](results/m5_forward_shadow_capture_20261108T1836Z.json)。模型预测、身份、盘口、比分和 API 原始响应均留在本机私有目录；本批不是 10,000 场收益证据，也不满足 M5 ROI≥3% 目标。未改 M1/MR1/M3/M4 生产策略、TG、订单、正式账本或 Gate。
+## 2026-11-08T21:05Z M5 前瞻采集和 TotalCorner 补缺
+
+使用未变化的冻结 M5 历史 manifest（SHA-256 `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`）生成78场 M5-only forecast，as-of UTC `2026-11-08T21:05:56.394989Z`，本次无新增训练赛果。Crown 78次请求中77条响应身份通过、1条错配，AH/OU合格数均为0。TotalCorner-default 78次请求中77条身份通过、1条错配，获得3项 AH 与3项 OU 合格报价；按 fixture-market 去重，6项均来自 TotalCorner-default，无 Crown 报价被替换，且全部满足严格 UTC 时序。开赛范围为 `2026-11-09T18:00:00Z`–`2026-11-23T20:00:00Z`，6项均待结算，净额、ROI和回撤保持 null。脱敏报告 [`m5_forward_shadow_capture_20261108T2105Z.json`](results/m5_forward_shadow_capture_20261108T2105Z.json)。这推进了前瞻实收队列，但远低于每市场10,000场目标，不构成收益结果。
+
+## 2026-11-08T21:21Z M5 17:45Z 前瞻批次 FT 结算刷新
+
+对同一不可变的27项配对刷新 TotalCorner FT；赛后收到、身份及 UTC 开球核验通过。AH：15项模拟、9已结/6待结，W/HW/P/HL/L=`1/2/2/0/4`，净 `-2.285U`，已结本金暂计 ROI `-25.388889%`，最大回撤 `3.11U`；OU：12项模拟、8已结/4待结，`3/1/0/0/4`，净 `-0.895U`，暂计 ROI `-11.1875%`，最大回撤 `2.0U`。本次相对上一份公开结算回执新增验证 AH 4项、OU 5项。由于两市场仍有待结，完整队列 ROI 均为 `null`；这些小样本负值不是历史10k回测，也不是正式交易表现。脱敏增量回执 [`m5_forward_shadow_settlement_20261108T1745Z_refresh_20261108T2120Z.json`](results/m5_forward_shadow_settlement_20261108T1745Z_refresh_20261108T2120Z.json)，只含来源、结算分类、汇总和哈希。
+
+
+## 2025 训练方向、2026 万场留出：M5 反向选边诊断
+
+新增[方向诊断回执](results/m5_source_union_direction_2025fit_2026holdout_20261109.json)。使用 M5 原有 OOS score-grid 和 Crown-first / TotalCorner-default 补缺报价，对 AH、OU 分别比较 higher-expected-return 与 opposite-side (`lower_expected_return`)。在2025数据上逐市场选择 ROI 较高的方向并冻结，然后对2026全部有效 fixture-market 各下注1U；没有 EV 门槛、联赛过滤、数量门槛或 fixture 筛选。2025训练段每市场1,311场，开赛 UTC `2025-11-15T14:30Z`–`2025-12-31T18:00Z`；2026留出段每市场10,226场，开赛 UTC `2026-01-01T12:30Z`–`2026-11-04T17:00Z`。
+
+2025选择了 AH、OU 均为 lower-expected-return 方向（AH +0.218917%，OU -2.996377%）。到2026留出，反向方案 AH `-4.797184%`（净 `-490.56U`，DD `500.865U`），OU `-4.000220%`（净 `-409.0625U`，DD `429.6075U`）；同队列 higher-expected-return 基线分别为 AH `-1.861823%`（`-190.39U`，DD `215.6125U`）和 OU `-3.498778%`（`-357.785U`，DD `420.2025U`）。因此方向翻转在两个市场均未改善，作为候选予以拒绝。2026两个方向的每市场样本均为 Crown 9,316、TotalCorner-default 910，无重复 fixture-market，均达到10,000场；2025和2026所有历史 API response receipt 都在开赛后，收益只代表 source-event 回顾性 OOS，不是当时可执行收益。AH、OU均未达到 ROI≥3%。
+
+完整结算分类、proper scores、bootstrap 区间、数据来源计数、UTC 覆盖及 SHA 在脱敏 JSON 中。M5 生产策略未改动，不将反向方案晋升或用于下注。

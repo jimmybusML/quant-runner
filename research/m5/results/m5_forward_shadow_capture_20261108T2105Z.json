@@ -1,0 +1,97 @@
+{
+  "crown_capture": {
+    "aggregate_counts": {
+      "AH_qualified_fixture_markets": 0,
+      "OU_qualified_fixture_markets": 0,
+      "fixture_or_crown_identity_mismatch": 1,
+      "verified_fixture_responses": 77
+    },
+    "attempted_fixtures": 78,
+    "response_hash_set_sha256": "2970f17311ab8fdcc743e058be6d6d80f39edae186d0fabc5ad4487646d9b66c"
+  },
+  "crown_capture_generated_utc": "2026-11-08T21:13:07.820835Z",
+  "crown_capture_receipt_sha256": "ab3df2ab2a4502e6ce866a02dbf0969fce8a706f250ae0d9a43c906db3c4860f",
+  "crown_index_sha256": "7243f65ce348892dc4de142a99df0a6302bf15e94e70e08991a6fef5bcef061e",
+  "forecast_fixture_count": 78,
+  "forecast_generated_utc": "2026-11-08T21:05:56.394989Z",
+  "forecast_receipt_sha256": "15303e56b4f3f9e9b8f442e1ba440d088e89bb5f35ad63260197995f00c703ae",
+  "forecast_sha256": "9c844af7534d11de9554f13993c08b1eec8a9fd47e45b46360a6bd13b6d460d4",
+  "generated_utc": "2026-11-08T21:20:18.184127Z",
+  "integrity": {
+    "all_fixture_markets_unique": true,
+    "private_fixture_level_data_published": false,
+    "settlement_performed": false,
+    "source_separated": true,
+    "train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff": true
+  },
+  "kickoff_coverage_utc": [
+    "2026-11-09T18:00:00Z",
+    "2026-11-23T20:00:00Z"
+  ],
+  "limitations": [
+    "This is a prediction/quote pairing receipt, not a simulated wager or ROI result.",
+    "AH and OU paired samples are reported independently and remain below 10,000.",
+    "Crown is preferred per fixture-market; TotalCorner default only fills missing Crown markets.",
+    "Raw fixture identities, score grids, lines, prices and API responses remain private."
+  ],
+  "markets": {
+    "AH": {
+      "fixture_markets_pending_settlement_verification": 3,
+      "max_drawdown_units": null,
+      "net_units": null,
+      "receipt_timing": "all paired receipts were before kickoff",
+      "roi_pct": null,
+      "settled_fixture_markets": 0,
+      "source_fixture_markets": {
+        "TotalCorner_default": 3
+      },
+      "unique_fixture_markets": 3
+    },
+    "OU": {
+      "fixture_markets_pending_settlement_verification": 3,
+      "max_drawdown_units": null,
+      "net_units": null,
+      "receipt_timing": "all paired receipts were before kickoff",
+      "roi_pct": null,
+      "settled_fixture_markets": 0,
+      "source_fixture_markets": {
+        "TotalCorner_default": 3
+      },
+      "unique_fixture_markets": 3
+    }
+  },
+  "pair_receipt_sha256": "8f38b2db0d021463c00b3cdd326503280f6f9e89bac4fd41187a4765a97ae829",
+  "pair_sha256": "334ae4ce5faba0f11d72563c715e90bbdefd9ef73171abd365c554668c335c21",
+  "paired_fixture_markets": 6,
+  "paired_fixture_markets_by_market": {
+    "AH": 3,
+    "OU": 3
+  },
+  "pairing_audit_counts": {
+    "AH_no_eligible_totalcorner_quote": 75,
+    "AH_paired_TotalCorner_default_fixture_markets": 3,
+    "OU_no_eligible_totalcorner_quote": 75,
+    "OU_paired_TotalCorner_default_fixture_markets": 3,
+    "no_totalcorner_response": 1
+  },
+  "pairing_generated_utc": "2026-11-08T21:20:08.798762Z",
+  "protocol": "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1",
+  "sanitizer_sha256": "a59c1a529c0a86f0a72ad1ab99fc1cfdd54890c856bcb4d528db9000bcd3c25a",
+  "totalcorner_capture": {
+    "aggregate_counts": {
+      "AH_default_qualified_fixture_markets": 3,
+      "OU_default_qualified_fixture_markets": 3,
+      "crown_preferred_AH_skips": 0,
+      "crown_preferred_OU_skips": 0,
+      "fixture_or_api_identity_mismatch": 1,
+      "request_attempts": 78,
+      "verified_fixture_responses": 77
+    },
+    "attempted_fixtures": 78,
+    "forecast_candidate_fixtures": 78,
+    "generated_utc": "2026-11-08T21:20:02.716473Z",
+    "response_hash_set_sha256": "2b93c471ac8feedbd8af9a831004225e2b412e706efd152280be7540dc53c357",
+    "source_rule": "Crown is preferred per fixture-market; TotalCorner default is selected only when Crown has no qualifying post-asof pre-kickoff quote."
+  },
+  "totalcorner_index_sha256": "ec01ad59a4ea25c1fc0387ad7fe3cf7624f17ceb7cf0fc5bc3975f5b4c814722"
+}

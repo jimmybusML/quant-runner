@@ -1173,3 +1173,126 @@ jobs:
               assert re.fullmatch(r"[0-9a-f]{64}", report[field])
           print("M5 20:41Z zero-coverage forward receipt integrity: PASS")
           PY
+      - name: Validate 2026-11-08T2105Z M5 forward source pairing receipt
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          report = json.loads(Path("research/m5/results/m5_forward_shadow_capture_20261108T2105Z.json").read_text())
+          assert report["protocol"] == "M5_FORWARD_SHADOW_PUBLIC_CAPTURE_RECEIPT_V1"
+          assert report["forecast_fixture_count"] == 78
+          assert report["forecast_generated_utc"] == "2026-11-08T21:05:56.394989Z"
+          assert report["historical_manifest_sha256"] == "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960"
+          assert report["crown_capture"]["attempted_fixtures"] == 78
+          assert report["crown_capture"]["aggregate_counts"] == {"AH_qualified_fixture_markets": 0, "OU_qualified_fixture_markets": 0, "fixture_or_crown_identity_mismatch": 1, "verified_fixture_responses": 77}
+          assert report["totalcorner_capture"]["attempted_fixtures"] == 78
+          assert report["totalcorner_capture"]["aggregate_counts"] == {"AH_default_qualified_fixture_markets": 3, "OU_default_qualified_fixture_markets": 3, "crown_preferred_AH_skips": 0, "crown_preferred_OU_skips": 0, "fixture_or_api_identity_mismatch": 1, "request_attempts": 78, "verified_fixture_responses": 77}
+          assert report["paired_fixture_markets"] == 6
+          assert report["paired_fixture_markets_by_market"] == {"AH": 3, "OU": 3}
+          assert report["kickoff_coverage_utc"] == ["2026-11-09T18:00:00Z", "2026-11-23T20:00:00Z"]
+          for market in ("AH", "OU"):
+              result = report["markets"][market]
+              assert result["unique_fixture_markets"] == result["fixture_markets_pending_settlement_verification"] == 3
+              assert result["source_fixture_markets"] == {"TotalCorner_default": 3}
+              assert result["settled_fixture_markets"] == 0 and result["roi_pct"] is None and result["net_units"] is None
+          assert report["integrity"] == {"all_fixture_markets_unique": True, "private_fixture_level_data_published": False, "settlement_performed": False, "source_separated": True, "train_end_before_asof_before_or_at_quote_before_or_at_receipt_before_kickoff": True}
+          serialized = json.dumps(report)
+          for forbidden in ('"match_id"', '"home"', '"away"', '"prices"', '"score_grid"', '/private/tmp/', '/Users/mac/', 'api_token', 'api_key'):
+              assert forbidden not in serialized
+          for field in ("forecast_sha256", "forecast_receipt_sha256", "crown_capture_receipt_sha256", "pair_receipt_sha256", "pair_sha256", "sanitizer_sha256", "crown_index_sha256", "totalcorner_index_sha256"):
+              assert re.fullmatch(r"[0-9a-f]{64}", report[field])
+          print("M5 21:05Z forward source pairing receipt integrity: PASS")
+          PY
+      - name: Validate 2026-11-08T2120Z M5 forward settlement refresh receipt
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          report = json.loads(Path("research/m5/results/m5_forward_shadow_settlement_20261108T1745Z_refresh_20261108T2120Z.json").read_text())
+          assert report["protocol"] == "M5_FORWARD_SHADOW_SETTLEMENT_REFRESH_PUBLIC_RECEIPT_V1"
+          assert report["paired_input_sha256"] == "271b75af7c5f3958673e46136bb28c8e87db48338425a08a808391e54866a44b"
+          assert report["previous_settled_fixture_markets"] == 8
+          assert report["settled_fixture_markets"] == 17 and report["pending_fixture_markets"] == 10
+          expected = {
+              "AH": (15, 9, 6, 4, {"win": 1, "half_win": 2, "push": 2, "half_loss": 0, "loss": 4}, -2.285, -25.388889, 3.11, {"Crown": 7, "TotalCorner_default": 8}, {"Crown": 5, "TotalCorner_default": 4}),
+              "OU": (12, 8, 4, 5, {"win": 3, "half_win": 1, "push": 0, "half_loss": 0, "loss": 4}, -0.895, -11.1875, 2.0, {"Crown": 2, "TotalCorner_default": 10}, {"Crown": 2, "TotalCorner_default": 6}),
+          }
+          for market, values in expected.items():
+              n, settled, pending, delta, counts, net, settled_roi, dd, paired_sources, settled_sources = values
+              row = report["markets"][market]
+              assert (row["unique_fixture_markets"], row["simulated_bets"], row["settled_bets"], row["pending_bets"]) == (n, n, settled, pending)
+              assert row["newly_verified_settlements_since_previous_receipt"] == delta
+              assert row["settlement_counts"] == counts and row["net_units"] == net
+              assert row["settled_roi_pct"] == settled_roi and row["roi_pct"] is None and row["max_drawdown_units"] == dd
+              assert row["paired_source_fixture_markets"] == paired_sources
+              assert row["settled_source_fixture_markets"] == settled_sources
+          assert report["integrity"]["same_immutable_pairing"] is True
+          assert report["integrity"]["fixture_level_data_published"] is False
+          serialized = json.dumps(report)
+          for forbidden in ('"match_id"', '"home"', '"away"', '"prices"', '/private/tmp/', '/Users/mac/', 'api_token', 'api_key'):
+              assert forbidden not in serialized
+          for field in ("capture_receipt_sha256", "previous_settlement_receipt_sha256", "settlement_receipt_sha256", "paired_input_sha256", "verified_result_response_hash_set_sha256"):
+              assert re.fullmatch(r"[0-9a-f]{64}", report[field])
+          print("M5 21:20Z forward settlement refresh receipt integrity: PASS")
+          PY
+      - name: Validate 2025-fit 2026-holdout M5 source-union direction diagnostic
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_source_union_direction_2025fit_2026holdout_20261109.json")
+          runner = Path("research/m5/m5_source_union_replay.py")
+          report = json.loads(path.read_text())
+          assert report["protocol"] == "M5_SOURCE_UNION_DIRECTION_2025_TRAIN_2026_OOS_DIAGNOSTIC_V1"
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          for value in (report["runner_sha256"], *report["inputs"].values()):
+              assert re.fullmatch(r"[0-9a-f]{64}", value)
+          assert report["data"]["candidate_manifest_fixtures"] == 127674
+          assert report["data"]["prediction_model"].startswith("M5 prequential score-grid")
+          assert report["data"]["historic_response_receipts"].startswith("all post-kickoff")
+          assert report["method"]["test_fixture_ids_disjoint_from_direction_training"] is True
+          assert report["integrity"] == {
+              "training_end_before_prediction_asof": True,
+              "prediction_asof_at_or_before_source_quote_event": True,
+              "source_quote_event_before_kickoff": True,
+              "response_receipt_separate_from_source_quote_event": True,
+              "all_historical_response_receipts_after_kickoff": True,
+              "no_duplicate_fixture_market_bets": True,
+              "Crown_and_TotalCorner_sources_separate": True,
+              "fixture_level_data_published": False,
+          }
+          assert report["research_conclusion"]["2025_selected_policy_by_market"] == {
+              "AH": "lower_expected_return", "OU": "lower_expected_return"}
+          assert report["research_conclusion"]["roi_3pct_reached_on_2026_holdout"] == {
+              "AH": False, "OU": False}
+          assert report["research_conclusion"]["direction_inversion_promoted"] is False
+          expected_source_counts = {"Crown": 9316, "TotalCorner_default": 910}
+          expected_holdout_roi = {"AH": (-1.861823, -4.797184), "OU": (-3.498778, -4.00022)}
+          for market, (baseline_roi, selected_roi) in expected_holdout_roi.items():
+              result = report["markets"][market]
+              training = result["direction_training_2025"]
+              assert training["higher_expected_return"]["unique_fixture_markets"] == 1311
+              assert training["lower_expected_return"]["unique_fixture_markets"] == 1311
+              assert training["selected_for_2026"] == "lower_expected_return"
+              assert training["lower_expected_return"]["roi_pct"] > training["higher_expected_return"]["roi_pct"]
+              holdout = result["holdout_2026"]
+              assert holdout["higher_expected_return_baseline"]["unique_fixture_markets"] == 10226
+              assert holdout["frozen_2025_selected_policy"]["unique_fixture_markets"] == 10226
+              assert holdout["higher_expected_return_baseline"]["source_fixture_markets"] == expected_source_counts
+              assert holdout["frozen_2025_selected_policy"]["source_fixture_markets"] == expected_source_counts
+              assert holdout["higher_expected_return_baseline"]["roi_pct"] == baseline_roi
+              assert holdout["frozen_2025_selected_policy"]["roi_pct"] == selected_roi
+              for strategy in (holdout["higher_expected_return_baseline"], holdout["frozen_2025_selected_policy"]):
+                  n = strategy["unique_fixture_markets"]
+                  assert strategy["simulated_bets"] == strategy["settled_bets"] == n
+                  assert strategy["pending_bets"] == 0 and strategy["stake_units"] == n
+                  assert sum(strategy["settlement_counts"].values()) == n
+                  assert abs(strategy["roi_pct"] - 100 * strategy["net_units"] / n) < 1e-6
+                  assert strategy["quote_receipt_timing"] == {"post_kickoff": n}
+              assert holdout["roi_3pct_reached"] is False
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"match_id"', '"prices"', '"score_grid"', '"home_goals"', '"away_goals"', '"api_token"', '"api_key"', '"/private/tmp/','"/Users/mac/'):
+              assert forbidden not in serialized
+          print("M5 source-union direction diagnostic integrity: PASS")
+          PY
