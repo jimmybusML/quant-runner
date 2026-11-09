@@ -1,0 +1,1744 @@
+{
+  "audit_counts": {},
+  "generated_utc": "2026-11-09T02:48:43.390174Z",
+  "input_sha256": {
+    "m1_prediction_trace": "f41d1d3885c3bdc4572c44b27da291ea6bbe1c2c49a0f6d1966f7c77f03137a8",
+    "m3_predictions_and_crown_quotes": "61e7488180dc9b05017113663a8d0c6d26f03b30648ad99ac1ea32f3792e01c1",
+    "mr1_prediction_trace": "91eebb6f6d3971ae1683027ef8b4f77addc8f73cdba80f6050453e1dacaa8701"
+  },
+  "limitations": [
+    "Exploratory per-league weights are fit on the single 2025 training season and evaluated on 2026; 2026 has been examined in prior M5 work and is not an untouched final confirmation set.",
+    "All 2026 rows are retained. Leagues without 2025 training rows use the global 2025 weights; this is model fallback, not fixture filtering.",
+    "The strict common cohort is Crown-only and 9,517 fixture-markets per market, below the 10,000 target.",
+    "All historical Crown API response receipts were post-kickoff; ROI is retrospective quote-event replay, not contemporaneously executable return.",
+    "No production model, trade rule, Telegram, order flow, ledger, or gate was changed."
+  ],
+  "markets": {
+    "AH": {
+      "global_2025_logloss_weights": {
+        "m1": 0.0,
+        "m3_bivariate_poisson": 0.0,
+        "m3_dixon_coles": 0.0,
+        "m3_poisson": 0.0,
+        "mr1_v6": 1.0
+      },
+      "global_fit_training_log_loss": 0.98024598,
+      "global_weights_2026": {
+        "global_weight_fallback_fixtures": 8512,
+        "max_drawdown_units_by_quote_event_time": 147.31,
+        "net_units": -97.285,
+        "per_league": {
+          "Armenia Premier League": {
+            "fixtures": 41,
+            "net_units": -10.675,
+            "roi_pct": -26.036585
+          },
+          "Austria Bundesliga": {
+            "fixtures": 153,
+            "net_units": -8.045,
+            "roi_pct": -5.25817
+          },
+          "Azerbaijan Premier League": {
+            "fixtures": 119,
+            "net_units": 4.895,
+            "roi_pct": 4.113445
+          },
+          "Belgium First Division A": {
+            "fixtures": 219,
+            "net_units": -11.65,
+            "roi_pct": -5.319635
+          },
+          "Bulgaria First League": {
+            "fixtures": 224,
+            "net_units": 13.23,
+            "roi_pct": 5.90625
+          },
+          "China Super League": {
+            "fixtures": 174,
+            "net_units": 5.82,
+            "roi_pct": 3.344828
+          },
+          "Colombia Primera A": {
+            "fixtures": 326,
+            "net_units": -20.07,
+            "roi_pct": -6.156442
+          },
+          "Croatia HNL": {
+            "fixtures": 146,
+            "net_units": -10.66,
+            "roi_pct": -7.30137
+          },
+          "Cyprus Division 1": {
+            "fixtures": 176,
+            "net_units": -14.71,
+            "roi_pct": -8.357955
+          },
+          "Czechia First League": {
+            "fixtures": 210,
+            "net_units": -5.98,
+            "roi_pct": -2.847619
+          },
+          "Denmark Superligaen": {
+            "fixtures": 161,
+            "net_units": 19.135,
+            "roi_pct": 11.885093
+          },
+          "England Premier League": {
+            "fixtures": 274,
+            "net_units": 22.825,
+            "roi_pct": 8.330292
+          },
+          "Estonia Meistriliiga": {
+            "fixtures": 132,
+            "net_units": 3.425,
+            "roi_pct": 2.594697
+          },
+          "Faroe Islands Premier League": {
+            "fixtures": 27,
+            "net_units": 10.97,
+            "roi_pct": 40.62963
+          },
+          "Finland Veikkausliiga": {
+            "fixtures": 174,
+            "net_units": -13.735,
+            "roi_pct": -7.893678
+          },
+          "France Ligue 1": {
+            "fixtures": 230,
+            "net_units": 6.165,
+            "roi_pct": 2.680435
+          },
+          "Georgia Erovnuli Liga": {
+            "fixtures": 86,
+            "net_units": -0.115,
+            "roi_pct": -0.133721
+          },
+          "Germany Bundesliga I": {
+            "fixtures": 237,
+            "net_units": 0.45,
+            "roi_pct": 0.189873
+          },
+          "Greece Super League 1": {
+            "fixtures": 162,
+            "net_units": 3.055,
+            "roi_pct": 1.885802
+          },
+          "Hungary NB I": {
+            "fixtures": 128,
+            "net_units": -3.535,
+            "roi_pct": -2.761719
+          },
+          "Iceland Premier League": {
+            "fixtures": 132,
+            "net_units": -6.63,
+            "roi_pct": -5.022727
+          },
+          "Israel Premier League": {
+            "fixtures": 151,
+            "net_units": -21.515,
+            "roi_pct": -14.248344
+          },
+          "Italy Serie A": {
+            "fixtures": 283,
+            "net_units": -10.32,
+            "roi_pct": -3.646643
+          },
+          "Japan J-League": {
+            "fixtures": 243,
+            "net_units": 21.26,
+            "roi_pct": 8.748971
+          },
+          "Kazakhstan Premier League": {
+            "fixtures": 161,
+            "net_units": -19.43,
+            "roi_pct": -12.068323
+          },
+          "Kosovo Superliga": {
+            "fixtures": 5,
+            "net_units": -3.04,
+            "roi_pct": -60.8
+          },
+          "Latvia Virsliga": {
+            "fixtures": 128,
+            "net_units": 4.52,
+            "roi_pct": 3.53125
+          },
+          "Lithuania A Lyga": {
+            "fixtures": 107,
+            "net_units": -2.15,
+            "roi_pct": -2.009346
+          },
+          "Malta Premier League": {
+            "fixtures": 118,
+            "net_units": -7.52,
+            "roi_pct": -6.372881
+          },
+          "Montenegro Prva Liga": {
+            "fixtures": 32,
+            "net_units": -4.405,
+            "roi_pct": -13.765625
+          },
+          "Netherlands Eredivisie": {
+            "fixtures": 252,
+            "net_units": -3.595,
+            "roi_pct": -1.426587
+          },
+          "North Macedonia First League": {
+            "fixtures": 35,
+            "net_units": -1.12,
+            "roi_pct": -3.2
+          },
+          "Northern Ireland Premier": {
+            "fixtures": 142,
+            "net_units": -9.865,
+            "roi_pct": -6.947183
+          },
+          "Norway Eliteserien": {
+            "fixtures": 195,
+            "net_units": -16.65,
+            "roi_pct": -8.538462
+          },
+          "Poland Ekstraklasa": {
+            "fixtures": 246,
+            "net_units": -9.575,
+            "roi_pct": -3.892276
+          },
+          "Portugal Primeira Liga": {
+            "fixtures": 237,
+            "net_units": 24.4,
+            "roi_pct": 10.295359
+          },
+          "Republic of Ireland Premier Division": {
+            "fixtures": 177,
+            "net_units": 13.295,
+            "roi_pct": 7.511299
+          },
+          "Romania Liga I": {
+            "fixtures": 246,
+            "net_units": -12.53,
+            "roi_pct": -5.093496
+          },
+          "Saudi Arabia Pro League": {
+            "fixtures": 291,
+            "net_units": 11.555,
+            "roi_pct": 3.97079
+          },
+          "Scotland Premiership": {
+            "fixtures": 181,
+            "net_units": 14.455,
+            "roi_pct": 7.986188
+          },
+          "Serbia Super Liga": {
+            "fixtures": 216,
+            "net_units": -3.475,
+            "roi_pct": -1.608796
+          },
+          "Slovakia Super Liga": {
+            "fixtures": 157,
+            "net_units": -28.4,
+            "roi_pct": -18.089172
+          },
+          "Slovenia Prva Liga": {
+            "fixtures": 126,
+            "net_units": 1.775,
+            "roi_pct": 1.40873
+          },
+          "South Korea K League 1": {
+            "fixtures": 139,
+            "net_units": 6.33,
+            "roi_pct": 4.553957
+          },
+          "Spain La Liga": {
+            "fixtures": 258,
+            "net_units": -27.39,
+            "roi_pct": -10.616279
+          },
+          "Sweden Allsvenskan": {
+            "fixtures": 184,
+            "net_units": -5.43,
+            "roi_pct": -2.951087
+          },
+          "Switzerland Super League": {
+            "fixtures": 180,
+            "net_units": 11.14,
+            "roi_pct": 6.188889
+          },
+          "Türkiye Super Lig": {
+            "fixtures": 215,
+            "net_units": -12.1,
+            "roi_pct": -5.627907
+          },
+          "Ukraine Vyscha Liga": {
+            "fixtures": 154,
+            "net_units": 4.905,
+            "roi_pct": 3.185065
+          },
+          "Wales Premier League": {
+            "fixtures": 122,
+            "net_units": 3.425,
+            "roi_pct": 2.807377
+          }
+        },
+        "quote_sources": {
+          "Crown": 8512
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 8512
+        },
+        "roi_pct": -1.142916,
+        "settled_bets": 8512,
+        "settlement_brier": 0.61784282,
+        "settlement_counts": {
+          "half_loss": 478,
+          "half_win": 701,
+          "loss": 3351,
+          "push": 582,
+          "win": 3400
+        },
+        "settlement_log_loss": 0.9881863,
+        "simulated_bets": 8512,
+        "stake_units": 8512,
+        "unique_fixture_markets": 8512
+      },
+      "holdout_2026_fixture_markets": 8512,
+      "league_local_weights_2026": {
+        "global_weight_fallback_fixtures": 1227,
+        "max_drawdown_units_by_quote_event_time": 245.77,
+        "net_units": -186.06,
+        "per_league": {
+          "Armenia Premier League": {
+            "fixtures": 41,
+            "net_units": -7.72,
+            "roi_pct": -18.829268
+          },
+          "Austria Bundesliga": {
+            "fixtures": 153,
+            "net_units": -5.18,
+            "roi_pct": -3.385621
+          },
+          "Azerbaijan Premier League": {
+            "fixtures": 119,
+            "net_units": 0.46,
+            "roi_pct": 0.386555
+          },
+          "Belgium First Division A": {
+            "fixtures": 219,
+            "net_units": -11.65,
+            "roi_pct": -5.319635
+          },
+          "Bulgaria First League": {
+            "fixtures": 224,
+            "net_units": 13.23,
+            "roi_pct": 5.90625
+          },
+          "China Super League": {
+            "fixtures": 174,
+            "net_units": 5.82,
+            "roi_pct": 3.344828
+          },
+          "Colombia Primera A": {
+            "fixtures": 326,
+            "net_units": 11.775,
+            "roi_pct": 3.611963
+          },
+          "Croatia HNL": {
+            "fixtures": 146,
+            "net_units": -10.66,
+            "roi_pct": -7.30137
+          },
+          "Cyprus Division 1": {
+            "fixtures": 176,
+            "net_units": -32.6,
+            "roi_pct": -18.522727
+          },
+          "Czechia First League": {
+            "fixtures": 210,
+            "net_units": -6.815,
+            "roi_pct": -3.245238
+          },
+          "Denmark Superligaen": {
+            "fixtures": 161,
+            "net_units": 19.135,
+            "roi_pct": 11.885093
+          },
+          "England Premier League": {
+            "fixtures": 274,
+            "net_units": 5.74,
+            "roi_pct": 2.094891
+          },
+          "Estonia Meistriliiga": {
+            "fixtures": 132,
+            "net_units": 3.425,
+            "roi_pct": 2.594697
+          },
+          "Faroe Islands Premier League": {
+            "fixtures": 27,
+            "net_units": 10.97,
+            "roi_pct": 40.62963
+          },
+          "Finland Veikkausliiga": {
+            "fixtures": 174,
+            "net_units": -13.735,
+            "roi_pct": -7.893678
+          },
+          "France Ligue 1": {
+            "fixtures": 230,
+            "net_units": 6.165,
+            "roi_pct": 2.680435
+          },
+          "Georgia Erovnuli Liga": {
+            "fixtures": 86,
+            "net_units": -11.92,
+            "roi_pct": -13.860465
+          },
+          "Germany Bundesliga I": {
+            "fixtures": 237,
+            "net_units": -6.715,
+            "roi_pct": -2.833333
+          },
+          "Greece Super League 1": {
+            "fixtures": 162,
+            "net_units": 3.055,
+            "roi_pct": 1.885802
+          },
+          "Hungary NB I": {
+            "fixtures": 128,
+            "net_units": -4.775,
+            "roi_pct": -3.730469
+          },
+          "Iceland Premier League": {
+            "fixtures": 132,
+            "net_units": -6.63,
+            "roi_pct": -5.022727
+          },
+          "Israel Premier League": {
+            "fixtures": 151,
+            "net_units": -21.515,
+            "roi_pct": -14.248344
+          },
+          "Italy Serie A": {
+            "fixtures": 283,
+            "net_units": -27.835,
+            "roi_pct": -9.835689
+          },
+          "Japan J-League": {
+            "fixtures": 243,
+            "net_units": 21.26,
+            "roi_pct": 8.748971
+          },
+          "Kazakhstan Premier League": {
+            "fixtures": 161,
+            "net_units": -19.43,
+            "roi_pct": -12.068323
+          },
+          "Kosovo Superliga": {
+            "fixtures": 5,
+            "net_units": -3.04,
+            "roi_pct": -60.8
+          },
+          "Latvia Virsliga": {
+            "fixtures": 128,
+            "net_units": 4.52,
+            "roi_pct": 3.53125
+          },
+          "Lithuania A Lyga": {
+            "fixtures": 107,
+            "net_units": -2.15,
+            "roi_pct": -2.009346
+          },
+          "Malta Premier League": {
+            "fixtures": 118,
+            "net_units": -5.645,
+            "roi_pct": -4.783898
+          },
+          "Montenegro Prva Liga": {
+            "fixtures": 32,
+            "net_units": -3.52,
+            "roi_pct": -11.0
+          },
+          "Netherlands Eredivisie": {
+            "fixtures": 252,
+            "net_units": -4.435,
+            "roi_pct": -1.759921
+          },
+          "North Macedonia First League": {
+            "fixtures": 35,
+            "net_units": -1.12,
+            "roi_pct": -3.2
+          },
+          "Northern Ireland Premier": {
+            "fixtures": 142,
+            "net_units": -16.69,
+            "roi_pct": -11.753521
+          },
+          "Norway Eliteserien": {
+            "fixtures": 195,
+            "net_units": -16.65,
+            "roi_pct": -8.538462
+          },
+          "Poland Ekstraklasa": {
+            "fixtures": 246,
+            "net_units": 18.855,
+            "roi_pct": 7.664634
+          },
+          "Portugal Primeira Liga": {
+            "fixtures": 237,
+            "net_units": 24.4,
+            "roi_pct": 10.295359
+          },
+          "Republic of Ireland Premier Division": {
+            "fixtures": 177,
+            "net_units": 13.295,
+            "roi_pct": 7.511299
+          },
+          "Romania Liga I": {
+            "fixtures": 246,
+            "net_units": -10.59,
+            "roi_pct": -4.304878
+          },
+          "Saudi Arabia Pro League": {
+            "fixtures": 291,
+            "net_units": -8.36,
+            "roi_pct": -2.872852
+          },
+          "Scotland Premiership": {
+            "fixtures": 181,
+            "net_units": -14.145,
+            "roi_pct": -7.814917
+          },
+          "Serbia Super Liga": {
+            "fixtures": 216,
+            "net_units": -3.475,
+            "roi_pct": -1.608796
+          },
+          "Slovakia Super Liga": {
+            "fixtures": 157,
+            "net_units": -28.4,
+            "roi_pct": -18.089172
+          },
+          "Slovenia Prva Liga": {
+            "fixtures": 126,
+            "net_units": 8.725,
+            "roi_pct": 6.924603
+          },
+          "South Korea K League 1": {
+            "fixtures": 139,
+            "net_units": -0.32,
+            "roi_pct": -0.230216
+          },
+          "Spain La Liga": {
+            "fixtures": 258,
+            "net_units": -27.39,
+            "roi_pct": -10.616279
+          },
+          "Sweden Allsvenskan": {
+            "fixtures": 184,
+            "net_units": -5.43,
+            "roi_pct": -2.951087
+          },
+          "Switzerland Super League": {
+            "fixtures": 180,
+            "net_units": -15.195,
+            "roi_pct": -8.441667
+          },
+          "Türkiye Super Lig": {
+            "fixtures": 215,
+            "net_units": -12.1,
+            "roi_pct": -5.627907
+          },
+          "Ukraine Vyscha Liga": {
+            "fixtures": 154,
+            "net_units": 5.52,
+            "roi_pct": 3.584416
+          },
+          "Wales Premier League": {
+            "fixtures": 122,
+            "net_units": 3.425,
+            "roi_pct": 2.807377
+          }
+        },
+        "quote_sources": {
+          "Crown": 8512
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 8512
+        },
+        "roi_pct": -2.185855,
+        "settled_bets": 8512,
+        "settlement_brier": 0.62370971,
+        "settlement_counts": {
+          "half_loss": 521,
+          "half_win": 658,
+          "loss": 3375,
+          "push": 582,
+          "win": 3376
+        },
+        "settlement_log_loss": 0.99639919,
+        "simulated_bets": 8512,
+        "stake_units": 8512,
+        "unique_fixture_markets": 8512
+      },
+      "paired_roi_difference": {
+        "bootstrap_95pct": [
+          -0.024416,
+          0.00353
+        ],
+        "mean_roi_difference_pct_local_minus_global": -1.042939,
+        "repetitions": 10000,
+        "unit": "paired fixture-market bootstrap"
+      },
+      "per_league_learned_weights": {
+        "Armenia Premier League": {
+          "m1": 1.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Austria Bundesliga": {
+          "m1": 0.3074174,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.6925826
+        },
+        "Azerbaijan Premier League": {
+          "m1": 0.22856054,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.77143946
+        },
+        "Belgium First Division A": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Bulgaria First League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "China Super League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Colombia Primera A": {
+          "m1": 0.30100261,
+          "m3_bivariate_poisson": 0.69899739,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Croatia HNL": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Cyprus Division 1": {
+          "m1": 0.76452309,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.1888897,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.04658721
+        },
+        "Czechia First League": {
+          "m1": 1.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Denmark Superligaen": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "England Premier League": {
+          "m1": 0.69949956,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.30050044
+        },
+        "France Ligue 1": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Georgia Erovnuli Liga": {
+          "m1": 0.60213504,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.39786496,
+          "mr1_v6": 0.0
+        },
+        "Germany Bundesliga I": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.52074545,
+          "m3_poisson": 0.06767537,
+          "mr1_v6": 0.41157918
+        },
+        "Greece Super League 1": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Hungary NB I": {
+          "m1": 0.68669638,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.31330362
+        },
+        "Israel Premier League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Italy Serie A": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.66406665,
+          "mr1_v6": 0.33593335
+        },
+        "Japan J-League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Malta Premier League": {
+          "m1": 0.39843857,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.36784762,
+          "mr1_v6": 0.23371381
+        },
+        "Montenegro Prva Liga": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.11109278,
+          "mr1_v6": 0.88890722
+        },
+        "Netherlands Eredivisie": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.10947003,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.89052997
+        },
+        "North Macedonia First League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Northern Ireland Premier": {
+          "m1": 0.5239536,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.4760464
+        },
+        "Norway Eliteserien": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Poland Ekstraklasa": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 1.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Portugal Primeira Liga": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Romania Liga I": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Saudi Arabia Pro League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.49522853,
+          "mr1_v6": 0.50477147
+        },
+        "Scotland Premiership": {
+          "m1": 1.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Serbia Super Liga": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Slovakia Super Liga": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Slovenia Prva Liga": {
+          "m1": 1.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "South Korea K League 1": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.97596842,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.02403158
+        },
+        "Spain La Liga": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Switzerland Super League": {
+          "m1": 0.93920996,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.06079004
+        },
+        "Türkiye Super Lig": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Ukraine Vyscha Liga": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.25923696,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.74076304
+        },
+        "Wales Premier League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        }
+      },
+      "trained_leagues": 40,
+      "training_2025_fixture_markets": 1005,
+      "training_test_fixture_ids_disjoint": true
+    },
+    "OU": {
+      "global_2025_logloss_weights": {
+        "m1": 0.32604196,
+        "m3_bivariate_poisson": 0.0,
+        "m3_dixon_coles": 0.0,
+        "m3_poisson": 0.0,
+        "mr1_v6": 0.67395804
+      },
+      "global_fit_training_log_loss": 0.95966344,
+      "global_weights_2026": {
+        "global_weight_fallback_fixtures": 8512,
+        "max_drawdown_units_by_quote_event_time": 346.505,
+        "net_units": -328.1,
+        "per_league": {
+          "Armenia Premier League": {
+            "fixtures": 41,
+            "net_units": -1.305,
+            "roi_pct": -3.182927
+          },
+          "Austria Bundesliga": {
+            "fixtures": 153,
+            "net_units": -14.765,
+            "roi_pct": -9.650327
+          },
+          "Azerbaijan Premier League": {
+            "fixtures": 119,
+            "net_units": -19.485,
+            "roi_pct": -16.37395
+          },
+          "Belgium First Division A": {
+            "fixtures": 219,
+            "net_units": -13.595,
+            "roi_pct": -6.207763
+          },
+          "Bulgaria First League": {
+            "fixtures": 224,
+            "net_units": -16.88,
+            "roi_pct": -7.535714
+          },
+          "China Super League": {
+            "fixtures": 174,
+            "net_units": -6.755,
+            "roi_pct": -3.882184
+          },
+          "Colombia Primera A": {
+            "fixtures": 326,
+            "net_units": 14.69,
+            "roi_pct": 4.506135
+          },
+          "Croatia HNL": {
+            "fixtures": 146,
+            "net_units": -6.285,
+            "roi_pct": -4.304795
+          },
+          "Cyprus Division 1": {
+            "fixtures": 176,
+            "net_units": -3.205,
+            "roi_pct": -1.821023
+          },
+          "Czechia First League": {
+            "fixtures": 210,
+            "net_units": 4.06,
+            "roi_pct": 1.933333
+          },
+          "Denmark Superligaen": {
+            "fixtures": 161,
+            "net_units": 10.36,
+            "roi_pct": 6.434783
+          },
+          "England Premier League": {
+            "fixtures": 274,
+            "net_units": 21.87,
+            "roi_pct": 7.981752
+          },
+          "Estonia Meistriliiga": {
+            "fixtures": 132,
+            "net_units": -1.37,
+            "roi_pct": -1.037879
+          },
+          "Faroe Islands Premier League": {
+            "fixtures": 27,
+            "net_units": 4.91,
+            "roi_pct": 18.185185
+          },
+          "Finland Veikkausliiga": {
+            "fixtures": 174,
+            "net_units": -5.325,
+            "roi_pct": -3.060345
+          },
+          "France Ligue 1": {
+            "fixtures": 230,
+            "net_units": -12.59,
+            "roi_pct": -5.473913
+          },
+          "Georgia Erovnuli Liga": {
+            "fixtures": 86,
+            "net_units": -2.3,
+            "roi_pct": -2.674419
+          },
+          "Germany Bundesliga I": {
+            "fixtures": 237,
+            "net_units": -24.82,
+            "roi_pct": -10.472574
+          },
+          "Greece Super League 1": {
+            "fixtures": 162,
+            "net_units": -35.645,
+            "roi_pct": -22.003086
+          },
+          "Hungary NB I": {
+            "fixtures": 128,
+            "net_units": -1.4,
+            "roi_pct": -1.09375
+          },
+          "Iceland Premier League": {
+            "fixtures": 132,
+            "net_units": -24.52,
+            "roi_pct": -18.575758
+          },
+          "Israel Premier League": {
+            "fixtures": 151,
+            "net_units": -23.33,
+            "roi_pct": -15.450331
+          },
+          "Italy Serie A": {
+            "fixtures": 283,
+            "net_units": -24.03,
+            "roi_pct": -8.491166
+          },
+          "Japan J-League": {
+            "fixtures": 243,
+            "net_units": 1.1,
+            "roi_pct": 0.452675
+          },
+          "Kazakhstan Premier League": {
+            "fixtures": 161,
+            "net_units": -2.075,
+            "roi_pct": -1.28882
+          },
+          "Kosovo Superliga": {
+            "fixtures": 5,
+            "net_units": 1.16,
+            "roi_pct": 23.2
+          },
+          "Latvia Virsliga": {
+            "fixtures": 128,
+            "net_units": -7.645,
+            "roi_pct": -5.972656
+          },
+          "Lithuania A Lyga": {
+            "fixtures": 107,
+            "net_units": 0.245,
+            "roi_pct": 0.228972
+          },
+          "Malta Premier League": {
+            "fixtures": 118,
+            "net_units": -12.04,
+            "roi_pct": -10.20339
+          },
+          "Montenegro Prva Liga": {
+            "fixtures": 32,
+            "net_units": 4.34,
+            "roi_pct": 13.5625
+          },
+          "Netherlands Eredivisie": {
+            "fixtures": 252,
+            "net_units": 0.2,
+            "roi_pct": 0.079365
+          },
+          "North Macedonia First League": {
+            "fixtures": 35,
+            "net_units": -4.725,
+            "roi_pct": -13.5
+          },
+          "Northern Ireland Premier": {
+            "fixtures": 142,
+            "net_units": -6.835,
+            "roi_pct": -4.81338
+          },
+          "Norway Eliteserien": {
+            "fixtures": 195,
+            "net_units": -5.515,
+            "roi_pct": -2.828205
+          },
+          "Poland Ekstraklasa": {
+            "fixtures": 246,
+            "net_units": -21.0,
+            "roi_pct": -8.536585
+          },
+          "Portugal Primeira Liga": {
+            "fixtures": 237,
+            "net_units": 3.975,
+            "roi_pct": 1.677215
+          },
+          "Republic of Ireland Premier Division": {
+            "fixtures": 177,
+            "net_units": -17.22,
+            "roi_pct": -9.728814
+          },
+          "Romania Liga I": {
+            "fixtures": 246,
+            "net_units": -27.605,
+            "roi_pct": -11.221545
+          },
+          "Saudi Arabia Pro League": {
+            "fixtures": 291,
+            "net_units": -1.24,
+            "roi_pct": -0.426117
+          },
+          "Scotland Premiership": {
+            "fixtures": 181,
+            "net_units": -8.94,
+            "roi_pct": -4.939227
+          },
+          "Serbia Super Liga": {
+            "fixtures": 216,
+            "net_units": 4.58,
+            "roi_pct": 2.12037
+          },
+          "Slovakia Super Liga": {
+            "fixtures": 157,
+            "net_units": -7.345,
+            "roi_pct": -4.678344
+          },
+          "Slovenia Prva Liga": {
+            "fixtures": 126,
+            "net_units": 0.45,
+            "roi_pct": 0.357143
+          },
+          "South Korea K League 1": {
+            "fixtures": 139,
+            "net_units": -11.565,
+            "roi_pct": -8.320144
+          },
+          "Spain La Liga": {
+            "fixtures": 258,
+            "net_units": -8.685,
+            "roi_pct": -3.366279
+          },
+          "Sweden Allsvenskan": {
+            "fixtures": 184,
+            "net_units": 16.055,
+            "roi_pct": 8.725543
+          },
+          "Switzerland Super League": {
+            "fixtures": 180,
+            "net_units": -15.245,
+            "roi_pct": -8.469444
+          },
+          "Türkiye Super Lig": {
+            "fixtures": 215,
+            "net_units": -17.97,
+            "roi_pct": -8.35814
+          },
+          "Ukraine Vyscha Liga": {
+            "fixtures": 154,
+            "net_units": -5.81,
+            "roi_pct": -3.772727
+          },
+          "Wales Premier League": {
+            "fixtures": 122,
+            "net_units": 2.97,
+            "roi_pct": 2.434426
+          }
+        },
+        "quote_sources": {
+          "Crown": 8512
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 8512
+        },
+        "roi_pct": -3.854558,
+        "settled_bets": 8512,
+        "settlement_brier": 0.60982646,
+        "settlement_counts": {
+          "half_loss": 631,
+          "half_win": 418,
+          "loss": 3491,
+          "push": 435,
+          "win": 3537
+        },
+        "settlement_log_loss": 0.96915598,
+        "simulated_bets": 8512,
+        "stake_units": 8512,
+        "unique_fixture_markets": 8512
+      },
+      "holdout_2026_fixture_markets": 8512,
+      "league_local_weights_2026": {
+        "global_weight_fallback_fixtures": 1227,
+        "max_drawdown_units_by_quote_event_time": 276.755,
+        "net_units": -224.185,
+        "per_league": {
+          "Armenia Premier League": {
+            "fixtures": 41,
+            "net_units": -5.485,
+            "roi_pct": -13.378049
+          },
+          "Austria Bundesliga": {
+            "fixtures": 153,
+            "net_units": -2.415,
+            "roi_pct": -1.578431
+          },
+          "Azerbaijan Premier League": {
+            "fixtures": 119,
+            "net_units": -7.545,
+            "roi_pct": -6.340336
+          },
+          "Belgium First Division A": {
+            "fixtures": 219,
+            "net_units": -6.685,
+            "roi_pct": -3.052511
+          },
+          "Bulgaria First League": {
+            "fixtures": 224,
+            "net_units": -7.21,
+            "roi_pct": -3.21875
+          },
+          "China Super League": {
+            "fixtures": 174,
+            "net_units": -6.095,
+            "roi_pct": -3.502874
+          },
+          "Colombia Primera A": {
+            "fixtures": 326,
+            "net_units": 1.825,
+            "roi_pct": 0.559816
+          },
+          "Croatia HNL": {
+            "fixtures": 146,
+            "net_units": -6.33,
+            "roi_pct": -4.335616
+          },
+          "Cyprus Division 1": {
+            "fixtures": 176,
+            "net_units": -10.84,
+            "roi_pct": -6.159091
+          },
+          "Czechia First League": {
+            "fixtures": 210,
+            "net_units": 6.33,
+            "roi_pct": 3.014286
+          },
+          "Denmark Superligaen": {
+            "fixtures": 161,
+            "net_units": 7.465,
+            "roi_pct": 4.636646
+          },
+          "England Premier League": {
+            "fixtures": 274,
+            "net_units": 14.615,
+            "roi_pct": 5.333942
+          },
+          "Estonia Meistriliiga": {
+            "fixtures": 132,
+            "net_units": -1.37,
+            "roi_pct": -1.037879
+          },
+          "Faroe Islands Premier League": {
+            "fixtures": 27,
+            "net_units": 4.91,
+            "roi_pct": 18.185185
+          },
+          "Finland Veikkausliiga": {
+            "fixtures": 174,
+            "net_units": -5.325,
+            "roi_pct": -3.060345
+          },
+          "France Ligue 1": {
+            "fixtures": 230,
+            "net_units": -6.295,
+            "roi_pct": -2.736957
+          },
+          "Georgia Erovnuli Liga": {
+            "fixtures": 86,
+            "net_units": -4.31,
+            "roi_pct": -5.011628
+          },
+          "Germany Bundesliga I": {
+            "fixtures": 237,
+            "net_units": -14.355,
+            "roi_pct": -6.056962
+          },
+          "Greece Super League 1": {
+            "fixtures": 162,
+            "net_units": -10.73,
+            "roi_pct": -6.623457
+          },
+          "Hungary NB I": {
+            "fixtures": 128,
+            "net_units": -14.03,
+            "roi_pct": -10.960938
+          },
+          "Iceland Premier League": {
+            "fixtures": 132,
+            "net_units": -24.52,
+            "roi_pct": -18.575758
+          },
+          "Israel Premier League": {
+            "fixtures": 151,
+            "net_units": -22.395,
+            "roi_pct": -14.831126
+          },
+          "Italy Serie A": {
+            "fixtures": 283,
+            "net_units": 24.83,
+            "roi_pct": 8.773852
+          },
+          "Japan J-League": {
+            "fixtures": 243,
+            "net_units": -9.235,
+            "roi_pct": -3.800412
+          },
+          "Kazakhstan Premier League": {
+            "fixtures": 161,
+            "net_units": -2.075,
+            "roi_pct": -1.28882
+          },
+          "Kosovo Superliga": {
+            "fixtures": 5,
+            "net_units": 1.16,
+            "roi_pct": 23.2
+          },
+          "Latvia Virsliga": {
+            "fixtures": 128,
+            "net_units": -7.645,
+            "roi_pct": -5.972656
+          },
+          "Lithuania A Lyga": {
+            "fixtures": 107,
+            "net_units": 0.245,
+            "roi_pct": 0.228972
+          },
+          "Malta Premier League": {
+            "fixtures": 118,
+            "net_units": -1.8,
+            "roi_pct": -1.525424
+          },
+          "Montenegro Prva Liga": {
+            "fixtures": 32,
+            "net_units": 2.41,
+            "roi_pct": 7.53125
+          },
+          "Netherlands Eredivisie": {
+            "fixtures": 252,
+            "net_units": -1.15,
+            "roi_pct": -0.456349
+          },
+          "North Macedonia First League": {
+            "fixtures": 35,
+            "net_units": 9.07,
+            "roi_pct": 25.914286
+          },
+          "Northern Ireland Premier": {
+            "fixtures": 142,
+            "net_units": -16.19,
+            "roi_pct": -11.401408
+          },
+          "Norway Eliteserien": {
+            "fixtures": 195,
+            "net_units": -11.72,
+            "roi_pct": -6.010256
+          },
+          "Poland Ekstraklasa": {
+            "fixtures": 246,
+            "net_units": -33.5,
+            "roi_pct": -13.617886
+          },
+          "Portugal Primeira Liga": {
+            "fixtures": 237,
+            "net_units": -10.895,
+            "roi_pct": -4.597046
+          },
+          "Republic of Ireland Premier Division": {
+            "fixtures": 177,
+            "net_units": -17.22,
+            "roi_pct": -9.728814
+          },
+          "Romania Liga I": {
+            "fixtures": 246,
+            "net_units": -10.92,
+            "roi_pct": -4.439024
+          },
+          "Saudi Arabia Pro League": {
+            "fixtures": 291,
+            "net_units": -13.515,
+            "roi_pct": -4.64433
+          },
+          "Scotland Premiership": {
+            "fixtures": 181,
+            "net_units": 2.435,
+            "roi_pct": 1.345304
+          },
+          "Serbia Super Liga": {
+            "fixtures": 216,
+            "net_units": 6.575,
+            "roi_pct": 3.043981
+          },
+          "Slovakia Super Liga": {
+            "fixtures": 157,
+            "net_units": -10.06,
+            "roi_pct": -6.407643
+          },
+          "Slovenia Prva Liga": {
+            "fixtures": 126,
+            "net_units": 0.505,
+            "roi_pct": 0.400794
+          },
+          "South Korea K League 1": {
+            "fixtures": 139,
+            "net_units": 7.985,
+            "roi_pct": 5.744604
+          },
+          "Spain La Liga": {
+            "fixtures": 258,
+            "net_units": 11.35,
+            "roi_pct": 4.399225
+          },
+          "Sweden Allsvenskan": {
+            "fixtures": 184,
+            "net_units": 16.055,
+            "roi_pct": 8.725543
+          },
+          "Switzerland Super League": {
+            "fixtures": 180,
+            "net_units": -2.855,
+            "roi_pct": -1.586111
+          },
+          "Türkiye Super Lig": {
+            "fixtures": 215,
+            "net_units": -21.935,
+            "roi_pct": -10.202326
+          },
+          "Ukraine Vyscha Liga": {
+            "fixtures": 154,
+            "net_units": -10.76,
+            "roi_pct": -6.987013
+          },
+          "Wales Premier League": {
+            "fixtures": 122,
+            "net_units": -4.54,
+            "roi_pct": -3.721311
+          }
+        },
+        "quote_sources": {
+          "Crown": 8512
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 8512
+        },
+        "roi_pct": -2.633752,
+        "settled_bets": 8512,
+        "settlement_brier": 0.61341969,
+        "settlement_counts": {
+          "half_loss": 577,
+          "half_win": 472,
+          "loss": 3456,
+          "push": 435,
+          "win": 3572
+        },
+        "settlement_log_loss": 0.97378151,
+        "simulated_bets": 8512,
+        "stake_units": 8512,
+        "unique_fixture_markets": 8512
+      },
+      "paired_roi_difference": {
+        "bootstrap_95pct": [
+          -0.005629,
+          0.030032
+        ],
+        "mean_roi_difference_pct_local_minus_global": 1.220806,
+        "repetitions": 10000,
+        "unit": "paired fixture-market bootstrap"
+      },
+      "per_league_learned_weights": {
+        "Armenia Premier League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 1.0,
+          "mr1_v6": 0.0
+        },
+        "Austria Bundesliga": {
+          "m1": 0.96974269,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.03025731,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Azerbaijan Premier League": {
+          "m1": 0.82053886,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.17946114
+        },
+        "Belgium First Division A": {
+          "m1": 0.297827,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.702173
+        },
+        "Bulgaria First League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "China Super League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Colombia Primera A": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 1.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Croatia HNL": {
+          "m1": 0.41607418,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.58392582
+        },
+        "Cyprus Division 1": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Czechia First League": {
+          "m1": 0.36733318,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.63266682
+        },
+        "Denmark Superligaen": {
+          "m1": 0.06894657,
+          "m3_bivariate_poisson": 0.49731125,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.43374218
+        },
+        "England Premier League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 1.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "France Ligue 1": {
+          "m1": 0.09470959,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.90529041
+        },
+        "Georgia Erovnuli Liga": {
+          "m1": 1.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Germany Bundesliga I": {
+          "m1": 0.17951833,
+          "m3_bivariate_poisson": 0.77300425,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.04747742
+        },
+        "Greece Super League 1": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Hungary NB I": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Israel Premier League": {
+          "m1": 1.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Italy Serie A": {
+          "m1": 0.67057266,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.32942734
+        },
+        "Japan J-League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Malta Premier League": {
+          "m1": 1.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Montenegro Prva Liga": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 1.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Netherlands Eredivisie": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "North Macedonia First League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Northern Ireland Premier": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 1.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Norway Eliteserien": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Poland Ekstraklasa": {
+          "m1": 0.61662521,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.38337479
+        },
+        "Portugal Primeira Liga": {
+          "m1": 0.16527313,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.83472687
+        },
+        "Romania Liga I": {
+          "m1": 0.85749945,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.14250055
+        },
+        "Saudi Arabia Pro League": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.57609647,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.42390353
+        },
+        "Scotland Premiership": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.54196404,
+          "mr1_v6": 0.45803596
+        },
+        "Serbia Super Liga": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Slovakia Super Liga": {
+          "m1": 0.0414935,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.14784993,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.81065657
+        },
+        "Slovenia Prva Liga": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "South Korea K League 1": {
+          "m1": 0.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 1.0
+        },
+        "Spain La Liga": {
+          "m1": 0.4984097,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.23028389,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.27130641
+        },
+        "Switzerland Super League": {
+          "m1": 0.79168645,
+          "m3_bivariate_poisson": 0.20831355,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        },
+        "Türkiye Super Lig": {
+          "m1": 0.41244043,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.58755957
+        },
+        "Ukraine Vyscha Liga": {
+          "m1": 0.60573069,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.39426931
+        },
+        "Wales Premier League": {
+          "m1": 1.0,
+          "m3_bivariate_poisson": 0.0,
+          "m3_dixon_coles": 0.0,
+          "m3_poisson": 0.0,
+          "mr1_v6": 0.0
+        }
+      },
+      "trained_leagues": 40,
+      "training_2025_fixture_markets": 1005,
+      "training_test_fixture_ids_disjoint": true
+    }
+  },
+  "protocol": "M5_MR1_M3_LEAGUE_LOCAL_BLEND_2025_FIT_2026_OOS_V1",
+  "provider_receipt_timing": {
+    "AH_2025_provider_receipt_post_kickoff": 1005,
+    "AH_2026_provider_receipt_post_kickoff": 8512,
+    "OU_2025_provider_receipt_post_kickoff": 1005,
+    "OU_2026_provider_receipt_post_kickoff": 8512
+  },
+  "runner_sha256": "c7874090bd2f50a7cfafc22ced592818fd19e10c9d1fe51f58c0be1ce3f36701"
+}
