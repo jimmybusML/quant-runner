@@ -67,6 +67,8 @@ def test_run_verifies_canonical_response_and_keeps_public_report_aggregate_only(
     report = run(forecast_path, manifest_path, database, private_rows, report_path)
     assert report["unique_fixture_markets"] == {"AH": 1, "OU": 1}
     assert report["integrity"]["time_order_passed"] is True
+    assert report["integrity"]["training_end_before_prediction_asof_before_kickoff"] is True
+    assert report["audit_counts"].get("invalid_forecast_chronology", 0) == 0
     assert report["markets"]["AH"]["actual_response_receipt_timing"] == {"post_kickoff": 1}
     assert private_rows.exists() and (private_rows.stat().st_mode & 0o777) == 0o600
     public = json.loads(report_path.read_text())

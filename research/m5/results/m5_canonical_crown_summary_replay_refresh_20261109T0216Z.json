@@ -1,0 +1,167 @@
+{
+  "audit_counts": {
+    "AH_no_post_asof_premarket_quote": 1182,
+    "OU_no_post_asof_premarket_quote": 1183,
+    "invalid_forecast_chronology": 556
+  },
+  "candidate_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+  "canonical_capture_fixtures": 12138,
+  "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+  "forecasts_joined_to_capture_ids": 12138,
+  "generated_utc": "2026-11-09T02:16:59.621142Z",
+  "integrity": {
+    "actual_response_time_separate_from_quote_event_time": true,
+    "fixture_identity_score_and_utc_kickoff_verified": true,
+    "private_fixture_level_rows_published": false,
+    "quote_event_at_or_after_asof_and_before_kickoff": true,
+    "time_order_passed": true,
+    "training_end_before_prediction_asof_before_kickoff": true,
+    "unique_fixture_markets": true
+  },
+  "limitations": [
+    "This is a replay of the existing M5 score-grid forecasts against verified Crown summary open/close events, not a new independent model refit.",
+    "All 556 archived forecast rows failing train_end < prediction_asof < kickoff were excluded before scoring; all published rows passed the chronology integrity check.",
+    "All selected Crown API responses were retrieved after kickoff; ROI is retrospective event-time replay, not contemporaneously executable ROI.",
+    "TotalCorner is not included in this Crown-only refresh; source-specific M1, MR1, M3, and M4 comparison remains in the separately versioned model-family reports."
+  ],
+  "markets": {
+    "AH": {
+      "actual_response_receipt_timing": {
+        "post_kickoff": 10400
+      },
+      "by_utc_kickoff_year": {
+        "2025": {
+          "fixtures": 1117,
+          "net_units": -83.985,
+          "roi_pct": -7.5188
+        },
+        "2026": {
+          "fixtures": 9283,
+          "net_units": -195.555,
+          "roi_pct": -2.106593
+        }
+      },
+      "max_drawdown_units_by_quote_event_time": 307.305,
+      "net_units": -279.54,
+      "pending_bets": 0,
+      "quote_source_fixture_markets": {
+        "Crown": 10400
+      },
+      "roi_bootstrap_95pct": {
+        "lower_95_roi_pct": -4.39476,
+        "method": "fixture percentile bootstrap, descriptive only",
+        "repetitions": 10000,
+        "upper_95_roi_pct": -0.984279
+      },
+      "roi_pct": -2.687885,
+      "selected_quote_kinds": {
+        "close": 8854,
+        "open": 1546
+      },
+      "settled_bets": 10400,
+      "settlement_brier": 0.64848222,
+      "settlement_counts": {
+        "half_loss": 722,
+        "half_win": 725,
+        "loss": 4100,
+        "push": 707,
+        "win": 4146
+      },
+      "settlement_log_loss": 1.03075772,
+      "simulated_bets": 10400,
+      "stake_units": 10400.0,
+      "unique_fixture_markets": 10400,
+      "unique_leagues": 50,
+      "utc_time_coverage": {
+        "first_kickoff": "2025-11-15T14:30:00Z",
+        "first_prediction_asof": "2025-01-01T00:00:00Z",
+        "first_quote_event": "2025-11-03T17:55:42Z",
+        "first_response_received": "2026-11-04T17:54:57.758013Z",
+        "last_kickoff": "2026-11-04T17:00:00Z",
+        "last_prediction_asof": "2026-01-01T00:00:00Z",
+        "last_quote_event": "2026-11-04T16:57:15Z",
+        "last_response_received": "2026-11-06T04:10:50.585215Z"
+      }
+    },
+    "OU": {
+      "actual_response_receipt_timing": {
+        "post_kickoff": 10399
+      },
+      "by_utc_kickoff_year": {
+        "2025": {
+          "fixtures": 1116,
+          "net_units": -63.195,
+          "roi_pct": -5.662634
+        },
+        "2026": {
+          "fixtures": 9283,
+          "net_units": -298.375,
+          "roi_pct": -3.214209
+        }
+      },
+      "max_drawdown_units_by_quote_event_time": 381.33,
+      "net_units": -361.57,
+      "pending_bets": 0,
+      "quote_source_fixture_markets": {
+        "Crown": 10399
+      },
+      "roi_bootstrap_95pct": {
+        "lower_95_roi_pct": -5.202952,
+        "method": "fixture percentile bootstrap, descriptive only",
+        "repetitions": 10000,
+        "upper_95_roi_pct": -1.739783
+      },
+      "roi_pct": -3.476969,
+      "selected_quote_kinds": {
+        "close": 8979,
+        "open": 1420
+      },
+      "settled_bets": 10399,
+      "settlement_brier": 0.62060189,
+      "settlement_counts": {
+        "half_loss": 724,
+        "half_win": 558,
+        "loss": 4262,
+        "push": 507,
+        "win": 4348
+      },
+      "settlement_log_loss": 0.98268387,
+      "simulated_bets": 10399,
+      "stake_units": 10399.0,
+      "unique_fixture_markets": 10399,
+      "unique_leagues": 50,
+      "utc_time_coverage": {
+        "first_kickoff": "2025-11-15T14:30:00Z",
+        "first_prediction_asof": "2025-01-01T00:00:00Z",
+        "first_quote_event": "2025-11-03T17:55:43Z",
+        "first_response_received": "2026-11-04T17:54:57.758013Z",
+        "last_kickoff": "2026-11-04T17:00:00Z",
+        "last_prediction_asof": "2026-01-01T00:00:00Z",
+        "last_quote_event": "2026-11-04T16:28:46Z",
+        "last_response_received": "2026-11-06T04:10:50.585215Z"
+      }
+    }
+  },
+  "method": "Latest Crown open/close summary event at/after forecast as-of and before UTC kickoff; select the higher score-grid expected-return side; one simulated unit per fixture-market, no EV threshold or other selection gate.",
+  "protocol": "M5_CANONICAL_CROWN_SUMMARY_EVENT_TIME_OOS_REPLAY_V1",
+  "receipt_timing_note": "These canonical records are historical retrievals. Actual response receipts are reported separately; they do not establish contemporaneous executable prices.",
+  "research_objective": {
+    "executable_roi_demonstrated": false,
+    "minimum_fixture_markets_per_market": 10000,
+    "roi_3pct_reached": {
+      "AH": false,
+      "OU": false
+    },
+    "sample_target_reached": {
+      "AH": true,
+      "OU": true
+    }
+  },
+  "response_hash_set_sha256": "4d0e4155a2f4ec183587cd0979cd3d1b9dbd81c8cd513460e7d1644a6c8ad6d0",
+  "runner_sha256": "1805ad719b915648445af72c1bb6cc5b22dd14010c151d4de62e1f3c325e336b",
+  "training_test_fixture_id_overlap": 0,
+  "unique_fixture_markets": {
+    "AH": 10400,
+    "OU": 10399
+  }
+}

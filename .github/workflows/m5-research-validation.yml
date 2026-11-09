@@ -82,7 +82,9 @@ jobs:
           report = json.loads(Path("research/m5/results/m5_canonical_crown_summary_replay_20261108.json").read_text())
           runner = Path("research/m5/m5_canonical_crown_summary_replay.py")
           assert report["protocol"] == "M5_CANONICAL_CROWN_SUMMARY_EVENT_TIME_OOS_REPLAY_V1"
-          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          # This report predates the runner's published-cohort integrity fix;
+          # retain its original implementation hash as immutable provenance.
+          assert report["runner_sha256"] == "b4d721197c8799c4e6656ded982967e27ec25c4fb45acf30bd77b8f3a347ebff"
           for key in ("runner_sha256", "forecast_sha256", "candidate_manifest_sha256", "response_hash_set_sha256"):
               assert re.fullmatch(r"[0-9a-f]{64}", report[key])
           assert report["canonical_capture_fixtures"] == report["forecasts_joined_to_capture_ids"] == 11582
@@ -1456,4 +1458,43 @@ jobs:
                             '"/Users/mac/', '"/private/tmp/'):
               assert forbidden not in serialized
           print("M5 refreshed Crown SQLite OOS coverage receipt integrity: PASS")
+          PY
+      - name: Validate 2026-11-09 refreshed Crown summary OOS receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_canonical_crown_summary_replay_refresh_20261109T0216Z.json")
+          runner = Path("research/m5/m5_canonical_crown_summary_replay.py")
+          report = json.loads(path.read_text())
+          assert report["protocol"] == "M5_CANONICAL_CROWN_SUMMARY_EVENT_TIME_OOS_REPLAY_V1"
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          for value in (report["runner_sha256"], report["forecast_sha256"],
+                        report["candidate_manifest_sha256"], report["response_hash_set_sha256"]):
+              assert re.fullmatch(r"[0-9a-f]{64}", value)
+          assert report["unique_fixture_markets"] == {"AH": 10400, "OU": 10399}
+          assert report["integrity"]["time_order_passed"] is True
+          assert report["integrity"]["training_end_before_prediction_asof_before_kickoff"] is True
+          assert report["integrity"]["private_fixture_level_rows_published"] is False
+          assert report["audit_counts"]["invalid_forecast_chronology"] == 556
+          assert report["research_objective"] == {
+              "minimum_fixture_markets_per_market": 10000,
+              "sample_target_reached": {"AH": True, "OU": True},
+              "roi_3pct_reached": {"AH": False, "OU": False},
+              "executable_roi_demonstrated": False}
+          for market, count in (("AH", 10400), ("OU", 10399)):
+              result = report["markets"][market]
+              assert result["unique_fixture_markets"] == result["simulated_bets"] == result["settled_bets"] == count
+              assert result["stake_units"] == count and result["quote_source_fixture_markets"] == {"Crown": count}
+              assert result["actual_response_receipt_timing"] == {"post_kickoff": count}
+              assert sum(result["settlement_counts"].values()) == count
+              assert abs(result["roi_pct"] - 100 * result["net_units"] / count) < 1e-6
+              assert result["roi_bootstrap_95pct"]["upper_95_roi_pct"] < 0
+          serialized = json.dumps(report)
+          for forbidden in ('"match_id"', '"fixture_id"', '"prices"', '"home_goals"',
+                            '"away_goals"', '"api_token"', '"api_key"',
+                            '"score_grid"', '"/Users/mac/', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 refreshed Crown summary OOS receipt integrity: PASS")
           PY

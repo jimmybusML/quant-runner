@@ -283,7 +283,9 @@ def run(forecast_path: Path, manifest_path: Path, database_path: Path,
         "integrity": {
             "unique_fixture_markets": True,
             "fixture_identity_score_and_utc_kickoff_verified": True,
-            "training_end_before_prediction_asof_before_kickoff": audit["invalid_forecast_chronology"] == 0,
+            # Invalid source forecasts are excluded before joining; certify the
+            # chronology of the published cohort, not the unused candidates.
+            "training_end_before_prediction_asof_before_kickoff": time_order_passed,
             "quote_event_at_or_after_asof_and_before_kickoff": True,
             "actual_response_time_separate_from_quote_event_time": True,
             "time_order_passed": time_order_passed,
