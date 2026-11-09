@@ -1339,3 +1339,16 @@ AH、OU均未完成本队列结算，故已结子集 ROI 不代表最终队列�
 此结果使用的是已存 M5 全比分概率网格，不是本轮重新训练，也不是 M1/MR1/M3/M4 的新增跑分；这些模型在 00:54Z 的独立比较仍使用各自合格的 Crown 交集。此处历史 Crown API 响应全部在开赛后回取，盘口 source time 虽满足预测时点后、开赛前，仍只能作事件时间回放，不代表当时可成交。10,000 次 fixture bootstrap 的 ROI 95% 区间上界 AH summary -0.9769%、AH movement -0.0982%、AH 每场最新层 -0.8409%；OU summary -1.7745%、OU movement -0.6099%、OU 每场最新层 -1.8014%，全为负值。没有达到 M5 收益目标。
 
 可复跑 [`m5_crown_sqlite_full_oos_replay.py`](m5_crown_sqlite_full_oos_replay.py)，只读输入；公开回执 [`m5_crown_sqlite_full_oos_replay_20261109.json`](results/m5_crown_sqlite_full_oos_replay_20261109.json) 只含市场/年份聚合及哈希，逐场 join 留在本机私有目录。响应实际接收时点单独记录，接收均为赛后或缺失，不能作为真实赛前实收 ROI。
+
+## 2026-11-09T01:46Z 赔率 favorite 方向训练 / 留出诊断
+
+对 2025 AH、OU 分别比较“favorite”（赔率较低一方）和 underdog（赔率较高一方），在各市场按 2025 ROI 较高方向冻结；两市场都选到 favorite。该策略不筛 fixture，每个有效 fixture-market 固定模拟 1U。随后在相同的 2026 Crown-first + TotalCorner-default 留出队列，严格重放全部 10,226 项/市场，来源为 Crown 9,316、TotalCorner-default 910。报告绑定的 2026 报价响应 SHA 与 higher-expected-return 基线完全相同，可作同队列对照。
+
+| 市场 | 2025 favorite ROI / underdog ROI | 2026 favorite ROI | 2026 higher-EV 基线 ROI | 2026 favorite 区间95% |
+| --- | ---: | ---: | ---: | ---: |
+| AH | -2.9064% / -4.1787% | -4.4268% | -1.8618% | -6.0534% 至 -2.7584% |
+| OU | -2.1394% / -5.4336% | -3.3253% | -3.4988% | -5.0151% 至 -1.7187% |
+
+favorite 在 OU 比 higher-EV 基线高约0.17个百分点，但仍亏损，且区间整体低于零；AH 明显更差。AH 结算 W/HW/P/HL/L=`4,132/783/708/633/3,970`，净 `-452.68U`、最大回撤 `497.92U`；OU 为 `4,376/677/517/609/4,047`，净 `-340.0425U`、最大回撤 `343.0775U`。2026 AH/OU 的 proper scores 分别为 LL/Brier `1.034935/0.650246`、`0.989060/0.624012`。逐来源和逐年训练对比、哈希、完整分类在[脱敏诊断回执](results/m5_favorite_side_2025_train_2026_oos_20261109.json)。
+
+所有选中历史 API 响应均在开赛后回取；source event 时间仅支持历史盘口事件回放。2026 数据曾在其他 M5 研究中检查过，不是全新 untouched confirmation set。此次研究没有改任何模型或生产规则，favorite 候选不晋级，AH/OU 均未达到 ROI≥3%。

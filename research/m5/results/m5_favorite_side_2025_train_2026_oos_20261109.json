@@ -1,0 +1,172 @@
+{
+  "coverage": {
+    "2026_kickoff_utc_range": {
+      "first": "2026-01-01T12:30:00Z",
+      "last": "2026-11-04T17:00:00Z"
+    },
+    "2026_unique_fixture_markets_per_market": {
+      "AH": 10226,
+      "OU": 10226
+    },
+    "candidate_manifest_fixtures": 127674,
+    "forecast_rows": 127674,
+    "source_counts_2026": {
+      "Crown": 9316,
+      "TotalCorner_default": 910
+    }
+  },
+  "generated_utc": "2026-11-09T01:46:23.303350Z",
+  "input_sha256": {
+    "2025_all_direction_responses": "b3dda028db6b8435105ef5538669925f214bb609b920c91bb9c4f7190ace20ae",
+    "2026_holdout_responses": "6f5969e750abf071b440fc299e065633ac4e6fb16eedc537b3016a7b5970359a",
+    "candidate_manifest": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+    "m5_forecasts": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a"
+  },
+  "integrity": {
+    "Crown_priority_and_TotalCorner_source_distinction": true,
+    "fixture_level_data_published": false,
+    "forecast_train_end_before_asof_before_kickoff": true,
+    "no_duplicate_fixture_market": true,
+    "quote_event_at_or_after_asof_and_before_kickoff": true,
+    "response_receipt_recorded_separately": true,
+    "same_train_test_fixture_ids": false
+  },
+  "limitations": [
+    "All historical quote API responses in the 2026 holdout were retrieved after kickoff; source event times support retrospective event-time simulation, not contemporaneous executable returns.",
+    "The 2026 cohort has been examined in prior M5 research and is not an untouched confirmatory test.",
+    "The 2025 training segment has 1,311 fixture-markets per market; the direction result may be noisy.",
+    "The favorite policy was not promoted and did not meet the 3% ROI target."
+  ],
+  "markets": {
+    "AH": {
+      "higher_expected_return_baseline_2026": {
+        "max_drawdown_units": 215.6125,
+        "net_units": -190.39,
+        "quote_response_hash_set_sha256": "6f5969e750abf071b440fc299e065633ac4e6fb16eedc537b3016a7b5970359a",
+        "roi_pct": -1.861823,
+        "settlement_brier": 0.6502463,
+        "settlement_log_loss": 1.03493458,
+        "source_fixture_markets": {
+          "Crown": 9316,
+          "TotalCorner_default": 910
+        },
+        "unique_fixture_markets": 10226
+      },
+      "holdout_2026": {
+        "max_drawdown_units": 497.92,
+        "net_units": -452.68,
+        "quote_receipt_timing": {
+          "post_kickoff": 10226
+        },
+        "roi_bootstrap_95pct": {
+          "lower_95_roi_pct": -6.053369,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "upper_95_roi_pct": -2.758434
+        },
+        "roi_pct": -4.426755,
+        "settled_bets": 10226,
+        "settlement_brier": 0.6502463,
+        "settlement_counts": {
+          "half_loss": 633,
+          "half_win": 783,
+          "loss": 3970,
+          "push": 708,
+          "win": 4132
+        },
+        "settlement_log_loss": 1.03493458,
+        "simulated_bets": 10226,
+        "source_fixture_markets": {
+          "Crown": 9316,
+          "TotalCorner_default": 910
+        },
+        "unique_fixture_markets": 10226,
+        "utc_coverage": {
+          "first_kickoff": "2026-01-01T12:30:00+00:00",
+          "first_quote_event": "2026-01-01T12:28:24+00:00",
+          "last_kickoff": "2026-11-04T17:00:00+00:00",
+          "last_quote_event": "2026-11-04T16:57:15+00:00"
+        }
+      },
+      "training_2025": {
+        "selected_policy": "favorite",
+        "selection_rule": "Choose the side at the lower decimal price on every fixture; choose one fixed direction based on higher 2025 ROI. No fixtures are removed.",
+        "side_policy_candidate_roi_pct": {
+          "favorite": -2.906369,
+          "underdog": -4.17868
+        },
+        "unique_fixture_markets": 1311
+      }
+    },
+    "OU": {
+      "higher_expected_return_baseline_2026": {
+        "max_drawdown_units": 420.2025,
+        "net_units": -357.785,
+        "quote_response_hash_set_sha256": "6f5969e750abf071b440fc299e065633ac4e6fb16eedc537b3016a7b5970359a",
+        "roi_pct": -3.498778,
+        "settlement_brier": 0.62401208,
+        "settlement_log_loss": 0.98906036,
+        "source_fixture_markets": {
+          "Crown": 9316,
+          "TotalCorner_default": 910
+        },
+        "unique_fixture_markets": 10226
+      },
+      "holdout_2026": {
+        "max_drawdown_units": 343.0775,
+        "net_units": -340.0425,
+        "quote_receipt_timing": {
+          "post_kickoff": 10226
+        },
+        "roi_bootstrap_95pct": {
+          "lower_95_roi_pct": -5.015133,
+          "method": "fixture percentile bootstrap, descriptive only",
+          "repetitions": 10000,
+          "upper_95_roi_pct": -1.718707
+        },
+        "roi_pct": -3.325274,
+        "settled_bets": 10226,
+        "settlement_brier": 0.62401208,
+        "settlement_counts": {
+          "half_loss": 609,
+          "half_win": 677,
+          "loss": 4047,
+          "push": 517,
+          "win": 4376
+        },
+        "settlement_log_loss": 0.98906036,
+        "simulated_bets": 10226,
+        "source_fixture_markets": {
+          "Crown": 9316,
+          "TotalCorner_default": 910
+        },
+        "unique_fixture_markets": 10226,
+        "utc_coverage": {
+          "first_kickoff": "2026-01-01T12:30:00+00:00",
+          "first_quote_event": "2026-01-01T12:25:34+00:00",
+          "last_kickoff": "2026-11-04T17:00:00+00:00",
+          "last_quote_event": "2026-11-04T16:28:46+00:00"
+        }
+      },
+      "training_2025": {
+        "selected_policy": "favorite",
+        "selection_rule": "Choose the side at the lower decimal price on every fixture; choose one fixed direction based on higher 2025 ROI. No fixtures are removed.",
+        "side_policy_candidate_roi_pct": {
+          "favorite": -2.139397,
+          "underdog": -5.433638
+        },
+        "unique_fixture_markets": 1311
+      }
+    }
+  },
+  "method": {
+    "direction_policy": "Favorite (lower decimal price) versus underdog (higher decimal price), one 1U bet per valid fixture-market.",
+    "holdout_year": 2026,
+    "market_handicap": "AH and OU analyzed separately.",
+    "selection": "For AH and OU independently, select the single direction with higher ROI over all eligible 2025 rows; freeze the choice, then apply to every eligible 2026 row. No EV threshold, league filter, time filter, or other event filter.",
+    "source_policy": "Crown per fixture-market; TotalCorner default only when no qualifying Crown quote exists; sources are never relabeled or double counted.",
+    "training_year": 2025
+  },
+  "protocol": "M5_FAVORITE_SIDE_2025_TRAIN_2026_OOS_DIAGNOSTIC_V1",
+  "runner_sha256": "7aa437f1cb3d0da6c0c35250c72a860b3b02b117e89d76d53b281679aa6f0e13"
+}

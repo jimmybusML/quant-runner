@@ -1377,3 +1377,42 @@ jobs:
               assert forbidden not in serialized
           print("M5 full Crown SQLite OOS replay receipt integrity: PASS")
           PY
+      - name: Validate 2025-trained favorite-side M5 holdout diagnostic
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_favorite_side_2025_train_2026_oos_20261109.json")
+          report = json.loads(path.read_text())
+          runner = Path("research/m5/m5_source_union_replay.py")
+          assert report["protocol"] == "M5_FAVORITE_SIDE_2025_TRAIN_2026_OOS_DIAGNOSTIC_V1"
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          for value in report["input_sha256"].values():
+              assert re.fullmatch(r"[0-9a-f]{64}", value)
+          assert report["coverage"]["candidate_manifest_fixtures"] == 127674
+          assert report["coverage"]["2026_unique_fixture_markets_per_market"] == {"AH": 10226, "OU": 10226}
+          assert report["coverage"]["source_counts_2026"] == {"Crown": 9316, "TotalCorner_default": 910}
+          assert report["integrity"]["same_train_test_fixture_ids"] is False
+          assert all(value for key, value in report["integrity"].items()
+                     if key not in ("fixture_level_data_published", "same_train_test_fixture_ids"))
+          assert report["integrity"]["fixture_level_data_published"] is False
+          for market in ("AH", "OU"):
+              result = report["markets"][market]
+              assert result["training_2025"]["selected_policy"] == "favorite"
+              assert result["training_2025"]["unique_fixture_markets"] == 1311
+              holdout = result["holdout_2026"]
+              baseline = result["higher_expected_return_baseline_2026"]
+              assert holdout["unique_fixture_markets"] == holdout["simulated_bets"] == holdout["settled_bets"] == 10226
+              assert sum(holdout["settlement_counts"].values()) == 10226
+              assert holdout["quote_receipt_timing"] == {"post_kickoff": 10226}
+              assert holdout["roi_bootstrap_95pct"]["upper_95_roi_pct"] < 0
+              assert baseline["unique_fixture_markets"] == 10226
+              assert baseline["quote_response_hash_set_sha256"] == report["input_sha256"]["2026_holdout_responses"]
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"match_id"', '"prices"', '"score_grid"',
+                            '"home_goals"', '"away_goals"', '"api_token"', '"api_key"',
+                            '"/Users/mac/', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 2025-trained favorite-side holdout diagnostic integrity: PASS")
+          PY
