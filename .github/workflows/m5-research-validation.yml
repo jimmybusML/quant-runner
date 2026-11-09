@@ -153,6 +153,52 @@ jobs:
               assert forbidden not in serialized
           print("M5 model-family canonical Crown comparison integrity: PASS")
           PY
+      - name: Validate refreshed M1 MR1 M3 M4 Crown model replay
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          report_path = Path("research/m5/results/m5_model_family_canonical_crown_comparison_20261109.json")
+          runner_path = Path("research/m5/m5_model_family_canonical_crown_comparison.py")
+          report = json.loads(report_path.read_text())
+          assert report["protocol"] == "M5_MODEL_FAMILY_CANONICAL_CROWN_MATCHED_COMPARISON_V1"
+          assert report["generated_utc"].startswith("2026-11-09T")
+          assert report["data"]["runner_sha256"] == hashlib.sha256(runner_path.read_bytes()).hexdigest()
+          assert report["data"]["crown_fixture_markets_by_market"] == {"AH": 10400, "OU": 10399}
+          assert report["data"]["all_quote_sources"] == ["Crown"]
+          for key in ("runner_sha256", "crown_input_sha256", "m1_trace_sha256", "mr1_trace_sha256", "m3_grid_archive_sha256"):
+              assert re.fullmatch(r"[0-9a-f]{64}", report["data"][key])
+          expected_n = {
+              "AH": {"M1": 8191, "MR1_V6": 8129, "M3_Poisson": 9591,
+                     "M3_Dixon_Coles": 9591, "M3_Bivariate_Poisson": 9591,
+                     "M4_Pass_Poisson": 9079, "M4_Pass_Dixon_Coles": 9079,
+                     "M4_Pass_Bivariate_Poisson": 9079},
+              "OU": {"M1": 8300, "MR1_V6": 8237, "M3_Poisson": 9590,
+                     "M3_Dixon_Coles": 9590, "M3_Bivariate_Poisson": 9590,
+                     "M4_Pass_Poisson": 9078, "M4_Pass_Dixon_Coles": 9078,
+                     "M4_Pass_Bivariate_Poisson": 9078},
+          }
+          for market, expected in expected_n.items():
+              result = report["markets"][market]
+              assert result["canonical_cohort_n"] == report["data"]["crown_fixture_markets_by_market"][market]
+              for name, n in expected.items():
+                  model = result[name]
+                  assert model["simulated_bets"] == n == model["settled_bets"]
+                  assert sum(model["settlement_counts"].values()) == n
+                  assert abs(model["roi_pct"] - 100 * model["net_units"] / model["stake_units"]) < 1e-6
+                  assert model["quote_sources"] == {"Crown": n}
+                  assert model["receipt_timing"] == {"post_kickoff": n}
+              common = result["same_fixture_common_cohort"]
+              assert common["unique_fixture_markets"] == (8129 if market == "AH" else 8237)
+              assert all(model["simulated_bets"] == common["unique_fixture_markets"]
+                         for model in common["models"].values())
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"prices"', '"score_grid"', '"home_goals"',
+                            '"away_goals"', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 refreshed model-family Crown comparison integrity: PASS")
+          PY
       - name: Validate annual-refit penaltyblog Crown OOS report
         run: |
           python - <<'PY'
