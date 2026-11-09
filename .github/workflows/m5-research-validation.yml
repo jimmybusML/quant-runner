@@ -1624,7 +1624,8 @@ jobs:
           report = json.loads(path.read_text())
           runner = Path("research/m5/m5_crown_sqlite_full_oos_replay.py")
           assert report["protocol"] == "M5_CROWN_SQLITE_FULL_OOS_REPLAY_V1"
-          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          # Frozen 02:03Z receipt; the latest full receipt validates the current runner SHA.
+          assert report["runner_sha256"] == "353aedbb2562a27af4c05f0884939dbe2f75cf63106c796df62ff0a8992d4c6b"
           for value in report["input_hashes"].values():
               assert re.fullmatch(r"[0-9a-f]{64}", value)
           assert report["generated_utc"] == "2026-11-09T02:03:35.299157Z"
@@ -1658,7 +1659,8 @@ jobs:
           assert report["checkpoint_status"] == "interim_snapshot_during_historical_backfill"
           assert report["final_checkpoint"] is False
           provenance = report["data_provenance"]
-          assert provenance["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          # Preserve the original runner provenance for this immutable checkpoint.
+          assert provenance["runner_sha256"] == "353aedbb2562a27af4c05f0884939dbe2f75cf63106c796df62ff0a8992d4c6b"
           for value in (provenance["runner_sha256"], provenance["forecast_sha256"],
                         provenance["candidate_manifest_sha256"], provenance["response_hash_set_sha256"]):
               assert re.fullmatch(r"[0-9a-f]{64}", value)
