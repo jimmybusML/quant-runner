@@ -1,3 +1,9 @@
+## 2026-11-09T06:13Z 五模型同场 Crown 共同队列重新核算
+
+- 用户再次澄清需要把 M1、MR1、M3 的每个模型逐个跑在已收集的一万多场数据上。重新只读读取本机冻结档案 `m1_full_cohort_trace_20261106.jsonl`、`mr1_m3_samecohort_trace_20261106.jsonl`、`m3_three_model_expanded_20261106.jsonl`，执行 `research/m5/m5_mr1_m1_m3_same_crown_cohort.py`，并逐一复算。M1/MR1 的既有结算概率只能在精确原盘口线上使用；共同测试集必须同时具备五个模型、相同的 Crown event/line/prices/kickoff，因此 AH 与 OU 各9,517场。输入 SHA 与 11月7日复核相同；ID-set SHA `ee64ea54e21f7712452ee23bc2be62fe7b738e8b37e08664e9777358320f5416`。
+- 同队列 ROI：AH M1 -2.204371%、MR1 V6 -1.515499%、M3 Poisson -2.911054%、Dixon-Coles -2.951140%、Bivariate Poisson -2.878376%；OU M1 -3.185983%、MR1 -3.781811%、Poisson -3.728381%、Dixon-Coles -3.644899%、Bivariate Poisson -3.575444%。AH MR1点估计较好但负收益，OU M1点估计较好但负收益；逐模型 proper score、回撤、结算数及bootstrap在脱敏报告。该共同集低于10,000，完整Crown市场池AH10,400/OU10,399不等于每个模型都覆盖全量；也不是未触碰holdout。历史response全部赛后收到。
+- 脱敏报告 `research/m5/results/m5_m1_mr1_m3_same_crown_cohort_fresh_20261109.json` 已新增；本机逐场报告留在 `/private/tmp/m1-m5-private/m5_m1_mr1_m3_same_crown_cohort_fresh_20261109.json`。README与M5 Actions验证已同步新增。仅分析/报告，没有改M1/MR1/M3/M4生产策略、TG、订单、账本或交易Gate。待本地测试、精确工作流校验、commit/push、Actions运行结果。
+
 ## 2026-11-09T05:53Z TotalCorner-only 重启回放与跨模型覆盖审计
 
 - 读取本机 M5 私有候选 manifest（127,674 fixture，SHA `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`）、冻结 M5 OOS score-grid forecast（127,674行，SHA `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`）、已缓存 TotalCorner-default 原始响应及 response index；未发新网络请求。使用 `research/m5/m5_source_union_replay.py --source-policy totalcorner_only` 通过 fixture身份/赛果/UTC kickoff、原始盘口事件时间、实际 receipt 时间及响应文件进行离线核验。TotalCorner AH/OU各1,141个唯一 fixture-market，来源全部标记 TotalCorner_default；response receipts 1,141/market 全部赛后取得，ROI是历史盘口事件时间回放。

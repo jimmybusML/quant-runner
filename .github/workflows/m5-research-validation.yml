@@ -201,6 +201,43 @@ jobs:
               assert forbidden not in serialized
           print("M5 refreshed model-family Crown comparison integrity: PASS")
           PY
+      - name: Validate refreshed exact M1 MR1 M3 shared Crown cohort
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_m1_mr1_m3_same_crown_cohort_fresh_20261109.json")
+          report = json.loads(path.read_text())
+          assert report["protocol"] == "M5_MR1_M1_M3_EXACT_CROWN_COMMON_COHORT_V1"
+          assert report["generated_utc"].startswith("2026-11-09T06:13:")
+          assert report["provider_receipt_timing"] == {"post_kickoff": 19034}
+          provenance = report["data_provenance"]
+          assert provenance["quote_source"] == "Crown only"
+          assert provenance["private_fixture_level_rows_published"] is False
+          for key in ("m1_trace_sha256", "mr1_trace_sha256", "m3_grid_archive_sha256", "common_fixture_market_id_set_sha256"):
+              assert re.fullmatch(r"[0-9a-f]{64}", provenance[key])
+          expected_roi = {
+              "AH": {"m1": -2.204371, "mr1_v6": -1.515499, "m3_poisson": -2.911054,
+                     "m3_dixon_coles": -2.951140, "m3_bivariate_poisson": -2.878376},
+              "OU": {"m1": -3.185983, "mr1_v6": -3.781811, "m3_poisson": -3.728381,
+                     "m3_dixon_coles": -3.644899, "m3_bivariate_poisson": -3.575444},
+          }
+          for market, models in expected_roi.items():
+              result = report["markets"][market]
+              assert result["shared_unique_fixtures"] == result["exact_shared_quote_contracts"] == 9517
+              assert result["quote_sources"] == {"Crown": 9517}
+              for name, roi in models.items():
+                  model = result["models"][name]
+                  assert model["simulated_bets"] == model["settled_bets"] == model["stake_units"] == 9517
+                  assert model["quote_sources"] == {"Crown": 9517}
+                  assert model["roi_pct"] == roi
+                  assert sum(model["settlement_counts"].values()) == 9517
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"prices"', '"distribution"', '"source_model_line"', '"actual"', '"home_goals"'):
+              assert forbidden not in serialized
+          print("M5 exact shared Crown cohort replay integrity: PASS")
+          PY
       - name: Validate annual-refit penaltyblog Crown OOS report
         run: |
           python - <<'PY'
