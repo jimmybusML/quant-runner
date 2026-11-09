@@ -1897,3 +1897,44 @@ jobs:
               assert forbidden not in serialized
           print("M5 Crown SQLite continuation replay integrity: PASS")
           PY
+      - name: Validate the 2025-fit 2026-holdout M1 MR1 M3 market calibration receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_sidewise_market_anchored_calibration_2025fit_2026holdout_20261109.json")
+          runner = Path("research/m5/m5_sidewise_market_anchored_calibration.py")
+          report = json.loads(path.read_text())
+          assert report["protocol"] == "M5_SIDEWISE_MARKET_ANCHORED_CALIBRATION_2025FIT_2026HOLDOUT_V1"
+          assert report["inputs"]["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          assert report["fit_protocol"]["roi_not_used_for_fit"] is True
+          assert report["fit_protocol"]["all_holdout_fixture_markets_retained"] is True
+          assert report["fit_protocol"]["one_side_selected_by_higher_calibrated_expected_return_no_threshold"] is True
+          assert report["fit_protocol"]["fit_year"] == 2025 and report["fit_protocol"]["outer_holdout_year"] == 2026
+          assert len(report["markets"]) == 2
+          for market, models in report["markets"].items():
+              assert set(models) == {"M1", "MR1_V6", "M3_Poisson", "M3_Dixon_Coles", "M3_Bivariate_Poisson"}
+              for name, item in models.items():
+                  train, test = item["train_fixture_markets_2025"], item["holdout_fixture_markets_2026"]
+                  assert train > 0 and test > 0
+                  assert item["baseline_raw_model"]["fixture_markets"] == test
+                  assert item["market_anchored_calibrator"]["fixture_markets"] == test
+                  for result in (item["baseline_raw_model"], item["market_anchored_calibrator"]):
+                      n = result["fixture_markets"]
+                      assert result["simulated_bets"] == result["settled_bets"] == result["stake_units"] == n
+                      assert sum(result["settlement_counts"].values()) == n
+                      assert abs(result["roi_pct"] - 100 * result["net_units"] / n) < 1e-6
+                      assert result["roi_bootstrap_95pct"]["repetitions"] == 10000
+                  ci = item["paired_roi_difference_calibrated_minus_raw"]
+                  assert ci["repetitions"] == 10000
+                  assert ci["lower_95_difference_pp"] <= ci["upper_95_difference_pp"]
+          for key, value in report["inputs"].items():
+              if key.endswith("_sha256"):
+                  assert re.fullmatch(r"[0-9a-f]{64}", value)
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"match_id"', '"prices"', '"actual_home_goals"',
+                            '"score_grid"', '"api_token"', '"api_key"', '"/Users/mac/', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 sidewise market calibration receipt integrity: PASS")
+          PY

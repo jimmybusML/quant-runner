@@ -1,3 +1,11 @@
+## 2026-11-09T07:48Z M1/MR1/M3 双边市场锚定校准实验
+
+- 新增 `research/m5/m5_sidewise_market_anchored_calibration.py`：在 M1、MR1 V6、M3 Poisson、Dixon–Coles、Bivariate Poisson 每个模型与 AH/OU 各自精确线 Crown 行上，按两侧五类结算概率、两边赔率和盘口线拟合正则化 multinomial softmax。用2025前75%日期拟合、后25%按 settlement Log Loss 选择 C，再用完整2025重拟合；2026作为外层测试，未用 ROI 调参。每个测试 fixture-market 都保留一注、校准后选择收益更高一侧，无阈值。输入私有行 SHA `51e8fe1763941e7a7a4e7f2977e9c6f3c3957a6dc8056837c25ab498b7dd5f82`，既有 Crown 对照报告 SHA `e9ef6942bca087f0029c12610d54d39f00899aa5a3db734953cd8b99f27f6a36`；脱敏报告 SHA `51dd5f97fb5367f5ec03e909c1bcf6066e0fe45ddb54ca212f7613c88fdde78b`。代码、测试、报告及验证器已加入本分支，等待提交/Actions。
+- 每个模型2025拟合约994–1,006场；2026测试 M1/MR1约7,183–7,345场，M3三种各8,585场。所有 ROI 仍负。OU M3 Poisson/DC/Bivariate点估计分别从 `-3.5681/-3.4416/-3.3984%` 到 `-3.1733/-2.9667/-2.8896%`，proper scores改善，但 paired ROI bootstrap 95%差值分别 `[-2.7603,+3.5518]`、`[-2.7458,+3.6760]`、`[-2.6474,+3.6814]pp`，均跨零。AH所有模型校准 ROI 变差。故未达+3%，该结果是待验证开发候选，不提升生产。
+- 2026外层期已在此前M5工作中查看，非untouched confirmation；所有历史Crown response赛后取得，只能支持盘口事件时间回顾模拟。新报告分别列raw/校准 ROI、净U、W/HW/P/HL/L、回撤、Log Loss/Brier、10,000次bootstrap和输入哈希；逐场行未公开。M5全量本地测试 `122 passed`，新增4项单测、py_compile、git diff与回执脱敏/算术校验通过。
+- 同时的五赛季Crown movement采集器PID `97661`仍运行；UTC `07:52Z` 进度第2/566批完成200/56,566，累计 SAVED 140 / NO_CROWN_AH_QUOTES 254 / FETCH_FAILED 6；SQLite movement 18,080 captures / 930,160 normalized quotes，summary 12,160 / 21,912。未并发新增API请求。待完成后重新匹配M5 OOS forecasts再回放。
+- 本轮未改变M1/MR1/M3/M4生产系统、TG、订单、账本或门槛。研究代码/报告待推送及GitHub Actions实测；不能把校准后的概率分数改善解读为ROI达标。
+
 ## 2026-11-09T07:37Z Crown SQLite 最新增量回放 / 共享 movement 回填继续运行
 
 - 只读复跑 `research/m5/m5_crown_sqlite_full_oos_replay.py`，输入是冻结 M5 预序 OOS forecasts、51 联赛 candidate manifest 和统一 Crown SQLite；逐场校验预测/盘口/UTC kickoff 时间顺序、比赛身份、赛果、原始响应 SHA 与 quote source event/response receipt 分离。报告生成 UTC `2026-11-09T07:37:08.842385Z`，forecast SHA `ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a`，candidate SHA `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`，response-hash-set SHA `d3e08ba1941ef4c7ab7a3e7a16b1b682a4a96280364c1050bfbdd5f2b256e5`。公开脱敏回执 `research/m5/results/m5_crown_sqlite_full_oos_replay_continuation_20261109.json`；逐场行只在 `/private/tmp/m1-m5-private/`。
