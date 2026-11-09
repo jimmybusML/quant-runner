@@ -1351,4 +1351,6 @@ AH、OU均未完成本队列结算，故已结子集 ROI 不代表最终队列�
 
 favorite 在 OU 比 higher-EV 基线高约0.17个百分点，但仍亏损，且区间整体低于零；AH 明显更差。AH 结算 W/HW/P/HL/L=`4,132/783/708/633/3,970`，净 `-452.68U`、最大回撤 `497.92U`；OU 为 `4,376/677/517/609/4,047`，净 `-340.0425U`、最大回撤 `343.0775U`。2026 AH/OU 的 proper scores 分别为 LL/Brier `1.034935/0.650246`、`0.989060/0.624012`。逐来源和逐年训练对比、哈希、完整分类在[脱敏诊断回执](results/m5_favorite_side_2025_train_2026_oos_20261109.json)。
 
+进一步按来源单独用 2025 训练方向：AH Crown 选择 favorite、TotalCorner-default 选择 underdog；OU 两来源都选 favorite。2026同一批不重复的 10,226 项上，AH 来源组合净 `-421.38U`、ROI `-4.1207%`（比全局 favorite 的 `-4.4268%` 略好，但低于 higher-EV 基线 `-1.8618%`）；OU仍为 `-3.3253%`，与全局 favorite 相同。TOTAL AH 训练仅194场，TOTAL OU 195场，方向方差较大；该源差异诊断没有产出盈利规则。源分项最大回撤未从分组聚合推算，主表最大回撤仅适用于全局 favorite 策略。
+
 所有选中历史 API 响应均在开赛后回取；source event 时间仅支持历史盘口事件回放。2026 数据曾在其他 M5 研究中检查过，不是全新 untouched confirmation set。此次研究没有改任何模型或生产规则，favorite 候选不晋级，AH/OU 均未达到 ROI≥3%。

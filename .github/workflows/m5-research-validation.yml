@@ -1409,6 +1409,16 @@ jobs:
               assert holdout["roi_bootstrap_95pct"]["upper_95_roi_pct"] < 0
               assert baseline["unique_fixture_markets"] == 10226
               assert baseline["quote_response_hash_set_sha256"] == report["input_sha256"]["2026_holdout_responses"]
+              source_policy = result["source_specific_direction_2025_train_2026_holdout"]
+              expected_directions = ({"Crown": "favorite", "TotalCorner_default": "underdog"}
+                                     if market == "AH" else
+                                     {"Crown": "favorite", "TotalCorner_default": "favorite"})
+              assert {source: row["training_2025"]["selected_policy"]
+                      for source, row in source_policy["per_source"].items()} == expected_directions
+              combined = source_policy["combined_holdout"]
+              assert combined["unique_fixture_markets"] == combined["simulated_bets"] == combined["settled_bets"] == 10226
+              assert sum(combined["settlement_counts"].values()) == 10226
+              assert abs(combined["roi_pct"] - 100 * combined["net_units"] / 10226) < 1e-6
           serialized = json.dumps(report)
           for forbidden in ('"fixture_id"', '"match_id"', '"prices"', '"score_grid"',
                             '"home_goals"', '"away_goals"', '"api_token"', '"api_key"',

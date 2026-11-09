@@ -88,6 +88,66 @@
           "last_quote_event": "2026-11-04T16:57:15+00:00"
         }
       },
+      "source_specific_direction_2025_train_2026_holdout": {
+        "combined_holdout": {
+          "max_drawdown_note": "Not derivable from source-by-year aggregate inputs; use global favorite holdout drawdown only for the global policy.",
+          "max_drawdown_units": null,
+          "net_units": -421.38,
+          "roi_pct": -4.120673,
+          "settled_bets": 10226,
+          "settlement_counts": {
+            "half_loss": 650,
+            "half_win": 766,
+            "loss": 3973,
+            "push": 708,
+            "win": 4129
+          },
+          "simulated_bets": 10226,
+          "unique_fixture_markets": 10226
+        },
+        "per_source": {
+          "Crown": {
+            "holdout_2026": {
+              "net_units": -400.93,
+              "roi_pct": -4.303671,
+              "settlement_counts": {
+                "half_loss": 577,
+                "half_win": 710,
+                "loss": 3614,
+                "push": 646,
+                "win": 3769
+              },
+              "unique_fixture_markets": 9316
+            },
+            "training_2025": {
+              "favorite_roi_pct": -2.008953,
+              "selected_policy": "favorite",
+              "underdog_roi_pct": -5.091316,
+              "unique_fixture_markets": 1117
+            }
+          },
+          "TotalCorner_default": {
+            "holdout_2026": {
+              "net_units": -20.45,
+              "roi_pct": -2.247253,
+              "settlement_counts": {
+                "half_loss": 73,
+                "half_win": 56,
+                "loss": 359,
+                "push": 62,
+                "win": 360
+              },
+              "unique_fixture_markets": 910
+            },
+            "training_2025": {
+              "favorite_roi_pct": -8.073454,
+              "selected_policy": "underdog",
+              "underdog_roi_pct": 1.076031,
+              "unique_fixture_markets": 194
+            }
+          }
+        }
+      },
       "training_2025": {
         "selected_policy": "favorite",
         "selection_rule": "Choose the side at the lower decimal price on every fixture; choose one fixed direction based on higher 2025 ROI. No fixtures are removed.",
@@ -146,6 +206,66 @@
           "first_quote_event": "2026-01-01T12:25:34+00:00",
           "last_kickoff": "2026-11-04T17:00:00+00:00",
           "last_quote_event": "2026-11-04T16:28:46+00:00"
+        }
+      },
+      "source_specific_direction_2025_train_2026_holdout": {
+        "combined_holdout": {
+          "max_drawdown_note": "Not derivable from source-by-year aggregate inputs; use global favorite holdout drawdown only for the global policy.",
+          "max_drawdown_units": null,
+          "net_units": -340.0425,
+          "roi_pct": -3.325274,
+          "settled_bets": 10226,
+          "settlement_counts": {
+            "half_loss": 609,
+            "half_win": 677,
+            "loss": 4047,
+            "push": 517,
+            "win": 4376
+          },
+          "simulated_bets": 10226,
+          "unique_fixture_markets": 10226
+        },
+        "per_source": {
+          "Crown": {
+            "holdout_2026": {
+              "net_units": -279.88,
+              "roi_pct": -3.004294,
+              "settlement_counts": {
+                "half_loss": 538,
+                "half_win": 617,
+                "loss": 3683,
+                "push": 478,
+                "win": 4000
+              },
+              "unique_fixture_markets": 9316
+            },
+            "training_2025": {
+              "favorite_roi_pct": -2.832437,
+              "selected_policy": "favorite",
+              "underdog_roi_pct": -5.016577,
+              "unique_fixture_markets": 1116
+            }
+          },
+          "TotalCorner_default": {
+            "holdout_2026": {
+              "net_units": -60.1625,
+              "roi_pct": -6.611264,
+              "settlement_counts": {
+                "half_loss": 71,
+                "half_win": 60,
+                "loss": 364,
+                "push": 39,
+                "win": 376
+              },
+              "unique_fixture_markets": 910
+            },
+            "training_2025": {
+              "favorite_roi_pct": 1.826923,
+              "selected_policy": "favorite",
+              "underdog_roi_pct": -7.820513,
+              "unique_fixture_markets": 195
+            }
+          }
         }
       },
       "training_2025": {
