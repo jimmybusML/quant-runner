@@ -1398,6 +1398,21 @@ M3 的 Poisson、Dixon–Coles、Bivariate Poisson 保存了完整比分网格�
 
 报价 source event 为赛前，但 Crown 历史响应实际接收范围在 2026-11-04 至 2026-11-06，均晚于比赛 kickoff；因此结果是严格按训练截止与盘口事件前推的 retrospective OOS，不是同期可执行收益。91 个联赛/UTC年训练折，目标队伍不在训练集的场次只进入显式回退对照，输入/模型/赔率/赛果逐场结果保存在机密目录。报告含候选清单和 quote 输入 SHA、运行器 SHA、逐年覆盖和校准/收益指标，不含 fixture identity 或价格。
 
+### 2026-11-09T08:18Z M3 年度前推重训扩展到 Crown 新增历史 AH 样本
+
+复用 07:58Z 冻结 M5 Crown OOS 快照中的 23,129 个唯一 fixture-market（AH 12,730、OU 10,399），按每个目标 UTC 年 1 月 1 日重新拟合 penaltyblog 原版 Poisson、Dixon–Coles、Bivariate Poisson；训练仅使用同联赛 cutoff 前的赛果。覆盖 2019、2021、2022、2025、2026 共 103 个联赛/年度折；train/test fixture ID 不交叉，预测 cutoff 早于所选 Crown source event，报价事件早于 kickoff，实际 response receipt 与事件时间分开记录。候选身份、UTC kickoff、FT、原始响应 SHA 已由来源 M5 回放逐场核验。此为 Crown only 的历史事件时间 OOS；所有 API response 均在开赛后取得。
+
+| 市场 | 模型 | 样本 | 净 U | ROI | 最大回撤 U | Log Loss | Brier |
+|---|---|---:|---:|---:|---:|---:|---:|
+| AH | Bivariate Poisson | 11,665 | -305.785 | -2.6214% | 330.565 | 1.029863 | 0.645729 |
+| AH | Dixon–Coles | 11,665 | -316.640 | -2.7144% | 337.395 | 1.028265 | 0.644889 |
+| AH | Poisson | 11,665 | -305.815 | -2.6216% | 331.810 | 1.028097 | 0.644833 |
+| OU | Bivariate Poisson | 9,590 | -356.920 | -3.7218% | 374.990 | 0.982636 | 0.620912 |
+| OU | Dixon–Coles | 9,590 | -361.040 | -3.7648% | 381.210 | 0.982682 | 0.620848 |
+| OU | Poisson | 9,590 | -369.940 | -3.8576% | 390.110 | 0.982604 | 0.620834 |
+
+AH 三个原版模型扩到 11,665 场但 ROI 仍负；OU 的新增 Crown 回填没有新增历史 OU 行，严格原版仍为 9,590 场。单独标记的 `LeagueAvgFallback` 补齐 AH 12,730、OU 10,399 场，但 ROI 分别约 -3.02% 至 -3.11%、-3.96% 至 -4.08%，概率分数也更差；它不是 penaltyblog 原版。各严格模型与回退版本的 5,000 次 fixture bootstrap 区间上界均低于 0。此报告是共享采集仍在运行时的 07:58Z 中间快照，后续终态须重跑，不能作为最终回填结果。公开聚合报告 [M3 扩展年度前推回放](results/m5_canonical_crown_penaltyblog_expanded_oos_incremental_20261109T0757Z.json) 记录来源回执、forecast/manifest/response 哈希；逐场预测继续只保留在本机私有目录。
+
 ### 2026-11-08T16:24:54Z Crown-first 前瞻队列结算刷新
 
 使用冻结的 M5 前瞻配对队列（AH 102、OU 98；唯一 fixture 105）再次查询 TotalCorner FT。沿用已核验结果21场；本轮新核验18场 FT，33场查询时未完赛，32场尚未开赛，另1场接口/身份核验错误留待重试。累计已结唯一 fixture-market 70，待结130。公开脱敏回执：[前瞻结算刷新](results/m5_forward_shadow_settlement_canonical_crown_20261109.json)。配对输入SHA为 `8374dceff535fd6e605bf05a27f916947902c475810f46939a177f1d8dc31132`；逐场 fixture、概率、盘口、比分及原始响应留在私有目录。

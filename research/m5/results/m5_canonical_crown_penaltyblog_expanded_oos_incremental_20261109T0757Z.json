@@ -1,0 +1,2037 @@
+{
+  "audit": {
+    "fallback_fixture_prediction": 1065,
+    "unseen_team_fixture": 1065
+  },
+  "candidate_manifest_fixtures": 127674,
+  "canonical_crown_fixture_markets_by_market": {
+    "AH": 12730,
+    "OU": 10399
+  },
+  "complete_three_model_oos_fixture_predictions": 11665,
+  "data_provenance": {
+    "candidate_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+    "crown_historical_replay_receipts": "post-kickoff; retrospective event-time study only",
+    "quote_selection": "Latest validated Crown source-event quote per unique fixture-market from the M5 replay snapshot; no fixture-market duplicates.",
+    "response_hash_set_sha256": "f3f4685ba82a5968502be6bd50a06b78a01c1509726a49a98714fb886b4a3f5b",
+    "row_level_output_published": false,
+    "snapshot_generated_utc": "2026-11-09T07:58:53.344016Z",
+    "source": "Crown only",
+    "source_m5_forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+    "source_m5_replay_report": "m5_crown_sqlite_full_oos_replay_incremental_20261109T0757Z.json",
+    "source_m5_replay_report_sha256": "29dbe1fc29293eb6815fb71c20ae43dbe2b7298c7c1c71fd7e60b75ee6a47667"
+  },
+  "fixture_level_rows_published": false,
+  "fold_count": 103,
+  "folds": [
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Armenia Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 6,
+      "training_end_utc": "2024-12-04T14:00:00+00:00",
+      "training_fixtures": 1097,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Armenia Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 50,
+      "training_end_utc": "2025-11-30T15:00:00+00:00",
+      "training_fixtures": 1201,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Austria Bundesliga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 37,
+      "training_end_utc": "2024-12-14T16:00:00+00:00",
+      "training_fixtures": 1877,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Austria Bundesliga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 153,
+      "training_end_utc": "2025-12-14T16:00:00+00:00",
+      "training_fixtures": 2076,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Azerbaijan Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 37,
+      "training_end_utc": "2024-12-22T12:30:00+00:00",
+      "training_fixtures": 1258,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Azerbaijan Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 133,
+      "training_end_utc": "2025-12-22T15:30:00+00:00",
+      "training_fixtures": 1442,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Belgium First Division A",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 55,
+      "training_end_utc": "2024-12-27T19:45:00+00:00",
+      "training_fixtures": 2712,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Belgium First Division A",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 236,
+      "training_end_utc": "2025-12-27T19:45:00+00:00",
+      "training_fixtures": 3025,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Bulgaria First League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 44,
+      "training_end_utc": "2024-12-19T15:00:00+00:00",
+      "training_fixtures": 2330,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Bulgaria First League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 224,
+      "training_end_utc": "2025-12-19T15:30:00+00:00",
+      "training_fixtures": 2622,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "China Super League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 8,
+      "training_end_utc": "2024-11-02T07:30:00+00:00",
+      "training_fixtures": 2241,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "China Super League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 230,
+      "training_end_utc": "2025-11-22T07:30:00+00:00",
+      "training_fixtures": 2480,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Colombia Primera A",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 40,
+      "training_end_utc": "2024-12-22T23:00:00+00:00",
+      "training_fixtures": 4013,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Colombia Primera A",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 362,
+      "training_end_utc": "2025-12-17T00:30:00+00:00",
+      "training_fixtures": 4461,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Croatia HNL",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 34,
+      "training_end_utc": "2024-12-22T16:30:00+00:00",
+      "training_fixtures": 366,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Croatia HNL",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 149,
+      "training_end_utc": "2025-12-21T16:45:00+00:00",
+      "training_fixtures": 545,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Cyprus Division 1",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 42,
+      "training_end_utc": "2024-12-23T17:00:00+00:00",
+      "training_fixtures": 2169,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Cyprus Division 1",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 182,
+      "training_end_utc": "2025-12-22T17:00:00+00:00",
+      "training_fixtures": 2403,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Czechia First League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 16,
+      "training_end_utc": "2024-12-15T17:30:00+00:00",
+      "training_fixtures": 2651,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Czechia First League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 224,
+      "training_end_utc": "2025-12-14T17:30:00+00:00",
+      "training_fixtures": 2926,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Denmark Superligaen",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 12,
+      "training_end_utc": "2024-12-02T18:00:00+00:00",
+      "training_fixtures": 2130,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Denmark Superligaen",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 163,
+      "training_end_utc": "2025-12-08T18:00:00+00:00",
+      "training_fixtures": 2329,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2021-01-01T00:00:00+00:00",
+      "league": "England Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 163,
+      "training_end_utc": "2020-12-30T20:00:00+00:00",
+      "training_fixtures": 2214,
+      "year": 2021
+    },
+    {
+      "cutoff_utc": "2022-01-01T00:00:00+00:00",
+      "league": "England Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 7,
+      "training_end_utc": "2021-12-30T20:15:00+00:00",
+      "training_fixtures": 2613,
+      "year": 2022
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "England Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 96,
+      "training_end_utc": "2024-12-30T20:00:00+00:00",
+      "training_fixtures": 3734,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "England Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 283,
+      "training_end_utc": "2025-12-30T20:15:00+00:00",
+      "training_fixtures": 4112,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Estonia Meistriliiga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 133,
+      "training_end_utc": "2025-11-08T10:30:00+00:00",
+      "training_fixtures": 1899,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Faroe Islands Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 30,
+      "training_end_utc": "2025-10-25T13:30:00+00:00",
+      "training_fixtures": 800,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Finland Veikkausliiga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 174,
+      "training_end_utc": "2025-11-09T13:00:00+00:00",
+      "training_fixtures": 1908,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2021-01-01T00:00:00+00:00",
+      "league": "France Ligue 1",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 188,
+      "training_end_utc": "2020-12-23T20:00:00+00:00",
+      "training_fixtures": 2123,
+      "year": 2021
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "France Ligue 1",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 54,
+      "training_end_utc": "2024-12-18T20:00:00+00:00",
+      "training_fixtures": 3529,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "France Ligue 1",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 239,
+      "training_end_utc": "2025-12-14T19:45:00+00:00",
+      "training_fixtures": 3842,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Georgia Erovnuli Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 5,
+      "training_end_utc": "2024-12-02T14:00:00+00:00",
+      "training_fixtures": 1115,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Georgia Erovnuli Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 109,
+      "training_end_utc": "2025-12-01T15:00:00+00:00",
+      "training_fixtures": 1257,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2021-01-01T00:00:00+00:00",
+      "league": "Germany Bundesliga I",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 153,
+      "training_end_utc": "2020-12-20T17:00:00+00:00",
+      "training_fixtures": 1769,
+      "year": 2021
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Germany Bundesliga I",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 62,
+      "training_end_utc": "2024-12-22T16:30:00+00:00",
+      "training_fixtures": 3000,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Germany Bundesliga I",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 245,
+      "training_end_utc": "2025-12-21T16:30:00+00:00",
+      "training_fixtures": 3306,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Greece Super League 1",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 49,
+      "training_end_utc": "2024-12-23T16:00:00+00:00",
+      "training_fixtures": 1191,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Greece Super League 1",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 179,
+      "training_end_utc": "2025-12-22T16:00:00+00:00",
+      "training_fixtures": 1419,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Hungary NB I",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 42,
+      "training_end_utc": "2024-12-15T14:30:00+00:00",
+      "training_fixtures": 1940,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Hungary NB I",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 139,
+      "training_end_utc": "2025-12-21T16:30:00+00:00",
+      "training_fixtures": 2145,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Iceland Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 158,
+      "training_end_utc": "2025-10-26T14:00:00+00:00",
+      "training_fixtures": 1530,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Israel Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 13,
+      "training_end_utc": "2024-12-31T18:00:00+00:00",
+      "training_fixtures": 2389,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Israel Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 176,
+      "training_end_utc": "2025-12-31T18:00:00+00:00",
+      "training_fixtures": 2630,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2021-01-01T00:00:00+00:00",
+      "league": "Italy Serie A",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 187,
+      "training_end_utc": "2020-12-23T19:45:00+00:00",
+      "training_fixtures": 2047,
+      "year": 2021
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Italy Serie A",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 76,
+      "training_end_utc": "2024-12-30T19:45:00+00:00",
+      "training_fixtures": 3591,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Italy Serie A",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 283,
+      "training_end_utc": "2025-12-29T19:45:00+00:00",
+      "training_fixtures": 3959,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2019-01-01T00:00:00+00:00",
+      "league": "Japan J-League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 166,
+      "training_end_utc": "2018-12-08T05:00:00+00:00",
+      "training_fixtures": 1231,
+      "year": 2019
+    },
+    {
+      "cutoff_utc": "2021-01-01T00:00:00+00:00",
+      "league": "Japan J-League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 380,
+      "training_end_utc": "2020-12-19T05:00:00+00:00",
+      "training_fixtures": 1843,
+      "year": 2021
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Japan J-League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 30,
+      "training_end_utc": "2024-12-08T05:00:00+00:00",
+      "training_fixtures": 3205,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Japan J-League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 302,
+      "training_end_utc": "2025-12-06T05:00:00+00:00",
+      "training_fixtures": 3585,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Kazakhstan Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 200,
+      "training_end_utc": "2025-10-26T10:00:00+00:00",
+      "training_fixtures": 1879,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Kosovo Superliga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 6,
+      "training_end_utc": "2025-12-24T12:00:00+00:00",
+      "training_fixtures": 843,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Latvia Virsliga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 160,
+      "training_end_utc": "2025-11-09T11:00:00+00:00",
+      "training_fixtures": 1482,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Lithuania A Lyga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 1,
+      "training_end_utc": "2024-11-09T14:25:18+00:00",
+      "training_fixtures": 1414,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Lithuania A Lyga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 141,
+      "training_end_utc": "2025-11-22T12:00:00+00:00",
+      "training_fixtures": 1593,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Malta Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 13,
+      "training_end_utc": "2024-12-21T15:00:00+00:00",
+      "training_fixtures": 1666,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Malta Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 128,
+      "training_end_utc": "2025-12-21T15:00:00+00:00",
+      "training_fixtures": 1840,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Montenegro Prva Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 8,
+      "training_end_utc": "2024-12-07T13:00:00+00:00",
+      "training_fixtures": 1325,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Montenegro Prva Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 36,
+      "training_end_utc": "2025-12-14T13:00:00+00:00",
+      "training_fixtures": 1501,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2021-01-01T00:00:00+00:00",
+      "league": "Netherlands Eredivisie",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 159,
+      "training_end_utc": "2020-12-27T13:30:00+00:00",
+      "training_fixtures": 1733,
+      "year": 2021
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Netherlands Eredivisie",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 59,
+      "training_end_utc": "2024-12-22T15:45:00+00:00",
+      "training_fixtures": 2989,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Netherlands Eredivisie",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 252,
+      "training_end_utc": "2025-12-21T15:45:00+00:00",
+      "training_fixtures": 3298,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "North Macedonia First League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 5,
+      "training_end_utc": "2024-12-08T12:00:00+00:00",
+      "training_fixtures": 1265,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "North Macedonia First League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 39,
+      "training_end_utc": "2025-12-08T12:00:00+00:00",
+      "training_fixtures": 1415,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Northern Ireland Premier",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 53,
+      "training_end_utc": "2024-12-30T19:45:00+00:00",
+      "training_fixtures": 1995,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Northern Ireland Premier",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 155,
+      "training_end_utc": "2025-12-30T19:45:00+00:00",
+      "training_fixtures": 2180,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Norway Eliteserien",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 14,
+      "training_end_utc": "2024-12-01T16:00:00+00:00",
+      "training_fixtures": 2368,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Norway Eliteserien",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 195,
+      "training_end_utc": "2025-11-30T16:00:00+00:00",
+      "training_fixtures": 2608,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Poland Ekstraklasa",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 43,
+      "training_end_utc": "2024-12-14T16:30:00+00:00",
+      "training_fixtures": 2888,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Poland Ekstraklasa",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 259,
+      "training_end_utc": "2025-12-14T19:15:00+00:00",
+      "training_fixtures": 3192,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Portugal Primeira Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 59,
+      "training_end_utc": "2024-12-30T20:15:00+00:00",
+      "training_fixtures": 3058,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Portugal Primeira Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 254,
+      "training_end_utc": "2025-12-28T20:30:00+00:00",
+      "training_fixtures": 3360,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Republic of Ireland Premier Division",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 177,
+      "training_end_utc": "2025-11-01T16:30:00+00:00",
+      "training_fixtures": 1919,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Romania Liga I",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 33,
+      "training_end_utc": "2024-12-23T18:00:00+00:00",
+      "training_fixtures": 2802,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Romania Liga I",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 259,
+      "training_end_utc": "2025-12-22T18:00:00+00:00",
+      "training_fixtures": 3115,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Saudi Arabia Pro League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 38,
+      "training_end_utc": "2024-12-07T17:00:00+00:00",
+      "training_fixtures": 1752,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Saudi Arabia Pro League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 303,
+      "training_end_utc": "2025-12-31T17:30:00+00:00",
+      "training_fixtures": 2029,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Scotland Premiership",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 51,
+      "training_end_utc": "2024-12-29T17:15:00+00:00",
+      "training_fixtures": 2214,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Scotland Premiership",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 181,
+      "training_end_utc": "2025-12-30T20:00:00+00:00",
+      "training_fixtures": 2442,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Serbia Super Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 58,
+      "training_end_utc": "2024-12-26T12:00:00+00:00",
+      "training_fixtures": 2884,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Serbia Super Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 222,
+      "training_end_utc": "2025-12-22T18:00:00+00:00",
+      "training_fixtures": 3180,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Slovakia Super Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 38,
+      "training_end_utc": "2024-12-15T14:30:00+00:00",
+      "training_fixtures": 1859,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Slovakia Super Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 157,
+      "training_end_utc": "2025-12-14T17:00:00+00:00",
+      "training_fixtures": 2054,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Slovenia Prva Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 15,
+      "training_end_utc": "2024-12-08T16:30:00+00:00",
+      "training_fixtures": 1774,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Slovenia Prva Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 140,
+      "training_end_utc": "2025-12-07T16:30:00+00:00",
+      "training_fixtures": 1953,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2019-01-01T00:00:00+00:00",
+      "league": "South Korea K League 1",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 120,
+      "training_end_utc": "2018-12-02T05:00:00+00:00",
+      "training_fixtures": 728,
+      "year": 2019
+    },
+    {
+      "cutoff_utc": "2021-01-01T00:00:00+00:00",
+      "league": "South Korea K League 1",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 227,
+      "training_end_utc": "2020-11-01T06:00:00+00:00",
+      "training_fixtures": 1115,
+      "year": 2021
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "South Korea K League 1",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 10,
+      "training_end_utc": "2024-11-24T05:00:00+00:00",
+      "training_fixtures": 2020,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "South Korea K League 1",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 173,
+      "training_end_utc": "2025-11-30T07:30:00+00:00",
+      "training_fixtures": 2247,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2021-01-01T00:00:00+00:00",
+      "league": "Spain La Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 180,
+      "training_end_utc": "2020-12-31T15:15:00+00:00",
+      "training_fixtures": 353,
+      "year": 2021
+    },
+    {
+      "cutoff_utc": "2022-01-01T00:00:00+00:00",
+      "league": "Spain La Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 5,
+      "training_end_utc": "2021-12-31T15:15:00+00:00",
+      "training_fixtures": 760,
+      "year": 2022
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Spain La Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 70,
+      "training_end_utc": "2024-12-22T20:00:00+00:00",
+      "training_fixtures": 1886,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Spain La Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 314,
+      "training_end_utc": "2025-12-22T20:00:00+00:00",
+      "training_fixtures": 2255,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Sweden Allsvenskan",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 213,
+      "training_end_utc": "2025-11-09T14:00:00+00:00",
+      "training_fixtures": 2633,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Switzerland Super League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 46,
+      "training_end_utc": "2024-12-15T15:30:00+00:00",
+      "training_fixtures": 1859,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Switzerland Super League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 185,
+      "training_end_utc": "2025-12-21T15:30:00+00:00",
+      "training_fixtures": 2091,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Türkiye Super Lig",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 57,
+      "training_end_utc": "2024-12-23T17:00:00+00:00",
+      "training_fixtures": 3485,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Türkiye Super Lig",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 238,
+      "training_end_utc": "2025-12-22T17:00:00+00:00",
+      "training_fixtures": 3825,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Ukraine Vyscha Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 45,
+      "training_end_utc": "2024-12-16T11:00:00+00:00",
+      "training_fixtures": 1886,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Ukraine Vyscha Liga",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 172,
+      "training_end_utc": "2025-12-14T16:00:00+00:00",
+      "training_fixtures": 2117,
+      "year": 2026
+    },
+    {
+      "cutoff_utc": "2025-01-01T00:00:00+00:00",
+      "league": "Wales Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 38,
+      "training_end_utc": "2024-12-31T17:45:00+00:00",
+      "training_fixtures": 1773,
+      "year": 2025
+    },
+    {
+      "cutoff_utc": "2026-01-01T00:00:00+00:00",
+      "league": "Wales Premier League",
+      "model_fit": {
+        "M3_Bivariate_Poisson": "fit",
+        "M3_Dixon_Coles": "fit",
+        "M3_Poisson": "fit"
+      },
+      "target_crown_fixtures": 168,
+      "training_end_utc": "2025-12-31T14:30:00+00:00",
+      "training_fixtures": 1970,
+      "year": 2026
+    }
+  ],
+  "generated_utc": "2026-11-09T08:18:07.488557+00:00",
+  "inputs": {
+    "candidate_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+    "canonical_quote_rows_sha256": "664913ac0b69826d69ee2a919c84e76058e5ffdb0335dbf0ee1a01e7dc8386a4",
+    "quote_rows_file_sha256": "664913ac0b69826d69ee2a919c84e76058e5ffdb0335dbf0ee1a01e7dc8386a4"
+  },
+  "integrity": {
+    "all_selected_receipts_post_kickoff": true,
+    "annual_train_cutoff_before_prediction": true,
+    "one_quote_per_fixture_market": true,
+    "prediction_cutoff_before_quote_event": true,
+    "quote_event_before_utc_kickoff": true,
+    "quote_event_no_later_than_actual_response_receipt": true,
+    "source_m5_fixture_identity_utc_kickoff_and_result_verified": true,
+    "training_test_fixture_ids_disjoint": true
+  },
+  "limitations": [
+    "The strict original-model rows exclude fixtures with either team unseen by that league's pre-year training sample.",
+    "Separately named LeagueAvgFallback variants use only same-league pre-year home/away goal means for fixtures the original model cannot predict; this is an exploratory hybrid, not the original penaltyblog model.",
+    "Retrospective Crown summary retrieval does not establish pre-kickoff receipt or execution.",
+    "This research does not alter any production model, gate, order, ledger, or Telegram flow."
+  ],
+  "markets": {
+    "AH": {
+      "M3_Bivariate_Poisson": {
+        "bootstrap_95_roi_pct": {
+          "lower": -4.205915,
+          "repetitions": 5000,
+          "upper": -1.008358
+        },
+        "by_utc_kickoff_year": {
+          "2019": {
+            "n": 266,
+            "net_units": -11.81,
+            "roi_pct": -4.43985
+          },
+          "2021": {
+            "n": 1439,
+            "net_units": -13.66,
+            "roi_pct": -0.94927
+          },
+          "2022": {
+            "n": 12,
+            "net_units": 1.45,
+            "roi_pct": 12.083333
+          },
+          "2025": {
+            "n": 1363,
+            "net_units": -83.005,
+            "roi_pct": -6.089875
+          },
+          "2026": {
+            "n": 8585,
+            "net_units": -198.76,
+            "roi_pct": -2.315201
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 330.565,
+        "net_units": -305.785,
+        "quote_sources": {
+          "Crown": 11665
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 11665
+        },
+        "roi_pct": -2.621389,
+        "settled_bets": 11665,
+        "settlement_brier": 0.6457292,
+        "settlement_counts": {
+          "half_loss": 782,
+          "half_win": 827,
+          "loss": 4612,
+          "push": 807,
+          "win": 4637
+        },
+        "settlement_log_loss": 1.02986334,
+        "simulated_bets": 11665,
+        "stake_units": 11665,
+        "unique_fixture_markets": 11665,
+        "unique_leagues": 50
+      },
+      "M3_Bivariate_Poisson_LeagueAvgFallback": {
+        "bootstrap_95_roi_pct": {
+          "lower": -4.578555,
+          "repetitions": 5000,
+          "upper": -1.511194
+        },
+        "by_utc_kickoff_year": {
+          "2019": {
+            "n": 286,
+            "net_units": -13.54,
+            "roi_pct": -4.734266
+          },
+          "2021": {
+            "n": 1637,
+            "net_units": -32.98,
+            "roi_pct": -2.014661
+          },
+          "2022": {
+            "n": 12,
+            "net_units": 1.45,
+            "roi_pct": 12.083333
+          },
+          "2025": {
+            "n": 1512,
+            "net_units": -88.72,
+            "roi_pct": -5.867725
+          },
+          "2026": {
+            "n": 9283,
+            "net_units": -250.855,
+            "roi_pct": -2.702305
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 403.235,
+        "net_units": -384.645,
+        "quote_sources": {
+          "Crown": 12730
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 12730
+        },
+        "roi_pct": -3.021563,
+        "settled_bets": 12730,
+        "settlement_brier": 0.65046142,
+        "settlement_counts": {
+          "half_loss": 862,
+          "half_win": 909,
+          "loss": 5051,
+          "push": 879,
+          "win": 5029
+        },
+        "settlement_log_loss": 1.03718247,
+        "simulated_bets": 12730,
+        "stake_units": 12730,
+        "unique_fixture_markets": 12730,
+        "unique_leagues": 50
+      },
+      "M3_Dixon_Coles": {
+        "bootstrap_95_roi_pct": {
+          "lower": -4.307458,
+          "repetitions": 5000,
+          "upper": -1.142392
+        },
+        "by_utc_kickoff_year": {
+          "2019": {
+            "n": 266,
+            "net_units": -11.72,
+            "roi_pct": -4.406015
+          },
+          "2021": {
+            "n": 1439,
+            "net_units": -6.005,
+            "roi_pct": -0.417304
+          },
+          "2022": {
+            "n": 12,
+            "net_units": 1.45,
+            "roi_pct": 12.083333
+          },
+          "2025": {
+            "n": 1363,
+            "net_units": -81.075,
+            "roi_pct": -5.948276
+          },
+          "2026": {
+            "n": 8585,
+            "net_units": -219.29,
+            "roi_pct": -2.554339
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 337.395,
+        "net_units": -316.64,
+        "quote_sources": {
+          "Crown": 11665
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 11665
+        },
+        "roi_pct": -2.714445,
+        "settled_bets": 11665,
+        "settlement_brier": 0.64488885,
+        "settlement_counts": {
+          "half_loss": 774,
+          "half_win": 835,
+          "loss": 4622,
+          "push": 807,
+          "win": 4627
+        },
+        "settlement_log_loss": 1.02826503,
+        "simulated_bets": 11665,
+        "stake_units": 11665,
+        "unique_fixture_markets": 11665,
+        "unique_leagues": 50
+      },
+      "M3_Dixon_Coles_LeagueAvgFallback": {
+        "bootstrap_95_roi_pct": {
+          "lower": -4.650196,
+          "repetitions": 5000,
+          "upper": -1.592262
+        },
+        "by_utc_kickoff_year": {
+          "2019": {
+            "n": 286,
+            "net_units": -13.45,
+            "roi_pct": -4.702797
+          },
+          "2021": {
+            "n": 1637,
+            "net_units": -25.325,
+            "roi_pct": -1.547037
+          },
+          "2022": {
+            "n": 12,
+            "net_units": 1.45,
+            "roi_pct": 12.083333
+          },
+          "2025": {
+            "n": 1512,
+            "net_units": -86.79,
+            "roi_pct": -5.740079
+          },
+          "2026": {
+            "n": 9283,
+            "net_units": -271.385,
+            "roi_pct": -2.923462
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 409.315,
+        "net_units": -395.5,
+        "quote_sources": {
+          "Crown": 12730
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 12730
+        },
+        "roi_pct": -3.106834,
+        "settled_bets": 12730,
+        "settlement_brier": 0.64969137,
+        "settlement_counts": {
+          "half_loss": 854,
+          "half_win": 917,
+          "loss": 5061,
+          "push": 879,
+          "win": 5019
+        },
+        "settlement_log_loss": 1.03571788,
+        "simulated_bets": 12730,
+        "stake_units": 12730,
+        "unique_fixture_markets": 12730,
+        "unique_leagues": 50
+      },
+      "M3_Poisson": {
+        "bootstrap_95_roi_pct": {
+          "lower": -4.207372,
+          "repetitions": 5000,
+          "upper": -1.008616
+        },
+        "by_utc_kickoff_year": {
+          "2019": {
+            "n": 266,
+            "net_units": -7.98,
+            "roi_pct": -3.0
+          },
+          "2021": {
+            "n": 1439,
+            "net_units": -14.76,
+            "roi_pct": -1.025712
+          },
+          "2022": {
+            "n": 12,
+            "net_units": 1.45,
+            "roi_pct": 12.083333
+          },
+          "2025": {
+            "n": 1363,
+            "net_units": -78.645,
+            "roi_pct": -5.769993
+          },
+          "2026": {
+            "n": 8585,
+            "net_units": -205.88,
+            "roi_pct": -2.398136
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 331.81,
+        "net_units": -305.815,
+        "quote_sources": {
+          "Crown": 11665
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 11665
+        },
+        "roi_pct": -2.621646,
+        "settled_bets": 11665,
+        "settlement_brier": 0.64483265,
+        "settlement_counts": {
+          "half_loss": 784,
+          "half_win": 825,
+          "loss": 4612,
+          "push": 807,
+          "win": 4637
+        },
+        "settlement_log_loss": 1.02809747,
+        "simulated_bets": 11665,
+        "stake_units": 11665,
+        "unique_fixture_markets": 11665,
+        "unique_leagues": 50
+      },
+      "M3_Poisson_LeagueAvgFallback": {
+        "bootstrap_95_roi_pct": {
+          "lower": -4.573881,
+          "repetitions": 5000,
+          "upper": -1.521053
+        },
+        "by_utc_kickoff_year": {
+          "2019": {
+            "n": 286,
+            "net_units": -9.71,
+            "roi_pct": -3.395105
+          },
+          "2021": {
+            "n": 1637,
+            "net_units": -34.08,
+            "roi_pct": -2.081857
+          },
+          "2022": {
+            "n": 12,
+            "net_units": 1.45,
+            "roi_pct": 12.083333
+          },
+          "2025": {
+            "n": 1512,
+            "net_units": -84.36,
+            "roi_pct": -5.579365
+          },
+          "2026": {
+            "n": 9283,
+            "net_units": -257.975,
+            "roi_pct": -2.779005
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 402.5,
+        "net_units": -384.675,
+        "quote_sources": {
+          "Crown": 12730
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 12730
+        },
+        "roi_pct": -3.021799,
+        "settled_bets": 12730,
+        "settlement_brier": 0.64963988,
+        "settlement_counts": {
+          "half_loss": 864,
+          "half_win": 907,
+          "loss": 5051,
+          "push": 879,
+          "win": 5029
+        },
+        "settlement_log_loss": 1.03556434,
+        "simulated_bets": 12730,
+        "stake_units": 12730,
+        "unique_fixture_markets": 12730,
+        "unique_leagues": 50
+      }
+    },
+    "OU": {
+      "M3_Bivariate_Poisson": {
+        "bootstrap_95_roi_pct": {
+          "lower": -5.461627,
+          "repetitions": 5000,
+          "upper": -1.911157
+        },
+        "by_utc_kickoff_year": {
+          "2025": {
+            "n": 1005,
+            "net_units": -65.17,
+            "roi_pct": -6.484577
+          },
+          "2026": {
+            "n": 8585,
+            "net_units": -291.75,
+            "roi_pct": -3.398369
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 374.99,
+        "net_units": -356.92,
+        "quote_sources": {
+          "Crown": 9590
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 9590
+        },
+        "roi_pct": -3.721794,
+        "settled_bets": 9590,
+        "settlement_brier": 0.62091189,
+        "settlement_counts": {
+          "half_loss": 665,
+          "half_win": 502,
+          "loss": 3948,
+          "push": 468,
+          "win": 4007
+        },
+        "settlement_log_loss": 0.98263572,
+        "simulated_bets": 9590,
+        "stake_units": 9590,
+        "unique_fixture_markets": 9590,
+        "unique_leagues": 50
+      },
+      "M3_Bivariate_Poisson_LeagueAvgFallback": {
+        "bootstrap_95_roi_pct": {
+          "lower": -5.717521,
+          "repetitions": 5000,
+          "upper": -2.290268
+        },
+        "by_utc_kickoff_year": {
+          "2025": {
+            "n": 1116,
+            "net_units": -85.1,
+            "roi_pct": -7.625448
+          },
+          "2026": {
+            "n": 9283,
+            "net_units": -326.52,
+            "roi_pct": -3.517397
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 422.73,
+        "net_units": -411.62,
+        "quote_sources": {
+          "Crown": 10399
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10399
+        },
+        "roi_pct": -3.958265,
+        "settled_bets": 10399,
+        "settlement_brier": 0.62209085,
+        "settlement_counts": {
+          "half_loss": 744,
+          "half_win": 536,
+          "loss": 4278,
+          "push": 509,
+          "win": 4332
+        },
+        "settlement_log_loss": 0.98471099,
+        "simulated_bets": 10399,
+        "stake_units": 10399,
+        "unique_fixture_markets": 10399,
+        "unique_leagues": 50
+      },
+      "M3_Dixon_Coles": {
+        "bootstrap_95_roi_pct": {
+          "lower": -5.536444,
+          "repetitions": 5000,
+          "upper": -2.005162
+        },
+        "by_utc_kickoff_year": {
+          "2025": {
+            "n": 1005,
+            "net_units": -65.575,
+            "roi_pct": -6.524876
+          },
+          "2026": {
+            "n": 8585,
+            "net_units": -295.465,
+            "roi_pct": -3.441642
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 381.21,
+        "net_units": -361.04,
+        "quote_sources": {
+          "Crown": 9590
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 9590
+        },
+        "roi_pct": -3.764755,
+        "settled_bets": 9590,
+        "settlement_brier": 0.62084829,
+        "settlement_counts": {
+          "half_loss": 675,
+          "half_win": 492,
+          "loss": 3945,
+          "push": 468,
+          "win": 4010
+        },
+        "settlement_log_loss": 0.98268221,
+        "simulated_bets": 9590,
+        "stake_units": 9590,
+        "unique_fixture_markets": 9590,
+        "unique_leagues": 50
+      },
+      "M3_Dixon_Coles_LeagueAvgFallback": {
+        "bootstrap_95_roi_pct": {
+          "lower": -5.673574,
+          "repetitions": 5000,
+          "upper": -2.303683
+        },
+        "by_utc_kickoff_year": {
+          "2025": {
+            "n": 1116,
+            "net_units": -85.505,
+            "roi_pct": -7.661738
+          },
+          "2026": {
+            "n": 9283,
+            "net_units": -330.235,
+            "roi_pct": -3.557417
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 428.95,
+        "net_units": -415.74,
+        "quote_sources": {
+          "Crown": 10399
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10399
+        },
+        "roi_pct": -3.997884,
+        "settled_bets": 10399,
+        "settlement_brier": 0.6220322,
+        "settlement_counts": {
+          "half_loss": 754,
+          "half_win": 526,
+          "loss": 4275,
+          "push": 509,
+          "win": 4335
+        },
+        "settlement_log_loss": 0.98475386,
+        "simulated_bets": 10399,
+        "stake_units": 10399,
+        "unique_fixture_markets": 10399,
+        "unique_leagues": 50
+      },
+      "M3_Poisson": {
+        "bootstrap_95_roi_pct": {
+          "lower": -5.627477,
+          "repetitions": 5000,
+          "upper": -2.080396
+        },
+        "by_utc_kickoff_year": {
+          "2025": {
+            "n": 1005,
+            "net_units": -63.615,
+            "roi_pct": -6.329851
+          },
+          "2026": {
+            "n": 8585,
+            "net_units": -306.325,
+            "roi_pct": -3.568142
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 390.11,
+        "net_units": -369.94,
+        "quote_sources": {
+          "Crown": 9590
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 9590
+        },
+        "roi_pct": -3.85756,
+        "settled_bets": 9590,
+        "settlement_brier": 0.62083411,
+        "settlement_counts": {
+          "half_loss": 674,
+          "half_win": 493,
+          "loss": 3950,
+          "push": 468,
+          "win": 4005
+        },
+        "settlement_log_loss": 0.98260375,
+        "simulated_bets": 9590,
+        "stake_units": 9590,
+        "unique_fixture_markets": 9590,
+        "unique_leagues": 50
+      },
+      "M3_Poisson_LeagueAvgFallback": {
+        "bootstrap_95_roi_pct": {
+          "lower": -5.846187,
+          "repetitions": 5000,
+          "upper": -2.3797
+        },
+        "by_utc_kickoff_year": {
+          "2025": {
+            "n": 1116,
+            "net_units": -83.545,
+            "roi_pct": -7.486111
+          },
+          "2026": {
+            "n": 9283,
+            "net_units": -341.095,
+            "roi_pct": -3.674405
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 437.85,
+        "net_units": -424.64,
+        "quote_sources": {
+          "Crown": 10399
+        },
+        "response_receipt_timing": {
+          "post_kickoff": 10399
+        },
+        "roi_pct": -4.08347,
+        "settled_bets": 10399,
+        "settlement_brier": 0.62201912,
+        "settlement_counts": {
+          "half_loss": 753,
+          "half_win": 527,
+          "loss": 4280,
+          "push": 509,
+          "win": 4330
+        },
+        "settlement_log_loss": 0.9846815,
+        "simulated_bets": 10399,
+        "stake_units": 10399,
+        "unique_fixture_markets": 10399,
+        "unique_leagues": 50
+      }
+    }
+  },
+  "penaltyblog_version": "1.13.1",
+  "protocol": "M5_CANONICAL_CROWN_PENALTYBLOG_ANNUAL_WALK_FORWARD_OOS_V1",
+  "quote_source": "Crown only; no TotalCorner substitution.",
+  "receipt_timing": "All historical provider responses were received after kickoff; event-time OOS simulation is not contemporaneously executable ROI.",
+  "runner_sha256": "055044b3fd73f769f936f5355568f3caec33c266e876fe8617ee68d565fdbd83",
+  "snapshot_status": "interim_backfill_snapshot; shared Crown historical movement collection was still running",
+  "target_utc_years": [
+    2019,
+    2021,
+    2022,
+    2025,
+    2026
+  ],
+  "three_model_predictions_with_league_average_unseen_team_fallback": 12730,
+  "time_order_passed": true,
+  "training_rule": "For each league and target UTC year, fit original penaltyblog defaults using all same-league candidate-manifest results with kickoff strictly before January 1 UTC. Test fixtures are from the newly captured canonical Crown summary set. Prediction cutoff < quote source-event UTC < kickoff; target fixtures are excluded by date and ID.",
+  "training_test_fixture_ids_disjoint": true,
+  "unique_target_fixtures": 12730,
+  "utc_coverage": {
+    "AH": {
+      "kickoff": [
+        "2019-02-22T10:30:00Z",
+        "2026-11-04T17:00:00Z"
+      ],
+      "quote_event": [
+        "2019-02-22T10:27:23Z",
+        "2026-11-04T16:57:15Z"
+      ],
+      "response_received": [
+        "2026-11-04T17:54:57.758013Z",
+        "2026-11-09T07:57:15.492162Z"
+      ]
+    },
+    "OU": {
+      "kickoff": [
+        "2025-11-15T14:30:00Z",
+        "2026-11-04T17:00:00Z"
+      ],
+      "quote_event": [
+        "2025-11-03T17:55:43Z",
+        "2026-11-04T16:28:46Z"
+      ],
+      "response_received": [
+        "2026-11-04T17:54:57.758013Z",
+        "2026-11-06T04:10:50.585215Z"
+      ]
+    }
+  }
+}

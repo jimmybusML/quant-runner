@@ -366,6 +366,55 @@ jobs:
               assert forbidden not in serialized
           print("M5 annual-refit penaltyblog Crown OOS integrity: PASS")
           PY
+      - name: Validate expanded annual-refit penaltyblog Crown OOS snapshot
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          report_path = Path("research/m5/results/m5_canonical_crown_penaltyblog_expanded_oos_incremental_20261109T0757Z.json")
+          source_path = Path("research/m5/results/m5_crown_sqlite_full_oos_replay_incremental_20261109T0757Z.json")
+          runner = Path("research/m5/m5_canonical_crown_penaltyblog_refit.py")
+          report = json.loads(report_path.read_text())
+          source = json.loads(source_path.read_text())
+          provenance = report["data_provenance"]
+          assert report["protocol"] == "M5_CANONICAL_CROWN_PENALTYBLOG_ANNUAL_WALK_FORWARD_OOS_V1"
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          assert provenance["source_m5_replay_report_sha256"] == hashlib.sha256(source_path.read_bytes()).hexdigest()
+          assert provenance["source_m5_forecast_sha256"] == source["input_hashes"]["forecast_sha256"]
+          assert provenance["candidate_manifest_sha256"] == source["input_hashes"]["candidate_manifest_sha256"]
+          for value in (report["runner_sha256"], *report["inputs"].values(),
+                        provenance["source_m5_replay_report_sha256"],
+                        provenance["source_m5_forecast_sha256"],
+                        provenance["response_hash_set_sha256"]):
+              assert re.fullmatch(r"[0-9a-f]{64}", value)
+          assert report["canonical_crown_fixture_markets_by_market"] == {"AH": 12730, "OU": 10399}
+          assert report["target_utc_years"] == [2019, 2021, 2022, 2025, 2026]
+          assert report["fold_count"] == 103
+          assert report["complete_three_model_oos_fixture_predictions"] == 11665
+          assert report["three_model_predictions_with_league_average_unseen_team_fallback"] == 12730
+          assert report["training_test_fixture_ids_disjoint"] is True
+          assert report["integrity"]["prediction_cutoff_before_quote_event"] is True
+          assert report["integrity"]["quote_event_before_utc_kickoff"] is True
+          assert report["integrity"]["quote_event_no_later_than_actual_response_receipt"] is True
+          assert report["integrity"]["all_selected_receipts_post_kickoff"] is True
+          assert report["fixture_level_rows_published"] is False
+          assert report["quote_source"] == "Crown only; no TotalCorner substitution."
+          for market, strict_n, fallback_n in (("AH", 11665, 12730), ("OU", 9590, 10399)):
+              for name, model in report["markets"][market].items():
+                  n = fallback_n if name.endswith("LeagueAvgFallback") else strict_n
+                  assert model["simulated_bets"] == model["settled_bets"] == model["stake_units"] == n
+                  assert model["quote_sources"] == {"Crown": n}
+                  assert sum(model["settlement_counts"].values()) == n
+                  assert abs(model["roi_pct"] - 100 * model["net_units"] / n) < 1e-6
+                  assert model["response_receipt_timing"] == {"post_kickoff": n}
+                  assert model["bootstrap_95_roi_pct"]["upper"] < 0
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"prices"', '"grids"', '"home_goals"',
+                            '"away_goals"', '"actual"', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 expanded annual-refit penaltyblog Crown OOS integrity: PASS")
+          PY
       - name: Validate the public joint-model receipt
         run: |
           python - <<'PY'
