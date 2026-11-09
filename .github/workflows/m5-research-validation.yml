@@ -1601,6 +1601,54 @@ jobs:
               assert forbidden not in serialized
           print("M5 refreshed Crown SQLite OOS coverage receipt integrity: PASS")
           PY
+      - name: Validate interim Crown backfill checkpoint
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_crown_sqlite_backfill_checkpoint_20261109T0642Z.json")
+          runner = Path("research/m5/m5_crown_sqlite_full_oos_replay.py")
+          report = json.loads(path.read_text())
+          assert report["protocol"] == "M5_CROWN_SQLITE_OOS_INTERIM_BACKFILL_CHECKPOINT_V1"
+          assert report["checkpoint_status"] == "interim_snapshot_during_historical_backfill"
+          assert report["final_checkpoint"] is False
+          provenance = report["data_provenance"]
+          assert provenance["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          for value in (provenance["runner_sha256"], provenance["forecast_sha256"],
+                        provenance["candidate_manifest_sha256"], provenance["response_hash_set_sha256"]):
+              assert re.fullmatch(r"[0-9a-f]{64}", value)
+          assert provenance["forecast_rows_total"] == provenance["manifest_fixture_rows"] == 127674
+          assert provenance["fixture_markets_with_quotes"] == {"AH": 12507, "OU": 10399}
+          assert report["receipt_timing"] == {"post_kickoff": 17397}
+          assert report["integrity"]["fixture_level_rows_public"] is False
+          assert all(value for key, value in report["integrity"].items()
+                     if key != "fixture_level_rows_public")
+          expected = {
+              "AH": (12507, -288.05, -2.30311),
+              "OU": (10399, -362.96, -3.490336),
+          }
+          for market, (n, net, roi) in expected.items():
+              result = report["markets"][market]["latest_any_layer"]
+              assert result["unique_fixture_markets"] == result["simulated_bets"] == result["settled_bets"] == n
+              assert abs(result["net_units"] - net) < 1e-6
+              assert abs(result["roi_pct"] - roi) < 1e-6
+              assert sum(result["settlement_counts"].values()) == n
+              assert abs(result["roi_pct"] - 100 * result["net_units"] / n) < 1e-6
+              assert sum(row["fixtures"] for row in result["by_utc_kickoff_year"].values()) == n
+          delta = report["delta_from_previous_public_checkpoint"]
+          assert delta["added_fixture_markets_by_market"] == {"AH": 146, "OU": 0}
+          assert delta["new_movement_only"]["AH"]["new_movement_fixture_markets"] == 146
+          assert abs(delta["new_movement_only"]["AH"]["new_movement_net_units"] + 13.005) < 1e-6
+          assert abs(delta["new_movement_only"]["AH"]["new_movement_roi_pct"] + 8.907534) < 1e-6
+          assert delta["new_movement_only"]["OU"]["new_movement_fixture_markets"] == 0
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"match_id"', '"prices"', '"home_goals"',
+                            '"away_goals"', '"api_token"', '"api_key"',
+                            '"private_rows_path"', '"/Users/mac/', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 interim Crown backfill checkpoint integrity: PASS")
+          PY
       - name: Validate 2026-11-09 refreshed Crown summary OOS receipt
         run: |
           python - <<'PY'

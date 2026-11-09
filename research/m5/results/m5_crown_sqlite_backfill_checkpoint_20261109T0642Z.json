@@ -1,0 +1,321 @@
+{
+  "audit_counts": {
+    "fixtures_with_verified_crown_response": 12507,
+    "receipt_time_missing": 570
+  },
+  "checkpoint_status": "interim_snapshot_during_historical_backfill",
+  "data_provenance": {
+    "candidate_manifest_sha256": "55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960",
+    "fixture_markets_with_quotes": {
+      "AH": 12507,
+      "OU": 10399
+    },
+    "forecast_archive": "frozen M5 score-grid out-of-sample archive; no refit in this checkpoint",
+    "forecast_rows_total": 127674,
+    "forecast_rows_with_canonical_captures": 12942,
+    "forecast_sha256": "ebc8ae9aa4c873f3d276510533a9961c607cc607614f976a2d2e1147dbdb356a",
+    "kickoff_years": [
+      "2019",
+      "2021",
+      "2022",
+      "2023",
+      "2025",
+      "2026"
+    ],
+    "manifest_fixture_rows": 127674,
+    "quote_source": "Crown only",
+    "response_hash_set_sha256": "38ce199dadf05e80e68de5c0ff8d6da1f184ba64c92be5ca8bbb8e9b3a0e88f3",
+    "runner_sha256": "353aedbb2562a27af4c05f0884939dbe2f75cf63106c796df62ff0a8992d4c6b",
+    "source_timezone": "Asia/Shanghai"
+  },
+  "delta_from_previous_public_checkpoint": {
+    "added_fixture_markets_by_market": {
+      "AH": 146,
+      "OU": 0
+    },
+    "interpretation": "The incremental valid addition in this interval was 146 AH movement fixture-markets from 2021; no OU fixture-market was added. The historical backfill continued after this snapshot.",
+    "new_movement_only": {
+      "AH": {
+        "new_movement_fixture_markets": 146,
+        "new_movement_kickoff_years": {
+          "2021": 146
+        },
+        "new_movement_net_units": -13.005,
+        "new_movement_roi_pct": -8.907534
+      },
+      "OU": {
+        "new_movement_fixture_markets": 0,
+        "new_movement_kickoff_years": {},
+        "new_movement_net_units": 0.0,
+        "new_movement_roi_pct": null
+      }
+    },
+    "previous_generated_utc": "2026-11-09T06:03:39.415430Z"
+  },
+  "final_checkpoint": false,
+  "generated_utc": "2026-11-09T06:42:49.578085Z",
+  "integrity": {
+    "actual_receipt_time_separate_from_source_quote_time": true,
+    "candidate_identity_utc_kickoff_and_final_score_verified": true,
+    "fixture_level_rows_public": false,
+    "forecast_train_end_before_asof_before_kickoff": true,
+    "quote_event_at_or_after_asof_and_before_kickoff": true,
+    "quote_event_not_after_actual_response_receipt": true,
+    "raw_response_sha_identity_and_score_verified": true,
+    "time_order_all_published_fixture_markets": true
+  },
+  "limitations": [
+    "This uses frozen M5 OOS forecasts and already observed scores; it is not a model refit or a fresh untouched holdout.",
+    "All selected historical provider responses were received after kickoff; source-event-time replay does not establish contemporaneous receipt or executable prices.",
+    "The Crown historical movement layer stores AH asian_list quotes; OU coverage in this checkpoint comes from the separate Crown summary layer.",
+    "The shared five-season historical backfill was still active after this snapshot; this report is not the final collection result.",
+    "No ROI 3% target was met in either market.",
+    "Fixture-level identities, odds, scores, and forecast probabilities remain private."
+  ],
+  "markets": {
+    "AH": {
+      "latest_any_layer": {
+        "by_utc_kickoff_year": {
+          "2019": {
+            "fixtures": 286,
+            "net_units": -15.105,
+            "roi_pct": -5.281469
+          },
+          "2021": {
+            "fixtures": 1426,
+            "net_units": -7.325,
+            "roi_pct": -0.513675
+          },
+          "2025": {
+            "fixtures": 1512,
+            "net_units": -73.895,
+            "roi_pct": -4.887235
+          },
+          "2026": {
+            "fixtures": 9283,
+            "net_units": -191.725,
+            "roi_pct": -2.065334
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 313.41,
+        "net_units": -288.05,
+        "roi_bootstrap_95pct": {
+          "lower_95_roi_pct": -3.837616,
+          "method": "fixture bootstrap",
+          "repetitions": 10000,
+          "upper_95_roi_pct": -0.749679
+        },
+        "roi_pct": -2.30311,
+        "settled_bets": 12507,
+        "settlement_brier": 0.64769493,
+        "settlement_counts": {
+          "half_loss": 874,
+          "half_win": 876,
+          "loss": 4900,
+          "push": 866,
+          "win": 4991
+        },
+        "settlement_log_loss": 1.02986123,
+        "simulated_bets": 12507,
+        "stake_units": 12507,
+        "unique_fixture_markets": 12507
+      },
+      "movement": {
+        "by_utc_kickoff_year": {
+          "2019": {
+            "fixtures": 286,
+            "net_units": -15.105,
+            "roi_pct": -5.281469
+          },
+          "2021": {
+            "fixtures": 1426,
+            "net_units": -7.325,
+            "roi_pct": -0.513675
+          },
+          "2025": {
+            "fixtures": 1510,
+            "net_units": -69.79,
+            "roi_pct": -4.621854
+          },
+          "2026": {
+            "fixtures": 3761,
+            "net_units": -55.22,
+            "roi_pct": -1.468227
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 162.615,
+        "net_units": -147.44,
+        "roi_bootstrap_95pct": {
+          "lower_95_roi_pct": -4.211895,
+          "method": "fixture bootstrap",
+          "repetitions": 10000,
+          "upper_95_roi_pct": -0.043024
+        },
+        "roi_pct": -2.111413,
+        "settled_bets": 6983,
+        "settlement_brier": 0.64575632,
+        "settlement_counts": {
+          "half_loss": 471,
+          "half_win": 494,
+          "loss": 2735,
+          "push": 506,
+          "win": 2777
+        },
+        "settlement_log_loss": 1.02650591,
+        "simulated_bets": 6983,
+        "stake_units": 6983,
+        "unique_fixture_markets": 6983
+      },
+      "summary": {
+        "by_utc_kickoff_year": {
+          "2025": {
+            "fixtures": 1117,
+            "net_units": -83.985,
+            "roi_pct": -7.5188
+          },
+          "2026": {
+            "fixtures": 9283,
+            "net_units": -195.555,
+            "roi_pct": -2.106593
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 307.305,
+        "net_units": -279.54,
+        "roi_bootstrap_95pct": {
+          "lower_95_roi_pct": -4.352356,
+          "method": "fixture bootstrap",
+          "repetitions": 10000,
+          "upper_95_roi_pct": -0.976927
+        },
+        "roi_pct": -2.687885,
+        "settled_bets": 10400,
+        "settlement_brier": 0.64848222,
+        "settlement_counts": {
+          "half_loss": 722,
+          "half_win": 725,
+          "loss": 4100,
+          "push": 707,
+          "win": 4146
+        },
+        "settlement_log_loss": 1.03075772,
+        "simulated_bets": 10400,
+        "stake_units": 10400,
+        "unique_fixture_markets": 10400
+      }
+    },
+    "OU": {
+      "latest_any_layer": {
+        "by_utc_kickoff_year": {
+          "2025": {
+            "fixtures": 1116,
+            "net_units": -63.195,
+            "roi_pct": -5.662634
+          },
+          "2026": {
+            "fixtures": 9283,
+            "net_units": -299.765,
+            "roi_pct": -3.229182
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 382.72,
+        "net_units": -362.96,
+        "roi_bootstrap_95pct": {
+          "lower_95_roi_pct": -5.193599,
+          "method": "fixture bootstrap",
+          "repetitions": 10000,
+          "upper_95_roi_pct": -1.801409
+        },
+        "roi_pct": -3.490336,
+        "settled_bets": 10399,
+        "settlement_brier": 0.62072536,
+        "settlement_counts": {
+          "half_loss": 723,
+          "half_win": 557,
+          "loss": 4263,
+          "push": 509,
+          "win": 4347
+        },
+        "settlement_log_loss": 0.98280393,
+        "simulated_bets": 10399,
+        "stake_units": 10399,
+        "unique_fixture_markets": 10399
+      },
+      "movement": {
+        "by_utc_kickoff_year": {
+          "2025": {
+            "fixtures": 1114,
+            "net_units": -57.03,
+            "roi_pct": -5.11939
+          },
+          "2026": {
+            "fixtures": 3761,
+            "net_units": -95.915,
+            "roi_pct": -2.550253
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 166.54,
+        "net_units": -152.945,
+        "roi_bootstrap_95pct": {
+          "lower_95_roi_pct": -5.669972,
+          "method": "fixture bootstrap",
+          "repetitions": 10000,
+          "upper_95_roi_pct": -0.609936
+        },
+        "roi_pct": -3.137333,
+        "settled_bets": 4875,
+        "settlement_brier": 0.61879476,
+        "settlement_counts": {
+          "half_loss": 361,
+          "half_win": 241,
+          "loss": 1980,
+          "push": 242,
+          "win": 2051
+        },
+        "settlement_log_loss": 0.97917757,
+        "simulated_bets": 4875,
+        "stake_units": 4875,
+        "unique_fixture_markets": 4875
+      },
+      "summary": {
+        "by_utc_kickoff_year": {
+          "2025": {
+            "fixtures": 1116,
+            "net_units": -63.195,
+            "roi_pct": -5.662634
+          },
+          "2026": {
+            "fixtures": 9283,
+            "net_units": -298.375,
+            "roi_pct": -3.214209
+          }
+        },
+        "max_drawdown_units_by_quote_event_time": 381.33,
+        "net_units": -361.57,
+        "roi_bootstrap_95pct": {
+          "lower_95_roi_pct": -5.141642,
+          "method": "fixture bootstrap",
+          "repetitions": 10000,
+          "upper_95_roi_pct": -1.774541
+        },
+        "roi_pct": -3.476969,
+        "settled_bets": 10399,
+        "settlement_brier": 0.62060189,
+        "settlement_counts": {
+          "half_loss": 724,
+          "half_win": 558,
+          "loss": 4262,
+          "push": 507,
+          "win": 4348
+        },
+        "settlement_log_loss": 0.98268387,
+        "simulated_bets": 10399,
+        "stake_units": 10399,
+        "unique_fixture_markets": 10399
+      }
+    }
+  },
+  "protocol": "M5_CROWN_SQLITE_OOS_INTERIM_BACKFILL_CHECKPOINT_V1",
+  "receipt_timing": {
+    "post_kickoff": 17397
+  }
+}
