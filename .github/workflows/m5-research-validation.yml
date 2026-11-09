@@ -1864,3 +1864,36 @@ jobs:
               assert abs(row["roi_pct"] - 100 * row["net_units"] / 1141) < 1e-6
           print("M5 TotalCorner-only M5 and model-family receipt integrity: PASS")
           PY
+      - name: Validate the 2026-11-09 Crown SQLite continuation replay
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_crown_sqlite_full_oos_replay_continuation_20261109.json")
+          runner = Path("research/m5/m5_crown_sqlite_full_oos_replay.py")
+          report = json.loads(path.read_text())
+          assert report["protocol"] == "M5_CROWN_SQLITE_FULL_OOS_REPLAY_V1"
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          assert report["integrity"]["time_order_all_published_fixture_markets"] is True
+          assert report["integrity"]["raw_response_sha_identity_and_score_verified"] is True
+          assert report["integrity"]["actual_receipt_time_separate_from_source_quote_time"] is True
+          assert report["coverage"]["fixture_markets_with_quote"] == {"AH": 12660, "OU": 10399}
+          assert report["response_receipt_timing"] == {"post_kickoff": 17550}
+          for key, value in report["input_hashes"].items():
+              if key.endswith("_sha256"):
+                  assert re.fullmatch(r"[0-9a-f]{64}", value)
+          for market, layers in report["markets"].items():
+              for layer in ("latest_any_layer", "summary", "movement"):
+                  row = layers[layer]
+                  n = row["unique_fixture_markets"]
+                  assert row["simulated_bets"] == row["settled_bets"] == row["stake_units"] == n
+                  assert sum(row["settlement_counts"].values()) == n
+                  assert abs(row["roi_pct"] - 100 * row["net_units"] / n) < 1e-6
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"match_id"', '"prices"', '"actual_home_goals"',
+                            '"score_grid"', '"api_token"', '"api_key"', '"raw_response"',
+                            '"private_rows"', '"/Users/mac/', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 Crown SQLite continuation replay integrity: PASS")
+          PY

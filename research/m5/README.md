@@ -1,3 +1,16 @@
+## 2026-11-09T07:37Z 最新 Crown SQLite 增量 OOS 回放
+
+共享 Crown 五赛季 movement 回填仍运行时，对统一 SQLite 做只读快照回放；仅连接冻结的 M5 逐场 UTC OOS 预测和 51 联赛候选赛果，逐场核验身份、比分、UTC kickoff、raw SHA 与 `train_end < prediction_asof <= quote_event < kickoff`，并将实际 response receipt 单独处理。该快照核验 12,660 场 Crown response；AH 有 12,660 个可评估唯一 fixture-market，OU 有 10,399 个。所有已选历史 response 均赛后接收。
+
+| 市场 | 报价层 | 唯一场次/模拟/已结 | W/HW/P/HL/L | 净 U | ROI | 最大回撤 U | Log Loss / Brier | ROI bootstrap 95% |
+|---|---|---:|---|---:|---:|---:|---:|---:|
+| AH | 最新有效层（summary/movement） | 12,660 | 5,057/885/872/880/4,966 | -290.555 | -2.2951% | 315.915 | 1.029327 / 0.647365 | -3.8113% 至 -0.7306% |
+| AH | movement | 7,136 | 2,843/503/512/477/2,801 | -149.945 | -2.1012% | 165.120 | 1.025630 / 0.645213 | -4.2136% 至 -0.0818% |
+| OU | 最新有效层（summary/movement） | 10,399 | 4,347/557/509/723/4,263 | -362.960 | -3.4903% | 382.720 | 0.982804 / 0.620725 | -5.1936% 至 -1.8014% |
+| OU | movement | 4,875 | 2,051/241/242/361/1,980 | -152.945 | -3.1373% | 166.540 | 0.979177 / 0.618795 | -5.6700% 至 -0.6099% |
+
+这是 M5 自有 OOS 预测对历史 Crown 盘口事件的扩展回放，不是 M1/MR1/M3 新模型结果，也不是同步接收价格的可执行收益。唯一 AH 样本较上一回放增加 86；OU 样本与历史结果未变。每个市场每项一注且全部结算；来源仅 Crown，响应收据赛后。+3% 目标尚未满足。逐场结果留在私有 M5 目录，公开回执 [`增量回放`](results/m5_crown_sqlite_full_oos_replay_continuation_20261109.json) 只含汇总及哈希；共享 collector 仍在运行，终态后应再复核。
+
 ## 2026-11-09 五模型概率温度校准：2025 拟合 / 2026 留出
 
 对已核验的 Crown 模型家族逐场档案，AH 与 OU 分开、每个模型各拟合一个温度。只用 2025 UTC 开赛比赛的结算分类 Log Loss 拟合温度（搜索范围 0.25–4.0），再在 2026 UTC 比赛上冻结测试；ROI 不用于拟合，2026 每个模型全部已有样本都保留。调整概率后，使用同一 Crown 盘口线与双方赔率重新选择方向。试验代码为[`m5_model_family_temperature_walkforward.py`](m5_model_family_temperature_walkforward.py)，脱敏回执为[五模型温度留出结果](results/m5_model_family_temperature_2025fit_2026holdout_20261109.json)。
@@ -16,6 +29,8 @@
 | OU | M3 Bivariate Poisson | 1,005 | 8,585 | 2.0463 | -3.3984% → -2.9365% | 0.982231 → 0.970312 | 0.620710 → 0.611181 | 290.670 |
 
 `*` AH 的三个 M3 温度都触及上界 4.0。OU M3 Bivariate Poisson 的 ROI 点估计改善 0.4619 个百分点，但同场配对 bootstrap 95% 区间为 `-1.2509` 至 `+2.1710` 个百分点，跨零；其余模型的收益差区间也跨零。各校准版本仍为负 ROI，未达到 +3%。训练各模型每市场约 994–1,006 场，2026 留出均低于 10,000。2026 数据此前已在其他 M5 研究检查，不是 untouched confirmation set；且全部历史 Crown response 均赛后收到，因此这是历史 source-event 模拟而非同期可执行收益。该实验不增加过滤、EV 门槛或交易 Gate，也不改生产模型。
+
+该诊断及验证器已包含在 commit `0b99c7d`；M5 Research Validation run [42579869097](https://github.com/jimmybusML/quant-runner/actions/runs/42579869097) 对该 SHA 成功。
 
 ## 2026-11-09T07:08Z 五模型在最新 Crown 合同上的逐模型复跑
 
