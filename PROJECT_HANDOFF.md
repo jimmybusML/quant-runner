@@ -2,7 +2,7 @@
 
 - 回填期间再次只读运行 `m5_crown_sqlite_full_oos_replay.py`；冻结输入 SHA 与候选清单不变，报告生成UTC `2026-11-09T07:58:53.344016Z`。唯一 OOS Crown AH 12,730场/投注/已结，W/HW/P/HL/L `5088/888/879/883/4992`，净 `-287.010U`、ROI `-2.254595%`、回撤 `312.370U`、Log Loss/Brier `1.02896606/0.64715527`、bootstrap `[-3.757234%,-0.753451%]`。OU 10,399场，`4347/557/509/723/4263`，净 `-362.960U`、ROI `-3.490336%`、回撤 `382.720U`、LL/Brier `0.98280393/0.62072536`、bootstrap `[-5.193599%,-1.801409%]`。AH movement-only 7,206场，ROI `-2.031640%`、区间 `[-4.064358%,+0.016493%]`；OU movement-only 4,875场，ROI `-3.137333%`。全部Crown，历史response赛后收到，不是可执行同期收益。公开脱敏回执 `research/m5/results/m5_crown_sqlite_full_oos_replay_incremental_20261109T0757Z.json` SHA `29dbe1fc29293eb6815fb71c20ae43dbe2b7298c7c1c71fd7e60b75ee6a47667`；runner SHA `c3ed999dc233160c11a12439793cfd0bdf6e75fecf8a632101d8fc59d1e5de2d`。AH较上一快照增加70场并小幅改善；OU未增加。两市场仍未达+3%。
 - collector PID `97661` 仍运行；SQLite movement 为18,142 captures / 933,294 quotes。当前批次显示第4/566批处理中（上次完整进度第3批、300/56,566；SAVED 168、NO_CROWN_AH_QUOTES 424、FETCH_FAILED 8）。报告属于中间快照，终态后须最终重放。
-- 此回放公开文档/报告/Actions validator待提交及Actions验收；没有改生产模型或M1/MR1/M3/M4链路。
+- 本回放公开报告、README、Actions validator与交接提交 `e1b8015ddf48ca4bb4180b8e6323cb15f12183a0` 已推送到 `codex/m5-oos-crown-expansion`；本地全量M5测试 `122 passed`，哈希/样本/结算/脱敏 validator PASS；GitHub Actions M5 Research Validation run [42582953387](https://github.com/jimmybusML/quant-runner/actions/runs/42582953387) 对该SHA SUCCESS。没有改生产模型或M1/MR1/M3/M4链路。
 
 ## 2026-11-09T07:48Z M1/MR1/M3 双边市场锚定校准实验
 
