@@ -47,6 +47,14 @@
 
 # M5 独立融合研究
 
+## 2026-11-09 TotalCorner-only M5 与 M1/M3 分源重放
+
+使用本机已授权 TotalCorner 历史响应缓存，对冻结的 M5 OOS forecast 做身份、赛果、UTC kickoff、报价事件和实际接收时间复核后，选取每个 fixture-market 最新合格 TOTAL AH/OU 报价；Crown 没有参与这份 TOTAL-only 结果。全量 M5 模型每市场均有 1,141 个唯一报价 fixture-market，逐场按 M5 score-grid 的较高期望回报方向模拟 1U：AH 净额 `-44.5625U`、ROI `-3.905565%`；OU 净额 `-40.1875U`、ROI `-3.522130%`。两市场全部 1,141 条 provider response receipt 都在开赛后，故只代表 source-event 历史回放。公开回执为[TotalCorner-only M5 OOS 回放](results/m5_totalcorner_only_oos_replay_20261109.json)；逐场数据和原始响应留在本机私有目录。
+
+同一 TOTAL 报价池进一步与已有冻结模型预测作精确交叉比较：[M1/MR1/M3/M4 TOTAL 模型比较](results/m5_totalcorner_model_comparison_20261109.json)。报价池 AH/OU 各 1,141 场；M1 可评分 AH 955、OU 956 场，三种 M3 模型各 AH/OU 956 场，M1 与 M3 的完全相同对照集分别为 AH 955、OU 956。AH ROI：M1 `-2.429319%`，M3 Poisson `-2.922333%`、Dixon–Coles `-3.620554%`、Bivariate Poisson `-2.924948%`；M4 既有 Pass 规则套用三种 M3 预测后各 946 场，ROI `-3.098573%` / `-3.804175%` / `-3.101216%`。OU ROI：M1 `-2.991632%`，M3 Poisson `-3.461036%`、Dixon–Coles `-3.761768%`、Bivariate Poisson `-4.211559%`；M4各 946 场，ROI `-3.304704%` / `-3.608615%` / `-4.253436%`。当前 MR1 Crown 归档与 TOTAL 响应 fixture ID 无交集，因此 MR1 不给出 TOTAL ROI。所有上述报价也都是赛后实际接收；M4仍是既有 Pass 研究策略，不是单独预测模型。
+
+本次只重放既有冻结 OOS 概率，没有重新拟合 M1/MR1/M3，也未触碰正式模型、Telegram、订单、账本或交易规则。TOTAL 当前覆盖约 1.1k/市场，远低于每市场 10k 样本目标；AH、OU 均未达到 ROI 3%。这项结果提供真实分源回测与模型覆盖审计，不构成目标完成。
+
 ## 2026-11-08T19:12Z M5 前瞻批次 Crown / TotalCorner 补缺
 
 M5 独立模型基于未变化的历史 manifest 生成84场预测。统一 Crown 采集器收到84场响应：75场无 Crown AH 报价、8场保存、1场请求失败；严格按预测后盘口源事件和开赛前实际接收筛选后，只有3个 AH 与1个 OU fixture-market 有效。TotalCorner 对83场仍未开赛赛事完成身份核验，75条响应通过、8条身份错配；没有符合本批预测时间的 AH / OU 默认盘口。按 Crown 优先、市场分开和 UTC 时序配对后共4项（AH 3、OU 1），全部来自 Crown，且无重复。赛事刚开赛/尚未开赛，4项均待结算，净额、ROI、最大回撤保持 null。脱敏回执：[19:12Z 前瞻采集与配对](results/m5_forward_shadow_capture_20261108T1912Z.json)。逐场身份、盘口、价格和原始响应只保存在本机私有目录。

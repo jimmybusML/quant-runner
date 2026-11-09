@@ -1639,3 +1639,48 @@ jobs:
               assert forbidden not in serialized
           print("M5 Crown summary loss-driver splits integrity: PASS")
           PY
+      - name: Validate TotalCorner-only M5 and model-family receipts
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          model_path = Path("research/m5/results/m5_totalcorner_model_comparison_20261109.json")
+          model_runner = Path("research/m5/m5_model_family_totalcorner_only_comparison.py")
+          model = json.loads(model_path.read_text())
+          assert model["protocol"] == "M5_MODEL_FAMILY_TOTALCORNER_ONLY_OOS_COMPARISON_V1"
+          assert model["data"]["runner_sha256"] == hashlib.sha256(model_runner.read_bytes()).hexdigest()
+          for key, value in model["data"].items():
+              if key.endswith("_sha256"):
+                  assert re.fullmatch(r"[0-9a-f]{64}", value)
+          assert model["data"]["source"] == "TotalCorner_default only; Crown not included"
+          assert model["data"]["unique_quoted_fixture_markets"] == {"AH": 1141, "OU": 1141}
+          assert model["data"]["receipt_timing"] == "All selected API receipts post-kickoff; event-time retrospective only"
+          for market, common_n in (("AH", 955), ("OU", 956)):
+              block = model["markets"][market]
+              assert block["M1_and_M3_exact_shared_cohort_n"] == common_n
+              assert block["models"]["MR1_V6"]["simulated_bets"] == 0
+              for name, result in block["models"].items():
+                  n = result["simulated_bets"]
+                  assert result["settled_bets"] == n
+                  assert sum(result["settlement_counts"].values()) == n
+                  if n:
+                      assert result["quote_sources"] == {"TotalCorner_default": n}
+                      assert result["receipt_timing"] == {"post_kickoff": n}
+                      assert abs(result["roi_pct"] - 100 * result["net_units"] / n) < 1e-6
+          serialized = json.dumps(model)
+          for forbidden in ('"fixture_id"', '"match_id"', '"prices"', '"actual_home_goals"',
+                            '"score_grid"', '"api_token"', '"api_key"', '"/Users/mac/', '"/private/tmp/'):
+              assert forbidden not in serialized
+
+          total_path = Path("research/m5/results/m5_totalcorner_only_oos_replay_20261109.json")
+          total = json.loads(total_path.read_text())
+          assert total["protocol"] == "M5_TOTALCORNER_ONLY_RESTART_OOS_REPLAY_V1"
+          for market in ("AH", "OU"):
+              row = total["markets"][market]
+              assert row["unique_fixtures"] == row["simulated_bets"] == row["settled_bets"] == 1141
+              assert row["quote_sources"] == {"TotalCorner_default": 1141}
+              assert row["quote_receipt_timing"] == {"post_kickoff": 1141}
+              assert abs(row["roi_pct"] - 100 * row["net_units"] / 1141) < 1e-6
+          print("M5 TotalCorner-only M5 and model-family receipt integrity: PASS")
+          PY
