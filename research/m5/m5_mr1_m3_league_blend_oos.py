@@ -19,7 +19,7 @@ from pathlib import Path
 import numpy as np
 
 from research.m5.m5_m1_mr1_m3_learned_blend_oos import (
-    CATEGORIES, MARKETS, MODELS, SIDES, arrays, expected_returns, fit_weights, instant,
+    CATEGORIES, MARKETS, MODELS, SIDES, arrays, expected_returns, fit_roi_weights, fit_weights, instant,
     load_market_rows, read_rows,
 )
 from research.m5.m3_grid_crown_replay import legs_result, payout
@@ -136,11 +136,29 @@ def run(m1_path: Path, mr1_path: Path, m3_path: Path, output: Path):
         for row in train:
             grouped[league_by_id[row["id"]]].append(row)
         global_weights, global_fit = fit_weights(train)
+        global_roi_weights, global_roi_fit = fit_roi_weights(train)
         local_weights = {league: fit_weights(group)[0] for league, group in grouped.items()}
-        global_metrics = settle(test, {}, league_by_id, global_weights, market)
-        local_metrics = settle(test, local_weights, league_by_id, global_weights, market)
-        delta = bootstrap_difference(local_metrics.pop("_pnl"), global_metrics.pop("_pnl"),
-                                     seed=202611090 + mi)
+        local_roi_weights = {league: fit_roi_weights(group)[0] for league, group in grouped.items()}
+        fitted = {
+            "global_logloss": ({}, global_weights),
+            "league_logloss": (local_weights, global_weights),
+            "global_roi": ({}, global_roi_weights),
+            "league_roi": (local_roi_weights, global_roi_weights),
+        }
+        strategy_metrics = {}
+        for strat_idx, (strategy, (local, fallback)) in enumerate(fitted.items()):
+            metrics = settle(test, local, league_by_id, fallback, market)
+            strategy_metrics[strategy] = metrics
+        comparisons = {}
+        for local_name, base_name, seed_offset in (("league_logloss", "global_logloss", 0),
+                                                    ("league_roi", "global_roi", 1)):
+            local_pnl = strategy_metrics[local_name].pop("_pnl")
+            global_pnl = strategy_metrics[base_name].pop("_pnl")
+            comparisons[local_name + "_minus_" + base_name] = bootstrap_difference(
+                local_pnl, global_pnl, seed=202611090 + mi * 10 + seed_offset)
+        # Restore private arrays are not published; remove the remaining pooled PnL vectors.
+        strategy_metrics["global_logloss"].pop("_pnl", None)
+        strategy_metrics["global_roi"].pop("_pnl", None)
         markets[market] = {
             "training_2025_fixture_markets": len(train),
             "holdout_2026_fixture_markets": len(test),
@@ -148,19 +166,25 @@ def run(m1_path: Path, mr1_path: Path, m3_path: Path, output: Path):
             "trained_leagues": len(grouped),
             "global_2025_logloss_weights": {name: round(float(w), 8)
                                             for name, w in zip(MODELS, global_weights)},
+            "global_2025_roi_weights": {name: round(float(w), 8)
+                                        for name, w in zip(MODELS, global_roi_weights)},
             "global_fit_training_log_loss": global_fit["training_log_loss"],
-            "global_weights_2026": global_metrics,
-            "league_local_weights_2026": local_metrics,
-            "paired_roi_difference": delta,
-            "per_league_learned_weights": {
+            "global_fit_training_roi_pct": global_roi_fit["training_roi_pct"],
+            "strategies_2026": strategy_metrics,
+            "paired_roi_differences": comparisons,
+            "per_league_logloss_weights": {
                 league: {name: round(float(w), 8) for name, w in zip(MODELS, weights)}
                 for league, weights in sorted(local_weights.items())
+            },
+            "per_league_roi_weights": {
+                league: {name: round(float(w), 8) for name, w in zip(MODELS, weights)}
+                for league, weights in sorted(local_roi_weights.items())
             },
         }
         timing[f"{market}_2025_provider_receipt_post_kickoff"] = len(train)
         timing[f"{market}_2026_provider_receipt_post_kickoff"] = len(test)
     report = {
-        "protocol": "M5_MR1_M3_LEAGUE_LOCAL_BLEND_2025_FIT_2026_OOS_V1",
+        "protocol": "M5_MR1_M3_LEAGUE_LOCAL_BLEND_2025_FIT_2026_OOS_V2",
         "generated_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "runner_sha256": sha(Path(__file__)),
         "input_sha256": {
@@ -173,6 +197,7 @@ def run(m1_path: Path, mr1_path: Path, m3_path: Path, output: Path):
         "markets": markets,
         "limitations": [
             "Exploratory per-league weights are fit on the single 2025 training season and evaluated on 2026; 2026 has been examined in prior M5 work and is not an untouched final confirmation set.",
+            "ROI-fit weights directly optimize the selected-side 1U return on 2025 and are especially vulnerable to overfitting; they are research diagnostics only.",
             "All 2026 rows are retained. Leagues without 2025 training rows use the global 2025 weights; this is model fallback, not fixture filtering.",
             "The strict common cohort is Crown-only and 9,517 fixture-markets per market, below the 10,000 target.",
             "All historical Crown API response receipts were post-kickoff; ROI is retrospective quote-event replay, not contemporaneously executable return.",
@@ -182,10 +207,8 @@ def run(m1_path: Path, mr1_path: Path, m3_path: Path, output: Path):
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
     print(json.dumps({market: {
-        "global_roi_pct": result["global_weights_2026"]["roi_pct"],
-        "league_local_roi_pct": result["league_local_weights_2026"]["roi_pct"],
-        "paired_roi_difference": result["paired_roi_difference"],
-        "n": result["holdout_2026_fixture_markets"],
+        name: {"roi_pct": metrics["roi_pct"], "net_units": metrics["net_units"]}
+        for name, metrics in result["strategies_2026"].items()
     } for market, result in markets.items()}, sort_keys=True))
 
 
