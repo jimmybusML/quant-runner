@@ -201,6 +201,50 @@ jobs:
               assert forbidden not in serialized
           print("M5 refreshed model-family Crown comparison integrity: PASS")
           PY
+      - name: Validate latest incremental M1 MR1 M3 Crown comparison
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          report_path = Path("research/m5/results/m5_model_family_canonical_crown_incremental_20261109T0708Z.json")
+          runner_path = Path("research/m5/m5_model_family_canonical_crown_comparison.py")
+          report = json.loads(report_path.read_text())
+          assert report["protocol"] == "M5_MODEL_FAMILY_CANONICAL_CROWN_MATCHED_COMPARISON_V1"
+          assert report["generated_utc"].startswith("2026-11-09T07:08:")
+          assert report["data"]["runner_sha256"] == hashlib.sha256(runner_path.read_bytes()).hexdigest()
+          assert report["data"]["crown_fixture_markets_by_market"] == {"AH": 9591, "OU": 9590}
+          assert report["data"]["all_quote_sources"] == ["Crown"]
+          assert report["data"]["historical_response_receipts"] == "all post-kickoff; event-time retrospective only"
+          for key in ("runner_sha256", "crown_input_sha256", "m1_trace_sha256", "mr1_trace_sha256", "m3_grid_archive_sha256"):
+              assert re.fullmatch(r"[0-9a-f]{64}", report["data"][key])
+          expected = {
+              "AH": {"M1": (8239, -2.31181), "MR1_V6": (8177, -1.002996),
+                     "M3_Poisson": (9591, -3.101501), "M3_Dixon_Coles": (9591, -3.226931),
+                     "M3_Bivariate_Poisson": (9591, -3.053436)},
+              "OU": {"M1": (8340, -2.68693), "MR1_V6": (8277, -3.535037),
+                     "M3_Poisson": (9590, -3.85756), "M3_Dixon_Coles": (9590, -3.764755),
+                     "M3_Bivariate_Poisson": (9590, -3.721794)},
+          }
+          for market, models in expected.items():
+              result = report["markets"][market]
+              common = result["same_fixture_common_cohort"]
+              common_n = 8177 if market == "AH" else 8277
+              assert common["unique_fixture_markets"] == common_n
+              for name, (n, roi) in models.items():
+                  model = result[name]
+                  assert model["simulated_bets"] == model["settled_bets"] == n
+                  assert model["roi_pct"] == roi
+                  assert sum(model["settlement_counts"].values()) == n
+                  assert model["quote_sources"] == {"Crown": n}
+                  assert model["receipt_timing"] == {"post_kickoff": n}
+                  assert common["models"][name]["simulated_bets"] == common_n
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"prices"', '"score_grid"', '"home_goals"',
+                            '"away_goals"', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 latest incremental Crown model-family replay integrity: PASS")
+          PY
       - name: Validate refreshed exact M1 MR1 M3 shared Crown cohort
         run: |
           python - <<'PY'

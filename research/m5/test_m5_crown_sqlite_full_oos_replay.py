@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 
 from research.m5.m5_crown_sqlite_full_oos_replay import (
-    bootstrap_roi, local_event, parse_movement,
+    bootstrap_roi, local_event, parse_movement, pnl_record,
 )
 
 
@@ -33,3 +33,12 @@ def test_bootstrap_roi_is_seed_reproducible():
     assert first == second
     assert first["repetitions"] == 500
     assert first["lower_95_roi_pct"] <= first["upper_95_roi_pct"]
+
+
+def test_pnl_record_preserves_both_quote_prices_for_model_comparison():
+    grid = [[0.5, 0.5], [0.0, 0.0]]
+    quote = {"prices": [1.91, 1.95], "line": 0.0,
+             "event": datetime(2026, 1, 2, 5, 0, tzinfo=timezone.utc),
+             "source": "movement"}
+    row = pnl_record(grid, "AH", quote, (1, 0))
+    assert row["prices"] == [1.91, 1.95]

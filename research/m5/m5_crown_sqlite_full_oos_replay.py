@@ -113,7 +113,8 @@ def pnl_record(grid: list[list[float]], market: str, quote: dict,
     return {"pnl_units": payout(legs, price), "category": category,
             "distribution": settlement_distribution(grid, market, side, quote["line"]),
             "event_utc": zulu(quote["event"]), "source_layer": quote["source"],
-            "line": float(quote["line"]), "price": float(price)}
+            "line": float(quote["line"]), "price": float(price),
+            "prices": [float(value) for value in quote["prices"]]}
 
 
 def bootstrap_roi(values: list[float], seed: int, repetitions: int = 10000) -> dict | None:
