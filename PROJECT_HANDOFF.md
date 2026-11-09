@@ -4581,3 +4581,8 @@
 - 报告UTC `2026-11-09T02:53:57.664820Z`，逐场记录只在本机私有目录，公开脱敏报告 `research/m5/results/m5_mr1_m3_league_blend_oos_20261109.json`。所有历史 Crown API receipts 均赛后；2026曾在此前研究中查看，非未触碰确认集。M5全套测试112项通过；回执输入/运行器哈希、ROI算术、权重归一、分组守恒和脱敏校验通过。本项不改变生产模型、交易规则、TG、订单、账本或Gate。
 
 - V2代码、脱敏回执、README、Actions校验及本交接提交 `8c3feaaef8c7bf20edbac7272f5d61451ee965e9` 已推送至公开分支；GitHub M5 Research Validation run [42554224907](https://github.com/jimmybusML/quant-runner/actions/runs/42554224907) 于 `2026-11-09T03:04:12Z` 成功，包含全量M5测试和新回执校验。相同push触发既存 `.github/workflows/m3-ah-reverse-research.yml` run [42554223704](https://github.com/jimmybusML/quant-runner/actions/runs/42554223704)，其结论failure且 `jobs=[]`，没有执行工作，不代表M5校验失败，也未由本任务改动M3。
+
+## 2026-11-09T03:06Z M5 前瞻预测刷新
+- 从冻结 M5 manifest 与本机范围内 TotalCorner 赛程缓存重新训练独立 M5 模型并生成 77 场未来预测，覆盖10个有训练数据联赛；ID冲突0、缺训练联赛0。as-of UTC `2026-11-09T03:06:12.978949Z`；训练截止 `2026-11-01T13:00:00Z`–`2026-11-02T20:00:00Z`，训练样本每联赛1,603–4,396（中位数3,463）；目标 kickoff `2026-11-09T18:00:00Z`–`2026-11-23T20:00:00Z`。forecast SHA `781dc7b2f8f94b8585718d24d2b5da289cdd1ee06ecf1ebe54dd7fc2ae634923`，历史manifest SHA仍为 `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`，因此没有新增训练信息。
+- 行级预测和比分网格仍在 `/private/tmp/m1-m5-private/`；公开脱敏回执 `research/m5/results/m5_forward_forecast_20261109T0306Z.json`。截至报告生成尚未采集或配对本批盘口，不能计入有效投注或ROI。Crown历史采集进程PID 15856及M3 TotalCorner结算进程PID 17173仍在运行，日志持续写入，故M5不并发调用盘口接口；下一步待接口释放后按Crown优先、TotalCorner补缺采集并严格按quote receipt确认赛前资格。
+- 本节公开回执校验器和README/交接待提交及M5 Actions验收；无正式模型、生产策略、TG、订单、账本或交易Gate改动。收益目标仍未达到。
