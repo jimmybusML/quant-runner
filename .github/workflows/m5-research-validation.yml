@@ -1426,3 +1426,34 @@ jobs:
               assert forbidden not in serialized
           print("M5 2025-trained favorite-side holdout diagnostic integrity: PASS")
           PY
+      - name: Validate refreshed Crown SQLite OOS coverage receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_crown_sqlite_full_oos_replay_refresh_20261109T02Z.json")
+          report = json.loads(path.read_text())
+          runner = Path("research/m5/m5_crown_sqlite_full_oos_replay.py")
+          assert report["protocol"] == "M5_CROWN_SQLITE_FULL_OOS_REPLAY_V1"
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          for value in report["input_hashes"].values():
+              assert re.fullmatch(r"[0-9a-f]{64}", value)
+          assert report["generated_utc"] == "2026-11-09T02:03:35.299157Z"
+          assert report["coverage"]["forecast_rows_total"] == report["coverage"]["manifest_fixture_rows"] == 127674
+          assert report["coverage"]["fixture_markets_with_quote"] == {"AH": 11691, "OU": 10399}
+          assert report["integrity"]["fixture_level_rows_public"] is False
+          assert all(value for key, value in report["integrity"].items() if key != "fixture_level_rows_public")
+          for market in ("AH", "OU"):
+              result = report["markets"][market]["latest_any_layer"]
+              assert result["unique_fixture_markets"] >= 10000
+              assert result["simulated_bets"] == result["settled_bets"] == result["unique_fixture_markets"]
+              assert abs(result["roi_pct"] - 100 * result["net_units"] / result["unique_fixture_markets"]) < 1e-6
+              assert result["roi_bootstrap_95pct"]["upper_95_roi_pct"] < 0
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"match_id"', '"prices"', '"score_grid"',
+                            '"home_goals"', '"away_goals"', '"api_token"', '"api_key"',
+                            '"/Users/mac/', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 refreshed Crown SQLite OOS coverage receipt integrity: PASS")
+          PY

@@ -1354,3 +1354,9 @@ favorite 在 OU 比 higher-EV 基线高约0.17个百分点，但仍亏损，且�
 进一步按来源单独用 2025 训练方向：AH Crown 选择 favorite、TotalCorner-default 选择 underdog；OU 两来源都选 favorite。2026同一批不重复的 10,226 项上，AH 来源组合净 `-421.38U`、ROI `-4.1207%`（比全局 favorite 的 `-4.4268%` 略好，但低于 higher-EV 基线 `-1.8618%`）；OU仍为 `-3.3253%`，与全局 favorite 相同。TOTAL AH 训练仅194场，TOTAL OU 195场，方向方差较大；该源差异诊断没有产出盈利规则。源分项最大回撤未从分组聚合推算，主表最大回撤仅适用于全局 favorite 策略。
 
 所有选中历史 API 响应均在开赛后回取；source event 时间仅支持历史盘口事件回放。2026 数据曾在其他 M5 研究中检查过，不是全新 untouched confirmation set。此次研究没有改任何模型或生产规则，favorite 候选不晋级，AH/OU 均未达到 ROI≥3%。
+
+## 2026-11-09T02:03Z Crown SQLite 增量覆盖刷新
+
+继续只读重跑同一全年度 Crown SQLite runner。相对 01:31Z 报告，匹配 M5 预测的有效 Crown 捕获 ID 从 12,144 增至 12,225；AH movement 可回放 fixture-market 从 6,075 增至 6,167，AH 每场最新层从11,599增至11,691；OU 当前覆盖未变（movement 4,875、最新层10,399），summary 两市场未变。使用新的响应哈希集合回执，不改旧报告。
+
+AH 最新层净亏 `295.21U`、ROI `-2.525105%`、LL/Brier `1.030047/0.647814`、最大回撤 `320.57U`，10,000次bootstrap 95%区间 `[-4.076871%,-0.916132%]`；OU 净亏 `362.96U`、ROI `-3.490336%`、LL/Brier `0.982804/0.620725`、最大回撤 `382.72U`，区间 `[-5.193599%,-1.801409%]`。新增 AH 记录扩大了样本，但样本 ROI 没有改善且两市场仍低于目标。全部是已存 OOS 预测和终场结果的历史事件时间回放，不是重新训练或同期可执行收益。逐场数据留在私有本机目录，聚合回执为[02:03Z Crown SQLite 刷新](results/m5_crown_sqlite_full_oos_replay_refresh_20261109T02Z.json)。
