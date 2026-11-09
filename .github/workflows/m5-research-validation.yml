@@ -447,6 +447,40 @@ jobs:
               assert field not in serialized
           print("M5 M1-MR1-M3 learned blend receipt integrity: PASS")
           PY
+      - name: Validate the public M1-MR1-M3 learned blend rerun receipt
+        run: |
+          python - <<'PY'
+          import hashlib, json, math
+          from pathlib import Path
+          runner = Path("research/m5/m5_m1_mr1_m3_learned_blend_oos.py")
+          report = json.loads(Path("research/m5/results/m5_m1_mr1_m3_learned_blend_rerun_20261109.json").read_text())
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          assert report["common_unique_fixtures_per_market"] == 9517
+          assert report["audit_counts"] == {}
+          assert report["timing_counts"] == {"AH_post_kickoff_provider_receipt": 9517, "AH_prefixture_quote_event": 9517, "OU_post_kickoff_provider_receipt": 9517, "OU_prefixture_quote_event": 9517}
+          assert report["input_sha256"] == {"m1_prediction_trace": "f41d1d3885c3bdc4572c44b27da291ea6bbe1c2c49a0f6d1966f7c77f03137a8", "mr1_prediction_trace": "91eebb6f6d397f77addc8f73cdba80f6050453e1dacaa8701", "m3_predictions_and_crown_quotes": "61e7488180dc9b05017113663a8d0c6d26f03b30648ad99ac1ea32f3792e01c1"}
+          for market in ("AH", "OU"):
+              result = report["markets"][market]
+              assert result["training_fixture_markets_2025"] == 1005
+              assert result["holdout_fixture_markets_2026"] == 8512
+              assert result["training_test_fixture_ids_disjoint"] is True
+              assert set(result["strategies"]) == {"trained_2025_logloss_weights", "trained_2025_roi_weights", "equal_weight", "single_m1", "single_mr1_v6", "single_m3_poisson", "single_m3_dixon_coles", "single_m3_bivariate_poisson"}
+              for weights in (result["learned_weights"], result["roi_learned_weights"]):
+                  assert len(weights) == 5 and all(0 <= v <= 1 for v in weights.values()) and abs(sum(weights.values()) - 1) < 1e-6
+              for entry in result["strategies"].values():
+                  for period, n in (("training_2025", 1005), ("holdout_2026", 8512)):
+                      metrics = entry[period]
+                      assert metrics["unique_fixtures"] == metrics["simulated_bets"] == metrics["settled_bets"] == n
+                      assert metrics["quote_sources"] == {"Crown": n}
+                      assert metrics["provider_receipt_timing"] == {"post_kickoff": n}
+                      assert sum(metrics["settlement_counts"].values()) == n
+                      assert abs(metrics["roi_pct"] - 100 * metrics["net_units"] / metrics["stake_units"]) < 1e-6
+                      assert 0 <= metrics["settlement_brier"] <= 2 and math.isfinite(metrics["settlement_log_loss"])
+          serialized = json.dumps(report)
+          for field in ('"match_id"', '"prices":', '"home_goals"', '"away_goals"', '"/Users/mac/'):
+              assert field not in serialized
+          print("M5 M1-MR1-M3 learned blend rerun receipt integrity: PASS")
+          PY
       - name: Validate the public forward pairing receipt
         run: |
           python - <<'PY'
