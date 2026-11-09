@@ -1498,3 +1498,39 @@ jobs:
               assert forbidden not in serialized
           print("M5 refreshed Crown summary OOS receipt integrity: PASS")
           PY
+      - name: Validate 2026-11-09 Crown summary loss-driver splits
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_crown_summary_loss_driver_diagnostic_20261109.json")
+          runner = Path("research/m5/m5_crown_quote_loss_drivers.py")
+          source = Path("research/m5/results/m5_canonical_crown_summary_replay_refresh_20261109T0216Z.json")
+          report = json.loads(path.read_text())
+          assert report["protocol"] == "M5_CROWN_SUMMARY_LOSS_DRIVER_DIAGNOSTIC_V1"
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          assert report["source_summary_report_sha256"] == hashlib.sha256(source.read_bytes()).hexdigest()
+          for key in ("runner_sha256", "source_summary_report_sha256", "private_replay_rows_sha256",
+                      "source_forecast_sha256", "source_candidate_manifest_sha256",
+                      "source_response_hash_set_sha256"):
+              assert re.fullmatch(r"[0-9a-f]{64}", report[key])
+          for market, count in (("AH", 10400), ("OU", 10399)):
+              result = report["markets"][market]
+              overall = result["overall"]
+              assert overall["unique_fixture_markets"] == count
+              assert len(result["by_league"]) == 50 and len(result["by_utc_kickoff_hour"]) == 24
+              for dimension in ("by_quote_kind", "by_quote_lead_to_kickoff", "by_utc_kickoff_year",
+                                "by_utc_kickoff_hour", "by_league"):
+                  rows = list(result[dimension].values())
+                  assert sum(row["unique_fixture_markets"] for row in rows) == count
+                  assert abs(sum(row["net_units"] for row in rows) - overall["net_units"]) < 1e-5
+                  assert all(row["simulated_bets"] == row["settled_bets"] == row["unique_fixture_markets"]
+                             for row in rows)
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"match_id"', '"prices"', '"pnl_units"',
+                            '"actual_home_goals"', '"score_grid"', '"api_token"', '"api_key"',
+                            '"/Users/mac/', '"/private/tmp/'):
+              assert forbidden not in serialized
+          print("M5 Crown summary loss-driver splits integrity: PASS")
+          PY
