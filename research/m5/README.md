@@ -19,6 +19,8 @@
 
 M5 自身同一快照回放的完整唯一市场池为 AH 12,574、OU 10,399，ROI `-2.3024%` / `-3.4903%`；其更新回执为[07:08Z Crown SQLite OOS 重放](results/m5_crown_sqlite_full_oos_replay_20261109.json)，这与五模型可比样本不是同一分母。M1/MR1 的线别概率只在原始预测线与 Crown 线精确匹配时使用；M3 三种比分网格在各自归档严格 OOS 预测上按当前同一 Crown 盘口重新选择方向。所有模型 ROI 都是 1U/场的历史盘口事件时间回放，选中历史 response receipts 均晚于 kickoff，不是同期可成交成绩。所有时间、原始响应哈希和比赛身份先由 M5 回放器核验；未更改正式模型、投注 Gate、TG 或账本。
 
+本次实现和报告提交依次为 `04350de`（价格对与五模型比较）、`347e617`（刷新 M5 Crown 回执）、`768d872`（固定历史回执 SHA 校验）。M5 Research Validation run [42578557117](https://github.com/jimmybusML/quant-runner/actions/runs/42578557117) 于 `2026-11-09T07:19Z` 成功，覆盖全量 M5 测试和所有报告校验。
+
 ## 2026-11-08T20:41Z M5 前瞻报价采集核验（无合格市场）
 
 使用未变化的 M5 历史 manifest（SHA-256 `55f96d4b3ba5fefb7aec82578dea8090d8a26e36b1350ea49eecf4751223b960`）和已有赛程缓存，生成78场 M5-only 前瞻预测，forecast as-of 为 `2026-11-08T20:41:24.781801Z`。本次没有新增训练赛果，预测只用于当前独立影子研究。随后按 Crown 优先、TotalCorner-default 补缺分别采集：Crown 78次尝试、77个响应通过身份核验、1个身份错配；TotalCorner 78次尝试、77个响应通过身份核验、1个身份错配。两个来源均未找到预测 as-of 之后且开赛前的 AH 或 OU 报价，因此唯一配对市场为 AH 0、OU 0，ROI、净额和回撤均为 null；本回执不是回测收益结果，也没有新增可结算预测样本。
