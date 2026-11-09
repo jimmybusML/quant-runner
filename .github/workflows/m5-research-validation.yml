@@ -245,6 +245,55 @@ jobs:
               assert forbidden not in serialized
           print("M5 latest incremental Crown model-family replay integrity: PASS")
           PY
+      - name: Validate 2025-fit 2026-holdout model-family temperature calibration
+        run: |
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+
+          path = Path("research/m5/results/m5_model_family_temperature_2025fit_2026holdout_20261109.json")
+          runner = Path("research/m5/m5_model_family_temperature_walkforward.py")
+          report = json.loads(path.read_text())
+          assert report["protocol"] == "M5_MODEL_FAMILY_TEMPERATURE_2025_FIT_2026_HOLDOUT_V1"
+          assert report["runner_sha256"] == hashlib.sha256(runner.read_bytes()).hexdigest()
+          assert report["fit"]["period"] == "kickoff UTC year 2025"
+          assert report["fit"]["target"] == "settlement-category log loss"
+          assert report["fit"]["ROI_not_used_for_fit"] is True
+          assert report["holdout"]["period"] == "kickoff UTC year 2026"
+          assert report["holdout"]["all_available_rows_retained"] is True
+          for value in report["input_sha256"].values():
+              assert re.fullmatch(r"[0-9a-f]{64}", value)
+          expected = {
+              "AH": {"M1": (995, 7244, -2.768705), "MR1_V6": (994, 7183, -0.411527),
+                     "M3_Poisson": (1006, 8585, -3.489924),
+                     "M3_Dixon_Coles": (1006, 8585, -3.494467),
+                     "M3_Bivariate_Poisson": (1006, 8585, -3.334421)},
+              "OU": {"M1": (995, 7345, -3.702655), "MR1_V6": (995, 7282, -4.419734),
+                     "M3_Poisson": (1005, 8585, -3.260105),
+                     "M3_Dixon_Coles": (1005, 8585, -3.196040),
+                     "M3_Bivariate_Poisson": (1005, 8585, -2.936517)},
+          }
+          for market, models in expected.items():
+              for name, (train_n, test_n, roi) in models.items():
+                  item = report["markets"][market][name]
+                  assert item["training_fixture_markets_2025"] == train_n
+                  assert item["holdout_fixture_markets_2026"] == test_n
+                  assert item["raw_holdout"]["settled_bets"] == test_n
+                  assert item["calibrated_holdout"]["settled_bets"] == test_n
+                  assert item["calibrated_holdout"]["roi_pct"] == roi
+                  for version in ("raw_holdout", "calibrated_holdout"):
+                      result = item[version]
+                      assert sum(result["settlement_counts"].values()) == test_n
+                      assert abs(result["roi_pct"] - 100 * result["net_units"] / test_n) < 1e-6
+                      assert result["quote_source"] == "Crown"
+                      assert result["response_receipt_timing"].startswith("post-kickoff")
+                  assert item["paired_calibrated_minus_raw_roi_difference_bootstrap_95pct"]["repetitions"] == 10000
+          serialized = json.dumps(report)
+          for forbidden in ('"fixture_id"', '"match_id"', '"prices"', '"distribution"',
+                            '"home_goals"', '"away_goals"', '"/private/tmp/', '"/Users/mac/'):
+              assert forbidden not in serialized
+          print("M5 model-family temperature walk-forward receipt integrity: PASS")
+          PY
       - name: Validate refreshed exact M1 MR1 M3 shared Crown cohort
         run: |
           python - <<'PY'
