@@ -1679,7 +1679,7 @@ jobs:
           for market in ("AH", "OU"):
               row = total["markets"][market]
               assert row["unique_fixtures"] == row["simulated_bets"] == row["settled_bets"] == 1141
-              assert row["quote_sources"] == {"TotalCorner_default": 1141}
+              assert row["source_fixture_markets"] == {"TotalCorner_default": 1141}
               assert row["quote_receipt_timing"] == {"post_kickoff": 1141}
               assert abs(row["roi_pct"] - 100 * row["net_units"] / 1141) < 1e-6
           print("M5 TotalCorner-only M5 and model-family receipt integrity: PASS")
