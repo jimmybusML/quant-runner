@@ -1,0 +1,285 @@
+{
+  "comparison": "Chronological score-prediction exploratory; trained on 2019-23, evaluated on 2024-25 and 2026, no formal order or selection rule changed",
+  "models": {
+    "24->12": {
+      "train_2019_23": {
+        "all_matches": 10968,
+        "predict_home_count": 6414,
+        "predict_away_count": 4554,
+        "full_coverage_net_U": 66.425,
+        "full_coverage_ROI_pct": 0.606,
+        "home_benchmark": {
+          "n": 10968,
+          "net_U": -242.88,
+          "ROI_pct": -2.214
+        },
+        "away_benchmark": {
+          "n": 10968,
+          "net_U": -337.435,
+          "ROI_pct": -3.077
+        },
+        "ranked_groups_research_only": {
+          "top_10pct": {
+            "n": 1096,
+            "net_U": 21.3,
+            "ROI_pct": 1.943
+          },
+          "top_20pct": {
+            "n": 2193,
+            "net_U": 17.045,
+            "ROI_pct": 0.777
+          },
+          "top_40pct": {
+            "n": 4387,
+            "net_U": 104.69,
+            "ROI_pct": 2.386
+          },
+          "top_60pct": {
+            "n": 6580,
+            "net_U": 151.415,
+            "ROI_pct": 2.301
+          },
+          "top_100pct": {
+            "n": 10968,
+            "net_U": 66.425,
+            "ROI_pct": 0.606
+          }
+        }
+      },
+      "validation_2024_25": {
+        "all_matches": 17358,
+        "predict_home_count": 8884,
+        "predict_away_count": 8474,
+        "full_coverage_net_U": -584.53,
+        "full_coverage_ROI_pct": -3.367,
+        "home_benchmark": {
+          "n": 17358,
+          "net_U": -828.94,
+          "ROI_pct": -4.776
+        },
+        "away_benchmark": {
+          "n": 17358,
+          "net_U": -271.6,
+          "ROI_pct": -1.565
+        },
+        "ranked_groups_research_only": {
+          "top_10pct": {
+            "n": 1735,
+            "net_U": -22.045,
+            "ROI_pct": -1.271
+          },
+          "top_20pct": {
+            "n": 3471,
+            "net_U": -29.345,
+            "ROI_pct": -0.845
+          },
+          "top_40pct": {
+            "n": 6943,
+            "net_U": -203.045,
+            "ROI_pct": -2.924
+          },
+          "top_60pct": {
+            "n": 10414,
+            "net_U": -301.59,
+            "ROI_pct": -2.896
+          },
+          "top_100pct": {
+            "n": 17358,
+            "net_U": -584.53,
+            "ROI_pct": -3.367
+          }
+        }
+      },
+      "descriptive_2026": {
+        "all_matches": 7819,
+        "predict_home_count": 3342,
+        "predict_away_count": 4477,
+        "full_coverage_net_U": -293.48,
+        "full_coverage_ROI_pct": -3.753,
+        "home_benchmark": {
+          "n": 7819,
+          "net_U": -272.87,
+          "ROI_pct": -3.49
+        },
+        "away_benchmark": {
+          "n": 7819,
+          "net_U": -309.62,
+          "ROI_pct": -3.96
+        },
+        "ranked_groups_research_only": {
+          "top_10pct": {
+            "n": 781,
+            "net_U": -63.185,
+            "ROI_pct": -8.09
+          },
+          "top_20pct": {
+            "n": 1563,
+            "net_U": -58.4,
+            "ROI_pct": -3.736
+          },
+          "top_40pct": {
+            "n": 3127,
+            "net_U": -130.515,
+            "ROI_pct": -4.174
+          },
+          "top_60pct": {
+            "n": 4691,
+            "net_U": -163.075,
+            "ROI_pct": -3.476
+          },
+          "top_100pct": {
+            "n": 7819,
+            "net_U": -293.48,
+            "ROI_pct": -3.753
+          }
+        }
+      },
+      "sample_counts": {
+        "2019_23": 10968,
+        "2024_25": 17358,
+        "2026": 7819
+      },
+      "estimator": "ridge regression two 1U settlement returns, penalty=100 for numerical stability, no outcome/FT features, fixed 24h to 12h / 24h to 6h Crown snapshots; study-only, no production controls"
+    },
+    "24->6": {
+      "train_2019_23": {
+        "all_matches": 10968,
+        "predict_home_count": 6281,
+        "predict_away_count": 4687,
+        "full_coverage_net_U": -54.165,
+        "full_coverage_ROI_pct": -0.494,
+        "home_benchmark": {
+          "n": 10968,
+          "net_U": -239.67,
+          "ROI_pct": -2.185
+        },
+        "away_benchmark": {
+          "n": 10968,
+          "net_U": -319.17,
+          "ROI_pct": -2.91
+        },
+        "ranked_groups_research_only": {
+          "top_10pct": {
+            "n": 1096,
+            "net_U": 47.03,
+            "ROI_pct": 4.291
+          },
+          "top_20pct": {
+            "n": 2193,
+            "net_U": 112.665,
+            "ROI_pct": 5.137
+          },
+          "top_40pct": {
+            "n": 4387,
+            "net_U": 102.315,
+            "ROI_pct": 2.332
+          },
+          "top_60pct": {
+            "n": 6580,
+            "net_U": 127.43,
+            "ROI_pct": 1.937
+          },
+          "top_100pct": {
+            "n": 10968,
+            "net_U": -54.165,
+            "ROI_pct": -0.494
+          }
+        }
+      },
+      "validation_2024_25": {
+        "all_matches": 17358,
+        "predict_home_count": 9736,
+        "predict_away_count": 7622,
+        "full_coverage_net_U": -493.315,
+        "full_coverage_ROI_pct": -2.842,
+        "home_benchmark": {
+          "n": 17358,
+          "net_U": -796.49,
+          "ROI_pct": -4.589
+        },
+        "away_benchmark": {
+          "n": 17358,
+          "net_U": -232.48,
+          "ROI_pct": -1.339
+        },
+        "ranked_groups_research_only": {
+          "top_10pct": {
+            "n": 1735,
+            "net_U": -25.905,
+            "ROI_pct": -1.493
+          },
+          "top_20pct": {
+            "n": 3471,
+            "net_U": -48.0,
+            "ROI_pct": -1.383
+          },
+          "top_40pct": {
+            "n": 6943,
+            "net_U": -173.4,
+            "ROI_pct": -2.497
+          },
+          "top_60pct": {
+            "n": 10414,
+            "net_U": -353.805,
+            "ROI_pct": -3.397
+          },
+          "top_100pct": {
+            "n": 17358,
+            "net_U": -493.315,
+            "ROI_pct": -2.842
+          }
+        }
+      },
+      "descriptive_2026": {
+        "all_matches": 7819,
+        "predict_home_count": 4122,
+        "predict_away_count": 3697,
+        "full_coverage_net_U": -265.285,
+        "full_coverage_ROI_pct": -3.393,
+        "home_benchmark": {
+          "n": 7819,
+          "net_U": -228.84,
+          "ROI_pct": -2.927
+        },
+        "away_benchmark": {
+          "n": 7819,
+          "net_U": -271.64,
+          "ROI_pct": -3.474
+        },
+        "ranked_groups_research_only": {
+          "top_10pct": {
+            "n": 781,
+            "net_U": -63.405,
+            "ROI_pct": -8.118
+          },
+          "top_20pct": {
+            "n": 1563,
+            "net_U": -30.165,
+            "ROI_pct": -1.93
+          },
+          "top_40pct": {
+            "n": 3127,
+            "net_U": -72.68,
+            "ROI_pct": -2.324
+          },
+          "top_60pct": {
+            "n": 4691,
+            "net_U": -104.735,
+            "ROI_pct": -2.233
+          },
+          "top_100pct": {
+            "n": 7819,
+            "net_U": -265.285,
+            "ROI_pct": -3.393
+          }
+        }
+      },
+      "sample_counts": {
+        "2019_23": 10968,
+        "2024_25": 17358,
+        "2026": 7819
+      },
+      "estimator": "ridge regression two 1U settlement returns, penalty=100 for numerical stability, no outcome/FT features, fixed 24h to 12h / 24h to 6h Crown snapshots; study-only, no production controls"
+    }
+  }
+}
