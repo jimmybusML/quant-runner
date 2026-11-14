@@ -1,0 +1,119 @@
+{
+  "description": "Same handicap sample; rolling annual fit from earlier calendar years. Team residual AH return history from earlier UTC dates (2 calendar days prior or older); proxy for availability, not exact FT retrieval. Team IDs from raw response. All available samples evaluated; positive prediction threshold is comparison only, not production rule.",
+  "annual": {
+    "2024": {
+      "train_n": 7407,
+      "price_path": {
+        "all": {
+          "n": 6384,
+          "net_U": -154.12,
+          "ROI": -2.414
+        },
+        "positive_predicted_research": {
+          "n": 3395,
+          "net_U": -88.76,
+          "ROI": -2.614
+        },
+        "nonzero": {
+          "n": 5478,
+          "net_U": -152.06,
+          "ROI": -2.776
+        }
+      },
+      "price_path_and_team": {
+        "all": {
+          "n": 6384,
+          "net_U": -206.24,
+          "ROI": -3.231
+        },
+        "positive_predicted_research": {
+          "n": 3620,
+          "net_U": -114.495,
+          "ROI": -3.163
+        },
+        "nonzero": {
+          "n": 5478,
+          "net_U": -147.16,
+          "ROI": -2.686
+        }
+      },
+      "team_prior_on_either": 6371
+    },
+    "2025": {
+      "train_n": 13791,
+      "price_path": {
+        "all": {
+          "n": 6747,
+          "net_U": -354.515,
+          "ROI": -5.254
+        },
+        "positive_predicted_research": {
+          "n": 1533,
+          "net_U": -43.7,
+          "ROI": -2.851
+        },
+        "nonzero": {
+          "n": 5826,
+          "net_U": -322.975,
+          "ROI": -5.544
+        }
+      },
+      "price_path_and_team": {
+        "all": {
+          "n": 6747,
+          "net_U": -220.605,
+          "ROI": -3.27
+        },
+        "positive_predicted_research": {
+          "n": 2105,
+          "net_U": -92.755,
+          "ROI": -4.406
+        },
+        "nonzero": {
+          "n": 5826,
+          "net_U": -186.995,
+          "ROI": -3.21
+        }
+      },
+      "team_prior_on_either": 6746
+    },
+    "2026": {
+      "train_n": 20538,
+      "price_path": {
+        "all": {
+          "n": 5680,
+          "net_U": -252.975,
+          "ROI": -4.454
+        },
+        "positive_predicted_research": {
+          "n": 787,
+          "net_U": 22.06,
+          "ROI": 2.803
+        },
+        "nonzero": {
+          "n": 4917,
+          "net_U": -227.645,
+          "ROI": -4.63
+        }
+      },
+      "price_path_and_team": {
+        "all": {
+          "n": 5680,
+          "net_U": -160.92,
+          "ROI": -2.833
+        },
+        "positive_predicted_research": {
+          "n": 1171,
+          "net_U": -32.6,
+          "ROI": -2.784
+        },
+        "nonzero": {
+          "n": 4917,
+          "net_U": -152.7,
+          "ROI": -3.106
+        }
+      },
+      "team_prior_on_either": 5675
+    }
+  }
+}
