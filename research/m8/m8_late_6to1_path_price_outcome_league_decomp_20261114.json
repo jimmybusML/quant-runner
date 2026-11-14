@@ -1,0 +1,109 @@
+{
+  "description": "1.95 price is a counterfactual normalization for outcome-vs-price attribution only, no selection and not a real market quote or new strategy rule. Groups remain fully included. League composition comparison is descriptive and does not establish causality.",
+  "groups": {
+    "B": {
+      "2019-2023": {
+        "n": 427,
+        "mean_decimal": 1.9922,
+        "observed_ROI": -9.713,
+        "reference_1.95_ROI": -11.095,
+        "win_stake_fraction_pct": 39.227,
+        "loss_stake_fraction_pct": 48.361,
+        "price_contribution_pct": 1.382
+      },
+      "2024-2025": {
+        "n": 683,
+        "mean_decimal": 1.966,
+        "observed_ROI": 3.359,
+        "reference_1.95_ROI": 2.537,
+        "win_stake_fraction_pct": 45.9,
+        "loss_stake_fraction_pct": 41.069,
+        "price_contribution_pct": 0.822
+      },
+      "2026": {
+        "n": 319,
+        "mean_decimal": 1.9692,
+        "observed_ROI": 5.668,
+        "reference_1.95_ROI": 4.992,
+        "win_stake_fraction_pct": 47.492,
+        "loss_stake_fraction_pct": 40.125,
+        "price_contribution_pct": 0.676
+      },
+      "matched_count": 1429
+    },
+    "base": {
+      "2019-2023": {
+        "n": 1340,
+        "mean_decimal": 1.869,
+        "observed_ROI": 0.963,
+        "reference_1.95_ROI": 4.778,
+        "win_stake_fraction_pct": 47.724,
+        "loss_stake_fraction_pct": 40.56,
+        "price_contribution_pct": -3.815
+      },
+      "2024-2025": {
+        "n": 2439,
+        "mean_decimal": 1.8727,
+        "observed_ROI": 0.947,
+        "reference_1.95_ROI": 4.787,
+        "win_stake_fraction_pct": 47.765,
+        "loss_stake_fraction_pct": 40.59,
+        "price_contribution_pct": -3.839
+      },
+      "2026": {
+        "n": 1182,
+        "mean_decimal": 1.8759,
+        "observed_ROI": 3.296,
+        "reference_1.95_ROI": 6.779,
+        "win_stake_fraction_pct": 48.858,
+        "loss_stake_fraction_pct": 39.636,
+        "price_contribution_pct": -3.483
+      },
+      "matched_count": 4961
+    },
+    "A": {
+      "2019-2023": {
+        "n": 164,
+        "mean_decimal": 2.0174,
+        "observed_ROI": 8.009,
+        "reference_1.95_ROI": 5.0,
+        "win_stake_fraction_pct": 46.341,
+        "loss_stake_fraction_pct": 39.024,
+        "price_contribution_pct": 3.009
+      },
+      "2024-2025": {
+        "n": 242,
+        "mean_decimal": 2.0029,
+        "observed_ROI": 10.339,
+        "reference_1.95_ROI": 8.11,
+        "win_stake_fraction_pct": 48.554,
+        "loss_stake_fraction_pct": 38.017,
+        "price_contribution_pct": 2.229
+      },
+      "2026": {
+        "n": 112,
+        "mean_decimal": 2.0063,
+        "observed_ROI": 3.143,
+        "reference_1.95_ROI": 1.004,
+        "win_stake_fraction_pct": 42.411,
+        "loss_stake_fraction_pct": 39.286,
+        "price_contribution_pct": 2.138
+      },
+      "matched_count": 518
+    }
+  },
+  "B_common_league_mix": {
+    "common_leagues": 34,
+    "early_n": 427,
+    "later_n": 799,
+    "early_roi": -9.713,
+    "later_ROI": 2.42,
+    "early_ROI_reweighted_to_late_league_mix": -16.18,
+    "composition_only_change_pp": -6.467,
+    "within_league_residual_pp": 18.6,
+    "excluded_from_overlap_comparison_but_retained": {
+      "early": 0,
+      "later": 203
+    }
+  }
+}
