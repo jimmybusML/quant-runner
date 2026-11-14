@@ -1,0 +1,560 @@
+{
+  "source": "Score-only online goal ratings using earlier UTC dates versus Crown T1 implied rates, on exact prior-cohort remainder. Blends and positive-estimate subsets are exploratory experiments, no production selection rules.",
+  "coverage": {
+    "n": 7632,
+    "history_both_teams_seen": 7592
+  },
+  "score_calibration": {},
+  "blends": {
+    "0.025|0.0": {
+      "2025": {
+        "all": {
+          "n": 894,
+          "U": -16.565,
+          "ROI": -1.853
+        },
+        "positive_estimate": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.8918,
+          "poisson_NLL_without_factorial": 1.7484
+        }
+      },
+      "H1": {
+        "all": {
+          "n": 3925,
+          "U": -208.215,
+          "ROI": -5.305
+        },
+        "positive_estimate": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.8992,
+          "poisson_NLL_without_factorial": 1.6991
+        }
+      },
+      "H2": {
+        "all": {
+          "n": 2813,
+          "U": -85.955,
+          "ROI": -3.056
+        },
+        "positive_estimate": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9366,
+          "poisson_NLL_without_factorial": 1.6054
+        }
+      }
+    },
+    "0.025|0.25": {
+      "2025": {
+        "all": {
+          "n": 894,
+          "U": -2.255,
+          "ROI": -0.252
+        },
+        "positive_estimate": {
+          "n": 367,
+          "U": -19.065,
+          "ROI": -5.195
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.8922,
+          "poisson_NLL_without_factorial": 1.7507
+        }
+      },
+      "H1": {
+        "all": {
+          "n": 3925,
+          "U": -154.425,
+          "ROI": -3.934
+        },
+        "positive_estimate": {
+          "n": 1632,
+          "U": -67.51,
+          "ROI": -4.137
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9005,
+          "poisson_NLL_without_factorial": 1.7039
+        }
+      },
+      "H2": {
+        "all": {
+          "n": 2813,
+          "U": -118.225,
+          "ROI": -4.203
+        },
+        "positive_estimate": {
+          "n": 1225,
+          "U": -26.635,
+          "ROI": -2.174
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9367,
+          "poisson_NLL_without_factorial": 1.6081
+        }
+      }
+    },
+    "0.025|0.5": {
+      "2025": {
+        "all": {
+          "n": 894,
+          "U": -4.305,
+          "ROI": -0.482
+        },
+        "positive_estimate": {
+          "n": 589,
+          "U": -6.915,
+          "ROI": -1.174
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.8955,
+          "poisson_NLL_without_factorial": 1.7574
+        }
+      },
+      "H1": {
+        "all": {
+          "n": 3925,
+          "U": -154.425,
+          "ROI": -3.934
+        },
+        "positive_estimate": {
+          "n": 2636,
+          "U": -109.09,
+          "ROI": -4.138
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.904,
+          "poisson_NLL_without_factorial": 1.7132
+        }
+      },
+      "H2": {
+        "all": {
+          "n": 2813,
+          "U": -120.175,
+          "ROI": -4.272
+        },
+        "positive_estimate": {
+          "n": 1935,
+          "U": -87.025,
+          "ROI": -4.497
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9392,
+          "poisson_NLL_without_factorial": 1.6161
+        }
+      }
+    },
+    "0.025|0.75": {
+      "2025": {
+        "all": {
+          "n": 894,
+          "U": -4.305,
+          "ROI": -0.482
+        },
+        "positive_estimate": {
+          "n": 678,
+          "U": -10.68,
+          "ROI": -1.575
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9015,
+          "poisson_NLL_without_factorial": 1.7688
+        }
+      },
+      "H1": {
+        "all": {
+          "n": 3925,
+          "U": -154.425,
+          "ROI": -3.934
+        },
+        "positive_estimate": {
+          "n": 3049,
+          "U": -103.75,
+          "ROI": -3.403
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9092,
+          "poisson_NLL_without_factorial": 1.7274
+        }
+      },
+      "H2": {
+        "all": {
+          "n": 2813,
+          "U": -120.175,
+          "ROI": -4.272
+        },
+        "positive_estimate": {
+          "n": 2237,
+          "U": -99.615,
+          "ROI": -4.453
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9443,
+          "poisson_NLL_without_factorial": 1.6297
+        }
+      }
+    },
+    "0.025|1.0": {
+      "2025": {
+        "all": {
+          "n": 894,
+          "U": -4.305,
+          "ROI": -0.482
+        },
+        "positive_estimate": {
+          "n": 732,
+          "U": -9.75,
+          "ROI": -1.332
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9095,
+          "poisson_NLL_without_factorial": 1.7849
+        }
+      },
+      "H1": {
+        "all": {
+          "n": 3925,
+          "U": -154.425,
+          "ROI": -3.934
+        },
+        "positive_estimate": {
+          "n": 3267,
+          "U": -130.615,
+          "ROI": -3.998
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9167,
+          "poisson_NLL_without_factorial": 1.7467
+        }
+      },
+      "H2": {
+        "all": {
+          "n": 2813,
+          "U": -119.205,
+          "ROI": -4.238
+        },
+        "positive_estimate": {
+          "n": 2392,
+          "U": -119.995,
+          "ROI": -5.017
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9522,
+          "poisson_NLL_without_factorial": 1.6495
+        }
+      }
+    },
+    "0.06|0.0": {
+      "2025": {
+        "all": {
+          "n": 894,
+          "U": -16.565,
+          "ROI": -1.853
+        },
+        "positive_estimate": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.8918,
+          "poisson_NLL_without_factorial": 1.7484
+        }
+      },
+      "H1": {
+        "all": {
+          "n": 3925,
+          "U": -208.215,
+          "ROI": -5.305
+        },
+        "positive_estimate": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.8992,
+          "poisson_NLL_without_factorial": 1.6991
+        }
+      },
+      "H2": {
+        "all": {
+          "n": 2813,
+          "U": -85.955,
+          "ROI": -3.056
+        },
+        "positive_estimate": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9366,
+          "poisson_NLL_without_factorial": 1.6054
+        }
+      }
+    },
+    "0.06|0.25": {
+      "2025": {
+        "all": {
+          "n": 894,
+          "U": -6.86,
+          "ROI": -0.767
+        },
+        "positive_estimate": {
+          "n": 444,
+          "U": 0.125,
+          "ROI": 0.028
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.8939,
+          "poisson_NLL_without_factorial": 1.7523
+        }
+      },
+      "H1": {
+        "all": {
+          "n": 3925,
+          "U": -161.785,
+          "ROI": -4.122
+        },
+        "positive_estimate": {
+          "n": 1997,
+          "U": -120.55,
+          "ROI": -6.037
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9012,
+          "poisson_NLL_without_factorial": 1.707
+        }
+      },
+      "H2": {
+        "all": {
+          "n": 2813,
+          "U": -131.825,
+          "ROI": -4.686
+        },
+        "positive_estimate": {
+          "n": 1493,
+          "U": -73.66,
+          "ROI": -4.934
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9379,
+          "poisson_NLL_without_factorial": 1.6111
+        }
+      }
+    },
+    "0.06|0.5": {
+      "2025": {
+        "all": {
+          "n": 894,
+          "U": -8.86,
+          "ROI": -0.991
+        },
+        "positive_estimate": {
+          "n": 639,
+          "U": -5.935,
+          "ROI": -0.929
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9005,
+          "poisson_NLL_without_factorial": 1.764
+        }
+      },
+      "H1": {
+        "all": {
+          "n": 3925,
+          "U": -165.485,
+          "ROI": -4.216
+        },
+        "positive_estimate": {
+          "n": 2899,
+          "U": -119.42,
+          "ROI": -4.119
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9071,
+          "poisson_NLL_without_factorial": 1.7234
+        }
+      },
+      "H2": {
+        "all": {
+          "n": 2813,
+          "U": -131.825,
+          "ROI": -4.686
+        },
+        "positive_estimate": {
+          "n": 2106,
+          "U": -94.35,
+          "ROI": -4.48
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.944,
+          "poisson_NLL_without_factorial": 1.6262
+        }
+      }
+    },
+    "0.06|0.75": {
+      "2025": {
+        "all": {
+          "n": 894,
+          "U": -7.0,
+          "ROI": -0.783
+        },
+        "positive_estimate": {
+          "n": 731,
+          "U": -12.69,
+          "ROI": -1.736
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9115,
+          "poisson_NLL_without_factorial": 1.7837
+        }
+      },
+      "H1": {
+        "all": {
+          "n": 3925,
+          "U": -164.59,
+          "ROI": -4.193
+        },
+        "positive_estimate": {
+          "n": 3194,
+          "U": -135.195,
+          "ROI": -4.233
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9171,
+          "poisson_NLL_without_factorial": 1.7486
+        }
+      },
+      "H2": {
+        "all": {
+          "n": 2813,
+          "U": -131.825,
+          "ROI": -4.686
+        },
+        "positive_estimate": {
+          "n": 2336,
+          "U": -116.835,
+          "ROI": -5.001
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9553,
+          "poisson_NLL_without_factorial": 1.6513
+        }
+      }
+    },
+    "0.06|1.0": {
+      "2025": {
+        "all": {
+          "n": 894,
+          "U": -7.0,
+          "ROI": -0.783
+        },
+        "positive_estimate": {
+          "n": 766,
+          "U": -8.205,
+          "ROI": -1.071
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9265,
+          "poisson_NLL_without_factorial": 1.8119
+        }
+      },
+      "H1": {
+        "all": {
+          "n": 3925,
+          "U": -160.79,
+          "ROI": -4.097
+        },
+        "positive_estimate": {
+          "n": 3378,
+          "U": -141.215,
+          "ROI": -4.18
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.9312,
+          "poisson_NLL_without_factorial": 1.7836
+        }
+      },
+      "H2": {
+        "all": {
+          "n": 2813,
+          "U": -131.825,
+          "ROI": -4.686
+        },
+        "positive_estimate": {
+          "n": 2461,
+          "U": -126.965,
+          "ROI": -5.159
+        },
+        "scoring": {
+          "mean_goal_MAE": 0.972,
+          "poisson_NLL_without_factorial": 1.6875
+        }
+      }
+    }
+  },
+  "model": {
+    "H1|market": {
+      "all": {
+        "n": 3925,
+        "U": -106.99,
+        "ROI": -2.726
+      },
+      "positive_estimate": {
+        "n": 2845,
+        "U": -95.17,
+        "ROI": -3.345
+      }
+    },
+    "H1|market+team": {
+      "all": {
+        "n": 3925,
+        "U": -106.815,
+        "ROI": -2.721
+      },
+      "positive_estimate": {
+        "n": 2890,
+        "U": -118.71,
+        "ROI": -4.108
+      }
+    },
+    "H2|market": {
+      "all": {
+        "n": 2813,
+        "U": -105.475,
+        "ROI": -3.75
+      },
+      "positive_estimate": {
+        "n": 1270,
+        "U": -83.32,
+        "ROI": -6.561
+      }
+    },
+    "H2|market+team": {
+      "all": {
+        "n": 2813,
+        "U": -98.89,
+        "ROI": -3.515
+      },
+      "positive_estimate": {
+        "n": 1455,
+        "U": -87.27,
+        "ROI": -5.998
+      }
+    }
+  }
+}
