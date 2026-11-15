@@ -1,0 +1,2055 @@
+{
+  "method": "Historical replay of original timestamped Crown AH/OU actually received before T12. Same fixed 2026 annual model fitted on 3342 earlier-year ESPN core rows, source-separated 180 day rolling, 8-match shrinkage, 3 UTC day lag; quote age evaluated at T12. One receipt per fixture; not prospective model lock or performance receipt evidence. Same source history used as coverage diagnostic only. No new rule.",
+  "n_receipt_FT": 1393,
+  "n_latent_valid": 1393,
+  "solver_errors": {},
+  "prior_coverage": {
+    "ESPN": 206,
+    "TC": 263
+  },
+  "unique_both_prior": 370,
+  "both_sources": 99,
+  "results": {
+    "ESPN_all_with_source_history": {
+      "n": 206,
+      "median_min_prior_effective": 1.864,
+      "models": {
+        "market_implied": {
+          "all": {
+            "n": 206,
+            "U": -8.97,
+            "ROI": -4.354,
+            "NLL": -0.327408,
+            "MAE": 1.380669,
+            "line_brier": 0.568619,
+            "line_logloss": 0.8724,
+            "over_bias": 0.009448,
+            "mean_goal_bias": 0.044403,
+            "1.5": {
+              "brier": 0.162224,
+              "pred": 0.798091,
+              "actual": 0.796117
+            },
+            "2.5": {
+              "brier": 0.238317,
+              "pred": 0.578294,
+              "actual": 0.553398
+            },
+            "3.5": {
+              "brier": 0.213215,
+              "pred": 0.360009,
+              "actual": 0.349515
+            }
+          },
+          "outside_eight": {
+            "n": 173,
+            "U": -6.485,
+            "ROI": -3.749,
+            "NLL": -0.397305,
+            "MAE": 1.392221,
+            "line_brier": 0.565365,
+            "line_logloss": 0.864911,
+            "over_bias": 0.006153,
+            "mean_goal_bias": -0.018817,
+            "1.5": {
+              "brier": 0.152791,
+              "pred": 0.79813,
+              "actual": 0.815029
+            },
+            "2.5": {
+              "brier": 0.237343,
+              "pred": 0.578267,
+              "actual": 0.554913
+            },
+            "3.5": {
+              "brier": 0.215319,
+              "pred": 0.359835,
+              "actual": 0.352601
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 83,
+            "U": -7.585,
+            "ROI": -9.139,
+            "NLL": -0.085646,
+            "MAE": 1.338131,
+            "line_brier": 0.56449,
+            "line_logloss": 0.859888,
+            "over_bias": 0.063061,
+            "mean_goal_bias": 0.239154,
+            "1.5": {
+              "brier": 0.169519,
+              "pred": 0.795639,
+              "actual": 0.795181
+            },
+            "2.5": {
+              "brier": 0.245271,
+              "pred": 0.575042,
+              "actual": 0.518072
+            },
+            "3.5": {
+              "brier": 0.20124,
+              "pred": 0.357196,
+              "actual": 0.277108
+            }
+          }
+        },
+        "market": {
+          "all": {
+            "n": 206,
+            "U": -13.245,
+            "ROI": -6.43,
+            "NLL": -0.327983,
+            "MAE": 1.380693,
+            "line_brier": 0.568226,
+            "line_logloss": 0.87203,
+            "over_bias": 0.009719,
+            "mean_goal_bias": 0.045675,
+            "1.5": {
+              "brier": 0.162245,
+              "pred": 0.798296,
+              "actual": 0.796117
+            },
+            "2.5": {
+              "brier": 0.238098,
+              "pred": 0.578647,
+              "actual": 0.553398
+            },
+            "3.5": {
+              "brier": 0.213044,
+              "pred": 0.360367,
+              "actual": 0.349515
+            }
+          },
+          "outside_eight": {
+            "n": 173,
+            "U": -6.98,
+            "ROI": -4.035,
+            "NLL": -0.397928,
+            "MAE": 1.391098,
+            "line_brier": 0.56451,
+            "line_logloss": 0.863898,
+            "over_bias": 0.00643,
+            "mean_goal_bias": -0.017449,
+            "1.5": {
+              "brier": 0.152867,
+              "pred": 0.798319,
+              "actual": 0.815029
+            },
+            "2.5": {
+              "brier": 0.236921,
+              "pred": 0.578605,
+              "actual": 0.554913
+            },
+            "3.5": {
+              "brier": 0.214952,
+              "pred": 0.360193,
+              "actual": 0.352601
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 83,
+            "U": -8.275,
+            "ROI": -9.97,
+            "NLL": -0.084343,
+            "MAE": 1.341476,
+            "line_brier": 0.56522,
+            "line_logloss": 0.86044,
+            "over_bias": 0.064645,
+            "mean_goal_bias": 0.24606,
+            "1.5": {
+              "brier": 0.169087,
+              "pred": 0.796734,
+              "actual": 0.795181
+            },
+            "2.5": {
+              "brier": 0.245188,
+              "pred": 0.576633,
+              "actual": 0.518072
+            },
+            "3.5": {
+              "brier": 0.202421,
+              "pred": 0.358739,
+              "actual": 0.277108
+            }
+          }
+        },
+        "full": {
+          "all": {
+            "n": 206,
+            "U": -11.14,
+            "ROI": -5.408,
+            "NLL": -0.323017,
+            "MAE": 1.379286,
+            "line_brier": 0.566859,
+            "line_logloss": 0.871494,
+            "over_bias": 0.002816,
+            "mean_goal_bias": 0.01135,
+            "1.5": {
+              "brier": 0.162249,
+              "pred": 0.795399,
+              "actual": 0.796117
+            },
+            "2.5": {
+              "brier": 0.236652,
+              "pred": 0.572913,
+              "actual": 0.553398
+            },
+            "3.5": {
+              "brier": 0.214867,
+              "pred": 0.353085,
+              "actual": 0.349515
+            }
+          },
+          "outside_eight": {
+            "n": 173,
+            "U": -3.895,
+            "ROI": -2.251,
+            "NLL": -0.395178,
+            "MAE": 1.38091,
+            "line_brier": 0.559265,
+            "line_logloss": 0.859056,
+            "over_bias": -0.000272,
+            "mean_goal_bias": -0.050047,
+            "1.5": {
+              "brier": 0.151855,
+              "pred": 0.795344,
+              "actual": 0.815029
+            },
+            "2.5": {
+              "brier": 0.234244,
+              "pred": 0.572929,
+              "actual": 0.554913
+            },
+            "3.5": {
+              "brier": 0.214917,
+              "pred": 0.353186,
+              "actual": 0.352601
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 83,
+            "U": -2.61,
+            "ROI": -3.145,
+            "NLL": -0.081423,
+            "MAE": 1.340376,
+            "line_brier": 0.561966,
+            "line_logloss": 0.857365,
+            "over_bias": 0.06031,
+            "mean_goal_bias": 0.223373,
+            "1.5": {
+              "brier": 0.166613,
+              "pred": 0.795429,
+              "actual": 0.795181
+            },
+            "2.5": {
+              "brier": 0.244237,
+              "pred": 0.573449,
+              "actual": 0.518072
+            },
+            "3.5": {
+              "brier": 0.205212,
+              "pred": 0.354127,
+              "actual": 0.277108
+            }
+          }
+        },
+        "full_shot_efficiency": {
+          "all": {
+            "n": 206,
+            "U": -18.91,
+            "ROI": -9.18,
+            "NLL": -0.321629,
+            "MAE": 1.383099,
+            "line_brier": 0.568271,
+            "line_logloss": 0.873206,
+            "over_bias": 0.002586,
+            "mean_goal_bias": 0.010422,
+            "1.5": {
+              "brier": 0.162529,
+              "pred": 0.795221,
+              "actual": 0.796117
+            },
+            "2.5": {
+              "brier": 0.237319,
+              "pred": 0.572689,
+              "actual": 0.553398
+            },
+            "3.5": {
+              "brier": 0.215526,
+              "pred": 0.352893,
+              "actual": 0.349515
+            }
+          },
+          "outside_eight": {
+            "n": 173,
+            "U": -9.745,
+            "ROI": -5.633,
+            "NLL": -0.393894,
+            "MAE": 1.384408,
+            "line_brier": 0.560492,
+            "line_logloss": 0.860534,
+            "over_bias": -0.000485,
+            "mean_goal_bias": -0.050861,
+            "1.5": {
+              "brier": 0.152119,
+              "pred": 0.795162,
+              "actual": 0.815029
+            },
+            "2.5": {
+              "brier": 0.234866,
+              "pred": 0.572717,
+              "actual": 0.554913
+            },
+            "3.5": {
+              "brier": 0.215492,
+              "pred": 0.35302,
+              "actual": 0.352601
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 83,
+            "U": -6.56,
+            "ROI": -7.904,
+            "NLL": -0.078457,
+            "MAE": 1.346326,
+            "line_brier": 0.563919,
+            "line_logloss": 0.859589,
+            "over_bias": 0.060329,
+            "mean_goal_bias": 0.223679,
+            "1.5": {
+              "brier": 0.167164,
+              "pred": 0.795352,
+              "actual": 0.795181
+            },
+            "2.5": {
+              "brier": 0.245355,
+              "pred": 0.573439,
+              "actual": 0.518072
+            },
+            "3.5": {
+              "brier": 0.206032,
+              "pred": 0.35421,
+              "actual": 0.277108
+            }
+          }
+        }
+      }
+    },
+    "ESPN_unique_to_source": {
+      "n": 107,
+      "median_min_prior_effective": 1.831,
+      "models": {
+        "market_implied": {
+          "all": {
+            "n": 107,
+            "U": 2.785,
+            "ROI": 2.603,
+            "NLL": -0.525178,
+            "MAE": 1.481633,
+            "line_brier": 0.574668,
+            "line_logloss": 0.886577,
+            "over_bias": -0.01627,
+            "mean_goal_bias": -0.00948,
+            "1.5": {
+              "brier": 0.16835,
+              "pred": 0.814404,
+              "actual": 0.785047
+            },
+            "2.5": {
+              "brier": 0.233422,
+              "pred": 0.603048,
+              "actual": 0.570093
+            },
+            "3.5": {
+              "brier": 0.224273,
+              "pred": 0.385273,
+              "actual": 0.401869
+            }
+          },
+          "outside_eight": {
+            "n": 89,
+            "U": 5.845,
+            "ROI": 6.567,
+            "NLL": -0.632456,
+            "MAE": 1.481326,
+            "line_brier": 0.573298,
+            "line_logloss": 0.883022,
+            "over_bias": -0.02288,
+            "mean_goal_bias": -0.101788,
+            "1.5": {
+              "brier": 0.155349,
+              "pred": 0.814268,
+              "actual": 0.808989
+            },
+            "2.5": {
+              "brier": 0.228491,
+              "pred": 0.602675,
+              "actual": 0.58427
+            },
+            "3.5": {
+              "brier": 0.222337,
+              "pred": 0.384631,
+              "actual": 0.404494
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 33,
+            "U": 1.775,
+            "ROI": 5.379,
+            "NLL": -0.437714,
+            "MAE": 1.370776,
+            "line_brier": 0.58202,
+            "line_logloss": 0.901523,
+            "over_bias": 0.010604,
+            "mean_goal_bias": 0.100705,
+            "1.5": {
+              "brier": 0.15969,
+              "pred": 0.818022,
+              "actual": 0.818182
+            },
+            "2.5": {
+              "brier": 0.235665,
+              "pred": 0.610156,
+              "actual": 0.575758
+            },
+            "3.5": {
+              "brier": 0.219276,
+              "pred": 0.394267,
+              "actual": 0.363636
+            }
+          }
+        },
+        "market": {
+          "all": {
+            "n": 107,
+            "U": -9.805,
+            "ROI": -9.164,
+            "NLL": -0.522551,
+            "MAE": 1.484035,
+            "line_brier": 0.575585,
+            "line_logloss": 0.887838,
+            "over_bias": -0.01718,
+            "mean_goal_bias": -0.013574,
+            "1.5": {
+              "brier": 0.168688,
+              "pred": 0.813874,
+              "actual": 0.785047
+            },
+            "2.5": {
+              "brier": 0.233837,
+              "pred": 0.602266,
+              "actual": 0.570093
+            },
+            "3.5": {
+              "brier": 0.225071,
+              "pred": 0.384456,
+              "actual": 0.401869
+            }
+          },
+          "outside_eight": {
+            "n": 89,
+            "U": -3.065,
+            "ROI": -3.444,
+            "NLL": -0.630402,
+            "MAE": 1.481134,
+            "line_brier": 0.573002,
+            "line_logloss": 0.882743,
+            "over_bias": -0.023666,
+            "mean_goal_bias": -0.105188,
+            "1.5": {
+              "brier": 0.15579,
+              "pred": 0.813787,
+              "actual": 0.808989
+            },
+            "2.5": {
+              "brier": 0.228328,
+              "pred": 0.601983,
+              "actual": 0.58427
+            },
+            "3.5": {
+              "brier": 0.222708,
+              "pred": 0.383931,
+              "actual": 0.404494
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 33,
+            "U": 2.035,
+            "ROI": 6.167,
+            "NLL": -0.434866,
+            "MAE": 1.36629,
+            "line_brier": 0.579994,
+            "line_logloss": 0.899075,
+            "over_bias": 0.009815,
+            "mean_goal_bias": 0.097105,
+            "1.5": {
+              "brier": 0.160158,
+              "pred": 0.81756,
+              "actual": 0.818182
+            },
+            "2.5": {
+              "brier": 0.233789,
+              "pred": 0.609417,
+              "actual": 0.575758
+            },
+            "3.5": {
+              "brier": 0.220239,
+              "pred": 0.393479,
+              "actual": 0.363636
+            }
+          }
+        },
+        "full": {
+          "all": {
+            "n": 107,
+            "U": -7.325,
+            "ROI": -6.846,
+            "NLL": -0.520638,
+            "MAE": 1.477018,
+            "line_brier": 0.575198,
+            "line_logloss": 0.888438,
+            "over_bias": -0.02971,
+            "mean_goal_bias": -0.07417,
+            "1.5": {
+              "brier": 0.169079,
+              "pred": 0.808009,
+              "actual": 0.785047
+            },
+            "2.5": {
+              "brier": 0.233426,
+              "pred": 0.591533,
+              "actual": 0.570093
+            },
+            "3.5": {
+              "brier": 0.22502,
+              "pred": 0.371528,
+              "actual": 0.401869
+            }
+          },
+          "outside_eight": {
+            "n": 89,
+            "U": 0.255,
+            "ROI": 0.287,
+            "NLL": -0.632286,
+            "MAE": 1.461738,
+            "line_brier": 0.565795,
+            "line_logloss": 0.875549,
+            "over_bias": -0.03613,
+            "mean_goal_bias": -0.16412,
+            "1.5": {
+              "brier": 0.155068,
+              "pred": 0.807612,
+              "actual": 0.808989
+            },
+            "2.5": {
+              "brier": 0.225839,
+              "pred": 0.591097,
+              "actual": 0.58427
+            },
+            "3.5": {
+              "brier": 0.220207,
+              "pred": 0.371216,
+              "actual": 0.404494
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 33,
+            "U": 3.235,
+            "ROI": 9.803,
+            "NLL": -0.442402,
+            "MAE": 1.350307,
+            "line_brier": 0.574045,
+            "line_logloss": 0.892853,
+            "over_bias": -0.006518,
+            "mean_goal_bias": 0.018425,
+            "1.5": {
+              "brier": 0.15727,
+              "pred": 0.809943,
+              "actual": 0.818182
+            },
+            "2.5": {
+              "brier": 0.234249,
+              "pred": 0.595728,
+              "actual": 0.575758
+            },
+            "3.5": {
+              "brier": 0.219015,
+              "pred": 0.377006,
+              "actual": 0.363636
+            }
+          }
+        },
+        "full_shot_efficiency": {
+          "all": {
+            "n": 107,
+            "U": -13.175,
+            "ROI": -12.313,
+            "NLL": -0.518781,
+            "MAE": 1.481564,
+            "line_brier": 0.576917,
+            "line_logloss": 0.890624,
+            "over_bias": -0.030127,
+            "mean_goal_bias": -0.076073,
+            "1.5": {
+              "brier": 0.169504,
+              "pred": 0.807757,
+              "actual": 0.785047
+            },
+            "2.5": {
+              "brier": 0.234343,
+              "pred": 0.591144,
+              "actual": 0.570093
+            },
+            "3.5": {
+              "brier": 0.225797,
+              "pred": 0.371118,
+              "actual": 0.401869
+            }
+          },
+          "outside_eight": {
+            "n": 89,
+            "U": -5.595,
+            "ROI": -6.287,
+            "NLL": -0.630304,
+            "MAE": 1.466035,
+            "line_brier": 0.567423,
+            "line_logloss": 0.877597,
+            "over_bias": -0.036554,
+            "mean_goal_bias": -0.166022,
+            "1.5": {
+              "brier": 0.155565,
+              "pred": 0.807339,
+              "actual": 0.808989
+            },
+            "2.5": {
+              "brier": 0.226836,
+              "pred": 0.590692,
+              "actual": 0.58427
+            },
+            "3.5": {
+              "brier": 0.22085,
+              "pred": 0.370805,
+              "actual": 0.404494
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 33,
+            "U": -0.715,
+            "ROI": -2.167,
+            "NLL": -0.437927,
+            "MAE": 1.358684,
+            "line_brier": 0.576293,
+            "line_logloss": 0.895575,
+            "over_bias": -0.006331,
+            "mean_goal_bias": 0.019416,
+            "1.5": {
+              "brier": 0.158316,
+              "pred": 0.809981,
+              "actual": 0.818182
+            },
+            "2.5": {
+              "brier": 0.236133,
+              "pred": 0.595863,
+              "actual": 0.575758
+            },
+            "3.5": {
+              "brier": 0.219954,
+              "pred": 0.377221,
+              "actual": 0.363636
+            }
+          }
+        }
+      }
+    },
+    "ESPN_common_sources": {
+      "n": 99,
+      "median_min_prior_effective": 1.868,
+      "models": {
+        "market_implied": {
+          "all": {
+            "n": 99,
+            "U": -11.755,
+            "ROI": -11.874,
+            "NLL": -0.113656,
+            "MAE": 1.271547,
+            "line_brier": 0.562081,
+            "line_logloss": 0.857076,
+            "over_bias": 0.037245,
+            "mean_goal_bias": 0.10264,
+            "1.5": {
+              "brier": 0.155602,
+              "pred": 0.78046,
+              "actual": 0.808081
+            },
+            "2.5": {
+              "brier": 0.243606,
+              "pred": 0.551539,
+              "actual": 0.535354
+            },
+            "3.5": {
+              "brier": 0.201263,
+              "pred": 0.332703,
+              "actual": 0.292929
+            }
+          },
+          "outside_eight": {
+            "n": 84,
+            "U": -12.33,
+            "ROI": -14.679,
+            "NLL": -0.148157,
+            "MAE": 1.297813,
+            "line_brier": 0.55696,
+            "line_logloss": 0.845722,
+            "over_bias": 0.036915,
+            "mean_goal_bias": 0.069092,
+            "1.5": {
+              "brier": 0.150081,
+              "pred": 0.781031,
+              "actual": 0.821429
+            },
+            "2.5": {
+              "brier": 0.246721,
+              "pred": 0.552406,
+              "actual": 0.52381
+            },
+            "3.5": {
+              "brier": 0.207884,
+              "pred": 0.333563,
+              "actual": 0.297619
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 50,
+            "U": -9.36,
+            "ROI": -18.72,
+            "NLL": 0.146718,
+            "MAE": 1.316585,
+            "line_brier": 0.55292,
+            "line_logloss": 0.832409,
+            "over_bias": 0.097683,
+            "mean_goal_bias": 0.33053,
+            "1.5": {
+              "brier": 0.176005,
+              "pred": 0.780866,
+              "actual": 0.78
+            },
+            "2.5": {
+              "brier": 0.251611,
+              "pred": 0.551866,
+              "actual": 0.48
+            },
+            "3.5": {
+              "brier": 0.189335,
+              "pred": 0.332728,
+              "actual": 0.22
+            }
+          }
+        },
+        "market": {
+          "all": {
+            "n": 99,
+            "U": -3.44,
+            "ROI": -3.475,
+            "NLL": -0.117692,
+            "MAE": 1.269,
+            "line_brier": 0.560273,
+            "line_logloss": 0.854944,
+            "over_bias": 0.038792,
+            "mean_goal_bias": 0.109711,
+            "1.5": {
+              "brier": 0.155281,
+              "pred": 0.781459,
+              "actual": 0.808081
+            },
+            "2.5": {
+              "brier": 0.242703,
+              "pred": 0.55312,
+              "actual": 0.535354
+            },
+            "3.5": {
+              "brier": 0.200047,
+              "pred": 0.334332,
+              "actual": 0.292929
+            }
+          },
+          "outside_eight": {
+            "n": 84,
+            "U": -3.915,
+            "ROI": -4.661,
+            "NLL": -0.151617,
+            "MAE": 1.295703,
+            "line_brier": 0.555512,
+            "line_logloss": 0.843932,
+            "over_bias": 0.038317,
+            "mean_goal_bias": 0.075513,
+            "1.5": {
+              "brier": 0.14977,
+              "pred": 0.781931,
+              "actual": 0.821429
+            },
+            "2.5": {
+              "brier": 0.246025,
+              "pred": 0.553834,
+              "actual": 0.52381
+            },
+            "3.5": {
+              "brier": 0.206735,
+              "pred": 0.335042,
+              "actual": 0.297619
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 50,
+            "U": -10.31,
+            "ROI": -20.62,
+            "NLL": 0.147002,
+            "MAE": 1.325099,
+            "line_brier": 0.55547,
+            "line_logloss": 0.83494,
+            "over_bias": 0.100832,
+            "mean_goal_bias": 0.34437,
+            "1.5": {
+              "brier": 0.17498,
+              "pred": 0.782989,
+              "actual": 0.78
+            },
+            "2.5": {
+              "brier": 0.252711,
+              "pred": 0.554996,
+              "actual": 0.48
+            },
+            "3.5": {
+              "brier": 0.190662,
+              "pred": 0.335811,
+              "actual": 0.22
+            }
+          }
+        },
+        "full": {
+          "all": {
+            "n": 99,
+            "U": -3.815,
+            "ROI": -3.854,
+            "NLL": -0.109426,
+            "MAE": 1.273657,
+            "line_brier": 0.557846,
+            "line_logloss": 0.85318,
+            "over_bias": 0.03797,
+            "mean_goal_bias": 0.103782,
+            "1.5": {
+              "brier": 0.154868,
+              "pred": 0.781771,
+              "actual": 0.808081
+            },
+            "2.5": {
+              "brier": 0.240139,
+              "pred": 0.552787,
+              "actual": 0.535354
+            },
+            "3.5": {
+              "brier": 0.203894,
+              "pred": 0.333151,
+              "actual": 0.292929
+            }
+          },
+          "outside_eight": {
+            "n": 84,
+            "U": -4.15,
+            "ROI": -4.94,
+            "NLL": -0.143956,
+            "MAE": 1.29527,
+            "line_brier": 0.552346,
+            "line_logloss": 0.841582,
+            "over_bias": 0.03772,
+            "mean_goal_bias": 0.070817,
+            "1.5": {
+              "brier": 0.14845,
+              "pred": 0.782345,
+              "actual": 0.821429
+            },
+            "2.5": {
+              "brier": 0.243151,
+              "pred": 0.55368,
+              "actual": 0.52381
+            },
+            "3.5": {
+              "brier": 0.209313,
+              "pred": 0.334083,
+              "actual": 0.297619
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 50,
+            "U": -5.845,
+            "ROI": -11.69,
+            "NLL": 0.156823,
+            "MAE": 1.333821,
+            "line_brier": 0.553994,
+            "line_logloss": 0.833942,
+            "over_bias": 0.104417,
+            "mean_goal_bias": 0.358639,
+            "1.5": {
+              "brier": 0.172778,
+              "pred": 0.78585,
+              "actual": 0.78
+            },
+            "2.5": {
+              "brier": 0.250828,
+              "pred": 0.558746,
+              "actual": 0.48
+            },
+            "3.5": {
+              "brier": 0.196102,
+              "pred": 0.339027,
+              "actual": 0.22
+            }
+          }
+        },
+        "full_shot_efficiency": {
+          "all": {
+            "n": 99,
+            "U": -5.735,
+            "ROI": -5.793,
+            "NLL": -0.108545,
+            "MAE": 1.276678,
+            "line_brier": 0.558927,
+            "line_logloss": 0.85438,
+            "over_bias": 0.037944,
+            "mean_goal_bias": 0.103907,
+            "1.5": {
+              "brier": 0.154991,
+              "pred": 0.781673,
+              "actual": 0.808081
+            },
+            "2.5": {
+              "brier": 0.240537,
+              "pred": 0.552743,
+              "actual": 0.535354
+            },
+            "3.5": {
+              "brier": 0.204425,
+              "pred": 0.333195,
+              "actual": 0.292929
+            }
+          },
+          "outside_eight": {
+            "n": 84,
+            "U": -4.15,
+            "ROI": -4.94,
+            "NLL": -0.143413,
+            "MAE": 1.297922,
+            "line_brier": 0.553149,
+            "line_logloss": 0.842455,
+            "over_bias": 0.037731,
+            "mean_goal_bias": 0.071154,
+            "1.5": {
+              "brier": 0.148467,
+              "pred": 0.78226,
+              "actual": 0.821429
+            },
+            "2.5": {
+              "brier": 0.243375,
+              "pred": 0.553672,
+              "actual": 0.52381
+            },
+            "3.5": {
+              "brier": 0.209816,
+              "pred": 0.334177,
+              "actual": 0.297619
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 50,
+            "U": -5.845,
+            "ROI": -11.69,
+            "NLL": 0.158793,
+            "MAE": 1.338169,
+            "line_brier": 0.555752,
+            "line_logloss": 0.835839,
+            "over_bias": 0.104325,
+            "mean_goal_bias": 0.358492,
+            "1.5": {
+              "brier": 0.173004,
+              "pred": 0.785697,
+              "actual": 0.78
+            },
+            "2.5": {
+              "brier": 0.251441,
+              "pred": 0.55864,
+              "actual": 0.48
+            },
+            "3.5": {
+              "brier": 0.196843,
+              "pred": 0.339023,
+              "actual": 0.22
+            }
+          }
+        }
+      }
+    },
+    "TC_all_with_source_history": {
+      "n": 263,
+      "median_min_prior_effective": 1.814,
+      "models": {
+        "market_implied": {
+          "all": {
+            "n": 263,
+            "U": -13.31,
+            "ROI": -5.061,
+            "NLL": -0.30047,
+            "MAE": 1.334492,
+            "line_brier": 0.560163,
+            "line_logloss": 0.853839,
+            "over_bias": 0.001934,
+            "mean_goal_bias": -0.014646,
+            "1.5": {
+              "brier": 0.158365,
+              "pred": 0.78368,
+              "actual": 0.798479
+            },
+            "2.5": {
+              "brier": 0.235443,
+              "pred": 0.557845,
+              "actual": 0.570342
+            },
+            "3.5": {
+              "brier": 0.207726,
+              "pred": 0.340563,
+              "actual": 0.330798
+            }
+          },
+          "outside_eight": {
+            "n": 206,
+            "U": -8.195,
+            "ROI": -3.978,
+            "NLL": -0.208456,
+            "MAE": 1.321566,
+            "line_brier": 0.554458,
+            "line_logloss": 0.841298,
+            "over_bias": 0.029711,
+            "mean_goal_bias": 0.066756,
+            "1.5": {
+              "brier": 0.162309,
+              "pred": 0.781998,
+              "actual": 0.786408
+            },
+            "2.5": {
+              "brier": 0.236188,
+              "pred": 0.55529,
+              "actual": 0.538835
+            },
+            "3.5": {
+              "brier": 0.199769,
+              "pred": 0.33796,
+              "actual": 0.305825
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 172,
+            "U": -14.74,
+            "ROI": -8.57,
+            "NLL": -0.202209,
+            "MAE": 1.415689,
+            "line_brier": 0.552807,
+            "line_logloss": 0.839468,
+            "over_bias": 0.028309,
+            "mean_goal_bias": 0.069474,
+            "1.5": {
+              "brier": 0.175613,
+              "pred": 0.783734,
+              "actual": 0.767442
+            },
+            "2.5": {
+              "brier": 0.239535,
+              "pred": 0.557979,
+              "actual": 0.52907
+            },
+            "3.5": {
+              "brier": 0.214009,
+              "pred": 0.340693,
+              "actual": 0.331395
+            }
+          }
+        },
+        "market": {
+          "all": {
+            "n": 263,
+            "U": -15.675,
+            "ROI": -5.96,
+            "NLL": -0.301222,
+            "MAE": 1.334295,
+            "line_brier": 0.560118,
+            "line_logloss": 0.853762,
+            "over_bias": 0.002208,
+            "mean_goal_bias": -0.013193,
+            "1.5": {
+              "brier": 0.158228,
+              "pred": 0.783815,
+              "actual": 0.798479
+            },
+            "2.5": {
+              "brier": 0.235229,
+              "pred": 0.558193,
+              "actual": 0.570342
+            },
+            "3.5": {
+              "brier": 0.207378,
+              "pred": 0.340991,
+              "actual": 0.330798
+            }
+          },
+          "outside_eight": {
+            "n": 206,
+            "U": -14.95,
+            "ROI": -7.257,
+            "NLL": -0.208874,
+            "MAE": 1.322063,
+            "line_brier": 0.554634,
+            "line_logloss": 0.841326,
+            "over_bias": 0.029791,
+            "mean_goal_bias": 0.067525,
+            "1.5": {
+              "brier": 0.162121,
+              "pred": 0.781951,
+              "actual": 0.786408
+            },
+            "2.5": {
+              "brier": 0.235991,
+              "pred": 0.555429,
+              "actual": 0.538835
+            },
+            "3.5": {
+              "brier": 0.199501,
+              "pred": 0.33824,
+              "actual": 0.305825
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 172,
+            "U": -22.39,
+            "ROI": -13.017,
+            "NLL": -0.201632,
+            "MAE": 1.418977,
+            "line_brier": 0.554388,
+            "line_logloss": 0.841191,
+            "over_bias": 0.029371,
+            "mean_goal_bias": 0.074502,
+            "1.5": {
+              "brier": 0.175371,
+              "pred": 0.784307,
+              "actual": 0.767442
+            },
+            "2.5": {
+              "brier": 0.240027,
+              "pred": 0.558986,
+              "actual": 0.52907
+            },
+            "3.5": {
+              "brier": 0.214546,
+              "pred": 0.34182,
+              "actual": 0.331395
+            }
+          }
+        },
+        "full": {
+          "all": {
+            "n": 263,
+            "U": 19.515,
+            "ROI": 7.42,
+            "NLL": -0.300741,
+            "MAE": 1.318151,
+            "line_brier": 0.555031,
+            "line_logloss": 0.847784,
+            "over_bias": -0.008502,
+            "mean_goal_bias": -0.066406,
+            "1.5": {
+              "brier": 0.157081,
+              "pred": 0.779111,
+              "actual": 0.798479
+            },
+            "2.5": {
+              "brier": 0.232626,
+              "pred": 0.549043,
+              "actual": 0.570342
+            },
+            "3.5": {
+              "brier": 0.20597,
+              "pred": 0.329584,
+              "actual": 0.330798
+            }
+          },
+          "outside_eight": {
+            "n": 206,
+            "U": 16.775,
+            "ROI": 8.143,
+            "NLL": -0.208836,
+            "MAE": 1.302254,
+            "line_brier": 0.548692,
+            "line_logloss": 0.834495,
+            "over_bias": 0.019585,
+            "mean_goal_bias": 0.017332,
+            "1.5": {
+              "brier": 0.161658,
+              "pred": 0.77744,
+              "actual": 0.786408
+            },
+            "2.5": {
+              "brier": 0.233845,
+              "pred": 0.546753,
+              "actual": 0.538835
+            },
+            "3.5": {
+              "brier": 0.197235,
+              "pred": 0.327499,
+              "actual": 0.305825
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 172,
+            "U": 21.54,
+            "ROI": 12.523,
+            "NLL": -0.208268,
+            "MAE": 1.386998,
+            "line_brier": 0.54331,
+            "line_logloss": 0.828689,
+            "over_bias": 0.019295,
+            "mean_goal_bias": 0.024262,
+            "1.5": {
+              "brier": 0.172593,
+              "pred": 0.780053,
+              "actual": 0.767442
+            },
+            "2.5": {
+              "brier": 0.23501,
+              "pred": 0.550459,
+              "actual": 0.52907
+            },
+            "3.5": {
+              "brier": 0.210872,
+              "pred": 0.331018,
+              "actual": 0.331395
+            }
+          }
+        },
+        "full_shot_efficiency": {
+          "all": {
+            "n": 263,
+            "U": 22.435,
+            "ROI": 8.53,
+            "NLL": -0.30101,
+            "MAE": 1.31858,
+            "line_brier": 0.555094,
+            "line_logloss": 0.847845,
+            "over_bias": -0.008598,
+            "mean_goal_bias": -0.066434,
+            "1.5": {
+              "brier": 0.157154,
+              "pred": 0.778911,
+              "actual": 0.798479
+            },
+            "2.5": {
+              "brier": 0.232712,
+              "pred": 0.548903,
+              "actual": 0.570342
+            },
+            "3.5": {
+              "brier": 0.205784,
+              "pred": 0.329589,
+              "actual": 0.330798
+            }
+          },
+          "outside_eight": {
+            "n": 206,
+            "U": 19.695,
+            "ROI": 9.561,
+            "NLL": -0.209333,
+            "MAE": 1.302515,
+            "line_brier": 0.548611,
+            "line_logloss": 0.834378,
+            "over_bias": 0.019506,
+            "mean_goal_bias": 0.017349,
+            "1.5": {
+              "brier": 0.16167,
+              "pred": 0.77726,
+              "actual": 0.786408
+            },
+            "2.5": {
+              "brier": 0.233832,
+              "pred": 0.546633,
+              "actual": 0.538835
+            },
+            "3.5": {
+              "brier": 0.19707,
+              "pred": 0.327515,
+              "actual": 0.305825
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 172,
+            "U": 23.45,
+            "ROI": 13.634,
+            "NLL": -0.208618,
+            "MAE": 1.386134,
+            "line_brier": 0.542944,
+            "line_logloss": 0.828268,
+            "over_bias": 0.019312,
+            "mean_goal_bias": 0.024607,
+            "1.5": {
+              "brier": 0.172516,
+              "pred": 0.779971,
+              "actual": 0.767442
+            },
+            "2.5": {
+              "brier": 0.234867,
+              "pred": 0.550447,
+              "actual": 0.52907
+            },
+            "3.5": {
+              "brier": 0.210715,
+              "pred": 0.331106,
+              "actual": 0.331395
+            }
+          }
+        }
+      }
+    },
+    "TC_unique_to_source": {
+      "n": 164,
+      "median_min_prior_effective": 1.716,
+      "models": {
+        "market_implied": {
+          "all": {
+            "n": 164,
+            "U": -1.555,
+            "ROI": -0.948,
+            "NLL": -0.413242,
+            "MAE": 1.37249,
+            "line_brier": 0.559006,
+            "line_logloss": 0.851884,
+            "over_bias": -0.019381,
+            "mean_goal_bias": -0.085447,
+            "1.5": {
+              "brier": 0.160033,
+              "pred": 0.785623,
+              "actual": 0.792683
+            },
+            "2.5": {
+              "brier": 0.230515,
+              "pred": 0.561651,
+              "actual": 0.591463
+            },
+            "3.5": {
+              "brier": 0.211628,
+              "pred": 0.345308,
+              "actual": 0.353659
+            }
+          },
+          "outside_eight": {
+            "n": 122,
+            "U": 4.135,
+            "ROI": 3.389,
+            "NLL": -0.249974,
+            "MAE": 1.337921,
+            "line_brier": 0.552735,
+            "line_logloss": 0.838252,
+            "over_bias": 0.02475,
+            "mean_goal_bias": 0.065148,
+            "1.5": {
+              "brier": 0.170727,
+              "pred": 0.782664,
+              "actual": 0.762295
+            },
+            "2.5": {
+              "brier": 0.228936,
+              "pred": 0.557276,
+              "actual": 0.54918
+            },
+            "3.5": {
+              "brier": 0.194181,
+              "pred": 0.340988,
+              "actual": 0.311475
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 122,
+            "U": -5.38,
+            "ROI": -4.41,
+            "NLL": -0.345212,
+            "MAE": 1.456306,
+            "line_brier": 0.552761,
+            "line_logloss": 0.842361,
+            "over_bias": -0.000123,
+            "mean_goal_bias": -0.037515,
+            "1.5": {
+              "brier": 0.175452,
+              "pred": 0.784909,
+              "actual": 0.762295
+            },
+            "2.5": {
+              "brier": 0.234586,
+              "pred": 0.560485,
+              "actual": 0.54918
+            },
+            "3.5": {
+              "brier": 0.224122,
+              "pred": 0.343957,
+              "actual": 0.377049
+            }
+          }
+        },
+        "market": {
+          "all": {
+            "n": 164,
+            "U": -12.235,
+            "ROI": -7.46,
+            "NLL": -0.41201,
+            "MAE": 1.373711,
+            "line_brier": 0.560024,
+            "line_logloss": 0.853049,
+            "over_bias": -0.019877,
+            "mean_goal_bias": -0.087384,
+            "1.5": {
+              "brier": 0.160006,
+              "pred": 0.785237,
+              "actual": 0.792683
+            },
+            "2.5": {
+              "brier": 0.230717,
+              "pred": 0.561256,
+              "actual": 0.591463
+            },
+            "3.5": {
+              "brier": 0.211803,
+              "pred": 0.345011,
+              "actual": 0.353659
+            }
+          },
+          "outside_eight": {
+            "n": 122,
+            "U": -11.035,
+            "ROI": -9.045,
+            "NLL": -0.248297,
+            "MAE": 1.340212,
+            "line_brier": 0.55403,
+            "line_logloss": 0.839532,
+            "over_bias": 0.02392,
+            "mean_goal_bias": 0.062024,
+            "1.5": {
+              "brier": 0.170625,
+              "pred": 0.781965,
+              "actual": 0.762295
+            },
+            "2.5": {
+              "brier": 0.229083,
+              "pred": 0.556528,
+              "actual": 0.54918
+            },
+            "3.5": {
+              "brier": 0.194521,
+              "pred": 0.340441,
+              "actual": 0.311475
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 122,
+            "U": -12.08,
+            "ROI": -9.902,
+            "NLL": -0.344515,
+            "MAE": 1.457451,
+            "line_brier": 0.553944,
+            "line_logloss": 0.843753,
+            "over_bias": 8.3e-05,
+            "mean_goal_bias": -0.036099,
+            "1.5": {
+              "brier": 0.175532,
+              "pred": 0.784847,
+              "actual": 0.762295
+            },
+            "2.5": {
+              "brier": 0.234829,
+              "pred": 0.560621,
+              "actual": 0.54918
+            },
+            "3.5": {
+              "brier": 0.224335,
+              "pred": 0.344283,
+              "actual": 0.377049
+            }
+          }
+        },
+        "full": {
+          "all": {
+            "n": 164,
+            "U": 5.7,
+            "ROI": 3.476,
+            "NLL": -0.40524,
+            "MAE": 1.364278,
+            "line_brier": 0.559848,
+            "line_logloss": 0.852859,
+            "over_bias": -0.031287,
+            "mean_goal_bias": -0.145561,
+            "1.5": {
+              "brier": 0.158374,
+              "pred": 0.780831,
+              "actual": 0.792683
+            },
+            "2.5": {
+              "brier": 0.2297,
+              "pred": 0.551841,
+              "actual": 0.591463
+            },
+            "3.5": {
+              "brier": 0.212845,
+              "pred": 0.332614,
+              "actual": 0.353659
+            }
+          },
+          "outside_eight": {
+            "n": 122,
+            "U": 4.165,
+            "ROI": 3.414,
+            "NLL": -0.238738,
+            "MAE": 1.331965,
+            "line_brier": 0.554888,
+            "line_logloss": 0.840183,
+            "over_bias": 0.014168,
+            "mean_goal_bias": 0.011679,
+            "1.5": {
+              "brier": 0.17078,
+              "pred": 0.778596,
+              "actual": 0.762295
+            },
+            "2.5": {
+              "brier": 0.230022,
+              "pred": 0.54877,
+              "actual": 0.54918
+            },
+            "3.5": {
+              "brier": 0.195537,
+              "pred": 0.329818,
+              "actual": 0.311475
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 122,
+            "U": 9.915,
+            "ROI": 8.127,
+            "NLL": -0.348806,
+            "MAE": 1.43197,
+            "line_brier": 0.546213,
+            "line_logloss": 0.834952,
+            "over_bias": -0.010752,
+            "mean_goal_bias": -0.091027,
+            "1.5": {
+              "brier": 0.172393,
+              "pred": 0.780614,
+              "actual": 0.762295
+            },
+            "2.5": {
+              "brier": 0.230779,
+              "pred": 0.551632,
+              "actual": 0.54918
+            },
+            "3.5": {
+              "brier": 0.221995,
+              "pred": 0.332517,
+              "actual": 0.377049
+            }
+          }
+        },
+        "full_shot_efficiency": {
+          "all": {
+            "n": 164,
+            "U": 6.625,
+            "ROI": 4.04,
+            "NLL": -0.406397,
+            "MAE": 1.363864,
+            "line_brier": 0.55937,
+            "line_logloss": 0.852288,
+            "over_bias": -0.031249,
+            "mean_goal_bias": -0.145024,
+            "1.5": {
+              "brier": 0.158288,
+              "pred": 0.780727,
+              "actual": 0.792683
+            },
+            "2.5": {
+              "brier": 0.229501,
+              "pred": 0.551832,
+              "actual": 0.591463
+            },
+            "3.5": {
+              "brier": 0.212375,
+              "pred": 0.33274,
+              "actual": 0.353659
+            }
+          },
+          "outside_eight": {
+            "n": 122,
+            "U": 5.09,
+            "ROI": 4.172,
+            "NLL": -0.240535,
+            "MAE": 1.330652,
+            "line_brier": 0.553909,
+            "line_logloss": 0.839061,
+            "over_bias": 0.014142,
+            "mean_goal_bias": 0.011913,
+            "1.5": {
+              "brier": 0.170524,
+              "pred": 0.778457,
+              "actual": 0.762295
+            },
+            "2.5": {
+              "brier": 0.229522,
+              "pred": 0.548702,
+              "actual": 0.54918
+            },
+            "3.5": {
+              "brier": 0.194956,
+              "pred": 0.329878,
+              "actual": 0.311475
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 122,
+            "U": 10.79,
+            "ROI": 8.844,
+            "NLL": -0.349971,
+            "MAE": 1.429884,
+            "line_brier": 0.545248,
+            "line_logloss": 0.833824,
+            "over_bias": -0.010582,
+            "mean_goal_bias": -0.090026,
+            "1.5": {
+              "brier": 0.172178,
+              "pred": 0.780637,
+              "actual": 0.762295
+            },
+            "2.5": {
+              "brier": 0.230359,
+              "pred": 0.551769,
+              "actual": 0.54918
+            },
+            "3.5": {
+              "brier": 0.221523,
+              "pred": 0.332748,
+              "actual": 0.377049
+            }
+          }
+        }
+      }
+    },
+    "TC_common_sources": {
+      "n": 99,
+      "median_min_prior_effective": 1.943,
+      "models": {
+        "market_implied": {
+          "all": {
+            "n": 99,
+            "U": -11.755,
+            "ROI": -11.874,
+            "NLL": -0.113656,
+            "MAE": 1.271547,
+            "line_brier": 0.562081,
+            "line_logloss": 0.857076,
+            "over_bias": 0.037245,
+            "mean_goal_bias": 0.10264,
+            "1.5": {
+              "brier": 0.155602,
+              "pred": 0.78046,
+              "actual": 0.808081
+            },
+            "2.5": {
+              "brier": 0.243606,
+              "pred": 0.551539,
+              "actual": 0.535354
+            },
+            "3.5": {
+              "brier": 0.201263,
+              "pred": 0.332703,
+              "actual": 0.292929
+            }
+          },
+          "outside_eight": {
+            "n": 84,
+            "U": -12.33,
+            "ROI": -14.679,
+            "NLL": -0.148157,
+            "MAE": 1.297813,
+            "line_brier": 0.55696,
+            "line_logloss": 0.845722,
+            "over_bias": 0.036915,
+            "mean_goal_bias": 0.069092,
+            "1.5": {
+              "brier": 0.150081,
+              "pred": 0.781031,
+              "actual": 0.821429
+            },
+            "2.5": {
+              "brier": 0.246721,
+              "pred": 0.552406,
+              "actual": 0.52381
+            },
+            "3.5": {
+              "brier": 0.207884,
+              "pred": 0.333563,
+              "actual": 0.297619
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 50,
+            "U": -9.36,
+            "ROI": -18.72,
+            "NLL": 0.146718,
+            "MAE": 1.316585,
+            "line_brier": 0.55292,
+            "line_logloss": 0.832409,
+            "over_bias": 0.097683,
+            "mean_goal_bias": 0.33053,
+            "1.5": {
+              "brier": 0.176005,
+              "pred": 0.780866,
+              "actual": 0.78
+            },
+            "2.5": {
+              "brier": 0.251611,
+              "pred": 0.551866,
+              "actual": 0.48
+            },
+            "3.5": {
+              "brier": 0.189335,
+              "pred": 0.332728,
+              "actual": 0.22
+            }
+          }
+        },
+        "market": {
+          "all": {
+            "n": 99,
+            "U": -3.44,
+            "ROI": -3.475,
+            "NLL": -0.117692,
+            "MAE": 1.269,
+            "line_brier": 0.560273,
+            "line_logloss": 0.854944,
+            "over_bias": 0.038792,
+            "mean_goal_bias": 0.109711,
+            "1.5": {
+              "brier": 0.155281,
+              "pred": 0.781459,
+              "actual": 0.808081
+            },
+            "2.5": {
+              "brier": 0.242703,
+              "pred": 0.55312,
+              "actual": 0.535354
+            },
+            "3.5": {
+              "brier": 0.200047,
+              "pred": 0.334332,
+              "actual": 0.292929
+            }
+          },
+          "outside_eight": {
+            "n": 84,
+            "U": -3.915,
+            "ROI": -4.661,
+            "NLL": -0.151617,
+            "MAE": 1.295703,
+            "line_brier": 0.555512,
+            "line_logloss": 0.843932,
+            "over_bias": 0.038317,
+            "mean_goal_bias": 0.075513,
+            "1.5": {
+              "brier": 0.14977,
+              "pred": 0.781931,
+              "actual": 0.821429
+            },
+            "2.5": {
+              "brier": 0.246025,
+              "pred": 0.553834,
+              "actual": 0.52381
+            },
+            "3.5": {
+              "brier": 0.206735,
+              "pred": 0.335042,
+              "actual": 0.297619
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 50,
+            "U": -10.31,
+            "ROI": -20.62,
+            "NLL": 0.147002,
+            "MAE": 1.325099,
+            "line_brier": 0.55547,
+            "line_logloss": 0.83494,
+            "over_bias": 0.100832,
+            "mean_goal_bias": 0.34437,
+            "1.5": {
+              "brier": 0.17498,
+              "pred": 0.782989,
+              "actual": 0.78
+            },
+            "2.5": {
+              "brier": 0.252711,
+              "pred": 0.554996,
+              "actual": 0.48
+            },
+            "3.5": {
+              "brier": 0.190662,
+              "pred": 0.335811,
+              "actual": 0.22
+            }
+          }
+        },
+        "full": {
+          "all": {
+            "n": 99,
+            "U": 13.815,
+            "ROI": 13.955,
+            "NLL": -0.127631,
+            "MAE": 1.241738,
+            "line_brier": 0.547051,
+            "line_logloss": 0.839377,
+            "over_bias": 0.029241,
+            "mean_goal_bias": 0.06472,
+            "1.5": {
+              "brier": 0.154939,
+              "pred": 0.776262,
+              "actual": 0.808081
+            },
+            "2.5": {
+              "brier": 0.237474,
+              "pred": 0.544408,
+              "actual": 0.535354
+            },
+            "3.5": {
+              "brier": 0.194582,
+              "pred": 0.324566,
+              "actual": 0.292929
+            }
+          },
+          "outside_eight": {
+            "n": 84,
+            "U": 12.61,
+            "ROI": 15.012,
+            "NLL": -0.165406,
+            "MAE": 1.259103,
+            "line_brier": 0.539693,
+            "line_logloss": 0.826232,
+            "over_bias": 0.027454,
+            "mean_goal_bias": 0.025542,
+            "1.5": {
+              "brier": 0.148409,
+              "pred": 0.775762,
+              "actual": 0.821429
+            },
+            "2.5": {
+              "brier": 0.239397,
+              "pred": 0.543823,
+              "actual": 0.52381
+            },
+            "3.5": {
+              "brier": 0.199702,
+              "pred": 0.324131,
+              "actual": 0.297619
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 50,
+            "U": 11.625,
+            "ROI": 23.25,
+            "NLL": 0.134643,
+            "MAE": 1.277267,
+            "line_brier": 0.536227,
+            "line_logloss": 0.813408,
+            "over_bias": 0.09261,
+            "mean_goal_bias": 0.305567,
+            "1.5": {
+              "brier": 0.173082,
+              "pred": 0.778683,
+              "actual": 0.78
+            },
+            "2.5": {
+              "brier": 0.245334,
+              "pred": 0.547597,
+              "actual": 0.48
+            },
+            "3.5": {
+              "brier": 0.183732,
+              "pred": 0.327362,
+              "actual": 0.22
+            }
+          }
+        },
+        "full_shot_efficiency": {
+          "all": {
+            "n": 99,
+            "U": 15.81,
+            "ROI": 15.97,
+            "NLL": -0.126429,
+            "MAE": 1.243564,
+            "line_brier": 0.54801,
+            "line_logloss": 0.840484,
+            "over_bias": 0.028925,
+            "mean_goal_bias": 0.063756,
+            "1.5": {
+              "brier": 0.155275,
+              "pred": 0.775902,
+              "actual": 0.808081
+            },
+            "2.5": {
+              "brier": 0.238033,
+              "pred": 0.544049,
+              "actual": 0.535354
+            },
+            "3.5": {
+              "brier": 0.194865,
+              "pred": 0.32437,
+              "actual": 0.292929
+            }
+          },
+          "outside_eight": {
+            "n": 84,
+            "U": 14.605,
+            "ROI": 17.387,
+            "NLL": -0.164017,
+            "MAE": 1.26165,
+            "line_brier": 0.540915,
+            "line_logloss": 0.827578,
+            "over_bias": 0.027297,
+            "mean_goal_bias": 0.025244,
+            "1.5": {
+              "brier": 0.148811,
+              "pred": 0.775523,
+              "actual": 0.821429
+            },
+            "2.5": {
+              "brier": 0.240093,
+              "pred": 0.543628,
+              "actual": 0.52381
+            },
+            "3.5": {
+              "brier": 0.200141,
+              "pred": 0.324082,
+              "actual": 0.297619
+            }
+          },
+          "outside_previous_ESPN_TC_target": {
+            "n": 50,
+            "U": 12.66,
+            "ROI": 25.32,
+            "NLL": 0.136281,
+            "MAE": 1.279384,
+            "line_brier": 0.537323,
+            "line_logloss": 0.814712,
+            "over_bias": 0.092254,
+            "mean_goal_bias": 0.304313,
+            "1.5": {
+              "brier": 0.173339,
+              "pred": 0.778346,
+              "actual": 0.78
+            },
+            "2.5": {
+              "brier": 0.245865,
+              "pred": 0.547223,
+              "actual": 0.48
+            },
+            "3.5": {
+              "brier": 0.184345,
+              "pred": 0.327101,
+              "actual": 0.22
+            }
+          }
+        }
+      }
+    }
+  },
+  "all_market_only": {
+    "all": {
+      "n": 1393,
+      "U": -43.525,
+      "ROI": -3.125,
+      "NLL": -0.353005,
+      "MAE": 1.380535,
+      "line_brier": 0.565528,
+      "line_logloss": 0.865517,
+      "over_bias": -0.006786,
+      "mean_goal_bias": -0.00023,
+      "1.5": {
+        "brier": 0.161443,
+        "pred": 0.795386,
+        "actual": 0.793252
+      },
+      "2.5": {
+        "brier": 0.236258,
+        "pred": 0.574195,
+        "actual": 0.577889
+      },
+      "3.5": {
+        "brier": 0.216252,
+        "pred": 0.355861,
+        "actual": 0.353195
+      }
+    },
+    "outside_eight": {
+      "n": 1102,
+      "U": -32.82,
+      "ROI": -2.978,
+      "NLL": -0.348226,
+      "MAE": 1.383615,
+      "line_brier": 0.565184,
+      "line_logloss": 0.864909,
+      "over_bias": 0.001311,
+      "mean_goal_bias": 0.006486,
+      "1.5": {
+        "brier": 0.161383,
+        "pred": 0.795565,
+        "actual": 0.793103
+      },
+      "2.5": {
+        "brier": 0.235713,
+        "pred": 0.574298,
+        "actual": 0.572595
+      },
+      "3.5": {
+        "brier": 0.213568,
+        "pred": 0.355771,
+        "actual": 0.344828
+      }
+    },
+    "outside_previous_ESPN_TC_target": {
+      "n": 1163,
+      "U": -49.6,
+      "ROI": -4.265,
+      "NLL": -0.316252,
+      "MAE": 1.392074,
+      "line_brier": 0.563754,
+      "line_logloss": 0.862438,
+      "over_bias": -0.000604,
+      "mean_goal_bias": 0.022162,
+      "1.5": {
+        "brier": 0.16532,
+        "pred": 0.794354,
+        "actual": 0.787618
+      },
+      "2.5": {
+        "brier": 0.238219,
+        "pred": 0.572575,
+        "actual": 0.568358
+      },
+      "3.5": {
+        "brier": 0.217447,
+        "pred": 0.354145,
+        "actual": 0.349097
+      }
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}
