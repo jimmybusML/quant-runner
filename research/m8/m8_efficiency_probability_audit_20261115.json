@@ -1,0 +1,648 @@
+{
+  "method": "Predictive diagnostic only: existing T12 fixtures, identical previously tested forecasts, multiclass Brier and log loss averaged across Asian half-lines including pushes; fixed total thresholds and correlation of residuals and market-relative goal corrections. No model selection or policy change.",
+  "years": {
+    "2024": {
+      "metrics": {
+        "market": {
+          "n": 733,
+          "line_brier": 0.573945,
+          "line_logloss": 0.890599,
+          "over_bias": -0.006852,
+          "mean_goal_bias": -0.026133,
+          "1.5": {
+            "brier": 0.161328,
+            "pred": 0.769792,
+            "actual": 0.783083
+          },
+          "2.5": {
+            "brier": 0.228656,
+            "pred": 0.540762,
+            "actual": 0.544338
+          },
+          "3.5": {
+            "brier": 0.208674,
+            "pred": 0.326053,
+            "actual": 0.3397
+          }
+        },
+        "annual_legacy": {
+          "n": 733,
+          "line_brier": 0.574065,
+          "line_logloss": 0.890439,
+          "over_bias": -0.003964,
+          "mean_goal_bias": -0.010265,
+          "1.5": {
+            "brier": 0.161026,
+            "pred": 0.769947,
+            "actual": 0.783083
+          },
+          "2.5": {
+            "brier": 0.22749,
+            "pred": 0.542499,
+            "actual": 0.544338
+          },
+          "3.5": {
+            "brier": 0.210505,
+            "pred": 0.329349,
+            "actual": 0.3397
+          }
+        },
+        "annual_lag": {
+          "n": 733,
+          "line_brier": 0.574409,
+          "line_logloss": 0.890828,
+          "over_bias": -0.005273,
+          "mean_goal_bias": -0.015831,
+          "1.5": {
+            "brier": 0.16116,
+            "pred": 0.769008,
+            "actual": 0.783083
+          },
+          "2.5": {
+            "brier": 0.227648,
+            "pred": 0.541184,
+            "actual": 0.544338
+          },
+          "3.5": {
+            "brier": 0.21061,
+            "pred": 0.32811,
+            "actual": 0.3397
+          }
+        },
+        "quarterly": {
+          "n": 733,
+          "line_brier": 0.574759,
+          "line_logloss": 0.891216,
+          "over_bias": 0.000119,
+          "mean_goal_bias": 0.00998,
+          "1.5": {
+            "brier": 0.160706,
+            "pred": 0.77164,
+            "actual": 0.783083
+          },
+          "2.5": {
+            "brier": 0.227884,
+            "pred": 0.546051,
+            "actual": 0.544338
+          },
+          "3.5": {
+            "brier": 0.210332,
+            "pred": 0.333831,
+            "actual": 0.3397
+          }
+        },
+        "monthly": {
+          "n": 733,
+          "line_brier": 0.574931,
+          "line_logloss": 0.891416,
+          "over_bias": 0.000408,
+          "mean_goal_bias": 0.011491,
+          "1.5": {
+            "brier": 0.16067,
+            "pred": 0.771716,
+            "actual": 0.783083
+          },
+          "2.5": {
+            "brier": 0.227802,
+            "pred": 0.54628,
+            "actual": 0.544338
+          },
+          "3.5": {
+            "brier": 0.210343,
+            "pred": 0.334166,
+            "actual": 0.3397
+          }
+        },
+        "mean_goals": {
+          "n": 733,
+          "line_brier": 0.574515,
+          "line_logloss": 0.890932,
+          "over_bias": -0.001553,
+          "mean_goal_bias": 0.00188,
+          "1.5": {
+            "brier": 0.160795,
+            "pred": 0.770875,
+            "actual": 0.783083
+          },
+          "2.5": {
+            "brier": 0.22769,
+            "pred": 0.54457,
+            "actual": 0.544338
+          },
+          "3.5": {
+            "brier": 0.210342,
+            "pred": 0.332041,
+            "actual": 0.3397
+          }
+        }
+      },
+      "correlation": {
+        "annual_lag|quarterly": {
+          "residual_corr": 0.998774,
+          "market_correction_corr": 0.891776,
+          "mean_abs_goal_diff": 0.056869,
+          "side_agreement": 0.867667
+        },
+        "annual_lag|monthly": {
+          "residual_corr": 0.998558,
+          "market_correction_corr": 0.874357,
+          "mean_abs_goal_diff": 0.066505,
+          "side_agreement": 0.85266
+        },
+        "quarterly|monthly": {
+          "residual_corr": 0.999771,
+          "market_correction_corr": 0.98017,
+          "mean_abs_goal_diff": 0.019976,
+          "side_agreement": 0.971351
+        }
+      }
+    },
+    "2025": {
+      "metrics": {
+        "market": {
+          "n": 734,
+          "line_brier": 0.575691,
+          "line_logloss": 0.885176,
+          "over_bias": 0.018497,
+          "mean_goal_bias": 0.066105,
+          "1.5": {
+            "brier": 0.172829,
+            "pred": 0.757478,
+            "actual": 0.768392
+          },
+          "2.5": {
+            "brier": 0.242,
+            "pred": 0.52227,
+            "actual": 0.517711
+          },
+          "3.5": {
+            "brier": 0.193749,
+            "pred": 0.307374,
+            "actual": 0.276567
+          }
+        },
+        "annual_legacy": {
+          "n": 734,
+          "line_brier": 0.575121,
+          "line_logloss": 0.884533,
+          "over_bias": 0.01856,
+          "mean_goal_bias": 0.069724,
+          "1.5": {
+            "brier": 0.172215,
+            "pred": 0.755841,
+            "actual": 0.768392
+          },
+          "2.5": {
+            "brier": 0.241639,
+            "pred": 0.521737,
+            "actual": 0.517711
+          },
+          "3.5": {
+            "brier": 0.193354,
+            "pred": 0.308424,
+            "actual": 0.276567
+          }
+        },
+        "annual_lag": {
+          "n": 734,
+          "line_brier": 0.575218,
+          "line_logloss": 0.884649,
+          "over_bias": 0.018803,
+          "mean_goal_bias": 0.070848,
+          "1.5": {
+            "brier": 0.172226,
+            "pred": 0.755977,
+            "actual": 0.768392
+          },
+          "2.5": {
+            "brier": 0.241695,
+            "pred": 0.521963,
+            "actual": 0.517711
+          },
+          "3.5": {
+            "brier": 0.193404,
+            "pred": 0.308671,
+            "actual": 0.276567
+          }
+        },
+        "quarterly": {
+          "n": 734,
+          "line_brier": 0.574812,
+          "line_logloss": 0.88407,
+          "over_bias": 0.019422,
+          "mean_goal_bias": 0.07251,
+          "1.5": {
+            "brier": 0.172099,
+            "pred": 0.756818,
+            "actual": 0.768392
+          },
+          "2.5": {
+            "brier": 0.241234,
+            "pred": 0.522671,
+            "actual": 0.517711
+          },
+          "3.5": {
+            "brier": 0.193389,
+            "pred": 0.308945,
+            "actual": 0.276567
+          }
+        },
+        "monthly": {
+          "n": 734,
+          "line_brier": 0.574994,
+          "line_logloss": 0.884278,
+          "over_bias": 0.016874,
+          "mean_goal_bias": 0.061902,
+          "1.5": {
+            "brier": 0.172284,
+            "pred": 0.754923,
+            "actual": 0.768392
+          },
+          "2.5": {
+            "brier": 0.241433,
+            "pred": 0.520144,
+            "actual": 0.517711
+          },
+          "3.5": {
+            "brier": 0.193457,
+            "pred": 0.306654,
+            "actual": 0.276567
+          }
+        },
+        "mean_goals": {
+          "n": 734,
+          "line_brier": 0.574945,
+          "line_logloss": 0.884262,
+          "over_bias": 0.018376,
+          "mean_goal_bias": 0.06842,
+          "1.5": {
+            "brier": 0.172186,
+            "pred": 0.755935,
+            "actual": 0.768392
+          },
+          "2.5": {
+            "brier": 0.241424,
+            "pred": 0.521611,
+            "actual": 0.517711
+          },
+          "3.5": {
+            "brier": 0.19339,
+            "pred": 0.308087,
+            "actual": 0.276567
+          }
+        }
+      },
+      "correlation": {
+        "annual_lag|quarterly": {
+          "residual_corr": 0.999567,
+          "market_correction_corr": 0.963599,
+          "mean_abs_goal_diff": 0.029097,
+          "side_agreement": 0.916894
+        },
+        "annual_lag|monthly": {
+          "residual_corr": 0.99958,
+          "market_correction_corr": 0.964737,
+          "mean_abs_goal_diff": 0.032065,
+          "side_agreement": 0.899183
+        },
+        "quarterly|monthly": {
+          "residual_corr": 0.999776,
+          "market_correction_corr": 0.980366,
+          "mean_abs_goal_diff": 0.017836,
+          "side_agreement": 0.946866
+        }
+      }
+    },
+    "2026": {
+      "metrics": {
+        "market": {
+          "n": 550,
+          "line_brier": 0.567375,
+          "line_logloss": 0.86434,
+          "over_bias": 0.013742,
+          "mean_goal_bias": 0.058767,
+          "1.5": {
+            "brier": 0.167966,
+            "pred": 0.767393,
+            "actual": 0.783636
+          },
+          "2.5": {
+            "brier": 0.24423,
+            "pred": 0.535859,
+            "actual": 0.532727
+          },
+          "3.5": {
+            "brier": 0.205247,
+            "pred": 0.320169,
+            "actual": 0.290909
+          }
+        },
+        "annual_legacy": {
+          "n": 550,
+          "line_brier": 0.566069,
+          "line_logloss": 0.863406,
+          "over_bias": 0.008933,
+          "mean_goal_bias": 0.037502,
+          "1.5": {
+            "brier": 0.167375,
+            "pred": 0.764045,
+            "actual": 0.783636
+          },
+          "2.5": {
+            "brier": 0.243736,
+            "pred": 0.531215,
+            "actual": 0.532727
+          },
+          "3.5": {
+            "brier": 0.205302,
+            "pred": 0.315685,
+            "actual": 0.290909
+          }
+        },
+        "annual_lag": {
+          "n": 550,
+          "line_brier": 0.565843,
+          "line_logloss": 0.863234,
+          "over_bias": 0.003797,
+          "mean_goal_bias": 0.015558,
+          "1.5": {
+            "brier": 0.167454,
+            "pred": 0.760443,
+            "actual": 0.783636
+          },
+          "2.5": {
+            "brier": 0.24375,
+            "pred": 0.526217,
+            "actual": 0.532727
+          },
+          "3.5": {
+            "brier": 0.204999,
+            "pred": 0.310951,
+            "actual": 0.290909
+          }
+        },
+        "quarterly": {
+          "n": 550,
+          "line_brier": 0.566137,
+          "line_logloss": 0.863568,
+          "over_bias": 0.002887,
+          "mean_goal_bias": 0.010984,
+          "1.5": {
+            "brier": 0.167545,
+            "pred": 0.760028,
+            "actual": 0.783636
+          },
+          "2.5": {
+            "brier": 0.243579,
+            "pred": 0.525389,
+            "actual": 0.532727
+          },
+          "3.5": {
+            "brier": 0.205334,
+            "pred": 0.309935,
+            "actual": 0.290909
+          }
+        },
+        "monthly": {
+          "n": 550,
+          "line_brier": 0.566083,
+          "line_logloss": 0.863474,
+          "over_bias": 0.003568,
+          "mean_goal_bias": 0.013571,
+          "1.5": {
+            "brier": 0.167557,
+            "pred": 0.760588,
+            "actual": 0.783636
+          },
+          "2.5": {
+            "brier": 0.243619,
+            "pred": 0.526049,
+            "actual": 0.532727
+          },
+          "3.5": {
+            "brier": 0.205332,
+            "pred": 0.310465,
+            "actual": 0.290909
+          }
+        },
+        "mean_goals": {
+          "n": 550,
+          "line_brier": 0.565992,
+          "line_logloss": 0.863391,
+          "over_bias": 0.003422,
+          "mean_goal_bias": 0.013371,
+          "1.5": {
+            "brier": 0.16751,
+            "pred": 0.760367,
+            "actual": 0.783636
+          },
+          "2.5": {
+            "brier": 0.243636,
+            "pred": 0.525894,
+            "actual": 0.532727
+          },
+          "3.5": {
+            "brier": 0.205208,
+            "pred": 0.31045,
+            "actual": 0.290909
+          }
+        }
+      },
+      "correlation": {
+        "annual_lag|quarterly": {
+          "residual_corr": 0.99984,
+          "market_correction_corr": 0.974463,
+          "mean_abs_goal_diff": 0.016163,
+          "side_agreement": 0.950909
+        },
+        "annual_lag|monthly": {
+          "residual_corr": 0.999769,
+          "market_correction_corr": 0.965506,
+          "mean_abs_goal_diff": 0.025419,
+          "side_agreement": 0.936364
+        },
+        "quarterly|monthly": {
+          "residual_corr": 0.999912,
+          "market_correction_corr": 0.986376,
+          "mean_abs_goal_diff": 0.013291,
+          "side_agreement": 0.967273
+        }
+      }
+    }
+  },
+  "all": {
+    "metrics": {
+      "market": {
+        "n": 2017,
+        "line_brier": 0.572789,
+        "line_logloss": 0.881465,
+        "over_bias": 0.007988,
+        "mean_goal_bias": 0.030584,
+        "1.5": {
+          "brier": 0.167323,
+          "pred": 0.764657,
+          "actual": 0.777888
+        },
+        "2.5": {
+          "brier": 0.237759,
+          "pred": 0.532696,
+          "actual": 0.531482
+        },
+        "3.5": {
+          "brier": 0.202308,
+          "pred": 0.317651,
+          "actual": 0.303421
+        }
+      },
+      "annual_legacy": {
+        "n": 2017,
+        "line_brier": 0.572269,
+        "line_logloss": 0.880919,
+        "over_bias": 0.00775,
+        "mean_goal_bias": 0.031869,
+        "1.5": {
+          "brier": 0.166829,
+          "pred": 0.763204,
+          "actual": 0.777888
+        },
+        "2.5": {
+          "brier": 0.237069,
+          "pred": 0.531867,
+          "actual": 0.531482
+        },
+        "3.5": {
+          "brier": 0.202845,
+          "pred": 0.318008,
+          "actual": 0.303421
+        }
+      },
+      "annual_lag": {
+        "n": 2017,
+        "line_brier": 0.572368,
+        "line_logloss": 0.881055,
+        "over_bias": 0.005962,
+        "mean_goal_bias": 0.024272,
+        "1.5": {
+          "brier": 0.166903,
+          "pred": 0.761931,
+          "actual": 0.777888
+        },
+        "2.5": {
+          "brier": 0.237151,
+          "pred": 0.530108,
+          "actual": 0.531482
+        },
+        "3.5": {
+          "brier": 0.202819,
+          "pred": 0.316357,
+          "actual": 0.303421
+        }
+      },
+      "quarterly": {
+        "n": 2017,
+        "line_brier": 0.572427,
+        "line_logloss": 0.881077,
+        "over_bias": 0.007898,
+        "mean_goal_bias": 0.033009,
+        "1.5": {
+          "brier": 0.166717,
+          "pred": 0.76308,
+          "actual": 0.777888
+        },
+        "2.5": {
+          "brier": 0.237022,
+          "pred": 0.531909,
+          "actual": 0.531482
+        },
+        "3.5": {
+          "brier": 0.202803,
+          "pred": 0.318259,
+          "actual": 0.303421
+        }
+      },
+      "monthly": {
+        "n": 2017,
+        "line_brier": 0.572541,
+        "line_logloss": 0.881199,
+        "over_bias": 0.007262,
+        "mean_goal_bias": 0.030403,
+        "1.5": {
+          "brier": 0.166774,
+          "pred": 0.762571,
+          "actual": 0.777888
+        },
+        "2.5": {
+          "brier": 0.237075,
+          "pred": 0.531252,
+          "actual": 0.531482
+        },
+        "3.5": {
+          "brier": 0.202832,
+          "pred": 0.317691,
+          "actual": 0.303421
+        }
+      },
+      "mean_goals": {
+        "n": 2017,
+        "line_brier": 0.572348,
+        "line_logloss": 0.880994,
+        "over_bias": 0.007056,
+        "mean_goal_bias": 0.029228,
+        "1.5": {
+          "brier": 0.166771,
+          "pred": 0.762573,
+          "actual": 0.777888
+        },
+        "2.5": {
+          "brier": 0.237036,
+          "pred": 0.531123,
+          "actual": 0.531482
+        },
+        "3.5": {
+          "brier": 0.202773,
+          "pred": 0.317436,
+          "actual": 0.303421
+        }
+      }
+    },
+    "correlation": {
+      "annual_lag|quarterly": {
+        "residual_corr": 0.999303,
+        "market_correction_corr": 0.931142,
+        "mean_abs_goal_diff": 0.035663,
+        "side_agreement": 0.90828
+      },
+      "annual_lag|monthly": {
+        "residual_corr": 0.999186,
+        "market_correction_corr": 0.921429,
+        "mean_abs_goal_diff": 0.042769,
+        "side_agreement": 0.892414
+      },
+      "quarterly|monthly": {
+        "residual_corr": 0.999805,
+        "market_correction_corr": 0.981382,
+        "mean_abs_goal_diff": 0.017375,
+        "side_agreement": 0.961329
+      }
+    }
+  },
+  "archive_inventory": {
+    "confirmed_ESPN": 4122,
+    "TC": 409,
+    "union": 4480,
+    "ESPN_unconfirmed_cached_candidates": 0,
+    "latest_ESPN_date": "2026-11-03",
+    "latest_TC_date": "2026-09-12",
+    "MR1_archived_rows": 12550,
+    "MR1_AH_OU_received_at_least_12h_unique": 1537,
+    "same_id_in_test_sample": 67,
+    "same_id_in_confirmed_ESPN": 297,
+    "same_id_in_TC": 0,
+    "notes": "Receipt archive is historical and from MR1, used only to inspect coverage; no model or order mixing. Same ID does not verify quote/feature equivalence. No fresh API."
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}
