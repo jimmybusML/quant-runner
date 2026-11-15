@@ -1,0 +1,3894 @@
+{
+  "method": "Fixed existing TC efficiency model, exact same 263 replay rows. Coverage count categories descriptive only. Daily settled-date equity, no intraday capital or order sequence assumed. FID non-overlap scenario combines historical original eight with actual receipt replay, not production or validated unified simulation. Earlier TC archive distinct fixtures and different quote evidence retained separately.",
+  "all": {
+    "summary": {
+      "n": 263,
+      "U": 22.435,
+      "ROI": 8.53,
+      "positive": 143,
+      "negative": 111,
+      "zero": 9
+    },
+    "league": {
+      "Colombia Primera A": {
+        "n": 59,
+        "U": 4.18,
+        "ROI": 7.085,
+        "positive": 31,
+        "negative": 27,
+        "zero": 1
+      },
+      "England Premier League": {
+        "n": 12,
+        "U": 1.4,
+        "ROI": 11.667,
+        "positive": 7,
+        "negative": 5,
+        "zero": 0
+      },
+      "France Ligue 1": {
+        "n": 36,
+        "U": 2.18,
+        "ROI": 6.056,
+        "positive": 19,
+        "negative": 15,
+        "zero": 2
+      },
+      "Germany Bundesliga I": {
+        "n": 26,
+        "U": 4.795,
+        "ROI": 18.442,
+        "positive": 16,
+        "negative": 8,
+        "zero": 2
+      },
+      "Italy Serie A": {
+        "n": 30,
+        "U": 5.585,
+        "ROI": 18.617,
+        "positive": 18,
+        "negative": 11,
+        "zero": 1
+      },
+      "Japan J-League": {
+        "n": 60,
+        "U": 9.12,
+        "ROI": 15.2,
+        "positive": 35,
+        "negative": 23,
+        "zero": 2
+      },
+      "Saudi Arabia Pro League": {
+        "n": 26,
+        "U": -10.94,
+        "ROI": -42.077,
+        "positive": 7,
+        "negative": 18,
+        "zero": 1
+      },
+      "Spain La Liga": {
+        "n": 14,
+        "U": 6.115,
+        "ROI": 43.679,
+        "positive": 10,
+        "negative": 4,
+        "zero": 0
+      }
+    },
+    "weeks": {
+      "2026-W41": {
+        "n": 45,
+        "U": -5.8,
+        "ROI": -12.889,
+        "positive": 19,
+        "negative": 22,
+        "zero": 4
+      },
+      "2026-W42": {
+        "n": 39,
+        "U": 4.485,
+        "ROI": 11.5,
+        "positive": 23,
+        "negative": 16,
+        "zero": 0
+      },
+      "2026-W43": {
+        "n": 60,
+        "U": 6.985,
+        "ROI": 11.642,
+        "positive": 33,
+        "negative": 25,
+        "zero": 2
+      },
+      "2026-W44": {
+        "n": 51,
+        "U": -0.235,
+        "ROI": -0.461,
+        "positive": 25,
+        "negative": 25,
+        "zero": 1
+      },
+      "2026-W45": {
+        "n": 65,
+        "U": 14.29,
+        "ROI": 21.985,
+        "positive": 40,
+        "negative": 23,
+        "zero": 2
+      },
+      "2026-W46": {
+        "n": 3,
+        "U": 2.71,
+        "ROI": 90.333,
+        "positive": 3,
+        "negative": 0,
+        "zero": 0
+      }
+    },
+    "equity": {
+      "max_daily_drawdown_U": 9.075,
+      "peak_date": "2026-10-25",
+      "trough_date": "2026-10-31",
+      "series": [
+        {
+          "date": "2026-10-09",
+          "daily_U": -0.79,
+          "cumulative_U": -0.79
+        },
+        {
+          "date": "2026-10-10",
+          "daily_U": -4.205,
+          "cumulative_U": -4.995
+        },
+        {
+          "date": "2026-10-11",
+          "daily_U": -0.805,
+          "cumulative_U": -5.8
+        },
+        {
+          "date": "2026-10-12",
+          "daily_U": -0.21,
+          "cumulative_U": -6.01
+        },
+        {
+          "date": "2026-10-13",
+          "daily_U": 0.5,
+          "cumulative_U": -5.51
+        },
+        {
+          "date": "2026-10-14",
+          "daily_U": 0.8,
+          "cumulative_U": -4.71
+        },
+        {
+          "date": "2026-10-15",
+          "daily_U": -0.04,
+          "cumulative_U": -4.75
+        },
+        {
+          "date": "2026-10-16",
+          "daily_U": 1.79,
+          "cumulative_U": -2.96
+        },
+        {
+          "date": "2026-10-17",
+          "daily_U": -0.26,
+          "cumulative_U": -3.22
+        },
+        {
+          "date": "2026-10-18",
+          "daily_U": 1.905,
+          "cumulative_U": -1.315
+        },
+        {
+          "date": "2026-10-19",
+          "daily_U": -2.01,
+          "cumulative_U": -3.325
+        },
+        {
+          "date": "2026-10-20",
+          "daily_U": 0.38,
+          "cumulative_U": -2.945
+        },
+        {
+          "date": "2026-10-21",
+          "daily_U": 4.67,
+          "cumulative_U": 1.725
+        },
+        {
+          "date": "2026-10-22",
+          "daily_U": -0.01,
+          "cumulative_U": 1.715
+        },
+        {
+          "date": "2026-10-23",
+          "daily_U": -2.2,
+          "cumulative_U": -0.485
+        },
+        {
+          "date": "2026-10-24",
+          "daily_U": 2.55,
+          "cumulative_U": 2.065
+        },
+        {
+          "date": "2026-10-25",
+          "daily_U": 3.605,
+          "cumulative_U": 5.67
+        },
+        {
+          "date": "2026-10-26",
+          "daily_U": -1.09,
+          "cumulative_U": 4.58
+        },
+        {
+          "date": "2026-10-27",
+          "daily_U": 0.37,
+          "cumulative_U": 4.95
+        },
+        {
+          "date": "2026-10-28",
+          "daily_U": 0.4,
+          "cumulative_U": 5.35
+        },
+        {
+          "date": "2026-10-29",
+          "daily_U": -4.0,
+          "cumulative_U": 1.35
+        },
+        {
+          "date": "2026-10-30",
+          "daily_U": -2.19,
+          "cumulative_U": -0.84
+        },
+        {
+          "date": "2026-10-31",
+          "daily_U": -2.565,
+          "cumulative_U": -3.405
+        },
+        {
+          "date": "2026-11-01",
+          "daily_U": 8.84,
+          "cumulative_U": 5.435
+        },
+        {
+          "date": "2026-11-02",
+          "daily_U": -0.515,
+          "cumulative_U": 4.92
+        },
+        {
+          "date": "2026-11-03",
+          "daily_U": 0.86,
+          "cumulative_U": 5.78
+        },
+        {
+          "date": "2026-11-06",
+          "daily_U": -3.02,
+          "cumulative_U": 2.76
+        },
+        {
+          "date": "2026-11-07",
+          "daily_U": 7.15,
+          "cumulative_U": 9.91
+        },
+        {
+          "date": "2026-11-08",
+          "daily_U": 9.815,
+          "cumulative_U": 19.725
+        },
+        {
+          "date": "2026-11-09",
+          "daily_U": 0.92,
+          "cumulative_U": 20.645
+        },
+        {
+          "date": "2026-11-10",
+          "daily_U": 0.92,
+          "cumulative_U": 21.565
+        },
+        {
+          "date": "2026-11-13",
+          "daily_U": 0.87,
+          "cumulative_U": 22.435
+        }
+      ]
+    },
+    "counts": {
+      "1": {
+        "n": 28,
+        "U": 4.975,
+        "ROI": 17.768,
+        "positive": 17,
+        "negative": 11,
+        "zero": 0
+      },
+      "2-3": {
+        "n": 168,
+        "U": 15.485,
+        "ROI": 9.217,
+        "positive": 91,
+        "negative": 72,
+        "zero": 5
+      },
+      "4+": {
+        "n": 67,
+        "U": 1.975,
+        "ROI": 2.948,
+        "positive": 35,
+        "negative": 28,
+        "zero": 4
+      }
+    },
+    "median_min_effective": 1.814,
+    "median_oldest_last_days": 77.0
+  },
+  "outside_eight": {
+    "summary": {
+      "n": 206,
+      "U": 19.695,
+      "ROI": 9.561,
+      "positive": 114,
+      "negative": 87,
+      "zero": 5
+    },
+    "league": {
+      "Colombia Primera A": {
+        "n": 49,
+        "U": 5.07,
+        "ROI": 10.347,
+        "positive": 27,
+        "negative": 22,
+        "zero": 0
+      },
+      "England Premier League": {
+        "n": 11,
+        "U": 0.51,
+        "ROI": 4.636,
+        "positive": 6,
+        "negative": 5,
+        "zero": 0
+      },
+      "France Ligue 1": {
+        "n": 32,
+        "U": 3.86,
+        "ROI": 12.062,
+        "positive": 18,
+        "negative": 12,
+        "zero": 2
+      },
+      "Germany Bundesliga I": {
+        "n": 20,
+        "U": 4.095,
+        "ROI": 20.475,
+        "positive": 13,
+        "negative": 6,
+        "zero": 1
+      },
+      "Italy Serie A": {
+        "n": 25,
+        "U": 3.99,
+        "ROI": 15.96,
+        "positive": 15,
+        "negative": 10,
+        "zero": 0
+      },
+      "Japan J-League": {
+        "n": 42,
+        "U": 3.715,
+        "ROI": 8.845,
+        "positive": 23,
+        "negative": 18,
+        "zero": 1
+      },
+      "Saudi Arabia Pro League": {
+        "n": 14,
+        "U": -6.68,
+        "ROI": -47.714,
+        "positive": 3,
+        "negative": 10,
+        "zero": 1
+      },
+      "Spain La Liga": {
+        "n": 13,
+        "U": 5.135,
+        "ROI": 39.5,
+        "positive": 9,
+        "negative": 4,
+        "zero": 0
+      }
+    },
+    "weeks": {
+      "2026-W41": {
+        "n": 34,
+        "U": -6.615,
+        "ROI": -19.456,
+        "positive": 13,
+        "negative": 18,
+        "zero": 3
+      },
+      "2026-W42": {
+        "n": 25,
+        "U": 1.365,
+        "ROI": 5.46,
+        "positive": 14,
+        "negative": 11,
+        "zero": 0
+      },
+      "2026-W43": {
+        "n": 44,
+        "U": 5.2,
+        "ROI": 11.818,
+        "positive": 24,
+        "negative": 19,
+        "zero": 1
+      },
+      "2026-W44": {
+        "n": 37,
+        "U": 3.725,
+        "ROI": 10.068,
+        "positive": 21,
+        "negative": 16,
+        "zero": 0
+      },
+      "2026-W45": {
+        "n": 63,
+        "U": 13.31,
+        "ROI": 21.127,
+        "positive": 39,
+        "negative": 23,
+        "zero": 1
+      },
+      "2026-W46": {
+        "n": 3,
+        "U": 2.71,
+        "ROI": 90.333,
+        "positive": 3,
+        "negative": 0,
+        "zero": 0
+      }
+    },
+    "equity": {
+      "max_daily_drawdown_U": 7.715,
+      "peak_date": null,
+      "trough_date": "2026-10-12",
+      "series": [
+        {
+          "date": "2026-10-09",
+          "daily_U": -3.5,
+          "cumulative_U": -3.5
+        },
+        {
+          "date": "2026-10-10",
+          "daily_U": -1.49,
+          "cumulative_U": -4.99
+        },
+        {
+          "date": "2026-10-11",
+          "daily_U": -1.625,
+          "cumulative_U": -6.615
+        },
+        {
+          "date": "2026-10-12",
+          "daily_U": -1.1,
+          "cumulative_U": -7.715
+        },
+        {
+          "date": "2026-10-14",
+          "daily_U": 0.8,
+          "cumulative_U": -6.915
+        },
+        {
+          "date": "2026-10-16",
+          "daily_U": 0.95,
+          "cumulative_U": -5.965
+        },
+        {
+          "date": "2026-10-17",
+          "daily_U": 0.18,
+          "cumulative_U": -5.785
+        },
+        {
+          "date": "2026-10-18",
+          "daily_U": 0.535,
+          "cumulative_U": -5.25
+        },
+        {
+          "date": "2026-10-19",
+          "daily_U": -2.0,
+          "cumulative_U": -7.25
+        },
+        {
+          "date": "2026-10-20",
+          "daily_U": 1.38,
+          "cumulative_U": -5.87
+        },
+        {
+          "date": "2026-10-21",
+          "daily_U": 1.63,
+          "cumulative_U": -4.24
+        },
+        {
+          "date": "2026-10-22",
+          "daily_U": 0.99,
+          "cumulative_U": -3.25
+        },
+        {
+          "date": "2026-10-23",
+          "daily_U": -0.7,
+          "cumulative_U": -3.95
+        },
+        {
+          "date": "2026-10-24",
+          "daily_U": 1.66,
+          "cumulative_U": -2.29
+        },
+        {
+          "date": "2026-10-25",
+          "daily_U": 2.24,
+          "cumulative_U": -0.05
+        },
+        {
+          "date": "2026-10-26",
+          "daily_U": -1.09,
+          "cumulative_U": -1.14
+        },
+        {
+          "date": "2026-10-27",
+          "daily_U": 0.87,
+          "cumulative_U": -0.27
+        },
+        {
+          "date": "2026-10-28",
+          "daily_U": 0.4,
+          "cumulative_U": 0.13
+        },
+        {
+          "date": "2026-10-29",
+          "daily_U": -2.0,
+          "cumulative_U": -1.87
+        },
+        {
+          "date": "2026-10-30",
+          "daily_U": -1.02,
+          "cumulative_U": -2.89
+        },
+        {
+          "date": "2026-10-31",
+          "daily_U": -2.035,
+          "cumulative_U": -4.925
+        },
+        {
+          "date": "2026-11-01",
+          "daily_U": 8.6,
+          "cumulative_U": 3.675
+        },
+        {
+          "date": "2026-11-02",
+          "daily_U": -1.495,
+          "cumulative_U": 2.18
+        },
+        {
+          "date": "2026-11-03",
+          "daily_U": 0.86,
+          "cumulative_U": 3.04
+        },
+        {
+          "date": "2026-11-06",
+          "daily_U": -3.02,
+          "cumulative_U": 0.02
+        },
+        {
+          "date": "2026-11-07",
+          "daily_U": 7.15,
+          "cumulative_U": 7.17
+        },
+        {
+          "date": "2026-11-08",
+          "daily_U": 9.815,
+          "cumulative_U": 16.985
+        },
+        {
+          "date": "2026-11-09",
+          "daily_U": 0.92,
+          "cumulative_U": 17.905
+        },
+        {
+          "date": "2026-11-10",
+          "daily_U": 0.92,
+          "cumulative_U": 18.825
+        },
+        {
+          "date": "2026-11-13",
+          "daily_U": 0.87,
+          "cumulative_U": 19.695
+        }
+      ]
+    },
+    "counts": {
+      "1": {
+        "n": 24,
+        "U": 2.14,
+        "ROI": 8.917,
+        "positive": 13,
+        "negative": 11,
+        "zero": 0
+      },
+      "2-3": {
+        "n": 128,
+        "U": 11.6,
+        "ROI": 9.062,
+        "positive": 70,
+        "negative": 56,
+        "zero": 2
+      },
+      "4+": {
+        "n": 54,
+        "U": 5.955,
+        "ROI": 11.028,
+        "positive": 31,
+        "negative": 20,
+        "zero": 3
+      }
+    },
+    "median_min_effective": 1.773,
+    "median_oldest_last_days": 77.0
+  },
+  "leave_one_league": {
+    "Colombia Primera A": {
+      "n": 204,
+      "U": 18.255,
+      "ROI": 8.949,
+      "positive": 112,
+      "negative": 84,
+      "zero": 8
+    },
+    "England Premier League": {
+      "n": 251,
+      "U": 21.035,
+      "ROI": 8.38,
+      "positive": 136,
+      "negative": 106,
+      "zero": 9
+    },
+    "France Ligue 1": {
+      "n": 227,
+      "U": 20.255,
+      "ROI": 8.923,
+      "positive": 124,
+      "negative": 96,
+      "zero": 7
+    },
+    "Germany Bundesliga I": {
+      "n": 237,
+      "U": 17.64,
+      "ROI": 7.443,
+      "positive": 127,
+      "negative": 103,
+      "zero": 7
+    },
+    "Italy Serie A": {
+      "n": 233,
+      "U": 16.85,
+      "ROI": 7.232,
+      "positive": 125,
+      "negative": 100,
+      "zero": 8
+    },
+    "Japan J-League": {
+      "n": 203,
+      "U": 13.315,
+      "ROI": 6.559,
+      "positive": 108,
+      "negative": 88,
+      "zero": 7
+    },
+    "Saudi Arabia Pro League": {
+      "n": 237,
+      "U": 33.375,
+      "ROI": 14.082,
+      "positive": 136,
+      "negative": 93,
+      "zero": 8
+    },
+    "Spain La Liga": {
+      "n": 249,
+      "U": 16.32,
+      "ROI": 6.554,
+      "positive": 133,
+      "negative": 107,
+      "zero": 9
+    }
+  },
+  "old_TC": {
+    "all": {
+      "n": 353,
+      "U": -19.335,
+      "ROI": -5.477,
+      "positive": 161,
+      "negative": 177,
+      "zero": 15
+    },
+    "year": {
+      "2023": {
+        "n": 89,
+        "U": -10.45,
+        "ROI": -11.742,
+        "positive": 36,
+        "negative": 46,
+        "zero": 7
+      },
+      "2025": {
+        "n": 86,
+        "U": -1.975,
+        "ROI": -2.297,
+        "positive": 40,
+        "negative": 44,
+        "zero": 2
+      },
+      "2026": {
+        "n": 178,
+        "U": -6.91,
+        "ROI": -3.882,
+        "positive": 85,
+        "negative": 87,
+        "zero": 6
+      }
+    },
+    "outside_eight": {
+      "n": 279,
+      "U": -7.99,
+      "ROI": -2.864,
+      "positive": 130,
+      "negative": 136,
+      "zero": 13
+    },
+    "outside_by_year": {
+      "2023": {
+        "n": 74,
+        "U": -7.15,
+        "ROI": -9.662,
+        "positive": 30,
+        "negative": 37,
+        "zero": 7
+      },
+      "2025": {
+        "n": 71,
+        "U": -2.025,
+        "ROI": -2.852,
+        "positive": 33,
+        "negative": 37,
+        "zero": 1
+      },
+      "2026": {
+        "n": 134,
+        "U": 1.185,
+        "ROI": 0.884,
+        "positive": 67,
+        "negative": 62,
+        "zero": 5
+      }
+    }
+  },
+  "combination": {
+    "full_2026": {
+      "base": {
+        "n": 2218,
+        "U": 99.82,
+        "ROI": 4.5,
+        "positive": 1157,
+        "negative": 926,
+        "zero": 135
+      },
+      "add": {
+        "n": 206,
+        "U": 19.695,
+        "ROI": 9.561,
+        "positive": 114,
+        "negative": 87,
+        "zero": 5
+      },
+      "combined": {
+        "n": 2424,
+        "U": 119.515,
+        "ROI": 4.93,
+        "positive": 1271,
+        "negative": 1013,
+        "zero": 140
+      },
+      "base_dd": {
+        "max_daily_drawdown_U": 16.975,
+        "peak_date": "2026-08-02",
+        "trough_date": "2026-08-21",
+        "series": [
+          {
+            "date": "2026-01-02",
+            "daily_U": 0.21,
+            "cumulative_U": 0.21
+          },
+          {
+            "date": "2026-01-03",
+            "daily_U": 0.72,
+            "cumulative_U": 0.93
+          },
+          {
+            "date": "2026-01-04",
+            "daily_U": 3.15,
+            "cumulative_U": 4.08
+          },
+          {
+            "date": "2026-01-05",
+            "daily_U": -1.0,
+            "cumulative_U": 3.08
+          },
+          {
+            "date": "2026-01-06",
+            "daily_U": 0.08,
+            "cumulative_U": 3.16
+          },
+          {
+            "date": "2026-01-07",
+            "daily_U": 1.48,
+            "cumulative_U": 4.64
+          },
+          {
+            "date": "2026-01-08",
+            "daily_U": -1.0,
+            "cumulative_U": 3.64
+          },
+          {
+            "date": "2026-01-09",
+            "daily_U": -0.18,
+            "cumulative_U": 3.46
+          },
+          {
+            "date": "2026-01-10",
+            "daily_U": -0.44,
+            "cumulative_U": 3.02
+          },
+          {
+            "date": "2026-01-11",
+            "daily_U": -1.58,
+            "cumulative_U": 1.44
+          },
+          {
+            "date": "2026-01-12",
+            "daily_U": -0.03,
+            "cumulative_U": 1.41
+          },
+          {
+            "date": "2026-01-13",
+            "daily_U": -3.51,
+            "cumulative_U": -2.1
+          },
+          {
+            "date": "2026-01-14",
+            "daily_U": -1.0,
+            "cumulative_U": -3.1
+          },
+          {
+            "date": "2026-01-16",
+            "daily_U": -1.13,
+            "cumulative_U": -4.23
+          },
+          {
+            "date": "2026-01-17",
+            "daily_U": -1.61,
+            "cumulative_U": -5.84
+          },
+          {
+            "date": "2026-01-18",
+            "daily_U": 4.77,
+            "cumulative_U": -1.07
+          },
+          {
+            "date": "2026-01-19",
+            "daily_U": 0.27,
+            "cumulative_U": -0.8
+          },
+          {
+            "date": "2026-01-20",
+            "daily_U": -1.0,
+            "cumulative_U": -1.8
+          },
+          {
+            "date": "2026-01-22",
+            "daily_U": 0.82,
+            "cumulative_U": -0.98
+          },
+          {
+            "date": "2026-01-23",
+            "daily_U": -2.59,
+            "cumulative_U": -3.57
+          },
+          {
+            "date": "2026-01-24",
+            "daily_U": 1.59,
+            "cumulative_U": -1.98
+          },
+          {
+            "date": "2026-01-25",
+            "daily_U": 0.35,
+            "cumulative_U": -1.63
+          },
+          {
+            "date": "2026-01-26",
+            "daily_U": 3.515,
+            "cumulative_U": 1.885
+          },
+          {
+            "date": "2026-01-27",
+            "daily_U": 0.88,
+            "cumulative_U": 2.765
+          },
+          {
+            "date": "2026-01-28",
+            "daily_U": -0.585,
+            "cumulative_U": 2.18
+          },
+          {
+            "date": "2026-01-30",
+            "daily_U": -0.54,
+            "cumulative_U": 1.64
+          },
+          {
+            "date": "2026-01-31",
+            "daily_U": -0.145,
+            "cumulative_U": 1.495
+          },
+          {
+            "date": "2026-02-01",
+            "daily_U": -4.23,
+            "cumulative_U": -2.735
+          },
+          {
+            "date": "2026-02-02",
+            "daily_U": -0.25,
+            "cumulative_U": -2.985
+          },
+          {
+            "date": "2026-02-03",
+            "daily_U": 0.85,
+            "cumulative_U": -2.135
+          },
+          {
+            "date": "2026-02-04",
+            "daily_U": -0.65,
+            "cumulative_U": -2.785
+          },
+          {
+            "date": "2026-02-05",
+            "daily_U": -0.94,
+            "cumulative_U": -3.725
+          },
+          {
+            "date": "2026-02-06",
+            "daily_U": 1.74,
+            "cumulative_U": -1.985
+          },
+          {
+            "date": "2026-02-07",
+            "daily_U": -6.11,
+            "cumulative_U": -8.095
+          },
+          {
+            "date": "2026-02-08",
+            "daily_U": 1.95,
+            "cumulative_U": -6.145
+          },
+          {
+            "date": "2026-02-09",
+            "daily_U": -1.95,
+            "cumulative_U": -8.095
+          },
+          {
+            "date": "2026-02-10",
+            "daily_U": 0.75,
+            "cumulative_U": -7.345
+          },
+          {
+            "date": "2026-02-11",
+            "daily_U": 2.31,
+            "cumulative_U": -5.035
+          },
+          {
+            "date": "2026-02-12",
+            "daily_U": -0.7,
+            "cumulative_U": -5.735
+          },
+          {
+            "date": "2026-02-13",
+            "daily_U": 4.24,
+            "cumulative_U": -1.495
+          },
+          {
+            "date": "2026-02-14",
+            "daily_U": 7.22,
+            "cumulative_U": 5.725
+          },
+          {
+            "date": "2026-02-15",
+            "daily_U": 1.585,
+            "cumulative_U": 7.31
+          },
+          {
+            "date": "2026-02-16",
+            "daily_U": -0.19,
+            "cumulative_U": 7.12
+          },
+          {
+            "date": "2026-02-17",
+            "daily_U": 0.86,
+            "cumulative_U": 7.98
+          },
+          {
+            "date": "2026-02-18",
+            "daily_U": -1.0,
+            "cumulative_U": 6.98
+          },
+          {
+            "date": "2026-02-19",
+            "daily_U": 1.03,
+            "cumulative_U": 8.01
+          },
+          {
+            "date": "2026-02-20",
+            "daily_U": 3.23,
+            "cumulative_U": 11.24
+          },
+          {
+            "date": "2026-02-21",
+            "daily_U": 0.165,
+            "cumulative_U": 11.405
+          },
+          {
+            "date": "2026-02-22",
+            "daily_U": -7.49,
+            "cumulative_U": 3.915
+          },
+          {
+            "date": "2026-02-23",
+            "daily_U": -0.34,
+            "cumulative_U": 3.575
+          },
+          {
+            "date": "2026-02-24",
+            "daily_U": 0.82,
+            "cumulative_U": 4.395
+          },
+          {
+            "date": "2026-02-25",
+            "daily_U": -1.17,
+            "cumulative_U": 3.225
+          },
+          {
+            "date": "2026-02-26",
+            "daily_U": -1.0,
+            "cumulative_U": 2.225
+          },
+          {
+            "date": "2026-02-27",
+            "daily_U": -0.59,
+            "cumulative_U": 1.635
+          },
+          {
+            "date": "2026-02-28",
+            "daily_U": 3.455,
+            "cumulative_U": 5.09
+          },
+          {
+            "date": "2026-03-01",
+            "daily_U": 11.225,
+            "cumulative_U": 16.315
+          },
+          {
+            "date": "2026-03-02",
+            "daily_U": 1.55,
+            "cumulative_U": 17.865
+          },
+          {
+            "date": "2026-03-03",
+            "daily_U": 2.82,
+            "cumulative_U": 20.685
+          },
+          {
+            "date": "2026-03-04",
+            "daily_U": 0.0,
+            "cumulative_U": 20.685
+          },
+          {
+            "date": "2026-03-05",
+            "daily_U": 0.97,
+            "cumulative_U": 21.655
+          },
+          {
+            "date": "2026-03-06",
+            "daily_U": -1.14,
+            "cumulative_U": 20.515
+          },
+          {
+            "date": "2026-03-07",
+            "daily_U": 5.265,
+            "cumulative_U": 25.78
+          },
+          {
+            "date": "2026-03-08",
+            "daily_U": -0.46,
+            "cumulative_U": 25.32
+          },
+          {
+            "date": "2026-03-09",
+            "daily_U": -0.84,
+            "cumulative_U": 24.48
+          },
+          {
+            "date": "2026-03-10",
+            "daily_U": -3.5,
+            "cumulative_U": 20.98
+          },
+          {
+            "date": "2026-03-11",
+            "daily_U": -2.76,
+            "cumulative_U": 18.22
+          },
+          {
+            "date": "2026-03-12",
+            "daily_U": 1.365,
+            "cumulative_U": 19.585
+          },
+          {
+            "date": "2026-03-13",
+            "daily_U": 1.5,
+            "cumulative_U": 21.085
+          },
+          {
+            "date": "2026-03-14",
+            "daily_U": -3.125,
+            "cumulative_U": 17.96
+          },
+          {
+            "date": "2026-03-15",
+            "daily_U": 2.42,
+            "cumulative_U": 20.38
+          },
+          {
+            "date": "2026-03-16",
+            "daily_U": -0.56,
+            "cumulative_U": 19.82
+          },
+          {
+            "date": "2026-03-17",
+            "daily_U": 0.9,
+            "cumulative_U": 20.72
+          },
+          {
+            "date": "2026-03-18",
+            "daily_U": 1.67,
+            "cumulative_U": 22.39
+          },
+          {
+            "date": "2026-03-19",
+            "daily_U": 0.84,
+            "cumulative_U": 23.23
+          },
+          {
+            "date": "2026-03-20",
+            "daily_U": -0.745,
+            "cumulative_U": 22.485
+          },
+          {
+            "date": "2026-03-21",
+            "daily_U": 1.09,
+            "cumulative_U": 23.575
+          },
+          {
+            "date": "2026-03-22",
+            "daily_U": 3.93,
+            "cumulative_U": 27.505
+          },
+          {
+            "date": "2026-03-24",
+            "daily_U": 0.43,
+            "cumulative_U": 27.935
+          },
+          {
+            "date": "2026-03-27",
+            "daily_U": -2.0,
+            "cumulative_U": 25.935
+          },
+          {
+            "date": "2026-03-28",
+            "daily_U": -0.14,
+            "cumulative_U": 25.795
+          },
+          {
+            "date": "2026-03-29",
+            "daily_U": 1.45,
+            "cumulative_U": 27.245
+          },
+          {
+            "date": "2026-03-30",
+            "daily_U": 0.435,
+            "cumulative_U": 27.68
+          },
+          {
+            "date": "2026-04-01",
+            "daily_U": 0.38,
+            "cumulative_U": 28.06
+          },
+          {
+            "date": "2026-04-02",
+            "daily_U": -0.12,
+            "cumulative_U": 27.94
+          },
+          {
+            "date": "2026-04-03",
+            "daily_U": 0.845,
+            "cumulative_U": 28.785
+          },
+          {
+            "date": "2026-04-04",
+            "daily_U": 4.43,
+            "cumulative_U": 33.215
+          },
+          {
+            "date": "2026-04-05",
+            "daily_U": 2.915,
+            "cumulative_U": 36.13
+          },
+          {
+            "date": "2026-04-06",
+            "daily_U": 2.835,
+            "cumulative_U": 38.965
+          },
+          {
+            "date": "2026-04-07",
+            "daily_U": 0.3,
+            "cumulative_U": 39.265
+          },
+          {
+            "date": "2026-04-08",
+            "daily_U": -0.88,
+            "cumulative_U": 38.385
+          },
+          {
+            "date": "2026-04-09",
+            "daily_U": 0.9,
+            "cumulative_U": 39.285
+          },
+          {
+            "date": "2026-04-10",
+            "daily_U": 3.72,
+            "cumulative_U": 43.005
+          },
+          {
+            "date": "2026-04-11",
+            "daily_U": -9.97,
+            "cumulative_U": 33.035
+          },
+          {
+            "date": "2026-04-12",
+            "daily_U": 1.65,
+            "cumulative_U": 34.685
+          },
+          {
+            "date": "2026-04-13",
+            "daily_U": 2.17,
+            "cumulative_U": 36.855
+          },
+          {
+            "date": "2026-04-14",
+            "daily_U": -0.51,
+            "cumulative_U": 36.345
+          },
+          {
+            "date": "2026-04-15",
+            "daily_U": 1.03,
+            "cumulative_U": 37.375
+          },
+          {
+            "date": "2026-04-16",
+            "daily_U": -2.0,
+            "cumulative_U": 35.375
+          },
+          {
+            "date": "2026-04-17",
+            "daily_U": -2.17,
+            "cumulative_U": 33.205
+          },
+          {
+            "date": "2026-04-18",
+            "daily_U": -4.06,
+            "cumulative_U": 29.145
+          },
+          {
+            "date": "2026-04-19",
+            "daily_U": 4.91,
+            "cumulative_U": 34.055
+          },
+          {
+            "date": "2026-04-20",
+            "daily_U": 0.25,
+            "cumulative_U": 34.305
+          },
+          {
+            "date": "2026-04-21",
+            "daily_U": 0.175,
+            "cumulative_U": 34.48
+          },
+          {
+            "date": "2026-04-22",
+            "daily_U": 4.11,
+            "cumulative_U": 38.59
+          },
+          {
+            "date": "2026-04-23",
+            "daily_U": -0.12,
+            "cumulative_U": 38.47
+          },
+          {
+            "date": "2026-04-24",
+            "daily_U": 2.68,
+            "cumulative_U": 41.15
+          },
+          {
+            "date": "2026-04-25",
+            "daily_U": -0.305,
+            "cumulative_U": 40.845
+          },
+          {
+            "date": "2026-04-26",
+            "daily_U": -0.07,
+            "cumulative_U": 40.775
+          },
+          {
+            "date": "2026-04-27",
+            "daily_U": -5.435,
+            "cumulative_U": 35.34
+          },
+          {
+            "date": "2026-04-28",
+            "daily_U": -0.18,
+            "cumulative_U": 35.16
+          },
+          {
+            "date": "2026-04-29",
+            "daily_U": 1.215,
+            "cumulative_U": 36.375
+          },
+          {
+            "date": "2026-05-01",
+            "daily_U": 0.695,
+            "cumulative_U": 37.07
+          },
+          {
+            "date": "2026-05-02",
+            "daily_U": -0.57,
+            "cumulative_U": 36.5
+          },
+          {
+            "date": "2026-05-03",
+            "daily_U": 7.935,
+            "cumulative_U": 44.435
+          },
+          {
+            "date": "2026-05-04",
+            "daily_U": 1.115,
+            "cumulative_U": 45.55
+          },
+          {
+            "date": "2026-05-05",
+            "daily_U": 0.72,
+            "cumulative_U": 46.27
+          },
+          {
+            "date": "2026-05-06",
+            "daily_U": 1.48,
+            "cumulative_U": 47.75
+          },
+          {
+            "date": "2026-05-07",
+            "daily_U": -1.5,
+            "cumulative_U": 46.25
+          },
+          {
+            "date": "2026-05-08",
+            "daily_U": 1.69,
+            "cumulative_U": 47.94
+          },
+          {
+            "date": "2026-05-09",
+            "daily_U": 3.43,
+            "cumulative_U": 51.37
+          },
+          {
+            "date": "2026-05-10",
+            "daily_U": 4.625,
+            "cumulative_U": 55.995
+          },
+          {
+            "date": "2026-05-11",
+            "daily_U": -0.13,
+            "cumulative_U": 55.865
+          },
+          {
+            "date": "2026-05-12",
+            "daily_U": 1.77,
+            "cumulative_U": 57.635
+          },
+          {
+            "date": "2026-05-13",
+            "daily_U": 1.315,
+            "cumulative_U": 58.95
+          },
+          {
+            "date": "2026-05-14",
+            "daily_U": 0.3,
+            "cumulative_U": 59.25
+          },
+          {
+            "date": "2026-05-15",
+            "daily_U": 1.825,
+            "cumulative_U": 61.075
+          },
+          {
+            "date": "2026-05-16",
+            "daily_U": -2.425,
+            "cumulative_U": 58.65
+          },
+          {
+            "date": "2026-05-17",
+            "daily_U": 2.84,
+            "cumulative_U": 61.49
+          },
+          {
+            "date": "2026-05-18",
+            "daily_U": 3.4,
+            "cumulative_U": 64.89
+          },
+          {
+            "date": "2026-05-19",
+            "daily_U": 0.72,
+            "cumulative_U": 65.61
+          },
+          {
+            "date": "2026-05-20",
+            "daily_U": 0.54,
+            "cumulative_U": 66.15
+          },
+          {
+            "date": "2026-05-21",
+            "daily_U": 0.46,
+            "cumulative_U": 66.61
+          },
+          {
+            "date": "2026-05-22",
+            "daily_U": -0.595,
+            "cumulative_U": 66.015
+          },
+          {
+            "date": "2026-05-23",
+            "daily_U": -0.055,
+            "cumulative_U": 65.96
+          },
+          {
+            "date": "2026-05-24",
+            "daily_U": 2.315,
+            "cumulative_U": 68.275
+          },
+          {
+            "date": "2026-05-25",
+            "daily_U": 0.235,
+            "cumulative_U": 68.51
+          },
+          {
+            "date": "2026-05-26",
+            "daily_U": -1.0,
+            "cumulative_U": 67.51
+          },
+          {
+            "date": "2026-05-27",
+            "daily_U": 0.87,
+            "cumulative_U": 68.38
+          },
+          {
+            "date": "2026-05-29",
+            "daily_U": -0.59,
+            "cumulative_U": 67.79
+          },
+          {
+            "date": "2026-05-30",
+            "daily_U": 0.3,
+            "cumulative_U": 68.09
+          },
+          {
+            "date": "2026-05-31",
+            "daily_U": 1.85,
+            "cumulative_U": 69.94
+          },
+          {
+            "date": "2026-06-12",
+            "daily_U": -2.0,
+            "cumulative_U": 67.94
+          },
+          {
+            "date": "2026-06-13",
+            "daily_U": -1.0,
+            "cumulative_U": 66.94
+          },
+          {
+            "date": "2026-06-14",
+            "daily_U": 0.87,
+            "cumulative_U": 67.81
+          },
+          {
+            "date": "2026-06-16",
+            "daily_U": -0.05,
+            "cumulative_U": 67.76
+          },
+          {
+            "date": "2026-06-17",
+            "daily_U": -0.74,
+            "cumulative_U": 67.02
+          },
+          {
+            "date": "2026-06-19",
+            "daily_U": 0.89,
+            "cumulative_U": 67.91
+          },
+          {
+            "date": "2026-06-20",
+            "daily_U": 1.81,
+            "cumulative_U": 69.72
+          },
+          {
+            "date": "2026-06-21",
+            "daily_U": -0.07,
+            "cumulative_U": 69.65
+          },
+          {
+            "date": "2026-06-22",
+            "daily_U": -0.09,
+            "cumulative_U": 69.56
+          },
+          {
+            "date": "2026-06-23",
+            "daily_U": -2.0,
+            "cumulative_U": 67.56
+          },
+          {
+            "date": "2026-06-25",
+            "daily_U": -1.03,
+            "cumulative_U": 66.53
+          },
+          {
+            "date": "2026-06-26",
+            "daily_U": -1.0,
+            "cumulative_U": 65.53
+          },
+          {
+            "date": "2026-06-27",
+            "daily_U": -2.0,
+            "cumulative_U": 63.53
+          },
+          {
+            "date": "2026-06-28",
+            "daily_U": -0.15,
+            "cumulative_U": 63.38
+          },
+          {
+            "date": "2026-06-29",
+            "daily_U": -0.2,
+            "cumulative_U": 63.18
+          },
+          {
+            "date": "2026-06-30",
+            "daily_U": 0.0,
+            "cumulative_U": 63.18
+          },
+          {
+            "date": "2026-07-02",
+            "daily_U": -0.03,
+            "cumulative_U": 63.15
+          },
+          {
+            "date": "2026-07-03",
+            "daily_U": 0.44,
+            "cumulative_U": 63.59
+          },
+          {
+            "date": "2026-07-04",
+            "daily_U": -0.16,
+            "cumulative_U": 63.43
+          },
+          {
+            "date": "2026-07-05",
+            "daily_U": 0.98,
+            "cumulative_U": 64.41
+          },
+          {
+            "date": "2026-07-06",
+            "daily_U": 1.73,
+            "cumulative_U": 66.14
+          },
+          {
+            "date": "2026-07-10",
+            "daily_U": 0.34,
+            "cumulative_U": 66.48
+          },
+          {
+            "date": "2026-07-11",
+            "daily_U": 0.52,
+            "cumulative_U": 67.0
+          },
+          {
+            "date": "2026-07-12",
+            "daily_U": 0.04,
+            "cumulative_U": 67.04
+          },
+          {
+            "date": "2026-07-17",
+            "daily_U": 2.61,
+            "cumulative_U": 69.65
+          },
+          {
+            "date": "2026-07-18",
+            "daily_U": -3.12,
+            "cumulative_U": 66.53
+          },
+          {
+            "date": "2026-07-19",
+            "daily_U": 0.55,
+            "cumulative_U": 67.08
+          },
+          {
+            "date": "2026-07-20",
+            "daily_U": -0.01,
+            "cumulative_U": 67.07
+          },
+          {
+            "date": "2026-07-21",
+            "daily_U": 0.94,
+            "cumulative_U": 68.01
+          },
+          {
+            "date": "2026-07-24",
+            "daily_U": 0.28,
+            "cumulative_U": 68.29
+          },
+          {
+            "date": "2026-07-25",
+            "daily_U": 4.19,
+            "cumulative_U": 72.48
+          },
+          {
+            "date": "2026-07-26",
+            "daily_U": 3.565,
+            "cumulative_U": 76.045
+          },
+          {
+            "date": "2026-07-27",
+            "daily_U": 0.94,
+            "cumulative_U": 76.985
+          },
+          {
+            "date": "2026-07-31",
+            "daily_U": 1.81,
+            "cumulative_U": 78.795
+          },
+          {
+            "date": "2026-08-01",
+            "daily_U": -3.515,
+            "cumulative_U": 75.28
+          },
+          {
+            "date": "2026-08-02",
+            "daily_U": 3.97,
+            "cumulative_U": 79.25
+          },
+          {
+            "date": "2026-08-03",
+            "daily_U": -3.18,
+            "cumulative_U": 76.07
+          },
+          {
+            "date": "2026-08-04",
+            "daily_U": 0.83,
+            "cumulative_U": 76.9
+          },
+          {
+            "date": "2026-08-05",
+            "daily_U": -0.03,
+            "cumulative_U": 76.87
+          },
+          {
+            "date": "2026-08-07",
+            "daily_U": -3.11,
+            "cumulative_U": 73.76
+          },
+          {
+            "date": "2026-08-08",
+            "daily_U": -0.915,
+            "cumulative_U": 72.845
+          },
+          {
+            "date": "2026-08-09",
+            "daily_U": 0.01,
+            "cumulative_U": 72.855
+          },
+          {
+            "date": "2026-08-10",
+            "daily_U": 1.55,
+            "cumulative_U": 74.405
+          },
+          {
+            "date": "2026-08-13",
+            "daily_U": -1.0,
+            "cumulative_U": 73.405
+          },
+          {
+            "date": "2026-08-14",
+            "daily_U": -3.68,
+            "cumulative_U": 69.725
+          },
+          {
+            "date": "2026-08-15",
+            "daily_U": -2.92,
+            "cumulative_U": 66.805
+          },
+          {
+            "date": "2026-08-16",
+            "daily_U": -1.395,
+            "cumulative_U": 65.41
+          },
+          {
+            "date": "2026-08-17",
+            "daily_U": -1.145,
+            "cumulative_U": 64.265
+          },
+          {
+            "date": "2026-08-21",
+            "daily_U": -1.99,
+            "cumulative_U": 62.275
+          },
+          {
+            "date": "2026-08-22",
+            "daily_U": 5.915,
+            "cumulative_U": 68.19
+          },
+          {
+            "date": "2026-08-23",
+            "daily_U": 1.02,
+            "cumulative_U": 69.21
+          },
+          {
+            "date": "2026-08-24",
+            "daily_U": 1.0,
+            "cumulative_U": 70.21
+          },
+          {
+            "date": "2026-08-25",
+            "daily_U": -0.5,
+            "cumulative_U": 69.71
+          },
+          {
+            "date": "2026-08-26",
+            "daily_U": -0.465,
+            "cumulative_U": 69.245
+          },
+          {
+            "date": "2026-08-27",
+            "daily_U": 0.0,
+            "cumulative_U": 69.245
+          },
+          {
+            "date": "2026-08-28",
+            "daily_U": 0.355,
+            "cumulative_U": 69.6
+          },
+          {
+            "date": "2026-08-29",
+            "daily_U": 4.415,
+            "cumulative_U": 74.015
+          },
+          {
+            "date": "2026-08-30",
+            "daily_U": -0.525,
+            "cumulative_U": 73.49
+          },
+          {
+            "date": "2026-08-31",
+            "daily_U": 6.355,
+            "cumulative_U": 79.845
+          },
+          {
+            "date": "2026-09-01",
+            "daily_U": 1.37,
+            "cumulative_U": 81.215
+          },
+          {
+            "date": "2026-09-02",
+            "daily_U": 3.58,
+            "cumulative_U": 84.795
+          },
+          {
+            "date": "2026-09-03",
+            "daily_U": 1.74,
+            "cumulative_U": 86.535
+          },
+          {
+            "date": "2026-09-04",
+            "daily_U": -0.13,
+            "cumulative_U": 86.405
+          },
+          {
+            "date": "2026-09-05",
+            "daily_U": -1.85,
+            "cumulative_U": 84.555
+          },
+          {
+            "date": "2026-09-06",
+            "daily_U": 8.1,
+            "cumulative_U": 92.655
+          },
+          {
+            "date": "2026-09-07",
+            "daily_U": -1.26,
+            "cumulative_U": 91.395
+          },
+          {
+            "date": "2026-09-08",
+            "daily_U": 0.12,
+            "cumulative_U": 91.515
+          },
+          {
+            "date": "2026-09-09",
+            "daily_U": 1.7,
+            "cumulative_U": 93.215
+          },
+          {
+            "date": "2026-09-10",
+            "daily_U": 2.705,
+            "cumulative_U": 95.92
+          },
+          {
+            "date": "2026-09-11",
+            "daily_U": -3.085,
+            "cumulative_U": 92.835
+          },
+          {
+            "date": "2026-09-12",
+            "daily_U": -4.985,
+            "cumulative_U": 87.85
+          },
+          {
+            "date": "2026-09-13",
+            "daily_U": 1.88,
+            "cumulative_U": 89.73
+          },
+          {
+            "date": "2026-09-14",
+            "daily_U": 1.36,
+            "cumulative_U": 91.09
+          },
+          {
+            "date": "2026-09-15",
+            "daily_U": 2.29,
+            "cumulative_U": 93.38
+          },
+          {
+            "date": "2026-09-16",
+            "daily_U": -2.0,
+            "cumulative_U": 91.38
+          },
+          {
+            "date": "2026-09-18",
+            "daily_U": -1.145,
+            "cumulative_U": 90.235
+          },
+          {
+            "date": "2026-09-19",
+            "daily_U": 2.115,
+            "cumulative_U": 92.35
+          },
+          {
+            "date": "2026-09-20",
+            "daily_U": 4.13,
+            "cumulative_U": 96.48
+          },
+          {
+            "date": "2026-09-21",
+            "daily_U": 1.89,
+            "cumulative_U": 98.37
+          },
+          {
+            "date": "2026-09-22",
+            "daily_U": 0.93,
+            "cumulative_U": 99.3
+          },
+          {
+            "date": "2026-09-23",
+            "daily_U": 0.84,
+            "cumulative_U": 100.14
+          },
+          {
+            "date": "2026-09-26",
+            "daily_U": -0.3,
+            "cumulative_U": 99.84
+          },
+          {
+            "date": "2026-10-02",
+            "daily_U": 0.0,
+            "cumulative_U": 99.84
+          },
+          {
+            "date": "2026-10-03",
+            "daily_U": -0.85,
+            "cumulative_U": 98.99
+          },
+          {
+            "date": "2026-10-04",
+            "daily_U": -1.0,
+            "cumulative_U": 97.99
+          },
+          {
+            "date": "2026-10-08",
+            "daily_U": -1.0,
+            "cumulative_U": 96.99
+          },
+          {
+            "date": "2026-10-09",
+            "daily_U": 0.185,
+            "cumulative_U": 97.175
+          },
+          {
+            "date": "2026-10-10",
+            "daily_U": 5.485,
+            "cumulative_U": 102.66
+          },
+          {
+            "date": "2026-10-11",
+            "daily_U": 4.04,
+            "cumulative_U": 106.7
+          },
+          {
+            "date": "2026-10-12",
+            "daily_U": -2.315,
+            "cumulative_U": 104.385
+          },
+          {
+            "date": "2026-10-13",
+            "daily_U": 0.9,
+            "cumulative_U": 105.285
+          },
+          {
+            "date": "2026-10-14",
+            "daily_U": -1.0,
+            "cumulative_U": 104.285
+          },
+          {
+            "date": "2026-10-15",
+            "daily_U": -0.03,
+            "cumulative_U": 104.255
+          },
+          {
+            "date": "2026-10-16",
+            "daily_U": -0.29,
+            "cumulative_U": 103.965
+          },
+          {
+            "date": "2026-10-17",
+            "daily_U": -6.73,
+            "cumulative_U": 97.235
+          },
+          {
+            "date": "2026-10-18",
+            "daily_U": -1.41,
+            "cumulative_U": 95.825
+          },
+          {
+            "date": "2026-10-19",
+            "daily_U": 5.1,
+            "cumulative_U": 100.925
+          },
+          {
+            "date": "2026-10-20",
+            "daily_U": -1.0,
+            "cumulative_U": 99.925
+          },
+          {
+            "date": "2026-10-21",
+            "daily_U": 3.51,
+            "cumulative_U": 103.435
+          },
+          {
+            "date": "2026-10-22",
+            "daily_U": -2.07,
+            "cumulative_U": 101.365
+          },
+          {
+            "date": "2026-10-23",
+            "daily_U": -0.28,
+            "cumulative_U": 101.085
+          },
+          {
+            "date": "2026-10-24",
+            "daily_U": 0.065,
+            "cumulative_U": 101.15
+          },
+          {
+            "date": "2026-10-25",
+            "daily_U": 3.75,
+            "cumulative_U": 104.9
+          },
+          {
+            "date": "2026-10-26",
+            "daily_U": 1.38,
+            "cumulative_U": 106.28
+          },
+          {
+            "date": "2026-10-27",
+            "daily_U": -1.93,
+            "cumulative_U": 104.35
+          },
+          {
+            "date": "2026-10-28",
+            "daily_U": -0.35,
+            "cumulative_U": 104.0
+          },
+          {
+            "date": "2026-10-29",
+            "daily_U": -2.0,
+            "cumulative_U": 102.0
+          },
+          {
+            "date": "2026-10-30",
+            "daily_U": -1.725,
+            "cumulative_U": 100.275
+          },
+          {
+            "date": "2026-10-31",
+            "daily_U": -0.395,
+            "cumulative_U": 99.88
+          },
+          {
+            "date": "2026-11-01",
+            "daily_U": 3.805,
+            "cumulative_U": 103.685
+          },
+          {
+            "date": "2026-11-02",
+            "daily_U": -3.365,
+            "cumulative_U": 100.32
+          },
+          {
+            "date": "2026-11-03",
+            "daily_U": -0.5,
+            "cumulative_U": 99.82
+          }
+        ]
+      },
+      "combined_dd": {
+        "max_daily_drawdown_U": 16.975,
+        "peak_date": "2026-08-02",
+        "trough_date": "2026-08-21",
+        "series": [
+          {
+            "date": "2026-01-02",
+            "daily_U": 0.21,
+            "cumulative_U": 0.21
+          },
+          {
+            "date": "2026-01-03",
+            "daily_U": 0.72,
+            "cumulative_U": 0.93
+          },
+          {
+            "date": "2026-01-04",
+            "daily_U": 3.15,
+            "cumulative_U": 4.08
+          },
+          {
+            "date": "2026-01-05",
+            "daily_U": -1.0,
+            "cumulative_U": 3.08
+          },
+          {
+            "date": "2026-01-06",
+            "daily_U": 0.08,
+            "cumulative_U": 3.16
+          },
+          {
+            "date": "2026-01-07",
+            "daily_U": 1.48,
+            "cumulative_U": 4.64
+          },
+          {
+            "date": "2026-01-08",
+            "daily_U": -1.0,
+            "cumulative_U": 3.64
+          },
+          {
+            "date": "2026-01-09",
+            "daily_U": -0.18,
+            "cumulative_U": 3.46
+          },
+          {
+            "date": "2026-01-10",
+            "daily_U": -0.44,
+            "cumulative_U": 3.02
+          },
+          {
+            "date": "2026-01-11",
+            "daily_U": -1.58,
+            "cumulative_U": 1.44
+          },
+          {
+            "date": "2026-01-12",
+            "daily_U": -0.03,
+            "cumulative_U": 1.41
+          },
+          {
+            "date": "2026-01-13",
+            "daily_U": -3.51,
+            "cumulative_U": -2.1
+          },
+          {
+            "date": "2026-01-14",
+            "daily_U": -1.0,
+            "cumulative_U": -3.1
+          },
+          {
+            "date": "2026-01-16",
+            "daily_U": -1.13,
+            "cumulative_U": -4.23
+          },
+          {
+            "date": "2026-01-17",
+            "daily_U": -1.61,
+            "cumulative_U": -5.84
+          },
+          {
+            "date": "2026-01-18",
+            "daily_U": 4.77,
+            "cumulative_U": -1.07
+          },
+          {
+            "date": "2026-01-19",
+            "daily_U": 0.27,
+            "cumulative_U": -0.8
+          },
+          {
+            "date": "2026-01-20",
+            "daily_U": -1.0,
+            "cumulative_U": -1.8
+          },
+          {
+            "date": "2026-01-22",
+            "daily_U": 0.82,
+            "cumulative_U": -0.98
+          },
+          {
+            "date": "2026-01-23",
+            "daily_U": -2.59,
+            "cumulative_U": -3.57
+          },
+          {
+            "date": "2026-01-24",
+            "daily_U": 1.59,
+            "cumulative_U": -1.98
+          },
+          {
+            "date": "2026-01-25",
+            "daily_U": 0.35,
+            "cumulative_U": -1.63
+          },
+          {
+            "date": "2026-01-26",
+            "daily_U": 3.515,
+            "cumulative_U": 1.885
+          },
+          {
+            "date": "2026-01-27",
+            "daily_U": 0.88,
+            "cumulative_U": 2.765
+          },
+          {
+            "date": "2026-01-28",
+            "daily_U": -0.585,
+            "cumulative_U": 2.18
+          },
+          {
+            "date": "2026-01-30",
+            "daily_U": -0.54,
+            "cumulative_U": 1.64
+          },
+          {
+            "date": "2026-01-31",
+            "daily_U": -0.145,
+            "cumulative_U": 1.495
+          },
+          {
+            "date": "2026-02-01",
+            "daily_U": -4.23,
+            "cumulative_U": -2.735
+          },
+          {
+            "date": "2026-02-02",
+            "daily_U": -0.25,
+            "cumulative_U": -2.985
+          },
+          {
+            "date": "2026-02-03",
+            "daily_U": 0.85,
+            "cumulative_U": -2.135
+          },
+          {
+            "date": "2026-02-04",
+            "daily_U": -0.65,
+            "cumulative_U": -2.785
+          },
+          {
+            "date": "2026-02-05",
+            "daily_U": -0.94,
+            "cumulative_U": -3.725
+          },
+          {
+            "date": "2026-02-06",
+            "daily_U": 1.74,
+            "cumulative_U": -1.985
+          },
+          {
+            "date": "2026-02-07",
+            "daily_U": -6.11,
+            "cumulative_U": -8.095
+          },
+          {
+            "date": "2026-02-08",
+            "daily_U": 1.95,
+            "cumulative_U": -6.145
+          },
+          {
+            "date": "2026-02-09",
+            "daily_U": -1.95,
+            "cumulative_U": -8.095
+          },
+          {
+            "date": "2026-02-10",
+            "daily_U": 0.75,
+            "cumulative_U": -7.345
+          },
+          {
+            "date": "2026-02-11",
+            "daily_U": 2.31,
+            "cumulative_U": -5.035
+          },
+          {
+            "date": "2026-02-12",
+            "daily_U": -0.7,
+            "cumulative_U": -5.735
+          },
+          {
+            "date": "2026-02-13",
+            "daily_U": 4.24,
+            "cumulative_U": -1.495
+          },
+          {
+            "date": "2026-02-14",
+            "daily_U": 7.22,
+            "cumulative_U": 5.725
+          },
+          {
+            "date": "2026-02-15",
+            "daily_U": 1.585,
+            "cumulative_U": 7.31
+          },
+          {
+            "date": "2026-02-16",
+            "daily_U": -0.19,
+            "cumulative_U": 7.12
+          },
+          {
+            "date": "2026-02-17",
+            "daily_U": 0.86,
+            "cumulative_U": 7.98
+          },
+          {
+            "date": "2026-02-18",
+            "daily_U": -1.0,
+            "cumulative_U": 6.98
+          },
+          {
+            "date": "2026-02-19",
+            "daily_U": 1.03,
+            "cumulative_U": 8.01
+          },
+          {
+            "date": "2026-02-20",
+            "daily_U": 3.23,
+            "cumulative_U": 11.24
+          },
+          {
+            "date": "2026-02-21",
+            "daily_U": 0.165,
+            "cumulative_U": 11.405
+          },
+          {
+            "date": "2026-02-22",
+            "daily_U": -7.49,
+            "cumulative_U": 3.915
+          },
+          {
+            "date": "2026-02-23",
+            "daily_U": -0.34,
+            "cumulative_U": 3.575
+          },
+          {
+            "date": "2026-02-24",
+            "daily_U": 0.82,
+            "cumulative_U": 4.395
+          },
+          {
+            "date": "2026-02-25",
+            "daily_U": -1.17,
+            "cumulative_U": 3.225
+          },
+          {
+            "date": "2026-02-26",
+            "daily_U": -1.0,
+            "cumulative_U": 2.225
+          },
+          {
+            "date": "2026-02-27",
+            "daily_U": -0.59,
+            "cumulative_U": 1.635
+          },
+          {
+            "date": "2026-02-28",
+            "daily_U": 3.455,
+            "cumulative_U": 5.09
+          },
+          {
+            "date": "2026-03-01",
+            "daily_U": 11.225,
+            "cumulative_U": 16.315
+          },
+          {
+            "date": "2026-03-02",
+            "daily_U": 1.55,
+            "cumulative_U": 17.865
+          },
+          {
+            "date": "2026-03-03",
+            "daily_U": 2.82,
+            "cumulative_U": 20.685
+          },
+          {
+            "date": "2026-03-04",
+            "daily_U": 0.0,
+            "cumulative_U": 20.685
+          },
+          {
+            "date": "2026-03-05",
+            "daily_U": 0.97,
+            "cumulative_U": 21.655
+          },
+          {
+            "date": "2026-03-06",
+            "daily_U": -1.14,
+            "cumulative_U": 20.515
+          },
+          {
+            "date": "2026-03-07",
+            "daily_U": 5.265,
+            "cumulative_U": 25.78
+          },
+          {
+            "date": "2026-03-08",
+            "daily_U": -0.46,
+            "cumulative_U": 25.32
+          },
+          {
+            "date": "2026-03-09",
+            "daily_U": -0.84,
+            "cumulative_U": 24.48
+          },
+          {
+            "date": "2026-03-10",
+            "daily_U": -3.5,
+            "cumulative_U": 20.98
+          },
+          {
+            "date": "2026-03-11",
+            "daily_U": -2.76,
+            "cumulative_U": 18.22
+          },
+          {
+            "date": "2026-03-12",
+            "daily_U": 1.365,
+            "cumulative_U": 19.585
+          },
+          {
+            "date": "2026-03-13",
+            "daily_U": 1.5,
+            "cumulative_U": 21.085
+          },
+          {
+            "date": "2026-03-14",
+            "daily_U": -3.125,
+            "cumulative_U": 17.96
+          },
+          {
+            "date": "2026-03-15",
+            "daily_U": 2.42,
+            "cumulative_U": 20.38
+          },
+          {
+            "date": "2026-03-16",
+            "daily_U": -0.56,
+            "cumulative_U": 19.82
+          },
+          {
+            "date": "2026-03-17",
+            "daily_U": 0.9,
+            "cumulative_U": 20.72
+          },
+          {
+            "date": "2026-03-18",
+            "daily_U": 1.67,
+            "cumulative_U": 22.39
+          },
+          {
+            "date": "2026-03-19",
+            "daily_U": 0.84,
+            "cumulative_U": 23.23
+          },
+          {
+            "date": "2026-03-20",
+            "daily_U": -0.745,
+            "cumulative_U": 22.485
+          },
+          {
+            "date": "2026-03-21",
+            "daily_U": 1.09,
+            "cumulative_U": 23.575
+          },
+          {
+            "date": "2026-03-22",
+            "daily_U": 3.93,
+            "cumulative_U": 27.505
+          },
+          {
+            "date": "2026-03-24",
+            "daily_U": 0.43,
+            "cumulative_U": 27.935
+          },
+          {
+            "date": "2026-03-27",
+            "daily_U": -2.0,
+            "cumulative_U": 25.935
+          },
+          {
+            "date": "2026-03-28",
+            "daily_U": -0.14,
+            "cumulative_U": 25.795
+          },
+          {
+            "date": "2026-03-29",
+            "daily_U": 1.45,
+            "cumulative_U": 27.245
+          },
+          {
+            "date": "2026-03-30",
+            "daily_U": 0.435,
+            "cumulative_U": 27.68
+          },
+          {
+            "date": "2026-04-01",
+            "daily_U": 0.38,
+            "cumulative_U": 28.06
+          },
+          {
+            "date": "2026-04-02",
+            "daily_U": -0.12,
+            "cumulative_U": 27.94
+          },
+          {
+            "date": "2026-04-03",
+            "daily_U": 0.845,
+            "cumulative_U": 28.785
+          },
+          {
+            "date": "2026-04-04",
+            "daily_U": 4.43,
+            "cumulative_U": 33.215
+          },
+          {
+            "date": "2026-04-05",
+            "daily_U": 2.915,
+            "cumulative_U": 36.13
+          },
+          {
+            "date": "2026-04-06",
+            "daily_U": 2.835,
+            "cumulative_U": 38.965
+          },
+          {
+            "date": "2026-04-07",
+            "daily_U": 0.3,
+            "cumulative_U": 39.265
+          },
+          {
+            "date": "2026-04-08",
+            "daily_U": -0.88,
+            "cumulative_U": 38.385
+          },
+          {
+            "date": "2026-04-09",
+            "daily_U": 0.9,
+            "cumulative_U": 39.285
+          },
+          {
+            "date": "2026-04-10",
+            "daily_U": 3.72,
+            "cumulative_U": 43.005
+          },
+          {
+            "date": "2026-04-11",
+            "daily_U": -9.97,
+            "cumulative_U": 33.035
+          },
+          {
+            "date": "2026-04-12",
+            "daily_U": 1.65,
+            "cumulative_U": 34.685
+          },
+          {
+            "date": "2026-04-13",
+            "daily_U": 2.17,
+            "cumulative_U": 36.855
+          },
+          {
+            "date": "2026-04-14",
+            "daily_U": -0.51,
+            "cumulative_U": 36.345
+          },
+          {
+            "date": "2026-04-15",
+            "daily_U": 1.03,
+            "cumulative_U": 37.375
+          },
+          {
+            "date": "2026-04-16",
+            "daily_U": -2.0,
+            "cumulative_U": 35.375
+          },
+          {
+            "date": "2026-04-17",
+            "daily_U": -2.17,
+            "cumulative_U": 33.205
+          },
+          {
+            "date": "2026-04-18",
+            "daily_U": -4.06,
+            "cumulative_U": 29.145
+          },
+          {
+            "date": "2026-04-19",
+            "daily_U": 4.91,
+            "cumulative_U": 34.055
+          },
+          {
+            "date": "2026-04-20",
+            "daily_U": 0.25,
+            "cumulative_U": 34.305
+          },
+          {
+            "date": "2026-04-21",
+            "daily_U": 0.175,
+            "cumulative_U": 34.48
+          },
+          {
+            "date": "2026-04-22",
+            "daily_U": 4.11,
+            "cumulative_U": 38.59
+          },
+          {
+            "date": "2026-04-23",
+            "daily_U": -0.12,
+            "cumulative_U": 38.47
+          },
+          {
+            "date": "2026-04-24",
+            "daily_U": 2.68,
+            "cumulative_U": 41.15
+          },
+          {
+            "date": "2026-04-25",
+            "daily_U": -0.305,
+            "cumulative_U": 40.845
+          },
+          {
+            "date": "2026-04-26",
+            "daily_U": -0.07,
+            "cumulative_U": 40.775
+          },
+          {
+            "date": "2026-04-27",
+            "daily_U": -5.435,
+            "cumulative_U": 35.34
+          },
+          {
+            "date": "2026-04-28",
+            "daily_U": -0.18,
+            "cumulative_U": 35.16
+          },
+          {
+            "date": "2026-04-29",
+            "daily_U": 1.215,
+            "cumulative_U": 36.375
+          },
+          {
+            "date": "2026-05-01",
+            "daily_U": 0.695,
+            "cumulative_U": 37.07
+          },
+          {
+            "date": "2026-05-02",
+            "daily_U": -0.57,
+            "cumulative_U": 36.5
+          },
+          {
+            "date": "2026-05-03",
+            "daily_U": 7.935,
+            "cumulative_U": 44.435
+          },
+          {
+            "date": "2026-05-04",
+            "daily_U": 1.115,
+            "cumulative_U": 45.55
+          },
+          {
+            "date": "2026-05-05",
+            "daily_U": 0.72,
+            "cumulative_U": 46.27
+          },
+          {
+            "date": "2026-05-06",
+            "daily_U": 1.48,
+            "cumulative_U": 47.75
+          },
+          {
+            "date": "2026-05-07",
+            "daily_U": -1.5,
+            "cumulative_U": 46.25
+          },
+          {
+            "date": "2026-05-08",
+            "daily_U": 1.69,
+            "cumulative_U": 47.94
+          },
+          {
+            "date": "2026-05-09",
+            "daily_U": 3.43,
+            "cumulative_U": 51.37
+          },
+          {
+            "date": "2026-05-10",
+            "daily_U": 4.625,
+            "cumulative_U": 55.995
+          },
+          {
+            "date": "2026-05-11",
+            "daily_U": -0.13,
+            "cumulative_U": 55.865
+          },
+          {
+            "date": "2026-05-12",
+            "daily_U": 1.77,
+            "cumulative_U": 57.635
+          },
+          {
+            "date": "2026-05-13",
+            "daily_U": 1.315,
+            "cumulative_U": 58.95
+          },
+          {
+            "date": "2026-05-14",
+            "daily_U": 0.3,
+            "cumulative_U": 59.25
+          },
+          {
+            "date": "2026-05-15",
+            "daily_U": 1.825,
+            "cumulative_U": 61.075
+          },
+          {
+            "date": "2026-05-16",
+            "daily_U": -2.425,
+            "cumulative_U": 58.65
+          },
+          {
+            "date": "2026-05-17",
+            "daily_U": 2.84,
+            "cumulative_U": 61.49
+          },
+          {
+            "date": "2026-05-18",
+            "daily_U": 3.4,
+            "cumulative_U": 64.89
+          },
+          {
+            "date": "2026-05-19",
+            "daily_U": 0.72,
+            "cumulative_U": 65.61
+          },
+          {
+            "date": "2026-05-20",
+            "daily_U": 0.54,
+            "cumulative_U": 66.15
+          },
+          {
+            "date": "2026-05-21",
+            "daily_U": 0.46,
+            "cumulative_U": 66.61
+          },
+          {
+            "date": "2026-05-22",
+            "daily_U": -0.595,
+            "cumulative_U": 66.015
+          },
+          {
+            "date": "2026-05-23",
+            "daily_U": -0.055,
+            "cumulative_U": 65.96
+          },
+          {
+            "date": "2026-05-24",
+            "daily_U": 2.315,
+            "cumulative_U": 68.275
+          },
+          {
+            "date": "2026-05-25",
+            "daily_U": 0.235,
+            "cumulative_U": 68.51
+          },
+          {
+            "date": "2026-05-26",
+            "daily_U": -1.0,
+            "cumulative_U": 67.51
+          },
+          {
+            "date": "2026-05-27",
+            "daily_U": 0.87,
+            "cumulative_U": 68.38
+          },
+          {
+            "date": "2026-05-29",
+            "daily_U": -0.59,
+            "cumulative_U": 67.79
+          },
+          {
+            "date": "2026-05-30",
+            "daily_U": 0.3,
+            "cumulative_U": 68.09
+          },
+          {
+            "date": "2026-05-31",
+            "daily_U": 1.85,
+            "cumulative_U": 69.94
+          },
+          {
+            "date": "2026-06-12",
+            "daily_U": -2.0,
+            "cumulative_U": 67.94
+          },
+          {
+            "date": "2026-06-13",
+            "daily_U": -1.0,
+            "cumulative_U": 66.94
+          },
+          {
+            "date": "2026-06-14",
+            "daily_U": 0.87,
+            "cumulative_U": 67.81
+          },
+          {
+            "date": "2026-06-16",
+            "daily_U": -0.05,
+            "cumulative_U": 67.76
+          },
+          {
+            "date": "2026-06-17",
+            "daily_U": -0.74,
+            "cumulative_U": 67.02
+          },
+          {
+            "date": "2026-06-19",
+            "daily_U": 0.89,
+            "cumulative_U": 67.91
+          },
+          {
+            "date": "2026-06-20",
+            "daily_U": 1.81,
+            "cumulative_U": 69.72
+          },
+          {
+            "date": "2026-06-21",
+            "daily_U": -0.07,
+            "cumulative_U": 69.65
+          },
+          {
+            "date": "2026-06-22",
+            "daily_U": -0.09,
+            "cumulative_U": 69.56
+          },
+          {
+            "date": "2026-06-23",
+            "daily_U": -2.0,
+            "cumulative_U": 67.56
+          },
+          {
+            "date": "2026-06-25",
+            "daily_U": -1.03,
+            "cumulative_U": 66.53
+          },
+          {
+            "date": "2026-06-26",
+            "daily_U": -1.0,
+            "cumulative_U": 65.53
+          },
+          {
+            "date": "2026-06-27",
+            "daily_U": -2.0,
+            "cumulative_U": 63.53
+          },
+          {
+            "date": "2026-06-28",
+            "daily_U": -0.15,
+            "cumulative_U": 63.38
+          },
+          {
+            "date": "2026-06-29",
+            "daily_U": -0.2,
+            "cumulative_U": 63.18
+          },
+          {
+            "date": "2026-06-30",
+            "daily_U": 0.0,
+            "cumulative_U": 63.18
+          },
+          {
+            "date": "2026-07-02",
+            "daily_U": -0.03,
+            "cumulative_U": 63.15
+          },
+          {
+            "date": "2026-07-03",
+            "daily_U": 0.44,
+            "cumulative_U": 63.59
+          },
+          {
+            "date": "2026-07-04",
+            "daily_U": -0.16,
+            "cumulative_U": 63.43
+          },
+          {
+            "date": "2026-07-05",
+            "daily_U": 0.98,
+            "cumulative_U": 64.41
+          },
+          {
+            "date": "2026-07-06",
+            "daily_U": 1.73,
+            "cumulative_U": 66.14
+          },
+          {
+            "date": "2026-07-10",
+            "daily_U": 0.34,
+            "cumulative_U": 66.48
+          },
+          {
+            "date": "2026-07-11",
+            "daily_U": 0.52,
+            "cumulative_U": 67.0
+          },
+          {
+            "date": "2026-07-12",
+            "daily_U": 0.04,
+            "cumulative_U": 67.04
+          },
+          {
+            "date": "2026-07-17",
+            "daily_U": 2.61,
+            "cumulative_U": 69.65
+          },
+          {
+            "date": "2026-07-18",
+            "daily_U": -3.12,
+            "cumulative_U": 66.53
+          },
+          {
+            "date": "2026-07-19",
+            "daily_U": 0.55,
+            "cumulative_U": 67.08
+          },
+          {
+            "date": "2026-07-20",
+            "daily_U": -0.01,
+            "cumulative_U": 67.07
+          },
+          {
+            "date": "2026-07-21",
+            "daily_U": 0.94,
+            "cumulative_U": 68.01
+          },
+          {
+            "date": "2026-07-24",
+            "daily_U": 0.28,
+            "cumulative_U": 68.29
+          },
+          {
+            "date": "2026-07-25",
+            "daily_U": 4.19,
+            "cumulative_U": 72.48
+          },
+          {
+            "date": "2026-07-26",
+            "daily_U": 3.565,
+            "cumulative_U": 76.045
+          },
+          {
+            "date": "2026-07-27",
+            "daily_U": 0.94,
+            "cumulative_U": 76.985
+          },
+          {
+            "date": "2026-07-31",
+            "daily_U": 1.81,
+            "cumulative_U": 78.795
+          },
+          {
+            "date": "2026-08-01",
+            "daily_U": -3.515,
+            "cumulative_U": 75.28
+          },
+          {
+            "date": "2026-08-02",
+            "daily_U": 3.97,
+            "cumulative_U": 79.25
+          },
+          {
+            "date": "2026-08-03",
+            "daily_U": -3.18,
+            "cumulative_U": 76.07
+          },
+          {
+            "date": "2026-08-04",
+            "daily_U": 0.83,
+            "cumulative_U": 76.9
+          },
+          {
+            "date": "2026-08-05",
+            "daily_U": -0.03,
+            "cumulative_U": 76.87
+          },
+          {
+            "date": "2026-08-07",
+            "daily_U": -3.11,
+            "cumulative_U": 73.76
+          },
+          {
+            "date": "2026-08-08",
+            "daily_U": -0.915,
+            "cumulative_U": 72.845
+          },
+          {
+            "date": "2026-08-09",
+            "daily_U": 0.01,
+            "cumulative_U": 72.855
+          },
+          {
+            "date": "2026-08-10",
+            "daily_U": 1.55,
+            "cumulative_U": 74.405
+          },
+          {
+            "date": "2026-08-13",
+            "daily_U": -1.0,
+            "cumulative_U": 73.405
+          },
+          {
+            "date": "2026-08-14",
+            "daily_U": -3.68,
+            "cumulative_U": 69.725
+          },
+          {
+            "date": "2026-08-15",
+            "daily_U": -2.92,
+            "cumulative_U": 66.805
+          },
+          {
+            "date": "2026-08-16",
+            "daily_U": -1.395,
+            "cumulative_U": 65.41
+          },
+          {
+            "date": "2026-08-17",
+            "daily_U": -1.145,
+            "cumulative_U": 64.265
+          },
+          {
+            "date": "2026-08-21",
+            "daily_U": -1.99,
+            "cumulative_U": 62.275
+          },
+          {
+            "date": "2026-08-22",
+            "daily_U": 5.915,
+            "cumulative_U": 68.19
+          },
+          {
+            "date": "2026-08-23",
+            "daily_U": 1.02,
+            "cumulative_U": 69.21
+          },
+          {
+            "date": "2026-08-24",
+            "daily_U": 1.0,
+            "cumulative_U": 70.21
+          },
+          {
+            "date": "2026-08-25",
+            "daily_U": -0.5,
+            "cumulative_U": 69.71
+          },
+          {
+            "date": "2026-08-26",
+            "daily_U": -0.465,
+            "cumulative_U": 69.245
+          },
+          {
+            "date": "2026-08-27",
+            "daily_U": 0.0,
+            "cumulative_U": 69.245
+          },
+          {
+            "date": "2026-08-28",
+            "daily_U": 0.355,
+            "cumulative_U": 69.6
+          },
+          {
+            "date": "2026-08-29",
+            "daily_U": 4.415,
+            "cumulative_U": 74.015
+          },
+          {
+            "date": "2026-08-30",
+            "daily_U": -0.525,
+            "cumulative_U": 73.49
+          },
+          {
+            "date": "2026-08-31",
+            "daily_U": 6.355,
+            "cumulative_U": 79.845
+          },
+          {
+            "date": "2026-09-01",
+            "daily_U": 1.37,
+            "cumulative_U": 81.215
+          },
+          {
+            "date": "2026-09-02",
+            "daily_U": 3.58,
+            "cumulative_U": 84.795
+          },
+          {
+            "date": "2026-09-03",
+            "daily_U": 1.74,
+            "cumulative_U": 86.535
+          },
+          {
+            "date": "2026-09-04",
+            "daily_U": -0.13,
+            "cumulative_U": 86.405
+          },
+          {
+            "date": "2026-09-05",
+            "daily_U": -1.85,
+            "cumulative_U": 84.555
+          },
+          {
+            "date": "2026-09-06",
+            "daily_U": 8.1,
+            "cumulative_U": 92.655
+          },
+          {
+            "date": "2026-09-07",
+            "daily_U": -1.26,
+            "cumulative_U": 91.395
+          },
+          {
+            "date": "2026-09-08",
+            "daily_U": 0.12,
+            "cumulative_U": 91.515
+          },
+          {
+            "date": "2026-09-09",
+            "daily_U": 1.7,
+            "cumulative_U": 93.215
+          },
+          {
+            "date": "2026-09-10",
+            "daily_U": 2.705,
+            "cumulative_U": 95.92
+          },
+          {
+            "date": "2026-09-11",
+            "daily_U": -3.085,
+            "cumulative_U": 92.835
+          },
+          {
+            "date": "2026-09-12",
+            "daily_U": -4.985,
+            "cumulative_U": 87.85
+          },
+          {
+            "date": "2026-09-13",
+            "daily_U": 1.88,
+            "cumulative_U": 89.73
+          },
+          {
+            "date": "2026-09-14",
+            "daily_U": 1.36,
+            "cumulative_U": 91.09
+          },
+          {
+            "date": "2026-09-15",
+            "daily_U": 2.29,
+            "cumulative_U": 93.38
+          },
+          {
+            "date": "2026-09-16",
+            "daily_U": -2.0,
+            "cumulative_U": 91.38
+          },
+          {
+            "date": "2026-09-18",
+            "daily_U": -1.145,
+            "cumulative_U": 90.235
+          },
+          {
+            "date": "2026-09-19",
+            "daily_U": 2.115,
+            "cumulative_U": 92.35
+          },
+          {
+            "date": "2026-09-20",
+            "daily_U": 4.13,
+            "cumulative_U": 96.48
+          },
+          {
+            "date": "2026-09-21",
+            "daily_U": 1.89,
+            "cumulative_U": 98.37
+          },
+          {
+            "date": "2026-09-22",
+            "daily_U": 0.93,
+            "cumulative_U": 99.3
+          },
+          {
+            "date": "2026-09-23",
+            "daily_U": 0.84,
+            "cumulative_U": 100.14
+          },
+          {
+            "date": "2026-09-26",
+            "daily_U": -0.3,
+            "cumulative_U": 99.84
+          },
+          {
+            "date": "2026-10-02",
+            "daily_U": 0.0,
+            "cumulative_U": 99.84
+          },
+          {
+            "date": "2026-10-03",
+            "daily_U": -0.85,
+            "cumulative_U": 98.99
+          },
+          {
+            "date": "2026-10-04",
+            "daily_U": -1.0,
+            "cumulative_U": 97.99
+          },
+          {
+            "date": "2026-10-08",
+            "daily_U": -1.0,
+            "cumulative_U": 96.99
+          },
+          {
+            "date": "2026-10-09",
+            "daily_U": -3.315,
+            "cumulative_U": 93.675
+          },
+          {
+            "date": "2026-10-10",
+            "daily_U": 3.995,
+            "cumulative_U": 97.67
+          },
+          {
+            "date": "2026-10-11",
+            "daily_U": 2.415,
+            "cumulative_U": 100.085
+          },
+          {
+            "date": "2026-10-12",
+            "daily_U": -3.415,
+            "cumulative_U": 96.67
+          },
+          {
+            "date": "2026-10-13",
+            "daily_U": 0.9,
+            "cumulative_U": 97.57
+          },
+          {
+            "date": "2026-10-14",
+            "daily_U": -0.2,
+            "cumulative_U": 97.37
+          },
+          {
+            "date": "2026-10-15",
+            "daily_U": -0.03,
+            "cumulative_U": 97.34
+          },
+          {
+            "date": "2026-10-16",
+            "daily_U": 0.66,
+            "cumulative_U": 98.0
+          },
+          {
+            "date": "2026-10-17",
+            "daily_U": -6.55,
+            "cumulative_U": 91.45
+          },
+          {
+            "date": "2026-10-18",
+            "daily_U": -0.875,
+            "cumulative_U": 90.575
+          },
+          {
+            "date": "2026-10-19",
+            "daily_U": 3.1,
+            "cumulative_U": 93.675
+          },
+          {
+            "date": "2026-10-20",
+            "daily_U": 0.38,
+            "cumulative_U": 94.055
+          },
+          {
+            "date": "2026-10-21",
+            "daily_U": 5.14,
+            "cumulative_U": 99.195
+          },
+          {
+            "date": "2026-10-22",
+            "daily_U": -1.08,
+            "cumulative_U": 98.115
+          },
+          {
+            "date": "2026-10-23",
+            "daily_U": -0.98,
+            "cumulative_U": 97.135
+          },
+          {
+            "date": "2026-10-24",
+            "daily_U": 1.725,
+            "cumulative_U": 98.86
+          },
+          {
+            "date": "2026-10-25",
+            "daily_U": 5.99,
+            "cumulative_U": 104.85
+          },
+          {
+            "date": "2026-10-26",
+            "daily_U": 0.29,
+            "cumulative_U": 105.14
+          },
+          {
+            "date": "2026-10-27",
+            "daily_U": -1.06,
+            "cumulative_U": 104.08
+          },
+          {
+            "date": "2026-10-28",
+            "daily_U": 0.05,
+            "cumulative_U": 104.13
+          },
+          {
+            "date": "2026-10-29",
+            "daily_U": -4.0,
+            "cumulative_U": 100.13
+          },
+          {
+            "date": "2026-10-30",
+            "daily_U": -2.745,
+            "cumulative_U": 97.385
+          },
+          {
+            "date": "2026-10-31",
+            "daily_U": -2.43,
+            "cumulative_U": 94.955
+          },
+          {
+            "date": "2026-11-01",
+            "daily_U": 12.405,
+            "cumulative_U": 107.36
+          },
+          {
+            "date": "2026-11-02",
+            "daily_U": -4.86,
+            "cumulative_U": 102.5
+          },
+          {
+            "date": "2026-11-03",
+            "daily_U": 0.36,
+            "cumulative_U": 102.86
+          },
+          {
+            "date": "2026-11-06",
+            "daily_U": -3.02,
+            "cumulative_U": 99.84
+          },
+          {
+            "date": "2026-11-07",
+            "daily_U": 7.15,
+            "cumulative_U": 106.99
+          },
+          {
+            "date": "2026-11-08",
+            "daily_U": 9.815,
+            "cumulative_U": 116.805
+          },
+          {
+            "date": "2026-11-09",
+            "daily_U": 0.92,
+            "cumulative_U": 117.725
+          },
+          {
+            "date": "2026-11-10",
+            "daily_U": 0.92,
+            "cumulative_U": 118.645
+          },
+          {
+            "date": "2026-11-13",
+            "daily_U": 0.87,
+            "cumulative_U": 119.515
+          }
+        ]
+      }
+    },
+    "matched_date_window": {
+      "start": "2026-10-09",
+      "end": "2026-11-13",
+      "base": {
+        "n": 323,
+        "U": 2.83,
+        "ROI": 0.876,
+        "positive": 161,
+        "negative": 141,
+        "zero": 21
+      },
+      "add": {
+        "n": 206,
+        "U": 19.695,
+        "ROI": 9.561,
+        "positive": 114,
+        "negative": 87,
+        "zero": 5
+      },
+      "combined": {
+        "n": 529,
+        "U": 22.525,
+        "ROI": 4.258,
+        "positive": 275,
+        "negative": 228,
+        "zero": 26
+      },
+      "base_dd": {
+        "max_daily_drawdown_U": 10.875,
+        "peak_date": "2026-10-11",
+        "trough_date": "2026-10-18",
+        "series": [
+          {
+            "date": "2026-10-09",
+            "daily_U": 0.185,
+            "cumulative_U": 0.185
+          },
+          {
+            "date": "2026-10-10",
+            "daily_U": 5.485,
+            "cumulative_U": 5.67
+          },
+          {
+            "date": "2026-10-11",
+            "daily_U": 4.04,
+            "cumulative_U": 9.71
+          },
+          {
+            "date": "2026-10-12",
+            "daily_U": -2.315,
+            "cumulative_U": 7.395
+          },
+          {
+            "date": "2026-10-13",
+            "daily_U": 0.9,
+            "cumulative_U": 8.295
+          },
+          {
+            "date": "2026-10-14",
+            "daily_U": -1.0,
+            "cumulative_U": 7.295
+          },
+          {
+            "date": "2026-10-15",
+            "daily_U": -0.03,
+            "cumulative_U": 7.265
+          },
+          {
+            "date": "2026-10-16",
+            "daily_U": -0.29,
+            "cumulative_U": 6.975
+          },
+          {
+            "date": "2026-10-17",
+            "daily_U": -6.73,
+            "cumulative_U": 0.245
+          },
+          {
+            "date": "2026-10-18",
+            "daily_U": -1.41,
+            "cumulative_U": -1.165
+          },
+          {
+            "date": "2026-10-19",
+            "daily_U": 5.1,
+            "cumulative_U": 3.935
+          },
+          {
+            "date": "2026-10-20",
+            "daily_U": -1.0,
+            "cumulative_U": 2.935
+          },
+          {
+            "date": "2026-10-21",
+            "daily_U": 3.51,
+            "cumulative_U": 6.445
+          },
+          {
+            "date": "2026-10-22",
+            "daily_U": -2.07,
+            "cumulative_U": 4.375
+          },
+          {
+            "date": "2026-10-23",
+            "daily_U": -0.28,
+            "cumulative_U": 4.095
+          },
+          {
+            "date": "2026-10-24",
+            "daily_U": 0.065,
+            "cumulative_U": 4.16
+          },
+          {
+            "date": "2026-10-25",
+            "daily_U": 3.75,
+            "cumulative_U": 7.91
+          },
+          {
+            "date": "2026-10-26",
+            "daily_U": 1.38,
+            "cumulative_U": 9.29
+          },
+          {
+            "date": "2026-10-27",
+            "daily_U": -1.93,
+            "cumulative_U": 7.36
+          },
+          {
+            "date": "2026-10-28",
+            "daily_U": -0.35,
+            "cumulative_U": 7.01
+          },
+          {
+            "date": "2026-10-29",
+            "daily_U": -2.0,
+            "cumulative_U": 5.01
+          },
+          {
+            "date": "2026-10-30",
+            "daily_U": -1.725,
+            "cumulative_U": 3.285
+          },
+          {
+            "date": "2026-10-31",
+            "daily_U": -0.395,
+            "cumulative_U": 2.89
+          },
+          {
+            "date": "2026-11-01",
+            "daily_U": 3.805,
+            "cumulative_U": 6.695
+          },
+          {
+            "date": "2026-11-02",
+            "daily_U": -3.365,
+            "cumulative_U": 3.33
+          },
+          {
+            "date": "2026-11-03",
+            "daily_U": -0.5,
+            "cumulative_U": 2.83
+          }
+        ]
+      },
+      "combined_dd": {
+        "max_daily_drawdown_U": 10.185,
+        "peak_date": "2026-10-26",
+        "trough_date": "2026-10-31",
+        "series": [
+          {
+            "date": "2026-10-09",
+            "daily_U": -3.315,
+            "cumulative_U": -3.315
+          },
+          {
+            "date": "2026-10-10",
+            "daily_U": 3.995,
+            "cumulative_U": 0.68
+          },
+          {
+            "date": "2026-10-11",
+            "daily_U": 2.415,
+            "cumulative_U": 3.095
+          },
+          {
+            "date": "2026-10-12",
+            "daily_U": -3.415,
+            "cumulative_U": -0.32
+          },
+          {
+            "date": "2026-10-13",
+            "daily_U": 0.9,
+            "cumulative_U": 0.58
+          },
+          {
+            "date": "2026-10-14",
+            "daily_U": -0.2,
+            "cumulative_U": 0.38
+          },
+          {
+            "date": "2026-10-15",
+            "daily_U": -0.03,
+            "cumulative_U": 0.35
+          },
+          {
+            "date": "2026-10-16",
+            "daily_U": 0.66,
+            "cumulative_U": 1.01
+          },
+          {
+            "date": "2026-10-17",
+            "daily_U": -6.55,
+            "cumulative_U": -5.54
+          },
+          {
+            "date": "2026-10-18",
+            "daily_U": -0.875,
+            "cumulative_U": -6.415
+          },
+          {
+            "date": "2026-10-19",
+            "daily_U": 3.1,
+            "cumulative_U": -3.315
+          },
+          {
+            "date": "2026-10-20",
+            "daily_U": 0.38,
+            "cumulative_U": -2.935
+          },
+          {
+            "date": "2026-10-21",
+            "daily_U": 5.14,
+            "cumulative_U": 2.205
+          },
+          {
+            "date": "2026-10-22",
+            "daily_U": -1.08,
+            "cumulative_U": 1.125
+          },
+          {
+            "date": "2026-10-23",
+            "daily_U": -0.98,
+            "cumulative_U": 0.145
+          },
+          {
+            "date": "2026-10-24",
+            "daily_U": 1.725,
+            "cumulative_U": 1.87
+          },
+          {
+            "date": "2026-10-25",
+            "daily_U": 5.99,
+            "cumulative_U": 7.86
+          },
+          {
+            "date": "2026-10-26",
+            "daily_U": 0.29,
+            "cumulative_U": 8.15
+          },
+          {
+            "date": "2026-10-27",
+            "daily_U": -1.06,
+            "cumulative_U": 7.09
+          },
+          {
+            "date": "2026-10-28",
+            "daily_U": 0.05,
+            "cumulative_U": 7.14
+          },
+          {
+            "date": "2026-10-29",
+            "daily_U": -4.0,
+            "cumulative_U": 3.14
+          },
+          {
+            "date": "2026-10-30",
+            "daily_U": -2.745,
+            "cumulative_U": 0.395
+          },
+          {
+            "date": "2026-10-31",
+            "daily_U": -2.43,
+            "cumulative_U": -2.035
+          },
+          {
+            "date": "2026-11-01",
+            "daily_U": 12.405,
+            "cumulative_U": 10.37
+          },
+          {
+            "date": "2026-11-02",
+            "daily_U": -4.86,
+            "cumulative_U": 5.51
+          },
+          {
+            "date": "2026-11-03",
+            "daily_U": 0.36,
+            "cumulative_U": 5.87
+          },
+          {
+            "date": "2026-11-06",
+            "daily_U": -3.02,
+            "cumulative_U": 2.85
+          },
+          {
+            "date": "2026-11-07",
+            "daily_U": 7.15,
+            "cumulative_U": 10.0
+          },
+          {
+            "date": "2026-11-08",
+            "daily_U": 9.815,
+            "cumulative_U": 19.815
+          },
+          {
+            "date": "2026-11-09",
+            "daily_U": 0.92,
+            "cumulative_U": 20.735
+          },
+          {
+            "date": "2026-11-10",
+            "daily_U": 0.92,
+            "cumulative_U": 21.655
+          },
+          {
+            "date": "2026-11-13",
+            "daily_U": 0.87,
+            "cumulative_U": 22.525
+          }
+        ]
+      },
+      "base_weeks": {
+        "2026-W41": {
+          "n": 68,
+          "U": 9.71,
+          "ROI": 14.279,
+          "positive": 40,
+          "negative": 24,
+          "zero": 4
+        },
+        "2026-W42": {
+          "n": 70,
+          "U": -10.875,
+          "ROI": -15.536,
+          "positive": 29,
+          "negative": 38,
+          "zero": 3
+        },
+        "2026-W43": {
+          "n": 98,
+          "U": 9.075,
+          "ROI": 9.26,
+          "positive": 53,
+          "negative": 38,
+          "zero": 7
+        },
+        "2026-W44": {
+          "n": 75,
+          "U": -1.215,
+          "ROI": -1.62,
+          "positive": 35,
+          "negative": 33,
+          "zero": 7
+        },
+        "2026-W45": {
+          "n": 12,
+          "U": -3.865,
+          "ROI": -32.208,
+          "positive": 4,
+          "negative": 8,
+          "zero": 0
+        }
+      },
+      "combined_weeks": {
+        "2026-W41": {
+          "n": 102,
+          "U": 3.095,
+          "ROI": 3.034,
+          "positive": 53,
+          "negative": 42,
+          "zero": 7
+        },
+        "2026-W42": {
+          "n": 95,
+          "U": -9.51,
+          "ROI": -10.011,
+          "positive": 43,
+          "negative": 49,
+          "zero": 3
+        },
+        "2026-W43": {
+          "n": 142,
+          "U": 14.275,
+          "ROI": 10.053,
+          "positive": 77,
+          "negative": 57,
+          "zero": 8
+        },
+        "2026-W44": {
+          "n": 112,
+          "U": 2.51,
+          "ROI": 2.241,
+          "positive": 56,
+          "negative": 49,
+          "zero": 7
+        },
+        "2026-W45": {
+          "n": 75,
+          "U": 9.445,
+          "ROI": 12.593,
+          "positive": 43,
+          "negative": 31,
+          "zero": 1
+        },
+        "2026-W46": {
+          "n": 3,
+          "U": 2.71,
+          "ROI": 90.333,
+          "positive": 3,
+          "negative": 0,
+          "zero": 0
+        }
+      }
+    }
+  },
+  "cross_archive_diagnostic": {
+    "all": {
+      "n": 616,
+      "U": 3.1,
+      "ROI": 0.503,
+      "positive": 304,
+      "negative": 288,
+      "zero": 24
+    },
+    "2026": {
+      "n": 441,
+      "U": 15.525,
+      "ROI": 3.52,
+      "positive": 228,
+      "negative": 198,
+      "zero": 15
+    },
+    "outside_eight_all": {
+      "n": 485,
+      "U": 11.705,
+      "ROI": 2.413,
+      "positive": 244,
+      "negative": 223,
+      "zero": 18
+    }
+  },
+  "source_coverage": {
+    "1": {
+      "name": "England Premier League",
+      "n": 12,
+      "TC_history_rows": 30,
+      "median_min_prior_count": 2.0,
+      "median_min_effective": 1.031,
+      "median_days_since_older_last_match": 167.0
+    },
+    "12": {
+      "name": "Italy Serie A",
+      "n": 30,
+      "TC_history_rows": 29,
+      "median_min_prior_count": 3.0,
+      "median_min_effective": 1.773,
+      "median_days_since_older_last_match": 71.0
+    },
+    "14": {
+      "name": "Spain La Liga",
+      "n": 14,
+      "TC_history_rows": 23,
+      "median_min_prior_count": 1.5,
+      "median_min_effective": 1.143,
+      "median_days_since_older_last_match": 75.0
+    },
+    "145": {
+      "name": "Colombia Primera A",
+      "n": 59,
+      "TC_history_rows": 28,
+      "median_min_prior_count": 2.0,
+      "median_min_effective": 1.653,
+      "median_days_since_older_last_match": 51.0
+    },
+    "16": {
+      "name": "Germany Bundesliga I",
+      "n": 26,
+      "TC_history_rows": 89,
+      "median_min_prior_count": 9.0,
+      "median_min_effective": 0.138,
+      "median_days_since_older_last_match": 1053.5
+    },
+    "25": {
+      "name": "France Ligue 1",
+      "n": 36,
+      "TC_history_rows": 147,
+      "median_min_prior_count": 16.0,
+      "median_min_effective": 4.811,
+      "median_days_since_older_last_match": 245.5
+    },
+    "290": {
+      "name": "Saudi Arabia Pro League",
+      "n": 26,
+      "TC_history_rows": 30,
+      "median_min_prior_count": 3.0,
+      "median_min_effective": 1.605,
+      "median_days_since_older_last_match": 156.5
+    },
+    "73": {
+      "name": "Japan J-League",
+      "n": 60,
+      "TC_history_rows": 30,
+      "median_min_prior_count": 3.0,
+      "median_min_effective": 2.069,
+      "median_days_since_older_last_match": 69.0
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}
