@@ -1,0 +1,4379 @@
+{
+  "notes": "Nested chronological validation chooses shared/league intercept/full shrunken deviations by prior-year total goals Poisson NLL, not test ROI. Penalties are experimental, not formal trading rules. Each model tested on same two-league annual sample.",
+  "years": {
+    "2024": {
+      "train_n": 1875,
+      "test_n": 733,
+      "models": {
+        "market_total": {
+          "validation_n": 714,
+          "validation_NLL": {
+            "shared": -0.08919945914848693,
+            "intercept": -0.08922957985697824,
+            "partial_100": -0.08487242451561101,
+            "partial_500": -0.08537826015914114,
+            "partial_2000": -0.0866180544272965
+          },
+          "picked": "intercept",
+          "models": {
+            "shared": {
+              "NLL": -0.23953784032077427,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -30.82,
+                    "ROI": -4.205
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 110,
+                    "U": -6.905,
+                    "ROI": -6.277
+                  },
+                  "goal_MAE": 1.312979
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -23.32,
+                    "ROI": -6.514
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 63,
+                    "U": -3.37,
+                    "ROI": -5.349
+                  },
+                  "goal_MAE": 1.370864
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -7.5,
+                    "ROI": -2.0
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 47,
+                    "U": -3.535,
+                    "ROI": -7.521
+                  },
+                  "goal_MAE": 1.257718
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -32.66,
+                    "ROI": -8.64
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 59,
+                    "U": 1.055,
+                    "ROI": 1.788
+                  },
+                  "goal_MAE": 1.364873
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": 1.84,
+                    "ROI": 0.518
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 51,
+                    "U": -7.96,
+                    "ROI": -15.608
+                  },
+                  "goal_MAE": 1.257723
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.23931725989456137,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -32.465,
+                    "ROI": -4.429
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 109,
+                    "U": -12.795,
+                    "ROI": -11.739
+                  },
+                  "goal_MAE": 1.313288
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -32.525,
+                    "ROI": -9.085
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 58,
+                    "U": -5.635,
+                    "ROI": -9.716
+                  },
+                  "goal_MAE": 1.37099
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": 0.06,
+                    "ROI": 0.016
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 51,
+                    "U": -7.16,
+                    "ROI": -14.039
+                  },
+                  "goal_MAE": 1.258202
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -21.085,
+                    "ROI": -5.578
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 60,
+                    "U": -0.47,
+                    "ROI": -0.783
+                  },
+                  "goal_MAE": 1.36468
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -11.38,
+                    "ROI": -3.206
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 49,
+                    "U": -12.325,
+                    "ROI": -25.153
+                  },
+                  "goal_MAE": 1.258566
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.23740151403829718,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -46.695,
+                    "ROI": -6.37
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 236,
+                    "U": -27.695,
+                    "ROI": -11.735
+                  },
+                  "goal_MAE": 1.314232
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -30.935,
+                    "ROI": -8.641
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 162,
+                    "U": -20.645,
+                    "ROI": -12.744
+                  },
+                  "goal_MAE": 1.376031
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -15.76,
+                    "ROI": -4.203
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 74,
+                    "U": -7.05,
+                    "ROI": -9.527
+                  },
+                  "goal_MAE": 1.255234
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -38.27,
+                    "ROI": -10.124
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 131,
+                    "U": -14.87,
+                    "ROI": -11.351
+                  },
+                  "goal_MAE": 1.367133
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -8.425,
+                    "ROI": -2.373
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 105,
+                    "U": -12.825,
+                    "ROI": -12.214
+                  },
+                  "goal_MAE": 1.257903
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.238166981519391,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -39.195,
+                    "ROI": -5.347
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 170,
+                    "U": -12.23,
+                    "ROI": -7.194
+                  },
+                  "goal_MAE": 1.313893
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -19.17,
+                    "ROI": -5.355
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 127,
+                    "U": -9.31,
+                    "ROI": -7.331
+                  },
+                  "goal_MAE": 1.373895
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -20.025,
+                    "ROI": -5.34
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 43,
+                    "U": -2.92,
+                    "ROI": -6.791
+                  },
+                  "goal_MAE": 1.256611
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -29.9,
+                    "ROI": -7.91
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 98,
+                    "U": -1.985,
+                    "ROI": -2.026
+                  },
+                  "goal_MAE": 1.36487
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -9.295,
+                    "ROI": -2.618
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 72,
+                    "U": -10.245,
+                    "ROI": -14.229
+                  },
+                  "goal_MAE": 1.259613
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.23853399083092922,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -37.61,
+                    "ROI": -5.131
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 133,
+                    "U": -17.985,
+                    "ROI": -13.523
+                  },
+                  "goal_MAE": 1.31401
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -13.835,
+                    "ROI": -3.865
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 100,
+                    "U": -12.19,
+                    "ROI": -12.19
+                  },
+                  "goal_MAE": 1.373265
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -23.775,
+                    "ROI": -6.34
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 33,
+                    "U": -5.795,
+                    "ROI": -17.561
+                  },
+                  "goal_MAE": 1.257442
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -27.13,
+                    "ROI": -7.177
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 78,
+                    "U": -6.205,
+                    "ROI": -7.955
+                  },
+                  "goal_MAE": 1.364595
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -10.48,
+                    "ROI": -2.952
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 55,
+                    "U": -11.78,
+                    "ROI": -21.418
+                  },
+                  "goal_MAE": 1.260148
+                }
+              }
+            }
+          }
+        },
+        "market_separate": {
+          "validation_n": 714,
+          "validation_NLL": {
+            "shared": -0.08945063232609571,
+            "intercept": -0.08948270504757624,
+            "partial_100": -0.08494258834825327,
+            "partial_500": -0.08608974276620317,
+            "partial_2000": -0.08768654550395312
+          },
+          "picked": "intercept",
+          "models": {
+            "shared": {
+              "NLL": -0.23956458186053478,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -27.005,
+                    "ROI": -3.684
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 73,
+                    "U": -1.095,
+                    "ROI": -1.5
+                  },
+                  "goal_MAE": 1.313498
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -27.205,
+                    "ROI": -7.599
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 34,
+                    "U": 0.25,
+                    "ROI": 0.735
+                  },
+                  "goal_MAE": 1.371832
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": 0.2,
+                    "ROI": 0.053
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 39,
+                    "U": -1.345,
+                    "ROI": -3.449
+                  },
+                  "goal_MAE": 1.257808
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -33.555,
+                    "ROI": -8.877
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 39,
+                    "U": 1.78,
+                    "ROI": 4.564
+                  },
+                  "goal_MAE": 1.365851
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": 6.55,
+                    "ROI": 1.845
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 34,
+                    "U": -2.875,
+                    "ROI": -8.456
+                  },
+                  "goal_MAE": 1.257753
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.23942923863481247,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -38.175,
+                    "ROI": -5.208
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 80,
+                    "U": -3.29,
+                    "ROI": -4.113
+                  },
+                  "goal_MAE": 1.313737
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -25.985,
+                    "ROI": -7.258
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 33,
+                    "U": 1.36,
+                    "ROI": 4.121
+                  },
+                  "goal_MAE": 1.371854
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -12.19,
+                    "ROI": -3.251
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 47,
+                    "U": -4.65,
+                    "ROI": -9.894
+                  },
+                  "goal_MAE": 1.258255
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -33.37,
+                    "ROI": -8.828
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 46,
+                    "U": 0.275,
+                    "ROI": 0.598
+                  },
+                  "goal_MAE": 1.365455
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -4.805,
+                    "ROI": -1.354
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 34,
+                    "U": -3.565,
+                    "ROI": -10.485
+                  },
+                  "goal_MAE": 1.258667
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.2368601512124151,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -17.385,
+                    "ROI": -2.372
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 278,
+                    "U": -14.39,
+                    "ROI": -5.176
+                  },
+                  "goal_MAE": 1.316242
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -8.955,
+                    "ROI": -2.501
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 180,
+                    "U": -14.045,
+                    "ROI": -7.803
+                  },
+                  "goal_MAE": 1.378032
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -8.43,
+                    "ROI": -2.248
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 98,
+                    "U": -0.345,
+                    "ROI": -0.352
+                  },
+                  "goal_MAE": 1.257253
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -16.35,
+                    "ROI": -4.325
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 144,
+                    "U": -11.005,
+                    "ROI": -7.642
+                  },
+                  "goal_MAE": 1.369779
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -1.035,
+                    "ROI": -0.292
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 134,
+                    "U": -3.385,
+                    "ROI": -2.526
+                  },
+                  "goal_MAE": 1.259237
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.23756724784240071,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -38.635,
+                    "ROI": -5.271
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 242,
+                    "U": -19.37,
+                    "ROI": -8.004
+                  },
+                  "goal_MAE": 1.316009
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -22.115,
+                    "ROI": -6.177
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 154,
+                    "U": -12.065,
+                    "ROI": -7.834
+                  },
+                  "goal_MAE": 1.377262
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -16.52,
+                    "ROI": -4.405
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 88,
+                    "U": -7.305,
+                    "ROI": -8.301
+                  },
+                  "goal_MAE": 1.257533
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -24.88,
+                    "ROI": -6.582
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 131,
+                    "U": -16.74,
+                    "ROI": -12.779
+                  },
+                  "goal_MAE": 1.368499
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -13.755,
+                    "ROI": -3.875
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 111,
+                    "U": -2.63,
+                    "ROI": -2.369
+                  },
+                  "goal_MAE": 1.260118
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.23816294998580748,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -29.245,
+                    "ROI": -3.99
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 171,
+                    "U": -12.065,
+                    "ROI": -7.056
+                  },
+                  "goal_MAE": 1.315602
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -17.735,
+                    "ROI": -4.954
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 119,
+                    "U": -7.02,
+                    "ROI": -5.899
+                  },
+                  "goal_MAE": 1.376175
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -11.51,
+                    "ROI": -3.069
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 52,
+                    "U": -5.045,
+                    "ROI": -9.702
+                  },
+                  "goal_MAE": 1.257775
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -21.245,
+                    "ROI": -5.62
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 97,
+                    "U": -4.85,
+                    "ROI": -5.0
+                  },
+                  "goal_MAE": 1.368206
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -8.0,
+                    "ROI": -2.254
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 74,
+                    "U": -7.215,
+                    "ROI": -9.75
+                  },
+                  "goal_MAE": 1.259589
+                }
+              }
+            }
+          }
+        },
+        "market_performance_total": {
+          "validation_n": 714,
+          "validation_NLL": {
+            "shared": -0.08527393642631997,
+            "intercept": -0.08492282783576208,
+            "partial_100": -0.06824222761799796,
+            "partial_500": -0.07248380847168891,
+            "partial_2000": -0.07695477750877709
+          },
+          "picked": "shared",
+          "models": {
+            "shared": {
+              "NLL": -0.23784103191395917,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -6.61,
+                    "ROI": -0.902
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 488,
+                    "U": -5.425,
+                    "ROI": -1.112
+                  },
+                  "goal_MAE": 1.320533
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -19.05,
+                    "ROI": -5.321
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 252,
+                    "U": -16.255,
+                    "ROI": -6.45
+                  },
+                  "goal_MAE": 1.384275
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": 12.44,
+                    "ROI": 3.317
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 236,
+                    "U": 10.83,
+                    "ROI": 4.589
+                  },
+                  "goal_MAE": 1.259681
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": 2.865,
+                    "ROI": 0.758
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 258,
+                    "U": -2.83,
+                    "ROI": -1.097
+                  },
+                  "goal_MAE": 1.371953
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -9.475,
+                    "ROI": -2.669
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 230,
+                    "U": -2.595,
+                    "ROI": -1.128
+                  },
+                  "goal_MAE": 1.265782
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.23812147297888964,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -0.01,
+                    "ROI": -0.001
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 495,
+                    "U": -10.285,
+                    "ROI": -2.078
+                  },
+                  "goal_MAE": 1.32152
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -21.96,
+                    "ROI": -6.134
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 250,
+                    "U": -17.995,
+                    "ROI": -7.198
+                  },
+                  "goal_MAE": 1.385798
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": 21.95,
+                    "ROI": 5.853
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 245,
+                    "U": 7.71,
+                    "ROI": 3.147
+                  },
+                  "goal_MAE": 1.260156
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": 7.625,
+                    "ROI": 2.017
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 256,
+                    "U": -5.165,
+                    "ROI": -2.018
+                  },
+                  "goal_MAE": 1.372935
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -7.635,
+                    "ROI": -2.151
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 239,
+                    "U": -5.12,
+                    "ROI": -2.142
+                  },
+                  "goal_MAE": 1.266773
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.2258986750927816,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -27.055,
+                    "ROI": -3.691
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 563,
+                    "U": -7.785,
+                    "ROI": -1.383
+                  },
+                  "goal_MAE": 1.339637
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -23.705,
+                    "ROI": -6.622
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 281,
+                    "U": -22.91,
+                    "ROI": -8.153
+                  },
+                  "goal_MAE": 1.413841
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -3.35,
+                    "ROI": -0.893
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 282,
+                    "U": 15.125,
+                    "ROI": 5.363
+                  },
+                  "goal_MAE": 1.268797
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -7.25,
+                    "ROI": -1.918
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 291,
+                    "U": 4.65,
+                    "ROI": 1.598
+                  },
+                  "goal_MAE": 1.38566
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -19.805,
+                    "ROI": -5.579
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 272,
+                    "U": -12.435,
+                    "ROI": -4.572
+                  },
+                  "goal_MAE": 1.290633
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.22841295377964446,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -12.515,
+                    "ROI": -1.707
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 550,
+                    "U": -10.88,
+                    "ROI": -1.978
+                  },
+                  "goal_MAE": 1.335057
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -21.535,
+                    "ROI": -6.015
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 268,
+                    "U": -19.81,
+                    "ROI": -7.392
+                  },
+                  "goal_MAE": 1.405826
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": 9.02,
+                    "ROI": 2.405
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 282,
+                    "U": 8.93,
+                    "ROI": 3.167
+                  },
+                  "goal_MAE": 1.267496
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": 1.825,
+                    "ROI": 0.483
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 279,
+                    "U": 6.265,
+                    "ROI": 2.246
+                  },
+                  "goal_MAE": 1.380328
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -14.34,
+                    "ROI": -4.039
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 271,
+                    "U": -17.145,
+                    "ROI": -6.327
+                  },
+                  "goal_MAE": 1.286853
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.2316022981629687,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -12.235,
+                    "ROI": -1.669
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 528,
+                    "U": -7.84,
+                    "ROI": -1.485
+                  },
+                  "goal_MAE": 1.329062
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -15.055,
+                    "ROI": -4.205
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 260,
+                    "U": -17.65,
+                    "ROI": -6.788
+                  },
+                  "goal_MAE": 1.397301
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": 2.82,
+                    "ROI": 0.752
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 268,
+                    "U": 9.81,
+                    "ROI": 3.66
+                  },
+                  "goal_MAE": 1.263917
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": 2.355,
+                    "ROI": 0.623
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 262,
+                    "U": 5.165,
+                    "ROI": 1.971
+                  },
+                  "goal_MAE": 1.376298
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -14.59,
+                    "ROI": -4.11
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 266,
+                    "U": -13.005,
+                    "ROI": -4.889
+                  },
+                  "goal_MAE": 1.278766
+                }
+              }
+            }
+          }
+        },
+        "market_performance_separate": {
+          "validation_n": 714,
+          "validation_NLL": {
+            "shared": -0.08559243917457873,
+            "intercept": -0.08536552255790814,
+            "partial_100": -0.06870254665526272,
+            "partial_500": -0.07412932454378747,
+            "partial_2000": -0.07905074160766237
+          },
+          "picked": "shared",
+          "models": {
+            "shared": {
+              "NLL": -0.2380261036497727,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -16.905,
+                    "ROI": -2.306
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 473,
+                    "U": 0.74,
+                    "ROI": 0.156
+                  },
+                  "goal_MAE": 1.322239
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -15.98,
+                    "ROI": -4.464
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 245,
+                    "U": -11.11,
+                    "ROI": -4.535
+                  },
+                  "goal_MAE": 1.385119
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -0.925,
+                    "ROI": -0.247
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 228,
+                    "U": 11.85,
+                    "ROI": 5.197
+                  },
+                  "goal_MAE": 1.262211
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -12.11,
+                    "ROI": -3.204
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 249,
+                    "U": -9.32,
+                    "ROI": -3.743
+                  },
+                  "goal_MAE": 1.375413
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -4.795,
+                    "ROI": -1.351
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 224,
+                    "U": 10.06,
+                    "ROI": 4.491
+                  },
+                  "goal_MAE": 1.265621
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.2383086961828438,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -10.525,
+                    "ROI": -1.436
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 484,
+                    "U": 10.36,
+                    "ROI": 2.14
+                  },
+                  "goal_MAE": 1.323247
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -14.02,
+                    "ROI": -3.916
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 251,
+                    "U": -6.54,
+                    "ROI": -2.606
+                  },
+                  "goal_MAE": 1.386533
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": 3.495,
+                    "ROI": 0.932
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 233,
+                    "U": 16.9,
+                    "ROI": 7.253
+                  },
+                  "goal_MAE": 1.262831
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -4.97,
+                    "ROI": -1.315
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 253,
+                    "U": -3.33,
+                    "ROI": -1.316
+                  },
+                  "goal_MAE": 1.375975
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -5.555,
+                    "ROI": -1.565
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 231,
+                    "U": 13.69,
+                    "ROI": 5.926
+                  },
+                  "goal_MAE": 1.267103
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.22583621975509235,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -34.42,
+                    "ROI": -4.696
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 554,
+                    "U": -20.85,
+                    "ROI": -3.764
+                  },
+                  "goal_MAE": 1.339341
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -27.375,
+                    "ROI": -7.647
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 270,
+                    "U": -23.48,
+                    "ROI": -8.696
+                  },
+                  "goal_MAE": 1.410348
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -7.045,
+                    "ROI": -1.879
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 284,
+                    "U": 2.63,
+                    "ROI": 0.926
+                  },
+                  "goal_MAE": 1.271553
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -17.075,
+                    "ROI": -4.517
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 278,
+                    "U": -10.295,
+                    "ROI": -3.703
+                  },
+                  "goal_MAE": 1.39013
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -17.345,
+                    "ROI": -4.886
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 276,
+                    "U": -10.555,
+                    "ROI": -3.824
+                  },
+                  "goal_MAE": 1.285262
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.22911370896678812,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -31.21,
+                    "ROI": -4.258
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 533,
+                    "U": -9.1,
+                    "ROI": -1.707
+                  },
+                  "goal_MAE": 1.334115
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -22.455,
+                    "ROI": -6.272
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 259,
+                    "U": -17.92,
+                    "ROI": -6.919
+                  },
+                  "goal_MAE": 1.403506
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": -8.755,
+                    "ROI": -2.335
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 274,
+                    "U": 8.82,
+                    "ROI": 3.219
+                  },
+                  "goal_MAE": 1.26787
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -12.615,
+                    "ROI": -3.337
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 272,
+                    "U": -5.11,
+                    "ROI": -1.879
+                  },
+                  "goal_MAE": 1.386014
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -18.595,
+                    "ROI": -5.238
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 261,
+                    "U": -3.99,
+                    "ROI": -1.529
+                  },
+                  "goal_MAE": 1.278854
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.23286969061724772,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 733,
+                    "U": -9.495,
+                    "ROI": -1.295
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 527,
+                    "U": -8.195,
+                    "ROI": -1.555
+                  },
+                  "goal_MAE": 1.328052
+                },
+                "1": {
+                  "all": {
+                    "n": 358,
+                    "U": -14.81,
+                    "ROI": -4.137
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 259,
+                    "U": -13.78,
+                    "ROI": -5.32
+                  },
+                  "goal_MAE": 1.395327
+                },
+                "14": {
+                  "all": {
+                    "n": 375,
+                    "U": 5.315,
+                    "ROI": 1.417
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 268,
+                    "U": 5.585,
+                    "ROI": 2.084
+                  },
+                  "goal_MAE": 1.263826
+                },
+                "H1": {
+                  "all": {
+                    "n": 378,
+                    "U": -7.855,
+                    "ROI": -2.078
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 274,
+                    "U": -5.595,
+                    "ROI": -2.042
+                  },
+                  "goal_MAE": 1.381394
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -1.64,
+                    "ROI": -0.462
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 253,
+                    "U": -2.6,
+                    "ROI": -1.028
+                  },
+                  "goal_MAE": 1.271254
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "2025": {
+      "train_n": 2608,
+      "test_n": 734,
+      "models": {
+        "market_total": {
+          "validation_n": 733,
+          "validation_NLL": {
+            "shared": -0.23953784032077427,
+            "intercept": -0.23931725989456137,
+            "partial_100": -0.23740151403829718,
+            "partial_500": -0.238166981519391,
+            "partial_2000": -0.23853399083092922
+          },
+          "picked": "shared",
+          "models": {
+            "shared": {
+              "NLL": -0.03020660803409,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -27.185,
+                    "ROI": -3.704
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 176,
+                    "U": -1.905,
+                    "ROI": -1.082
+                  },
+                  "goal_MAE": 1.212939
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -14.405,
+                    "ROI": -3.883
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 86,
+                    "U": 0.925,
+                    "ROI": 1.076
+                  },
+                  "goal_MAE": 1.245204
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -12.78,
+                    "ROI": -3.521
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 90,
+                    "U": -2.83,
+                    "ROI": -3.144
+                  },
+                  "goal_MAE": 1.179964
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": -19.78,
+                    "ROI": -5.219
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 61,
+                    "U": -1.035,
+                    "ROI": -1.697
+                  },
+                  "goal_MAE": 1.273142
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -7.405,
+                    "ROI": -2.086
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 115,
+                    "U": -0.87,
+                    "ROI": -0.757
+                  },
+                  "goal_MAE": 1.148667
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.030079502817309575,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -41.715,
+                    "ROI": -5.683
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 180,
+                    "U": -1.065,
+                    "ROI": -0.592
+                  },
+                  "goal_MAE": 1.213119
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -19.955,
+                    "ROI": -5.379
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 83,
+                    "U": 0.185,
+                    "ROI": 0.223
+                  },
+                  "goal_MAE": 1.244644
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -21.76,
+                    "ROI": -5.994
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 97,
+                    "U": -1.25,
+                    "ROI": -1.289
+                  },
+                  "goal_MAE": 1.180899
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": -24.55,
+                    "ROI": -6.478
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 63,
+                    "U": -1.235,
+                    "ROI": -1.96
+                  },
+                  "goal_MAE": 1.27369
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -17.165,
+                    "ROI": -4.835
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 117,
+                    "U": 0.17,
+                    "ROI": 0.145
+                  },
+                  "goal_MAE": 1.148453
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.023700096261708055,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -16.25,
+                    "ROI": -2.214
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 296,
+                    "U": -20.7,
+                    "ROI": -6.993
+                  },
+                  "goal_MAE": 1.219483
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": 6.055,
+                    "ROI": 1.632
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 134,
+                    "U": -11.42,
+                    "ROI": -8.522
+                  },
+                  "goal_MAE": 1.247598
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -22.305,
+                    "ROI": -6.145
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 162,
+                    "U": -9.28,
+                    "ROI": -5.728
+                  },
+                  "goal_MAE": 1.190749
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": -8.195,
+                    "ROI": -2.162
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 122,
+                    "U": -11.145,
+                    "ROI": -9.135
+                  },
+                  "goal_MAE": 1.27594
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -8.055,
+                    "ROI": -2.269
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 174,
+                    "U": -9.555,
+                    "ROI": -5.491
+                  },
+                  "goal_MAE": 1.159208
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.02437761445582071,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -22.215,
+                    "ROI": -3.027
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 282,
+                    "U": -16.825,
+                    "ROI": -5.966
+                  },
+                  "goal_MAE": 1.21814
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -3.21,
+                    "ROI": -0.865
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 124,
+                    "U": -6.605,
+                    "ROI": -5.327
+                  },
+                  "goal_MAE": 1.24631
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -19.005,
+                    "ROI": -5.236
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 158,
+                    "U": -10.22,
+                    "ROI": -6.468
+                  },
+                  "goal_MAE": 1.189348
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": -11.51,
+                    "ROI": -3.037
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 112,
+                    "U": -6.245,
+                    "ROI": -5.576
+                  },
+                  "goal_MAE": 1.275161
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -10.705,
+                    "ROI": -3.015
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 170,
+                    "U": -10.58,
+                    "ROI": -6.224
+                  },
+                  "goal_MAE": 1.157263
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.025740206026819677,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -25.4,
+                    "ROI": -3.46
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 263,
+                    "U": -15.575,
+                    "ROI": -5.922
+                  },
+                  "goal_MAE": 1.216471
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -7.245,
+                    "ROI": -1.953
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 115,
+                    "U": -6.325,
+                    "ROI": -5.5
+                  },
+                  "goal_MAE": 1.245224
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -18.155,
+                    "ROI": -5.001
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 148,
+                    "U": -9.25,
+                    "ROI": -6.25
+                  },
+                  "goal_MAE": 1.187084
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": -20.895,
+                    "ROI": -5.513
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 102,
+                    "U": -8.85,
+                    "ROI": -8.676
+                  },
+                  "goal_MAE": 1.274612
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -4.505,
+                    "ROI": -1.269
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 161,
+                    "U": -6.725,
+                    "ROI": -4.177
+                  },
+                  "goal_MAE": 1.154399
+                }
+              }
+            }
+          }
+        },
+        "market_separate": {
+          "validation_n": 733,
+          "validation_NLL": {
+            "shared": -0.23956458186053478,
+            "intercept": -0.23942923863481247,
+            "partial_100": -0.2368601512124151,
+            "partial_500": -0.23756724784240071,
+            "partial_2000": -0.23816294998580748
+          },
+          "picked": "shared",
+          "models": {
+            "shared": {
+              "NLL": -0.02840065505846039,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -35.25,
+                    "ROI": -4.802
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 154,
+                    "U": -10.69,
+                    "ROI": -6.942
+                  },
+                  "goal_MAE": 1.21757
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -28.22,
+                    "ROI": -7.606
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 80,
+                    "U": -7.545,
+                    "ROI": -9.431
+                  },
+                  "goal_MAE": 1.251428
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -7.03,
+                    "ROI": -1.937
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 74,
+                    "U": -3.145,
+                    "ROI": -4.25
+                  },
+                  "goal_MAE": 1.182965
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": -17.795,
+                    "ROI": -4.695
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 46,
+                    "U": 1.15,
+                    "ROI": 2.5
+                  },
+                  "goal_MAE": 1.275351
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -17.455,
+                    "ROI": -4.917
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 108,
+                    "U": -11.84,
+                    "ROI": -10.963
+                  },
+                  "goal_MAE": 1.155882
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.0284030090336224,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -44.79,
+                    "ROI": -6.102
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 159,
+                    "U": -10.35,
+                    "ROI": -6.509
+                  },
+                  "goal_MAE": 1.217435
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -25.985,
+                    "ROI": -7.004
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 72,
+                    "U": -5.975,
+                    "ROI": -8.299
+                  },
+                  "goal_MAE": 1.250653
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -18.805,
+                    "ROI": -5.18
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 87,
+                    "U": -4.375,
+                    "ROI": -5.029
+                  },
+                  "goal_MAE": 1.183484
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": -21.755,
+                    "ROI": -5.74
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 52,
+                    "U": 1.4,
+                    "ROI": 2.692
+                  },
+                  "goal_MAE": 1.275273
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -23.035,
+                    "ROI": -6.489
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 107,
+                    "U": -11.75,
+                    "ROI": -10.981
+                  },
+                  "goal_MAE": 1.155686
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.022035188087239952,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -27.535,
+                    "ROI": -3.751
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 300,
+                    "U": -26.9,
+                    "ROI": -8.967
+                  },
+                  "goal_MAE": 1.223887
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -2.86,
+                    "ROI": -0.771
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 133,
+                    "U": -12.025,
+                    "ROI": -9.041
+                  },
+                  "goal_MAE": 1.252305
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -24.675,
+                    "ROI": -6.798
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 167,
+                    "U": -14.875,
+                    "ROI": -8.907
+                  },
+                  "goal_MAE": 1.194842
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": -22.575,
+                    "ROI": -5.956
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 119,
+                    "U": -19.725,
+                    "ROI": -16.576
+                  },
+                  "goal_MAE": 1.280968
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -4.96,
+                    "ROI": -1.397
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 181,
+                    "U": -7.175,
+                    "ROI": -3.964
+                  },
+                  "goal_MAE": 1.162947
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.022875590577459533,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -30.645,
+                    "ROI": -4.175
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 272,
+                    "U": -20.375,
+                    "ROI": -7.491
+                  },
+                  "goal_MAE": 1.22279
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -16.075,
+                    "ROI": -4.333
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 115,
+                    "U": -11.835,
+                    "ROI": -10.291
+                  },
+                  "goal_MAE": 1.250682
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -14.57,
+                    "ROI": -4.014
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 157,
+                    "U": -8.54,
+                    "ROI": -5.439
+                  },
+                  "goal_MAE": 1.194284
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": -34.44,
+                    "ROI": -9.087
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 111,
+                    "U": -16.905,
+                    "ROI": -15.23
+                  },
+                  "goal_MAE": 1.281384
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": 3.795,
+                    "ROI": 1.069
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 161,
+                    "U": -3.47,
+                    "ROI": -2.155
+                  },
+                  "goal_MAE": 1.160234
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.02465283103806121,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -16.82,
+                    "ROI": -2.292
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 236,
+                    "U": -20.08,
+                    "ROI": -8.508
+                  },
+                  "goal_MAE": 1.221122
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -3.435,
+                    "ROI": -0.926
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 98,
+                    "U": -7.475,
+                    "ROI": -7.628
+                  },
+                  "goal_MAE": 1.249868
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -13.385,
+                    "ROI": -3.687
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 138,
+                    "U": -12.605,
+                    "ROI": -9.134
+                  },
+                  "goal_MAE": 1.191743
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": -26.185,
+                    "ROI": -6.909
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 89,
+                    "U": -16.555,
+                    "ROI": -18.601
+                  },
+                  "goal_MAE": 1.280317
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": 9.365,
+                    "ROI": 2.638
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 147,
+                    "U": -3.525,
+                    "ROI": -2.398
+                  },
+                  "goal_MAE": 1.157926
+                }
+              }
+            }
+          }
+        },
+        "market_performance_total": {
+          "validation_n": 733,
+          "validation_NLL": {
+            "shared": -0.23784103191395917,
+            "intercept": -0.23812147297888964,
+            "partial_100": -0.2258986750927816,
+            "partial_500": -0.22841295377964446,
+            "partial_2000": -0.2316022981629687
+          },
+          "picked": "intercept",
+          "models": {
+            "shared": {
+              "NLL": -0.03000081940916632,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -4.175,
+                    "ROI": -0.569
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 483,
+                    "U": 14.17,
+                    "ROI": 2.934
+                  },
+                  "goal_MAE": 1.214633
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -9.32,
+                    "ROI": -2.512
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 237,
+                    "U": -5.58,
+                    "ROI": -2.354
+                  },
+                  "goal_MAE": 1.252508
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": 5.145,
+                    "ROI": 1.417
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 246,
+                    "U": 19.75,
+                    "ROI": 8.028
+                  },
+                  "goal_MAE": 1.175922
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": 10.865,
+                    "ROI": 2.867
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 247,
+                    "U": 19.09,
+                    "ROI": 7.729
+                  },
+                  "goal_MAE": 1.27114
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -15.04,
+                    "ROI": -4.237
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 236,
+                    "U": -4.92,
+                    "ROI": -2.085
+                  },
+                  "goal_MAE": 1.154305
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.029647621891909257,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": 5.555,
+                    "ROI": 0.757
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 476,
+                    "U": 16.485,
+                    "ROI": 3.463
+                  },
+                  "goal_MAE": 1.215927
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": 0.325,
+                    "ROI": 0.088
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 235,
+                    "U": -4.91,
+                    "ROI": -2.089
+                  },
+                  "goal_MAE": 1.251631
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": 5.23,
+                    "ROI": 1.441
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 241,
+                    "U": 21.395,
+                    "ROI": 8.878
+                  },
+                  "goal_MAE": 1.179436
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": 10.175,
+                    "ROI": 2.685
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 248,
+                    "U": 14.99,
+                    "ROI": 6.044
+                  },
+                  "goal_MAE": 1.272962
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -4.62,
+                    "ROI": -1.301
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 228,
+                    "U": 1.495,
+                    "ROI": 0.656
+                  },
+                  "goal_MAE": 1.155036
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.019312596187876695,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -0.525,
+                    "ROI": -0.072
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 545,
+                    "U": 4.855,
+                    "ROI": 0.891
+                  },
+                  "goal_MAE": 1.226144
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": 2.365,
+                    "ROI": 0.637
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 264,
+                    "U": 9.325,
+                    "ROI": 3.532
+                  },
+                  "goal_MAE": 1.244687
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -2.89,
+                    "ROI": -0.796
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 281,
+                    "U": -4.47,
+                    "ROI": -1.591
+                  },
+                  "goal_MAE": 1.207192
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": 24.575,
+                    "ROI": 6.484
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 276,
+                    "U": 16.08,
+                    "ROI": 5.826
+                  },
+                  "goal_MAE": 1.273995
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -25.1,
+                    "ROI": -7.07
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 269,
+                    "U": -11.225,
+                    "ROI": -4.173
+                  },
+                  "goal_MAE": 1.175058
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.02020064885055895,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": 6.27,
+                    "ROI": 0.854
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 544,
+                    "U": 7.485,
+                    "ROI": 1.376
+                  },
+                  "goal_MAE": 1.224477
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": 6.105,
+                    "ROI": 1.646
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 263,
+                    "U": 12.765,
+                    "ROI": 4.854
+                  },
+                  "goal_MAE": 1.243915
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": 0.165,
+                    "ROI": 0.045
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 281,
+                    "U": -5.28,
+                    "ROI": -1.879
+                  },
+                  "goal_MAE": 1.204611
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": 25.59,
+                    "ROI": 6.752
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 277,
+                    "U": 19.64,
+                    "ROI": 7.09
+                  },
+                  "goal_MAE": 1.272832
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -19.32,
+                    "ROI": -5.442
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 267,
+                    "U": -12.155,
+                    "ROI": -4.552
+                  },
+                  "goal_MAE": 1.172853
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.022426597054580465,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -2.36,
+                    "ROI": -0.322
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 527,
+                    "U": 1.785,
+                    "ROI": 0.339
+                  },
+                  "goal_MAE": 1.222072
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -5.635,
+                    "ROI": -1.519
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 259,
+                    "U": 5.185,
+                    "ROI": 2.002
+                  },
+                  "goal_MAE": 1.245104
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": 3.275,
+                    "ROI": 0.902
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 268,
+                    "U": -3.4,
+                    "ROI": -1.269
+                  },
+                  "goal_MAE": 1.198533
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": 20.11,
+                    "ROI": 5.306
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 267,
+                    "U": 11.5,
+                    "ROI": 4.307
+                  },
+                  "goal_MAE": 1.272467
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -22.47,
+                    "ROI": -6.33
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 260,
+                    "U": -9.715,
+                    "ROI": -3.737
+                  },
+                  "goal_MAE": 1.16827
+                }
+              }
+            }
+          }
+        },
+        "market_performance_separate": {
+          "validation_n": 733,
+          "validation_NLL": {
+            "shared": -0.2380261036497727,
+            "intercept": -0.2383086961828438,
+            "partial_100": -0.22583621975509235,
+            "partial_500": -0.22911370896678812,
+            "partial_2000": -0.23286969061724772
+          },
+          "picked": "intercept",
+          "models": {
+            "shared": {
+              "NLL": -0.027412896840777735,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -14.615,
+                    "ROI": -1.991
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 436,
+                    "U": -1.835,
+                    "ROI": -0.421
+                  },
+                  "goal_MAE": 1.219556
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -19.755,
+                    "ROI": -5.325
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 223,
+                    "U": -17.205,
+                    "ROI": -7.715
+                  },
+                  "goal_MAE": 1.257353
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": 5.14,
+                    "ROI": 1.416
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 213,
+                    "U": 15.37,
+                    "ROI": 7.216
+                  },
+                  "goal_MAE": 1.180926
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": 5.525,
+                    "ROI": 1.458
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 227,
+                    "U": 5.425,
+                    "ROI": 2.39
+                  },
+                  "goal_MAE": 1.275064
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -20.14,
+                    "ROI": -5.673
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 209,
+                    "U": -7.26,
+                    "ROI": -3.474
+                  },
+                  "goal_MAE": 1.160295
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.027146608817460918,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -5.825,
+                    "ROI": -0.794
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 456,
+                    "U": -0.21,
+                    "ROI": -0.046
+                  },
+                  "goal_MAE": 1.220602
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -11.905,
+                    "ROI": -3.209
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 229,
+                    "U": -15.365,
+                    "ROI": -6.71
+                  },
+                  "goal_MAE": 1.256308
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": 6.08,
+                    "ROI": 1.675
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 227,
+                    "U": 15.155,
+                    "ROI": 6.676
+                  },
+                  "goal_MAE": 1.18411
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": 6.295,
+                    "ROI": 1.661
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 234,
+                    "U": 10.735,
+                    "ROI": 4.588
+                  },
+                  "goal_MAE": 1.276503
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -12.12,
+                    "ROI": -3.414
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 222,
+                    "U": -10.945,
+                    "ROI": -4.93
+                  },
+                  "goal_MAE": 1.160923
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.01651756714252071,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -0.96,
+                    "ROI": -0.131
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 545,
+                    "U": 10.32,
+                    "ROI": 1.894
+                  },
+                  "goal_MAE": 1.233817
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": 2.25,
+                    "ROI": 0.606
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 255,
+                    "U": 12.78,
+                    "ROI": 5.012
+                  },
+                  "goal_MAE": 1.254644
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -3.21,
+                    "ROI": -0.884
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 290,
+                    "U": -2.46,
+                    "ROI": -0.848
+                  },
+                  "goal_MAE": 1.212531
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": 18.075,
+                    "ROI": 4.769
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 278,
+                    "U": 19.2,
+                    "ROI": 6.906
+                  },
+                  "goal_MAE": 1.285192
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -19.035,
+                    "ROI": -5.362
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 267,
+                    "U": -8.88,
+                    "ROI": -3.326
+                  },
+                  "goal_MAE": 1.178968
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.018004160381991634,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -8.855,
+                    "ROI": -1.206
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 542,
+                    "U": 6.53,
+                    "ROI": 1.205
+                  },
+                  "goal_MAE": 1.231835
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -4.615,
+                    "ROI": -1.244
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 260,
+                    "U": 6.52,
+                    "ROI": 2.508
+                  },
+                  "goal_MAE": 1.252507
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": -4.24,
+                    "ROI": -1.168
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 282,
+                    "U": 0.01,
+                    "ROI": 0.004
+                  },
+                  "goal_MAE": 1.210706
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": 9.475,
+                    "ROI": 2.5
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 279,
+                    "U": 13.95,
+                    "ROI": 5.0
+                  },
+                  "goal_MAE": 1.285034
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -18.33,
+                    "ROI": -5.163
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 263,
+                    "U": -7.42,
+                    "ROI": -2.821
+                  },
+                  "goal_MAE": 1.175039
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.021310982582012625,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 734,
+                    "U": -5.865,
+                    "ROI": -0.799
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 515,
+                    "U": -2.64,
+                    "ROI": -0.513
+                  },
+                  "goal_MAE": 1.228198
+                },
+                "1": {
+                  "all": {
+                    "n": 371,
+                    "U": -7.355,
+                    "ROI": -1.982
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 255,
+                    "U": -6.28,
+                    "ROI": -2.463
+                  },
+                  "goal_MAE": 1.253147
+                },
+                "14": {
+                  "all": {
+                    "n": 363,
+                    "U": 1.49,
+                    "ROI": 0.41
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 260,
+                    "U": 3.64,
+                    "ROI": 1.4
+                  },
+                  "goal_MAE": 1.202698
+                },
+                "H1": {
+                  "all": {
+                    "n": 379,
+                    "U": 9.685,
+                    "ROI": 2.555
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 263,
+                    "U": 5.63,
+                    "ROI": 2.141
+                  },
+                  "goal_MAE": 1.282799
+                },
+                "H2": {
+                  "all": {
+                    "n": 355,
+                    "U": -15.55,
+                    "ROI": -4.38
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 252,
+                    "U": -8.27,
+                    "ROI": -3.282
+                  },
+                  "goal_MAE": 1.169905
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "2026": {
+      "train_n": 3342,
+      "test_n": 550,
+      "models": {
+        "market_total": {
+          "validation_n": 734,
+          "validation_NLL": {
+            "shared": -0.03020660803409,
+            "intercept": -0.030079502817309575,
+            "partial_100": -0.023700096261708055,
+            "partial_500": -0.02437761445582071,
+            "partial_2000": -0.025740206026819677
+          },
+          "picked": "shared",
+          "models": {
+            "shared": {
+              "NLL": -0.09137607681612309,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -16.155,
+                    "ROI": -2.937
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 115,
+                    "U": -8.085,
+                    "ROI": -7.03
+                  },
+                  "goal_MAE": 1.300848
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -4.445,
+                    "ROI": -1.684
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 41,
+                    "U": -0.785,
+                    "ROI": -1.915
+                  },
+                  "goal_MAE": 1.30543
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -11.71,
+                    "ROI": -4.094
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 74,
+                    "U": -7.3,
+                    "ROI": -9.865
+                  },
+                  "goal_MAE": 1.296619
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -13.115,
+                    "ROI": -3.433
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 77,
+                    "U": -7.575,
+                    "ROI": -9.838
+                  },
+                  "goal_MAE": 1.259551
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -3.04,
+                    "ROI": -1.81
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 38,
+                    "U": -0.51,
+                    "ROI": -1.342
+                  },
+                  "goal_MAE": 1.394749
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.09135809178926918,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -16.085,
+                    "ROI": -2.925
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 113,
+                    "U": -6.085,
+                    "ROI": -5.385
+                  },
+                  "goal_MAE": 1.300851
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -4.445,
+                    "ROI": -1.684
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 39,
+                    "U": 1.215,
+                    "ROI": 3.115
+                  },
+                  "goal_MAE": 1.305465
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -11.64,
+                    "ROI": -4.07
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 74,
+                    "U": -7.3,
+                    "ROI": -9.865
+                  },
+                  "goal_MAE": 1.296592
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -15.005,
+                    "ROI": -3.928
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 75,
+                    "U": -5.575,
+                    "ROI": -7.433
+                  },
+                  "goal_MAE": 1.259527
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -1.08,
+                    "ROI": -0.643
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 38,
+                    "U": -0.51,
+                    "ROI": -1.342
+                  },
+                  "goal_MAE": 1.394814
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.0807388449396257,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -49.245,
+                    "ROI": -8.954
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 451,
+                    "U": -32.73,
+                    "ROI": -7.257
+                  },
+                  "goal_MAE": 1.311779
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -34.18,
+                    "ROI": -12.947
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 189,
+                    "U": -14.015,
+                    "ROI": -7.415
+                  },
+                  "goal_MAE": 1.324329
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -15.065,
+                    "ROI": -5.267
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 262,
+                    "U": -18.715,
+                    "ROI": -7.143
+                  },
+                  "goal_MAE": 1.300195
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -16.26,
+                    "ROI": -4.257
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 317,
+                    "U": -13.655,
+                    "ROI": -4.308
+                  },
+                  "goal_MAE": 1.264038
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -32.985,
+                    "ROI": -19.634
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 134,
+                    "U": -19.075,
+                    "ROI": -14.235
+                  },
+                  "goal_MAE": 1.420334
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.08130613815646433,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -40.495,
+                    "ROI": -7.363
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 454,
+                    "U": -30.73,
+                    "ROI": -6.769
+                  },
+                  "goal_MAE": 1.311008
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -28.22,
+                    "ROI": -10.689
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 196,
+                    "U": -15.825,
+                    "ROI": -8.074
+                  },
+                  "goal_MAE": 1.323393
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -12.275,
+                    "ROI": -4.292
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 258,
+                    "U": -14.905,
+                    "ROI": -5.777
+                  },
+                  "goal_MAE": 1.299576
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -11.32,
+                    "ROI": -2.963
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 317,
+                    "U": -9.325,
+                    "ROI": -2.942
+                  },
+                  "goal_MAE": 1.264098
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -29.175,
+                    "ROI": -17.366
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 137,
+                    "U": -21.405,
+                    "ROI": -15.624
+                  },
+                  "goal_MAE": 1.417672
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.0831491927246905,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -40.495,
+                    "ROI": -7.363
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 415,
+                    "U": -16.995,
+                    "ROI": -4.095
+                  },
+                  "goal_MAE": 1.309036
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -28.22,
+                    "ROI": -10.689
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 165,
+                    "U": -1.65,
+                    "ROI": -1.0
+                  },
+                  "goal_MAE": 1.320356
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -12.275,
+                    "ROI": -4.292
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 250,
+                    "U": -15.345,
+                    "ROI": -6.138
+                  },
+                  "goal_MAE": 1.298585
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -11.32,
+                    "ROI": -2.963
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 288,
+                    "U": -0.53,
+                    "ROI": -0.184
+                  },
+                  "goal_MAE": 1.263258
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -29.175,
+                    "ROI": -17.366
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 127,
+                    "U": -16.465,
+                    "ROI": -12.965
+                  },
+                  "goal_MAE": 1.413125
+                }
+              }
+            }
+          }
+        },
+        "market_separate": {
+          "validation_n": 734,
+          "validation_NLL": {
+            "shared": -0.02840065505846039,
+            "intercept": -0.0284030090336224,
+            "partial_100": -0.022035188087239952,
+            "partial_500": -0.022875590577459533,
+            "partial_2000": -0.02465283103806121
+          },
+          "picked": "intercept",
+          "models": {
+            "shared": {
+              "NLL": -0.09254633376938487,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -8.31,
+                    "ROI": -1.511
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 134,
+                    "U": 10.14,
+                    "ROI": 7.567
+                  },
+                  "goal_MAE": 1.299324
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": 6.885,
+                    "ROI": 2.608
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 61,
+                    "U": 0.875,
+                    "ROI": 1.434
+                  },
+                  "goal_MAE": 1.304937
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -15.195,
+                    "ROI": -5.313
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 73,
+                    "U": 9.265,
+                    "ROI": 12.692
+                  },
+                  "goal_MAE": 1.294143
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -5.525,
+                    "ROI": -1.446
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 92,
+                    "U": 1.495,
+                    "ROI": 1.625
+                  },
+                  "goal_MAE": 1.258197
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -2.785,
+                    "ROI": -1.658
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 42,
+                    "U": 8.645,
+                    "ROI": 20.583
+                  },
+                  "goal_MAE": 1.392839
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.09251201599428988,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -10.54,
+                    "ROI": -1.916
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 135,
+                    "U": 11.31,
+                    "ROI": 8.378
+                  },
+                  "goal_MAE": 1.299427
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": 4.95,
+                    "ROI": 1.875
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 49,
+                    "U": 0.285,
+                    "ROI": 0.582
+                  },
+                  "goal_MAE": 1.305079
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -15.49,
+                    "ROI": -5.416
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 86,
+                    "U": 11.025,
+                    "ROI": 12.82
+                  },
+                  "goal_MAE": 1.29421
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -1.805,
+                    "ROI": -0.473
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 92,
+                    "U": 3.285,
+                    "ROI": 3.571
+                  },
+                  "goal_MAE": 1.258019
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -8.735,
+                    "ROI": -5.199
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 43,
+                    "U": 8.025,
+                    "ROI": 18.663
+                  },
+                  "goal_MAE": 1.393581
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.08104884366863897,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -42.93,
+                    "ROI": -7.805
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 424,
+                    "U": -28.38,
+                    "ROI": -6.693
+                  },
+                  "goal_MAE": 1.312792
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -29.18,
+                    "ROI": -11.053
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 188,
+                    "U": -13.49,
+                    "ROI": -7.176
+                  },
+                  "goal_MAE": 1.325479
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -13.75,
+                    "ROI": -4.808
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 236,
+                    "U": -14.89,
+                    "ROI": -6.309
+                  },
+                  "goal_MAE": 1.301081
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -17.35,
+                    "ROI": -4.542
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 300,
+                    "U": -9.32,
+                    "ROI": -3.107
+                  },
+                  "goal_MAE": 1.262662
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -25.58,
+                    "ROI": -15.226
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 124,
+                    "U": -19.06,
+                    "ROI": -15.371
+                  },
+                  "goal_MAE": 1.42678
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.08249227901621264,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -44.21,
+                    "ROI": -8.038
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 411,
+                    "U": -26.72,
+                    "ROI": -6.501
+                  },
+                  "goal_MAE": 1.310997
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -30.28,
+                    "ROI": -11.47
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 179,
+                    "U": -11.89,
+                    "ROI": -6.642
+                  },
+                  "goal_MAE": 1.323728
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -13.93,
+                    "ROI": -4.871
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 232,
+                    "U": -14.83,
+                    "ROI": -6.392
+                  },
+                  "goal_MAE": 1.299245
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -19.55,
+                    "ROI": -5.118
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 292,
+                    "U": -5.85,
+                    "ROI": -2.003
+                  },
+                  "goal_MAE": 1.261991
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -24.66,
+                    "ROI": -14.679
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 119,
+                    "U": -20.87,
+                    "ROI": -17.538
+                  },
+                  "goal_MAE": 1.422426
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.08594404781642644,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -40.19,
+                    "ROI": -7.307
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 328,
+                    "U": -17.22,
+                    "ROI": -5.25
+                  },
+                  "goal_MAE": 1.307065
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -22.33,
+                    "ROI": -8.458
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 106,
+                    "U": -1.615,
+                    "ROI": -1.524
+                  },
+                  "goal_MAE": 1.317784
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -17.86,
+                    "ROI": -6.245
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 222,
+                    "U": -15.605,
+                    "ROI": -7.029
+                  },
+                  "goal_MAE": 1.29717
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -13.63,
+                    "ROI": -3.568
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 234,
+                    "U": -0.185,
+                    "ROI": -0.079
+                  },
+                  "goal_MAE": 1.26044
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -26.56,
+                    "ROI": -15.81
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 94,
+                    "U": -17.035,
+                    "ROI": -18.122
+                  },
+                  "goal_MAE": 1.41308
+                }
+              }
+            }
+          }
+        },
+        "market_performance_total": {
+          "validation_n": 734,
+          "validation_NLL": {
+            "shared": -0.03000081940916632,
+            "intercept": -0.029647621891909257,
+            "partial_100": -0.019312596187876695,
+            "partial_500": -0.02020064885055895,
+            "partial_2000": -0.022426597054580465
+          },
+          "picked": "shared",
+          "models": {
+            "shared": {
+              "NLL": -0.09298235722955778,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": 28.19,
+                    "ROI": 5.125
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 306,
+                    "U": 15.265,
+                    "ROI": 4.989
+                  },
+                  "goal_MAE": 1.300281
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": 15.045,
+                    "ROI": 5.699
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 138,
+                    "U": 1.28,
+                    "ROI": 0.928
+                  },
+                  "goal_MAE": 1.30946
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": 13.145,
+                    "ROI": 4.596
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 168,
+                    "U": 13.985,
+                    "ROI": 8.324
+                  },
+                  "goal_MAE": 1.291809
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": 25.65,
+                    "ROI": 6.715
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 217,
+                    "U": 22.705,
+                    "ROI": 10.463
+                  },
+                  "goal_MAE": 1.252751
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": 2.54,
+                    "ROI": 1.512
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 89,
+                    "U": -7.44,
+                    "ROI": -8.36
+                  },
+                  "goal_MAE": 1.408357
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.09341575974851185,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": 16.555,
+                    "ROI": 3.01
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 297,
+                    "U": 17.02,
+                    "ROI": 5.731
+                  },
+                  "goal_MAE": 1.300696
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": 17.38,
+                    "ROI": 6.583
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 135,
+                    "U": 3.26,
+                    "ROI": 2.415
+                  },
+                  "goal_MAE": 1.30859
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -0.825,
+                    "ROI": -0.288
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 162,
+                    "U": 13.76,
+                    "ROI": 8.494
+                  },
+                  "goal_MAE": 1.29341
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": 20.635,
+                    "ROI": 5.402
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 216,
+                    "U": 20.54,
+                    "ROI": 9.509
+                  },
+                  "goal_MAE": 1.253769
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -4.08,
+                    "ROI": -2.429
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 81,
+                    "U": -3.52,
+                    "ROI": -4.346
+                  },
+                  "goal_MAE": 1.4074
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.08789029640321974,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -10.945,
+                    "ROI": -1.99
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 409,
+                    "U": -14.035,
+                    "ROI": -3.432
+                  },
+                  "goal_MAE": 1.303635
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -8.455,
+                    "ROI": -3.203
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 182,
+                    "U": -8.725,
+                    "ROI": -4.794
+                  },
+                  "goal_MAE": 1.318189
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -2.49,
+                    "ROI": -0.871
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 227,
+                    "U": -5.31,
+                    "ROI": -2.339
+                  },
+                  "goal_MAE": 1.2902
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -0.795,
+                    "ROI": -0.208
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 285,
+                    "U": -4.765,
+                    "ROI": -1.672
+                  },
+                  "goal_MAE": 1.25634
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -10.15,
+                    "ROI": -6.042
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 124,
+                    "U": -9.27,
+                    "ROI": -7.476
+                  },
+                  "goal_MAE": 1.411174
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.08765462302890202,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -20.515,
+                    "ROI": -3.73
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 397,
+                    "U": -19.125,
+                    "ROI": -4.817
+                  },
+                  "goal_MAE": 1.304915
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -11.385,
+                    "ROI": -4.313
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 179,
+                    "U": -12.805,
+                    "ROI": -7.154
+                  },
+                  "goal_MAE": 1.31925
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -9.13,
+                    "ROI": -3.192
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 218,
+                    "U": -6.32,
+                    "ROI": -2.899
+                  },
+                  "goal_MAE": 1.291684
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -10.355,
+                    "ROI": -2.711
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 275,
+                    "U": -9.955,
+                    "ROI": -3.62
+                  },
+                  "goal_MAE": 1.257357
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -10.16,
+                    "ROI": -6.048
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 122,
+                    "U": -9.17,
+                    "ROI": -7.516
+                  },
+                  "goal_MAE": 1.413055
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.08808602012420977,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -17.79,
+                    "ROI": -3.235
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 371,
+                    "U": -14.65,
+                    "ROI": -3.949
+                  },
+                  "goal_MAE": 1.305236
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -10.545,
+                    "ROI": -3.994
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 169,
+                    "U": -11.645,
+                    "ROI": -6.891
+                  },
+                  "goal_MAE": 1.318895
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -7.245,
+                    "ROI": -2.533
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 202,
+                    "U": -3.005,
+                    "ROI": -1.488
+                  },
+                  "goal_MAE": 1.292627
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -2.64,
+                    "ROI": -0.691
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 257,
+                    "U": 0.115,
+                    "ROI": 0.045
+                  },
+                  "goal_MAE": 1.257311
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -15.15,
+                    "ROI": -9.018
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 114,
+                    "U": -14.765,
+                    "ROI": -12.952
+                  },
+                  "goal_MAE": 1.414208
+                }
+              }
+            }
+          }
+        },
+        "market_performance_separate": {
+          "validation_n": 734,
+          "validation_NLL": {
+            "shared": -0.027412896840777735,
+            "intercept": -0.027146608817460918,
+            "partial_100": -0.01651756714252071,
+            "partial_500": -0.018004160381991634,
+            "partial_2000": -0.021310982582012625
+          },
+          "picked": "shared",
+          "models": {
+            "shared": {
+              "NLL": -0.09374959045387826,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": 36.39,
+                    "ROI": 6.616
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 312,
+                    "U": 24.375,
+                    "ROI": 7.812
+                  },
+                  "goal_MAE": 1.298972
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": 20.205,
+                    "ROI": 7.653
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 146,
+                    "U": 9.005,
+                    "ROI": 6.168
+                  },
+                  "goal_MAE": 1.308726
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": 16.185,
+                    "ROI": 5.659
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 166,
+                    "U": 15.37,
+                    "ROI": 9.259
+                  },
+                  "goal_MAE": 1.289968
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": 36.59,
+                    "ROI": 9.579
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 220,
+                    "U": 31.355,
+                    "ROI": 14.252
+                  },
+                  "goal_MAE": 1.251541
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -0.2,
+                    "ROI": -0.119
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 92,
+                    "U": -6.98,
+                    "ROI": -7.587
+                  },
+                  "goal_MAE": 1.406821
+                }
+              }
+            },
+            "intercept": {
+              "NLL": -0.09417140671943709,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": 11.82,
+                    "ROI": 2.149
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 298,
+                    "U": 10.88,
+                    "ROI": 3.651
+                  },
+                  "goal_MAE": 1.29913
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": 18.095,
+                    "ROI": 6.854
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 134,
+                    "U": -0.275,
+                    "ROI": -0.205
+                  },
+                  "goal_MAE": 1.3077
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -6.275,
+                    "ROI": -2.194
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 164,
+                    "U": 11.155,
+                    "ROI": 6.802
+                  },
+                  "goal_MAE": 1.291219
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": 18.66,
+                    "ROI": 4.885
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 218,
+                    "U": 17.7,
+                    "ROI": 8.119
+                  },
+                  "goal_MAE": 1.252231
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -6.84,
+                    "ROI": -4.071
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 80,
+                    "U": -6.82,
+                    "ROI": -8.525
+                  },
+                  "goal_MAE": 1.405769
+                }
+              }
+            },
+            "partial_100": {
+              "NLL": -0.08636475355004437,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -22.96,
+                    "ROI": -4.175
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 398,
+                    "U": -16.59,
+                    "ROI": -4.168
+                  },
+                  "goal_MAE": 1.306798
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -9.625,
+                    "ROI": -3.646
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 171,
+                    "U": -10.805,
+                    "ROI": -6.319
+                  },
+                  "goal_MAE": 1.322402
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -13.335,
+                    "ROI": -4.663
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 227,
+                    "U": -5.785,
+                    "ROI": -2.548
+                  },
+                  "goal_MAE": 1.292394
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": 1.855,
+                    "ROI": 0.486
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 279,
+                    "U": -5.765,
+                    "ROI": -2.066
+                  },
+                  "goal_MAE": 1.256817
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -24.815,
+                    "ROI": -14.771
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 119,
+                    "U": -10.825,
+                    "ROI": -9.097
+                  },
+                  "goal_MAE": 1.420445
+                }
+              }
+            },
+            "partial_500": {
+              "NLL": -0.0867905922397007,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -30.06,
+                    "ROI": -5.465
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 381,
+                    "U": -13.53,
+                    "ROI": -3.551
+                  },
+                  "goal_MAE": 1.306979
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -17.565,
+                    "ROI": -6.653
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 164,
+                    "U": -10.235,
+                    "ROI": -6.241
+                  },
+                  "goal_MAE": 1.322974
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": -12.495,
+                    "ROI": -4.369
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 217,
+                    "U": -3.295,
+                    "ROI": -1.518
+                  },
+                  "goal_MAE": 1.292215
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": -4.205,
+                    "ROI": -1.101
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 266,
+                    "U": 0.705,
+                    "ROI": 0.265
+                  },
+                  "goal_MAE": 1.257205
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -25.855,
+                    "ROI": -15.39
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 115,
+                    "U": -14.235,
+                    "ROI": -12.378
+                  },
+                  "goal_MAE": 1.420156
+                }
+              }
+            },
+            "partial_2000": {
+              "NLL": -0.08891878305341915,
+              "groups": {
+                "all": {
+                  "all": {
+                    "n": 550,
+                    "U": -16.69,
+                    "ROI": -3.035
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 356,
+                    "U": -3.695,
+                    "ROI": -1.038
+                  },
+                  "goal_MAE": 1.304708
+                },
+                "1": {
+                  "all": {
+                    "n": 264,
+                    "U": -19.525,
+                    "ROI": -7.396
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 153,
+                    "U": -8.365,
+                    "ROI": -5.467
+                  },
+                  "goal_MAE": 1.319366
+                },
+                "14": {
+                  "all": {
+                    "n": 286,
+                    "U": 2.835,
+                    "ROI": 0.991
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 203,
+                    "U": 4.67,
+                    "ROI": 2.3
+                  },
+                  "goal_MAE": 1.291178
+                },
+                "H1": {
+                  "all": {
+                    "n": 382,
+                    "U": 5.345,
+                    "ROI": 1.399
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 258,
+                    "U": 9.165,
+                    "ROI": 3.552
+                  },
+                  "goal_MAE": 1.255858
+                },
+                "H2": {
+                  "all": {
+                    "n": 168,
+                    "U": -22.035,
+                    "ROI": -13.116
+                  },
+                  "positive_EV_diagnostic": {
+                    "n": 98,
+                    "U": -12.86,
+                    "ROI": -13.122
+                  },
+                  "goal_MAE": 1.415786
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
