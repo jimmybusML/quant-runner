@@ -1,0 +1,1950 @@
+{
+  "method": "Same explored T12 fixtures, prior-UTC-date lag on period start; expanding training, fixed experiments; 365-day training weight half-life normalized to mean 1 and 90-day alternative prior team form vs original 180-day. No new rules, no test-year ROI choice. Historical receipt proxy, not prospective. Annual legacy baseline has original calendar prior-year fit.",
+  "variants": {
+    "annual_lag": [
+      12,
+      null,
+      180
+    ],
+    "quarterly": [
+      3,
+      null,
+      180
+    ],
+    "monthly": [
+      1,
+      null,
+      180
+    ],
+    "annual_weighted": [
+      12,
+      365,
+      180
+    ],
+    "monthly_weighted": [
+      1,
+      365,
+      180
+    ],
+    "monthly_recent_form": [
+      1,
+      null,
+      90
+    ]
+  },
+  "years": {
+    "2024": {
+      "n": 733,
+      "models": {
+        "annual_legacy": {
+          "all": {
+            "n": 733,
+            "U": 19.115,
+            "ROI": 2.608,
+            "NLL": -0.238415,
+            "MAE": 1.316143
+          },
+          "outside": {
+            "n": 550,
+            "U": 23.74,
+            "ROI": 4.316,
+            "NLL": -0.233453,
+            "MAE": 1.300717
+          },
+          "H2": {
+            "n": 355,
+            "U": 3.935,
+            "ROI": 1.108,
+            "NLL": -0.100867,
+            "MAE": 1.260605
+          },
+          "EPL": {
+            "n": 358,
+            "U": -3.98,
+            "ROI": -1.112,
+            "NLL": -0.526896,
+            "MAE": 1.379591
+          },
+          "LaLiga": {
+            "n": 375,
+            "U": 23.095,
+            "ROI": 6.159,
+            "NLL": 0.036988,
+            "MAE": 1.255571
+          },
+          "H1": {
+            "n": 378,
+            "U": 15.18,
+            "ROI": 4.016,
+            "NLL": -0.367594,
+            "MAE": 1.368301
+          },
+          "outside_H2": {
+            "n": 265,
+            "U": 13.085,
+            "ROI": 4.938,
+            "NLL": -0.064759,
+            "MAE": 1.232182
+          },
+          "switch_vs_annual": 0
+        },
+        "annual_lag": {
+          "all": {
+            "n": 733,
+            "U": 2.965,
+            "ROI": 0.405,
+            "NLL": -0.237965,
+            "MAE": 1.316381
+          },
+          "outside": {
+            "n": 550,
+            "U": 13.47,
+            "ROI": 2.449,
+            "NLL": -0.233119,
+            "MAE": 1.300886
+          },
+          "H2": {
+            "n": 355,
+            "U": -1.775,
+            "ROI": -0.5,
+            "NLL": -0.100991,
+            "MAE": 1.260208
+          },
+          "EPL": {
+            "n": 358,
+            "U": -7.81,
+            "ROI": -2.182,
+            "NLL": -0.526515,
+            "MAE": 1.379134
+          },
+          "LaLiga": {
+            "n": 375,
+            "U": 10.775,
+            "ROI": 2.873,
+            "NLL": 0.037503,
+            "MAE": 1.256472
+          },
+          "H1": {
+            "n": 378,
+            "U": 4.74,
+            "ROI": 1.254,
+            "NLL": -0.366605,
+            "MAE": 1.369136
+          },
+          "outside_H2": {
+            "n": 265,
+            "U": 9.385,
+            "ROI": 3.542,
+            "NLL": -0.065094,
+            "MAE": 1.231739
+          },
+          "switch_vs_annual": 24
+        },
+        "quarterly": {
+          "all": {
+            "n": 733,
+            "U": -11.925,
+            "ROI": -1.627,
+            "NLL": -0.238693,
+            "MAE": 1.318309
+          },
+          "outside": {
+            "n": 550,
+            "U": -0.765,
+            "ROI": -0.139,
+            "NLL": -0.232985,
+            "MAE": 1.303329
+          },
+          "H2": {
+            "n": 355,
+            "U": -8.355,
+            "ROI": -2.354,
+            "NLL": -0.101461,
+            "MAE": 1.26609
+          },
+          "EPL": {
+            "n": 358,
+            "U": -16.695,
+            "ROI": -4.663,
+            "NLL": -0.525034,
+            "MAE": 1.386274
+          },
+          "LaLiga": {
+            "n": 375,
+            "U": 4.77,
+            "ROI": 1.272,
+            "NLL": 0.034667,
+            "MAE": 1.253424
+          },
+          "H1": {
+            "n": 378,
+            "U": -3.57,
+            "ROI": -0.944,
+            "NLL": -0.367575,
+            "MAE": 1.36735
+          },
+          "outside_H2": {
+            "n": 265,
+            "U": -5.95,
+            "ROI": -2.245,
+            "NLL": -0.062426,
+            "MAE": 1.24042
+          },
+          "switch_vs_annual": 95
+        },
+        "monthly": {
+          "all": {
+            "n": 733,
+            "U": -9.485,
+            "ROI": -1.294,
+            "NLL": -0.239011,
+            "MAE": 1.319683
+          },
+          "outside": {
+            "n": 550,
+            "U": 0.855,
+            "ROI": 0.155,
+            "NLL": -0.23358,
+            "MAE": 1.304024
+          },
+          "H2": {
+            "n": 355,
+            "U": -9.505,
+            "ROI": -2.677,
+            "NLL": -0.100444,
+            "MAE": 1.268021
+          },
+          "EPL": {
+            "n": 358,
+            "U": -12.135,
+            "ROI": -3.39,
+            "NLL": -0.526508,
+            "MAE": 1.386975
+          },
+          "LaLiga": {
+            "n": 375,
+            "U": 2.65,
+            "ROI": 0.707,
+            "NLL": 0.035453,
+            "MAE": 1.255441
+          },
+          "H1": {
+            "n": 378,
+            "U": 0.02,
+            "ROI": 0.005,
+            "NLL": -0.369147,
+            "MAE": 1.368202
+          },
+          "outside_H2": {
+            "n": 265,
+            "U": -7.1,
+            "ROI": -2.679,
+            "NLL": -0.061971,
+            "MAE": 1.241515
+          },
+          "switch_vs_annual": 100
+        },
+        "annual_weighted": {
+          "all": {
+            "n": 733,
+            "U": -17.485,
+            "ROI": -2.385,
+            "NLL": -0.237686,
+            "MAE": 1.320575
+          },
+          "outside": {
+            "n": 550,
+            "U": 9.36,
+            "ROI": 1.702,
+            "NLL": -0.233928,
+            "MAE": 1.304091
+          },
+          "H2": {
+            "n": 355,
+            "U": -12.26,
+            "ROI": -3.454,
+            "NLL": -0.097598,
+            "MAE": 1.268972
+          },
+          "EPL": {
+            "n": 358,
+            "U": -23.435,
+            "ROI": -6.546,
+            "NLL": -0.525446,
+            "MAE": 1.391243
+          },
+          "LaLiga": {
+            "n": 375,
+            "U": 5.95,
+            "ROI": 1.587,
+            "NLL": 0.037028,
+            "MAE": 1.253112
+          },
+          "H1": {
+            "n": 378,
+            "U": -5.225,
+            "ROI": -1.382,
+            "NLL": -0.369251,
+            "MAE": 1.369039
+          },
+          "outside_H2": {
+            "n": 265,
+            "U": 3.7,
+            "ROI": 1.396,
+            "NLL": -0.062257,
+            "MAE": 1.240503
+          },
+          "switch_vs_annual": 115
+        },
+        "monthly_weighted": {
+          "all": {
+            "n": 733,
+            "U": -10.46,
+            "ROI": -1.427,
+            "NLL": -0.238076,
+            "MAE": 1.325099
+          },
+          "outside": {
+            "n": 550,
+            "U": 10.995,
+            "ROI": 1.999,
+            "NLL": -0.234187,
+            "MAE": 1.307132
+          },
+          "H2": {
+            "n": 355,
+            "U": -4.2,
+            "ROI": -1.183,
+            "NLL": -0.09683,
+            "MAE": 1.278174
+          },
+          "EPL": {
+            "n": 358,
+            "U": -21.55,
+            "ROI": -6.02,
+            "NLL": -0.52595,
+            "MAE": 1.394568
+          },
+          "LaLiga": {
+            "n": 375,
+            "U": 11.09,
+            "ROI": 2.957,
+            "NLL": 0.036747,
+            "MAE": 1.25878
+          },
+          "H1": {
+            "n": 378,
+            "U": -6.26,
+            "ROI": -1.656,
+            "NLL": -0.370728,
+            "MAE": 1.369169
+          },
+          "outside_H2": {
+            "n": 265,
+            "U": 0.405,
+            "ROI": 0.153,
+            "NLL": -0.058789,
+            "MAE": 1.250562
+          },
+          "switch_vs_annual": 189
+        },
+        "monthly_recent_form": {
+          "all": {
+            "n": 733,
+            "U": -7.82,
+            "ROI": -1.067,
+            "NLL": -0.238055,
+            "MAE": 1.319155
+          },
+          "outside": {
+            "n": 550,
+            "U": 8.525,
+            "ROI": 1.55,
+            "NLL": -0.23249,
+            "MAE": 1.304401
+          },
+          "H2": {
+            "n": 355,
+            "U": -8.345,
+            "ROI": -2.351,
+            "NLL": -0.099608,
+            "MAE": 1.265729
+          },
+          "EPL": {
+            "n": 358,
+            "U": -22.85,
+            "ROI": -6.383,
+            "NLL": -0.526452,
+            "MAE": 1.384017
+          },
+          "LaLiga": {
+            "n": 375,
+            "U": 15.03,
+            "ROI": 4.008,
+            "NLL": 0.037268,
+            "MAE": 1.257234
+          },
+          "H1": {
+            "n": 378,
+            "U": 0.525,
+            "ROI": 0.139,
+            "NLL": -0.368078,
+            "MAE": 1.369331
+          },
+          "outside_H2": {
+            "n": 265,
+            "U": 1.33,
+            "ROI": 0.502,
+            "NLL": -0.062098,
+            "MAE": 1.239052
+          },
+          "switch_vs_annual": 127
+        }
+      },
+      "runs": {
+        "annual_lag": [
+          {
+            "start": "2024-01-01",
+            "latest_allowed_train_date": "2023-12-29",
+            "latest_observed_train_date": "2023-12-28",
+            "n_train": 1867,
+            "n_test": 733
+          }
+        ],
+        "quarterly": [
+          {
+            "start": "2024-01-01",
+            "latest_allowed_train_date": "2023-12-29",
+            "latest_observed_train_date": "2023-12-28",
+            "n_train": 1867,
+            "n_test": 212
+          },
+          {
+            "start": "2024-04-01",
+            "latest_allowed_train_date": "2024-03-29",
+            "latest_observed_train_date": "2024-03-29",
+            "n_train": 2069,
+            "n_test": 166
+          },
+          {
+            "start": "2024-07-01",
+            "latest_allowed_train_date": "2024-06-28",
+            "latest_observed_train_date": "2024-05-26",
+            "n_train": 2253,
+            "n_test": 130
+          },
+          {
+            "start": "2024-10-01",
+            "latest_allowed_train_date": "2024-09-28",
+            "latest_observed_train_date": "2024-09-28",
+            "n_train": 2375,
+            "n_test": 225
+          }
+        ],
+        "monthly": [
+          {
+            "start": "2024-01-01",
+            "latest_allowed_train_date": "2023-12-29",
+            "latest_observed_train_date": "2023-12-28",
+            "n_train": 1867,
+            "n_test": 57
+          },
+          {
+            "start": "2024-02-01",
+            "latest_allowed_train_date": "2024-01-29",
+            "latest_observed_train_date": "2024-01-29",
+            "n_train": 1922,
+            "n_test": 81
+          },
+          {
+            "start": "2024-03-01",
+            "latest_allowed_train_date": "2024-02-27",
+            "latest_observed_train_date": "2024-02-26",
+            "n_train": 2013,
+            "n_test": 74
+          },
+          {
+            "start": "2024-04-01",
+            "latest_allowed_train_date": "2024-03-29",
+            "latest_observed_train_date": "2024-03-29",
+            "n_train": 2069,
+            "n_test": 84
+          },
+          {
+            "start": "2024-05-01",
+            "latest_allowed_train_date": "2024-04-28",
+            "latest_observed_train_date": "2024-04-28",
+            "n_train": 2170,
+            "n_test": 82
+          },
+          {
+            "start": "2024-08-01",
+            "latest_allowed_train_date": "2024-07-29",
+            "latest_observed_train_date": "2024-05-26",
+            "n_train": 2253,
+            "n_test": 55
+          },
+          {
+            "start": "2024-09-01",
+            "latest_allowed_train_date": "2024-08-29",
+            "latest_observed_train_date": "2024-08-29",
+            "n_train": 2296,
+            "n_test": 75
+          },
+          {
+            "start": "2024-10-01",
+            "latest_allowed_train_date": "2024-09-28",
+            "latest_observed_train_date": "2024-09-28",
+            "n_train": 2375,
+            "n_test": 59
+          },
+          {
+            "start": "2024-11-01",
+            "latest_allowed_train_date": "2024-10-29",
+            "latest_observed_train_date": "2024-10-28",
+            "n_train": 2442,
+            "n_test": 67
+          },
+          {
+            "start": "2024-12-01",
+            "latest_allowed_train_date": "2024-11-28",
+            "latest_observed_train_date": "2024-11-25",
+            "n_train": 2498,
+            "n_test": 99
+          }
+        ],
+        "annual_weighted": [
+          {
+            "start": "2024-01-01",
+            "latest_allowed_train_date": "2023-12-29",
+            "latest_observed_train_date": "2023-12-28",
+            "n_train": 1867,
+            "n_test": 733
+          }
+        ],
+        "monthly_weighted": [
+          {
+            "start": "2024-01-01",
+            "latest_allowed_train_date": "2023-12-29",
+            "latest_observed_train_date": "2023-12-28",
+            "n_train": 1867,
+            "n_test": 57
+          },
+          {
+            "start": "2024-02-01",
+            "latest_allowed_train_date": "2024-01-29",
+            "latest_observed_train_date": "2024-01-29",
+            "n_train": 1922,
+            "n_test": 81
+          },
+          {
+            "start": "2024-03-01",
+            "latest_allowed_train_date": "2024-02-27",
+            "latest_observed_train_date": "2024-02-26",
+            "n_train": 2013,
+            "n_test": 74
+          },
+          {
+            "start": "2024-04-01",
+            "latest_allowed_train_date": "2024-03-29",
+            "latest_observed_train_date": "2024-03-29",
+            "n_train": 2069,
+            "n_test": 84
+          },
+          {
+            "start": "2024-05-01",
+            "latest_allowed_train_date": "2024-04-28",
+            "latest_observed_train_date": "2024-04-28",
+            "n_train": 2170,
+            "n_test": 82
+          },
+          {
+            "start": "2024-08-01",
+            "latest_allowed_train_date": "2024-07-29",
+            "latest_observed_train_date": "2024-05-26",
+            "n_train": 2253,
+            "n_test": 55
+          },
+          {
+            "start": "2024-09-01",
+            "latest_allowed_train_date": "2024-08-29",
+            "latest_observed_train_date": "2024-08-29",
+            "n_train": 2296,
+            "n_test": 75
+          },
+          {
+            "start": "2024-10-01",
+            "latest_allowed_train_date": "2024-09-28",
+            "latest_observed_train_date": "2024-09-28",
+            "n_train": 2375,
+            "n_test": 59
+          },
+          {
+            "start": "2024-11-01",
+            "latest_allowed_train_date": "2024-10-29",
+            "latest_observed_train_date": "2024-10-28",
+            "n_train": 2442,
+            "n_test": 67
+          },
+          {
+            "start": "2024-12-01",
+            "latest_allowed_train_date": "2024-11-28",
+            "latest_observed_train_date": "2024-11-25",
+            "n_train": 2498,
+            "n_test": 99
+          }
+        ],
+        "monthly_recent_form": [
+          {
+            "start": "2024-01-01",
+            "latest_allowed_train_date": "2023-12-29",
+            "latest_observed_train_date": "2023-12-28",
+            "n_train": 1867,
+            "n_test": 57
+          },
+          {
+            "start": "2024-02-01",
+            "latest_allowed_train_date": "2024-01-29",
+            "latest_observed_train_date": "2024-01-29",
+            "n_train": 1922,
+            "n_test": 81
+          },
+          {
+            "start": "2024-03-01",
+            "latest_allowed_train_date": "2024-02-27",
+            "latest_observed_train_date": "2024-02-26",
+            "n_train": 2013,
+            "n_test": 74
+          },
+          {
+            "start": "2024-04-01",
+            "latest_allowed_train_date": "2024-03-29",
+            "latest_observed_train_date": "2024-03-29",
+            "n_train": 2069,
+            "n_test": 84
+          },
+          {
+            "start": "2024-05-01",
+            "latest_allowed_train_date": "2024-04-28",
+            "latest_observed_train_date": "2024-04-28",
+            "n_train": 2170,
+            "n_test": 82
+          },
+          {
+            "start": "2024-08-01",
+            "latest_allowed_train_date": "2024-07-29",
+            "latest_observed_train_date": "2024-05-26",
+            "n_train": 2253,
+            "n_test": 55
+          },
+          {
+            "start": "2024-09-01",
+            "latest_allowed_train_date": "2024-08-29",
+            "latest_observed_train_date": "2024-08-29",
+            "n_train": 2296,
+            "n_test": 75
+          },
+          {
+            "start": "2024-10-01",
+            "latest_allowed_train_date": "2024-09-28",
+            "latest_observed_train_date": "2024-09-28",
+            "n_train": 2375,
+            "n_test": 59
+          },
+          {
+            "start": "2024-11-01",
+            "latest_allowed_train_date": "2024-10-29",
+            "latest_observed_train_date": "2024-10-28",
+            "n_train": 2442,
+            "n_test": 67
+          },
+          {
+            "start": "2024-12-01",
+            "latest_allowed_train_date": "2024-11-28",
+            "latest_observed_train_date": "2024-11-25",
+            "n_train": 2498,
+            "n_test": 99
+          }
+        ]
+      },
+      "annual_boundary": {
+        "legacy_train_n": 1875,
+        "lag_train_n": 1867,
+        "legacy_last_train_kickoff": "2023-12-31T14:00:00+00:00",
+        "first_test_T12_cutoff": "2024-01-01T08:00:00+00:00",
+        "hours_between_kickoff_and_first_cutoff": 18.0,
+        "same_training_unweighted_reproduction": true
+      }
+    },
+    "2025": {
+      "n": 734,
+      "models": {
+        "annual_legacy": {
+          "all": {
+            "n": 734,
+            "U": 9.89,
+            "ROI": 1.347,
+            "NLL": -0.029715,
+            "MAE": 1.216264
+          },
+          "outside": {
+            "n": 582,
+            "U": -10.69,
+            "ROI": -1.837,
+            "NLL": 0.001998,
+            "MAE": 1.245255
+          },
+          "H2": {
+            "n": 355,
+            "U": -14.435,
+            "ROI": -4.066,
+            "NLL": -0.001008,
+            "MAE": 1.154615
+          },
+          "EPL": {
+            "n": 371,
+            "U": 9.585,
+            "ROI": 2.584,
+            "NLL": -0.154598,
+            "MAE": 1.251726
+          },
+          "LaLiga": {
+            "n": 363,
+            "U": 0.305,
+            "ROI": 0.084,
+            "NLL": 0.09792,
+            "MAE": 1.18002
+          },
+          "H1": {
+            "n": 379,
+            "U": 24.325,
+            "ROI": 6.418,
+            "NLL": -0.056605,
+            "MAE": 1.274009
+          },
+          "outside_H2": {
+            "n": 293,
+            "U": -21.44,
+            "ROI": -7.317,
+            "NLL": 0.02248,
+            "MAE": 1.180911
+          },
+          "switch_vs_annual": 0
+        },
+        "annual_lag": {
+          "all": {
+            "n": 734,
+            "U": 6.01,
+            "ROI": 0.819,
+            "NLL": -0.029524,
+            "MAE": 1.216537
+          },
+          "outside": {
+            "n": 582,
+            "U": -14.57,
+            "ROI": -2.503,
+            "NLL": 0.002181,
+            "MAE": 1.245483
+          },
+          "H2": {
+            "n": 355,
+            "U": -14.435,
+            "ROI": -4.066,
+            "NLL": -0.000979,
+            "MAE": 1.154614
+          },
+          "EPL": {
+            "n": 371,
+            "U": 5.705,
+            "ROI": 1.538,
+            "NLL": -0.154488,
+            "MAE": 1.251786
+          },
+          "LaLiga": {
+            "n": 363,
+            "U": 0.305,
+            "ROI": 0.084,
+            "NLL": 0.098194,
+            "MAE": 1.180511
+          },
+          "H1": {
+            "n": 379,
+            "U": 20.445,
+            "ROI": 5.394,
+            "NLL": -0.056262,
+            "MAE": 1.274539
+          },
+          "outside_H2": {
+            "n": 293,
+            "U": -21.44,
+            "ROI": -7.317,
+            "NLL": 0.022493,
+            "MAE": 1.180933
+          },
+          "switch_vs_annual": 2
+        },
+        "quarterly": {
+          "all": {
+            "n": 734,
+            "U": -4.815,
+            "ROI": -0.656,
+            "NLL": -0.030666,
+            "MAE": 1.216676
+          },
+          "outside": {
+            "n": 582,
+            "U": -13.8,
+            "ROI": -2.371,
+            "NLL": 0.000267,
+            "MAE": 1.244495
+          },
+          "H2": {
+            "n": 355,
+            "U": -27.56,
+            "ROI": -7.763,
+            "NLL": -0.002646,
+            "MAE": 1.156677
+          },
+          "EPL": {
+            "n": 371,
+            "U": -7.39,
+            "ROI": -1.992,
+            "NLL": -0.157292,
+            "MAE": 1.251069
+          },
+          "LaLiga": {
+            "n": 363,
+            "U": 2.575,
+            "ROI": 0.709,
+            "NLL": 0.09875,
+            "MAE": 1.181526
+          },
+          "H1": {
+            "n": 379,
+            "U": 22.745,
+            "ROI": 6.001,
+            "NLL": -0.056912,
+            "MAE": 1.272877
+          },
+          "outside_H2": {
+            "n": 293,
+            "U": -24.92,
+            "ROI": -8.505,
+            "NLL": 0.019646,
+            "MAE": 1.181012
+          },
+          "switch_vs_annual": 61
+        },
+        "monthly": {
+          "all": {
+            "n": 734,
+            "U": -0.815,
+            "ROI": -0.111,
+            "NLL": -0.029968,
+            "MAE": 1.216237
+          },
+          "outside": {
+            "n": 582,
+            "U": -11.74,
+            "ROI": -2.017,
+            "NLL": 0.001331,
+            "MAE": 1.244364
+          },
+          "H2": {
+            "n": 355,
+            "U": -19.415,
+            "ROI": -5.469,
+            "NLL": -0.001691,
+            "MAE": 1.154885
+          },
+          "EPL": {
+            "n": 371,
+            "U": -2.5,
+            "ROI": -0.674,
+            "NLL": -0.155753,
+            "MAE": 1.250636
+          },
+          "LaLiga": {
+            "n": 363,
+            "U": 1.685,
+            "ROI": 0.464,
+            "NLL": 0.09859,
+            "MAE": 1.181079
+          },
+          "H1": {
+            "n": 379,
+            "U": 18.6,
+            "ROI": 4.908,
+            "NLL": -0.056454,
+            "MAE": 1.273703
+          },
+          "outside_H2": {
+            "n": 293,
+            "U": -18.755,
+            "ROI": -6.401,
+            "NLL": 0.021221,
+            "MAE": 1.179635
+          },
+          "switch_vs_annual": 74
+        },
+        "annual_weighted": {
+          "all": {
+            "n": 734,
+            "U": -34.8,
+            "ROI": -4.741,
+            "NLL": -0.02192,
+            "MAE": 1.229484
+          },
+          "outside": {
+            "n": 582,
+            "U": -50.79,
+            "ROI": -8.727,
+            "NLL": 0.009378,
+            "MAE": 1.257006
+          },
+          "H2": {
+            "n": 355,
+            "U": -24.915,
+            "ROI": -7.018,
+            "NLL": 0.005027,
+            "MAE": 1.16278
+          },
+          "EPL": {
+            "n": 371,
+            "U": -12.14,
+            "ROI": -3.272,
+            "NLL": -0.149486,
+            "MAE": 1.259576
+          },
+          "LaLiga": {
+            "n": 363,
+            "U": -22.66,
+            "ROI": -6.242,
+            "NLL": 0.108457,
+            "MAE": 1.198728
+          },
+          "H1": {
+            "n": 379,
+            "U": -9.885,
+            "ROI": -2.608,
+            "NLL": -0.04716,
+            "MAE": 1.291964
+          },
+          "outside_H2": {
+            "n": 293,
+            "U": -33.77,
+            "ROI": -11.526,
+            "NLL": 0.027889,
+            "MAE": 1.189132
+          },
+          "switch_vs_annual": 128
+        },
+        "monthly_weighted": {
+          "all": {
+            "n": 734,
+            "U": -22.955,
+            "ROI": -3.127,
+            "NLL": -0.024522,
+            "MAE": 1.224252
+          },
+          "outside": {
+            "n": 582,
+            "U": -28.32,
+            "ROI": -4.866,
+            "NLL": 0.006278,
+            "MAE": 1.25011
+          },
+          "H2": {
+            "n": 355,
+            "U": -11.545,
+            "ROI": -3.252,
+            "NLL": 0.001882,
+            "MAE": 1.15737
+          },
+          "EPL": {
+            "n": 371,
+            "U": -6.505,
+            "ROI": -1.753,
+            "NLL": -0.152103,
+            "MAE": 1.254511
+          },
+          "LaLiga": {
+            "n": 363,
+            "U": -16.45,
+            "ROI": -4.532,
+            "NLL": 0.105871,
+            "MAE": 1.193326
+          },
+          "H1": {
+            "n": 379,
+            "U": -11.41,
+            "ROI": -3.011,
+            "NLL": -0.049254,
+            "MAE": 1.286899
+          },
+          "outside_H2": {
+            "n": 293,
+            "U": -9.845,
+            "ROI": -3.36,
+            "NLL": 0.02434,
+            "MAE": 1.180794
+          },
+          "switch_vs_annual": 129
+        },
+        "monthly_recent_form": {
+          "all": {
+            "n": 734,
+            "U": -8.1,
+            "ROI": -1.104,
+            "NLL": -0.02827,
+            "MAE": 1.218405
+          },
+          "outside": {
+            "n": 582,
+            "U": -1.225,
+            "ROI": -0.21,
+            "NLL": 0.002356,
+            "MAE": 1.244209
+          },
+          "H2": {
+            "n": 355,
+            "U": -33.925,
+            "ROI": -9.556,
+            "NLL": 0.001901,
+            "MAE": 1.16287
+          },
+          "EPL": {
+            "n": 371,
+            "U": -11.1,
+            "ROI": -2.992,
+            "NLL": -0.153732,
+            "MAE": 1.253501
+          },
+          "LaLiga": {
+            "n": 363,
+            "U": 3.0,
+            "ROI": 0.826,
+            "NLL": 0.099956,
+            "MAE": 1.182536
+          },
+          "H1": {
+            "n": 379,
+            "U": 25.825,
+            "ROI": 6.814,
+            "NLL": -0.056531,
+            "MAE": 1.270423
+          },
+          "outside_H2": {
+            "n": 293,
+            "U": -26.21,
+            "ROI": -8.945,
+            "NLL": 0.024224,
+            "MAE": 1.185549
+          },
+          "switch_vs_annual": 128
+        }
+      },
+      "runs": {
+        "annual_lag": [
+          {
+            "start": "2025-01-01",
+            "latest_allowed_train_date": "2024-12-29",
+            "latest_observed_train_date": "2024-12-29",
+            "n_train": 2605,
+            "n_test": 734
+          }
+        ],
+        "quarterly": [
+          {
+            "start": "2025-01-01",
+            "latest_allowed_train_date": "2024-12-29",
+            "latest_observed_train_date": "2024-12-29",
+            "n_train": 2605,
+            "n_test": 200
+          },
+          {
+            "start": "2025-04-01",
+            "latest_allowed_train_date": "2025-03-29",
+            "latest_observed_train_date": "2025-03-29",
+            "n_train": 2803,
+            "n_test": 179
+          },
+          {
+            "start": "2025-07-01",
+            "latest_allowed_train_date": "2025-06-28",
+            "latest_observed_train_date": "2025-05-25",
+            "n_train": 2987,
+            "n_test": 129
+          },
+          {
+            "start": "2025-10-01",
+            "latest_allowed_train_date": "2025-09-28",
+            "latest_observed_train_date": "2025-09-28",
+            "n_train": 3115,
+            "n_test": 226
+          }
+        ],
+        "monthly": [
+          {
+            "start": "2025-01-01",
+            "latest_allowed_train_date": "2024-12-29",
+            "latest_observed_train_date": "2024-12-29",
+            "n_train": 2605,
+            "n_test": 68
+          },
+          {
+            "start": "2025-02-01",
+            "latest_allowed_train_date": "2025-01-29",
+            "latest_observed_train_date": "2025-01-26",
+            "n_train": 2675,
+            "n_test": 80
+          },
+          {
+            "start": "2025-03-01",
+            "latest_allowed_train_date": "2025-02-26",
+            "latest_observed_train_date": "2025-02-26",
+            "n_train": 2755,
+            "n_test": 52
+          },
+          {
+            "start": "2025-04-01",
+            "latest_allowed_train_date": "2025-03-29",
+            "latest_observed_train_date": "2025-03-29",
+            "n_train": 2803,
+            "n_test": 90
+          },
+          {
+            "start": "2025-05-01",
+            "latest_allowed_train_date": "2025-04-28",
+            "latest_observed_train_date": "2025-04-27",
+            "n_train": 2898,
+            "n_test": 89
+          },
+          {
+            "start": "2025-08-01",
+            "latest_allowed_train_date": "2025-07-29",
+            "latest_observed_train_date": "2025-05-25",
+            "n_train": 2987,
+            "n_test": 61
+          },
+          {
+            "start": "2025-09-01",
+            "latest_allowed_train_date": "2025-08-29",
+            "latest_observed_train_date": "2025-08-29",
+            "n_train": 3030,
+            "n_test": 68
+          },
+          {
+            "start": "2025-10-01",
+            "latest_allowed_train_date": "2025-09-28",
+            "latest_observed_train_date": "2025-09-28",
+            "n_train": 3115,
+            "n_test": 60
+          },
+          {
+            "start": "2025-11-01",
+            "latest_allowed_train_date": "2025-10-29",
+            "latest_observed_train_date": "2025-10-27",
+            "n_train": 3175,
+            "n_test": 78
+          },
+          {
+            "start": "2025-12-01",
+            "latest_allowed_train_date": "2025-11-28",
+            "latest_observed_train_date": "2025-11-28",
+            "n_train": 3236,
+            "n_test": 88
+          }
+        ],
+        "annual_weighted": [
+          {
+            "start": "2025-01-01",
+            "latest_allowed_train_date": "2024-12-29",
+            "latest_observed_train_date": "2024-12-29",
+            "n_train": 2605,
+            "n_test": 734
+          }
+        ],
+        "monthly_weighted": [
+          {
+            "start": "2025-01-01",
+            "latest_allowed_train_date": "2024-12-29",
+            "latest_observed_train_date": "2024-12-29",
+            "n_train": 2605,
+            "n_test": 68
+          },
+          {
+            "start": "2025-02-01",
+            "latest_allowed_train_date": "2025-01-29",
+            "latest_observed_train_date": "2025-01-26",
+            "n_train": 2675,
+            "n_test": 80
+          },
+          {
+            "start": "2025-03-01",
+            "latest_allowed_train_date": "2025-02-26",
+            "latest_observed_train_date": "2025-02-26",
+            "n_train": 2755,
+            "n_test": 52
+          },
+          {
+            "start": "2025-04-01",
+            "latest_allowed_train_date": "2025-03-29",
+            "latest_observed_train_date": "2025-03-29",
+            "n_train": 2803,
+            "n_test": 90
+          },
+          {
+            "start": "2025-05-01",
+            "latest_allowed_train_date": "2025-04-28",
+            "latest_observed_train_date": "2025-04-27",
+            "n_train": 2898,
+            "n_test": 89
+          },
+          {
+            "start": "2025-08-01",
+            "latest_allowed_train_date": "2025-07-29",
+            "latest_observed_train_date": "2025-05-25",
+            "n_train": 2987,
+            "n_test": 61
+          },
+          {
+            "start": "2025-09-01",
+            "latest_allowed_train_date": "2025-08-29",
+            "latest_observed_train_date": "2025-08-29",
+            "n_train": 3030,
+            "n_test": 68
+          },
+          {
+            "start": "2025-10-01",
+            "latest_allowed_train_date": "2025-09-28",
+            "latest_observed_train_date": "2025-09-28",
+            "n_train": 3115,
+            "n_test": 60
+          },
+          {
+            "start": "2025-11-01",
+            "latest_allowed_train_date": "2025-10-29",
+            "latest_observed_train_date": "2025-10-27",
+            "n_train": 3175,
+            "n_test": 78
+          },
+          {
+            "start": "2025-12-01",
+            "latest_allowed_train_date": "2025-11-28",
+            "latest_observed_train_date": "2025-11-28",
+            "n_train": 3236,
+            "n_test": 88
+          }
+        ],
+        "monthly_recent_form": [
+          {
+            "start": "2025-01-01",
+            "latest_allowed_train_date": "2024-12-29",
+            "latest_observed_train_date": "2024-12-29",
+            "n_train": 2605,
+            "n_test": 68
+          },
+          {
+            "start": "2025-02-01",
+            "latest_allowed_train_date": "2025-01-29",
+            "latest_observed_train_date": "2025-01-26",
+            "n_train": 2675,
+            "n_test": 80
+          },
+          {
+            "start": "2025-03-01",
+            "latest_allowed_train_date": "2025-02-26",
+            "latest_observed_train_date": "2025-02-26",
+            "n_train": 2755,
+            "n_test": 52
+          },
+          {
+            "start": "2025-04-01",
+            "latest_allowed_train_date": "2025-03-29",
+            "latest_observed_train_date": "2025-03-29",
+            "n_train": 2803,
+            "n_test": 90
+          },
+          {
+            "start": "2025-05-01",
+            "latest_allowed_train_date": "2025-04-28",
+            "latest_observed_train_date": "2025-04-27",
+            "n_train": 2898,
+            "n_test": 89
+          },
+          {
+            "start": "2025-08-01",
+            "latest_allowed_train_date": "2025-07-29",
+            "latest_observed_train_date": "2025-05-25",
+            "n_train": 2987,
+            "n_test": 61
+          },
+          {
+            "start": "2025-09-01",
+            "latest_allowed_train_date": "2025-08-29",
+            "latest_observed_train_date": "2025-08-29",
+            "n_train": 3030,
+            "n_test": 68
+          },
+          {
+            "start": "2025-10-01",
+            "latest_allowed_train_date": "2025-09-28",
+            "latest_observed_train_date": "2025-09-28",
+            "n_train": 3115,
+            "n_test": 60
+          },
+          {
+            "start": "2025-11-01",
+            "latest_allowed_train_date": "2025-10-29",
+            "latest_observed_train_date": "2025-10-27",
+            "n_train": 3175,
+            "n_test": 78
+          },
+          {
+            "start": "2025-12-01",
+            "latest_allowed_train_date": "2025-11-28",
+            "latest_observed_train_date": "2025-11-28",
+            "n_train": 3236,
+            "n_test": 88
+          }
+        ]
+      },
+      "annual_boundary": {
+        "legacy_train_n": 2608,
+        "lag_train_n": 2605,
+        "legacy_last_train_kickoff": "2024-12-30T20:00:00+00:00",
+        "first_test_T12_cutoff": "2025-01-01T05:30:00+00:00",
+        "hours_between_kickoff_and_first_cutoff": 33.5,
+        "same_training_unweighted_reproduction": true
+      }
+    },
+    "2026": {
+      "n": 550,
+      "models": {
+        "annual_legacy": {
+          "all": {
+            "n": 550,
+            "U": 31.555,
+            "ROI": 5.737,
+            "NLL": -0.092304,
+            "MAE": 1.301348
+          },
+          "outside": {
+            "n": 440,
+            "U": 35.06,
+            "ROI": 7.968,
+            "NLL": -0.085218,
+            "MAE": 1.310379
+          },
+          "H2": {
+            "n": 168,
+            "U": -2.02,
+            "ROI": -1.202,
+            "NLL": -0.273801,
+            "MAE": 1.408278
+          },
+          "EPL": {
+            "n": 264,
+            "U": 22.15,
+            "ROI": 8.39,
+            "NLL": 0.038822,
+            "MAE": 1.30965
+          },
+          "LaLiga": {
+            "n": 286,
+            "U": 9.405,
+            "ROI": 3.288,
+            "NLL": -0.213343,
+            "MAE": 1.293686
+          },
+          "H1": {
+            "n": 382,
+            "U": 33.575,
+            "ROI": 8.789,
+            "NLL": -0.012483,
+            "MAE": 1.254322
+          },
+          "outside_H2": {
+            "n": 140,
+            "U": 4.4,
+            "ROI": 3.143,
+            "NLL": -0.339636,
+            "MAE": 1.353612
+          },
+          "switch_vs_annual": 0
+        },
+        "annual_lag": {
+          "all": {
+            "n": 550,
+            "U": 23.45,
+            "ROI": 4.264,
+            "NLL": -0.092743,
+            "MAE": 1.299134
+          },
+          "outside": {
+            "n": 440,
+            "U": 24.87,
+            "ROI": 5.652,
+            "NLL": -0.085515,
+            "MAE": 1.308581
+          },
+          "H2": {
+            "n": 168,
+            "U": 5.055,
+            "ROI": 3.009,
+            "NLL": -0.27413,
+            "MAE": 1.405295
+          },
+          "EPL": {
+            "n": 264,
+            "U": 27.14,
+            "ROI": 10.28,
+            "NLL": 0.037151,
+            "MAE": 1.30595
+          },
+          "LaLiga": {
+            "n": 286,
+            "U": -3.69,
+            "ROI": -1.29,
+            "NLL": -0.212645,
+            "MAE": 1.292841
+          },
+          "H1": {
+            "n": 382,
+            "U": 18.395,
+            "ROI": 4.815,
+            "NLL": -0.012971,
+            "MAE": 1.252445
+          },
+          "outside_H2": {
+            "n": 140,
+            "U": 9.525,
+            "ROI": 6.804,
+            "NLL": -0.339275,
+            "MAE": 1.350919
+          },
+          "switch_vs_annual": 35
+        },
+        "quarterly": {
+          "all": {
+            "n": 550,
+            "U": 34.98,
+            "ROI": 6.36,
+            "NLL": -0.092089,
+            "MAE": 1.299592
+          },
+          "outside": {
+            "n": 440,
+            "U": 29.59,
+            "ROI": 6.725,
+            "NLL": -0.084676,
+            "MAE": 1.309371
+          },
+          "H2": {
+            "n": 168,
+            "U": 11.745,
+            "ROI": 6.991,
+            "NLL": -0.270941,
+            "MAE": 1.409428
+          },
+          "EPL": {
+            "n": 264,
+            "U": 33.82,
+            "ROI": 12.811,
+            "NLL": 0.03643,
+            "MAE": 1.302963
+          },
+          "LaLiga": {
+            "n": 286,
+            "U": 1.16,
+            "ROI": 0.406,
+            "NLL": -0.210722,
+            "MAE": 1.296479
+          },
+          "H1": {
+            "n": 382,
+            "U": 23.235,
+            "ROI": 6.082,
+            "NLL": -0.013432,
+            "MAE": 1.251287
+          },
+          "outside_H2": {
+            "n": 140,
+            "U": 10.375,
+            "ROI": 7.411,
+            "NLL": -0.335353,
+            "MAE": 1.356341
+          },
+          "switch_vs_annual": 46
+        },
+        "monthly": {
+          "all": {
+            "n": 550,
+            "U": 34.745,
+            "ROI": 6.317,
+            "NLL": -0.092012,
+            "MAE": 1.299698
+          },
+          "outside": {
+            "n": 440,
+            "U": 30.39,
+            "ROI": 6.907,
+            "NLL": -0.084581,
+            "MAE": 1.309555
+          },
+          "H2": {
+            "n": 168,
+            "U": 11.895,
+            "ROI": 7.08,
+            "NLL": -0.270899,
+            "MAE": 1.409384
+          },
+          "EPL": {
+            "n": 264,
+            "U": 29.155,
+            "ROI": 11.044,
+            "NLL": 0.03717,
+            "MAE": 1.303557
+          },
+          "LaLiga": {
+            "n": 286,
+            "U": 5.59,
+            "ROI": 1.955,
+            "NLL": -0.211257,
+            "MAE": 1.296136
+          },
+          "H1": {
+            "n": 382,
+            "U": 22.85,
+            "ROI": 5.982,
+            "NLL": -0.01334,
+            "MAE": 1.251459
+          },
+          "outside_H2": {
+            "n": 140,
+            "U": 10.525,
+            "ROI": 7.518,
+            "NLL": -0.335476,
+            "MAE": 1.356047
+          },
+          "switch_vs_annual": 44
+        },
+        "annual_weighted": {
+          "all": {
+            "n": 550,
+            "U": -2.525,
+            "ROI": -0.459,
+            "NLL": -0.089285,
+            "MAE": 1.305224
+          },
+          "outside": {
+            "n": 440,
+            "U": -8.63,
+            "ROI": -1.961,
+            "NLL": -0.081352,
+            "MAE": 1.315065
+          },
+          "H2": {
+            "n": 168,
+            "U": -22.53,
+            "ROI": -13.411,
+            "NLL": -0.264243,
+            "MAE": 1.426622
+          },
+          "EPL": {
+            "n": 264,
+            "U": -11.33,
+            "ROI": -4.292,
+            "NLL": 0.043169,
+            "MAE": 1.317661
+          },
+          "LaLiga": {
+            "n": 286,
+            "U": 8.805,
+            "ROI": 3.079,
+            "NLL": -0.211551,
+            "MAE": 1.293743
+          },
+          "H1": {
+            "n": 382,
+            "U": 20.005,
+            "ROI": 5.237,
+            "NLL": -0.01234,
+            "MAE": 1.251834
+          },
+          "outside_H2": {
+            "n": 140,
+            "U": -19.94,
+            "ROI": -14.243,
+            "NLL": -0.328887,
+            "MAE": 1.374129
+          },
+          "switch_vs_annual": 107
+        },
+        "monthly_weighted": {
+          "all": {
+            "n": 550,
+            "U": 16.05,
+            "ROI": 2.918,
+            "NLL": -0.088128,
+            "MAE": 1.304702
+          },
+          "outside": {
+            "n": 440,
+            "U": 10.615,
+            "ROI": 2.412,
+            "NLL": -0.080271,
+            "MAE": 1.31463
+          },
+          "H2": {
+            "n": 168,
+            "U": -13.215,
+            "ROI": -7.866,
+            "NLL": -0.256318,
+            "MAE": 1.432432
+          },
+          "EPL": {
+            "n": 264,
+            "U": 5.57,
+            "ROI": 2.11,
+            "NLL": 0.040727,
+            "MAE": 1.306366
+          },
+          "LaLiga": {
+            "n": 286,
+            "U": 10.48,
+            "ROI": 3.664,
+            "NLL": -0.207071,
+            "MAE": 1.303166
+          },
+          "H1": {
+            "n": 382,
+            "U": 29.265,
+            "ROI": 7.661,
+            "NLL": -0.014159,
+            "MAE": 1.248527
+          },
+          "outside_H2": {
+            "n": 140,
+            "U": -10.785,
+            "ROI": -7.704,
+            "NLL": -0.319468,
+            "MAE": 1.382437
+          },
+          "switch_vs_annual": 100
+        },
+        "monthly_recent_form": {
+          "all": {
+            "n": 550,
+            "U": 17.345,
+            "ROI": 3.154,
+            "NLL": -0.091304,
+            "MAE": 1.302263
+          },
+          "outside": {
+            "n": 440,
+            "U": 9.95,
+            "ROI": 2.261,
+            "NLL": -0.083198,
+            "MAE": 1.312982
+          },
+          "H2": {
+            "n": 168,
+            "U": -5.685,
+            "ROI": -3.384,
+            "NLL": -0.268412,
+            "MAE": 1.412757
+          },
+          "EPL": {
+            "n": 264,
+            "U": 18.245,
+            "ROI": 6.911,
+            "NLL": 0.03798,
+            "MAE": 1.306526
+          },
+          "LaLiga": {
+            "n": 286,
+            "U": -0.9,
+            "ROI": -0.315,
+            "NLL": -0.210643,
+            "MAE": 1.298328
+          },
+          "H1": {
+            "n": 382,
+            "U": 23.03,
+            "ROI": 6.029,
+            "NLL": -0.013413,
+            "MAE": 1.253669
+          },
+          "outside_H2": {
+            "n": 140,
+            "U": -3.175,
+            "ROI": -2.268,
+            "NLL": -0.332324,
+            "MAE": 1.360775
+          },
+          "switch_vs_annual": 96
+        }
+      },
+      "runs": {
+        "annual_lag": [
+          {
+            "start": "2026-01-01",
+            "latest_allowed_train_date": "2025-12-29",
+            "latest_observed_train_date": "2025-12-28",
+            "n_train": 3336,
+            "n_test": 550
+          }
+        ],
+        "quarterly": [
+          {
+            "start": "2026-01-01",
+            "latest_allowed_train_date": "2025-12-29",
+            "latest_observed_train_date": "2025-12-28",
+            "n_train": 3336,
+            "n_test": 230
+          },
+          {
+            "start": "2026-04-01",
+            "latest_allowed_train_date": "2026-03-29",
+            "latest_observed_train_date": "2026-03-22",
+            "n_train": 3572,
+            "n_test": 152
+          },
+          {
+            "start": "2026-07-01",
+            "latest_allowed_train_date": "2026-06-28",
+            "latest_observed_train_date": "2026-05-24",
+            "n_train": 3724,
+            "n_test": 101
+          },
+          {
+            "start": "2026-10-01",
+            "latest_allowed_train_date": "2026-09-28",
+            "latest_observed_train_date": "2026-09-20",
+            "n_train": 3825,
+            "n_test": 67
+          }
+        ],
+        "monthly": [
+          {
+            "start": "2026-01-01",
+            "latest_allowed_train_date": "2025-12-29",
+            "latest_observed_train_date": "2025-12-28",
+            "n_train": 3336,
+            "n_test": 91
+          },
+          {
+            "start": "2026-02-01",
+            "latest_allowed_train_date": "2026-01-29",
+            "latest_observed_train_date": "2026-01-26",
+            "n_train": 3424,
+            "n_test": 75
+          },
+          {
+            "start": "2026-03-01",
+            "latest_allowed_train_date": "2026-02-26",
+            "latest_observed_train_date": "2026-02-23",
+            "n_train": 3498,
+            "n_test": 64
+          },
+          {
+            "start": "2026-04-01",
+            "latest_allowed_train_date": "2026-03-29",
+            "latest_observed_train_date": "2026-03-22",
+            "n_train": 3572,
+            "n_test": 66
+          },
+          {
+            "start": "2026-05-01",
+            "latest_allowed_train_date": "2026-04-28",
+            "latest_observed_train_date": "2026-04-27",
+            "n_train": 3638,
+            "n_test": 86
+          },
+          {
+            "start": "2026-08-01",
+            "latest_allowed_train_date": "2026-07-29",
+            "latest_observed_train_date": "2026-05-24",
+            "n_train": 3724,
+            "n_test": 42
+          },
+          {
+            "start": "2026-09-01",
+            "latest_allowed_train_date": "2026-08-29",
+            "latest_observed_train_date": "2026-08-29",
+            "n_train": 3758,
+            "n_test": 59
+          },
+          {
+            "start": "2026-10-01",
+            "latest_allowed_train_date": "2026-09-28",
+            "latest_observed_train_date": "2026-09-20",
+            "n_train": 3825,
+            "n_test": 61
+          },
+          {
+            "start": "2026-11-01",
+            "latest_allowed_train_date": "2026-10-29",
+            "latest_observed_train_date": "2026-10-26",
+            "n_train": 3876,
+            "n_test": 6
+          }
+        ],
+        "annual_weighted": [
+          {
+            "start": "2026-01-01",
+            "latest_allowed_train_date": "2025-12-29",
+            "latest_observed_train_date": "2025-12-28",
+            "n_train": 3336,
+            "n_test": 550
+          }
+        ],
+        "monthly_weighted": [
+          {
+            "start": "2026-01-01",
+            "latest_allowed_train_date": "2025-12-29",
+            "latest_observed_train_date": "2025-12-28",
+            "n_train": 3336,
+            "n_test": 91
+          },
+          {
+            "start": "2026-02-01",
+            "latest_allowed_train_date": "2026-01-29",
+            "latest_observed_train_date": "2026-01-26",
+            "n_train": 3424,
+            "n_test": 75
+          },
+          {
+            "start": "2026-03-01",
+            "latest_allowed_train_date": "2026-02-26",
+            "latest_observed_train_date": "2026-02-23",
+            "n_train": 3498,
+            "n_test": 64
+          },
+          {
+            "start": "2026-04-01",
+            "latest_allowed_train_date": "2026-03-29",
+            "latest_observed_train_date": "2026-03-22",
+            "n_train": 3572,
+            "n_test": 66
+          },
+          {
+            "start": "2026-05-01",
+            "latest_allowed_train_date": "2026-04-28",
+            "latest_observed_train_date": "2026-04-27",
+            "n_train": 3638,
+            "n_test": 86
+          },
+          {
+            "start": "2026-08-01",
+            "latest_allowed_train_date": "2026-07-29",
+            "latest_observed_train_date": "2026-05-24",
+            "n_train": 3724,
+            "n_test": 42
+          },
+          {
+            "start": "2026-09-01",
+            "latest_allowed_train_date": "2026-08-29",
+            "latest_observed_train_date": "2026-08-29",
+            "n_train": 3758,
+            "n_test": 59
+          },
+          {
+            "start": "2026-10-01",
+            "latest_allowed_train_date": "2026-09-28",
+            "latest_observed_train_date": "2026-09-20",
+            "n_train": 3825,
+            "n_test": 61
+          },
+          {
+            "start": "2026-11-01",
+            "latest_allowed_train_date": "2026-10-29",
+            "latest_observed_train_date": "2026-10-26",
+            "n_train": 3876,
+            "n_test": 6
+          }
+        ],
+        "monthly_recent_form": [
+          {
+            "start": "2026-01-01",
+            "latest_allowed_train_date": "2025-12-29",
+            "latest_observed_train_date": "2025-12-28",
+            "n_train": 3336,
+            "n_test": 91
+          },
+          {
+            "start": "2026-02-01",
+            "latest_allowed_train_date": "2026-01-29",
+            "latest_observed_train_date": "2026-01-26",
+            "n_train": 3424,
+            "n_test": 75
+          },
+          {
+            "start": "2026-03-01",
+            "latest_allowed_train_date": "2026-02-26",
+            "latest_observed_train_date": "2026-02-23",
+            "n_train": 3498,
+            "n_test": 64
+          },
+          {
+            "start": "2026-04-01",
+            "latest_allowed_train_date": "2026-03-29",
+            "latest_observed_train_date": "2026-03-22",
+            "n_train": 3572,
+            "n_test": 66
+          },
+          {
+            "start": "2026-05-01",
+            "latest_allowed_train_date": "2026-04-28",
+            "latest_observed_train_date": "2026-04-27",
+            "n_train": 3638,
+            "n_test": 86
+          },
+          {
+            "start": "2026-08-01",
+            "latest_allowed_train_date": "2026-07-29",
+            "latest_observed_train_date": "2026-05-24",
+            "n_train": 3724,
+            "n_test": 42
+          },
+          {
+            "start": "2026-09-01",
+            "latest_allowed_train_date": "2026-08-29",
+            "latest_observed_train_date": "2026-08-29",
+            "n_train": 3758,
+            "n_test": 59
+          },
+          {
+            "start": "2026-10-01",
+            "latest_allowed_train_date": "2026-09-28",
+            "latest_observed_train_date": "2026-09-20",
+            "n_train": 3825,
+            "n_test": 61
+          },
+          {
+            "start": "2026-11-01",
+            "latest_allowed_train_date": "2026-10-29",
+            "latest_observed_train_date": "2026-10-26",
+            "n_train": 3876,
+            "n_test": 6
+          }
+        ]
+      },
+      "annual_boundary": {
+        "legacy_train_n": 3342,
+        "lag_train_n": 3336,
+        "legacy_last_train_kickoff": "2025-12-30T20:15:00+00:00",
+        "first_test_T12_cutoff": "2026-01-01T05:30:00+00:00",
+        "hours_between_kickoff_and_first_cutoff": 33.25,
+        "same_training_unweighted_reproduction": true
+      }
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}
