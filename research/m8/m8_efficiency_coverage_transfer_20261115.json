@@ -1,0 +1,622 @@
+{
+  "method": "Same T12 market, annual prior-year training. Fixed models. Matched 51 ESPN/TC identical fixtures and identical restricted historical coverage. Effective counts are diagnostics, no filter/gate. Same-source cross-league transfer, no outcome-driven model choice. Historical explored samples.",
+  "matched": {
+    "ESPN_dense": {
+      "n": 51,
+      "train_n": 3342,
+      "median_min_effective_prior": 22.564,
+      "zero_prior_either_team": 3,
+      "models": {
+        "market": {
+          "n": 51,
+          "U": -0.575,
+          "ROI": -1.127,
+          "NLL": -0.016145,
+          "MAE": 1.238755
+        },
+        "full": {
+          "n": 51,
+          "U": 3.775,
+          "ROI": 7.402,
+          "NLL": -0.016171,
+          "MAE": 1.231903
+        },
+        "efficiency": {
+          "n": 51,
+          "U": 7.705,
+          "ROI": 15.108,
+          "NLL": -0.017883,
+          "MAE": 1.226116
+        },
+        "full_efficiency": {
+          "n": 51,
+          "U": 7.705,
+          "ROI": 15.108,
+          "NLL": -0.014267,
+          "MAE": 1.234372
+        },
+        "full_shot_efficiency": {
+          "n": 51,
+          "U": 7.705,
+          "ROI": 15.108,
+          "NLL": -0.014552,
+          "MAE": 1.234307
+        }
+      }
+    },
+    "ESPN_matched_only": {
+      "n": 51,
+      "train_n": 3342,
+      "median_min_effective_prior": 0.0,
+      "zero_prior_either_team": 27,
+      "models": {
+        "market": {
+          "n": 51,
+          "U": -0.575,
+          "ROI": -1.127,
+          "NLL": -0.016145,
+          "MAE": 1.238755
+        },
+        "full": {
+          "n": 51,
+          "U": 0.86,
+          "ROI": 1.686,
+          "NLL": -0.019545,
+          "MAE": 1.222764
+        },
+        "efficiency": {
+          "n": 51,
+          "U": -1.36,
+          "ROI": -2.667,
+          "NLL": -0.016398,
+          "MAE": 1.232741
+        },
+        "full_efficiency": {
+          "n": 51,
+          "U": 4.6,
+          "ROI": 9.02,
+          "NLL": -0.020419,
+          "MAE": 1.221316
+        },
+        "full_shot_efficiency": {
+          "n": 51,
+          "U": 4.6,
+          "ROI": 9.02,
+          "NLL": -0.020402,
+          "MAE": 1.2216
+        }
+      }
+    },
+    "TC_matched_only": {
+      "n": 51,
+      "train_n": 3342,
+      "median_min_effective_prior": 0.0,
+      "zero_prior_either_team": 27,
+      "models": {
+        "market": {
+          "n": 51,
+          "U": -0.575,
+          "ROI": -1.127,
+          "NLL": -0.016145,
+          "MAE": 1.238755
+        },
+        "full": {
+          "n": 51,
+          "U": 0.86,
+          "ROI": 1.686,
+          "NLL": -0.0196,
+          "MAE": 1.222922
+        },
+        "efficiency": {
+          "n": 51,
+          "U": 0.6,
+          "ROI": 1.176,
+          "NLL": -0.016507,
+          "MAE": 1.23274
+        },
+        "full_efficiency": {
+          "n": 51,
+          "U": 4.6,
+          "ROI": 9.02,
+          "NLL": -0.020502,
+          "MAE": 1.221434
+        },
+        "full_shot_efficiency": {
+          "n": 51,
+          "U": 4.6,
+          "ROI": 9.02,
+          "NLL": -0.020483,
+          "MAE": 1.221725
+        }
+      }
+    },
+    "TC_full_archive": {
+      "n": 51,
+      "train_n": 3342,
+      "median_min_effective_prior": 0.0,
+      "zero_prior_either_team": 27,
+      "models": {
+        "market": {
+          "n": 51,
+          "U": -0.575,
+          "ROI": -1.127,
+          "NLL": -0.016145,
+          "MAE": 1.238755
+        },
+        "full": {
+          "n": 51,
+          "U": 0.86,
+          "ROI": 1.686,
+          "NLL": -0.0196,
+          "MAE": 1.222922
+        },
+        "efficiency": {
+          "n": 51,
+          "U": 0.6,
+          "ROI": 1.176,
+          "NLL": -0.016507,
+          "MAE": 1.23274
+        },
+        "full_efficiency": {
+          "n": 51,
+          "U": 4.6,
+          "ROI": 9.02,
+          "NLL": -0.020502,
+          "MAE": 1.221434
+        },
+        "full_shot_efficiency": {
+          "n": 51,
+          "U": 4.6,
+          "ROI": 9.02,
+          "NLL": -0.020483,
+          "MAE": 1.221725
+        }
+      }
+    }
+  },
+  "other_ESPN": {
+    "n": 230,
+    "train_n": 3342,
+    "median_min_effective_prior": 0.924,
+    "zero_prior_either_team": 107,
+    "models": {
+      "market": {
+        "n": 230,
+        "U": -4.16,
+        "ROI": -1.809,
+        "NLL": -0.540806,
+        "MAE": 1.320166
+      },
+      "full": {
+        "n": 230,
+        "U": -23.1,
+        "ROI": -10.043,
+        "NLL": -0.526934,
+        "MAE": 1.329188
+      },
+      "efficiency": {
+        "n": 230,
+        "U": -19.975,
+        "ROI": -8.685,
+        "NLL": -0.532496,
+        "MAE": 1.324343
+      },
+      "full_efficiency": {
+        "n": 230,
+        "U": -25.945,
+        "ROI": -11.28,
+        "NLL": -0.528088,
+        "MAE": 1.329451
+      },
+      "full_shot_efficiency": {
+        "n": 230,
+        "U": -24.075,
+        "ROI": -10.467,
+        "NLL": -0.527806,
+        "MAE": 1.329694
+      }
+    }
+  },
+  "leave_league_out": {
+    "2024": {
+      "1": {
+        "n": 358,
+        "train_n": 1037,
+        "median_min_effective_prior": 21.962,
+        "zero_prior_either_team": 1,
+        "models": {
+          "market": {
+            "n": 358,
+            "U": -10.39,
+            "ROI": -2.902,
+            "NLL": -0.532063,
+            "MAE": 1.36405
+          },
+          "full": {
+            "n": 358,
+            "U": 1.48,
+            "ROI": 0.413,
+            "NLL": -0.527568,
+            "MAE": 1.398278
+          },
+          "efficiency": {
+            "n": 358,
+            "U": -0.35,
+            "ROI": -0.098,
+            "NLL": -0.523535,
+            "MAE": 1.401999
+          },
+          "full_efficiency": {
+            "n": 358,
+            "U": -2.36,
+            "ROI": -0.659,
+            "NLL": -0.526149,
+            "MAE": 1.400069
+          },
+          "full_shot_efficiency": {
+            "n": 358,
+            "U": -0.61,
+            "ROI": -0.17,
+            "NLL": -0.527708,
+            "MAE": 1.396514
+          }
+        }
+      },
+      "14": {
+        "n": 375,
+        "train_n": 838,
+        "median_min_effective_prior": 23.672,
+        "zero_prior_either_team": 1,
+        "models": {
+          "market": {
+            "n": 375,
+            "U": -28.795,
+            "ROI": -7.679,
+            "NLL": 0.040006,
+            "MAE": 1.265022
+          },
+          "full": {
+            "n": 375,
+            "U": -15.375,
+            "ROI": -4.1,
+            "NLL": 0.038675,
+            "MAE": 1.260873
+          },
+          "efficiency": {
+            "n": 375,
+            "U": 2.43,
+            "ROI": 0.648,
+            "NLL": 0.034603,
+            "MAE": 1.251467
+          },
+          "full_efficiency": {
+            "n": 375,
+            "U": -7.555,
+            "ROI": -2.015,
+            "NLL": 0.038274,
+            "MAE": 1.25766
+          },
+          "full_shot_efficiency": {
+            "n": 375,
+            "U": -7.525,
+            "ROI": -2.007,
+            "NLL": 0.038042,
+            "MAE": 1.2583
+          }
+        }
+      }
+    },
+    "2025": {
+      "1": {
+        "n": 371,
+        "train_n": 1412,
+        "median_min_effective_prior": 23.478,
+        "zero_prior_either_team": 1,
+        "models": {
+          "market": {
+            "n": 371,
+            "U": -20.74,
+            "ROI": -5.59,
+            "NLL": -0.159931,
+            "MAE": 1.25675
+          },
+          "full": {
+            "n": 371,
+            "U": -25.425,
+            "ROI": -6.853,
+            "NLL": -0.138287,
+            "MAE": 1.303019
+          },
+          "efficiency": {
+            "n": 371,
+            "U": -16.245,
+            "ROI": -4.379,
+            "NLL": -0.142713,
+            "MAE": 1.291779
+          },
+          "full_efficiency": {
+            "n": 371,
+            "U": -34.625,
+            "ROI": -9.333,
+            "NLL": -0.137034,
+            "MAE": 1.306973
+          },
+          "full_shot_efficiency": {
+            "n": 371,
+            "U": -36.395,
+            "ROI": -9.81,
+            "NLL": -0.138927,
+            "MAE": 1.301281
+          }
+        }
+      },
+      "14": {
+        "n": 363,
+        "train_n": 1196,
+        "median_min_effective_prior": 24.134,
+        "zero_prior_either_team": 1,
+        "models": {
+          "market": {
+            "n": 363,
+            "U": 0.17,
+            "ROI": 0.047,
+            "NLL": 0.100408,
+            "MAE": 1.181395
+          },
+          "full": {
+            "n": 363,
+            "U": 21.34,
+            "ROI": 5.879,
+            "NLL": 0.095082,
+            "MAE": 1.172247
+          },
+          "efficiency": {
+            "n": 363,
+            "U": 25.605,
+            "ROI": 7.054,
+            "NLL": 0.097645,
+            "MAE": 1.177044
+          },
+          "full_efficiency": {
+            "n": 363,
+            "U": 3.91,
+            "ROI": 1.077,
+            "NLL": 0.097188,
+            "MAE": 1.176418
+          },
+          "full_shot_efficiency": {
+            "n": 363,
+            "U": 13.705,
+            "ROI": 3.775,
+            "NLL": 0.096612,
+            "MAE": 1.176373
+          }
+        }
+      }
+    },
+    "2026": {
+      "1": {
+        "n": 264,
+        "train_n": 1775,
+        "median_min_effective_prior": 26.783,
+        "zero_prior_either_team": 0,
+        "models": {
+          "market": {
+            "n": 264,
+            "U": 28.48,
+            "ROI": 10.788,
+            "NLL": 0.02977,
+            "MAE": 1.294738
+          },
+          "full": {
+            "n": 264,
+            "U": -6.72,
+            "ROI": -2.545,
+            "NLL": 0.04053,
+            "MAE": 1.31565
+          },
+          "efficiency": {
+            "n": 264,
+            "U": -10.4,
+            "ROI": -3.939,
+            "NLL": 0.041104,
+            "MAE": 1.316084
+          },
+          "full_efficiency": {
+            "n": 264,
+            "U": -6.83,
+            "ROI": -2.587,
+            "NLL": 0.04092,
+            "MAE": 1.315189
+          },
+          "full_shot_efficiency": {
+            "n": 264,
+            "U": -8.66,
+            "ROI": -3.28,
+            "NLL": 0.040091,
+            "MAE": 1.314045
+          }
+        }
+      },
+      "14": {
+        "n": 286,
+        "train_n": 1567,
+        "median_min_effective_prior": 23.506,
+        "zero_prior_either_team": 3,
+        "models": {
+          "market": {
+            "n": 286,
+            "U": 8.525,
+            "ROI": 2.981,
+            "NLL": -0.209729,
+            "MAE": 1.305412
+          },
+          "full": {
+            "n": 286,
+            "U": 8.695,
+            "ROI": 3.04,
+            "NLL": -0.209162,
+            "MAE": 1.310179
+          },
+          "efficiency": {
+            "n": 286,
+            "U": 2.09,
+            "ROI": 0.731,
+            "NLL": -0.208946,
+            "MAE": 1.307872
+          },
+          "full_efficiency": {
+            "n": 286,
+            "U": -9.5,
+            "ROI": -3.322,
+            "NLL": -0.206261,
+            "MAE": 1.31438
+          },
+          "full_shot_efficiency": {
+            "n": 286,
+            "U": -0.47,
+            "ROI": -0.164,
+            "NLL": -0.206935,
+            "MAE": 1.313975
+          }
+        }
+      }
+    }
+  },
+  "coverage": {
+    "2023": {
+      "n": 89,
+      "train_n": 1161,
+      "median_min_effective_prior": 3.671,
+      "zero_prior_either_team": 11,
+      "models": {
+        "market": {
+          "n": 89,
+          "U": -8.89,
+          "ROI": -9.989,
+          "NLL": -0.605948,
+          "MAE": 1.331511
+        },
+        "full": {
+          "n": 89,
+          "U": -14.3,
+          "ROI": -16.067,
+          "NLL": -0.5932,
+          "MAE": 1.342407
+        },
+        "efficiency": {
+          "n": 89,
+          "U": -3.62,
+          "ROI": -4.067,
+          "NLL": -0.611136,
+          "MAE": 1.322284
+        },
+        "full_efficiency": {
+          "n": 89,
+          "U": -8.57,
+          "ROI": -9.629,
+          "NLL": -0.593434,
+          "MAE": 1.343598
+        },
+        "full_shot_efficiency": {
+          "n": 89,
+          "U": -10.45,
+          "ROI": -11.742,
+          "NLL": -0.594567,
+          "MAE": 1.342267
+        }
+      }
+    },
+    "2025": {
+      "n": 86,
+      "train_n": 2608,
+      "median_min_effective_prior": 3.804,
+      "zero_prior_either_team": 11,
+      "models": {
+        "market": {
+          "n": 86,
+          "U": 14.955,
+          "ROI": 17.39,
+          "NLL": -0.23557,
+          "MAE": 1.513237
+        },
+        "full": {
+          "n": 86,
+          "U": -0.955,
+          "ROI": -1.11,
+          "NLL": -0.223522,
+          "MAE": 1.53901
+        },
+        "efficiency": {
+          "n": 86,
+          "U": 10.165,
+          "ROI": 11.82,
+          "NLL": -0.2332,
+          "MAE": 1.519798
+        },
+        "full_efficiency": {
+          "n": 86,
+          "U": -1.975,
+          "ROI": -2.297,
+          "NLL": -0.22558,
+          "MAE": 1.534532
+        },
+        "full_shot_efficiency": {
+          "n": 86,
+          "U": -1.975,
+          "ROI": -2.297,
+          "NLL": -0.224377,
+          "MAE": 1.537224
+        }
+      }
+    },
+    "2026": {
+      "n": 178,
+      "train_n": 3342,
+      "median_min_effective_prior": 1.381,
+      "zero_prior_either_team": 49,
+      "models": {
+        "market": {
+          "n": 178,
+          "U": -23.515,
+          "ROI": -13.211,
+          "NLL": -0.178338,
+          "MAE": 1.37757
+        },
+        "full": {
+          "n": 178,
+          "U": -12.8,
+          "ROI": -7.191,
+          "NLL": -0.186817,
+          "MAE": 1.37288
+        },
+        "efficiency": {
+          "n": 178,
+          "U": -15.65,
+          "ROI": -8.792,
+          "NLL": -0.183835,
+          "MAE": 1.375095
+        },
+        "full_efficiency": {
+          "n": 178,
+          "U": -2.88,
+          "ROI": -1.618,
+          "NLL": -0.187169,
+          "MAE": 1.370479
+        },
+        "full_shot_efficiency": {
+          "n": 178,
+          "U": -6.91,
+          "ROI": -3.882,
+          "NLL": -0.186696,
+          "MAE": 1.37153
+        }
+      }
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}
