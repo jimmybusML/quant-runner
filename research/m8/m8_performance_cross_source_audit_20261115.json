@@ -1,0 +1,157 @@
+{
+  "ESPN_n": 4122,
+  "TotalCorner_n": 349,
+  "TC_duplicate_ids": 0,
+  "cross_source_overlap": 51,
+  "unique_union": 4420,
+  "overlap_by_league": {
+    "1": 29,
+    "14": 22
+  },
+  "field_comparison": {
+    "shots": {
+      "available_fixtures": 51,
+      "exact_both": 46,
+      "within_1_both": 51,
+      "mean_abs_difference_per_team": 0.049,
+      "max_abs_difference": 1.0,
+      "mean_signed_ESPN_minus_TotalCorner": 0.0294
+    },
+    "sot": {
+      "available_fixtures": 51,
+      "exact_both": 50,
+      "within_1_both": 51,
+      "mean_abs_difference_per_team": 0.0098,
+      "max_abs_difference": 1.0,
+      "mean_signed_ESPN_minus_TotalCorner": -0.0098
+    },
+    "possession": {
+      "available_fixtures": 51,
+      "exact_both": 3,
+      "within_1_both": 42,
+      "mean_abs_difference_per_team": 0.7588,
+      "max_abs_difference": 6.400000000000006,
+      "mean_signed_ESPN_minus_TotalCorner": 0.0
+    }
+  },
+  "field_comparison_by_league": {
+    "1": {
+      "shots": {
+        "available_fixtures": 29,
+        "exact_both": 25,
+        "within_1_both": 29,
+        "mean_abs_difference_per_team": 0.069,
+        "max_abs_difference": 1.0,
+        "mean_signed_ESPN_minus_TotalCorner": 0.069
+      },
+      "sot": {
+        "available_fixtures": 29,
+        "exact_both": 29,
+        "within_1_both": 29,
+        "mean_abs_difference_per_team": 0.0,
+        "max_abs_difference": 0.0,
+        "mean_signed_ESPN_minus_TotalCorner": 0.0
+      },
+      "possession": {
+        "available_fixtures": 29,
+        "exact_both": 2,
+        "within_1_both": 20,
+        "mean_abs_difference_per_team": 1.0793,
+        "max_abs_difference": 6.400000000000006,
+        "mean_signed_ESPN_minus_TotalCorner": 0.0
+      }
+    },
+    "14": {
+      "shots": {
+        "available_fixtures": 22,
+        "exact_both": 21,
+        "within_1_both": 22,
+        "mean_abs_difference_per_team": 0.0227,
+        "max_abs_difference": 1.0,
+        "mean_signed_ESPN_minus_TotalCorner": -0.0227
+      },
+      "sot": {
+        "available_fixtures": 22,
+        "exact_both": 21,
+        "within_1_both": 22,
+        "mean_abs_difference_per_team": 0.0227,
+        "max_abs_difference": 1.0,
+        "mean_signed_ESPN_minus_TotalCorner": -0.0227
+      },
+      "possession": {
+        "available_fixtures": 22,
+        "exact_both": 1,
+        "within_1_both": 22,
+        "mean_abs_difference_per_team": 0.3364,
+        "max_abs_difference": 1.0,
+        "mean_signed_ESPN_minus_TotalCorner": 0.0
+      }
+    }
+  },
+  "TC_fields_nonzero": {
+    "shot_on": 349,
+    "shot_off": 347,
+    "attacks": 348,
+    "dang_attacks": 348,
+    "possess": 349,
+    "xg": 0
+  },
+  "TC_counts_by_league_year": {
+    "1": {
+      "2026": 30
+    },
+    "12": {
+      "2026": 29
+    },
+    "14": {
+      "2026": 23
+    },
+    "145": {
+      "2026": 28
+    },
+    "16": {
+      "2023": 89
+    },
+    "25": {
+      "2026": 34,
+      "2025": 56
+    },
+    "290": {
+      "2026": 30
+    },
+    "73": {
+      "2026": 30
+    }
+  },
+  "contiguous_T12_coverage": {
+    "Bundesliga": {
+      "date_min": "2023-09-17",
+      "date_max": "2023-12-09",
+      "TC_verified": 89,
+      "T12_in_range": 89,
+      "T12_with_TC": 89,
+      "uncovered": 0,
+      "year_counts": {
+        "2023": 89
+      }
+    },
+    "Ligue1": {
+      "date_min": "2025-10-29",
+      "date_max": "2026-02-01",
+      "TC_verified": 90,
+      "T12_in_range": 99,
+      "T12_with_TC": 90,
+      "uncovered": 9,
+      "year_counts": {
+        "2025": 56,
+        "2026": 34
+      }
+    }
+  },
+  "foundation_sha_check": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  },
+  "notes": "ESPN totalShots versus TotalCorner shot_on+shot_off is an empirical comparison only; differing definitions not assumed equivalent. Preserve sources, not an averaged dataset or a new model."
+}
