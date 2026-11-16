@@ -1,0 +1,497 @@
+{
+  "method": "R21 exploratory AH share model: conditional binomial home-goal share with market log home/away offset, fixed market total; prior-calendar-year penalty100, same prior training sources/feature recipes as OU research. All matches forecast with higher modeled expected return side; no EV filter. Full outside-eight and separate subset outside saved R19/R20 OU candidates, keep whole periods. No historical reselection, no production/tg; same already-explored targets, not independent future.",
+  "models": {
+    "market_calibration": {
+      "history_all": {
+        "n": 4059,
+        "U": -67.64,
+        "ROI": -1.666,
+        "expected_roi": 1.192,
+        "daily_mdd": 112.895,
+        "home_n": 2686,
+        "two_side_equal_stake_reference_roi": -2.589
+      },
+      "history_disjoint": {
+        "n": 3926,
+        "U": -89.845,
+        "ROI": -2.288,
+        "expected_roi": 1.135,
+        "daily_mdd": 112.895,
+        "home_n": 2570,
+        "two_side_equal_stake_reference_roi": -2.575
+      },
+      "outside_ou": {
+        "n": 1821,
+        "U": -46.43,
+        "ROI": -2.55,
+        "expected_roi": 1.067,
+        "daily_mdd": 60.99,
+        "home_n": 1269,
+        "two_side_equal_stake_reference_roi": -2.812
+      },
+      "outside_ou_disjoint": {
+        "n": 1760,
+        "U": -51.51,
+        "ROI": -2.927,
+        "expected_roi": 1.021,
+        "daily_mdd": 60.99,
+        "home_n": 1214,
+        "two_side_equal_stake_reference_roi": -2.794
+      },
+      "receipt_all": {
+        "n": 240,
+        "U": 17.64,
+        "ROI": 7.35,
+        "expected_roi": 1.565,
+        "daily_mdd": 10.095,
+        "home_n": 202,
+        "two_side_equal_stake_reference_roi": -3.169
+      },
+      "receipt_outside_ou": {
+        "n": 107,
+        "U": 2.805,
+        "ROI": 2.621,
+        "expected_roi": 1.616,
+        "daily_mdd": 6.645,
+        "home_n": 95,
+        "two_side_equal_stake_reference_roi": -3.084
+      },
+      "year": {
+        "2024": {
+          "all": {
+            "n": 530,
+            "U": -10.81,
+            "ROI": -2.04,
+            "expected_roi": -1.192,
+            "daily_mdd": 37.165,
+            "home_n": 304,
+            "two_side_equal_stake_reference_roi": -2.587
+          },
+          "outside_ou": {
+            "n": 309,
+            "U": -13.325,
+            "ROI": -4.312,
+            "expected_roi": -1.167,
+            "daily_mdd": 25.59,
+            "home_n": 169,
+            "two_side_equal_stake_reference_roi": -2.864
+          },
+          "outside_ou_disjoint": {
+            "n": 309,
+            "U": -13.325,
+            "ROI": -4.312,
+            "expected_roi": -1.167,
+            "daily_mdd": 25.59,
+            "home_n": 169,
+            "two_side_equal_stake_reference_roi": -2.864
+          }
+        },
+        "2025": {
+          "all": {
+            "n": 1982,
+            "U": -40.345,
+            "ROI": -2.036,
+            "expected_roi": -0.024,
+            "daily_mdd": 64.42,
+            "home_n": 922,
+            "two_side_equal_stake_reference_roi": -2.51
+          },
+          "outside_ou": {
+            "n": 815,
+            "U": -26.715,
+            "ROI": -3.278,
+            "expected_roi": -0.348,
+            "daily_mdd": 36.555,
+            "home_n": 425,
+            "two_side_equal_stake_reference_roi": -2.65
+          },
+          "outside_ou_disjoint": {
+            "n": 815,
+            "U": -26.715,
+            "ROI": -3.278,
+            "expected_roi": -0.348,
+            "daily_mdd": 36.555,
+            "home_n": 425,
+            "two_side_equal_stake_reference_roi": -2.65
+          }
+        },
+        "2026": {
+          "all": {
+            "n": 1547,
+            "U": -16.485,
+            "ROI": -1.066,
+            "expected_roi": 3.566,
+            "daily_mdd": 58.29,
+            "home_n": 1460,
+            "two_side_equal_stake_reference_roi": -2.692
+          },
+          "outside_ou": {
+            "n": 697,
+            "U": -6.39,
+            "ROI": -0.917,
+            "expected_roi": 3.712,
+            "daily_mdd": 31.325,
+            "home_n": 675,
+            "two_side_equal_stake_reference_roi": -2.977
+          },
+          "outside_ou_disjoint": {
+            "n": 636,
+            "U": -11.47,
+            "ROI": -1.803,
+            "expected_roi": 3.839,
+            "daily_mdd": 31.325,
+            "home_n": 620,
+            "two_side_equal_stake_reference_roi": -2.944
+          }
+        }
+      },
+      "train_n": {
+        "2024:None": 1953,
+        "2025:None": 3052,
+        "2026:None": 4788
+      },
+      "receipt_train_n": {
+        "2026:None": 4788
+      }
+    },
+    "full_mixed": {
+      "history_all": {
+        "n": 4059,
+        "U": -102.67,
+        "ROI": -2.529,
+        "expected_roi": 2.281,
+        "daily_mdd": 134.35,
+        "home_n": 2764,
+        "two_side_equal_stake_reference_roi": -2.589
+      },
+      "history_disjoint": {
+        "n": 3926,
+        "U": -106.635,
+        "ROI": -2.716,
+        "expected_roi": 2.231,
+        "daily_mdd": 134.2,
+        "home_n": 2657,
+        "two_side_equal_stake_reference_roi": -2.575
+      },
+      "outside_ou": {
+        "n": 1821,
+        "U": -43.765,
+        "ROI": -2.403,
+        "expected_roi": 2.167,
+        "daily_mdd": 68.545,
+        "home_n": 1263,
+        "two_side_equal_stake_reference_roi": -2.812
+      },
+      "outside_ou_disjoint": {
+        "n": 1760,
+        "U": -39.245,
+        "ROI": -2.23,
+        "expected_roi": 2.114,
+        "daily_mdd": 60.365,
+        "home_n": 1214,
+        "two_side_equal_stake_reference_roi": -2.794
+      },
+      "receipt_all": {
+        "n": 240,
+        "U": 15.655,
+        "ROI": 6.523,
+        "expected_roi": 2.677,
+        "daily_mdd": 10.875,
+        "home_n": 175,
+        "two_side_equal_stake_reference_roi": -3.169
+      },
+      "receipt_outside_ou": {
+        "n": 107,
+        "U": 3.23,
+        "ROI": 3.019,
+        "expected_roi": 2.807,
+        "daily_mdd": 9.0,
+        "home_n": 79,
+        "two_side_equal_stake_reference_roi": -3.084
+      },
+      "year": {
+        "2024": {
+          "all": {
+            "n": 530,
+            "U": -7.88,
+            "ROI": -1.487,
+            "expected_roi": 1.367,
+            "daily_mdd": 22.065,
+            "home_n": 366,
+            "two_side_equal_stake_reference_roi": -2.587
+          },
+          "outside_ou": {
+            "n": 309,
+            "U": 0.955,
+            "ROI": 0.309,
+            "expected_roi": 1.423,
+            "daily_mdd": 14.23,
+            "home_n": 217,
+            "two_side_equal_stake_reference_roi": -2.864
+          },
+          "outside_ou_disjoint": {
+            "n": 309,
+            "U": 0.955,
+            "ROI": 0.309,
+            "expected_roi": 1.423,
+            "daily_mdd": 14.23,
+            "home_n": 217,
+            "two_side_equal_stake_reference_roi": -2.864
+          }
+        },
+        "2025": {
+          "all": {
+            "n": 1982,
+            "U": -52.365,
+            "ROI": -2.642,
+            "expected_roi": 1.346,
+            "daily_mdd": 73.23,
+            "home_n": 1022,
+            "two_side_equal_stake_reference_roi": -2.51
+          },
+          "outside_ou": {
+            "n": 815,
+            "U": -10.695,
+            "ROI": -1.312,
+            "expected_roi": 0.974,
+            "daily_mdd": 26.15,
+            "home_n": 415,
+            "two_side_equal_stake_reference_roi": -2.65
+          },
+          "outside_ou_disjoint": {
+            "n": 815,
+            "U": -10.695,
+            "ROI": -1.312,
+            "expected_roi": 0.974,
+            "daily_mdd": 26.15,
+            "home_n": 415,
+            "two_side_equal_stake_reference_roi": -2.65
+          }
+        },
+        "2026": {
+          "all": {
+            "n": 1547,
+            "U": -42.425,
+            "ROI": -2.742,
+            "expected_roi": 3.793,
+            "daily_mdd": 66.435,
+            "home_n": 1376,
+            "two_side_equal_stake_reference_roi": -2.692
+          },
+          "outside_ou": {
+            "n": 697,
+            "U": -34.025,
+            "ROI": -4.882,
+            "expected_roi": 3.892,
+            "daily_mdd": 56.04,
+            "home_n": 631,
+            "two_side_equal_stake_reference_roi": -2.977
+          },
+          "outside_ou_disjoint": {
+            "n": 636,
+            "U": -29.505,
+            "ROI": -4.639,
+            "expected_roi": 3.911,
+            "daily_mdd": 47.86,
+            "home_n": 582,
+            "two_side_equal_stake_reference_roi": -2.944
+          }
+        }
+      },
+      "train_n": {
+        "2024:None": 1953,
+        "2025:None": 3052,
+        "2026:None": 4788
+      },
+      "receipt_train_n": {
+        "2026:None": 4788
+      }
+    },
+    "shot_local": {
+      "history_all": {
+        "n": 4059,
+        "U": -153.545,
+        "ROI": -3.783,
+        "expected_roi": 1.555,
+        "daily_mdd": 164.82,
+        "home_n": 2765,
+        "two_side_equal_stake_reference_roi": -2.589
+      },
+      "history_disjoint": {
+        "n": 3926,
+        "U": -141.5,
+        "ROI": -3.604,
+        "expected_roi": 1.563,
+        "daily_mdd": 147.445,
+        "home_n": 2671,
+        "two_side_equal_stake_reference_roi": -2.575
+      },
+      "outside_ou": {
+        "n": 1821,
+        "U": -119.525,
+        "ROI": -6.564,
+        "expected_roi": 0.966,
+        "daily_mdd": 122.435,
+        "home_n": 1273,
+        "two_side_equal_stake_reference_roi": -2.812
+      },
+      "outside_ou_disjoint": {
+        "n": 1760,
+        "U": -101.105,
+        "ROI": -5.745,
+        "expected_roi": 0.971,
+        "daily_mdd": 104.015,
+        "home_n": 1230,
+        "two_side_equal_stake_reference_roi": -2.794
+      },
+      "receipt_all": {
+        "n": 240,
+        "U": -15.17,
+        "ROI": -6.321,
+        "expected_roi": 1.492,
+        "daily_mdd": 23.375,
+        "home_n": 167,
+        "two_side_equal_stake_reference_roi": -3.169
+      },
+      "receipt_outside_ou": {
+        "n": 107,
+        "U": -24.545,
+        "ROI": -22.939,
+        "expected_roi": 0.869,
+        "daily_mdd": 24.545,
+        "home_n": 71,
+        "two_side_equal_stake_reference_roi": -3.084
+      },
+      "year": {
+        "2024": {
+          "all": {
+            "n": 530,
+            "U": -12.07,
+            "ROI": -2.277,
+            "expected_roi": 0.632,
+            "daily_mdd": 22.0,
+            "home_n": 359,
+            "two_side_equal_stake_reference_roi": -2.587
+          },
+          "outside_ou": {
+            "n": 309,
+            "U": -16.875,
+            "ROI": -5.461,
+            "expected_roi": 0.564,
+            "daily_mdd": 19.785,
+            "home_n": 216,
+            "two_side_equal_stake_reference_roi": -2.864
+          },
+          "outside_ou_disjoint": {
+            "n": 309,
+            "U": -16.875,
+            "ROI": -5.461,
+            "expected_roi": 0.564,
+            "daily_mdd": 19.785,
+            "home_n": 216,
+            "two_side_equal_stake_reference_roi": -2.864
+          }
+        },
+        "2025": {
+          "all": {
+            "n": 1982,
+            "U": -69.555,
+            "ROI": -3.509,
+            "expected_roi": 1.694,
+            "daily_mdd": 72.685,
+            "home_n": 1144,
+            "two_side_equal_stake_reference_roi": -2.51
+          },
+          "outside_ou": {
+            "n": 815,
+            "U": -47.535,
+            "ROI": -5.833,
+            "expected_roi": 0.94,
+            "daily_mdd": 55.82,
+            "home_n": 490,
+            "two_side_equal_stake_reference_roi": -2.65
+          },
+          "outside_ou_disjoint": {
+            "n": 815,
+            "U": -47.535,
+            "ROI": -5.833,
+            "expected_roi": 0.94,
+            "daily_mdd": 55.82,
+            "home_n": 490,
+            "two_side_equal_stake_reference_roi": -2.65
+          }
+        },
+        "2026": {
+          "all": {
+            "n": 1547,
+            "U": -71.92,
+            "ROI": -4.649,
+            "expected_roi": 1.692,
+            "daily_mdd": 82.015,
+            "home_n": 1262,
+            "two_side_equal_stake_reference_roi": -2.692
+          },
+          "outside_ou": {
+            "n": 697,
+            "U": -55.115,
+            "ROI": -7.907,
+            "expected_roi": 1.175,
+            "daily_mdd": 64.785,
+            "home_n": 567,
+            "two_side_equal_stake_reference_roi": -2.977
+          },
+          "outside_ou_disjoint": {
+            "n": 636,
+            "U": -36.695,
+            "ROI": -5.77,
+            "expected_roi": 1.209,
+            "daily_mdd": 46.365,
+            "home_n": 524,
+            "two_side_equal_stake_reference_roi": -2.944
+          }
+        }
+      },
+      "train_n": {
+        "2024:1": 1875,
+        "2024:12": 1875,
+        "2024:14": 1875,
+        "2024:145": 1875,
+        "2024:16": 1953,
+        "2024:25": 1875,
+        "2024:290": 1875,
+        "2024:73": 1875,
+        "2025:1": 2610,
+        "2025:12": 2660,
+        "2025:14": 2608,
+        "2025:145": 2656,
+        "2025:16": 2763,
+        "2025:25": 2671,
+        "2025:290": 2667,
+        "2025:73": 2673,
+        "2026:1": 3350,
+        "2026:12": 3565,
+        "2026:14": 3346,
+        "2026:145": 3531,
+        "2026:16": 3657,
+        "2026:25": 3646,
+        "2026:290": 3532,
+        "2026:73": 3555
+      },
+      "receipt_train_n": {
+        "2026:1": 3350,
+        "2026:12": 3565,
+        "2026:14": 3346,
+        "2026:145": 3531,
+        "2026:16": 3657,
+        "2026:25": 3646,
+        "2026:290": 3532,
+        "2026:73": 3555
+      }
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}
