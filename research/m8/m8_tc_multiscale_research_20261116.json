@@ -1,0 +1,375 @@
+{
+  "method": "Experimental level/short-term drift decomposition; 30/180 day weights, equal mass, prior-year ESPN training, same fixed TC test targets and settlement. No production change or trading filter. Historical and receipt results separate.",
+  "models": {
+    "baseline": {
+      "historical_all": {
+        "n": 3029,
+        "U": -13.82,
+        "ROI": -0.456,
+        "brier": 0.570206,
+        "logloss": 0.87512,
+        "goal_bias": 0.033034,
+        "delta_brier_market": 0.001626,
+        "delta_logloss_market": 0.002002
+      },
+      "historical_disjoint": {
+        "n": 2843,
+        "U": -16.06,
+        "ROI": -0.565,
+        "brier": 0.571053,
+        "logloss": 0.876521,
+        "goal_bias": 0.031911,
+        "delta_brier_market": 0.00204,
+        "delta_logloss_market": 0.002478
+      },
+      "year": {
+        "2023": {
+          "n": 78,
+          "U": -9.59,
+          "ROI": -12.295,
+          "brier": 0.602969,
+          "logloss": 0.9337,
+          "goal_bias": -0.374566,
+          "delta_brier_market": 0.018217,
+          "delta_logloss_market": 0.021583
+        },
+        "2024": {
+          "n": 465,
+          "U": 29.845,
+          "ROI": 6.418,
+          "brier": 0.561206,
+          "logloss": 0.865941,
+          "goal_bias": 0.029846,
+          "delta_brier_market": -0.007288,
+          "delta_logloss_market": -0.007599
+        },
+        "2025": {
+          "n": 1336,
+          "U": -5.07,
+          "ROI": -0.379,
+          "brier": 0.575125,
+          "logloss": 0.886526,
+          "goal_bias": 0.099227,
+          "delta_brier_market": 0.001748,
+          "delta_logloss_market": 0.001986
+        },
+        "2026": {
+          "n": 1150,
+          "U": -29.005,
+          "ROI": -2.522,
+          "brier": 0.565908,
+          "logloss": 0.861607,
+          "goal_bias": -0.01493,
+          "delta_brier_market": 0.003962,
+          "delta_logloss_market": 0.004574
+        }
+      },
+      "receipt": {
+        "n": 308,
+        "U": -8.54,
+        "ROI": -2.773,
+        "brier": 0.559294,
+        "logloss": 0.854495,
+        "goal_bias": 0.050978,
+        "delta_brier_market": -0.00233,
+        "delta_logloss_market": -0.002791
+      }
+    },
+    "market_only": {
+      "historical_all": {
+        "n": 3029,
+        "U": -39.505,
+        "ROI": -1.304,
+        "brier": 0.568569,
+        "logloss": 0.873099,
+        "goal_bias": 0.058462,
+        "delta_brier_market": -1.1e-05,
+        "delta_logloss_market": -1.9e-05
+      },
+      "historical_disjoint": {
+        "n": 2843,
+        "U": -32.36,
+        "ROI": -1.138,
+        "brier": 0.569004,
+        "logloss": 0.874019,
+        "goal_bias": 0.058667,
+        "delta_brier_market": -9e-06,
+        "delta_logloss_market": -2.4e-05
+      },
+      "year": {
+        "2023": {
+          "n": 78,
+          "U": -2.34,
+          "ROI": -3.0,
+          "brier": 0.588949,
+          "logloss": 0.917731,
+          "goal_bias": -0.157598,
+          "delta_brier_market": 0.004197,
+          "delta_logloss_market": 0.005614
+        },
+        "2024": {
+          "n": 465,
+          "U": -8.245,
+          "ROI": -1.773,
+          "brier": 0.56817,
+          "logloss": 0.873335,
+          "goal_bias": 0.063386,
+          "delta_brier_market": -0.000324,
+          "delta_logloss_market": -0.000205
+        },
+        "2025": {
+          "n": 1336,
+          "U": 17.995,
+          "ROI": 1.347,
+          "brier": 0.572679,
+          "logloss": 0.88361,
+          "goal_bias": 0.111328,
+          "delta_brier_market": -0.000698,
+          "delta_logloss_market": -0.00093
+        },
+        "2026": {
+          "n": 1150,
+          "U": -46.915,
+          "ROI": -4.08,
+          "brier": 0.562574,
+          "logloss": 0.857766,
+          "goal_bias": 0.009709,
+          "delta_brier_market": 0.000628,
+          "delta_logloss_market": 0.000733
+        }
+      },
+      "receipt": {
+        "n": 308,
+        "U": -17.98,
+        "ROI": -5.838,
+        "brier": 0.561916,
+        "logloss": 0.857616,
+        "goal_bias": 0.056404,
+        "delta_brier_market": 0.000292,
+        "delta_logloss_market": 0.00033
+      }
+    },
+    "level_plus_drift": {
+      "historical_all": {
+        "n": 3029,
+        "U": -1.34,
+        "ROI": -0.044,
+        "brier": 0.569197,
+        "logloss": 0.873929,
+        "goal_bias": 0.030899,
+        "delta_brier_market": 0.000617,
+        "delta_logloss_market": 0.000811
+      },
+      "historical_disjoint": {
+        "n": 2843,
+        "U": -7.45,
+        "ROI": -0.262,
+        "brier": 0.570227,
+        "logloss": 0.875531,
+        "goal_bias": 0.028466,
+        "delta_brier_market": 0.001214,
+        "delta_logloss_market": 0.001488
+      },
+      "year": {
+        "2023": {
+          "n": 78,
+          "U": -10.56,
+          "ROI": -13.538,
+          "brier": 0.610047,
+          "logloss": 0.94228,
+          "goal_bias": -0.34993,
+          "delta_brier_market": 0.025295,
+          "delta_logloss_market": 0.030163
+        },
+        "2024": {
+          "n": 465,
+          "U": 29.29,
+          "ROI": 6.299,
+          "brier": 0.559933,
+          "logloss": 0.864545,
+          "goal_bias": 0.018679,
+          "delta_brier_market": -0.008561,
+          "delta_logloss_market": -0.008995
+        },
+        "2025": {
+          "n": 1336,
+          "U": 3.61,
+          "ROI": 0.27,
+          "brier": 0.573682,
+          "logloss": 0.884832,
+          "goal_bias": 0.082338,
+          "delta_brier_market": 0.000305,
+          "delta_logloss_market": 0.000292
+        },
+        "2026": {
+          "n": 1150,
+          "U": -23.68,
+          "ROI": -2.059,
+          "brier": 0.564962,
+          "logloss": 0.860421,
+          "goal_bias": 0.001912,
+          "delta_brier_market": 0.003016,
+          "delta_logloss_market": 0.003388
+        }
+      },
+      "receipt": {
+        "n": 308,
+        "U": -5.87,
+        "ROI": -1.906,
+        "brier": 0.561035,
+        "logloss": 0.856104,
+        "goal_bias": 0.062144,
+        "delta_brier_market": -0.000589,
+        "delta_logloss_market": -0.001182
+      }
+    },
+    "drift_only": {
+      "historical_all": {
+        "n": 3029,
+        "U": -16.095,
+        "ROI": -0.531,
+        "brier": 0.567688,
+        "logloss": 0.871999,
+        "goal_bias": 0.051279,
+        "delta_brier_market": -0.000892,
+        "delta_logloss_market": -0.001119
+      },
+      "historical_disjoint": {
+        "n": 2843,
+        "U": -18.72,
+        "ROI": -0.658,
+        "brier": 0.568247,
+        "logloss": 0.873061,
+        "goal_bias": 0.049458,
+        "delta_brier_market": -0.000766,
+        "delta_logloss_market": -0.000982
+      },
+      "year": {
+        "2023": {
+          "n": 78,
+          "U": -12.01,
+          "ROI": -15.397,
+          "brier": 0.59751,
+          "logloss": 0.927699,
+          "goal_bias": -0.171397,
+          "delta_brier_market": 0.012758,
+          "delta_logloss_market": 0.015582
+        },
+        "2024": {
+          "n": 465,
+          "U": -2.63,
+          "ROI": -0.566,
+          "brier": 0.566379,
+          "logloss": 0.87127,
+          "goal_bias": 0.038764,
+          "delta_brier_market": -0.002115,
+          "delta_logloss_market": -0.00227
+        },
+        "2025": {
+          "n": 1336,
+          "U": 2.78,
+          "ROI": 0.208,
+          "brier": 0.571993,
+          "logloss": 0.882737,
+          "goal_bias": 0.090682,
+          "delta_brier_market": -0.001384,
+          "delta_logloss_market": -0.001803
+        },
+        "2026": {
+          "n": 1150,
+          "U": -4.235,
+          "ROI": -0.368,
+          "brier": 0.561192,
+          "logloss": 0.856042,
+          "goal_bias": 0.025666,
+          "delta_brier_market": -0.000754,
+          "delta_logloss_market": -0.000991
+        }
+      },
+      "receipt": {
+        "n": 308,
+        "U": -18.71,
+        "ROI": -6.075,
+        "brier": 0.564217,
+        "logloss": 0.859714,
+        "goal_bias": 0.07525,
+        "delta_brier_market": 0.002593,
+        "delta_logloss_market": 0.002428
+      }
+    },
+    "shot_level_drift": {
+      "historical_all": {
+        "n": 3029,
+        "U": 9.805,
+        "ROI": 0.324,
+        "brier": 0.568161,
+        "logloss": 0.872551,
+        "goal_bias": 0.034122,
+        "delta_brier_market": -0.000419,
+        "delta_logloss_market": -0.000567
+      },
+      "historical_disjoint": {
+        "n": 2843,
+        "U": 10.345,
+        "ROI": 0.364,
+        "brier": 0.568646,
+        "logloss": 0.873574,
+        "goal_bias": 0.030506,
+        "delta_brier_market": -0.000367,
+        "delta_logloss_market": -0.000469
+      },
+      "year": {
+        "2023": {
+          "n": 78,
+          "U": -14.08,
+          "ROI": -18.051,
+          "brier": 0.606701,
+          "logloss": 0.939234,
+          "goal_bias": -0.32047,
+          "delta_brier_market": 0.021949,
+          "delta_logloss_market": 0.027117
+        },
+        "2024": {
+          "n": 465,
+          "U": 28.855,
+          "ROI": 6.205,
+          "brier": 0.562479,
+          "logloss": 0.867004,
+          "goal_bias": 0.002236,
+          "delta_brier_market": -0.006015,
+          "delta_logloss_market": -0.006536
+        },
+        "2025": {
+          "n": 1336,
+          "U": 6.4,
+          "ROI": 0.479,
+          "brier": 0.572223,
+          "logloss": 0.883014,
+          "goal_bias": 0.089852,
+          "delta_brier_market": -0.001154,
+          "delta_logloss_market": -0.001526
+        },
+        "2026": {
+          "n": 1150,
+          "U": -11.37,
+          "ROI": -0.989,
+          "brier": 0.563125,
+          "logloss": 0.858116,
+          "goal_bias": 0.006321,
+          "delta_brier_market": 0.001179,
+          "delta_logloss_market": 0.001083
+        }
+      },
+      "receipt": {
+        "n": 308,
+        "U": -10.435,
+        "ROI": -3.388,
+        "brier": 0.564713,
+        "logloss": 0.860043,
+        "goal_bias": 0.083324,
+        "delta_brier_market": 0.003089,
+        "delta_logloss_market": 0.002757
+      }
+    }
+  }
+}
