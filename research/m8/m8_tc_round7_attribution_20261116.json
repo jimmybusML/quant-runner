@@ -1,0 +1,117 @@
+{
+  "method": "Same 308 target fixtures and fixed model; only add prior performance history from each round-7 acquisition year, no changes to trade logic. Shapley decomposition is descriptive.",
+  "scenarios": {
+    "before": {
+      "n": 308,
+      "U": 15.44,
+      "ROI": 5.013,
+      "switches": 0,
+      "line_brier": 0.559049,
+      "changed_group_U": 5.855
+    },
+    "2025_only": {
+      "n": 308,
+      "U": 9.465,
+      "ROI": 3.073,
+      "switches": 4,
+      "line_brier": 0.559333,
+      "changed_group_U": 1.91
+    },
+    "2026_only": {
+      "n": 308,
+      "U": 7.025,
+      "ROI": 2.281,
+      "switches": 31,
+      "line_brier": 0.559754,
+      "changed_group_U": -3.47
+    },
+    "both": {
+      "n": 308,
+      "U": 1.44,
+      "ROI": 0.468,
+      "switches": 33,
+      "line_brier": 0.559993,
+      "changed_group_U": -8.145
+    }
+  },
+  "changed": {
+    "n": 33,
+    "before_U": 5.855,
+    "after_U": -8.145,
+    "delta_U": -14.0
+  },
+  "league": {
+    "1": {
+      "n": 2,
+      "before_U": 2.06,
+      "after_U": -2.0,
+      "delta_U": -4.06
+    },
+    "12": {
+      "n": 2,
+      "before_U": -0.06,
+      "after_U": -0.14,
+      "delta_U": -0.08
+    },
+    "14": {
+      "n": 2,
+      "before_U": 0.32,
+      "after_U": -0.505,
+      "delta_U": -0.825
+    },
+    "145": {
+      "n": 6,
+      "before_U": 2.255,
+      "after_U": -2.525,
+      "delta_U": -4.78
+    },
+    "16": {
+      "n": 5,
+      "before_U": 0.6,
+      "after_U": -1.18,
+      "delta_U": -1.78
+    },
+    "25": {
+      "n": 3,
+      "before_U": -0.98,
+      "after_U": 0.87,
+      "delta_U": 1.85
+    },
+    "290": {
+      "n": 5,
+      "before_U": 0.005,
+      "after_U": -0.73,
+      "delta_U": -0.735
+    },
+    "73": {
+      "n": 8,
+      "before_U": 1.655,
+      "after_U": -1.935,
+      "delta_U": -3.59
+    }
+  },
+  "direction": {
+    "over_to_under": {
+      "n": 18,
+      "before_U": 1.95,
+      "after_U": -2.91,
+      "delta_U": -4.86
+    },
+    "under_to_over": {
+      "n": 15,
+      "before_U": 3.905,
+      "after_U": -5.235,
+      "delta_U": -9.14
+    }
+  },
+  "attribution": {
+    "2025_U": -5.78,
+    "2026_U": -8.22
+  },
+  "unchanged": {
+    "n": 275,
+    "before_U": 9.585,
+    "after_U": 9.585,
+    "delta_U": 0.0
+  }
+}
