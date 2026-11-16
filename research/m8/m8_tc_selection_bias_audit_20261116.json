@@ -1,0 +1,358 @@
+{
+  "method": "Selection-bias audit: same previously explored data. Weekly block bootstrap conditional on selected arms, 10000 draws; nominal descriptive intervals, NOT adjusted for model/interval search, not independent validation. Exclude receipt archive FIDs in historical estimates. Prior-year interval choice over all five existing bins is a retrospective nested-style falsification, not a confirmed rule.",
+  "arms": {
+    "all_B": {
+      "history_disjoint": {
+        "n": 3926,
+        "U": -2.47,
+        "ROI": -0.063,
+        "weeks": 126,
+        "positive_weeks": 49,
+        "weekly_bootstrap_95pct_descriptive": [
+          -2.946,
+          2.83
+        ],
+        "without_best_week_roi": -0.398,
+        "best_week": "2025-W07",
+        "best_week_U": 12.975,
+        "worst_week": "2026-W37",
+        "worst_week_U": -16.375
+      },
+      "2026_disjoint": {
+        "n": 1414,
+        "U": -38.955,
+        "ROI": -2.755,
+        "weeks": 39,
+        "positive_weeks": 13,
+        "weekly_bootstrap_95pct_descriptive": [
+          -8.084,
+          2.733
+        ],
+        "without_best_week_roi": -3.677,
+        "best_week": "2026-W07",
+        "best_week_U": 11.305,
+        "worst_week": "2026-W37",
+        "worst_week_U": -16.375
+      },
+      "receipt": {
+        "n": 240,
+        "U": -8.745,
+        "ROI": -3.644,
+        "weeks": 6,
+        "positive_weeks": 3,
+        "weekly_bootstrap_95pct_descriptive": [
+          -12.098,
+          10.732
+        ],
+        "without_best_week_roi": -7.875,
+        "best_week": "2026-W42",
+        "best_week_U": 7.635,
+        "worst_week": "2026-W45",
+        "worst_week_U": -8.1
+      }
+    },
+    "R19": {
+      "history_disjoint": {
+        "n": 559,
+        "U": 16.09,
+        "ROI": 2.878,
+        "weeks": 96,
+        "positive_weeks": 50,
+        "weekly_bootstrap_95pct_descriptive": [
+          -5.104,
+          10.829
+        ],
+        "without_best_week_roi": 2.036,
+        "best_week": "2025-W15",
+        "best_week_U": 4.91,
+        "worst_week": "2025-W20",
+        "worst_week_U": -8.67
+      },
+      "2026_disjoint": {
+        "n": 200,
+        "U": 1.055,
+        "ROI": 0.527,
+        "weeks": 30,
+        "positive_weeks": 17,
+        "weekly_bootstrap_95pct_descriptive": [
+          -12.289,
+          13.493
+        ],
+        "without_best_week_roi": -1.367,
+        "best_week": "2026-W20",
+        "best_week_U": 3.68,
+        "worst_week": "2026-W37",
+        "worst_week_U": -6.5
+      },
+      "receipt": {
+        "n": 32,
+        "U": 1.575,
+        "ROI": 4.922,
+        "weeks": 5,
+        "positive_weeks": 2,
+        "weekly_bootstrap_95pct_descriptive": [
+          -18.529,
+          33.462
+        ],
+        "without_best_week_roi": -4.74,
+        "best_week": "2026-W41",
+        "best_week_U": 2.76,
+        "worst_week": "2026-W45",
+        "worst_week_U": -2.025
+      }
+    },
+    "R20_static": {
+      "history_disjoint": {
+        "n": 2166,
+        "U": 98.485,
+        "ROI": 4.547,
+        "weeks": 103,
+        "positive_weeks": 56,
+        "weekly_bootstrap_95pct_descriptive": [
+          0.477,
+          8.609
+        ],
+        "without_best_week_roi": 4.069,
+        "best_week": "2025-W11",
+        "best_week_U": 11.865,
+        "worst_week": "2026-W37",
+        "worst_week_U": -14.81
+      },
+      "2026_disjoint": {
+        "n": 778,
+        "U": 11.535,
+        "ROI": 1.483,
+        "weeks": 33,
+        "positive_weeks": 18,
+        "weekly_bootstrap_95pct_descriptive": [
+          -6.245,
+          9.265
+        ],
+        "without_best_week_roi": 0.023,
+        "best_week": "2026-W07",
+        "best_week_U": 11.365,
+        "worst_week": "2026-W37",
+        "worst_week_U": -14.81
+      },
+      "receipt": {
+        "n": 133,
+        "U": -11.3,
+        "ROI": -8.496,
+        "weeks": 5,
+        "positive_weeks": 1,
+        "weekly_bootstrap_95pct_descriptive": [
+          -15.042,
+          3.76
+        ],
+        "without_best_week_roi": -12.297,
+        "best_week": "2026-W42",
+        "best_week_U": 3.21,
+        "worst_week": "2026-W45",
+        "worst_week_U": -7.515
+      }
+    },
+    "R20_annual": {
+      "history_disjoint": {
+        "n": 2125,
+        "U": 73.36,
+        "ROI": 3.452,
+        "weeks": 102,
+        "positive_weeks": 54,
+        "weekly_bootstrap_95pct_descriptive": [
+          -0.857,
+          7.69
+        ],
+        "without_best_week_roi": 2.951,
+        "best_week": "2026-W07",
+        "best_week_U": 11.365,
+        "worst_week": "2026-W37",
+        "worst_week_U": -14.81
+      },
+      "2026_disjoint": {
+        "n": 778,
+        "U": 11.535,
+        "ROI": 1.483,
+        "weeks": 33,
+        "positive_weeks": 18,
+        "weekly_bootstrap_95pct_descriptive": [
+          -6.245,
+          9.265
+        ],
+        "without_best_week_roi": 0.023,
+        "best_week": "2026-W07",
+        "best_week_U": 11.365,
+        "worst_week": "2026-W37",
+        "worst_week_U": -14.81
+      },
+      "receipt": {
+        "n": 133,
+        "U": -11.3,
+        "ROI": -8.496,
+        "weeks": 5,
+        "positive_weeks": 1,
+        "weekly_bootstrap_95pct_descriptive": [
+          -15.042,
+          3.76
+        ],
+        "without_best_week_roi": -12.297,
+        "best_week": "2026-W42",
+        "best_week_U": 3.21,
+        "worst_week": "2026-W45",
+        "worst_week_U": -7.515
+      }
+    }
+  },
+  "prior_year_band_selection": {
+    "2025": {
+      "all_bins": {
+        "negative": {
+          "prior": {
+            "n": 214,
+            "U": -26.125,
+            "ROI": -12.208
+          },
+          "later": {
+            "n": 833,
+            "U": 15.42,
+            "ROI": 1.851
+          }
+        },
+        "0_2": {
+          "prior": {
+            "n": 118,
+            "U": 3.66,
+            "ROI": 3.102
+          },
+          "later": {
+            "n": 375,
+            "U": 37.615,
+            "ROI": 10.031
+          }
+        },
+        "2_5": {
+          "prior": {
+            "n": 116,
+            "U": 11.07,
+            "ROI": 9.543
+          },
+          "later": {
+            "n": 385,
+            "U": -16.09,
+            "ROI": -4.179
+          }
+        },
+        "5_10": {
+          "prior": {
+            "n": 66,
+            "U": 0.885,
+            "ROI": 1.341
+          },
+          "later": {
+            "n": 293,
+            "U": 14.15,
+            "ROI": 4.829
+          }
+        },
+        "10_plus": {
+          "prior": {
+            "n": 16,
+            "U": 7.49,
+            "ROI": 46.812
+          },
+          "later": {
+            "n": 96,
+            "U": -11.59,
+            "ROI": -12.073
+          }
+        }
+      },
+      "prior_best_by_roi": "10_plus",
+      "later": {
+        "n": 96,
+        "U": -11.59,
+        "ROI": -12.073
+      },
+      "receipt": null
+    },
+    "2026": {
+      "all_bins": {
+        "negative": {
+          "prior": {
+            "n": 1047,
+            "U": -10.705,
+            "ROI": -1.022
+          },
+          "later": {
+            "n": 595,
+            "U": -4.815,
+            "ROI": -0.809
+          }
+        },
+        "0_2": {
+          "prior": {
+            "n": 493,
+            "U": 41.275,
+            "ROI": 8.372
+          },
+          "later": {
+            "n": 289,
+            "U": -17.235,
+            "ROI": -5.964
+          }
+        },
+        "2_5": {
+          "prior": {
+            "n": 501,
+            "U": -5.02,
+            "ROI": -1.002
+          },
+          "later": {
+            "n": 289,
+            "U": -9.74,
+            "ROI": -3.37
+          }
+        },
+        "5_10": {
+          "prior": {
+            "n": 359,
+            "U": 15.035,
+            "ROI": 4.188
+          },
+          "later": {
+            "n": 200,
+            "U": 1.055,
+            "ROI": 0.527
+          }
+        },
+        "10_plus": {
+          "prior": {
+            "n": 112,
+            "U": -4.1,
+            "ROI": -3.661
+          },
+          "later": {
+            "n": 41,
+            "U": -8.22,
+            "ROI": -20.049
+          }
+        }
+      },
+      "prior_best_by_roi": "0_2",
+      "later": {
+        "n": 289,
+        "U": -17.235,
+        "ROI": -5.964
+      },
+      "receipt": {
+        "n": 44,
+        "U": 7.645,
+        "ROI": 17.375
+      }
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}
