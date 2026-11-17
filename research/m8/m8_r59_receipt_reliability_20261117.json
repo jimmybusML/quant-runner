@@ -1,0 +1,478 @@
+{
+  "study": "R59_RECEIPT_RELIABILITY_NO_NEW_RULES",
+  "method": "Reproduce R59 exact prior-calendar-year model and training-score p75/p90 experiment on truly received Crown T24/T12 quotes. Audit UTC kickoff-day cluster 5000 bootstrap CI, chronology split by median RECEIPT FIXTURE DATE (not profit outcome), market repricing groups present at decision. Conditional subgroups diagnostic only, not strategies or gates. Compare future frozen T1 membership post-hoc precision to unconditional receipt baseline; no deployment rule. Do not label receipt replay as prospective locked model. No Crown calls, TG orders or settlement changes.",
+  "received_cohort": {
+    "n": 1230,
+    "days": 32,
+    "dates": [
+      "2026-10-09",
+      "2026-11-13"
+    ],
+    "median_day": "2026-10-25",
+    "future_frozen_T1_membership_n_RETROSPECTIVE": 253,
+    "unconditional_future_frozen_T1_rate_pct": 20.569
+  },
+  "models": {
+    "T12_AH_snapshot": {
+      "every_fixture": {
+        "n": 1230,
+        "U": -31.785,
+        "ROI": -2.584,
+        "UTC_day_bootstrap_95percent_ROI": [
+          -7.442,
+          2.251
+        ],
+        "future_frozen_T1_precision_pct_RETROSPECTIVE": 20.569,
+        "future_frozen_T1_count": 253,
+        "split": {
+          "earlier_dates": {
+            "n": 614,
+            "U": 7.62,
+            "ROI": 1.241
+          },
+          "later_dates": {
+            "n": 616,
+            "U": -39.405,
+            "ROI": -6.397
+          },
+          "line_changed_pre_T12": {
+            "n": 107,
+            "U": -7.655,
+            "ROI": -7.154
+          },
+          "same_line_odds_changed_pre_T12": {
+            "n": 620,
+            "U": -19.77,
+            "ROI": -3.189
+          },
+          "no_early_AH_price_change": {
+            "n": 503,
+            "U": -4.36,
+            "ROI": -0.867
+          }
+        },
+        "by_month": {
+          "2026-10": {
+            "n": 848,
+            "U": 1.21,
+            "ROI": 0.143
+          },
+          "2026-11": {
+            "n": 382,
+            "U": -32.995,
+            "ROI": -8.637
+          }
+        }
+      },
+      "research_training_p75": {
+        "n": 432,
+        "U": 22.48,
+        "ROI": 5.204,
+        "UTC_day_bootstrap_95percent_ROI": [
+          -1.813,
+          12.307
+        ],
+        "future_frozen_T1_precision_pct_RETROSPECTIVE": 19.444,
+        "future_frozen_T1_count": 84,
+        "split": {
+          "earlier_dates": {
+            "n": 214,
+            "U": 29.12,
+            "ROI": 13.607
+          },
+          "later_dates": {
+            "n": 218,
+            "U": -6.64,
+            "ROI": -3.046
+          },
+          "line_changed_pre_T12": {
+            "n": 55,
+            "U": 2.17,
+            "ROI": 3.945
+          },
+          "same_line_odds_changed_pre_T12": {
+            "n": 229,
+            "U": 20.275,
+            "ROI": 8.854
+          },
+          "no_early_AH_price_change": {
+            "n": 148,
+            "U": 0.035,
+            "ROI": 0.024
+          }
+        },
+        "by_month": {
+          "2026-10": {
+            "n": 295,
+            "U": 29.605,
+            "ROI": 10.036
+          },
+          "2026-11": {
+            "n": 137,
+            "U": -7.125,
+            "ROI": -5.201
+          }
+        }
+      },
+      "research_training_p90": {
+        "n": 174,
+        "U": 16.265,
+        "ROI": 9.348,
+        "UTC_day_bootstrap_95percent_ROI": [
+          0.719,
+          18.736
+        ],
+        "future_frozen_T1_precision_pct_RETROSPECTIVE": 16.092,
+        "future_frozen_T1_count": 28,
+        "split": {
+          "earlier_dates": {
+            "n": 84,
+            "U": 16.35,
+            "ROI": 19.464
+          },
+          "later_dates": {
+            "n": 90,
+            "U": -0.085,
+            "ROI": -0.094
+          },
+          "line_changed_pre_T12": {
+            "n": 24,
+            "U": 4.54,
+            "ROI": 18.917
+          },
+          "same_line_odds_changed_pre_T12": {
+            "n": 99,
+            "U": 8.46,
+            "ROI": 8.545
+          },
+          "no_early_AH_price_change": {
+            "n": 51,
+            "U": 3.265,
+            "ROI": 6.402
+          }
+        },
+        "by_month": {
+          "2026-10": {
+            "n": 112,
+            "U": 16.495,
+            "ROI": 14.728
+          },
+          "2026-11": {
+            "n": 62,
+            "U": -0.23,
+            "ROI": -0.371
+          }
+        }
+      }
+    },
+    "T24_T12_AH_path": {
+      "every_fixture": {
+        "n": 1230,
+        "U": -26.135,
+        "ROI": -2.125,
+        "UTC_day_bootstrap_95percent_ROI": [
+          -6.808,
+          2.598
+        ],
+        "future_frozen_T1_precision_pct_RETROSPECTIVE": 20.569,
+        "future_frozen_T1_count": 253,
+        "split": {
+          "earlier_dates": {
+            "n": 614,
+            "U": 7.53,
+            "ROI": 1.226
+          },
+          "later_dates": {
+            "n": 616,
+            "U": -33.665,
+            "ROI": -5.465
+          },
+          "line_changed_pre_T12": {
+            "n": 107,
+            "U": -7.655,
+            "ROI": -7.154
+          },
+          "same_line_odds_changed_pre_T12": {
+            "n": 620,
+            "U": -14.12,
+            "ROI": -2.277
+          },
+          "no_early_AH_price_change": {
+            "n": 503,
+            "U": -4.36,
+            "ROI": -0.867
+          }
+        },
+        "by_month": {
+          "2026-10": {
+            "n": 848,
+            "U": 5.0,
+            "ROI": 0.59
+          },
+          "2026-11": {
+            "n": 382,
+            "U": -31.135,
+            "ROI": -8.151
+          }
+        }
+      },
+      "research_training_p75": {
+        "n": 375,
+        "U": 15.595,
+        "ROI": 4.159,
+        "UTC_day_bootstrap_95percent_ROI": [
+          -2.209,
+          10.03
+        ],
+        "future_frozen_T1_precision_pct_RETROSPECTIVE": 20.0,
+        "future_frozen_T1_count": 75,
+        "split": {
+          "earlier_dates": {
+            "n": 187,
+            "U": 19.78,
+            "ROI": 10.578
+          },
+          "later_dates": {
+            "n": 188,
+            "U": -4.185,
+            "ROI": -2.226
+          },
+          "line_changed_pre_T12": {
+            "n": 62,
+            "U": -0.55,
+            "ROI": -0.887
+          },
+          "same_line_odds_changed_pre_T12": {
+            "n": 185,
+            "U": 10.08,
+            "ROI": 5.449
+          },
+          "no_early_AH_price_change": {
+            "n": 128,
+            "U": 6.065,
+            "ROI": 4.738
+          }
+        },
+        "by_month": {
+          "2026-10": {
+            "n": 257,
+            "U": 20.21,
+            "ROI": 7.864
+          },
+          "2026-11": {
+            "n": 118,
+            "U": -4.615,
+            "ROI": -3.911
+          }
+        }
+      },
+      "research_training_p90": {
+        "n": 139,
+        "U": 9.83,
+        "ROI": 7.072,
+        "UTC_day_bootstrap_95percent_ROI": [
+          -7.076,
+          20.844
+        ],
+        "future_frozen_T1_precision_pct_RETROSPECTIVE": 20.863,
+        "future_frozen_T1_count": 29,
+        "split": {
+          "earlier_dates": {
+            "n": 63,
+            "U": 10.64,
+            "ROI": 16.889
+          },
+          "later_dates": {
+            "n": 76,
+            "U": -0.81,
+            "ROI": -1.066
+          },
+          "line_changed_pre_T12": {
+            "n": 30,
+            "U": 1.05,
+            "ROI": 3.5
+          },
+          "same_line_odds_changed_pre_T12": {
+            "n": 74,
+            "U": 1.45,
+            "ROI": 1.959
+          },
+          "no_early_AH_price_change": {
+            "n": 35,
+            "U": 7.33,
+            "ROI": 20.943
+          }
+        },
+        "by_month": {
+          "2026-10": {
+            "n": 91,
+            "U": 10.29,
+            "ROI": 11.308
+          },
+          "2026-11": {
+            "n": 48,
+            "U": -0.46,
+            "ROI": -0.958
+          }
+        }
+      }
+    },
+    "AH_path_plus_early_repricing_events": {
+      "every_fixture": {
+        "n": 1230,
+        "U": -35.805,
+        "ROI": -2.911,
+        "UTC_day_bootstrap_95percent_ROI": [
+          -7.972,
+          2.129
+        ],
+        "future_frozen_T1_precision_pct_RETROSPECTIVE": 20.569,
+        "future_frozen_T1_count": 253,
+        "split": {
+          "earlier_dates": {
+            "n": 614,
+            "U": 3.67,
+            "ROI": 0.598
+          },
+          "later_dates": {
+            "n": 616,
+            "U": -39.475,
+            "ROI": -6.408
+          },
+          "line_changed_pre_T12": {
+            "n": 107,
+            "U": -7.655,
+            "ROI": -7.154
+          },
+          "same_line_odds_changed_pre_T12": {
+            "n": 620,
+            "U": -23.79,
+            "ROI": -3.837
+          },
+          "no_early_AH_price_change": {
+            "n": 503,
+            "U": -4.36,
+            "ROI": -0.867
+          }
+        },
+        "by_month": {
+          "2026-10": {
+            "n": 848,
+            "U": -2.81,
+            "ROI": -0.331
+          },
+          "2026-11": {
+            "n": 382,
+            "U": -32.995,
+            "ROI": -8.637
+          }
+        }
+      },
+      "research_training_p75": {
+        "n": 359,
+        "U": 10.81,
+        "ROI": 3.011,
+        "UTC_day_bootstrap_95percent_ROI": [
+          -4.312,
+          9.397
+        ],
+        "future_frozen_T1_precision_pct_RETROSPECTIVE": 19.777,
+        "future_frozen_T1_count": 71,
+        "split": {
+          "earlier_dates": {
+            "n": 176,
+            "U": 12.465,
+            "ROI": 7.082
+          },
+          "later_dates": {
+            "n": 183,
+            "U": -1.655,
+            "ROI": -0.904
+          },
+          "line_changed_pre_T12": {
+            "n": 57,
+            "U": 2.12,
+            "ROI": 3.719
+          },
+          "same_line_odds_changed_pre_T12": {
+            "n": 212,
+            "U": 4.785,
+            "ROI": 2.257
+          },
+          "no_early_AH_price_change": {
+            "n": 90,
+            "U": 3.905,
+            "ROI": 4.339
+          }
+        },
+        "by_month": {
+          "2026-10": {
+            "n": 246,
+            "U": 10.035,
+            "ROI": 4.079
+          },
+          "2026-11": {
+            "n": 113,
+            "U": 0.775,
+            "ROI": 0.686
+          }
+        }
+      },
+      "research_training_p90": {
+        "n": 137,
+        "U": 7.595,
+        "ROI": 5.544,
+        "UTC_day_bootstrap_95percent_ROI": [
+          -12.566,
+          21.142
+        ],
+        "future_frozen_T1_precision_pct_RETROSPECTIVE": 19.708,
+        "future_frozen_T1_count": 27,
+        "split": {
+          "earlier_dates": {
+            "n": 58,
+            "U": 7.0,
+            "ROI": 12.069
+          },
+          "later_dates": {
+            "n": 79,
+            "U": 0.595,
+            "ROI": 0.753
+          },
+          "line_changed_pre_T12": {
+            "n": 25,
+            "U": -0.14,
+            "ROI": -0.56
+          },
+          "same_line_odds_changed_pre_T12": {
+            "n": 87,
+            "U": 3.165,
+            "ROI": 3.638
+          },
+          "no_early_AH_price_change": {
+            "n": 25,
+            "U": 4.57,
+            "ROI": 18.28
+          }
+        },
+        "by_month": {
+          "2026-10": {
+            "n": 85,
+            "U": 7.47,
+            "ROI": 8.788
+          },
+          "2026-11": {
+            "n": 52,
+            "U": 0.125,
+            "ROI": 0.24
+          }
+        }
+      }
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}

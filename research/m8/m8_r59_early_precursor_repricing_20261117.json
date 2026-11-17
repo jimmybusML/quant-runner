@@ -1,0 +1,1344 @@
+{
+  "study": "M8_R59_T12_PREDICT_FROZEN_T1_PRECURSORS_WITH_EARLY_REPRICING",
+  "method": "Historical target at future T1: frozen original-eight membership and its side (only if T1 exact settlement uniquely identifies side). Input strictly Crown AH T24/T12 prices already existing at T12 and early T24->T12 repricing event. No T6/T3/T1 future info in features, no score or membership used as feature. Fit previous calendar years only, explicitly exclude R22 actual receipt target FIDs from training. Evaluate independent held-out year 2024/25/26 and actual pregame HTTP receipts separately (retrospective model research, not locked forward). 100 ridge regularization and train-score 75th/90th percentile propensity are PREDEFINED research sensitivity alternatives, not approved EV gate, volume cap or production requirement. Rank on T1-frozen membership score, side predicted separately only on unambiguous known historical frozen side labels. Later T1 strategy signals available as targets, not as live T12 predicates. Causal ORIGINALLY FROZEN 8 + early model replaces any original fixture chosen earlier and retains original T1 otherwise; no duplicate match count; it is a hypothetical historical order transition and NOT deployed. All true positives, true negatives, early failed signals and negative returns are retained. Frozen original-eight historical strategy may itself have been selected using all these same years and cannot be held-out independent actual performance. Historical Crown market-event time pre-kickoff is retrospective, not proof of actual receipt; raw received quotes evaluated but prediction model invented after receipt. No OU candidate exclusions, all AH cohort, no Crown API calls or production changes.",
+  "sources": {
+    "historical_T24_T12_T6_T1": 38846,
+    "verified_received_T24_T12": 1230,
+    "frozen_all_membership": 10294,
+    "historical_labeled_membership_in_same_archive": 8898,
+    "ambiguous_label_side_count": 507,
+    "ambiguous_per_cohort": {
+      "G": 72,
+      "base": 193,
+      "E": 65,
+      "D": 55,
+      "A": 29,
+      "B": 49,
+      "C": 12,
+      "F": 32
+    },
+    "early_market_events": {
+      "same_line_odds_changed": 26768,
+      "line_changed": 4788,
+      "no_price_change": 7290
+    },
+    "actual_receipt_future_T1_member_RETROSPECTIVE": 253
+  },
+  "by_market_event": {
+    "line_changed": {
+      "historical_all": {
+        "n": 4788,
+        "future_T1_frozen_n": 1283,
+        "frozen_rate_pct": 26.796
+      },
+      "annual": {
+        "2024": {
+          "n": 971,
+          "future_T1_frozen_n": 232
+        },
+        "2025": {
+          "n": 1280,
+          "future_T1_frozen_n": 359
+        },
+        "2026": {
+          "n": 1064,
+          "future_T1_frozen_n": 278
+        }
+      }
+    },
+    "same_line_odds_changed": {
+      "historical_all": {
+        "n": 26768,
+        "future_T1_frozen_n": 6057,
+        "frozen_rate_pct": 22.628
+      },
+      "annual": {
+        "2024": {
+          "n": 5870,
+          "future_T1_frozen_n": 1323
+        },
+        "2025": {
+          "n": 6210,
+          "future_T1_frozen_n": 1408
+        },
+        "2026": {
+          "n": 4934,
+          "future_T1_frozen_n": 1139
+        }
+      }
+    },
+    "no_price_change": {
+      "historical_all": {
+        "n": 7290,
+        "future_T1_frozen_n": 1558,
+        "frozen_rate_pct": 21.372
+      },
+      "annual": {
+        "2024": {
+          "n": 1307,
+          "future_T1_frozen_n": 197
+        },
+        "2025": {
+          "n": 1867,
+          "future_T1_frozen_n": 428
+        },
+        "2026": {
+          "n": 2409,
+          "future_T1_frozen_n": 594
+        }
+      }
+    }
+  },
+  "models": {
+    "T12_AH_snapshot": {
+      "feature_count": 12,
+      "years": {
+        "2024": {
+          "n_train": 12934,
+          "train_positive_members": 2940,
+          "side_training_n": 2779,
+          "year_test_n": 8148,
+          "T1_member_n": 1752,
+          "model_membership_avg_score": 0.25703,
+          "side_accuracy_on_unique_T1_member": 0.81083,
+          "selected_by_experimental_score": {
+            "every_fixture": {
+              "training_threshold": null,
+              "early_AH_simulation": {
+                "n": 8148,
+                "U": -205.755,
+                "ROI": -2.525,
+                "wins": 3945,
+                "losses": 3673,
+                "push": 530
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 1752,
+              "future_T1_frozen_precision_POSTHOC": 0.215,
+              "early_home_n": 2607,
+              "early_away_n": 5541,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 6396,
+                "U": -166.22,
+                "ROI": -2.599,
+                "wins": 3136,
+                "losses": 2889,
+                "push": 371
+              },
+              "early_original8_replaced_n": 1752,
+              "late_original8_retained_n": 0,
+              "causal_combined_research": {
+                "n": 8148,
+                "U": -205.755,
+                "ROI": -2.525
+              },
+              "original8_frozen_baseline": {
+                "n": 1752,
+                "U": 37.545,
+                "ROI": 2.143
+              },
+              "causal_net_new_fixture_n": 6396,
+              "causal_delta_profit_U": -243.3
+            },
+            "research_training_p75": {
+              "training_threshold": 0.261943,
+              "early_AH_simulation": {
+                "n": 3190,
+                "U": -87.475,
+                "ROI": -2.742,
+                "wins": 1431,
+                "losses": 1426,
+                "push": 333
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 814,
+              "future_T1_frozen_precision_POSTHOC": 0.2552,
+              "early_home_n": 1147,
+              "early_away_n": 2043,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 2376,
+                "U": -60.3,
+                "ROI": -2.538,
+                "wins": 1084,
+                "losses": 1066,
+                "push": 226
+              },
+              "early_original8_replaced_n": 814,
+              "late_original8_retained_n": 938,
+              "causal_combined_research": {
+                "n": 4128,
+                "U": -26.87,
+                "ROI": -0.651
+              },
+              "original8_frozen_baseline": {
+                "n": 1752,
+                "U": 37.545,
+                "ROI": 2.143
+              },
+              "causal_net_new_fixture_n": 2376,
+              "causal_delta_profit_U": -64.415
+            },
+            "research_training_p90": {
+              "training_threshold": 0.3134857,
+              "early_AH_simulation": {
+                "n": 2009,
+                "U": -86.035,
+                "ROI": -4.282,
+                "wins": 913,
+                "losses": 934,
+                "push": 162
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 527,
+              "future_T1_frozen_precision_POSTHOC": 0.2623,
+              "early_home_n": 723,
+              "early_away_n": 1286,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 1482,
+                "U": -62.03,
+                "ROI": -4.186,
+                "wins": 682,
+                "losses": 690,
+                "push": 110
+              },
+              "early_original8_replaced_n": 527,
+              "late_original8_retained_n": 1225,
+              "causal_combined_research": {
+                "n": 3234,
+                "U": -43.57,
+                "ROI": -1.347
+              },
+              "original8_frozen_baseline": {
+                "n": 1752,
+                "U": 37.545,
+                "ROI": 2.143
+              },
+              "causal_net_new_fixture_n": 1482,
+              "causal_delta_profit_U": -81.115
+            }
+          }
+        },
+        "2025": {
+          "n_train": 21082,
+          "train_positive_members": 4692,
+          "side_training_n": 4423,
+          "year_test_n": 9357,
+          "T1_member_n": 2195,
+          "model_membership_avg_score": 0.22919,
+          "side_accuracy_on_unique_T1_member": 0.80491,
+          "selected_by_experimental_score": {
+            "every_fixture": {
+              "training_threshold": null,
+              "early_AH_simulation": {
+                "n": 9357,
+                "U": -143.2,
+                "ROI": -1.53,
+                "wins": 4572,
+                "losses": 4143,
+                "push": 642
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 2195,
+              "future_T1_frozen_precision_POSTHOC": 0.2346,
+              "early_home_n": 2992,
+              "early_away_n": 6365,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 7162,
+                "U": -121.37,
+                "ROI": -1.695,
+                "wins": 3517,
+                "losses": 3177,
+                "push": 468
+              },
+              "early_original8_replaced_n": 2195,
+              "late_original8_retained_n": 0,
+              "causal_combined_research": {
+                "n": 9357,
+                "U": -143.2,
+                "ROI": -1.53
+              },
+              "original8_frozen_baseline": {
+                "n": 2195,
+                "U": 45.535,
+                "ROI": 2.074
+              },
+              "causal_net_new_fixture_n": 7162,
+              "causal_delta_profit_U": -188.735
+            },
+            "research_training_p75": {
+              "training_threshold": 0.2600086,
+              "early_AH_simulation": {
+                "n": 2767,
+                "U": -24.395,
+                "ROI": -0.882,
+                "wins": 1188,
+                "losses": 1157,
+                "push": 422
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 781,
+              "future_T1_frozen_precision_POSTHOC": 0.2823,
+              "early_home_n": 958,
+              "early_away_n": 1809,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 1986,
+                "U": -28.735,
+                "ROI": -1.447,
+                "wins": 842,
+                "losses": 837,
+                "push": 307
+              },
+              "early_original8_replaced_n": 781,
+              "late_original8_retained_n": 1414,
+              "causal_combined_research": {
+                "n": 4181,
+                "U": -14.165,
+                "ROI": -0.339
+              },
+              "original8_frozen_baseline": {
+                "n": 2195,
+                "U": 45.535,
+                "ROI": 2.074
+              },
+              "causal_net_new_fixture_n": 1986,
+              "causal_delta_profit_U": -59.7
+            },
+            "research_training_p90": {
+              "training_threshold": 0.3008981,
+              "early_AH_simulation": {
+                "n": 1120,
+                "U": -37.325,
+                "ROI": -3.333,
+                "wins": 507,
+                "losses": 526,
+                "push": 87
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 345,
+              "future_T1_frozen_precision_POSTHOC": 0.308,
+              "early_home_n": 323,
+              "early_away_n": 797,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 775,
+                "U": -31.38,
+                "ROI": -4.049,
+                "wins": 344,
+                "losses": 366,
+                "push": 65
+              },
+              "early_original8_replaced_n": 345,
+              "late_original8_retained_n": 1850,
+              "causal_combined_research": {
+                "n": 2970,
+                "U": -4.245,
+                "ROI": -0.143
+              },
+              "original8_frozen_baseline": {
+                "n": 2195,
+                "U": 45.535,
+                "ROI": 2.074
+              },
+              "causal_net_new_fixture_n": 775,
+              "causal_delta_profit_U": -49.78
+            }
+          }
+        },
+        "2026": {
+          "n_train": 30439,
+          "train_positive_members": 6887,
+          "side_training_n": 6499,
+          "year_test_n": 8407,
+          "T1_member_n": 2011,
+          "model_membership_avg_score": 0.23671,
+          "side_accuracy_on_unique_T1_member": 0.82717,
+          "selected_by_experimental_score": {
+            "every_fixture": {
+              "training_threshold": null,
+              "early_AH_simulation": {
+                "n": 8407,
+                "U": -245.26,
+                "ROI": -2.917,
+                "wins": 4065,
+                "losses": 3790,
+                "push": 552
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 2011,
+              "future_T1_frozen_precision_POSTHOC": 0.2392,
+              "early_home_n": 2745,
+              "early_away_n": 5662,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 6396,
+                "U": -230.275,
+                "ROI": -3.6,
+                "wins": 3092,
+                "losses": 2910,
+                "push": 394
+              },
+              "early_original8_replaced_n": 2011,
+              "late_original8_retained_n": 0,
+              "causal_combined_research": {
+                "n": 8407,
+                "U": -245.26,
+                "ROI": -2.917
+              },
+              "original8_frozen_baseline": {
+                "n": 2011,
+                "U": 97.755,
+                "ROI": 4.861
+              },
+              "causal_net_new_fixture_n": 6396,
+              "causal_delta_profit_U": -343.015
+            },
+            "research_training_p75": {
+              "training_threshold": 0.2612196,
+              "early_AH_simulation": {
+                "n": 2844,
+                "U": -61.635,
+                "ROI": -2.167,
+                "wins": 1239,
+                "losses": 1234,
+                "push": 371
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 817,
+              "future_T1_frozen_precision_POSTHOC": 0.2873,
+              "early_home_n": 1052,
+              "early_away_n": 1792,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 2027,
+                "U": -69.88,
+                "ROI": -3.447,
+                "wins": 877,
+                "losses": 898,
+                "push": 252
+              },
+              "early_original8_replaced_n": 817,
+              "late_original8_retained_n": 1194,
+              "causal_combined_research": {
+                "n": 4038,
+                "U": -19.065,
+                "ROI": -0.472
+              },
+              "original8_frozen_baseline": {
+                "n": 2011,
+                "U": 97.755,
+                "ROI": 4.861
+              },
+              "causal_net_new_fixture_n": 2027,
+              "causal_delta_profit_U": -116.82
+            },
+            "research_training_p90": {
+              "training_threshold": 0.3030669,
+              "early_AH_simulation": {
+                "n": 1118,
+                "U": -28.225,
+                "ROI": -2.525,
+                "wins": 511,
+                "losses": 517,
+                "push": 90
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 334,
+              "future_T1_frozen_precision_POSTHOC": 0.2987,
+              "early_home_n": 372,
+              "early_away_n": 746,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 784,
+                "U": -15.24,
+                "ROI": -1.944,
+                "wins": 365,
+                "losses": 360,
+                "push": 59
+              },
+              "early_original8_replaced_n": 334,
+              "late_original8_retained_n": 1677,
+              "causal_combined_research": {
+                "n": 2795,
+                "U": 68.34,
+                "ROI": 2.445
+              },
+              "original8_frozen_baseline": {
+                "n": 2011,
+                "U": 97.755,
+                "ROI": 4.861
+              },
+              "causal_net_new_fixture_n": 784,
+              "causal_delta_profit_U": -29.415
+            }
+          }
+        }
+      },
+      "actual_received_quotes": {
+        "every_fixture": {
+          "price_received_AH_simulation": {
+            "n": 1230,
+            "U": -31.785,
+            "ROI": -2.584
+          },
+          "future_T1_frozen_overlap_POSTHOC": 253,
+          "price_received_outside_original8_POSTHOC": {
+            "n": 977,
+            "U": -28.97,
+            "ROI": -2.965
+          },
+          "training_threshold": null
+        },
+        "research_training_p75": {
+          "price_received_AH_simulation": {
+            "n": 432,
+            "U": 22.48,
+            "ROI": 5.204
+          },
+          "future_T1_frozen_overlap_POSTHOC": 84,
+          "price_received_outside_original8_POSTHOC": {
+            "n": 348,
+            "U": 19.22,
+            "ROI": 5.523
+          },
+          "training_threshold": 0.2612196
+        },
+        "research_training_p90": {
+          "price_received_AH_simulation": {
+            "n": 174,
+            "U": 16.265,
+            "ROI": 9.348
+          },
+          "future_T1_frozen_overlap_POSTHOC": 28,
+          "price_received_outside_original8_POSTHOC": {
+            "n": 146,
+            "U": 14.265,
+            "ROI": 9.771
+          },
+          "training_threshold": 0.3030669
+        }
+      }
+    },
+    "T24_T12_AH_path": {
+      "feature_count": 22,
+      "years": {
+        "2024": {
+          "n_train": 12934,
+          "train_positive_members": 2940,
+          "side_training_n": 2779,
+          "year_test_n": 8148,
+          "T1_member_n": 1752,
+          "model_membership_avg_score": 0.25757,
+          "side_accuracy_on_unique_T1_member": 0.80596,
+          "selected_by_experimental_score": {
+            "every_fixture": {
+              "training_threshold": null,
+              "early_AH_simulation": {
+                "n": 8148,
+                "U": -199.265,
+                "ROI": -2.446,
+                "wins": 3949,
+                "losses": 3669,
+                "push": 530
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 1752,
+              "future_T1_frozen_precision_POSTHOC": 0.215,
+              "early_home_n": 2615,
+              "early_away_n": 5533,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 6396,
+                "U": -160.78,
+                "ROI": -2.514,
+                "wins": 3139,
+                "losses": 2886,
+                "push": 371
+              },
+              "early_original8_replaced_n": 1752,
+              "late_original8_retained_n": 0,
+              "causal_combined_research": {
+                "n": 8148,
+                "U": -199.265,
+                "ROI": -2.446
+              },
+              "original8_frozen_baseline": {
+                "n": 1752,
+                "U": 37.545,
+                "ROI": 2.143
+              },
+              "causal_net_new_fixture_n": 6396,
+              "causal_delta_profit_U": -236.81
+            },
+            "research_training_p75": {
+              "training_threshold": 0.2633499,
+              "early_AH_simulation": {
+                "n": 3315,
+                "U": -103.77,
+                "ROI": -3.13,
+                "wins": 1499,
+                "losses": 1504,
+                "push": 312
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 845,
+              "future_T1_frozen_precision_POSTHOC": 0.2549,
+              "early_home_n": 1126,
+              "early_away_n": 2189,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 2470,
+                "U": -61.795,
+                "ROI": -2.502,
+                "wins": 1140,
+                "losses": 1118,
+                "push": 212
+              },
+              "early_original8_replaced_n": 845,
+              "late_original8_retained_n": 907,
+              "causal_combined_research": {
+                "n": 4222,
+                "U": -57.785,
+                "ROI": -1.369
+              },
+              "original8_frozen_baseline": {
+                "n": 1752,
+                "U": 37.545,
+                "ROI": 2.143
+              },
+              "causal_net_new_fixture_n": 2470,
+              "causal_delta_profit_U": -95.33
+            },
+            "research_training_p90": {
+              "training_threshold": 0.3206234,
+              "early_AH_simulation": {
+                "n": 1937,
+                "U": -100.865,
+                "ROI": -5.207,
+                "wins": 856,
+                "losses": 899,
+                "push": 182
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 529,
+              "future_T1_frozen_precision_POSTHOC": 0.2731,
+              "early_home_n": 726,
+              "early_away_n": 1211,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 1408,
+                "U": -77.945,
+                "ROI": -5.536,
+                "wins": 627,
+                "losses": 658,
+                "push": 123
+              },
+              "early_original8_replaced_n": 529,
+              "late_original8_retained_n": 1223,
+              "causal_combined_research": {
+                "n": 3160,
+                "U": -47.7,
+                "ROI": -1.509
+              },
+              "original8_frozen_baseline": {
+                "n": 1752,
+                "U": 37.545,
+                "ROI": 2.143
+              },
+              "causal_net_new_fixture_n": 1408,
+              "causal_delta_profit_U": -85.245
+            }
+          }
+        },
+        "2025": {
+          "n_train": 21082,
+          "train_positive_members": 4692,
+          "side_training_n": 4423,
+          "year_test_n": 9357,
+          "T1_member_n": 2195,
+          "model_membership_avg_score": 0.23069,
+          "side_accuracy_on_unique_T1_member": 0.80491,
+          "selected_by_experimental_score": {
+            "every_fixture": {
+              "training_threshold": null,
+              "early_AH_simulation": {
+                "n": 9357,
+                "U": -147.89,
+                "ROI": -1.581,
+                "wins": 4570,
+                "losses": 4145,
+                "push": 642
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 2195,
+              "future_T1_frozen_precision_POSTHOC": 0.2346,
+              "early_home_n": 2992,
+              "early_away_n": 6365,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 7162,
+                "U": -127.48,
+                "ROI": -1.78,
+                "wins": 3514,
+                "losses": 3180,
+                "push": 468
+              },
+              "early_original8_replaced_n": 2195,
+              "late_original8_retained_n": 0,
+              "causal_combined_research": {
+                "n": 9357,
+                "U": -147.89,
+                "ROI": -1.581
+              },
+              "original8_frozen_baseline": {
+                "n": 2195,
+                "U": 45.535,
+                "ROI": 2.074
+              },
+              "causal_net_new_fixture_n": 7162,
+              "causal_delta_profit_U": -193.425
+            },
+            "research_training_p75": {
+              "training_threshold": 0.2634691,
+              "early_AH_simulation": {
+                "n": 2814,
+                "U": -5.025,
+                "ROI": -0.179,
+                "wins": 1260,
+                "losses": 1219,
+                "push": 335
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 862,
+              "future_T1_frozen_precision_POSTHOC": 0.3063,
+              "early_home_n": 925,
+              "early_away_n": 1889,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 1952,
+                "U": -9.4,
+                "ROI": -0.482,
+                "wins": 862,
+                "losses": 847,
+                "push": 243
+              },
+              "early_original8_replaced_n": 862,
+              "late_original8_retained_n": 1333,
+              "causal_combined_research": {
+                "n": 4147,
+                "U": 21.455,
+                "ROI": 0.517
+              },
+              "original8_frozen_baseline": {
+                "n": 2195,
+                "U": 45.535,
+                "ROI": 2.074
+              },
+              "causal_net_new_fixture_n": 1952,
+              "causal_delta_profit_U": -24.08
+            },
+            "research_training_p90": {
+              "training_threshold": 0.3075541,
+              "early_AH_simulation": {
+                "n": 1270,
+                "U": 16.885,
+                "ROI": 1.33,
+                "wins": 586,
+                "losses": 559,
+                "push": 125
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 416,
+              "future_T1_frozen_precision_POSTHOC": 0.3276,
+              "early_home_n": 388,
+              "early_away_n": 882,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 854,
+                "U": 1.02,
+                "ROI": 0.119,
+                "wins": 384,
+                "losses": 381,
+                "push": 89
+              },
+              "early_original8_replaced_n": 416,
+              "late_original8_retained_n": 1779,
+              "causal_combined_research": {
+                "n": 3049,
+                "U": 37.18,
+                "ROI": 1.219
+              },
+              "original8_frozen_baseline": {
+                "n": 2195,
+                "U": 45.535,
+                "ROI": 2.074
+              },
+              "causal_net_new_fixture_n": 854,
+              "causal_delta_profit_U": -8.355
+            }
+          }
+        },
+        "2026": {
+          "n_train": 30439,
+          "train_positive_members": 6887,
+          "side_training_n": 6499,
+          "year_test_n": 8407,
+          "T1_member_n": 2011,
+          "model_membership_avg_score": 0.23703,
+          "side_accuracy_on_unique_T1_member": 0.82717,
+          "selected_by_experimental_score": {
+            "every_fixture": {
+              "training_threshold": null,
+              "early_AH_simulation": {
+                "n": 8407,
+                "U": -257.26,
+                "ROI": -3.06,
+                "wins": 4059,
+                "losses": 3796,
+                "push": 552
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 2011,
+              "future_T1_frozen_precision_POSTHOC": 0.2392,
+              "early_home_n": 2765,
+              "early_away_n": 5642,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 6396,
+                "U": -230.385,
+                "ROI": -3.602,
+                "wins": 3092,
+                "losses": 2910,
+                "push": 394
+              },
+              "early_original8_replaced_n": 2011,
+              "late_original8_retained_n": 0,
+              "causal_combined_research": {
+                "n": 8407,
+                "U": -257.26,
+                "ROI": -3.06
+              },
+              "original8_frozen_baseline": {
+                "n": 2011,
+                "U": 97.755,
+                "ROI": 4.861
+              },
+              "causal_net_new_fixture_n": 6396,
+              "causal_delta_profit_U": -355.015
+            },
+            "research_training_p75": {
+              "training_threshold": 0.2644406,
+              "early_AH_simulation": {
+                "n": 2791,
+                "U": -59.02,
+                "ROI": -2.115,
+                "wins": 1256,
+                "losses": 1258,
+                "push": 277
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 800,
+              "future_T1_frozen_precision_POSTHOC": 0.2866,
+              "early_home_n": 992,
+              "early_away_n": 1799,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 1991,
+                "U": -43.72,
+                "ROI": -2.196,
+                "wins": 903,
+                "losses": 903,
+                "push": 185
+              },
+              "early_original8_replaced_n": 800,
+              "late_original8_retained_n": 1211,
+              "causal_combined_research": {
+                "n": 4002,
+                "U": 14.345,
+                "ROI": 0.358
+              },
+              "original8_frozen_baseline": {
+                "n": 2011,
+                "U": 97.755,
+                "ROI": 4.861
+              },
+              "causal_net_new_fixture_n": 1991,
+              "causal_delta_profit_U": -83.41
+            },
+            "research_training_p90": {
+              "training_threshold": 0.3095373,
+              "early_AH_simulation": {
+                "n": 1216,
+                "U": -21.9,
+                "ROI": -1.801,
+                "wins": 546,
+                "losses": 556,
+                "push": 114
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 349,
+              "future_T1_frozen_precision_POSTHOC": 0.287,
+              "early_home_n": 438,
+              "early_away_n": 778,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 867,
+                "U": -7.77,
+                "ROI": -0.896,
+                "wins": 400,
+                "losses": 393,
+                "push": 74
+              },
+              "early_original8_replaced_n": 349,
+              "late_original8_retained_n": 1662,
+              "causal_combined_research": {
+                "n": 2878,
+                "U": 68.925,
+                "ROI": 2.395
+              },
+              "original8_frozen_baseline": {
+                "n": 2011,
+                "U": 97.755,
+                "ROI": 4.861
+              },
+              "causal_net_new_fixture_n": 867,
+              "causal_delta_profit_U": -28.83
+            }
+          }
+        }
+      },
+      "actual_received_quotes": {
+        "every_fixture": {
+          "price_received_AH_simulation": {
+            "n": 1230,
+            "U": -26.135,
+            "ROI": -2.125
+          },
+          "future_T1_frozen_overlap_POSTHOC": 253,
+          "price_received_outside_original8_POSTHOC": {
+            "n": 977,
+            "U": -25.09,
+            "ROI": -2.568
+          },
+          "training_threshold": null
+        },
+        "research_training_p75": {
+          "price_received_AH_simulation": {
+            "n": 375,
+            "U": 15.595,
+            "ROI": 4.159
+          },
+          "future_T1_frozen_overlap_POSTHOC": 75,
+          "price_received_outside_original8_POSTHOC": {
+            "n": 300,
+            "U": 6.38,
+            "ROI": 2.127
+          },
+          "training_threshold": 0.2644406
+        },
+        "research_training_p90": {
+          "price_received_AH_simulation": {
+            "n": 139,
+            "U": 9.83,
+            "ROI": 7.072
+          },
+          "future_T1_frozen_overlap_POSTHOC": 29,
+          "price_received_outside_original8_POSTHOC": {
+            "n": 110,
+            "U": 7.14,
+            "ROI": 6.491
+          },
+          "training_threshold": 0.3095373
+        }
+      }
+    },
+    "AH_path_plus_early_repricing_events": {
+      "feature_count": 36,
+      "years": {
+        "2024": {
+          "n_train": 12934,
+          "train_positive_members": 2940,
+          "side_training_n": 2779,
+          "year_test_n": 8148,
+          "T1_member_n": 1752,
+          "model_membership_avg_score": 0.25815,
+          "side_accuracy_on_unique_T1_member": 0.80414,
+          "selected_by_experimental_score": {
+            "every_fixture": {
+              "training_threshold": null,
+              "early_AH_simulation": {
+                "n": 8148,
+                "U": -199.655,
+                "ROI": -2.45,
+                "wins": 3949,
+                "losses": 3669,
+                "push": 530
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 1752,
+              "future_T1_frozen_precision_POSTHOC": 0.215,
+              "early_home_n": 2619,
+              "early_away_n": 5529,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 6396,
+                "U": -163.06,
+                "ROI": -2.549,
+                "wins": 3138,
+                "losses": 2887,
+                "push": 371
+              },
+              "early_original8_replaced_n": 1752,
+              "late_original8_retained_n": 0,
+              "causal_combined_research": {
+                "n": 8148,
+                "U": -199.655,
+                "ROI": -2.45
+              },
+              "original8_frozen_baseline": {
+                "n": 1752,
+                "U": 37.545,
+                "ROI": 2.143
+              },
+              "causal_net_new_fixture_n": 6396,
+              "causal_delta_profit_U": -237.2
+            },
+            "research_training_p75": {
+              "training_threshold": 0.2656946,
+              "early_AH_simulation": {
+                "n": 3323,
+                "U": -98.96,
+                "ROI": -2.978,
+                "wins": 1504,
+                "losses": 1508,
+                "push": 311
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 850,
+              "future_T1_frozen_precision_POSTHOC": 0.2558,
+              "early_home_n": 1159,
+              "early_away_n": 2164,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 2473,
+                "U": -54.695,
+                "ROI": -2.212,
+                "wins": 1140,
+                "losses": 1116,
+                "push": 217
+              },
+              "early_original8_replaced_n": 850,
+              "late_original8_retained_n": 902,
+              "causal_combined_research": {
+                "n": 4225,
+                "U": -59.745,
+                "ROI": -1.414
+              },
+              "original8_frozen_baseline": {
+                "n": 1752,
+                "U": 37.545,
+                "ROI": 2.143
+              },
+              "causal_net_new_fixture_n": 2473,
+              "causal_delta_profit_U": -97.29
+            },
+            "research_training_p90": {
+              "training_threshold": 0.3240233,
+              "early_AH_simulation": {
+                "n": 1848,
+                "U": -71.865,
+                "ROI": -3.889,
+                "wins": 830,
+                "losses": 850,
+                "push": 168
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 522,
+              "future_T1_frozen_precision_POSTHOC": 0.2825,
+              "early_home_n": 705,
+              "early_away_n": 1143,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 1326,
+                "U": -39.595,
+                "ROI": -2.986,
+                "wins": 610,
+                "losses": 608,
+                "push": 108
+              },
+              "early_original8_replaced_n": 522,
+              "late_original8_retained_n": 1230,
+              "causal_combined_research": {
+                "n": 3078,
+                "U": -24.68,
+                "ROI": -0.802
+              },
+              "original8_frozen_baseline": {
+                "n": 1752,
+                "U": 37.545,
+                "ROI": 2.143
+              },
+              "causal_net_new_fixture_n": 1326,
+              "causal_delta_profit_U": -62.225
+            }
+          }
+        },
+        "2025": {
+          "n_train": 21082,
+          "train_positive_members": 4692,
+          "side_training_n": 4423,
+          "year_test_n": 9357,
+          "T1_member_n": 2195,
+          "model_membership_avg_score": 0.23063,
+          "side_accuracy_on_unique_T1_member": 0.80539,
+          "selected_by_experimental_score": {
+            "every_fixture": {
+              "training_threshold": null,
+              "early_AH_simulation": {
+                "n": 9357,
+                "U": -170.8,
+                "ROI": -1.825,
+                "wins": 4558,
+                "losses": 4157,
+                "push": 642
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 2195,
+              "future_T1_frozen_precision_POSTHOC": 0.2346,
+              "early_home_n": 2999,
+              "early_away_n": 6358,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 7162,
+                "U": -144.85,
+                "ROI": -2.022,
+                "wins": 3505,
+                "losses": 3189,
+                "push": 468
+              },
+              "early_original8_replaced_n": 2195,
+              "late_original8_retained_n": 0,
+              "causal_combined_research": {
+                "n": 9357,
+                "U": -170.8,
+                "ROI": -1.825
+              },
+              "original8_frozen_baseline": {
+                "n": 2195,
+                "U": 45.535,
+                "ROI": 2.074
+              },
+              "causal_net_new_fixture_n": 7162,
+              "causal_delta_profit_U": -216.335
+            },
+            "research_training_p75": {
+              "training_threshold": 0.2642208,
+              "early_AH_simulation": {
+                "n": 2784,
+                "U": 3.82,
+                "ROI": 0.137,
+                "wins": 1248,
+                "losses": 1203,
+                "push": 333
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 849,
+              "future_T1_frozen_precision_POSTHOC": 0.305,
+              "early_home_n": 891,
+              "early_away_n": 1893,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 1935,
+                "U": -4.885,
+                "ROI": -0.252,
+                "wins": 856,
+                "losses": 838,
+                "push": 241
+              },
+              "early_original8_replaced_n": 849,
+              "late_original8_retained_n": 1346,
+              "causal_combined_research": {
+                "n": 4130,
+                "U": 33.115,
+                "ROI": 0.802
+              },
+              "original8_frozen_baseline": {
+                "n": 2195,
+                "U": 45.535,
+                "ROI": 2.074
+              },
+              "causal_net_new_fixture_n": 1935,
+              "causal_delta_profit_U": -12.42
+            },
+            "research_training_p90": {
+              "training_threshold": 0.3122887,
+              "early_AH_simulation": {
+                "n": 1178,
+                "U": 10.095,
+                "ROI": 0.857,
+                "wins": 542,
+                "losses": 526,
+                "push": 110
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 376,
+              "future_T1_frozen_precision_POSTHOC": 0.3192,
+              "early_home_n": 371,
+              "early_away_n": 807,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 802,
+                "U": -0.615,
+                "ROI": -0.077,
+                "wins": 360,
+                "losses": 360,
+                "push": 82
+              },
+              "early_original8_replaced_n": 376,
+              "late_original8_retained_n": 1819,
+              "causal_combined_research": {
+                "n": 2997,
+                "U": 51.51,
+                "ROI": 1.719
+              },
+              "original8_frozen_baseline": {
+                "n": 2195,
+                "U": 45.535,
+                "ROI": 2.074
+              },
+              "causal_net_new_fixture_n": 802,
+              "causal_delta_profit_U": 5.975
+            }
+          }
+        },
+        "2026": {
+          "n_train": 30439,
+          "train_positive_members": 6887,
+          "side_training_n": 6499,
+          "year_test_n": 8407,
+          "T1_member_n": 2011,
+          "model_membership_avg_score": 0.23584,
+          "side_accuracy_on_unique_T1_member": 0.82505,
+          "selected_by_experimental_score": {
+            "every_fixture": {
+              "training_threshold": null,
+              "early_AH_simulation": {
+                "n": 8407,
+                "U": -263.21,
+                "ROI": -3.131,
+                "wins": 4056,
+                "losses": 3799,
+                "push": 552
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 2011,
+              "future_T1_frozen_precision_POSTHOC": 0.2392,
+              "early_home_n": 2758,
+              "early_away_n": 5649,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 6396,
+                "U": -240.255,
+                "ROI": -3.756,
+                "wins": 3087,
+                "losses": 2915,
+                "push": 394
+              },
+              "early_original8_replaced_n": 2011,
+              "late_original8_retained_n": 0,
+              "causal_combined_research": {
+                "n": 8407,
+                "U": -263.21,
+                "ROI": -3.131
+              },
+              "original8_frozen_baseline": {
+                "n": 2011,
+                "U": 97.755,
+                "ROI": 4.861
+              },
+              "causal_net_new_fixture_n": 6396,
+              "causal_delta_profit_U": -360.965
+            },
+            "research_training_p75": {
+              "training_threshold": 0.265795,
+              "early_AH_simulation": {
+                "n": 2668,
+                "U": -97.67,
+                "ROI": -3.661,
+                "wins": 1170,
+                "losses": 1215,
+                "push": 283
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 768,
+              "future_T1_frozen_precision_POSTHOC": 0.2879,
+              "early_home_n": 945,
+              "early_away_n": 1723,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 1900,
+                "U": -73.91,
+                "ROI": -3.89,
+                "wins": 840,
+                "losses": 871,
+                "push": 189
+              },
+              "early_original8_replaced_n": 768,
+              "late_original8_retained_n": 1243,
+              "causal_combined_research": {
+                "n": 3911,
+                "U": -16.125,
+                "ROI": -0.412
+              },
+              "original8_frozen_baseline": {
+                "n": 2011,
+                "U": 97.755,
+                "ROI": 4.861
+              },
+              "causal_net_new_fixture_n": 1900,
+              "causal_delta_profit_U": -113.88
+            },
+            "research_training_p90": {
+              "training_threshold": 0.3124216,
+              "early_AH_simulation": {
+                "n": 1148,
+                "U": -37.505,
+                "ROI": -3.267,
+                "wins": 504,
+                "losses": 532,
+                "push": 112
+              },
+              "future_T1_frozen_overlap_n_POSTHOC": 339,
+              "future_T1_frozen_precision_POSTHOC": 0.2953,
+              "early_home_n": 412,
+              "early_away_n": 736,
+              "early_nonfrozen_retrospective_attribution": {
+                "n": 809,
+                "U": -31.415,
+                "ROI": -3.883,
+                "wins": 358,
+                "losses": 378,
+                "push": 73
+              },
+              "early_original8_replaced_n": 339,
+              "late_original8_retained_n": 1672,
+              "causal_combined_research": {
+                "n": 2820,
+                "U": 47.48,
+                "ROI": 1.684
+              },
+              "original8_frozen_baseline": {
+                "n": 2011,
+                "U": 97.755,
+                "ROI": 4.861
+              },
+              "causal_net_new_fixture_n": 809,
+              "causal_delta_profit_U": -50.275
+            }
+          }
+        }
+      },
+      "actual_received_quotes": {
+        "every_fixture": {
+          "price_received_AH_simulation": {
+            "n": 1230,
+            "U": -35.805,
+            "ROI": -2.911
+          },
+          "future_T1_frozen_overlap_POSTHOC": 253,
+          "price_received_outside_original8_POSTHOC": {
+            "n": 977,
+            "U": -32.99,
+            "ROI": -3.377
+          },
+          "training_threshold": null
+        },
+        "research_training_p75": {
+          "price_received_AH_simulation": {
+            "n": 359,
+            "U": 10.81,
+            "ROI": 3.011
+          },
+          "future_T1_frozen_overlap_POSTHOC": 71,
+          "price_received_outside_original8_POSTHOC": {
+            "n": 288,
+            "U": 7.325,
+            "ROI": 2.543
+          },
+          "training_threshold": 0.265795
+        },
+        "research_training_p90": {
+          "price_received_AH_simulation": {
+            "n": 137,
+            "U": 7.595,
+            "ROI": 5.544
+          },
+          "future_T1_frozen_overlap_POSTHOC": 27,
+          "price_received_outside_original8_POSTHOC": {
+            "n": 110,
+            "U": 7.615,
+            "ROI": 6.923
+          },
+          "training_threshold": 0.3124216
+        }
+      }
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}
