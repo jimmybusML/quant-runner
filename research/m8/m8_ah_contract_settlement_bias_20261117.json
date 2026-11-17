@@ -1,0 +1,1121 @@
+{
+  "method": "R54 AH-only source-exact T24/T12 Crown contract pricing and settlement. Compare all same fixtures with simple previous-year OH side payout difference prediction from line sign, sign/absolute and quarter-handicap shapes, normalized AH prices, vig, AH quote movement and interactions, against inherited R22 current/path. Always choose one AH side per fixture, no selective skip, no league/month profitability filter, no OU membership exclusion or production rule. Ridge 100/300 are explicit model experiments, not user-confirmed rule. Training uses earlier calendar years only and excludes all verified actual receipt FIDs; exact quarter settlement from upstream. Receipt replay not an independently precommitted forward test and not a formal TG ledger. Retrospective source-event timestamp not actual historical receipt. Features need T12 so cannot be traded at T24. Fixed original8 excluded only to compute historical incremental research, not real-time eligible status.",
+  "counts": {
+    "historical_pairs": 38846,
+    "original8_excluded_history": 19954,
+    "actual_verified_pairs": 1230,
+    "actual_excluding8": 977,
+    "historical_years": {
+      "2024": 6396,
+      "2025": 7162,
+      "2026": 6396
+    }
+  },
+  "models": {
+    "R22_current": {
+      "historical": {
+        "n": 19954,
+        "U": -709.235,
+        "ROI": -3.554,
+        "daily_mdd": 728.07,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -26.885,
+        "ROI": -2.752,
+        "daily_mdd": 41.31,
+        "active_weeks": 6
+      },
+      "historical_disjoint_actual": {
+        "n": 19197,
+        "U": -649.095,
+        "ROI": -3.381,
+        "daily_mdd": 670.345,
+        "active_weeks": 149
+      },
+      "year": {
+        "2024": {
+          "n": 6396,
+          "U": -247.25,
+          "ROI": -3.866,
+          "daily_mdd": 272.47,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -126.51,
+          "ROI": -1.766,
+          "daily_mdd": 179.08,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -335.475,
+          "ROI": -5.245,
+          "daily_mdd": 348.445,
+          "active_weeks": 45
+        }
+      },
+      "year_jan_may": {
+        "2024": {
+          "n": 2670,
+          "U": -106.195,
+          "ROI": -3.977,
+          "daily_mdd": 127.82,
+          "active_weeks": 22
+        },
+        "2025": {
+          "n": 3354,
+          "U": -9.285,
+          "ROI": -0.277,
+          "daily_mdd": 62.215,
+          "active_weeks": 22
+        },
+        "2026": {
+          "n": 3730,
+          "U": -162.38,
+          "ROI": -4.353,
+          "daily_mdd": 178.41,
+          "active_weeks": 22
+        }
+      },
+      "training": {
+        "2024": {
+          "train_n": 12934,
+          "features": 10,
+          "ridge": 100
+        },
+        "2025": {
+          "train_n": 21082,
+          "features": 10,
+          "ridge": 100
+        },
+        "2026": {
+          "train_n": 30439,
+          "features": 10,
+          "ridge": 100
+        }
+      },
+      "flip_from_R22_path_count": null
+    },
+    "R22_path": {
+      "historical": {
+        "n": 19954,
+        "U": -594.53,
+        "ROI": -2.98,
+        "daily_mdd": 620.0,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -21.37,
+        "ROI": -2.187,
+        "daily_mdd": 28.09,
+        "active_weeks": 6
+      },
+      "historical_disjoint_actual": {
+        "n": 19197,
+        "U": -559.28,
+        "ROI": -2.913,
+        "daily_mdd": 587.12,
+        "active_weeks": 149
+      },
+      "year": {
+        "2024": {
+          "n": 6396,
+          "U": -201.555,
+          "ROI": -3.151,
+          "daily_mdd": 232.28,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -151.53,
+          "ROI": -2.116,
+          "daily_mdd": 169.63,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -241.445,
+          "ROI": -3.775,
+          "daily_mdd": 271.81,
+          "active_weeks": 45
+        }
+      },
+      "year_jan_may": {
+        "2024": {
+          "n": 2670,
+          "U": -91.755,
+          "ROI": -3.437,
+          "daily_mdd": 116.125,
+          "active_weeks": 22
+        },
+        "2025": {
+          "n": 3354,
+          "U": -44.065,
+          "ROI": -1.314,
+          "daily_mdd": 80.83,
+          "active_weeks": 22
+        },
+        "2026": {
+          "n": 3730,
+          "U": -173.71,
+          "ROI": -4.657,
+          "daily_mdd": 200.43,
+          "active_weeks": 22
+        }
+      },
+      "training": {
+        "2024": {
+          "train_n": 12934,
+          "features": 22,
+          "ridge": 100
+        },
+        "2025": {
+          "train_n": 21082,
+          "features": 22,
+          "ridge": 100
+        },
+        "2026": {
+          "train_n": 30439,
+          "features": 22,
+          "ridge": 100
+        }
+      },
+      "flip_from_R22_path_count": null
+    },
+    "AH_contract_only": {
+      "historical": {
+        "n": 19954,
+        "U": -648.33,
+        "ROI": -3.249,
+        "daily_mdd": 670.38,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -21.98,
+        "ROI": -2.25,
+        "daily_mdd": 54.39,
+        "active_weeks": 6
+      },
+      "historical_disjoint_actual": {
+        "n": 19197,
+        "U": -649.99,
+        "ROI": -3.386,
+        "daily_mdd": 670.38,
+        "active_weeks": 149
+      },
+      "year": {
+        "2024": {
+          "n": 6396,
+          "U": -175.425,
+          "ROI": -2.743,
+          "daily_mdd": 201.205,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -293.12,
+          "ROI": -4.093,
+          "daily_mdd": 297.85,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -179.785,
+          "ROI": -2.811,
+          "daily_mdd": 198.2,
+          "active_weeks": 45
+        }
+      },
+      "year_jan_may": {
+        "2024": {
+          "n": 2670,
+          "U": -120.43,
+          "ROI": -4.51,
+          "daily_mdd": 136.02,
+          "active_weeks": 22
+        },
+        "2025": {
+          "n": 3354,
+          "U": -114.68,
+          "ROI": -3.419,
+          "daily_mdd": 130.355,
+          "active_weeks": 22
+        },
+        "2026": {
+          "n": 3730,
+          "U": -155.86,
+          "ROI": -4.179,
+          "daily_mdd": 165.405,
+          "active_weeks": 22
+        }
+      },
+      "training": {
+        "2024": {
+          "train_n": 12934,
+          "features": 26,
+          "ridge": 100
+        },
+        "2025": {
+          "train_n": 21082,
+          "features": 26,
+          "ridge": 100
+        },
+        "2026": {
+          "train_n": 30439,
+          "features": 26,
+          "ridge": 100
+        }
+      },
+      "flip_from_R22_path_count": 7283,
+      "flip_changed_leg_profit_delta_U": -53.8
+    },
+    "AH_path_plus_shape": {
+      "historical": {
+        "n": 19954,
+        "U": -738.34,
+        "ROI": -3.7,
+        "daily_mdd": 750.475,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -36.82,
+        "ROI": -3.769,
+        "daily_mdd": 50.025,
+        "active_weeks": 6
+      },
+      "historical_disjoint_actual": {
+        "n": 19197,
+        "U": -703.895,
+        "ROI": -3.667,
+        "daily_mdd": 733.86,
+        "active_weeks": 149
+      },
+      "year": {
+        "2024": {
+          "n": 6396,
+          "U": -212.145,
+          "ROI": -3.317,
+          "daily_mdd": 230.09,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -246.205,
+          "ROI": -3.438,
+          "daily_mdd": 256.58,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -279.99,
+          "ROI": -4.378,
+          "daily_mdd": 291.095,
+          "active_weeks": 45
+        }
+      },
+      "year_jan_may": {
+        "2024": {
+          "n": 2670,
+          "U": -60.1,
+          "ROI": -2.251,
+          "daily_mdd": 84.76,
+          "active_weeks": 22
+        },
+        "2025": {
+          "n": 3354,
+          "U": -86.34,
+          "ROI": -2.574,
+          "daily_mdd": 105.92,
+          "active_weeks": 22
+        },
+        "2026": {
+          "n": 3730,
+          "U": -210.1,
+          "ROI": -5.633,
+          "daily_mdd": 221.205,
+          "active_weeks": 22
+        }
+      },
+      "training": {
+        "2024": {
+          "train_n": 12934,
+          "features": 47,
+          "ridge": 100
+        },
+        "2025": {
+          "train_n": 21082,
+          "features": 47,
+          "ridge": 100
+        },
+        "2026": {
+          "train_n": 30439,
+          "features": 47,
+          "ridge": 100
+        }
+      },
+      "flip_from_R22_path_count": 4178,
+      "flip_changed_leg_profit_delta_U": -143.81
+    },
+    "AH_path_plus_shape_ridge300": {
+      "historical": {
+        "n": 19954,
+        "U": -722.83,
+        "ROI": -3.622,
+        "daily_mdd": 729.15,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -46.55,
+        "ROI": -4.765,
+        "daily_mdd": 54.015,
+        "active_weeks": 6
+      },
+      "historical_disjoint_actual": {
+        "n": 19197,
+        "U": -684.515,
+        "ROI": -3.566,
+        "daily_mdd": 707.53,
+        "active_weeks": 149
+      },
+      "year": {
+        "2024": {
+          "n": 6396,
+          "U": -197.235,
+          "ROI": -3.084,
+          "daily_mdd": 210.405,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -234.665,
+          "ROI": -3.277,
+          "daily_mdd": 245.05,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -290.93,
+          "ROI": -4.549,
+          "daily_mdd": 302.035,
+          "active_weeks": 45
+        }
+      },
+      "year_jan_may": {
+        "2024": {
+          "n": 2670,
+          "U": -60.23,
+          "ROI": -2.256,
+          "daily_mdd": 78.15,
+          "active_weeks": 22
+        },
+        "2025": {
+          "n": 3354,
+          "U": -97.76,
+          "ROI": -2.915,
+          "daily_mdd": 119.25,
+          "active_weeks": 22
+        },
+        "2026": {
+          "n": 3730,
+          "U": -216.845,
+          "ROI": -5.814,
+          "daily_mdd": 227.95,
+          "active_weeks": 22
+        }
+      },
+      "training": {
+        "2024": {
+          "train_n": 12934,
+          "features": 47,
+          "ridge": 300
+        },
+        "2025": {
+          "train_n": 21082,
+          "features": 47,
+          "ridge": 300
+        },
+        "2026": {
+          "train_n": 30439,
+          "features": 47,
+          "ridge": 300
+        }
+      },
+      "flip_from_R22_path_count": 4116,
+      "flip_changed_leg_profit_delta_U": -128.3
+    },
+    "AH_path_plus_quote_interaction": {
+      "historical": {
+        "n": 19954,
+        "U": -804.44,
+        "ROI": -4.031,
+        "daily_mdd": 806.82,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -46.375,
+        "ROI": -4.747,
+        "daily_mdd": 48.115,
+        "active_weeks": 6
+      },
+      "historical_disjoint_actual": {
+        "n": 19197,
+        "U": -767.58,
+        "ROI": -3.998,
+        "daily_mdd": 780.635,
+        "active_weeks": 149
+      },
+      "year": {
+        "2024": {
+          "n": 6396,
+          "U": -232.11,
+          "ROI": -3.629,
+          "daily_mdd": 237.33,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -258.37,
+          "ROI": -3.608,
+          "daily_mdd": 267.79,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -313.96,
+          "ROI": -4.909,
+          "daily_mdd": 326.205,
+          "active_weeks": 45
+        }
+      },
+      "year_jan_may": {
+        "2024": {
+          "n": 2670,
+          "U": -124.165,
+          "ROI": -4.65,
+          "daily_mdd": 134.385,
+          "active_weeks": 22
+        },
+        "2025": {
+          "n": 3354,
+          "U": -73.42,
+          "ROI": -2.189,
+          "daily_mdd": 100.38,
+          "active_weeks": 22
+        },
+        "2026": {
+          "n": 3730,
+          "U": -238.115,
+          "ROI": -6.384,
+          "daily_mdd": 252.31,
+          "active_weeks": 22
+        }
+      },
+      "training": {
+        "2024": {
+          "train_n": 12934,
+          "features": 62,
+          "ridge": 100
+        },
+        "2025": {
+          "train_n": 21082,
+          "features": 62,
+          "ridge": 100
+        },
+        "2026": {
+          "train_n": 30439,
+          "features": 62,
+          "ridge": 100
+        }
+      },
+      "flip_from_R22_path_count": 4616,
+      "flip_changed_leg_profit_delta_U": -209.91
+    },
+    "AH_only_T24_T12_path": {
+      "historical": {
+        "n": 19954,
+        "U": -678.015,
+        "ROI": -3.398,
+        "daily_mdd": 684.65,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -30.315,
+        "ROI": -3.103,
+        "daily_mdd": 49.205,
+        "active_weeks": 6
+      },
+      "historical_disjoint_actual": {
+        "n": 19197,
+        "U": -656.19,
+        "ROI": -3.418,
+        "daily_mdd": 671.16,
+        "active_weeks": 149
+      },
+      "year": {
+        "2024": {
+          "n": 6396,
+          "U": -190.02,
+          "ROI": -2.971,
+          "daily_mdd": 196.655,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -238.445,
+          "ROI": -3.329,
+          "daily_mdd": 252.855,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -249.55,
+          "ROI": -3.902,
+          "daily_mdd": 257.11,
+          "active_weeks": 45
+        }
+      },
+      "year_jan_may": {
+        "2024": {
+          "n": 2670,
+          "U": -103.845,
+          "ROI": -3.889,
+          "daily_mdd": 115.99,
+          "active_weeks": 22
+        },
+        "2025": {
+          "n": 3354,
+          "U": -103.15,
+          "ROI": -3.075,
+          "daily_mdd": 131.595,
+          "active_weeks": 22
+        },
+        "2026": {
+          "n": 3730,
+          "U": -210.765,
+          "ROI": -5.651,
+          "daily_mdd": 218.325,
+          "active_weeks": 22
+        }
+      },
+      "training": {
+        "2024": {
+          "train_n": 12934,
+          "features": 41,
+          "ridge": 100
+        },
+        "2025": {
+          "train_n": 21082,
+          "features": 41,
+          "ridge": 100
+        },
+        "2026": {
+          "train_n": 30439,
+          "features": 41,
+          "ridge": 100
+        }
+      },
+      "flip_from_R22_path_count": 6173,
+      "flip_changed_leg_profit_delta_U": -83.485
+    },
+    "AH_only_T24_T12_path_ridge300": {
+      "historical": {
+        "n": 19954,
+        "U": -740.55,
+        "ROI": -3.711,
+        "daily_mdd": 749.155,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -33.225,
+        "ROI": -3.401,
+        "daily_mdd": 51.23,
+        "active_weeks": 6
+      },
+      "historical_disjoint_actual": {
+        "n": 19197,
+        "U": -710.835,
+        "ROI": -3.703,
+        "daily_mdd": 725.81,
+        "active_weeks": 149
+      },
+      "year": {
+        "2024": {
+          "n": 6396,
+          "U": -211.91,
+          "ROI": -3.313,
+          "daily_mdd": 220.515,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -261.85,
+          "ROI": -3.656,
+          "daily_mdd": 269.69,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -266.79,
+          "ROI": -4.171,
+          "daily_mdd": 275.145,
+          "active_weeks": 45
+        }
+      },
+      "year_jan_may": {
+        "2024": {
+          "n": 2670,
+          "U": -125.475,
+          "ROI": -4.699,
+          "daily_mdd": 139.59,
+          "active_weeks": 22
+        },
+        "2025": {
+          "n": 3354,
+          "U": -124.605,
+          "ROI": -3.715,
+          "daily_mdd": 142.975,
+          "active_weeks": 22
+        },
+        "2026": {
+          "n": 3730,
+          "U": -215.485,
+          "ROI": -5.777,
+          "daily_mdd": 224.01,
+          "active_weeks": 22
+        }
+      },
+      "training": {
+        "2024": {
+          "train_n": 12934,
+          "features": 41,
+          "ridge": 300
+        },
+        "2025": {
+          "train_n": 21082,
+          "features": 41,
+          "ridge": 300
+        },
+        "2026": {
+          "train_n": 30439,
+          "features": 41,
+          "ridge": 300
+        }
+      },
+      "flip_from_R22_path_count": 6095,
+      "flip_changed_leg_profit_delta_U": -146.02
+    }
+  },
+  "unconditional_legs": {
+    "home": {
+      "historical": {
+        "n": 19954,
+        "U": -776.805,
+        "ROI": -3.893,
+        "daily_mdd": 788.27,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -23.485,
+        "ROI": -2.404,
+        "daily_mdd": 24.95,
+        "active_weeks": 6
+      },
+      "annual": {
+        "2024": {
+          "n": 6396,
+          "U": -312.385,
+          "ROI": -4.884,
+          "daily_mdd": 316.005,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -258.83,
+          "ROI": -3.614,
+          "daily_mdd": 265.75,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -205.59,
+          "ROI": -3.214,
+          "daily_mdd": 216.485,
+          "active_weeks": 45
+        }
+      }
+    },
+    "away": {
+      "historical": {
+        "n": 19954,
+        "U": -542.15,
+        "ROI": -2.717,
+        "daily_mdd": 622.845,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -54.04,
+        "ROI": -5.531,
+        "daily_mdd": 67.585,
+        "active_weeks": 6
+      },
+      "annual": {
+        "2024": {
+          "n": 6396,
+          "U": -79.31,
+          "ROI": -1.24,
+          "daily_mdd": 172.04,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -201.465,
+          "ROI": -2.813,
+          "daily_mdd": 218.025,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -261.375,
+          "ROI": -4.087,
+          "daily_mdd": 279.31,
+          "active_weeks": 45
+        }
+      }
+    },
+    "market_home_favorite_if_negative_else_away": {
+      "historical": {
+        "n": 19954,
+        "U": -786.05,
+        "ROI": -3.939,
+        "daily_mdd": 809.605,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -42.905,
+        "ROI": -4.392,
+        "daily_mdd": 53.555,
+        "active_weeks": 6
+      },
+      "annual": {
+        "2024": {
+          "n": 6396,
+          "U": -225.405,
+          "ROI": -3.524,
+          "daily_mdd": 237.725,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -322.385,
+          "ROI": -4.501,
+          "daily_mdd": 322.665,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -238.26,
+          "ROI": -3.725,
+          "daily_mdd": 259.905,
+          "active_weeks": 45
+        }
+      }
+    },
+    "market_underdog_home_if_positive_else_away": {
+      "historical": {
+        "n": 19954,
+        "U": -580.775,
+        "ROI": -2.911,
+        "daily_mdd": 607.005,
+        "active_weeks": 149
+      },
+      "actual": {
+        "n": 977,
+        "U": -52.73,
+        "ROI": -5.397,
+        "daily_mdd": 54.665,
+        "active_weeks": 6
+      },
+      "annual": {
+        "2024": {
+          "n": 6396,
+          "U": -164.39,
+          "ROI": -2.57,
+          "daily_mdd": 196.935,
+          "active_weeks": 53
+        },
+        "2025": {
+          "n": 7162,
+          "U": -143.37,
+          "ROI": -2.002,
+          "daily_mdd": 161.38,
+          "active_weeks": 53
+        },
+        "2026": {
+          "n": 6396,
+          "U": -273.015,
+          "ROI": -4.269,
+          "daily_mdd": 287.245,
+          "active_weeks": 45
+        }
+      }
+    }
+  },
+  "contract_diagnostics": {
+    "2024_full": {
+      "n": 6396,
+      "home_favorite": {
+        "n": 3822,
+        "roi": -3.482
+      },
+      "away_favorite": {
+        "n": 1784,
+        "roi": -3.325
+      },
+      "pickem": {
+        "n": 790,
+        "roi": -1.157
+      },
+      "integer": {
+        "n": 1429,
+        "roi": -3.228
+      },
+      "quarter": {
+        "n": 2394,
+        "roi": -1.689
+      },
+      "half": {
+        "n": 1516,
+        "roi": -4.737
+      },
+      "three_quarter": {
+        "n": 1057,
+        "roi": -4.084
+      },
+      "line_abs_mean": 0.628,
+      "home_favored_fraction": 0.598,
+      "AH_source_age_hours_median": 2.26
+    },
+    "2024_jan_may": {
+      "n": 2670,
+      "home_favorite": {
+        "n": 1620,
+        "roi": -3.69
+      },
+      "away_favorite": {
+        "n": 727,
+        "roi": -6.639
+      },
+      "pickem": {
+        "n": 323,
+        "roi": 5.04
+      },
+      "integer": {
+        "n": 586,
+        "roi": -0.85
+      },
+      "quarter": {
+        "n": 1014,
+        "roi": -1.621
+      },
+      "half": {
+        "n": 639,
+        "roi": -9.233
+      },
+      "three_quarter": {
+        "n": 431,
+        "roi": -2.631
+      },
+      "line_abs_mean": 0.627,
+      "home_favored_fraction": 0.607,
+      "AH_source_age_hours_median": 2.221
+    },
+    "2025_full": {
+      "n": 7162,
+      "home_favorite": {
+        "n": 4230,
+        "roi": -2.59
+      },
+      "away_favorite": {
+        "n": 2040,
+        "roi": -0.92
+      },
+      "pickem": {
+        "n": 892,
+        "roi": -2.602
+      },
+      "integer": {
+        "n": 1675,
+        "roi": -2.763
+      },
+      "quarter": {
+        "n": 2579,
+        "roi": -2.924
+      },
+      "half": {
+        "n": 1745,
+        "roi": -2.03
+      },
+      "three_quarter": {
+        "n": 1163,
+        "roi": 0.481
+      },
+      "line_abs_mean": 0.622,
+      "home_favored_fraction": 0.591,
+      "AH_source_age_hours_median": 2.318
+    },
+    "2025_jan_may": {
+      "n": 3354,
+      "home_favorite": {
+        "n": 2016,
+        "roi": -2.454
+      },
+      "away_favorite": {
+        "n": 926,
+        "roi": 1.303
+      },
+      "pickem": {
+        "n": 412,
+        "roi": -1.614
+      },
+      "integer": {
+        "n": 771,
+        "roi": -0.617
+      },
+      "quarter": {
+        "n": 1221,
+        "roi": -1.841
+      },
+      "half": {
+        "n": 844,
+        "roi": -3.059
+      },
+      "three_quarter": {
+        "n": 518,
+        "roi": 1.736
+      },
+      "line_abs_mean": 0.623,
+      "home_favored_fraction": 0.601,
+      "AH_source_age_hours_median": 2.277
+    },
+    "2026_full": {
+      "n": 6396,
+      "home_favorite": {
+        "n": 3826,
+        "roi": -2.822
+      },
+      "away_favorite": {
+        "n": 1819,
+        "roi": -5.775
+      },
+      "pickem": {
+        "n": 751,
+        "roi": -3.787
+      },
+      "integer": {
+        "n": 1408,
+        "roi": -4.757
+      },
+      "quarter": {
+        "n": 2337,
+        "roi": -4.275
+      },
+      "half": {
+        "n": 1542,
+        "roi": -2.535
+      },
+      "three_quarter": {
+        "n": 1109,
+        "roi": -3.197
+      },
+      "line_abs_mean": 0.63,
+      "home_favored_fraction": 0.598,
+      "AH_source_age_hours_median": 2.168
+    },
+    "2026_jan_may": {
+      "n": 3730,
+      "home_favorite": {
+        "n": 2242,
+        "roi": -4.529
+      },
+      "away_favorite": {
+        "n": 1041,
+        "roi": -6.47
+      },
+      "pickem": {
+        "n": 447,
+        "roi": -1.078
+      },
+      "integer": {
+        "n": 801,
+        "roi": -1.181
+      },
+      "quarter": {
+        "n": 1374,
+        "roi": -5.587
+      },
+      "half": {
+        "n": 919,
+        "roi": -4.566
+      },
+      "three_quarter": {
+        "n": 636,
+        "roi": -7.157
+      },
+      "line_abs_mean": 0.612,
+      "home_favored_fraction": 0.601,
+      "AH_source_age_hours_median": 1.959
+    },
+    "actual_outside_eight": {
+      "n": 977,
+      "home_favorite": {
+        "n": 562,
+        "roi": 0.589
+      },
+      "away_favorite": {
+        "n": 306,
+        "roi": -4.971
+      },
+      "pickem": {
+        "n": 109,
+        "roi": -8.688
+      },
+      "integer": {
+        "n": 227,
+        "roi": -12.004
+      },
+      "quarter": {
+        "n": 345,
+        "roi": -6.245
+      },
+      "half": {
+        "n": 231,
+        "roi": 7.255
+      },
+      "three_quarter": {
+        "n": 174,
+        "roi": 6.129
+      },
+      "line_abs_mean": 0.694,
+      "home_favored_fraction": 0.575,
+      "AH_source_age_hours_median": 10.097
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}
