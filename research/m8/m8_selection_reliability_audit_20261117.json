@@ -1,0 +1,84 @@
+{
+  "analysis": "R55 supplementary credibility check. Source confirmed 306 actual received Crown T1 archive and 50 retrospectively recognized frozen8 signals; their outcomes are not a locked forward R55 strategy nor official TG orders. Original8 historical 2026 ROI confidence interval via UTC-day block bootstrap. Resampling intervals quantify historical variation, not repeated model-search selection bias. Model-neighbor predicted return optimism is an approximate analog score, not calibrated probability or actual executable EV. No production rules changed.",
+  "source": {
+    "received_rows": 306,
+    "selected_frozen": 50,
+    "frozen": {
+      "membership": true,
+      "inputs": true,
+      "scripts": true
+    }
+  },
+  "receipt_frozen": {
+    "all": {
+      "n": 50,
+      "U": 3.64,
+      "ROI": 7.28,
+      "bootstrap95_roi_pp": [
+        -14.923,
+        68.143
+      ],
+      "bootstrap_unit": "day",
+      "resamples": 10000
+    },
+    "base": {
+      "n": 30,
+      "U": 3.97,
+      "ROI": 13.233,
+      "bootstrap95_roi_pp": [
+        -12.229,
+        61.333
+      ],
+      "bootstrap_unit": "day",
+      "resamples": 10000
+    },
+    "others": {
+      "n": 20,
+      "U": -0.33,
+      "ROI": -1.65,
+      "bootstrap95_roi_pp": [
+        -19.467,
+        73.667
+      ],
+      "bootstrap_unit": "day",
+      "resamples": 10000
+    }
+  },
+  "historical_2026_frozen_eight": {
+    "n": 2218,
+    "U": 99.82,
+    "ROI": 4.5,
+    "bootstrap95_roi_pp": [
+      1.078,
+      7.853
+    ],
+    "bootstrap_unit": "day",
+    "resamples": 5000
+  },
+  "model_neighbor_2026": {
+    "structural_k128": {
+      "predicted_mean_roi_pp": 4.957,
+      "observed_roi_pp": -4.837,
+      "optimism_gap_pp": 9.794,
+      "selected_n": 4982
+    },
+    "structural_k512": {
+      "predicted_mean_roi_pp": 2.014,
+      "observed_roi_pp": -3.281,
+      "optimism_gap_pp": 5.295,
+      "selected_n": 3004
+    },
+    "richer_k128": {
+      "predicted_mean_roi_pp": 4.906,
+      "observed_roi_pp": -5.239,
+      "optimism_gap_pp": 10.145,
+      "selected_n": 4987
+    },
+    "richer_k512": {
+      "predicted_mean_roi_pp": 1.95,
+      "observed_roi_pp": -3.439,
+      "optimism_gap_pp": 5.389,
+      "selected_n": 2959
+    }
+  }
+}
