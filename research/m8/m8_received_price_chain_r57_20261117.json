@@ -1,0 +1,1147 @@
+{
+  "research_id": "M8_R57_REAL_RECEIVED_PRICE_CHAIN",
+  "method": "Correct R56 statement: raw archive DOES have verified later T6/T3/T1 snapshots. Independently reverify original attempt raw_sha, snapshot_sha, actual receipt and source_event timestamp, Crown bookmaker, exact fixture UTC and league/team identity against R22 verified FT. Use R56 fixed previous-year T24/T12->T6 same-line price-shortening prediction to choose AH sides; actual T6/T3/T1 snapshots used solely as FUTURE LABEL and same-side ex-post price comparison. All current T12 base stakes priced at ACTUALLY RECEIVED quotes, not claims of executable at nominal T12 cutoff. Future AH line changes produce incomparable odds values and null, not zero CLV. New quote freshness is separate. Original8 exclusion only hindsight attribution; no OU selection. No new production Gate, no actual fills, no TG or prospective trading claims. Receipt archive includes LOCKED_EVALUATION and DEVELOPMENT splits; results reported by source and do not relabel retrospective study as locked forward. No API requests.",
+  "coverage": {
+    "archive_rows": 12550,
+    "archive_unique_fixtures": 1607,
+    "by_horizon": {
+      "T48": 940,
+      "T36": 1265,
+      "T18": 1458,
+      "T12": 1503,
+      "T6": 1519,
+      "T3": 1495,
+      "T1": 1523,
+      "T0.5": 1500,
+      "T24": 1347
+    },
+    "R22_verified_T24_T12_with_FT": 1230,
+    "R22_pair_source_verified": 1230,
+    "current_source_horizon": {
+      "T12": 1172,
+      "T18": 58
+    },
+    "partial": {
+      "missing_T3": 81,
+      "missing_T6": 47,
+      "missing_T1": 61
+    },
+    "verification_errors": {}
+  },
+  "prediction": {
+    "prior_year_training_n": 30439,
+    "coefficients": [
+      [
+        -0.004523794351737032,
+        -0.0018820682310854951
+      ],
+      [
+        -0.0005978882285715898,
+        0.0005655419746209367
+      ],
+      [
+        -0.0006827107637984717,
+        0.0007564313018192409
+      ],
+      [
+        0.00011036954788914467,
+        -0.0001527498511383769
+      ],
+      [
+        0.0026792708736195258,
+        -0.00247073069782668
+      ],
+      [
+        -0.0010973618397653005,
+        0.0007529925152554808
+      ],
+      [
+        -0.006306887634874331,
+        0.006081250543684584
+      ],
+      [
+        -0.009143020615081024,
+        0.009147093549247691
+      ],
+      [
+        -0.0030205718825593512,
+        0.0032646925304807956
+      ],
+      [
+        -0.0062107782232171845,
+        -0.0020106885704744737
+      ],
+      [
+        -0.003407253648060864,
+        -0.004862826802815582
+      ],
+      [
+        0.0006748896290910337,
+        -0.00015684859712795197
+      ],
+      [
+        -0.0012480082563691233,
+        0.0010156517643603255
+      ],
+      [
+        -0.004194789638925261,
+        -0.004191496154487683
+      ],
+      [
+        -2.5736228658982904e-05,
+        0.0005824649489585049
+      ],
+      [
+        -0.001168246203144287,
+        -0.0005007728292584911
+      ],
+      [
+        0.0005580513586334788,
+        -0.00023532370126018621
+      ],
+      [
+        -0.0003423670488043124,
+        0.00028361137188168264
+      ],
+      [
+        -0.0004751982609372876,
+        0.00028657730479189066
+      ],
+      [
+        0.00034346491167304243,
+        -0.00041995677297252564
+      ],
+      [
+        0.0003130922893399963,
+        0.0005076746204123379
+      ],
+      [
+        1.5062862207167573e-05,
+        0.000580182081667589
+      ]
+    ],
+    "previous_R56_all_receipts_model_return": {
+      "n": 1230,
+      "U": -85.485,
+      "ROI": -6.95,
+      "wins": 531,
+      "losses": 615,
+      "push": 84
+    },
+    "previous_R56_all_receipts_opportunities": {
+      "n": 856,
+      "U": -53.135,
+      "ROI": -6.207,
+      "wins": 373,
+      "losses": 431,
+      "push": 52
+    }
+  },
+  "results": {
+    "T6": {
+      "all_received": {
+        "n": 1230,
+        "selected": {
+          "n": 1230,
+          "U": -85.485,
+          "ROI": -6.95,
+          "wins": 531,
+          "losses": 615,
+          "push": 84
+        },
+        "opportunity": {
+          "n": 856,
+          "U": -53.135,
+          "ROI": -6.207,
+          "wins": 373,
+          "losses": 431,
+          "push": 52
+        },
+        "predicted_same_line_shortening_mean": 0.004875,
+        "future_receipt_n": 1183,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 832,
+          "LOCKED_EVALUATION": 351
+        },
+        "later_receipt_gap_hours_mean": 6.5538,
+        "future_source_event_advanced_n": 1086,
+        "future_source_event_advanced_pct": 91.801,
+        "source_event_hours_delta_mean": 29.031,
+        "same_AH_line_n": 960,
+        "AH_line_changed_n": 223,
+        "same_AH_line_shortened_n": 384,
+        "same_AH_line_unchanged_n": 167,
+        "same_AH_line_lengthened_n": 409,
+        "same_AH_line_shortened_pct": 40.0,
+        "same_line_odds_shortening_mean": 0.003937,
+        "fresh_same_line_n": 863,
+        "fresh_same_line_shortened_n": 384,
+        "fresh_same_line_odds_shortening_mean": 0.00438,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 1183,
+          "U": -82.54,
+          "ROI": -6.977,
+          "wins": 511,
+          "losses": 592,
+          "push": 80
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 1183,
+          "U": -74.8,
+          "ROI": -6.323,
+          "wins": 521,
+          "losses": 581,
+          "push": 81
+        }
+      },
+      "outside_original_eight_RETROSPECTIVE": {
+        "n": 977,
+        "selected": {
+          "n": 977,
+          "U": -57.02,
+          "ROI": -5.836,
+          "wins": 429,
+          "losses": 484,
+          "push": 64
+        },
+        "opportunity": {
+          "n": 658,
+          "U": -28.075,
+          "ROI": -4.267,
+          "wins": 296,
+          "losses": 327,
+          "push": 35
+        },
+        "predicted_same_line_shortening_mean": 0.00439,
+        "future_receipt_n": 939,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 666,
+          "LOCKED_EVALUATION": 273
+        },
+        "later_receipt_gap_hours_mean": 6.59,
+        "future_source_event_advanced_n": 857,
+        "future_source_event_advanced_pct": 91.267,
+        "source_event_hours_delta_mean": 28.69,
+        "same_AH_line_n": 765,
+        "AH_line_changed_n": 174,
+        "same_AH_line_shortened_n": 313,
+        "same_AH_line_unchanged_n": 137,
+        "same_AH_line_lengthened_n": 315,
+        "same_AH_line_shortened_pct": 40.915,
+        "same_line_odds_shortening_mean": 0.004837,
+        "fresh_same_line_n": 683,
+        "fresh_same_line_shortened_n": 313,
+        "fresh_same_line_odds_shortening_mean": 0.005417,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 939,
+          "U": -55.075,
+          "ROI": -5.865,
+          "wins": 412,
+          "losses": 465,
+          "push": 62
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 939,
+          "U": -50.385,
+          "ROI": -5.366,
+          "wins": 419,
+          "losses": 459,
+          "push": 61
+        }
+      },
+      "research_price_opportunity": {
+        "n": 856,
+        "selected": {
+          "n": 856,
+          "U": -53.135,
+          "ROI": -6.207,
+          "wins": 373,
+          "losses": 431,
+          "push": 52
+        },
+        "opportunity": {
+          "n": 856,
+          "U": -53.135,
+          "ROI": -6.207,
+          "wins": 373,
+          "losses": 431,
+          "push": 52
+        },
+        "predicted_same_line_shortening_mean": 0.010138,
+        "future_receipt_n": 828,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 581,
+          "LOCKED_EVALUATION": 247
+        },
+        "later_receipt_gap_hours_mean": 6.5254,
+        "future_source_event_advanced_n": 761,
+        "future_source_event_advanced_pct": 91.908,
+        "source_event_hours_delta_mean": 27.598,
+        "same_AH_line_n": 640,
+        "AH_line_changed_n": 188,
+        "same_AH_line_shortened_n": 281,
+        "same_AH_line_unchanged_n": 116,
+        "same_AH_line_lengthened_n": 243,
+        "same_AH_line_shortened_pct": 43.906,
+        "same_line_odds_shortening_mean": 0.011891,
+        "fresh_same_line_n": 573,
+        "fresh_same_line_shortened_n": 281,
+        "fresh_same_line_odds_shortening_mean": 0.013281,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 828,
+          "U": -51.315,
+          "ROI": -6.197,
+          "wins": 361,
+          "losses": 418,
+          "push": 49
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 828,
+          "U": -47.915,
+          "ROI": -5.787,
+          "wins": 369,
+          "losses": 409,
+          "push": 50
+        }
+      },
+      "research_price_NOT_opportunity": {
+        "n": 374,
+        "selected": {
+          "n": 374,
+          "U": -32.35,
+          "ROI": -8.65,
+          "wins": 158,
+          "losses": 184,
+          "push": 32
+        },
+        "opportunity": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null,
+          "wins": 0,
+          "losses": 0,
+          "push": 0
+        },
+        "predicted_same_line_shortening_mean": -0.007171,
+        "future_receipt_n": 355,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 251,
+          "LOCKED_EVALUATION": 104
+        },
+        "later_receipt_gap_hours_mean": 6.62,
+        "future_source_event_advanced_n": 325,
+        "future_source_event_advanced_pct": 91.549,
+        "source_event_hours_delta_mean": 32.372,
+        "same_AH_line_n": 320,
+        "AH_line_changed_n": 35,
+        "same_AH_line_shortened_n": 103,
+        "same_AH_line_unchanged_n": 51,
+        "same_AH_line_lengthened_n": 166,
+        "same_AH_line_shortened_pct": 32.188,
+        "same_line_odds_shortening_mean": -0.011969,
+        "fresh_same_line_n": 290,
+        "fresh_same_line_shortened_n": 103,
+        "fresh_same_line_odds_shortening_mean": -0.013207,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 355,
+          "U": -31.225,
+          "ROI": -8.796,
+          "wins": 150,
+          "losses": 174,
+          "push": 31
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 355,
+          "U": -26.885,
+          "ROI": -7.573,
+          "wins": 152,
+          "losses": 172,
+          "push": 31
+        }
+      },
+      "research_price_opportunity_outside_eight_RETROSPECTIVE": {
+        "n": 658,
+        "selected": {
+          "n": 658,
+          "U": -28.075,
+          "ROI": -4.267,
+          "wins": 296,
+          "losses": 327,
+          "push": 35
+        },
+        "opportunity": {
+          "n": 658,
+          "U": -28.075,
+          "ROI": -4.267,
+          "wins": 296,
+          "losses": 327,
+          "push": 35
+        },
+        "predicted_same_line_shortening_mean": 0.009969,
+        "future_receipt_n": 638,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 453,
+          "LOCKED_EVALUATION": 185
+        },
+        "later_receipt_gap_hours_mean": 6.5627,
+        "future_source_event_advanced_n": 581,
+        "future_source_event_advanced_pct": 91.066,
+        "source_event_hours_delta_mean": 27.516,
+        "same_AH_line_n": 493,
+        "AH_line_changed_n": 145,
+        "same_AH_line_shortened_n": 224,
+        "same_AH_line_unchanged_n": 94,
+        "same_AH_line_lengthened_n": 175,
+        "same_AH_line_shortened_pct": 45.436,
+        "same_line_odds_shortening_mean": 0.013225,
+        "fresh_same_line_n": 436,
+        "fresh_same_line_shortened_n": 224,
+        "fresh_same_line_odds_shortening_mean": 0.014954,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 638,
+          "U": -28.195,
+          "ROI": -4.419,
+          "wins": 286,
+          "losses": 318,
+          "push": 34
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 638,
+          "U": -27.185,
+          "ROI": -4.261,
+          "wins": 291,
+          "losses": 313,
+          "push": 34
+        }
+      },
+      "research_price_NOT_opportunity_outside_eight_RETROSPECTIVE": {
+        "n": 319,
+        "selected": {
+          "n": 319,
+          "U": -28.945,
+          "ROI": -9.074,
+          "wins": 133,
+          "losses": 157,
+          "push": 29
+        },
+        "opportunity": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null,
+          "wins": 0,
+          "losses": 0,
+          "push": 0
+        },
+        "predicted_same_line_shortening_mean": -0.007118,
+        "future_receipt_n": 301,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 213,
+          "LOCKED_EVALUATION": 88
+        },
+        "later_receipt_gap_hours_mean": 6.6479,
+        "future_source_event_advanced_n": 276,
+        "future_source_event_advanced_pct": 91.694,
+        "source_event_hours_delta_mean": 31.179,
+        "same_AH_line_n": 272,
+        "AH_line_changed_n": 29,
+        "same_AH_line_shortened_n": 89,
+        "same_AH_line_unchanged_n": 43,
+        "same_AH_line_lengthened_n": 140,
+        "same_AH_line_shortened_pct": 32.721,
+        "same_line_odds_shortening_mean": -0.010368,
+        "fresh_same_line_n": 247,
+        "fresh_same_line_shortened_n": 89,
+        "fresh_same_line_odds_shortening_mean": -0.011417,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 301,
+          "U": -26.88,
+          "ROI": -8.93,
+          "wins": 126,
+          "losses": 147,
+          "push": 28
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 301,
+          "U": -23.2,
+          "ROI": -7.708,
+          "wins": 128,
+          "losses": 146,
+          "push": 27
+        }
+      }
+    },
+    "T3": {
+      "all_received": {
+        "n": 1230,
+        "selected": {
+          "n": 1230,
+          "U": -85.485,
+          "ROI": -6.95,
+          "wins": 531,
+          "losses": 615,
+          "push": 84
+        },
+        "opportunity": {
+          "n": 856,
+          "U": -53.135,
+          "ROI": -6.207,
+          "wins": 373,
+          "losses": 431,
+          "push": 52
+        },
+        "predicted_same_line_shortening_mean": 0.004875,
+        "future_receipt_n": 1149,
+        "future_receipt_splits": {
+          "LOCKED_EVALUATION": 346,
+          "DEVELOPMENT": 803
+        },
+        "later_receipt_gap_hours_mean": 9.5423,
+        "future_source_event_advanced_n": 1122,
+        "future_source_event_advanced_pct": 97.65,
+        "source_event_hours_delta_mean": 34.352,
+        "same_AH_line_n": 832,
+        "AH_line_changed_n": 317,
+        "same_AH_line_shortened_n": 400,
+        "same_AH_line_unchanged_n": 73,
+        "same_AH_line_lengthened_n": 359,
+        "same_AH_line_shortened_pct": 48.077,
+        "same_line_odds_shortening_mean": 0.013474,
+        "fresh_same_line_n": 805,
+        "fresh_same_line_shortened_n": 400,
+        "fresh_same_line_odds_shortening_mean": 0.013925,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 1149,
+          "U": -70.915,
+          "ROI": -6.172,
+          "wins": 500,
+          "losses": 570,
+          "push": 79
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 1149,
+          "U": -68.035,
+          "ROI": -5.921,
+          "wins": 513,
+          "losses": 558,
+          "push": 78
+        }
+      },
+      "outside_original_eight_RETROSPECTIVE": {
+        "n": 977,
+        "selected": {
+          "n": 977,
+          "U": -57.02,
+          "ROI": -5.836,
+          "wins": 429,
+          "losses": 484,
+          "push": 64
+        },
+        "opportunity": {
+          "n": 658,
+          "U": -28.075,
+          "ROI": -4.267,
+          "wins": 296,
+          "losses": 327,
+          "push": 35
+        },
+        "predicted_same_line_shortening_mean": 0.00439,
+        "future_receipt_n": 914,
+        "future_receipt_splits": {
+          "LOCKED_EVALUATION": 271,
+          "DEVELOPMENT": 643
+        },
+        "later_receipt_gap_hours_mean": 9.575,
+        "future_source_event_advanced_n": 888,
+        "future_source_event_advanced_pct": 97.155,
+        "source_event_hours_delta_mean": 33.723,
+        "same_AH_line_n": 707,
+        "AH_line_changed_n": 207,
+        "same_AH_line_shortened_n": 349,
+        "same_AH_line_unchanged_n": 69,
+        "same_AH_line_lengthened_n": 289,
+        "same_AH_line_shortened_pct": 49.364,
+        "same_line_odds_shortening_mean": 0.015078,
+        "fresh_same_line_n": 681,
+        "fresh_same_line_shortened_n": 349,
+        "fresh_same_line_odds_shortening_mean": 0.015653,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 914,
+          "U": -47.51,
+          "ROI": -5.198,
+          "wins": 403,
+          "losses": 450,
+          "push": 61
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 914,
+          "U": -46.875,
+          "ROI": -5.129,
+          "wins": 410,
+          "losses": 441,
+          "push": 63
+        }
+      },
+      "research_price_opportunity": {
+        "n": 856,
+        "selected": {
+          "n": 856,
+          "U": -53.135,
+          "ROI": -6.207,
+          "wins": 373,
+          "losses": 431,
+          "push": 52
+        },
+        "opportunity": {
+          "n": 856,
+          "U": -53.135,
+          "ROI": -6.207,
+          "wins": 373,
+          "losses": 431,
+          "push": 52
+        },
+        "predicted_same_line_shortening_mean": 0.010138,
+        "future_receipt_n": 819,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 571,
+          "LOCKED_EVALUATION": 248
+        },
+        "later_receipt_gap_hours_mean": 9.5372,
+        "future_source_event_advanced_n": 803,
+        "future_source_event_advanced_pct": 98.046,
+        "source_event_hours_delta_mean": 33.422,
+        "same_AH_line_n": 559,
+        "AH_line_changed_n": 260,
+        "same_AH_line_shortened_n": 305,
+        "same_AH_line_unchanged_n": 44,
+        "same_AH_line_lengthened_n": 210,
+        "same_AH_line_shortened_pct": 54.562,
+        "same_line_odds_shortening_mean": 0.026476,
+        "fresh_same_line_n": 543,
+        "fresh_same_line_shortened_n": 305,
+        "fresh_same_line_odds_shortening_mean": 0.027256,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 819,
+          "U": -48.65,
+          "ROI": -5.94,
+          "wins": 358,
+          "losses": 412,
+          "push": 49
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 819,
+          "U": -49.46,
+          "ROI": -6.039,
+          "wins": 369,
+          "losses": 401,
+          "push": 49
+        }
+      },
+      "research_price_NOT_opportunity": {
+        "n": 374,
+        "selected": {
+          "n": 374,
+          "U": -32.35,
+          "ROI": -8.65,
+          "wins": 158,
+          "losses": 184,
+          "push": 32
+        },
+        "opportunity": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null,
+          "wins": 0,
+          "losses": 0,
+          "push": 0
+        },
+        "predicted_same_line_shortening_mean": -0.007171,
+        "future_receipt_n": 330,
+        "future_receipt_splits": {
+          "LOCKED_EVALUATION": 98,
+          "DEVELOPMENT": 232
+        },
+        "later_receipt_gap_hours_mean": 9.5548,
+        "future_source_event_advanced_n": 319,
+        "future_source_event_advanced_pct": 96.667,
+        "source_event_hours_delta_mean": 36.661,
+        "same_AH_line_n": 273,
+        "AH_line_changed_n": 57,
+        "same_AH_line_shortened_n": 95,
+        "same_AH_line_unchanged_n": 29,
+        "same_AH_line_lengthened_n": 149,
+        "same_AH_line_shortened_pct": 34.799,
+        "same_line_odds_shortening_mean": -0.01315,
+        "fresh_same_line_n": 262,
+        "fresh_same_line_shortened_n": 95,
+        "fresh_same_line_odds_shortening_mean": -0.013702,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 330,
+          "U": -22.265,
+          "ROI": -6.747,
+          "wins": 142,
+          "losses": 158,
+          "push": 30
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 330,
+          "U": -18.575,
+          "ROI": -5.629,
+          "wins": 144,
+          "losses": 157,
+          "push": 29
+        }
+      },
+      "research_price_opportunity_outside_eight_RETROSPECTIVE": {
+        "n": 658,
+        "selected": {
+          "n": 658,
+          "U": -28.075,
+          "ROI": -4.267,
+          "wins": 296,
+          "losses": 327,
+          "push": 35
+        },
+        "opportunity": {
+          "n": 658,
+          "U": -28.075,
+          "ROI": -4.267,
+          "wins": 296,
+          "losses": 327,
+          "push": 35
+        },
+        "predicted_same_line_shortening_mean": 0.009969,
+        "future_receipt_n": 634,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 447,
+          "LOCKED_EVALUATION": 187
+        },
+        "later_receipt_gap_hours_mean": 9.5709,
+        "future_source_event_advanced_n": 619,
+        "future_source_event_advanced_pct": 97.634,
+        "source_event_hours_delta_mean": 33.136,
+        "same_AH_line_n": 464,
+        "AH_line_changed_n": 170,
+        "same_AH_line_shortened_n": 263,
+        "same_AH_line_unchanged_n": 42,
+        "same_AH_line_lengthened_n": 159,
+        "same_AH_line_shortened_pct": 56.681,
+        "same_line_odds_shortening_mean": 0.029052,
+        "fresh_same_line_n": 449,
+        "fresh_same_line_shortened_n": 263,
+        "fresh_same_line_odds_shortening_mean": 0.030022,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 634,
+          "U": -26.03,
+          "ROI": -4.106,
+          "wins": 285,
+          "losses": 315,
+          "push": 34
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 634,
+          "U": -27.855,
+          "ROI": -4.394,
+          "wins": 291,
+          "losses": 307,
+          "push": 36
+        }
+      },
+      "research_price_NOT_opportunity_outside_eight_RETROSPECTIVE": {
+        "n": 319,
+        "selected": {
+          "n": 319,
+          "U": -28.945,
+          "ROI": -9.074,
+          "wins": 133,
+          "losses": 157,
+          "push": 29
+        },
+        "opportunity": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null,
+          "wins": 0,
+          "losses": 0,
+          "push": 0
+        },
+        "predicted_same_line_shortening_mean": -0.007118,
+        "future_receipt_n": 280,
+        "future_receipt_splits": {
+          "LOCKED_EVALUATION": 84,
+          "DEVELOPMENT": 196
+        },
+        "later_receipt_gap_hours_mean": 9.5842,
+        "future_source_event_advanced_n": 269,
+        "future_source_event_advanced_pct": 96.071,
+        "source_event_hours_delta_mean": 35.054,
+        "same_AH_line_n": 243,
+        "AH_line_changed_n": 37,
+        "same_AH_line_shortened_n": 86,
+        "same_AH_line_unchanged_n": 27,
+        "same_AH_line_lengthened_n": 130,
+        "same_AH_line_shortened_pct": 35.391,
+        "same_line_odds_shortening_mean": -0.011605,
+        "fresh_same_line_n": 232,
+        "fresh_same_line_shortened_n": 86,
+        "fresh_same_line_odds_shortening_mean": -0.012155,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 280,
+          "U": -21.48,
+          "ROI": -7.671,
+          "wins": 118,
+          "losses": 135,
+          "push": 27
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 280,
+          "U": -19.02,
+          "ROI": -6.793,
+          "wins": 119,
+          "losses": 134,
+          "push": 27
+        }
+      }
+    },
+    "T1": {
+      "all_received": {
+        "n": 1230,
+        "selected": {
+          "n": 1230,
+          "U": -85.485,
+          "ROI": -6.95,
+          "wins": 531,
+          "losses": 615,
+          "push": 84
+        },
+        "opportunity": {
+          "n": 856,
+          "U": -53.135,
+          "ROI": -6.207,
+          "wins": 373,
+          "losses": 431,
+          "push": 52
+        },
+        "predicted_same_line_shortening_mean": 0.004875,
+        "future_receipt_n": 1169,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 824,
+          "LOCKED_EVALUATION": 345
+        },
+        "later_receipt_gap_hours_mean": 11.595,
+        "future_source_event_advanced_n": 1154,
+        "future_source_event_advanced_pct": 98.717,
+        "source_event_hours_delta_mean": 36.555,
+        "same_AH_line_n": 754,
+        "AH_line_changed_n": 415,
+        "same_AH_line_shortened_n": 409,
+        "same_AH_line_unchanged_n": 54,
+        "same_AH_line_lengthened_n": 291,
+        "same_AH_line_shortened_pct": 54.244,
+        "same_line_odds_shortening_mean": 0.019973,
+        "fresh_same_line_n": 739,
+        "fresh_same_line_shortened_n": 409,
+        "fresh_same_line_odds_shortening_mean": 0.020379,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 1169,
+          "U": -78.73,
+          "ROI": -6.735,
+          "wins": 505,
+          "losses": 585,
+          "push": 79
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 1169,
+          "U": -68.435,
+          "ROI": -5.854,
+          "wins": 523,
+          "losses": 568,
+          "push": 78
+        }
+      },
+      "outside_original_eight_RETROSPECTIVE": {
+        "n": 977,
+        "selected": {
+          "n": 977,
+          "U": -57.02,
+          "ROI": -5.836,
+          "wins": 429,
+          "losses": 484,
+          "push": 64
+        },
+        "opportunity": {
+          "n": 658,
+          "U": -28.075,
+          "ROI": -4.267,
+          "wins": 296,
+          "losses": 327,
+          "push": 35
+        },
+        "predicted_same_line_shortening_mean": 0.00439,
+        "future_receipt_n": 931,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 660,
+          "LOCKED_EVALUATION": 271
+        },
+        "later_receipt_gap_hours_mean": 11.6208,
+        "future_source_event_advanced_n": 916,
+        "future_source_event_advanced_pct": 98.389,
+        "source_event_hours_delta_mean": 35.91,
+        "same_AH_line_n": 677,
+        "AH_line_changed_n": 254,
+        "same_AH_line_shortened_n": 365,
+        "same_AH_line_unchanged_n": 51,
+        "same_AH_line_lengthened_n": 261,
+        "same_AH_line_shortened_pct": 53.914,
+        "same_line_odds_shortening_mean": 0.019129,
+        "fresh_same_line_n": 662,
+        "fresh_same_line_shortened_n": 365,
+        "fresh_same_line_odds_shortening_mean": 0.019562,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 931,
+          "U": -55.175,
+          "ROI": -5.926,
+          "wins": 406,
+          "losses": 462,
+          "push": 63
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 931,
+          "U": -49.05,
+          "ROI": -5.269,
+          "wins": 418,
+          "losses": 449,
+          "push": 64
+        }
+      },
+      "research_price_opportunity": {
+        "n": 856,
+        "selected": {
+          "n": 856,
+          "U": -53.135,
+          "ROI": -6.207,
+          "wins": 373,
+          "losses": 431,
+          "push": 52
+        },
+        "opportunity": {
+          "n": 856,
+          "U": -53.135,
+          "ROI": -6.207,
+          "wins": 373,
+          "losses": 431,
+          "push": 52
+        },
+        "predicted_same_line_shortening_mean": 0.010138,
+        "future_receipt_n": 820,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 575,
+          "LOCKED_EVALUATION": 245
+        },
+        "later_receipt_gap_hours_mean": 11.5898,
+        "future_source_event_advanced_n": 813,
+        "future_source_event_advanced_pct": 99.146,
+        "source_event_hours_delta_mean": 35.729,
+        "same_AH_line_n": 497,
+        "AH_line_changed_n": 323,
+        "same_AH_line_shortened_n": 303,
+        "same_AH_line_unchanged_n": 37,
+        "same_AH_line_lengthened_n": 157,
+        "same_AH_line_shortened_pct": 60.966,
+        "same_line_odds_shortening_mean": 0.034487,
+        "fresh_same_line_n": 490,
+        "fresh_same_line_shortened_n": 303,
+        "fresh_same_line_odds_shortening_mean": 0.03498,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 820,
+          "U": -53.36,
+          "ROI": -6.507,
+          "wins": 357,
+          "losses": 416,
+          "push": 47
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 820,
+          "U": -51.335,
+          "ROI": -6.26,
+          "wins": 369,
+          "losses": 402,
+          "push": 49
+        }
+      },
+      "research_price_NOT_opportunity": {
+        "n": 374,
+        "selected": {
+          "n": 374,
+          "U": -32.35,
+          "ROI": -8.65,
+          "wins": 158,
+          "losses": 184,
+          "push": 32
+        },
+        "opportunity": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null,
+          "wins": 0,
+          "losses": 0,
+          "push": 0
+        },
+        "predicted_same_line_shortening_mean": -0.007171,
+        "future_receipt_n": 349,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 249,
+          "LOCKED_EVALUATION": 100
+        },
+        "later_receipt_gap_hours_mean": 11.607,
+        "future_source_event_advanced_n": 341,
+        "future_source_event_advanced_pct": 97.708,
+        "source_event_hours_delta_mean": 38.496,
+        "same_AH_line_n": 257,
+        "AH_line_changed_n": 92,
+        "same_AH_line_shortened_n": 106,
+        "same_AH_line_unchanged_n": 17,
+        "same_AH_line_lengthened_n": 134,
+        "same_AH_line_shortened_pct": 41.245,
+        "same_line_odds_shortening_mean": -0.008093,
+        "fresh_same_line_n": 249,
+        "fresh_same_line_shortened_n": 106,
+        "fresh_same_line_odds_shortening_mean": -0.008353,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 349,
+          "U": -25.37,
+          "ROI": -7.269,
+          "wins": 148,
+          "losses": 169,
+          "push": 32
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 349,
+          "U": -17.1,
+          "ROI": -4.9,
+          "wins": 154,
+          "losses": 166,
+          "push": 29
+        }
+      },
+      "research_price_opportunity_outside_eight_RETROSPECTIVE": {
+        "n": 658,
+        "selected": {
+          "n": 658,
+          "U": -28.075,
+          "ROI": -4.267,
+          "wins": 296,
+          "losses": 327,
+          "push": 35
+        },
+        "opportunity": {
+          "n": 658,
+          "U": -28.075,
+          "ROI": -4.267,
+          "wins": 296,
+          "losses": 327,
+          "push": 35
+        },
+        "predicted_same_line_shortening_mean": 0.009969,
+        "future_receipt_n": 635,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 449,
+          "LOCKED_EVALUATION": 186
+        },
+        "later_receipt_gap_hours_mean": 11.6231,
+        "future_source_event_advanced_n": 628,
+        "future_source_event_advanced_pct": 98.898,
+        "source_event_hours_delta_mean": 35.463,
+        "same_AH_line_n": 441,
+        "AH_line_changed_n": 194,
+        "same_AH_line_shortened_n": 270,
+        "same_AH_line_unchanged_n": 35,
+        "same_AH_line_lengthened_n": 136,
+        "same_AH_line_shortened_pct": 61.224,
+        "same_line_odds_shortening_mean": 0.034104,
+        "fresh_same_line_n": 434,
+        "fresh_same_line_shortened_n": 270,
+        "fresh_same_line_odds_shortening_mean": 0.034654,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 635,
+          "U": -31.21,
+          "ROI": -4.915,
+          "wins": 283,
+          "losses": 318,
+          "push": 34
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 635,
+          "U": -32.145,
+          "ROI": -5.062,
+          "wins": 290,
+          "losses": 308,
+          "push": 37
+        }
+      },
+      "research_price_NOT_opportunity_outside_eight_RETROSPECTIVE": {
+        "n": 319,
+        "selected": {
+          "n": 319,
+          "U": -28.945,
+          "ROI": -9.074,
+          "wins": 133,
+          "losses": 157,
+          "push": 29
+        },
+        "opportunity": {
+          "n": 0,
+          "U": 0.0,
+          "ROI": null,
+          "wins": 0,
+          "losses": 0,
+          "push": 0
+        },
+        "predicted_same_line_shortening_mean": -0.007118,
+        "future_receipt_n": 296,
+        "future_receipt_splits": {
+          "DEVELOPMENT": 211,
+          "LOCKED_EVALUATION": 85
+        },
+        "later_receipt_gap_hours_mean": 11.6159,
+        "future_source_event_advanced_n": 288,
+        "future_source_event_advanced_pct": 97.297,
+        "source_event_hours_delta_mean": 36.869,
+        "same_AH_line_n": 236,
+        "AH_line_changed_n": 60,
+        "same_AH_line_shortened_n": 95,
+        "same_AH_line_unchanged_n": 16,
+        "same_AH_line_lengthened_n": 125,
+        "same_AH_line_shortened_pct": 40.254,
+        "same_line_odds_shortening_mean": -0.008856,
+        "fresh_same_line_n": 228,
+        "fresh_same_line_shortened_n": 95,
+        "fresh_same_line_odds_shortening_mean": -0.009167,
+        "T12_original_receipt_result_when_later_exists": {
+          "n": 296,
+          "U": -23.965,
+          "ROI": -8.096,
+          "wins": 123,
+          "losses": 144,
+          "push": 29
+        },
+        "future_same_side_at_later_RECEIPT_counterfactual": {
+          "n": 296,
+          "U": -16.905,
+          "ROI": -5.711,
+          "wins": 128,
+          "losses": 141,
+          "push": 27
+        }
+      }
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  },
+  "source_splits": {
+    "DEVELOPMENT": 863,
+    "LOCKED_EVALUATION": 367
+  }
+}
