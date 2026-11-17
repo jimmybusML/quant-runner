@@ -1,0 +1,375 @@
+{
+  "method": "R58 independent descriptive side alignment: infer frozen T1 side solely from historical settled original-eight membership and original T1 home/away exact payout; skip ambiguous same-settlement sides. Compare its later T1-only signal with R56 T12 price-chasing side. T1 side unavailable at T12; hindsight T12 payout of frozen side is explicitly NONEXECUTABLE. Real received T1 Crown quote is verified by R57 prefix, priced as counterfactual not formal TG fill. Matching the selected fixture set conditioned on frozen T1 membership is retrospective, not realtime eligibility or proof of an early side. No new strategy or gate.",
+  "qc": {
+    "matched_T1_actual": 225,
+    "matched": 239,
+    "ambiguous_side": 14
+  },
+  "cohorts": {
+    "all": {
+      "n": 239,
+      "early_matches_frozen_T1_side_n": 145,
+      "early_matches_frozen_T1_side_pct": 60.669,
+      "price_model_early_side_at_T12": {
+        "n": 239,
+        "U": -27.49,
+        "ROI": -11.502
+      },
+      "frozen_T1_historical_postretrieved": {
+        "n": 239,
+        "U": 2.25,
+        "ROI": 0.941
+      },
+      "frozen_T1_SIDE_PRICED_AT_T12_LOOKAHEAD": {
+        "n": 239,
+        "U": -4.135,
+        "ROI": -1.73
+      },
+      "frozen_T1_side_at_real_T1_quote": {
+        "n": 225,
+        "U": 7.61,
+        "ROI": 3.382
+      },
+      "frozen_T1_side_at_T12_quote_when_T1_also_received_LOOKAHEAD": {
+        "n": 225,
+        "U": 1.115,
+        "ROI": 0.496
+      },
+      "early_price_side_at_T12_quote_when_T1_also_received": {
+        "n": 225,
+        "U": -22.58,
+        "ROI": -10.036
+      },
+      "early_price_side_at_real_T1_quote": {
+        "n": 225,
+        "U": -19.84,
+        "ROI": -8.818
+      }
+    },
+    "A": {
+      "n": 16,
+      "early_matches_frozen_T1_side_n": 11,
+      "early_matches_frozen_T1_side_pct": 68.75,
+      "price_model_early_side_at_T12": {
+        "n": 16,
+        "U": -1.98,
+        "ROI": -12.375
+      },
+      "frozen_T1_historical_postretrieved": {
+        "n": 16,
+        "U": -1.38,
+        "ROI": -8.625
+      },
+      "frozen_T1_SIDE_PRICED_AT_T12_LOOKAHEAD": {
+        "n": 16,
+        "U": -1.15,
+        "ROI": -7.187
+      },
+      "frozen_T1_side_at_real_T1_quote": {
+        "n": 16,
+        "U": -1.77,
+        "ROI": -11.062
+      },
+      "frozen_T1_side_at_T12_quote_when_T1_also_received_LOOKAHEAD": {
+        "n": 16,
+        "U": -1.15,
+        "ROI": -7.187
+      },
+      "early_price_side_at_T12_quote_when_T1_also_received": {
+        "n": 16,
+        "U": -1.98,
+        "ROI": -12.375
+      },
+      "early_price_side_at_real_T1_quote": {
+        "n": 16,
+        "U": -1.745,
+        "ROI": -10.906
+      }
+    },
+    "G": {
+      "n": 30,
+      "early_matches_frozen_T1_side_n": 9,
+      "early_matches_frozen_T1_side_pct": 30.0,
+      "price_model_early_side_at_T12": {
+        "n": 30,
+        "U": -2.48,
+        "ROI": -8.267
+      },
+      "frozen_T1_historical_postretrieved": {
+        "n": 30,
+        "U": -3.115,
+        "ROI": -10.383
+      },
+      "frozen_T1_SIDE_PRICED_AT_T12_LOOKAHEAD": {
+        "n": 30,
+        "U": -4.17,
+        "ROI": -13.9
+      },
+      "frozen_T1_side_at_real_T1_quote": {
+        "n": 28,
+        "U": -2.435,
+        "ROI": -8.696
+      },
+      "frozen_T1_side_at_T12_quote_when_T1_also_received_LOOKAHEAD": {
+        "n": 28,
+        "U": -3.94,
+        "ROI": -14.071
+      },
+      "early_price_side_at_T12_quote_when_T1_also_received": {
+        "n": 28,
+        "U": -2.54,
+        "ROI": -9.071
+      },
+      "early_price_side_at_real_T1_quote": {
+        "n": 28,
+        "U": -3.04,
+        "ROI": -10.857
+      }
+    },
+    "B": {
+      "n": 35,
+      "early_matches_frozen_T1_side_n": 18,
+      "early_matches_frozen_T1_side_pct": 51.429,
+      "price_model_early_side_at_T12": {
+        "n": 35,
+        "U": -5.66,
+        "ROI": -16.171
+      },
+      "frozen_T1_historical_postretrieved": {
+        "n": 35,
+        "U": 1.555,
+        "ROI": 4.443
+      },
+      "frozen_T1_SIDE_PRICED_AT_T12_LOOKAHEAD": {
+        "n": 35,
+        "U": 2.7,
+        "ROI": 7.714
+      },
+      "frozen_T1_side_at_real_T1_quote": {
+        "n": 31,
+        "U": 4.385,
+        "ROI": 14.145
+      },
+      "frozen_T1_side_at_T12_quote_when_T1_also_received_LOOKAHEAD": {
+        "n": 31,
+        "U": 4.7,
+        "ROI": 15.161
+      },
+      "early_price_side_at_T12_quote_when_T1_also_received": {
+        "n": 31,
+        "U": -5.64,
+        "ROI": -18.194
+      },
+      "early_price_side_at_real_T1_quote": {
+        "n": 31,
+        "U": -6.01,
+        "ROI": -19.387
+      }
+    },
+    "base": {
+      "n": 144,
+      "early_matches_frozen_T1_side_n": 99,
+      "early_matches_frozen_T1_side_pct": 68.75,
+      "price_model_early_side_at_T12": {
+        "n": 144,
+        "U": -19.07,
+        "ROI": -13.243
+      },
+      "frozen_T1_historical_postretrieved": {
+        "n": 144,
+        "U": 4.11,
+        "ROI": 2.854
+      },
+      "frozen_T1_SIDE_PRICED_AT_T12_LOOKAHEAD": {
+        "n": 144,
+        "U": -2.895,
+        "ROI": -2.01
+      },
+      "frozen_T1_side_at_real_T1_quote": {
+        "n": 137,
+        "U": 7.3,
+        "ROI": 5.328
+      },
+      "frozen_T1_side_at_T12_quote_when_T1_also_received_LOOKAHEAD": {
+        "n": 137,
+        "U": 1.055,
+        "ROI": 0.77
+      },
+      "early_price_side_at_T12_quote_when_T1_also_received": {
+        "n": 137,
+        "U": -15.12,
+        "ROI": -11.036
+      },
+      "early_price_side_at_real_T1_quote": {
+        "n": 137,
+        "U": -11.115,
+        "ROI": -8.113
+      }
+    },
+    "F": {
+      "n": 3,
+      "early_matches_frozen_T1_side_n": 2,
+      "early_matches_frozen_T1_side_pct": 66.667,
+      "price_model_early_side_at_T12": {
+        "n": 3,
+        "U": -1.12,
+        "ROI": -37.333
+      },
+      "frozen_T1_historical_postretrieved": {
+        "n": 3,
+        "U": 0.86,
+        "ROI": 28.667
+      },
+      "frozen_T1_SIDE_PRICED_AT_T12_LOOKAHEAD": {
+        "n": 3,
+        "U": 0.78,
+        "ROI": 26.0
+      },
+      "frozen_T1_side_at_real_T1_quote": {
+        "n": 3,
+        "U": 0.89,
+        "ROI": 29.667
+      },
+      "frozen_T1_side_at_T12_quote_when_T1_also_received_LOOKAHEAD": {
+        "n": 3,
+        "U": 0.78,
+        "ROI": 26.0
+      },
+      "early_price_side_at_T12_quote_when_T1_also_received": {
+        "n": 3,
+        "U": -1.12,
+        "ROI": -37.333
+      },
+      "early_price_side_at_real_T1_quote": {
+        "n": 3,
+        "U": -1.02,
+        "ROI": -34.0
+      }
+    },
+    "E": {
+      "n": 6,
+      "early_matches_frozen_T1_side_n": 3,
+      "early_matches_frozen_T1_side_pct": 50.0,
+      "price_model_early_side_at_T12": {
+        "n": 6,
+        "U": -0.21,
+        "ROI": -3.5
+      },
+      "frozen_T1_historical_postretrieved": {
+        "n": 6,
+        "U": 1.54,
+        "ROI": 25.667
+      },
+      "frozen_T1_SIDE_PRICED_AT_T12_LOOKAHEAD": {
+        "n": 6,
+        "U": 1.65,
+        "ROI": 27.5
+      },
+      "frozen_T1_side_at_real_T1_quote": {
+        "n": 5,
+        "U": 0.6,
+        "ROI": 12.0
+      },
+      "frozen_T1_side_at_T12_quote_when_T1_also_received_LOOKAHEAD": {
+        "n": 5,
+        "U": 0.72,
+        "ROI": 14.4
+      },
+      "early_price_side_at_T12_quote_when_T1_also_received": {
+        "n": 5,
+        "U": 0.79,
+        "ROI": 15.8
+      },
+      "early_price_side_at_real_T1_quote": {
+        "n": 5,
+        "U": 0.61,
+        "ROI": 12.2
+      }
+    },
+    "D": {
+      "n": 2,
+      "early_matches_frozen_T1_side_n": 2,
+      "early_matches_frozen_T1_side_pct": 100.0,
+      "price_model_early_side_at_T12": {
+        "n": 2,
+        "U": 0.04,
+        "ROI": 2.0
+      },
+      "frozen_T1_historical_postretrieved": {
+        "n": 2,
+        "U": -0.14,
+        "ROI": -7.0
+      },
+      "frozen_T1_SIDE_PRICED_AT_T12_LOOKAHEAD": {
+        "n": 2,
+        "U": 0.04,
+        "ROI": 2.0
+      },
+      "frozen_T1_side_at_real_T1_quote": {
+        "n": 2,
+        "U": -0.18,
+        "ROI": -9.0
+      },
+      "frozen_T1_side_at_T12_quote_when_T1_also_received_LOOKAHEAD": {
+        "n": 2,
+        "U": 0.04,
+        "ROI": 2.0
+      },
+      "early_price_side_at_T12_quote_when_T1_also_received": {
+        "n": 2,
+        "U": 0.04,
+        "ROI": 2.0
+      },
+      "early_price_side_at_real_T1_quote": {
+        "n": 2,
+        "U": -0.18,
+        "ROI": -9.0
+      }
+    },
+    "C": {
+      "n": 3,
+      "early_matches_frozen_T1_side_n": 1,
+      "early_matches_frozen_T1_side_pct": 33.333,
+      "price_model_early_side_at_T12": {
+        "n": 3,
+        "U": 2.99,
+        "ROI": 99.667
+      },
+      "frozen_T1_historical_postretrieved": {
+        "n": 3,
+        "U": -1.18,
+        "ROI": -39.333
+      },
+      "frozen_T1_SIDE_PRICED_AT_T12_LOOKAHEAD": {
+        "n": 3,
+        "U": -1.09,
+        "ROI": -36.333
+      },
+      "frozen_T1_side_at_real_T1_quote": {
+        "n": 3,
+        "U": -1.18,
+        "ROI": -39.333
+      },
+      "frozen_T1_side_at_T12_quote_when_T1_also_received_LOOKAHEAD": {
+        "n": 3,
+        "U": -1.09,
+        "ROI": -36.333
+      },
+      "early_price_side_at_T12_quote_when_T1_also_received": {
+        "n": 3,
+        "U": 2.99,
+        "ROI": 99.667
+      },
+      "early_price_side_at_real_T1_quote": {
+        "n": 3,
+        "U": 2.66,
+        "ROI": 88.667
+      }
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}

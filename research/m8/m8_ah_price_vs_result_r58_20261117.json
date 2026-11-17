@@ -1,0 +1,1083 @@
+{
+  "study_id": "M8_R58_AH_PRICE_VS_OUTCOME",
+  "method": "R58 disentangles price shortening vs settlement by computing fractional AH settled win/loss stake and two-sided counterfactual. Most important live-like selection: previous-calendar-year fit from strictly T24/T12 AH Crown feature, same selected side for outcomes and CLV measured only on post-selection T6 real receipts; raw snapshot receipt SHA/identity/FT revalidated by R57 prefix. Hindsight T6 matching line is a DIAGNOSTIC only. New reverse-side evaluations are explored AFTER R57 was seen and therefore not independent precommitted out-of-sample even if positive. No new trading rule/gate; no future T1 membership used to define actual-time eligible cohort. Original frozen8 unmodified, OU unrelated. Book overround is a proxy, not exact fractional-handicap fee or expected EV. Ex-post break-even decimal odds use realized match results and are NOT expected true fair odds. Historic Crown quotes are post-retrieved source timestamps, no proof of actual historical receipt. No TG orders or actual fills.",
+  "history": {
+    "2024": {
+      "all": {
+        "normal": {
+          "n": 8148,
+          "U": -250.12,
+          "ROI": -3.07,
+          "win": 3661,
+          "loss": 3957,
+          "push": 530
+        },
+        "reverse": {
+          "n": 8148,
+          "U": -247.83,
+          "ROI": -3.042,
+          "win": 3957,
+          "loss": 3661,
+          "push": 530
+        },
+        "normal_day_bootstrap95": [
+          -5.052,
+          -1.111
+        ],
+        "reverse_day_bootstrap95": [
+          -4.847,
+          -1.244
+        ]
+      },
+      "predict_price_opportunity": {
+        "normal": {
+          "n": 7122,
+          "U": -224.045,
+          "ROI": -3.146,
+          "win": 3182,
+          "loss": 3478,
+          "push": 462
+        },
+        "reverse": {
+          "n": 7122,
+          "U": -199.64,
+          "ROI": -2.803,
+          "win": 3478,
+          "loss": 3182,
+          "push": 462
+        },
+        "normal_day_bootstrap95": [
+          -5.241,
+          -1.019
+        ],
+        "reverse_day_bootstrap95": [
+          -4.774,
+          -0.888
+        ]
+      },
+      "predict_price_not_opportunity": {
+        "normal": {
+          "n": 1026,
+          "U": -26.075,
+          "ROI": -2.541,
+          "win": 479,
+          "loss": 479,
+          "push": 68
+        },
+        "reverse": {
+          "n": 1026,
+          "U": -48.19,
+          "ROI": -4.697,
+          "win": 479,
+          "loss": 479,
+          "push": 68
+        },
+        "normal_day_bootstrap95": [
+          -7.639,
+          2.509
+        ],
+        "reverse_day_bootstrap95": [
+          -9.61,
+          0.273
+        ]
+      }
+    },
+    "2025": {
+      "all": {
+        "normal": {
+          "n": 9357,
+          "U": -176.99,
+          "ROI": -1.892,
+          "win": 4241,
+          "loss": 4474,
+          "push": 642
+        },
+        "reverse": {
+          "n": 9357,
+          "U": -433.72,
+          "ROI": -4.635,
+          "win": 4474,
+          "loss": 4241,
+          "push": 642
+        },
+        "normal_day_bootstrap95": [
+          -3.92,
+          0.119
+        ],
+        "reverse_day_bootstrap95": [
+          -6.496,
+          -2.783
+        ]
+      },
+      "predict_price_opportunity": {
+        "normal": {
+          "n": 7843,
+          "U": -96.065,
+          "ROI": -1.225,
+          "win": 3539,
+          "loss": 3741,
+          "push": 563
+        },
+        "reverse": {
+          "n": 7843,
+          "U": -370.925,
+          "ROI": -4.729,
+          "win": 3741,
+          "loss": 3539,
+          "push": 563
+        },
+        "normal_day_bootstrap95": [
+          -3.193,
+          0.75
+        ],
+        "reverse_day_bootstrap95": [
+          -6.569,
+          -2.937
+        ]
+      },
+      "predict_price_not_opportunity": {
+        "normal": {
+          "n": 1514,
+          "U": -80.925,
+          "ROI": -5.345,
+          "win": 702,
+          "loss": 733,
+          "push": 79
+        },
+        "reverse": {
+          "n": 1514,
+          "U": -62.795,
+          "ROI": -4.148,
+          "win": 733,
+          "loss": 702,
+          "push": 79
+        },
+        "normal_day_bootstrap95": [
+          -9.975,
+          -0.832
+        ],
+        "reverse_day_bootstrap95": [
+          -8.525,
+          0.291
+        ]
+      }
+    },
+    "2026": {
+      "all": {
+        "normal": {
+          "n": 8407,
+          "U": -303.73,
+          "ROI": -3.613,
+          "win": 3764,
+          "loss": 4091,
+          "push": 552
+        },
+        "reverse": {
+          "n": 8407,
+          "U": -318.19,
+          "ROI": -3.785,
+          "win": 4091,
+          "loss": 3764,
+          "push": 552
+        },
+        "normal_day_bootstrap95": [
+          -5.624,
+          -1.725
+        ],
+        "reverse_day_bootstrap95": [
+          -5.552,
+          -1.904
+        ]
+      },
+      "predict_price_opportunity": {
+        "normal": {
+          "n": 6225,
+          "U": -130.87,
+          "ROI": -2.102,
+          "win": 2799,
+          "loss": 2993,
+          "push": 433
+        },
+        "reverse": {
+          "n": 6225,
+          "U": -264.585,
+          "ROI": -4.25,
+          "win": 2993,
+          "loss": 2799,
+          "push": 433
+        },
+        "normal_day_bootstrap95": [
+          -4.288,
+          0.081
+        ],
+        "reverse_day_bootstrap95": [
+          -6.261,
+          -2.228
+        ]
+      },
+      "predict_price_not_opportunity": {
+        "normal": {
+          "n": 2182,
+          "U": -172.86,
+          "ROI": -7.922,
+          "win": 965,
+          "loss": 1098,
+          "push": 119
+        },
+        "reverse": {
+          "n": 2182,
+          "U": -53.605,
+          "ROI": -2.457,
+          "win": 1098,
+          "loss": 965,
+          "push": 119
+        },
+        "normal_day_bootstrap95": [
+          -11.596,
+          -4.455
+        ],
+        "reverse_day_bootstrap95": [
+          -5.689,
+          1.009
+        ]
+      }
+    }
+  },
+  "receipts": {
+    "all": {
+      "chosen_side": {
+        "n": 1230,
+        "U": -85.485,
+        "ROI": -6.95,
+        "win": 531,
+        "loss": 615,
+        "push": 84
+      },
+      "reversed_side": {
+        "n": 1230,
+        "U": -11.72,
+        "ROI": -0.953,
+        "win": 615,
+        "loss": 531,
+        "push": 84
+      },
+      "reversed_side_day_bootstrap95": [
+        -4.945,
+        3.391
+      ],
+      "chosen_day_bootstrap95": [
+        -11.44,
+        -2.74
+      ],
+      "settlement_decomposition": {
+        "n": 1230,
+        "payout": {
+          "n": 1230,
+          "U": -85.485,
+          "ROI": -6.95,
+          "win": 531,
+          "loss": 615,
+          "push": 84
+        },
+        "avg_decimal_odds": 1.98781,
+        "avg_won_stake_fraction": 0.40122,
+        "avg_lost_stake_fraction": 0.46626,
+        "observed_expost_break_even_decimal": 2.16211,
+        "required_uniform_extra_odds_to_break_even_expost": 0.17322
+      }
+    },
+    "price_opportunity": {
+      "chosen_side": {
+        "n": 856,
+        "U": -53.135,
+        "ROI": -6.207,
+        "win": 373,
+        "loss": 431,
+        "push": 52
+      },
+      "reversed_side": {
+        "n": 856,
+        "U": -5.66,
+        "ROI": -0.661,
+        "win": 431,
+        "loss": 373,
+        "push": 52
+      },
+      "reversed_side_day_bootstrap95": [
+        -4.479,
+        3.514
+      ],
+      "chosen_day_bootstrap95": [
+        -10.456,
+        -2.212
+      ],
+      "settlement_decomposition": {
+        "n": 856,
+        "payout": {
+          "n": 856,
+          "U": -53.135,
+          "ROI": -6.207,
+          "win": 373,
+          "loss": 431,
+          "push": 52
+        },
+        "avg_decimal_odds": 2.01404,
+        "avg_won_stake_fraction": 0.40537,
+        "avg_lost_stake_fraction": 0.47313,
+        "observed_expost_break_even_decimal": 2.16715,
+        "required_uniform_extra_odds_to_break_even_expost": 0.15313
+      }
+    },
+    "price_not_opportunity": {
+      "chosen_side": {
+        "n": 374,
+        "U": -32.35,
+        "ROI": -8.65,
+        "win": 158,
+        "loss": 184,
+        "push": 32
+      },
+      "reversed_side": {
+        "n": 374,
+        "U": -6.06,
+        "ROI": -1.62,
+        "win": 184,
+        "loss": 158,
+        "push": 32
+      },
+      "reversed_side_day_bootstrap95": [
+        -10.898,
+        6.629
+      ],
+      "chosen_day_bootstrap95": [
+        -17.557,
+        1.242
+      ],
+      "settlement_decomposition": {
+        "n": 374,
+        "payout": {
+          "n": 374,
+          "U": -32.35,
+          "ROI": -8.65,
+          "win": 158,
+          "loss": 184,
+          "push": 32
+        },
+        "avg_decimal_odds": 1.92778,
+        "avg_won_stake_fraction": 0.39171,
+        "avg_lost_stake_fraction": 0.45053,
+        "observed_expost_break_even_decimal": 2.15017,
+        "required_uniform_extra_odds_to_break_even_expost": 0.22082
+      }
+    },
+    "hindsight_inside_eight": {
+      "chosen_side": {
+        "n": 253,
+        "U": -28.465,
+        "ROI": -11.251,
+        "win": 102,
+        "loss": 131,
+        "push": 20
+      },
+      "reversed_side": {
+        "n": 253,
+        "U": 8.785,
+        "ROI": 3.472,
+        "win": 131,
+        "loss": 102,
+        "push": 20
+      },
+      "reversed_side_day_bootstrap95": [
+        -5.115,
+        13.533
+      ],
+      "chosen_day_bootstrap95": [
+        -22.019,
+        -2.196
+      ],
+      "settlement_decomposition": {
+        "n": 253,
+        "payout": {
+          "n": 253,
+          "U": -28.465,
+          "ROI": -11.251,
+          "win": 102,
+          "loss": 131,
+          "push": 20
+        },
+        "avg_decimal_odds": 1.99407,
+        "avg_won_stake_fraction": 0.37945,
+        "avg_lost_stake_fraction": 0.49012,
+        "observed_expost_break_even_decimal": 2.29167,
+        "required_uniform_extra_odds_to_break_even_expost": 0.29651
+      }
+    },
+    "hindsight_outside_eight": {
+      "chosen_side": {
+        "n": 977,
+        "U": -57.02,
+        "ROI": -5.836,
+        "win": 429,
+        "loss": 484,
+        "push": 64
+      },
+      "reversed_side": {
+        "n": 977,
+        "U": -20.505,
+        "ROI": -2.099,
+        "win": 484,
+        "loss": 429,
+        "push": 64
+      },
+      "reversed_side_day_bootstrap95": [
+        -6.369,
+        2.327
+      ],
+      "chosen_day_bootstrap95": [
+        -10.216,
+        -1.392
+      ],
+      "settlement_decomposition": {
+        "n": 977,
+        "payout": {
+          "n": 977,
+          "U": -57.02,
+          "ROI": -5.836,
+          "win": 429,
+          "loss": 484,
+          "push": 64
+        },
+        "avg_decimal_odds": 1.98619,
+        "avg_won_stake_fraction": 0.40686,
+        "avg_lost_stake_fraction": 0.46008,
+        "observed_expost_break_even_decimal": 2.13082,
+        "required_uniform_extra_odds_to_break_even_expost": 0.14345
+      }
+    },
+    "price_opportunity_hindsight_outside_eight": {
+      "chosen_side": {
+        "n": 658,
+        "U": -28.075,
+        "ROI": -4.267,
+        "win": 296,
+        "loss": 327,
+        "push": 35
+      },
+      "reversed_side": {
+        "n": 658,
+        "U": -16.95,
+        "ROI": -2.576,
+        "win": 327,
+        "loss": 296,
+        "push": 35
+      },
+      "reversed_side_day_bootstrap95": [
+        -6.825,
+        2.086
+      ],
+      "chosen_day_bootstrap95": [
+        -9.031,
+        0.11
+      ],
+      "settlement_decomposition": {
+        "n": 658,
+        "payout": {
+          "n": 658,
+          "U": -28.075,
+          "ROI": -4.267,
+          "win": 296,
+          "loss": 327,
+          "push": 35
+        },
+        "avg_decimal_odds": 2.01371,
+        "avg_won_stake_fraction": 0.41717,
+        "avg_lost_stake_fraction": 0.46505,
+        "observed_expost_break_even_decimal": 2.11475,
+        "required_uniform_extra_odds_to_break_even_expost": 0.10228
+      }
+    }
+  },
+  "market_movement": {
+    "price_opportunity": {
+      "same_line_observations": {
+        "n": 640,
+        "T12_settlement": {
+          "n": 640,
+          "U": -28.0,
+          "ROI": -4.375,
+          "win": 285,
+          "loss": 315,
+          "push": 40
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.03927,
+        "T6_book_two_sided_overround_proxy_mean": 0.0349,
+        "T12_selected_odds_mean": 2.00972,
+        "odds_shortening_mean": 0.011891,
+        "other_side_odds_shortening_mean": -0.028062,
+        "odds_change_opposite_sign_pct": 68.906,
+        "odds_change_both_same_sign_pct": 7.812,
+        "break_even": {
+          "n": 640,
+          "payout": {
+            "n": 640,
+            "U": -28.0,
+            "ROI": -4.375,
+            "win": 285,
+            "loss": 315,
+            "push": 40
+          },
+          "avg_decimal_odds": 2.00972,
+          "avg_won_stake_fraction": 0.41172,
+          "avg_lost_stake_fraction": 0.46016,
+          "observed_expost_break_even_decimal": 2.11765,
+          "required_uniform_extra_odds_to_break_even_expost": 0.10626
+        }
+      },
+      "same_line_fresh": {
+        "n": 573,
+        "T12_settlement": {
+          "n": 573,
+          "U": -18.24,
+          "ROI": -3.183,
+          "win": 260,
+          "loss": 279,
+          "push": 34
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.0393,
+        "T6_book_two_sided_overround_proxy_mean": 0.03442,
+        "T12_selected_odds_mean": 2.00839,
+        "odds_shortening_mean": 0.013281,
+        "other_side_odds_shortening_mean": -0.031344,
+        "odds_change_opposite_sign_pct": 76.963,
+        "odds_change_both_same_sign_pct": 8.726,
+        "break_even": {
+          "n": 573,
+          "payout": {
+            "n": 573,
+            "U": -18.24,
+            "ROI": -3.183,
+            "win": 260,
+            "loss": 279,
+            "push": 34
+          },
+          "avg_decimal_odds": 2.00839,
+          "avg_won_stake_fraction": 0.42059,
+          "avg_lost_stake_fraction": 0.45637,
+          "observed_expost_break_even_decimal": 2.08506,
+          "required_uniform_extra_odds_to_break_even_expost": 0.07568
+        }
+      },
+      "actually_unchanged": {
+        "n": 116,
+        "T12_settlement": {
+          "n": 116,
+          "U": -16.405,
+          "ROI": -14.142,
+          "win": 47,
+          "loss": 63,
+          "push": 6
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.03917,
+        "T6_book_two_sided_overround_proxy_mean": 0.03739,
+        "T12_selected_odds_mean": 2.01776,
+        "odds_shortening_mean": 0.0,
+        "other_side_odds_shortening_mean": -0.005948,
+        "odds_change_opposite_sign_pct": 0.0,
+        "odds_change_both_same_sign_pct": 0.0,
+        "break_even": {
+          "n": 116,
+          "payout": {
+            "n": 116,
+            "U": -16.405,
+            "ROI": -14.142,
+            "win": 47,
+            "loss": 63,
+            "push": 6
+          },
+          "avg_decimal_odds": 2.01776,
+          "avg_won_stake_fraction": 0.36207,
+          "avg_lost_stake_fraction": 0.51293,
+          "observed_expost_break_even_decimal": 2.41667,
+          "required_uniform_extra_odds_to_break_even_expost": 0.3906
+        }
+      },
+      "actually_shortened": {
+        "n": 281,
+        "T12_settlement": {
+          "n": 281,
+          "U": 3.21,
+          "ROI": 1.142,
+          "win": 134,
+          "loss": 131,
+          "push": 16
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.03813,
+        "T6_book_two_sided_overround_proxy_mean": 0.03373,
+        "T12_selected_odds_mean": 2.01399,
+        "odds_shortening_mean": 0.06548,
+        "other_side_odds_shortening_mean": -0.07694,
+        "odds_change_opposite_sign_pct": 99.288,
+        "odds_change_both_same_sign_pct": 0.712,
+        "break_even": {
+          "n": 281,
+          "payout": {
+            "n": 281,
+            "U": 3.21,
+            "ROI": 1.142,
+            "win": 134,
+            "loss": 131,
+            "push": 16
+          },
+          "avg_decimal_odds": 2.01399,
+          "avg_won_stake_fraction": 0.44306,
+          "avg_lost_stake_fraction": 0.43772,
+          "observed_expost_break_even_decimal": 1.98795,
+          "required_uniform_extra_odds_to_break_even_expost": -0.02578
+        }
+      },
+      "actually_lengthened": {
+        "n": 243,
+        "T12_settlement": {
+          "n": 243,
+          "U": -14.805,
+          "ROI": -6.093,
+          "win": 104,
+          "loss": 121,
+          "push": 18
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.04065,
+        "T6_book_two_sided_overround_proxy_mean": 0.03508,
+        "T12_selected_odds_mean": 2.00095,
+        "odds_shortening_mean": -0.044403,
+        "other_side_odds_shortening_mean": 0.017901,
+        "odds_change_opposite_sign_pct": 66.667,
+        "odds_change_both_same_sign_pct": 19.753,
+        "break_even": {
+          "n": 243,
+          "payout": {
+            "n": 243,
+            "U": -14.805,
+            "ROI": -6.093,
+            "win": 104,
+            "loss": 121,
+            "push": 18
+          },
+          "avg_decimal_odds": 2.00095,
+          "avg_won_stake_fraction": 0.39918,
+          "avg_lost_stake_fraction": 0.46091,
+          "observed_expost_break_even_decimal": 2.15464,
+          "required_uniform_extra_odds_to_break_even_expost": 0.15263
+        }
+      },
+      "changed_handicap_line": {
+        "n": 188,
+        "T12_settlement": {
+          "n": 188,
+          "U": -23.315,
+          "ROI": -12.402,
+          "win": 76,
+          "loss": 103,
+          "push": 9
+        },
+        "same_line_only": false,
+        "T12_book_two_sided_overround_proxy_mean": 0.04105,
+        "T6_book_two_sided_overround_proxy_mean": 0.03521
+      }
+    },
+    "price_not_opportunity": {
+      "same_line_observations": {
+        "n": 320,
+        "T12_settlement": {
+          "n": 320,
+          "U": -27.365,
+          "ROI": -8.552,
+          "win": 136,
+          "loss": 156,
+          "push": 28
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.06309,
+        "T6_book_two_sided_overround_proxy_mean": 0.05043,
+        "T12_selected_odds_mean": 1.92791,
+        "odds_shortening_mean": -0.011969,
+        "other_side_odds_shortening_mean": -0.036562,
+        "odds_change_opposite_sign_pct": 52.812,
+        "odds_change_both_same_sign_pct": 28.438,
+        "break_even": {
+          "n": 320,
+          "payout": {
+            "n": 320,
+            "U": -27.365,
+            "ROI": -8.552,
+            "win": 136,
+            "loss": 156,
+            "push": 28
+          },
+          "avg_decimal_odds": 1.92791,
+          "avg_won_stake_fraction": 0.39375,
+          "avg_lost_stake_fraction": 0.45156,
+          "observed_expost_break_even_decimal": 2.14683,
+          "required_uniform_extra_odds_to_break_even_expost": 0.21718
+        }
+      },
+      "same_line_fresh": {
+        "n": 290,
+        "T12_settlement": {
+          "n": 290,
+          "U": -14.925,
+          "ROI": -5.147,
+          "win": 127,
+          "loss": 136,
+          "push": 27
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.06209,
+        "T6_book_two_sided_overround_proxy_mean": 0.04812,
+        "T12_selected_odds_mean": 1.92734,
+        "odds_shortening_mean": -0.013207,
+        "other_side_odds_shortening_mean": -0.040345,
+        "odds_change_opposite_sign_pct": 58.276,
+        "odds_change_both_same_sign_pct": 31.379,
+        "break_even": {
+          "n": 290,
+          "payout": {
+            "n": 290,
+            "U": -14.925,
+            "ROI": -5.147,
+            "win": 127,
+            "loss": 136,
+            "push": 27
+          },
+          "avg_decimal_odds": 1.92734,
+          "avg_won_stake_fraction": 0.41034,
+          "avg_lost_stake_fraction": 0.43276,
+          "observed_expost_break_even_decimal": 2.05462,
+          "required_uniform_extra_odds_to_break_even_expost": 0.12542
+        }
+      },
+      "actually_shortened": {
+        "n": 103,
+        "T12_settlement": {
+          "n": 103,
+          "U": -9.115,
+          "ROI": -8.85,
+          "win": 43,
+          "loss": 50,
+          "push": 10
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.06167,
+        "T6_book_two_sided_overround_proxy_mean": 0.05305,
+        "T12_selected_odds_mean": 1.93117,
+        "odds_shortening_mean": 0.063107,
+        "other_side_odds_shortening_mean": -0.096505,
+        "odds_change_opposite_sign_pct": 99.029,
+        "odds_change_both_same_sign_pct": 0.971,
+        "break_even": {
+          "n": 103,
+          "payout": {
+            "n": 103,
+            "U": -9.115,
+            "ROI": -8.85,
+            "win": 43,
+            "loss": 50,
+            "push": 10
+          },
+          "avg_decimal_odds": 1.93117,
+          "avg_won_stake_fraction": 0.39806,
+          "avg_lost_stake_fraction": 0.46117,
+          "observed_expost_break_even_decimal": 2.15854,
+          "required_uniform_extra_odds_to_break_even_expost": 0.22232
+        }
+      },
+      "actually_lengthened": {
+        "n": 166,
+        "T12_settlement": {
+          "n": 166,
+          "U": -0.395,
+          "ROI": -0.238,
+          "win": 77,
+          "loss": 74,
+          "push": 15
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.06238,
+        "T6_book_two_sided_overround_proxy_mean": 0.04416,
+        "T12_selected_odds_mean": 1.92416,
+        "odds_shortening_mean": -0.062229,
+        "other_side_odds_shortening_mean": -0.007711,
+        "odds_change_opposite_sign_pct": 40.361,
+        "odds_change_both_same_sign_pct": 54.217,
+        "break_even": {
+          "n": 166,
+          "payout": {
+            "n": 166,
+            "U": -0.395,
+            "ROI": -0.238,
+            "win": 77,
+            "loss": 74,
+            "push": 15
+          },
+          "avg_decimal_odds": 1.92416,
+          "avg_won_stake_fraction": 0.43373,
+          "avg_lost_stake_fraction": 0.40361,
+          "observed_expost_break_even_decimal": 1.93056,
+          "required_uniform_extra_odds_to_break_even_expost": 0.00549
+        }
+      },
+      "changed_handicap_line": {
+        "n": 35,
+        "T12_settlement": {
+          "n": 35,
+          "U": -3.86,
+          "ROI": -11.029,
+          "win": 14,
+          "loss": 18,
+          "push": 3
+        },
+        "same_line_only": false,
+        "T12_book_two_sided_overround_proxy_mean": 0.06252,
+        "T6_book_two_sided_overround_proxy_mean": 0.04807
+      },
+      "actually_unchanged": {
+        "n": 51,
+        "T12_settlement": {
+          "n": 51,
+          "U": -17.855,
+          "ROI": -35.01,
+          "win": 16,
+          "loss": 32,
+          "push": 3
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.06824,
+        "T6_book_two_sided_overround_proxy_mean": 0.06553,
+        "T12_selected_odds_mean": 1.93353,
+        "odds_shortening_mean": 0.0,
+        "other_side_odds_shortening_mean": -0.009412,
+        "odds_change_opposite_sign_pct": 0.0,
+        "odds_change_both_same_sign_pct": 0.0,
+        "break_even": {
+          "n": 51,
+          "payout": {
+            "n": 51,
+            "U": -17.855,
+            "ROI": -35.01,
+            "win": 16,
+            "loss": 32,
+            "push": 3
+          },
+          "avg_decimal_odds": 1.93353,
+          "avg_won_stake_fraction": 0.2549,
+          "avg_lost_stake_fraction": 0.58824,
+          "observed_expost_break_even_decimal": 3.30769,
+          "required_uniform_extra_odds_to_break_even_expost": 1.37346
+        }
+      }
+    },
+    "all": {
+      "same_line_observations": {
+        "n": 960,
+        "T12_settlement": {
+          "n": 960,
+          "U": -55.365,
+          "ROI": -5.767,
+          "win": 421,
+          "loss": 471,
+          "push": 68
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.04721,
+        "T6_book_two_sided_overround_proxy_mean": 0.04008,
+        "T12_selected_odds_mean": 1.98245,
+        "odds_shortening_mean": 0.003937,
+        "other_side_odds_shortening_mean": -0.030896,
+        "odds_change_opposite_sign_pct": 63.542,
+        "odds_change_both_same_sign_pct": 14.688,
+        "break_even": {
+          "n": 960,
+          "payout": {
+            "n": 960,
+            "U": -55.365,
+            "ROI": -5.767,
+            "win": 421,
+            "loss": 471,
+            "push": 68
+          },
+          "avg_decimal_odds": 1.98245,
+          "avg_won_stake_fraction": 0.40573,
+          "avg_lost_stake_fraction": 0.45729,
+          "observed_expost_break_even_decimal": 2.12709,
+          "required_uniform_extra_odds_to_break_even_expost": 0.14214
+        }
+      },
+      "same_line_fresh": {
+        "n": 863,
+        "T12_settlement": {
+          "n": 863,
+          "U": -33.165,
+          "ROI": -3.843,
+          "win": 387,
+          "loss": 415,
+          "push": 61
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.04696,
+        "T6_book_two_sided_overround_proxy_mean": 0.03903,
+        "T12_selected_odds_mean": 1.98116,
+        "odds_shortening_mean": 0.00438,
+        "other_side_odds_shortening_mean": -0.034368,
+        "odds_change_opposite_sign_pct": 70.684,
+        "odds_change_both_same_sign_pct": 16.338,
+        "break_even": {
+          "n": 863,
+          "payout": {
+            "n": 863,
+            "U": -33.165,
+            "ROI": -3.843,
+            "win": 387,
+            "loss": 415,
+            "push": 61
+          },
+          "avg_decimal_odds": 1.98116,
+          "avg_won_stake_fraction": 0.41715,
+          "avg_lost_stake_fraction": 0.44844,
+          "observed_expost_break_even_decimal": 2.075,
+          "required_uniform_extra_odds_to_break_even_expost": 0.09213
+        }
+      },
+      "actually_shortened": {
+        "n": 384,
+        "T12_settlement": {
+          "n": 384,
+          "U": -5.905,
+          "ROI": -1.538,
+          "win": 177,
+          "loss": 181,
+          "push": 26
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.04444,
+        "T6_book_two_sided_overround_proxy_mean": 0.03891,
+        "T12_selected_odds_mean": 1.99177,
+        "odds_shortening_mean": 0.064844,
+        "other_side_odds_shortening_mean": -0.082187,
+        "odds_change_opposite_sign_pct": 99.219,
+        "odds_change_both_same_sign_pct": 0.781,
+        "break_even": {
+          "n": 384,
+          "payout": {
+            "n": 384,
+            "U": -5.905,
+            "ROI": -1.538,
+            "win": 177,
+            "loss": 181,
+            "push": 26
+          },
+          "avg_decimal_odds": 1.99177,
+          "avg_won_stake_fraction": 0.43099,
+          "avg_lost_stake_fraction": 0.44401,
+          "observed_expost_break_even_decimal": 2.03021,
+          "required_uniform_extra_odds_to_break_even_expost": 0.03568
+        }
+      },
+      "actually_lengthened": {
+        "n": 409,
+        "T12_settlement": {
+          "n": 409,
+          "U": -15.2,
+          "ROI": -3.716,
+          "win": 181,
+          "loss": 195,
+          "push": 33
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.04947,
+        "T6_book_two_sided_overround_proxy_mean": 0.03876,
+        "T12_selected_odds_mean": 1.96978,
+        "odds_shortening_mean": -0.051638,
+        "other_side_odds_shortening_mean": 0.007506,
+        "odds_change_opposite_sign_pct": 55.99,
+        "odds_change_both_same_sign_pct": 33.741,
+        "break_even": {
+          "n": 409,
+          "payout": {
+            "n": 409,
+            "U": -15.2,
+            "ROI": -3.716,
+            "win": 181,
+            "loss": 195,
+            "push": 33
+          },
+          "avg_decimal_odds": 1.96978,
+          "avg_won_stake_fraction": 0.4132,
+          "avg_lost_stake_fraction": 0.43765,
+          "observed_expost_break_even_decimal": 2.05917,
+          "required_uniform_extra_odds_to_break_even_expost": 0.08994
+        }
+      },
+      "actually_unchanged": {
+        "n": 167,
+        "T12_settlement": {
+          "n": 167,
+          "U": -34.26,
+          "ROI": -20.515,
+          "win": 63,
+          "loss": 95,
+          "push": 9
+        },
+        "same_line_only": true,
+        "T12_book_two_sided_overround_proxy_mean": 0.04805,
+        "T6_book_two_sided_overround_proxy_mean": 0.04598,
+        "T12_selected_odds_mean": 1.99204,
+        "odds_shortening_mean": 0.0,
+        "other_side_odds_shortening_mean": -0.007006,
+        "odds_change_opposite_sign_pct": 0.0,
+        "odds_change_both_same_sign_pct": 0.0,
+        "break_even": {
+          "n": 167,
+          "payout": {
+            "n": 167,
+            "U": -34.26,
+            "ROI": -20.515,
+            "win": 63,
+            "loss": 95,
+            "push": 9
+          },
+          "avg_decimal_odds": 1.99204,
+          "avg_won_stake_fraction": 0.32934,
+          "avg_lost_stake_fraction": 0.53593,
+          "observed_expost_break_even_decimal": 2.62727,
+          "required_uniform_extra_odds_to_break_even_expost": 0.62291
+        }
+      },
+      "changed_handicap_line": {
+        "n": 223,
+        "T12_settlement": {
+          "n": 223,
+          "U": -27.175,
+          "ROI": -12.186,
+          "win": 90,
+          "loss": 121,
+          "push": 12
+        },
+        "same_line_only": false,
+        "T12_book_two_sided_overround_proxy_mean": 0.04442,
+        "T6_book_two_sided_overround_proxy_mean": 0.03723
+      }
+    }
+  },
+  "source": {
+    "verified_t12": 1230
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}
