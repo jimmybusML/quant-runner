@@ -1,0 +1,2896 @@
+{
+  "research_id": "M8_R61_DATED_TEAM_NEWS_SOURCE_AUDIT",
+  "method": "News source is single dated editorial public snapshot (Guardian pre-match injury/suspension/doubtful player lists), not initial official club confirmation. Source html saved as raw bytes SHA256. Both publish and last-modified UTC must predate actual T12 Crown HTTP receipt; otherwise reject. Match by explicit name and exact Crown fixture ID from raw HTTP, league and kickoff. Retrospective scrape on 2026 Nov18 is not contemporaneous captured news. Reported injured/suspended treated as quoted on published snapshot, doubt separate, not certainty of an actual game-day absence; no claim first-ever disclosure. Counting unavailable players equally is descriptive only, not weighted football edge or user production gate. Do not classify risk as realized without posted lineup. Only Crown AH lines and prices. No future T1 membership as early feature. No TG sends or book fills.",
+  "sources": [
+    {
+      "source_date": "2026-10-09",
+      "url": "https://www.theguardian.com/football/2026/oct/09/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "published_utc": "2026-10-09T16:22:09.000Z",
+      "modified_utc": "2026-10-09T16:28:50.000Z",
+      "saved_html_sha256": "b160e4a6682ebd4062f10f05226584f186df54f393c0564e62a9323858bd153d",
+      "matches_listed": 10,
+      "team_sections_total": 20
+    },
+    {
+      "source_date": "2026-10-16",
+      "url": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "published_utc": "2026-10-16T18:07:45.000Z",
+      "modified_utc": "2026-10-16T19:19:06.000Z",
+      "saved_html_sha256": "ffc01f287b1103b83bd36020e01645a7e5fa78d9c3c21aae49c71c6e85f09c33",
+      "matches_listed": 10,
+      "team_sections_total": 20
+    },
+    {
+      "source_date": "2026-10-23",
+      "url": "https://www.theguardian.com/football/2026/oct/23/premier-league-team-news-predicted-lineups",
+      "published_utc": "2026-10-23T15:42:28.000Z",
+      "modified_utc": "2026-10-23T19:56:39.000Z",
+      "saved_html_sha256": "9e3efa1180398dfc967ced569545a0cdaa5e16c9be8a4e9c062f35f78ed6796f",
+      "matches_listed": 9,
+      "team_sections_total": 18
+    },
+    {
+      "source_date": "2026-10-30",
+      "url": "https://www.theguardian.com/football/2026/oct/30/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "published_utc": "2026-10-30T16:19:26.000Z",
+      "modified_utc": "2026-10-30T16:20:26.000Z",
+      "saved_html_sha256": "3ac10ca503093d6b44d5e4962fd0f735e0945ed3989137880719e5d9e2818033",
+      "matches_listed": 10,
+      "team_sections_total": 20
+    },
+    {
+      "source_date": "2026-11-06",
+      "url": "https://www.theguardian.com/football/2026/nov/06/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "published_utc": "2026-11-06T16:43:45.000Z",
+      "modified_utc": "2026-11-06T16:45:03.000Z",
+      "saved_html_sha256": "e662a1b3b97bac63a86e4d843bc2cd1bfaa19e0c1c334d720eee1416cda27343",
+      "matches_listed": 9,
+      "team_sections_total": 18
+    }
+  ],
+  "matching": {
+    "Crown_EPL_receipt_matches": 50,
+    "news_matches_total": 48,
+    "eligible_news_T12_exact_pairs": 47,
+    "rejected_n": 1,
+    "rejected": [
+      {
+        "source_date": "2026-10-30",
+        "fixture": [
+          "TOTTENHAM",
+          "CRYSTAL PALACE"
+        ],
+        "reason": "no real T12 receipt",
+        "fid": "202201753"
+      }
+    ]
+  },
+  "fixtures": [
+    {
+      "fid": "200549688",
+      "source_url": "https://www.theguardian.com/football/2026/oct/09/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-09",
+      "source_published_utc": "2026-10-09T16:22:09.000Z",
+      "source_modified_utc": "2026-10-09T16:28:50.000Z",
+      "source_html_sha256": "b160e4a6682ebd4062f10f05226584f186df54f393c0564e62a9323858bd153d",
+      "home": "Arsenal",
+      "away": "Leeds",
+      "kickoff_utc": "2026-10-10T11:30:00.000Z",
+      "T12_received_utc": "2026-10-09T23:05:16.995Z",
+      "T12_AH_source_event_utc": "2026-10-09T15:12:41+00:00",
+      "T12_AH_line": -1.25,
+      "T12_home_odds": 2.0,
+      "T12_away_odds": 1.88,
+      "source_was_modified_hours_before_T12": 6.6075,
+      "players": [
+        {
+          "name": "Arsenal",
+          "injured": [
+            "Saliba (back, unknown)",
+            "Mosquera (hamstring, unknown)",
+            "Tzolis (hamstring, 24 Oct)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Havertz (knee)",
+            "Konsa (dead leg)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Havertz (knee), Konsa (dead leg)",
+            "injured": "Injured Saliba (back, unknown), Mosquera (hamstring, unknown), Tzolis (hamstring, 24 Oct)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Leeds",
+          "injured": [
+            "Joseph (knee, unknown)",
+            "James (back, 18 Oct)",
+            "Rodon (hamstring, 31 Oct)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Bahoya (ankle)",
+            "Wilson (thigh)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Bahoya (ankle), Wilson (thigh)",
+            "injured": "Injured Joseph (knee, unknown), James (back, 18 Oct), Rodon (hamstring, 31 Oct)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 3,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 2,
+      "away_reported_injured_n": 3,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "200549690",
+      "source_url": "https://www.theguardian.com/football/2026/oct/09/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-09",
+      "source_published_utc": "2026-10-09T16:22:09.000Z",
+      "source_modified_utc": "2026-10-09T16:28:50.000Z",
+      "source_html_sha256": "b160e4a6682ebd4062f10f05226584f186df54f393c0564e62a9323858bd153d",
+      "home": "Aston Villa",
+      "away": "Brentford",
+      "kickoff_utc": "2026-10-10T14:00:00.000Z",
+      "T12_received_utc": "2026-10-10T01:35:36.766Z",
+      "T12_AH_source_event_utc": "2026-10-09T20:41:34+00:00",
+      "T12_AH_line": 0.0,
+      "T12_home_odds": 2.0,
+      "T12_away_odds": 1.88,
+      "source_was_modified_hours_before_T12": 9.113,
+      "players": [
+        {
+          "name": "Aston Villa",
+          "injured": [
+            "Maatsen (ankle, 31 Oct)",
+            "Onana (knee, 1 Apr)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Cash (leg)",
+            "Cissé (knock)",
+            "Goretzka (knee)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Cash (leg), Cissé (knock), Goretzka (knee)",
+            "injured": "Injured Maatsen (ankle, 31 Oct), Onana (knee, 1 Apr)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Brentford",
+          "injured": [
+            "Furo (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Collins (calf)",
+            "Damsgaard (ankle)",
+            "Dasilva (hamstring)",
+            "Jensen (unknown)",
+            "Milambo (knee)",
+            "Van den Berg (knee)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Collins (calf), Damsgaard (ankle), Dasilva (hamstring), Jensen (unknown), Milambo (knee), Van den Berg (knee)",
+            "injured": "Injured Furo (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 2,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 3,
+      "away_reported_injured_n": 1,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 6
+    },
+    {
+      "fid": "200549694",
+      "source_url": "https://www.theguardian.com/football/2026/oct/09/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-09",
+      "source_published_utc": "2026-10-09T16:22:09.000Z",
+      "source_modified_utc": "2026-10-09T16:28:50.000Z",
+      "source_html_sha256": "b160e4a6682ebd4062f10f05226584f186df54f393c0564e62a9323858bd153d",
+      "home": "Chelsea",
+      "away": "Bournemouth",
+      "kickoff_utc": "2026-10-10T14:00:00.000Z",
+      "T12_received_utc": "2026-10-10T01:35:41.967Z",
+      "T12_AH_source_event_utc": "2026-10-09T16:26:11+00:00",
+      "T12_AH_line": -0.75,
+      "T12_home_odds": 1.89,
+      "T12_away_odds": 1.99,
+      "source_was_modified_hours_before_T12": 9.1144,
+      "players": [
+        {
+          "name": "Chelsea",
+          "injured": [
+            "Gittens (foot, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Caicedo (calf)",
+            "Palmer (groin)",
+            "James (hamstring)",
+            "Joao Pedro (knee)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Caicedo (calf), Palmer (groin), James (hamstring), Joao Pedro (knee)",
+            "injured": "Injured Gittens (foot, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Bournemouth",
+          "injured": [
+            "Adli (calf, 18 Oct)",
+            "Araujo (thigh, 28 Nov)",
+            "Kluivert (muscle, 18 Oct)",
+            "Kroupi (foot, 31 Oct)",
+            "Milosavljevic (knee, 18 Oct)",
+            "Scott (tendon, 21 Nov)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Adli (calf, 18 Oct), Araujo (thigh, 28 Nov), Kluivert (muscle, 18 Oct), Kroupi (foot, 31 Oct), Milosavljevic (knee, 18 Oct), Scott (tendon, 21 Nov)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 1,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 4,
+      "away_reported_injured_n": 6,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "200549718",
+      "source_url": "https://www.theguardian.com/football/2026/oct/09/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-09",
+      "source_published_utc": "2026-10-09T16:22:09.000Z",
+      "source_modified_utc": "2026-10-09T16:28:50.000Z",
+      "source_html_sha256": "b160e4a6682ebd4062f10f05226584f186df54f393c0564e62a9323858bd153d",
+      "home": "Ipswich",
+      "away": "Fulham",
+      "kickoff_utc": "2026-10-10T14:00:00.000Z",
+      "T12_received_utc": "2026-10-10T01:35:47.169Z",
+      "T12_AH_source_event_utc": "2026-10-09T12:45:35+00:00",
+      "T12_AH_line": 0.0,
+      "T12_home_odds": 2.02,
+      "T12_away_odds": 1.86,
+      "source_was_modified_hours_before_T12": 9.1159,
+      "players": [
+        {
+          "name": "Ipswich",
+          "injured": [
+            "Taylor (knee, unknown)"
+          ],
+          "suspended": [
+            "Fatawu (one match)"
+          ],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Taylor (knee, unknown)",
+            "suspended": "Suspended Fatawu (one match)"
+          }
+        },
+        {
+          "name": "Fulham",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [
+            "Cairney (knee)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Cairney (knee)",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 1,
+      "home_reported_suspended_n": 1,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 0,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "200549720",
+      "source_url": "https://www.theguardian.com/football/2026/oct/09/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-09",
+      "source_published_utc": "2026-10-09T16:22:09.000Z",
+      "source_modified_utc": "2026-10-09T16:28:50.000Z",
+      "source_html_sha256": "b160e4a6682ebd4062f10f05226584f186df54f393c0564e62a9323858bd153d",
+      "home": "Sunderland",
+      "away": "Brighton",
+      "kickoff_utc": "2026-10-10T14:00:00.000Z",
+      "T12_received_utc": "2026-10-10T01:35:52.374Z",
+      "T12_AH_source_event_utc": "2026-10-09T22:35:57+00:00",
+      "T12_AH_line": 0.25,
+      "T12_home_odds": 1.85,
+      "T12_away_odds": 2.03,
+      "source_was_modified_hours_before_T12": 9.1173,
+      "players": [
+        {
+          "name": "Sunderland",
+          "injured": [
+            "Brobbey (hamstring, 18 Oct)",
+            "Ballard (hamstring, 21 Nov)",
+            "Diarra (hamstring, 18 Oct)",
+            "Mundle (knee, 31 Dec)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Brobbey (hamstring, 18 Oct), Ballard (hamstring, 21 Nov), Diarra (hamstring, 18 Oct), Mundle (knee, 31 Dec)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Brighton",
+          "injured": [
+            "Ferguson (ankle, unknown)",
+            "Tzimas (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Azeez (hamstring)",
+            "Dunk (neck)",
+            "Hinshelwood (knock)",
+            "Minteh (leg)",
+            "Mitoma (hamstring)",
+            "Struijk (hamstring)",
+            "Wieffer (knee)",
+            "Yohanna (unknown)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Azeez (hamstring), Dunk (neck), Hinshelwood (knock), Minteh (leg), Mitoma (hamstring), Struijk (hamstring), Wieffer (knee), Yohanna (unknown)",
+            "injured": "Injured Ferguson (ankle, unknown), Tzimas (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 4,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 2,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 8
+    },
+    {
+      "fid": "200549724",
+      "source_url": "https://www.theguardian.com/football/2026/oct/09/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-09",
+      "source_published_utc": "2026-10-09T16:22:09.000Z",
+      "source_modified_utc": "2026-10-09T16:28:50.000Z",
+      "source_html_sha256": "b160e4a6682ebd4062f10f05226584f186df54f393c0564e62a9323858bd153d",
+      "home": "Man Utd",
+      "away": "Tottenham",
+      "kickoff_utc": "2026-10-10T16:30:00.000Z",
+      "T12_received_utc": "2026-10-10T04:01:01.617Z",
+      "T12_AH_source_event_utc": "2026-10-09T15:06:20+00:00",
+      "T12_AH_line": -0.75,
+      "T12_home_odds": 1.94,
+      "T12_away_odds": 1.94,
+      "source_was_modified_hours_before_T12": 11.5366,
+      "players": [
+        {
+          "name": "Manchester Utd",
+          "injured": [
+            "Ugarte (knee, unknown)",
+            "De Ligt (back, unknown)",
+            "Mazraoui (knock, unknown)",
+            "Sesko (shin, unknown)",
+            "Dorgu (hamstring, 8 Nov)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Baleba (ankle)",
+            "Rashford (unknown)",
+            "Mainoo (unknown)",
+            "Darlow (unknown)",
+            "Diallo (ankle)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Baleba (ankle), Rashford (unknown), Mainoo (unknown), Darlow (unknown), Diallo (ankle)",
+            "injured": "Injured Ugarte (knee, unknown), De Ligt (back, unknown), Mazraoui (knock, unknown), Sesko (shin, unknown), Dorgu (hamstring, 8 Nov)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Tottenham",
+          "injured": [
+            "Kulusevski (knee, unknown)",
+            "Mudryk (ankle, 31 Oct)",
+            "Odobert (knee, unknown)",
+            "Simons (knee, 1 Jan)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Porro (hamstring)",
+            "Van Hecke (foot)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Porro (hamstring), Van Hecke (foot)",
+            "injured": "Injured Kulusevski (knee, unknown), Mudryk (ankle, 31 Oct), Odobert (knee, unknown), Simons (knee, 1 Jan)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 5,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 5,
+      "away_reported_injured_n": 4,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "200549727",
+      "source_url": "https://www.theguardian.com/football/2026/oct/09/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-09",
+      "source_published_utc": "2026-10-09T16:22:09.000Z",
+      "source_modified_utc": "2026-10-09T16:28:50.000Z",
+      "source_html_sha256": "b160e4a6682ebd4062f10f05226584f186df54f393c0564e62a9323858bd153d",
+      "home": "Crystal Palace",
+      "away": "Nottm Forest",
+      "kickoff_utc": "2026-10-11T13:00:00.000Z",
+      "T12_received_utc": "2026-10-11T00:33:28.044Z",
+      "T12_AH_source_event_utc": "2026-10-09T14:31:31+00:00",
+      "T12_AH_line": 0.0,
+      "T12_home_odds": 2.01,
+      "T12_away_odds": 1.87,
+      "source_was_modified_hours_before_T12": 32.0772,
+      "players": [
+        {
+          "name": "Crystal Palace",
+          "injured": [
+            "Riad (knee, June)",
+            "Mateta (hamstring, 18 Oct); Tomiyasu (calf, 18 Oct)",
+            "Khalaili (hamstring, 18 Oct)",
+            "Henderson (foot, unknown)"
+          ],
+          "suspended": [
+            "Disasi (second of three)"
+          ],
+          "doubtful": [
+            "Henderson (ankle)",
+            "Khalaili (hamstring)",
+            "Mateta (hamstring)",
+            "Tomiyasu (calf)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Henderson (ankle), Khalaili (hamstring), Mateta (hamstring), Tomiyasu (calf)",
+            "injured": "Injured Riad (knee, June), Mateta (hamstring, 18 Oct); Tomiyasu (calf, 18 Oct), Khalaili (hamstring, 18 Oct), Henderson (foot, unknown)",
+            "suspended": "Suspended Disasi (second of three)"
+          }
+        },
+        {
+          "name": "Nottingham Forest",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [
+            "Savona (knee)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Savona (knee)",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 4,
+      "home_reported_suspended_n": 1,
+      "home_reported_doubtful_n": 4,
+      "away_reported_injured_n": 0,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "200549729",
+      "source_url": "https://www.theguardian.com/football/2026/oct/09/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-09",
+      "source_published_utc": "2026-10-09T16:22:09.000Z",
+      "source_modified_utc": "2026-10-09T16:28:50.000Z",
+      "source_html_sha256": "b160e4a6682ebd4062f10f05226584f186df54f393c0564e62a9323858bd153d",
+      "home": "Hull",
+      "away": "Everton",
+      "kickoff_utc": "2026-10-11T13:00:00.000Z",
+      "T12_received_utc": "2026-10-11T00:33:33.295Z",
+      "T12_AH_source_event_utc": "2026-10-10T21:12:35+00:00",
+      "T12_AH_line": 0.5,
+      "T12_home_odds": 1.81,
+      "T12_away_odds": 2.07,
+      "source_was_modified_hours_before_T12": 32.0787,
+      "players": [
+        {
+          "name": "Hull",
+          "injured": [
+            "Matazo (knee, unknown)",
+            "Butland (shoulder, 5 Dec)",
+            "Gyabi (thigh, 7 Nov)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Ansah (back)",
+            "Hughes (groin)",
+            "Iroegbunam (groin)",
+            "Morita (muscle)",
+            "Targett (ankle)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Ansah (back), Hughes (groin), Iroegbunam (groin), Morita (muscle), Targett (ankle)",
+            "injured": "Injured Matazo (knee, unknown), Butland (shoulder, 5 Dec), Gyabi (thigh, 7 Nov),",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Everton",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [
+            "Mykolenko (muscle)",
+            "Norgaard (muscle)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Mykolenko (muscle), Norgaard (muscle)",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 3,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 5,
+      "away_reported_injured_n": 0,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "200549732",
+      "source_url": "https://www.theguardian.com/football/2026/oct/09/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-09",
+      "source_published_utc": "2026-10-09T16:22:09.000Z",
+      "source_modified_utc": "2026-10-09T16:28:50.000Z",
+      "source_html_sha256": "b160e4a6682ebd4062f10f05226584f186df54f393c0564e62a9323858bd153d",
+      "home": "Liverpool",
+      "away": "Man City",
+      "kickoff_utc": "2026-10-11T15:30:00.000Z",
+      "T12_received_utc": "2026-10-11T03:03:50.850Z",
+      "T12_AH_source_event_utc": "2026-10-10T20:43:14+00:00",
+      "T12_AH_line": 0.25,
+      "T12_home_odds": 1.9,
+      "T12_away_odds": 1.98,
+      "source_was_modified_hours_before_T12": 34.5836,
+      "players": [
+        {
+          "name": "Liverpool",
+          "injured": [
+            "Isak (thigh, unknown)",
+            "Gakpo (ankle, unknown)",
+            "Bradley (knee, unknown)",
+            "Leoni (knee, 18 Oct)",
+            "Ekitiké (achilles, Dec)",
+            "Endo (ankle, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Chiesa (back)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Chiesa (back)",
+            "injured": "Injured Isak (thigh, unknown), Gakpo (ankle, unknown), Bradley (knee, unknown), Leoni (knee, 18 Oct), Ekitiké (achilles, Dec), Endo (ankle, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Manchester City",
+          "injured": [],
+          "suspended": [
+            "Foden (last of three)"
+          ],
+          "doubtful": [
+            "Doku (unknown)",
+            "O’Reilly (unknown)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Doku (unknown), O’Reilly (unknown)",
+            "injured": "Injured None",
+            "suspended": "Suspended Foden (last of three)"
+          }
+        }
+      ],
+      "home_reported_injured_n": 6,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 0,
+      "away_reported_suspended_n": 1,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "200549734",
+      "source_url": "https://www.theguardian.com/football/2026/oct/09/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-09",
+      "source_published_utc": "2026-10-09T16:22:09.000Z",
+      "source_modified_utc": "2026-10-09T16:28:50.000Z",
+      "source_html_sha256": "b160e4a6682ebd4062f10f05226584f186df54f393c0564e62a9323858bd153d",
+      "home": "Coventry",
+      "away": "Newcastle",
+      "kickoff_utc": "2026-10-12T19:00:00.000Z",
+      "T12_received_utc": "2026-10-12T06:30:32.336Z",
+      "T12_AH_source_event_utc": "2026-10-12T04:59:58+00:00",
+      "T12_AH_line": 0.25,
+      "T12_home_odds": 1.95,
+      "T12_away_odds": 1.94,
+      "source_was_modified_hours_before_T12": 62.0284,
+      "players": [
+        {
+          "name": "Coventry",
+          "injured": [
+            "Amenda (calf, 21 Nov)",
+            "Eccles (calf, 21 Nov)",
+            "Woolfenden (knee, 21 Nov)",
+            "Wright (thigh, 21 Nov)"
+          ],
+          "suspended": [
+            "Awoniyi (last of three)"
+          ],
+          "doubtful": [
+            "Kesler-Hayden (hamstring)",
+            "Van Ewijk (hamstring)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Kesler-Hayden (hamstring), Van Ewijk (hamstring)",
+            "injured": "Injured Amenda (calf, 21 Nov), Eccles (calf, 21 Nov), Woolfenden (knee, 21 Nov), Wright (thigh, 21 Nov)",
+            "suspended": "Suspended Awoniyi (last of three)"
+          }
+        },
+        {
+          "name": "Newcastle",
+          "injured": [
+            "Jaouen (hamstring, 5 Dec)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Joelinton (groin)",
+            "Burn (ankle)",
+            "Dedic (hamstring)",
+            "Elanga (unknown)",
+            "González (head)",
+            "Livramento (hip)",
+            "L Miley (knock)",
+            "Osula (foot)",
+            "Ramsey (thigh)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Joelinton (groin), Burn (ankle), Dedic (hamstring), Elanga (unknown), González (head), Livramento (hip), L Miley (knock), Osula (foot), Ramsey (thigh)",
+            "injured": "Injured Jaouen (hamstring, 5 Dec)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 4,
+      "home_reported_suspended_n": 1,
+      "home_reported_doubtful_n": 2,
+      "away_reported_injured_n": 1,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 9
+    },
+    {
+      "fid": "201535777",
+      "source_url": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-16",
+      "source_published_utc": "2026-10-16T18:07:45.000Z",
+      "source_modified_utc": "2026-10-16T19:19:06.000Z",
+      "source_html_sha256": "ffc01f287b1103b83bd36020e01645a7e5fa78d9c3c21aae49c71c6e85f09c33",
+      "home": "Everton",
+      "away": "Chelsea",
+      "kickoff_utc": "2026-10-17T11:30:00.000Z",
+      "T12_received_utc": "2026-10-16T23:01:18.632Z",
+      "T12_AH_source_event_utc": "2026-10-16T13:39:10+00:00",
+      "T12_AH_line": 0.25,
+      "T12_home_odds": 1.96,
+      "T12_away_odds": 1.92,
+      "source_was_modified_hours_before_T12": 3.7035,
+      "players": [
+        {
+          "name": "Everton",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [
+            "Branthwaite (dead leg)",
+            "Mykolenko (muscle)",
+            "Nørgaard (achilles)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Branthwaite (dead leg), Mykolenko (muscle), Nørgaard (achilles)",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Chelsea",
+          "injured": [
+            "Emegha (knock, 24 Oct)",
+            "James (knee, Jan)",
+            "Gittens (foot, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Emegha (knock, 24 Oct), James (knee, Jan), Gittens (foot, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 0,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 3,
+      "away_reported_injured_n": 3,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "201535790",
+      "source_url": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-16",
+      "source_published_utc": "2026-10-16T18:07:45.000Z",
+      "source_modified_utc": "2026-10-16T19:19:06.000Z",
+      "source_html_sha256": "ffc01f287b1103b83bd36020e01645a7e5fa78d9c3c21aae49c71c6e85f09c33",
+      "home": "Brentford",
+      "away": "Liverpool",
+      "kickoff_utc": "2026-10-17T14:00:00.000Z",
+      "T12_received_utc": "2026-10-17T01:32:06.958Z",
+      "T12_AH_source_event_utc": "2026-10-17T00:31:38+00:00",
+      "T12_AH_line": -0.25,
+      "T12_home_odds": 2.07,
+      "T12_away_odds": 1.81,
+      "source_was_modified_hours_before_T12": 6.2169,
+      "players": [
+        {
+          "name": "Brentford",
+          "injured": [
+            "Dasilva (hamstring, unknown)",
+            "Furo (knee, unknown)",
+            "Milambo (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Schade (shoulder)",
+            "Schuster (ankle)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Schade (shoulder), Schuster (ankle)",
+            "injured": "Injured Dasilva (hamstring, unknown), Furo (knee, unknown), Milambo (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Liverpool",
+          "injured": [
+            "Bradley (knee, Nov)",
+            "Leoni (knee, Dec)",
+            "Ekitiké (achilles, Dec)",
+            "Isak (thigh, unknown)",
+            "Gakpo (ankle, unknown)"
+          ],
+          "suspended": [
+            "Gravenberch (one match)"
+          ],
+          "doubtful": [
+            "Szoboszlai (hamstring)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Szoboszlai (hamstring)",
+            "injured": "Injured Bradley (knee, Nov), Leoni (knee, Dec), Ekitiké (achilles, Dec), Isak (thigh, unknown), Gakpo (ankle, unknown)",
+            "suspended": "Suspended Gravenberch (one match)"
+          }
+        }
+      ],
+      "home_reported_injured_n": 3,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 2,
+      "away_reported_injured_n": 5,
+      "away_reported_suspended_n": 1,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "201535794",
+      "source_url": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-16",
+      "source_published_utc": "2026-10-16T18:07:45.000Z",
+      "source_modified_utc": "2026-10-16T19:19:06.000Z",
+      "source_html_sha256": "ffc01f287b1103b83bd36020e01645a7e5fa78d9c3c21aae49c71c6e85f09c33",
+      "home": "Fulham",
+      "away": "Hull",
+      "kickoff_utc": "2026-10-17T14:00:00.000Z",
+      "T12_received_utc": "2026-10-17T01:32:12.162Z",
+      "T12_AH_source_event_utc": "2026-10-16T22:06:10+00:00",
+      "T12_AH_line": -0.75,
+      "T12_home_odds": 1.9,
+      "T12_away_odds": 1.98,
+      "source_was_modified_hours_before_T12": 6.2184,
+      "players": [
+        {
+          "name": "Fulham",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [
+            "Larsson (groin)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Larsson (groin)",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Hull",
+          "injured": [
+            "Cho (knock, 25 Oct)",
+            "Gourna-Douath (calf, 25 Oct)",
+            "Mendy (groin, 31 Oct)",
+            "Gyabi (thigh, Nov)",
+            "Butland (shoulder, Dec)",
+            "Ansah (back, unknown)",
+            "Hughes (groin, unknown)",
+            "Matazo (ACL, unknown)",
+            "Targett (ankle, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Cho (knock, 25 Oct), Gourna-Douath (calf, 25 Oct), Mendy (groin, 31 Oct), Gyabi (thigh, Nov), Butland (shoulder, Dec), Ansah (back, unknown), Hughes (groin, unknown), Matazo (ACL, unknown), Targett (ankle, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 0,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 9,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "201535796",
+      "source_url": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-16",
+      "source_published_utc": "2026-10-16T18:07:45.000Z",
+      "source_modified_utc": "2026-10-16T19:19:06.000Z",
+      "source_html_sha256": "ffc01f287b1103b83bd36020e01645a7e5fa78d9c3c21aae49c71c6e85f09c33",
+      "home": "Man City",
+      "away": "Ipswich",
+      "kickoff_utc": "2026-10-17T14:00:00.000Z",
+      "T12_received_utc": "2026-10-17T01:32:17.417Z",
+      "T12_AH_source_event_utc": "2026-10-17T00:55:05+00:00",
+      "T12_AH_line": -1.75,
+      "T12_home_odds": 1.82,
+      "T12_away_odds": 2.06,
+      "source_was_modified_hours_before_T12": 6.2198,
+      "players": [
+        {
+          "name": "Manchester City",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Ipswich",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 0,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 0,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "201535798",
+      "source_url": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-16",
+      "source_published_utc": "2026-10-16T18:07:45.000Z",
+      "source_modified_utc": "2026-10-16T19:19:06.000Z",
+      "source_html_sha256": "ffc01f287b1103b83bd36020e01645a7e5fa78d9c3c21aae49c71c6e85f09c33",
+      "home": "Newcastle",
+      "away": "Aston Villa",
+      "kickoff_utc": "2026-10-17T16:30:00.000Z",
+      "T12_received_utc": "2026-10-17T04:02:50.310Z",
+      "T12_AH_source_event_utc": "2026-10-17T03:42:52+00:00",
+      "T12_AH_line": -0.25,
+      "T12_home_odds": 1.98,
+      "T12_away_odds": 1.9,
+      "source_was_modified_hours_before_T12": 8.729,
+      "players": [
+        {
+          "name": "Newcastle",
+          "injured": [
+            "Elanga (unknown, 25 Oct)",
+            "Livramento (hip, 25 Oct)",
+            "Ramsey (thigh, 25 Oct)",
+            "Jaouen (hamstring, Dec)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Touré (knock)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Touré (knock)",
+            "injured": "Injured Elanga (unknown, 25 Oct), Livramento (hip, 25 Oct), Ramsey (thigh, 25 Oct), Jaouen (hamstring, Dec)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Aston Villa",
+          "injured": [
+            "Maatsen (ankle, 24 Oct)",
+            "Ruggeri (hamstring, Nov) Onana (ACL, Apr)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Cissé (knock)",
+            "Hemmings (knee)",
+            "Madjo (ankle)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Cissé (knock), Hemmings (knee), Madjo (ankle)",
+            "injured": "Injured Maatsen (ankle, 24 Oct), Ruggeri (hamstring, Nov) Onana (ACL, Apr)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 4,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 2,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 3
+    },
+    {
+      "fid": "201535806",
+      "source_url": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-16",
+      "source_published_utc": "2026-10-16T18:07:45.000Z",
+      "source_modified_utc": "2026-10-16T19:19:06.000Z",
+      "source_html_sha256": "ffc01f287b1103b83bd36020e01645a7e5fa78d9c3c21aae49c71c6e85f09c33",
+      "home": "Bournemouth",
+      "away": "Sunderland",
+      "kickoff_utc": "2026-10-18T13:00:00.000Z",
+      "T12_received_utc": "2026-10-18T00:33:44.635Z",
+      "T12_AH_source_event_utc": "2026-10-16T11:44:17+00:00",
+      "T12_AH_line": -0.25,
+      "T12_home_odds": 1.83,
+      "T12_away_odds": 2.05,
+      "source_was_modified_hours_before_T12": 29.2441,
+      "players": [
+        {
+          "name": "Bournemouth",
+          "injured": [
+            "Kroupi (foot, 31 Oct)",
+            "Araujo (thigh, Nov)",
+            "Scott (thigh, Nov)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Milosavljevic (knee)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Milosavljevic (knee)",
+            "injured": "Injured Kroupi (foot, 31 Oct), Araujo (thigh, Nov), Scott (thigh, Nov)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Sunderland",
+          "injured": [
+            "Ballard (hamstring, Nov)",
+            "Mundle (xreasonx, Dec)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Meunier (hamstring)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Meunier (hamstring)",
+            "injured": "Injured Ballard (hamstring, Nov), Mundle (xreasonx, Dec)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 3,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 2,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "201535810",
+      "source_url": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-16",
+      "source_published_utc": "2026-10-16T18:07:45.000Z",
+      "source_modified_utc": "2026-10-16T19:19:06.000Z",
+      "source_html_sha256": "ffc01f287b1103b83bd36020e01645a7e5fa78d9c3c21aae49c71c6e85f09c33",
+      "home": "Brighton",
+      "away": "Crystal Palace",
+      "kickoff_utc": "2026-10-18T13:00:00.000Z",
+      "T12_received_utc": "2026-10-18T00:33:49.853Z",
+      "T12_AH_source_event_utc": "2026-10-17T11:24:13+00:00",
+      "T12_AH_line": -1.0,
+      "T12_home_odds": 1.82,
+      "T12_away_odds": 2.06,
+      "source_was_modified_hours_before_T12": 29.2455,
+      "players": [
+        {
+          "name": "Brighton",
+          "injured": [
+            "Minteh (leg, 25 Oct)",
+            "Wieffer (knee, 31 Oct)",
+            "Mitoma (hamstring, Nov)",
+            "Ferguson (ankle, unknown)",
+            "Tzimas (ACL, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Azeez (match fitness)",
+            "Yohanna (match fitness)",
+            "Struijk (unknown)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Azeez (match fitness), Yohanna (match fitness), Struijk (unknown)",
+            "injured": "Injured Minteh (leg, 25 Oct), Wieffer (knee, 31 Oct), Mitoma (hamstring, Nov), Ferguson (ankle, unknown), Tzimas (ACL, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Crystal Palace",
+          "injured": [
+            "Mateta (thigh, 31 Oct)",
+            "Riad (knee, unknown)",
+            "Tomiyasu (calf, unknown)",
+            "Henderson (foot, unknown)"
+          ],
+          "suspended": [
+            "Disasi (last of three)"
+          ],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Mateta (thigh, 31 Oct), Riad (knee, unknown), Tomiyasu (calf, unknown), Henderson (foot, unknown)",
+            "suspended": "Suspended Disasi (last of three)"
+          }
+        }
+      ],
+      "home_reported_injured_n": 5,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 3,
+      "away_reported_injured_n": 4,
+      "away_reported_suspended_n": 1,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "201535817",
+      "source_url": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-16",
+      "source_published_utc": "2026-10-16T18:07:45.000Z",
+      "source_modified_utc": "2026-10-16T19:19:06.000Z",
+      "source_html_sha256": "ffc01f287b1103b83bd36020e01645a7e5fa78d9c3c21aae49c71c6e85f09c33",
+      "home": "Leeds",
+      "away": "Man Utd",
+      "kickoff_utc": "2026-10-18T13:00:00.000Z",
+      "T12_received_utc": "2026-10-18T00:33:55.040Z",
+      "T12_AH_source_event_utc": "2026-10-16T20:40:02+00:00",
+      "T12_AH_line": -0.25,
+      "T12_home_odds": 2.07,
+      "T12_away_odds": 1.81,
+      "source_was_modified_hours_before_T12": 29.247,
+      "players": [
+        {
+          "name": "Leeds",
+          "injured": [
+            "Rodon (hamstring, 31 Oct)",
+            "Joseph (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "James (back)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful James (back)",
+            "injured": "Injured Rodon (hamstring, 31 Oct), Joseph (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Manchester Utd",
+          "injured": [
+            "Dorgu (hamstring, Nov)",
+            "Ugarte (knee, unknown)",
+            "De Ligt (back, unknown)",
+            "Mazraoui (back, unknown)",
+            "Sesko (shin, unknown)",
+            "Heaton (hamstring, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Mainoo (match fitness)",
+            "Shaw (match fitness)",
+            "Darlow (match fitness)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Mainoo (match fitness), Shaw (match fitness), Darlow (match fitness)",
+            "injured": "Injured Dorgu (hamstring, Nov), Ugarte (knee, unknown), De Ligt (back, unknown), Mazraoui (back, unknown), Sesko (shin, unknown), Heaton (hamstring, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 2,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 6,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 3
+    },
+    {
+      "fid": "201535820",
+      "source_url": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-16",
+      "source_published_utc": "2026-10-16T18:07:45.000Z",
+      "source_modified_utc": "2026-10-16T19:19:06.000Z",
+      "source_html_sha256": "ffc01f287b1103b83bd36020e01645a7e5fa78d9c3c21aae49c71c6e85f09c33",
+      "home": "Nottm Forest",
+      "away": "Arsenal",
+      "kickoff_utc": "2026-10-18T15:30:00.000Z",
+      "T12_received_utc": "2026-10-18T03:00:09.900Z",
+      "T12_AH_source_event_utc": "2026-10-18T02:11:28+00:00",
+      "T12_AH_line": 1.0,
+      "T12_home_odds": 1.91,
+      "T12_away_odds": 1.97,
+      "source_was_modified_hours_before_T12": 31.6844,
+      "players": [
+        {
+          "name": "Nottingham Forest",
+          "injured": [
+            "Savona (knee, unknown)",
+            "Igor Jesus (calf, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Gibbs-White (muscle)",
+            "Milenkovic (knock)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Gibbs-White (muscle), Milenkovic (knock)",
+            "injured": "Injured Savona (knee, unknown), Igor Jesus (calf, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Arsenal",
+          "injured": [
+            "Hincapie (ankle, Nov)",
+            "Tzolis (hamstring, Nov)",
+            "Saliba (back, unknown)",
+            "Mosquera (hamstring, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Zubimendi (ankle)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Zubimendi (ankle)",
+            "injured": "Injured Hincapie (ankle, Nov), Tzolis (hamstring, Nov), Saliba (back, unknown), Mosquera (hamstring, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 2,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 2,
+      "away_reported_injured_n": 4,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "201535825",
+      "source_url": "https://www.theguardian.com/football/2026/oct/16/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-16",
+      "source_published_utc": "2026-10-16T18:07:45.000Z",
+      "source_modified_utc": "2026-10-16T19:19:06.000Z",
+      "source_html_sha256": "ffc01f287b1103b83bd36020e01645a7e5fa78d9c3c21aae49c71c6e85f09c33",
+      "home": "Tottenham",
+      "away": "Coventry",
+      "kickoff_utc": "2026-10-19T19:00:00.000Z",
+      "T12_received_utc": "2026-10-19T06:34:46.135Z",
+      "T12_AH_source_event_utc": "2026-10-19T05:17:33+00:00",
+      "T12_AH_line": -1.0,
+      "T12_home_odds": 1.82,
+      "T12_away_odds": 2.07,
+      "source_was_modified_hours_before_T12": 59.2611,
+      "players": [
+        {
+          "name": "Tottenham",
+          "injured": [
+            "Mudryk (ankle, 31 Oct)",
+            "Odobert (ACL, Dec)",
+            "Simons (ACL, Jan)"
+          ],
+          "suspended": [
+            "Bentancur (first of three)"
+          ],
+          "doubtful": [
+            "Kulusevski (match fitness)",
+            "Porro (hamstring)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Kulusevski (match fitness), Porro (hamstring)",
+            "injured": "Injured Mudryk (ankle, 31 Oct), Odobert (ACL, Dec), Simons (ACL, Jan)",
+            "suspended": "Suspended Bentancur (first of three)"
+          }
+        },
+        {
+          "name": "Coventry",
+          "injured": [
+            "Amenda (calf, Nov)",
+            "Eccles (calf, Nov)",
+            "Woolfenden (knee, Nov)",
+            "Wright (thigh, Nov)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Amenda (calf, Nov), Eccles (calf, Nov), Woolfenden (knee, Nov), Wright (thigh, Nov)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 3,
+      "home_reported_suspended_n": 1,
+      "home_reported_doubtful_n": 2,
+      "away_reported_injured_n": 4,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "201647220",
+      "source_url": "https://www.theguardian.com/football/2026/oct/23/premier-league-team-news-predicted-lineups",
+      "source_date": "2026-10-23",
+      "source_published_utc": "2026-10-23T15:42:28.000Z",
+      "source_modified_utc": "2026-10-23T19:56:39.000Z",
+      "source_html_sha256": "9e3efa1180398dfc967ced569545a0cdaa5e16c9be8a4e9c062f35f78ed6796f",
+      "home": "Aston Villa",
+      "away": "Man City",
+      "kickoff_utc": "2026-10-24T11:30:00.000Z",
+      "T12_received_utc": "2026-10-23T23:01:45.729Z",
+      "T12_AH_source_event_utc": "2026-10-23T13:52:16+00:00",
+      "T12_AH_line": 0.75,
+      "T12_home_odds": 2.08,
+      "T12_away_odds": 1.8,
+      "source_was_modified_hours_before_T12": 3.0852,
+      "players": [
+        {
+          "name": "Aston Villa",
+          "injured": [
+            "Wan-Bissaka (hamstring, 21 Nov)",
+            "Ruggeri (hamstring, Jan)",
+            "Onana (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Manzambi (knock)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Manzambi (knock)",
+            "injured": "Injured Wan-Bissaka (hamstring, 21 Nov), Ruggeri (hamstring, Jan), Onana (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Manchester City",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [
+            "Nunes (knock)",
+            "O’Reilly (back)",
+            "Kovacic (knock)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Nunes (knock), O’Reilly (back), Kovacic (knock)",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 3,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 0,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 3
+    },
+    {
+      "fid": "201647222",
+      "source_url": "https://www.theguardian.com/football/2026/oct/23/premier-league-team-news-predicted-lineups",
+      "source_date": "2026-10-23",
+      "source_published_utc": "2026-10-23T15:42:28.000Z",
+      "source_modified_utc": "2026-10-23T19:56:39.000Z",
+      "source_html_sha256": "9e3efa1180398dfc967ced569545a0cdaa5e16c9be8a4e9c062f35f78ed6796f",
+      "home": "Arsenal",
+      "away": "Everton",
+      "kickoff_utc": "2026-10-24T14:00:00.000Z",
+      "T12_received_utc": "2026-10-24T01:31:56.605Z",
+      "T12_AH_source_event_utc": "2026-10-23T22:16:38+00:00",
+      "T12_AH_line": -1.25,
+      "T12_home_odds": 2.07,
+      "T12_away_odds": 1.81,
+      "source_was_modified_hours_before_T12": 5.5882,
+      "players": [
+        {
+          "name": "Arsenal",
+          "injured": [
+            "Tzolis (hamstring, 7 Nov)",
+            "Saka (thigh, unknown)",
+            "Saliba (back, unknown)",
+            "Mosquera (hamstring, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Zubimendi (ankle)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Zubimendi (ankle)",
+            "injured": "Injured Tzolis (hamstring, 7 Nov), Saka (thigh, unknown), Saliba (back, unknown), Mosquera (hamstring, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Everton",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [
+            "Branthwaite (dead leg)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Branthwaite (dead leg)",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 4,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 0,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "201647224",
+      "source_url": "https://www.theguardian.com/football/2026/oct/23/premier-league-team-news-predicted-lineups",
+      "source_date": "2026-10-23",
+      "source_published_utc": "2026-10-23T15:42:28.000Z",
+      "source_modified_utc": "2026-10-23T19:56:39.000Z",
+      "source_html_sha256": "9e3efa1180398dfc967ced569545a0cdaa5e16c9be8a4e9c062f35f78ed6796f",
+      "home": "Coventry",
+      "away": "Fulham",
+      "kickoff_utc": "2026-10-24T14:00:00.000Z",
+      "T12_received_utc": "2026-10-24T01:32:01.803Z",
+      "T12_AH_source_event_utc": "2026-10-23T06:53:50+00:00",
+      "T12_AH_line": 0.25,
+      "T12_home_odds": 1.92,
+      "T12_away_odds": 1.96,
+      "source_was_modified_hours_before_T12": 5.5897,
+      "players": [
+        {
+          "name": "Coventry",
+          "injured": [
+            "Eccles (ankle, unknown)",
+            "Wright (thigh, unknown)",
+            "Amenda (calf, unknown)",
+            "Woolfenden (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Eccles (ankle, unknown), Wright (thigh, unknown), Amenda (calf, unknown), Woolfenden (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Fulham",
+          "injured": [],
+          "suspended": [
+            "Sessegnon (first of three)"
+          ],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured None",
+            "suspended": "Suspended Sessegnon (first of three)"
+          }
+        }
+      ],
+      "home_reported_injured_n": 4,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 0,
+      "away_reported_suspended_n": 1,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "201647228",
+      "source_url": "https://www.theguardian.com/football/2026/oct/23/premier-league-team-news-predicted-lineups",
+      "source_date": "2026-10-23",
+      "source_published_utc": "2026-10-23T15:42:28.000Z",
+      "source_modified_utc": "2026-10-23T19:56:39.000Z",
+      "source_html_sha256": "9e3efa1180398dfc967ced569545a0cdaa5e16c9be8a4e9c062f35f78ed6796f",
+      "home": "Chelsea",
+      "away": "Tottenham",
+      "kickoff_utc": "2026-10-24T16:30:00.000Z",
+      "T12_received_utc": "2026-10-24T04:02:01.476Z",
+      "T12_AH_source_event_utc": "2026-10-24T03:28:31+00:00",
+      "T12_AH_line": -0.75,
+      "T12_home_odds": 2.02,
+      "T12_away_odds": 1.86,
+      "source_was_modified_hours_before_T12": 8.0896,
+      "players": [
+        {
+          "name": "Chelsea",
+          "injured": [
+            "Emegha (knock, 28 Oct)",
+            "Chavarría (knock, 28 Oct)",
+            "Martínez (jaw, 21 Nov)",
+            "James (knee, Jan)",
+            "Gittens (foot, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Emegha (knock, 28 Oct), Chavarría (knock, 28 Oct), Martínez (jaw, 21 Nov), James (knee, Jan), Gittens (foot, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Tottenham",
+          "injured": [
+            "Bergvall (knee, 31 Oct)",
+            "Sávio (muscle, 7 Nov)",
+            "Udogie (knee, unknown)",
+            "Mudryk (ankle, unknown)",
+            "Simons (knee, unknown)",
+            "Odobert (knee, unknown)"
+          ],
+          "suspended": [
+            "Bentancur (second of three)"
+          ],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Bergvall (knee, 31 Oct), Sávio (muscle, 7 Nov), Udogie (knee, unknown), Mudryk (ankle, unknown), Simons (knee, unknown), Odobert (knee, unknown)",
+            "suspended": "Suspended Bentancur (second of three)"
+          }
+        }
+      ],
+      "home_reported_injured_n": 5,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 6,
+      "away_reported_suspended_n": 1,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "201647232",
+      "source_url": "https://www.theguardian.com/football/2026/oct/23/premier-league-team-news-predicted-lineups",
+      "source_date": "2026-10-23",
+      "source_published_utc": "2026-10-23T15:42:28.000Z",
+      "source_modified_utc": "2026-10-23T19:56:39.000Z",
+      "source_html_sha256": "9e3efa1180398dfc967ced569545a0cdaa5e16c9be8a4e9c062f35f78ed6796f",
+      "home": "Crystal Palace",
+      "away": "Newcastle",
+      "kickoff_utc": "2026-10-25T14:00:00.000Z",
+      "T12_received_utc": "2026-10-25T01:32:13.717Z",
+      "T12_AH_source_event_utc": "2026-10-23T16:44:39+00:00",
+      "T12_AH_line": 0.25,
+      "T12_home_odds": 1.83,
+      "T12_away_odds": 2.05,
+      "source_was_modified_hours_before_T12": 29.593,
+      "players": [
+        {
+          "name": "Crystal Palace",
+          "injured": [
+            "Riad (knee, unknown)",
+            "Strand Larsen (ankle, unknown)",
+            "Tomiyasu (calf, unknown)",
+            "Henderson (foot, unknown)",
+            "Timber (hamstring, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Riad (knee, unknown), Strand Larsen (ankle, unknown), Tomiyasu (calf, unknown), Henderson (foot, unknown), Timber (hamstring, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Newcastle",
+          "injured": [
+            "Ramsey (thigh, 7 Nov)",
+            "Elanga (thigh, 7 Nov)",
+            "Jaouen (thigh, Dec)",
+            "Livramento (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Fernandez-Pardo (illness)",
+            "Elanga (thigh)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Fernandez-Pardo (illness), Elanga (thigh)",
+            "injured": "Injured Ramsey (thigh, 7 Nov), Elanga (thigh, 7 Nov), Jaouen (thigh, Dec), Livramento (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 5,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 4,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "201647234",
+      "source_url": "https://www.theguardian.com/football/2026/oct/23/premier-league-team-news-predicted-lineups",
+      "source_date": "2026-10-23",
+      "source_published_utc": "2026-10-23T15:42:28.000Z",
+      "source_modified_utc": "2026-10-23T19:56:39.000Z",
+      "source_html_sha256": "9e3efa1180398dfc967ced569545a0cdaa5e16c9be8a4e9c062f35f78ed6796f",
+      "home": "Hull",
+      "away": "Brentford",
+      "kickoff_utc": "2026-10-25T14:00:00.000Z",
+      "T12_received_utc": "2026-10-25T01:32:18.925Z",
+      "T12_AH_source_event_utc": "2026-10-22T09:14:39+00:00",
+      "T12_AH_line": 0.75,
+      "T12_home_odds": 1.98,
+      "T12_away_odds": 1.9,
+      "source_was_modified_hours_before_T12": 29.5944,
+      "players": [
+        {
+          "name": "Hull",
+          "injured": [
+            "Mendy (groin, 31 Oct)",
+            "Targett (ankle, unknown)",
+            "Ansah (back, unknown)",
+            "Butland (arm, unknown)",
+            "Gyabi (thigh, unknown)",
+            "Hughes (groin, unknown)",
+            "Matazo (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Cho (knock)",
+            "Gourna-Douath (calf)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Cho (knock), Gourna-Douath (calf)",
+            "injured": "Injured Mendy (groin, 31 Oct), Targett (ankle, unknown), Ansah (back, unknown), Butland (arm, unknown), Gyabi (thigh, unknown), Hughes (groin, unknown), Matazo (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Brentford",
+          "injured": [
+            "Dasilva (hamstring, unknown)",
+            "Milambo (knee, unknown)"
+          ],
+          "suspended": [
+            "Janelt (one match)",
+            "Yarmoliuk (first of three)"
+          ],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Dasilva (hamstring, unknown), Milambo (knee, unknown)",
+            "suspended": "Suspended Janelt (one match), Yarmoliuk (first of three)"
+          }
+        }
+      ],
+      "home_reported_injured_n": 7,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 2,
+      "away_reported_injured_n": 2,
+      "away_reported_suspended_n": 2,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "201647236",
+      "source_url": "https://www.theguardian.com/football/2026/oct/23/premier-league-team-news-predicted-lineups",
+      "source_date": "2026-10-23",
+      "source_published_utc": "2026-10-23T15:42:28.000Z",
+      "source_modified_utc": "2026-10-23T19:56:39.000Z",
+      "source_html_sha256": "9e3efa1180398dfc967ced569545a0cdaa5e16c9be8a4e9c062f35f78ed6796f",
+      "home": "Liverpool",
+      "away": "Brighton",
+      "kickoff_utc": "2026-10-25T14:00:00.000Z",
+      "T12_received_utc": "2026-10-25T01:32:24.128Z",
+      "T12_AH_source_event_utc": "2026-10-25T00:22:35+00:00",
+      "T12_AH_line": -0.25,
+      "T12_home_odds": 1.85,
+      "T12_away_odds": 2.03,
+      "source_was_modified_hours_before_T12": 29.5959,
+      "players": [
+        {
+          "name": "Liverpool",
+          "injured": [
+            "Szoboszlai (hamstring, 1 Nov)",
+            "Frimpong (hamstring, 22 Nov)",
+            "Bradley (knee, Nov)",
+            "Leoni (knee, Dec)",
+            "Ekitiké (achilles, Dec)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Muñoz (muscle)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Muñoz (muscle)",
+            "injured": "Injured Szoboszlai (hamstring, 1 Nov), Frimpong (hamstring, 22 Nov), Bradley (knee, Nov), Leoni (knee, Dec), Ekitiké (achilles, Dec)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Brighton",
+          "injured": [
+            "Azeez (hamstring, 31 Oct)",
+            "Mitoma (hamstring, 31 Oct)",
+            "Ferguson (ankle, unknown)",
+            "Tzimas (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Struijk (hamstring)",
+            "Minteh (leg)",
+            "Wieffer (knee)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Struijk (hamstring), Minteh (leg), Wieffer (knee)",
+            "injured": "Injured Azeez (hamstring, 31 Oct), Mitoma (hamstring, 31 Oct), Ferguson (ankle, unknown), Tzimas (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 5,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 4,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 3
+    },
+    {
+      "fid": "201647238",
+      "source_url": "https://www.theguardian.com/football/2026/oct/23/premier-league-team-news-predicted-lineups",
+      "source_date": "2026-10-23",
+      "source_published_utc": "2026-10-23T15:42:28.000Z",
+      "source_modified_utc": "2026-10-23T19:56:39.000Z",
+      "source_html_sha256": "9e3efa1180398dfc967ced569545a0cdaa5e16c9be8a4e9c062f35f78ed6796f",
+      "home": "Man Utd",
+      "away": "Bournemouth",
+      "kickoff_utc": "2026-10-25T14:00:00.000Z",
+      "T12_received_utc": "2026-10-25T01:32:29.356Z",
+      "T12_AH_source_event_utc": "2026-10-24T15:54:12+00:00",
+      "T12_AH_line": -0.25,
+      "T12_home_odds": 1.94,
+      "T12_away_odds": 1.94,
+      "source_was_modified_hours_before_T12": 29.5973,
+      "players": [
+        {
+          "name": "Manchester United",
+          "injured": [
+            "Rashford (hip, 8 Nov)",
+            "Dorgu (hamstring, 22 Nov)",
+            "Ugarte (knee, unknown)",
+            "Sesko (shin, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Darlow",
+            "Martínez",
+            "Shaw",
+            "Mainoo (all match fitness)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Darlow, Martínez, Shaw, Mainoo (all match fitness)",
+            "injured": "Injured Rashford (hip, 8 Nov), Dorgu (hamstring, 22 Nov), Ugarte (knee, unknown), Sesko (shin, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Bournemouth",
+          "injured": [
+            "Milosavjlevic (thigh, 31 Oct)",
+            "Scott (thigh, 8 Nov)",
+            "Toth (hamstring, unknown)",
+            "Araujo (thigh, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Kroupi (foot)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Kroupi (foot)",
+            "injured": "Injured Milosavjlevic (thigh, 31 Oct), Scott (thigh, 8 Nov), Toth (hamstring, unknown), Araujo (thigh, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 4,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 4,
+      "away_reported_injured_n": 4,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "201647240",
+      "source_url": "https://www.theguardian.com/football/2026/oct/23/premier-league-team-news-predicted-lineups",
+      "source_date": "2026-10-23",
+      "source_published_utc": "2026-10-23T15:42:28.000Z",
+      "source_modified_utc": "2026-10-23T19:56:39.000Z",
+      "source_html_sha256": "9e3efa1180398dfc967ced569545a0cdaa5e16c9be8a4e9c062f35f78ed6796f",
+      "home": "Sunderland",
+      "away": "Leeds",
+      "kickoff_utc": "2026-10-25T16:30:00.000Z",
+      "T12_received_utc": "2026-10-25T04:02:19.365Z",
+      "T12_AH_source_event_utc": "2026-10-25T00:34:38+00:00",
+      "T12_AH_line": 0.0,
+      "T12_home_odds": 2.09,
+      "T12_away_odds": 1.79,
+      "source_was_modified_hours_before_T12": 32.0945,
+      "players": [
+        {
+          "name": "Sunderland",
+          "injured": [
+            "Meunier (hamstring, 31 Oct)",
+            "Isidor (unknown, 31 Oct)",
+            "Ballard (hamstring, Dec)",
+            "Mundle (knee, Jan)"
+          ],
+          "suspended": [
+            "Danso (one match)"
+          ],
+          "doubtful": [
+            "Brobbey (hamstring)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Brobbey (hamstring)",
+            "injured": "Injured Meunier (hamstring, 31 Oct), Isidor (unknown, 31 Oct), Ballard (hamstring, Dec), Mundle (knee, Jan)",
+            "suspended": "Suspended Danso (one match)"
+          }
+        },
+        {
+          "name": "Leeds",
+          "injured": [
+            "Rodon (hamstring, 31 Oct)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Calvert-Lewin (foot)",
+            "Okafor (adductor)",
+            "Stach (foot)",
+            "James (back)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Calvert-Lewin (foot), Okafor (adductor), Stach (foot), James (back)",
+            "injured": "Injured Rodon (hamstring, 31 Oct)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 4,
+      "home_reported_suspended_n": 1,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 1,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 4
+    },
+    {
+      "fid": "202201732",
+      "source_url": "https://www.theguardian.com/football/2026/oct/30/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-30",
+      "source_published_utc": "2026-10-30T16:19:26.000Z",
+      "source_modified_utc": "2026-10-30T16:20:26.000Z",
+      "source_html_sha256": "3ac10ca503093d6b44d5e4962fd0f735e0945ed3989137880719e5d9e2818033",
+      "home": "Chelsea",
+      "away": "Man Utd",
+      "kickoff_utc": "2026-10-31T12:30:00.000Z",
+      "T12_received_utc": "2026-10-31T00:01:00.385Z",
+      "T12_AH_source_event_utc": "2026-10-30T21:31:03+00:00",
+      "T12_AH_line": -0.5,
+      "T12_home_odds": 1.99,
+      "T12_away_odds": 1.89,
+      "source_was_modified_hours_before_T12": 7.6762,
+      "players": [
+        {
+          "name": "Chelsea",
+          "injured": [
+            "Martínez (jaw, 8 Nov)",
+            "James (knee, Jan)",
+            "João Pedro (thigh, unknown)",
+            "Lacroix (hamstring, unknown)",
+            "Anselmino (hamstring, unknown)",
+            "Gittens (foot, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Chavarría (knock)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Chavarría (knock)",
+            "injured": "Injured Martínez (jaw, 8 Nov), James (knee, Jan), João Pedro (thigh, unknown), Lacroix (hamstring, unknown), Anselmino (hamstring, unknown), Gittens (foot, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Manchester United",
+          "injured": [
+            "Dorgu (hamstring, 22 Nov)",
+            "Sesko (shin, Jan)",
+            "Ugarte (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Martínez",
+            "Shaw",
+            "Mainoo",
+            "Rashford (all match fitness)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Martínez, Shaw, Mainoo, Rashford (all match fitness)",
+            "injured": "Injured Dorgu (hamstring, 22 Nov), Sesko (shin, Jan), Ugarte (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 6,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 3,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 4
+    },
+    {
+      "fid": "202201734",
+      "source_url": "https://www.theguardian.com/football/2026/oct/30/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-30",
+      "source_published_utc": "2026-10-30T16:19:26.000Z",
+      "source_modified_utc": "2026-10-30T16:20:26.000Z",
+      "source_html_sha256": "3ac10ca503093d6b44d5e4962fd0f735e0945ed3989137880719e5d9e2818033",
+      "home": "Bournemouth",
+      "away": "Leeds",
+      "kickoff_utc": "2026-10-31T15:00:00.000Z",
+      "T12_received_utc": "2026-10-31T02:31:48.792Z",
+      "T12_AH_source_event_utc": "2026-10-28T22:11:35+00:00",
+      "T12_AH_line": -0.25,
+      "T12_home_odds": 1.83,
+      "T12_away_odds": 2.05,
+      "source_was_modified_hours_before_T12": 10.1897,
+      "players": [
+        {
+          "name": "Bournemouth",
+          "injured": [
+            "Scott (thigh, 8 Nov)",
+            "Toth (hamstring, unknown)",
+            "Araujo (thigh, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Milosavljevic (thigh)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Milosavljevic (thigh)",
+            "injured": "Injured Scott (thigh, 8 Nov), Toth (hamstring, unknown), Araujo (thigh, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Leeds",
+          "injured": [
+            "Rodon (thigh, 7 Nov)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Stach (foot)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Stach (foot)",
+            "injured": "Injured Rodon (thigh, 7 Nov)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 3,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 1,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "202201736",
+      "source_url": "https://www.theguardian.com/football/2026/oct/30/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-30",
+      "source_published_utc": "2026-10-30T16:19:26.000Z",
+      "source_modified_utc": "2026-10-30T16:20:26.000Z",
+      "source_html_sha256": "3ac10ca503093d6b44d5e4962fd0f735e0945ed3989137880719e5d9e2818033",
+      "home": "Brentford",
+      "away": "Nottm Forest",
+      "kickoff_utc": "2026-10-31T15:00:00.000Z",
+      "T12_received_utc": "2026-10-31T02:31:53.995Z",
+      "T12_AH_source_event_utc": "2026-10-29T11:34:11+00:00",
+      "T12_AH_line": -0.5,
+      "T12_home_odds": 2.05,
+      "T12_away_odds": 1.83,
+      "source_was_modified_hours_before_T12": 10.1911,
+      "players": [
+        {
+          "name": "Brentford",
+          "injured": [
+            "Carvalho (knock, 23 Nov)",
+            "Henry (hip, unknown)",
+            "Dasilva (hamstring, unknown)",
+            "Milambo (knee, unknown)"
+          ],
+          "suspended": [
+            "Yarmoliuk (last of three)"
+          ],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Carvalho (knock, 23 Nov), Henry (hip, unknown), Dasilva (hamstring, unknown), Milambo (knee, unknown)",
+            "suspended": "Suspended Yarmoliuk (last of three)"
+          }
+        },
+        {
+          "name": "Nottingham Forest",
+          "injured": [
+            "Igor Jesus (calf, unknown)",
+            "Savona (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Domínguez (muscle)",
+            "Ndoye (hamstring)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Domínguez (muscle), Ndoye (hamstring)",
+            "injured": "Injured Igor Jesus (calf, unknown), Savona (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 4,
+      "home_reported_suspended_n": 1,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 2,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "202201738",
+      "source_url": "https://www.theguardian.com/football/2026/oct/30/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-30",
+      "source_published_utc": "2026-10-30T16:19:26.000Z",
+      "source_modified_utc": "2026-10-30T16:20:26.000Z",
+      "source_html_sha256": "3ac10ca503093d6b44d5e4962fd0f735e0945ed3989137880719e5d9e2818033",
+      "home": "Coventry",
+      "away": "Sunderland",
+      "kickoff_utc": "2026-10-31T15:00:00.000Z",
+      "T12_received_utc": "2026-10-31T02:31:59.181Z",
+      "T12_AH_source_event_utc": "2026-10-30T17:56:27+00:00",
+      "T12_AH_line": 0.25,
+      "T12_home_odds": 1.87,
+      "T12_away_odds": 2.01,
+      "source_was_modified_hours_before_T12": 10.1926,
+      "players": [
+        {
+          "name": "Coventry",
+          "injured": [
+            "Eccles (ankle, unknown)",
+            "Woolfenden (knee, unknown)",
+            "Wright (thigh, unknown)",
+            "Amenda (calf, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Thomas (calf)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Thomas (calf)",
+            "injured": "Injured Eccles (ankle, unknown), Woolfenden (knee, unknown), Wright (thigh, unknown), Amenda (calf, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Sunderland",
+          "injured": [
+            "Ballard (hamstring, Dec)",
+            "Mundle (knee, Jan)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Mukiele (throat)",
+            "Isidor (unknown)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Mukiele (throat), Isidor (unknown)",
+            "injured": "Injured Ballard (hamstring, Dec), Mundle (knee, Jan)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 4,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 2,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "202201746",
+      "source_url": "https://www.theguardian.com/football/2026/oct/30/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-30",
+      "source_published_utc": "2026-10-30T16:19:26.000Z",
+      "source_modified_utc": "2026-10-30T16:20:26.000Z",
+      "source_html_sha256": "3ac10ca503093d6b44d5e4962fd0f735e0945ed3989137880719e5d9e2818033",
+      "home": "Hull",
+      "away": "Ipswich",
+      "kickoff_utc": "2026-10-31T15:00:00.000Z",
+      "T12_received_utc": "2026-10-31T02:32:04.405Z",
+      "T12_AH_source_event_utc": "2026-10-31T01:55:48+00:00",
+      "T12_AH_line": 0.0,
+      "T12_home_odds": 1.93,
+      "T12_away_odds": 1.95,
+      "source_was_modified_hours_before_T12": 10.194,
+      "players": [
+        {
+          "name": "Hull",
+          "injured": [
+            "Matazo (knee, unknown)",
+            "Targett (ankle, unknown)",
+            "Ansah (back, unknown)",
+            "Gyabi (thigh, unknown)",
+            "Hughes (groin, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Butland (arm)",
+            "Gourna-Douath (calf)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Butland (arm), Gourna-Douath (calf)",
+            "injured": "Injured Matazo (knee, unknown), Targett (ankle, unknown), Ansah (back, unknown), Gyabi (thigh, unknown), Hughes (groin, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Ipswich",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [
+            "Lukic (groin)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Lukic (groin)",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 5,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 2,
+      "away_reported_injured_n": 0,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "202201751",
+      "source_url": "https://www.theguardian.com/football/2026/oct/30/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-30",
+      "source_published_utc": "2026-10-30T16:19:26.000Z",
+      "source_modified_utc": "2026-10-30T16:20:26.000Z",
+      "source_html_sha256": "3ac10ca503093d6b44d5e4962fd0f735e0945ed3989137880719e5d9e2818033",
+      "home": "Man City",
+      "away": "Brighton",
+      "kickoff_utc": "2026-10-31T15:00:00.000Z",
+      "T12_received_utc": "2026-10-31T02:48:49.263Z",
+      "T12_AH_source_event_utc": "2026-10-30T20:58:11+00:00",
+      "T12_AH_line": -0.75,
+      "T12_home_odds": 1.88,
+      "T12_away_odds": 2.0,
+      "source_was_modified_hours_before_T12": 10.4731,
+      "players": [
+        {
+          "name": "Manchester City",
+          "injured": [
+            "Semenyo (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Semenyo (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Brighton",
+          "injured": [
+            "Struijk (hamstring, 8 Nov)",
+            "Azeez (hamstring, 8 Nov)",
+            "Mitoma (hamstring 22 Nov)",
+            "Ferguson (ankle, unknown)",
+            "Tzimas (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Kadioglu (hip)",
+            "Andrés (hip)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Kadioglu (hip), Andrés (hip)",
+            "injured": "Injured Struijk (hamstring, 8 Nov), Azeez (hamstring, 8 Nov), Mitoma (hamstring 22 Nov), Ferguson (ankle, unknown), Tzimas (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 1,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 5,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "202201755",
+      "source_url": "https://www.theguardian.com/football/2026/oct/30/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-30",
+      "source_published_utc": "2026-10-30T16:19:26.000Z",
+      "source_modified_utc": "2026-10-30T16:20:26.000Z",
+      "source_html_sha256": "3ac10ca503093d6b44d5e4962fd0f735e0945ed3989137880719e5d9e2818033",
+      "home": "Aston Villa",
+      "away": "Fulham",
+      "kickoff_utc": "2026-10-31T20:00:00.000Z",
+      "T12_received_utc": "2026-10-31T07:30:36.929Z",
+      "T12_AH_source_event_utc": "2026-10-31T05:10:51+00:00",
+      "T12_AH_line": -0.5,
+      "T12_home_odds": 2.05,
+      "T12_away_odds": 1.84,
+      "source_was_modified_hours_before_T12": 15.1697,
+      "players": [
+        {
+          "name": "Aston Villa",
+          "injured": [
+            "Wan-Bissaka (hamstring, 21 Nov)",
+            "Ruggeri (hamstring, Jan)",
+            "Onana (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Wan-Bissaka (hamstring, 21 Nov), Ruggeri (hamstring, Jan), Onana (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Fulham",
+          "injured": [],
+          "suspended": [
+            "Sessegnon (last of three)"
+          ],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured None",
+            "suspended": "Suspended Sessegnon (last of three)"
+          }
+        }
+      ],
+      "home_reported_injured_n": 3,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 0,
+      "away_reported_suspended_n": 1,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "202201757",
+      "source_url": "https://www.theguardian.com/football/2026/oct/30/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-30",
+      "source_published_utc": "2026-10-30T16:19:26.000Z",
+      "source_modified_utc": "2026-10-30T16:20:26.000Z",
+      "source_html_sha256": "3ac10ca503093d6b44d5e4962fd0f735e0945ed3989137880719e5d9e2818033",
+      "home": "Liverpool",
+      "away": "Arsenal",
+      "kickoff_utc": "2026-11-01T16:30:00.000Z",
+      "T12_received_utc": "2026-11-01T04:01:03.560Z",
+      "T12_AH_source_event_utc": "2026-11-01T00:24:25+00:00",
+      "T12_AH_line": 0.25,
+      "T12_home_odds": 1.78,
+      "T12_away_odds": 2.11,
+      "source_was_modified_hours_before_T12": 35.6771,
+      "players": [
+        {
+          "name": "Liverpool",
+          "injured": [
+            "Frimpong (hamstring, 22 Nov)",
+            "Bradley (knee, Nov)",
+            "Leoni (knee, Dec)",
+            "Ekitike (achilles, Dec)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Muñoz (muscle)",
+            "Szoboszlai (hamstring)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Muñoz (muscle), Szoboszlai (hamstring)",
+            "injured": "Injured Frimpong (hamstring, 22 Nov), Bradley (knee, Nov), Leoni (knee, Dec), Ekitike (achilles, Dec)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Arsenal",
+          "injured": [
+            "Tzolis (hamstring, 7 Nov)",
+            "Saka (thigh, unknown)",
+            "Saliba (back, unknown)"
+          ],
+          "suspended": [
+            "Dowman (first of three)"
+          ],
+          "doubtful": [
+            "Madueke (ankle)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Madueke (ankle)",
+            "injured": "Injured Tzolis (hamstring, 7 Nov), Saka (thigh, unknown), Saliba (back, unknown)",
+            "suspended": "Suspended Dowman (first of three)"
+          }
+        }
+      ],
+      "home_reported_injured_n": 4,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 2,
+      "away_reported_injured_n": 3,
+      "away_reported_suspended_n": 1,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "202201759",
+      "source_url": "https://www.theguardian.com/football/2026/oct/30/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-10-30",
+      "source_published_utc": "2026-10-30T16:19:26.000Z",
+      "source_modified_utc": "2026-10-30T16:20:26.000Z",
+      "source_html_sha256": "3ac10ca503093d6b44d5e4962fd0f735e0945ed3989137880719e5d9e2818033",
+      "home": "Newcastle",
+      "away": "Everton",
+      "kickoff_utc": "2026-11-02T20:00:00.000Z",
+      "T12_received_utc": "2026-11-02T07:31:56.589Z",
+      "T12_AH_source_event_utc": "2026-11-02T07:12:55+00:00",
+      "T12_AH_line": -0.25,
+      "T12_home_odds": 1.9,
+      "T12_away_odds": 1.99,
+      "source_was_modified_hours_before_T12": 63.1918,
+      "players": [
+        {
+          "name": "Newcastle",
+          "injured": [
+            "Jaouen (hamstring, Dec)",
+            "Livramento (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Miley (glute)",
+            "Fernandez-Pardo (illness)",
+            "Osula (ankle)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Miley (glute), Fernandez-Pardo (illness), Osula (ankle)",
+            "injured": "Injured Jaouen (hamstring, Dec), Livramento (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Everton",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [
+            "Branthwaite (concussion)",
+            "Grealish (disciplinary reasons)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Branthwaite (concussion), Grealish (disciplinary reasons)",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 2,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 3,
+      "away_reported_injured_n": 0,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "202801989",
+      "source_url": "https://www.theguardian.com/football/2026/nov/06/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-11-06",
+      "source_published_utc": "2026-11-06T16:43:45.000Z",
+      "source_modified_utc": "2026-11-06T16:45:03.000Z",
+      "source_html_sha256": "e662a1b3b97bac63a86e4d843bc2cd1bfaa19e0c1c334d720eee1416cda27343",
+      "home": "Leeds",
+      "away": "Tottenham",
+      "kickoff_utc": "2026-11-07T12:30:00.000Z",
+      "T12_received_utc": "2026-11-07T00:00:14.232Z",
+      "T12_AH_source_event_utc": "2026-11-06T17:02:17+00:00",
+      "T12_AH_line": 0.0,
+      "T12_home_odds": 2.04,
+      "T12_away_odds": 1.84,
+      "source_was_modified_hours_before_T12": 7.2531,
+      "players": [
+        {
+          "name": "Leeds",
+          "injured": [
+            "Joseph (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Stach (foot)",
+            "Rodon (thigh)",
+            "Calvert-Lewin (foot)",
+            "Okafor (thigh)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Stach (foot), Rodon (thigh), Calvert-Lewin (foot), Okafor (thigh)",
+            "injured": "Injured Joseph (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Tottenham",
+          "injured": [
+            "Sávio (muscle, 21 Nov)",
+            "Mudryk (ankle, 21 Nov)",
+            "Simons (knee, 16 Jan)",
+            "Odobert (knee, 16 Jan)",
+            "Bergvall (knee, 21 nov)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Adarabioyo (calf)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Adarabioyo (calf)",
+            "injured": "Injured Sávio (muscle, 21 Nov), Mudryk (ankle, 21 Nov), Simons (knee, 16 Jan), Odobert (knee, 16 Jan), Bergvall (knee, 21 nov)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 1,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 4,
+      "away_reported_injured_n": 5,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "202801997",
+      "source_url": "https://www.theguardian.com/football/2026/nov/06/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-11-06",
+      "source_published_utc": "2026-11-06T16:43:45.000Z",
+      "source_modified_utc": "2026-11-06T16:45:03.000Z",
+      "source_html_sha256": "e662a1b3b97bac63a86e4d843bc2cd1bfaa19e0c1c334d720eee1416cda27343",
+      "home": "Arsenal",
+      "away": "Hull",
+      "kickoff_utc": "2026-11-07T15:00:00.000Z",
+      "T12_received_utc": "2026-11-07T02:30:39.332Z",
+      "T12_AH_source_event_utc": "2026-11-06T22:05:10+00:00",
+      "T12_AH_line": -2.0,
+      "T12_home_odds": 1.83,
+      "T12_away_odds": 2.05,
+      "source_was_modified_hours_before_T12": 9.7601,
+      "players": [
+        {
+          "name": "Arsenal",
+          "injured": [
+            "Saka (thigh, unknown)"
+          ],
+          "suspended": [
+            "Dowman (second of three)"
+          ],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Saka (thigh, unknown)",
+            "suspended": "Suspended Dowman (second of three)"
+          }
+        },
+        {
+          "name": "Hull",
+          "injured": [
+            "Matazo (knee, 6 Dec)",
+            "Targett (ankle, 14 Dec)",
+            "Ansah (back, 14 Dec)",
+            "Hughes (groin, 22 Nov)",
+            "Morita (groin, 22 Nov)"
+          ],
+          "suspended": [
+            "Crooks (one match)"
+          ],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Matazo (knee, 6 Dec), Targett (ankle, 14 Dec), Ansah (back, 14 Dec), Hughes (groin, 22 Nov), Morita (groin, 22 Nov)",
+            "suspended": "Suspended Crooks (one match)"
+          }
+        }
+      ],
+      "home_reported_injured_n": 1,
+      "home_reported_suspended_n": 1,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 5,
+      "away_reported_suspended_n": 1,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "202802002",
+      "source_url": "https://www.theguardian.com/football/2026/nov/06/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-11-06",
+      "source_published_utc": "2026-11-06T16:43:45.000Z",
+      "source_modified_utc": "2026-11-06T16:45:03.000Z",
+      "source_html_sha256": "e662a1b3b97bac63a86e4d843bc2cd1bfaa19e0c1c334d720eee1416cda27343",
+      "home": "Fulham",
+      "away": "Newcastle",
+      "kickoff_utc": "2026-11-07T15:00:00.000Z",
+      "T12_received_utc": "2026-11-07T02:30:44.545Z",
+      "T12_AH_source_event_utc": "2026-11-06T13:29:54+00:00",
+      "T12_AH_line": -0.5,
+      "T12_home_odds": 2.06,
+      "T12_away_odds": 1.82,
+      "source_was_modified_hours_before_T12": 9.7615,
+      "players": [
+        {
+          "name": "Fulham",
+          "injured": [
+            "Cairney (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Cairney (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Newcastle",
+          "injured": [
+            "Jaouen (hamstring, 5 Dec)",
+            "Livramento (knee, unknown)",
+            "Joelinton (muscle, unknown)"
+          ],
+          "suspended": [
+            "Ramsey (one match)"
+          ],
+          "doubtful": [
+            "Fernandez-Pardo (illness)",
+            "L Miley (glute)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Fernandez-Pardo (illness), L Miley (glute)",
+            "injured": "Injured Jaouen (hamstring, 5 Dec), Livramento (knee, unknown), Joelinton (muscle, unknown)",
+            "suspended": "Suspended Ramsey (one match)"
+          }
+        }
+      ],
+      "home_reported_injured_n": 1,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 3,
+      "away_reported_suspended_n": 1,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "202802012",
+      "source_url": "https://www.theguardian.com/football/2026/nov/06/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-11-06",
+      "source_published_utc": "2026-11-06T16:43:45.000Z",
+      "source_modified_utc": "2026-11-06T16:45:03.000Z",
+      "source_html_sha256": "e662a1b3b97bac63a86e4d843bc2cd1bfaa19e0c1c334d720eee1416cda27343",
+      "home": "Nottm Forest",
+      "away": "Man City",
+      "kickoff_utc": "2026-11-07T17:30:00.000Z",
+      "T12_received_utc": "2026-11-07T05:01:40.465Z",
+      "T12_AH_source_event_utc": "2026-11-07T04:27:24+00:00",
+      "T12_AH_line": 0.75,
+      "T12_home_odds": 1.94,
+      "T12_away_odds": 1.95,
+      "source_was_modified_hours_before_T12": 12.2771,
+      "players": [
+        {
+          "name": "Nottingham Forest",
+          "injured": [
+            "Domínguez (muscle, 2 Dec)",
+            "Savona (knee, 21 Nov)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Igor Jesus (calf)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Igor Jesus (calf)",
+            "injured": "Injured Domínguez (muscle, 2 Dec), Savona (knee, 21 Nov)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Manchester City",
+          "injured": [
+            "Semenyo (knee, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Semenyo (knee, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 2,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 1,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 0
+    },
+    {
+      "fid": "202802019",
+      "source_url": "https://www.theguardian.com/football/2026/nov/06/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-11-06",
+      "source_published_utc": "2026-11-06T16:43:45.000Z",
+      "source_modified_utc": "2026-11-06T16:45:03.000Z",
+      "source_html_sha256": "e662a1b3b97bac63a86e4d843bc2cd1bfaa19e0c1c334d720eee1416cda27343",
+      "home": "Brighton",
+      "away": "Brentford",
+      "kickoff_utc": "2026-11-08T14:00:00.000Z",
+      "T12_received_utc": "2026-11-08T01:30:17.399Z",
+      "T12_AH_source_event_utc": "2026-11-07T18:13:48+00:00",
+      "T12_AH_line": -0.5,
+      "T12_home_odds": 1.83,
+      "T12_away_odds": 2.05,
+      "source_was_modified_hours_before_T12": 32.754,
+      "players": [
+        {
+          "name": "Brighton",
+          "injured": [
+            "Ferguson (ankle, unknown)",
+            "Mitoma (hamstring, 22 Nov)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Kadioglu (hip, Azeez (hamstring), Struijk (hamstring), Tzimas (knee), Yohanna (unknown)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Kadioglu (hip, Azeez (hamstring), Struijk (hamstring), Tzimas (knee), Yohanna (unknown)",
+            "injured": "Injured Ferguson (ankle, unknown), Mitoma (hamstring, 22 Nov)",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Brentford",
+          "injured": [
+            "Carvalho (knock, 23 Nov)",
+            "Henry (hip, u23 Nov)",
+            "Milambo (knee, 23 Nov)",
+            "Furo (foot, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Dasilva (hamstring)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Dasilva (hamstring)",
+            "injured": "Injured Carvalho (knock, 23 Nov), Henry (hip, u23 Nov), Milambo (knee, 23 Nov), Furo (foot, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 2,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 4,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "202802024",
+      "source_url": "https://www.theguardian.com/football/2026/nov/06/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-11-06",
+      "source_published_utc": "2026-11-06T16:43:45.000Z",
+      "source_modified_utc": "2026-11-06T16:45:03.000Z",
+      "source_html_sha256": "e662a1b3b97bac63a86e4d843bc2cd1bfaa19e0c1c334d720eee1416cda27343",
+      "home": "Crystal Palace",
+      "away": "Liverpool",
+      "kickoff_utc": "2026-11-08T14:00:00.000Z",
+      "T12_received_utc": "2026-11-08T01:30:22.643Z",
+      "T12_AH_source_event_utc": "2026-11-07T19:10:24+00:00",
+      "T12_AH_line": 1.0,
+      "T12_home_odds": 1.92,
+      "T12_away_odds": 1.96,
+      "source_was_modified_hours_before_T12": 32.7555,
+      "players": [
+        {
+          "name": "Crystal Palace",
+          "injured": [
+            "Riad (knee, Jun)",
+            "Tomiyasu (calf, 21 Nov)",
+            "Sarr (groin, unknown)"
+          ],
+          "suspended": [
+            "Mateta (first of three)"
+          ],
+          "doubtful": [],
+          "source_text": {
+            "doubtful": "Doubtful None",
+            "injured": "Injured Riad (knee, Jun), Tomiyasu (calf, 21 Nov), Sarr (groin, unknown)",
+            "suspended": "Suspended Mateta (first of three)"
+          }
+        },
+        {
+          "name": "Liverpool",
+          "injured": [
+            "Frimpong (hamstring, 22 Nov)",
+            "Bradley (knee, 22 Nov)",
+            "Leoni (knee, 2 Dec)",
+            "Ekitiké (achilles, 30 Dec)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Gravenberch (heel)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Gravenberch (heel)",
+            "injured": "Injured Frimpong (hamstring, 22 Nov), Bradley (knee, 22 Nov), Leoni (knee, 2 Dec), Ekitiké (achilles, 30 Dec)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 3,
+      "home_reported_suspended_n": 1,
+      "home_reported_doubtful_n": 0,
+      "away_reported_injured_n": 4,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 1
+    },
+    {
+      "fid": "202802028",
+      "source_url": "https://www.theguardian.com/football/2026/nov/06/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-11-06",
+      "source_published_utc": "2026-11-06T16:43:45.000Z",
+      "source_modified_utc": "2026-11-06T16:45:03.000Z",
+      "source_html_sha256": "e662a1b3b97bac63a86e4d843bc2cd1bfaa19e0c1c334d720eee1416cda27343",
+      "home": "Ipswich",
+      "away": "Bournemouth",
+      "kickoff_utc": "2026-11-08T14:00:00.000Z",
+      "T12_received_utc": "2026-11-08T01:30:27.836Z",
+      "T12_AH_source_event_utc": "2026-11-06T11:56:08+00:00",
+      "T12_AH_line": 0.5,
+      "T12_home_odds": 1.97,
+      "T12_away_odds": 1.91,
+      "source_was_modified_hours_before_T12": 32.7569,
+      "players": [
+        {
+          "name": "Ipswich",
+          "injured": [],
+          "suspended": [],
+          "doubtful": [
+            "Lukic (groin)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Lukic (groin)",
+            "injured": "Injured None",
+            "suspended": "Suspended None"
+          }
+        },
+        {
+          "name": "Bournemouth",
+          "injured": [
+            "Toth (hamstring, unknown)",
+            "Araujo (thigh, 28 Nov)",
+            "Sánchez (ankle, unknown)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Scott (thigh)",
+            "Milosavljevic (knee)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Scott (thigh), Milosavljevic (knee)",
+            "injured": "Injured Toth (hamstring, unknown), Araujo (thigh, 28 Nov), Sánchez (ankle, unknown)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 0,
+      "home_reported_suspended_n": 0,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 3,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "202802033",
+      "source_url": "https://www.theguardian.com/football/2026/nov/06/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-11-06",
+      "source_published_utc": "2026-11-06T16:43:45.000Z",
+      "source_modified_utc": "2026-11-06T16:45:03.000Z",
+      "source_html_sha256": "e662a1b3b97bac63a86e4d843bc2cd1bfaa19e0c1c334d720eee1416cda27343",
+      "home": "Sunderland",
+      "away": "Chelsea",
+      "kickoff_utc": "2026-11-08T14:00:00.000Z",
+      "T12_received_utc": "2026-11-08T01:30:33.034Z",
+      "T12_AH_source_event_utc": "2026-11-07T18:13:48+00:00",
+      "T12_AH_line": 0.5,
+      "T12_home_odds": 1.91,
+      "T12_away_odds": 1.97,
+      "source_was_modified_hours_before_T12": 32.7583,
+      "players": [
+        {
+          "name": "Sunderland",
+          "injured": [
+            "Mundle (knee, 20 Dec)",
+            "Ballard (hamstring, 2 Dec)",
+            "Diarra (hamstring, 20 Dec)"
+          ],
+          "suspended": [
+            "Alderete (one match)"
+          ],
+          "doubtful": [
+            "R Angulo (knock)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful R Angulo (knock)",
+            "injured": "Injured Mundle (knee, 20 Dec), Ballard (hamstring, 2 Dec), Diarra (hamstring, 20 Dec)",
+            "suspended": "Suspended Alderete (one match)"
+          }
+        },
+        {
+          "name": "Chelsea",
+          "injured": [
+            "Anselmino (hamstring, 21 Nov)",
+            "Gittens (foot, 21 Nov)",
+            "James (knee, 1 Jan)",
+            "Hato (back, 22 Nov)",
+            "João Pedro (thigh, unknown)",
+            "Lacroix (hamstring, 21 Nov)"
+          ],
+          "suspended": [],
+          "doubtful": [
+            "Martínez (jaw)",
+            "Caicedo (knock)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Martínez (jaw), Caicedo (knock)",
+            "injured": "Injured Anselmino (hamstring, 21 Nov), Gittens (foot, 21 Nov), James (knee, 1 Jan), Hato (back, 22 Nov), João Pedro (thigh, unknown), Lacroix (hamstring, 21 Nov)",
+            "suspended": "Suspended None"
+          }
+        }
+      ],
+      "home_reported_injured_n": 3,
+      "home_reported_suspended_n": 1,
+      "home_reported_doubtful_n": 1,
+      "away_reported_injured_n": 6,
+      "away_reported_suspended_n": 0,
+      "away_reported_doubtful_n": 2
+    },
+    {
+      "fid": "202802042",
+      "source_url": "https://www.theguardian.com/football/2026/nov/06/premier-league-team-news-predicted-lineups-for-the-weekend-action",
+      "source_date": "2026-11-06",
+      "source_published_utc": "2026-11-06T16:43:45.000Z",
+      "source_modified_utc": "2026-11-06T16:45:03.000Z",
+      "source_html_sha256": "e662a1b3b97bac63a86e4d843bc2cd1bfaa19e0c1c334d720eee1416cda27343",
+      "home": "Man Utd",
+      "away": "Aston Villa",
+      "kickoff_utc": "2026-11-08T16:30:00.000Z",
+      "T12_received_utc": "2026-11-08T04:04:03.526Z",
+      "T12_AH_source_event_utc": "2026-11-07T22:15:33+00:00",
+      "T12_AH_line": -0.25,
+      "T12_home_odds": 1.88,
+      "T12_away_odds": 2.0,
+      "source_was_modified_hours_before_T12": 35.3168,
+      "players": [
+        {
+          "name": "Manchester Utd",
+          "injured": [
+            "Ugarte (knee, unknown)",
+            "Sesko (shin, 16 Jan)",
+            "Baleba (hamstring, 28 Nov)"
+          ],
+          "suspended": [
+            "Martínez (one match)"
+          ],
+          "doubtful": [
+            "Shaw (unknown)",
+            "Darlow (unknown)",
+            "Rashford (hip)",
+            "Dorgu (hamstring)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Shaw (unknown), Darlow (unknown), Rashford (hip), Dorgu (hamstring)",
+            "injured": "Injured Ugarte (knee, unknown), Sesko (shin, 16 Jan), Baleba (hamstring, 28 Nov)",
+            "suspended": "Suspended Martínez (one match)"
+          }
+        },
+        {
+          "name": "Aston Villa",
+          "injured": [
+            "Ruggeri (hamstring, 21 Nov)",
+            "Onana (knee, 1 Apr)"
+          ],
+          "suspended": [
+            "Cash (one match)"
+          ],
+          "doubtful": [
+            "Wan-Bissaka (hamstring)"
+          ],
+          "source_text": {
+            "doubtful": "Doubtful Wan-Bissaka (hamstring)",
+            "injured": "Injured Ruggeri (hamstring, 21 Nov), Onana (knee, 1 Apr)",
+            "suspended": "Suspended Cash (one match)"
+          }
+        }
+      ],
+      "home_reported_injured_n": 3,
+      "home_reported_suspended_n": 1,
+      "home_reported_doubtful_n": 4,
+      "away_reported_injured_n": 2,
+      "away_reported_suspended_n": 1,
+      "away_reported_doubtful_n": 1
+    }
+  ]
+}
