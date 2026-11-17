@@ -1,0 +1,1896 @@
+{
+  "study": "M8_R60_AH_PROFIT_DECAY_MARKET_VS_OUTCOME",
+  "method": "R59 exact frozen training score p75 (not a new rule) and T24/T12 AH early-path model, unchanged coefficients. Analyze WHY 2026-10 actual received Crown quote replay profitable but 2026-11 loses via identity-preserving full cohort October/November, Asian-quarter fractional-win/loss times selected odds decomposition, league-mix Kitagawa decomposition for common leagues, event-mix and source-event age. Also compute 2024/2025 full natural Oct/Nov historical roll-forward to avoid using latest actual receipts as sole evidence. All quotes from actual received R22 verified source; historic events post-retrieved. Ex-post time periods, leagues, line types cannot be selected as new trading filters. Report no true independent post-lock R59 prospective validation and no TG. No production change, OU candidate irrelevant.",
+  "source": {
+    "actual_R22_received_pairs": 1230,
+    "selected": 375,
+    "dates": [
+      "2026-10-09",
+      "2026-11-13"
+    ],
+    "training_n": 30439,
+    "side_training_n": 6499,
+    "p75_training_threshold": 0.2644406
+  },
+  "history": {
+    "2024": {
+      "10": {
+        "all_test": {
+          "n": 112,
+          "U": -21.72,
+          "ROI": -19.393,
+          "wins": 44,
+          "losses": 58,
+          "pushes": 10
+        },
+        "disjoint_actual_receipts": {
+          "n": 112,
+          "U": -21.72,
+          "ROI": -19.393,
+          "wins": 44,
+          "losses": 58,
+          "pushes": 10
+        },
+        "cohort_test_n": 294,
+        "train_sample_n": 12934
+      },
+      "11": {
+        "all_test": {
+          "n": 86,
+          "U": 2.21,
+          "ROI": 2.57,
+          "wins": 42,
+          "losses": 37,
+          "pushes": 7
+        },
+        "disjoint_actual_receipts": {
+          "n": 86,
+          "U": 2.21,
+          "ROI": 2.57,
+          "wins": 42,
+          "losses": 37,
+          "pushes": 7
+        },
+        "cohort_test_n": 233,
+        "train_sample_n": 12934
+      }
+    },
+    "2025": {
+      "10": {
+        "all_test": {
+          "n": 63,
+          "U": -2.68,
+          "ROI": -4.254,
+          "wins": 26,
+          "losses": 28,
+          "pushes": 9
+        },
+        "disjoint_actual_receipts": {
+          "n": 63,
+          "U": -2.68,
+          "ROI": -4.254,
+          "wins": 26,
+          "losses": 28,
+          "pushes": 9
+        },
+        "cohort_test_n": 254,
+        "train_sample_n": 21082
+      },
+      "11": {
+        "all_test": {
+          "n": 58,
+          "U": 1.525,
+          "ROI": 2.629,
+          "wins": 30,
+          "losses": 26,
+          "pushes": 2
+        },
+        "disjoint_actual_receipts": {
+          "n": 58,
+          "U": 1.525,
+          "ROI": 2.629,
+          "wins": 30,
+          "losses": 26,
+          "pushes": 2
+        },
+        "cohort_test_n": 219,
+        "train_sample_n": 21082
+      }
+    },
+    "2026": {
+      "10": {
+        "all_test": {
+          "n": 105,
+          "U": 5.735,
+          "ROI": 5.462,
+          "wins": 51,
+          "losses": 46,
+          "pushes": 8
+        },
+        "disjoint_actual_receipts": {
+          "n": 70,
+          "U": -1.37,
+          "ROI": -1.957,
+          "wins": 31,
+          "losses": 34,
+          "pushes": 5
+        },
+        "cohort_test_n": 327,
+        "train_sample_n": 30439
+      },
+      "11": {
+        "all_test": {
+          "n": 97,
+          "U": -7.845,
+          "ROI": -8.088,
+          "wins": 42,
+          "losses": 46,
+          "pushes": 9
+        },
+        "disjoint_actual_receipts": {
+          "n": 72,
+          "U": -8.175,
+          "ROI": -11.354,
+          "wins": 31,
+          "losses": 35,
+          "pushes": 6
+        },
+        "cohort_test_n": 324,
+        "train_sample_n": 30439
+      }
+    }
+  },
+  "actual": {
+    "all": {
+      "2026-10": {
+        "AH_result": {
+          "n": 848,
+          "U": 5.0,
+          "ROI": 0.59,
+          "wins": 426,
+          "losses": 368,
+          "pushes": 54
+        },
+        "league_n": 44,
+        "month_counts": {
+          "2026-10": 848
+        },
+        "future_T1_member_posthoc": 221,
+        "prediction_score": {
+          "mean": 0.2286,
+          "median": 0.2282,
+          "q10": 0.12933,
+          "q90": 0.31228
+        },
+        "T12_source_age_hours": {
+          "mean": 28.99649,
+          "median": 10.24819,
+          "q10": 0.96247,
+          "q90": 84.87469
+        },
+        "selected_decimal_price": {
+          "mean": 1.91861,
+          "median": 1.92,
+          "q10": 1.8,
+          "q90": 2.04
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.04726,
+          "median": 0.03632,
+          "q10": 0.03093,
+          "q90": 0.08159
+        },
+        "AH_abs_line": {
+          "mean": 0.69222,
+          "median": 0.5,
+          "q10": 0.0,
+          "q90": 1.5
+        },
+        "home_side_percent": 33.373,
+        "won_stake_fraction": {
+          "mean": 0.46108,
+          "median": 0.5,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.4145,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 72,
+            "pnl": {
+              "n": 72,
+              "U": -9.885,
+              "ROI": -13.729,
+              "wins": 28,
+              "losses": 37,
+              "pushes": 7
+            }
+          },
+          "odds_changed": {
+            "n": 409,
+            "pnl": {
+              "n": 409,
+              "U": 15.5,
+              "ROI": 3.79,
+              "wins": 214,
+              "losses": 173,
+              "pushes": 22
+            }
+          },
+          "no_change": {
+            "n": 367,
+            "pnl": {
+              "n": 367,
+              "U": -0.615,
+              "ROI": -0.168,
+              "wins": 184,
+              "losses": 158,
+              "pushes": 25
+            }
+          }
+        }
+      },
+      "2026-11": {
+        "AH_result": {
+          "n": 382,
+          "U": -31.135,
+          "ROI": -8.151,
+          "wins": 173,
+          "losses": 179,
+          "pushes": 30
+        },
+        "league_n": 41,
+        "month_counts": {
+          "2026-11": 382
+        },
+        "future_T1_member_posthoc": 32,
+        "prediction_score": {
+          "mean": 0.22623,
+          "median": 0.2225,
+          "q10": 0.12181,
+          "q90": 0.31488
+        },
+        "T12_source_age_hours": {
+          "mean": 26.36428,
+          "median": 8.44889,
+          "q10": 0.89047,
+          "q90": 93.99619
+        },
+        "selected_decimal_price": {
+          "mean": 1.91662,
+          "median": 1.92,
+          "q10": 1.8,
+          "q90": 2.04
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.04625,
+          "median": 0.03489,
+          "q10": 0.03025,
+          "q90": 0.08134
+        },
+        "AH_abs_line": {
+          "mean": 0.69764,
+          "median": 0.5,
+          "q10": 0.0,
+          "q90": 1.5
+        },
+        "home_side_percent": 35.602,
+        "won_stake_fraction": {
+          "mean": 0.40314,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.44634,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 35,
+            "pnl": {
+              "n": 35,
+              "U": 2.23,
+              "ROI": 6.371,
+              "wins": 18,
+              "losses": 14,
+              "pushes": 3
+            }
+          },
+          "odds_changed": {
+            "n": 211,
+            "pnl": {
+              "n": 211,
+              "U": -29.62,
+              "ROI": -14.038,
+              "wins": 87,
+              "losses": 106,
+              "pushes": 18
+            }
+          },
+          "no_change": {
+            "n": 136,
+            "pnl": {
+              "n": 136,
+              "U": -3.745,
+              "ROI": -2.754,
+              "wins": 68,
+              "losses": 59,
+              "pushes": 9
+            }
+          }
+        }
+      },
+      "all": {
+        "AH_result": {
+          "n": 1230,
+          "U": -26.135,
+          "ROI": -2.125,
+          "wins": 599,
+          "losses": 547,
+          "pushes": 84
+        },
+        "league_n": 46,
+        "month_counts": {
+          "2026-10": 848,
+          "2026-11": 382
+        },
+        "future_T1_member_posthoc": 253,
+        "prediction_score": {
+          "mean": 0.22786,
+          "median": 0.22578,
+          "q10": 0.12539,
+          "q90": 0.31366
+        },
+        "T12_source_age_hours": {
+          "mean": 28.17901,
+          "median": 9.58972,
+          "q10": 0.941,
+          "q90": 85.81803
+        },
+        "selected_decimal_price": {
+          "mean": 1.91799,
+          "median": 1.92,
+          "q10": 1.8,
+          "q90": 2.04
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.04694,
+          "median": 0.03558,
+          "q10": 0.03074,
+          "q90": 0.08159
+        },
+        "AH_abs_line": {
+          "mean": 0.6939,
+          "median": 0.5,
+          "q10": 0.0,
+          "q90": 1.5
+        },
+        "home_side_percent": 34.065,
+        "won_stake_fraction": {
+          "mean": 0.44309,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.42439,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 107,
+            "pnl": {
+              "n": 107,
+              "U": -7.655,
+              "ROI": -7.154,
+              "wins": 46,
+              "losses": 51,
+              "pushes": 10
+            }
+          },
+          "odds_changed": {
+            "n": 620,
+            "pnl": {
+              "n": 620,
+              "U": -14.12,
+              "ROI": -2.277,
+              "wins": 301,
+              "losses": 279,
+              "pushes": 40
+            }
+          },
+          "no_change": {
+            "n": 503,
+            "pnl": {
+              "n": 503,
+              "U": -4.36,
+              "ROI": -0.867,
+              "wins": 252,
+              "losses": 217,
+              "pushes": 34
+            }
+          }
+        }
+      }
+    },
+    "R59_path_p75": {
+      "2026-10": {
+        "AH_result": {
+          "n": 257,
+          "U": 20.21,
+          "ROI": 7.864,
+          "wins": 131,
+          "losses": 105,
+          "pushes": 21
+        },
+        "league_n": 40,
+        "month_counts": {
+          "2026-10": 257
+        },
+        "future_T1_member_posthoc": 66,
+        "prediction_score": {
+          "mean": 0.30621,
+          "median": 0.29485,
+          "q10": 0.27031,
+          "q90": 0.35698
+        },
+        "T12_source_age_hours": {
+          "mean": 15.28038,
+          "median": 5.19778,
+          "q10": 0.90889,
+          "q90": 37.12111
+        },
+        "selected_decimal_price": {
+          "mean": 1.91755,
+          "median": 1.92,
+          "q10": 1.776,
+          "q90": 2.04
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.05618,
+          "median": 0.05452,
+          "q10": 0.03096,
+          "q90": 0.08425
+        },
+        "AH_abs_line": {
+          "mean": 1.08949,
+          "median": 1.0,
+          "q10": 0.0,
+          "q90": 1.75
+        },
+        "home_side_percent": 38.521,
+        "won_stake_fraction": {
+          "mean": 0.49805,
+          "median": 0.5,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.37549,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 43,
+            "pnl": {
+              "n": 43,
+              "U": -4.75,
+              "ROI": -11.047,
+              "wins": 17,
+              "losses": 23,
+              "pushes": 3
+            }
+          },
+          "odds_changed": {
+            "n": 120,
+            "pnl": {
+              "n": 120,
+              "U": 12.965,
+              "ROI": 10.804,
+              "wins": 63,
+              "losses": 47,
+              "pushes": 10
+            }
+          },
+          "no_change": {
+            "n": 94,
+            "pnl": {
+              "n": 94,
+              "U": 11.995,
+              "ROI": 12.761,
+              "wins": 51,
+              "losses": 35,
+              "pushes": 8
+            }
+          }
+        }
+      },
+      "2026-11": {
+        "AH_result": {
+          "n": 118,
+          "U": -4.615,
+          "ROI": -3.911,
+          "wins": 53,
+          "losses": 53,
+          "pushes": 12
+        },
+        "league_n": 36,
+        "month_counts": {
+          "2026-11": 118
+        },
+        "future_T1_member_posthoc": 9,
+        "prediction_score": {
+          "mean": 0.31148,
+          "median": 0.29981,
+          "q10": 0.27114,
+          "q90": 0.36438
+        },
+        "T12_source_age_hours": {
+          "mean": 14.11569,
+          "median": 4.30361,
+          "q10": 0.84894,
+          "q90": 31.42564
+        },
+        "selected_decimal_price": {
+          "mean": 1.91568,
+          "median": 1.91,
+          "q10": 1.78,
+          "q90": 2.04
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.05641,
+          "median": 0.05636,
+          "q10": 0.03096,
+          "q90": 0.08327
+        },
+        "AH_abs_line": {
+          "mean": 1.13771,
+          "median": 1.25,
+          "q10": 0.0,
+          "q90": 2.0
+        },
+        "home_side_percent": 32.203,
+        "won_stake_fraction": {
+          "mean": 0.42373,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.42373,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 19,
+            "pnl": {
+              "n": 19,
+              "U": 4.2,
+              "ROI": 22.105,
+              "wins": 11,
+              "losses": 6,
+              "pushes": 2
+            }
+          },
+          "odds_changed": {
+            "n": 65,
+            "pnl": {
+              "n": 65,
+              "U": -2.885,
+              "ROI": -4.438,
+              "wins": 31,
+              "losses": 31,
+              "pushes": 3
+            }
+          },
+          "no_change": {
+            "n": 34,
+            "pnl": {
+              "n": 34,
+              "U": -5.93,
+              "ROI": -17.441,
+              "wins": 11,
+              "losses": 16,
+              "pushes": 7
+            }
+          }
+        }
+      },
+      "all": {
+        "AH_result": {
+          "n": 375,
+          "U": 15.595,
+          "ROI": 4.159,
+          "wins": 184,
+          "losses": 158,
+          "pushes": 33
+        },
+        "league_n": 45,
+        "month_counts": {
+          "2026-10": 257,
+          "2026-11": 118
+        },
+        "future_T1_member_posthoc": 75,
+        "prediction_score": {
+          "mean": 0.30787,
+          "median": 0.29741,
+          "q10": 0.27068,
+          "q90": 0.36145
+        },
+        "T12_source_age_hours": {
+          "mean": 14.91389,
+          "median": 4.99778,
+          "q10": 0.88678,
+          "q90": 36.09217
+        },
+        "selected_decimal_price": {
+          "mean": 1.91696,
+          "median": 1.92,
+          "q10": 1.78,
+          "q90": 2.04
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.05625,
+          "median": 0.05452,
+          "q10": 0.03096,
+          "q90": 0.08425
+        },
+        "AH_abs_line": {
+          "mean": 1.10467,
+          "median": 1.0,
+          "q10": 0.0,
+          "q90": 2.0
+        },
+        "home_side_percent": 36.533,
+        "won_stake_fraction": {
+          "mean": 0.47467,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.39067,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 62,
+            "pnl": {
+              "n": 62,
+              "U": -0.55,
+              "ROI": -0.887,
+              "wins": 28,
+              "losses": 29,
+              "pushes": 5
+            }
+          },
+          "odds_changed": {
+            "n": 185,
+            "pnl": {
+              "n": 185,
+              "U": 10.08,
+              "ROI": 5.449,
+              "wins": 94,
+              "losses": 78,
+              "pushes": 13
+            }
+          },
+          "no_change": {
+            "n": 128,
+            "pnl": {
+              "n": 128,
+              "U": 6.065,
+              "ROI": 4.738,
+              "wins": 62,
+              "losses": 51,
+              "pushes": 15
+            }
+          }
+        }
+      }
+    },
+    "R59_path_p90": {
+      "2026-10": {
+        "AH_result": {
+          "n": 91,
+          "U": 10.29,
+          "ROI": 11.308,
+          "wins": 46,
+          "losses": 35,
+          "pushes": 10
+        },
+        "league_n": 31,
+        "month_counts": {
+          "2026-10": 91
+        },
+        "future_T1_member_posthoc": 25,
+        "prediction_score": {
+          "mean": 0.34569,
+          "median": 0.34009,
+          "q10": 0.31399,
+          "q90": 0.38568
+        },
+        "T12_source_age_hours": {
+          "mean": 12.76036,
+          "median": 2.59139,
+          "q10": 0.78389,
+          "q90": 37.12111
+        },
+        "selected_decimal_price": {
+          "mean": 1.91209,
+          "median": 1.91,
+          "q10": 1.78,
+          "q90": 2.05
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.05684,
+          "median": 0.06386,
+          "q10": 0.03096,
+          "q90": 0.08311
+        },
+        "AH_abs_line": {
+          "mean": 1.4011,
+          "median": 1.5,
+          "q10": 0.0,
+          "q90": 2.25
+        },
+        "home_side_percent": 36.264,
+        "won_stake_fraction": {
+          "mean": 0.5,
+          "median": 0.5,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.33516,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 19,
+            "pnl": {
+              "n": 19,
+              "U": -3.19,
+              "ROI": -16.789,
+              "wins": 6,
+              "losses": 10,
+              "pushes": 3
+            }
+          },
+          "odds_changed": {
+            "n": 46,
+            "pnl": {
+              "n": 46,
+              "U": 4.63,
+              "ROI": 10.065,
+              "wins": 23,
+              "losses": 18,
+              "pushes": 5
+            }
+          },
+          "no_change": {
+            "n": 26,
+            "pnl": {
+              "n": 26,
+              "U": 8.85,
+              "ROI": 34.038,
+              "wins": 17,
+              "losses": 7,
+              "pushes": 2
+            }
+          }
+        }
+      },
+      "2026-11": {
+        "AH_result": {
+          "n": 48,
+          "U": -0.46,
+          "ROI": -0.958,
+          "wins": 23,
+          "losses": 21,
+          "pushes": 4
+        },
+        "league_n": 22,
+        "month_counts": {
+          "2026-11": 48
+        },
+        "future_T1_member_posthoc": 4,
+        "prediction_score": {
+          "mean": 0.34844,
+          "median": 0.33072,
+          "q10": 0.31316,
+          "q90": 0.41773
+        },
+        "T12_source_age_hours": {
+          "mean": 9.49766,
+          "median": 2.26458,
+          "q10": 0.83744,
+          "q90": 26.65944
+        },
+        "selected_decimal_price": {
+          "mean": 1.92312,
+          "median": 1.93,
+          "q10": 1.767,
+          "q90": 2.04
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.06205,
+          "median": 0.06458,
+          "q10": 0.03229,
+          "q90": 0.08425
+        },
+        "AH_abs_line": {
+          "mean": 1.26042,
+          "median": 1.375,
+          "q10": 0.0,
+          "q90": 2.075
+        },
+        "home_side_percent": 39.583,
+        "won_stake_fraction": {
+          "mean": 0.4375,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.40625,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 11,
+            "pnl": {
+              "n": 11,
+              "U": 4.24,
+              "ROI": 38.545,
+              "wins": 8,
+              "losses": 3,
+              "pushes": 0
+            }
+          },
+          "odds_changed": {
+            "n": 28,
+            "pnl": {
+              "n": 28,
+              "U": -3.18,
+              "ROI": -11.357,
+              "wins": 12,
+              "losses": 14,
+              "pushes": 2
+            }
+          },
+          "no_change": {
+            "n": 9,
+            "pnl": {
+              "n": 9,
+              "U": -1.52,
+              "ROI": -16.889,
+              "wins": 3,
+              "losses": 4,
+              "pushes": 2
+            }
+          }
+        }
+      },
+      "all": {
+        "AH_result": {
+          "n": 139,
+          "U": 9.83,
+          "ROI": 7.072,
+          "wins": 69,
+          "losses": 56,
+          "pushes": 14
+        },
+        "league_n": 38,
+        "month_counts": {
+          "2026-10": 91,
+          "2026-11": 48
+        },
+        "future_T1_member_posthoc": 29,
+        "prediction_score": {
+          "mean": 0.34664,
+          "median": 0.33661,
+          "q10": 0.31327,
+          "q90": 0.3958
+        },
+        "T12_source_age_hours": {
+          "mean": 11.63367,
+          "median": 2.52222,
+          "q10": 0.80789,
+          "q90": 31.37206
+        },
+        "selected_decimal_price": {
+          "mean": 1.9159,
+          "median": 1.92,
+          "q10": 1.768,
+          "q90": 2.05
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.05864,
+          "median": 0.0641,
+          "q10": 0.03113,
+          "q90": 0.08425
+        },
+        "AH_abs_line": {
+          "mean": 1.35252,
+          "median": 1.5,
+          "q10": 0.0,
+          "q90": 2.25
+        },
+        "home_side_percent": 37.41,
+        "won_stake_fraction": {
+          "mean": 0.47842,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.35971,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 30,
+            "pnl": {
+              "n": 30,
+              "U": 1.05,
+              "ROI": 3.5,
+              "wins": 14,
+              "losses": 13,
+              "pushes": 3
+            }
+          },
+          "odds_changed": {
+            "n": 74,
+            "pnl": {
+              "n": 74,
+              "U": 1.45,
+              "ROI": 1.959,
+              "wins": 35,
+              "losses": 32,
+              "pushes": 7
+            }
+          },
+          "no_change": {
+            "n": 35,
+            "pnl": {
+              "n": 35,
+              "U": 7.33,
+              "ROI": 20.943,
+              "wins": 20,
+              "losses": 11,
+              "pushes": 4
+            }
+          }
+        }
+      }
+    },
+    "R59_path_p75_no_future_T1_member_POSTHOC": {
+      "2026-10": {
+        "AH_result": {
+          "n": 191,
+          "U": 8.925,
+          "ROI": 4.673,
+          "wins": 94,
+          "losses": 81,
+          "pushes": 16
+        },
+        "league_n": 40,
+        "month_counts": {
+          "2026-10": 191
+        },
+        "future_T1_member_posthoc": 0,
+        "prediction_score": {
+          "mean": 0.30535,
+          "median": 0.29406,
+          "q10": 0.27013,
+          "q90": 0.35896
+        },
+        "T12_source_age_hours": {
+          "mean": 16.89113,
+          "median": 6.56583,
+          "q10": 0.91194,
+          "q90": 40.12056
+        },
+        "selected_decimal_price": {
+          "mean": 1.91084,
+          "median": 1.92,
+          "q10": 1.77,
+          "q90": 2.04
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.05812,
+          "median": 0.06395,
+          "q10": 0.03096,
+          "q90": 0.08425
+        },
+        "AH_abs_line": {
+          "mean": 1.09555,
+          "median": 1.0,
+          "q10": 0.0,
+          "q90": 1.75
+        },
+        "home_side_percent": 39.791,
+        "won_stake_fraction": {
+          "mean": 0.48429,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.39005,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 27,
+            "pnl": {
+              "n": 27,
+              "U": -6.74,
+              "ROI": -24.963,
+              "wins": 9,
+              "losses": 17,
+              "pushes": 1
+            }
+          },
+          "odds_changed": {
+            "n": 85,
+            "pnl": {
+              "n": 85,
+              "U": 7.88,
+              "ROI": 9.271,
+              "wins": 44,
+              "losses": 34,
+              "pushes": 7
+            }
+          },
+          "no_change": {
+            "n": 79,
+            "pnl": {
+              "n": 79,
+              "U": 7.785,
+              "ROI": 9.854,
+              "wins": 41,
+              "losses": 30,
+              "pushes": 8
+            }
+          }
+        }
+      },
+      "2026-11": {
+        "AH_result": {
+          "n": 109,
+          "U": -2.545,
+          "ROI": -2.335,
+          "wins": 50,
+          "losses": 48,
+          "pushes": 11
+        },
+        "league_n": 34,
+        "month_counts": {
+          "2026-11": 109
+        },
+        "future_T1_member_posthoc": 0,
+        "prediction_score": {
+          "mean": 0.31094,
+          "median": 0.29963,
+          "q10": 0.2708,
+          "q90": 0.3634
+        },
+        "T12_source_age_hours": {
+          "mean": 14.77549,
+          "median": 4.085,
+          "q10": 0.83894,
+          "q90": 31.76806
+        },
+        "selected_decimal_price": {
+          "mean": 1.91339,
+          "median": 1.91,
+          "q10": 1.78,
+          "q90": 2.032
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.05712,
+          "median": 0.06386,
+          "q10": 0.03091,
+          "q90": 0.08321
+        },
+        "AH_abs_line": {
+          "mean": 1.13532,
+          "median": 1.25,
+          "q10": 0.0,
+          "q90": 2.0
+        },
+        "home_side_percent": 33.028,
+        "won_stake_fraction": {
+          "mean": 0.43119,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.41284,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 18,
+            "pnl": {
+              "n": 18,
+              "U": 5.2,
+              "ROI": 28.889,
+              "wins": 11,
+              "losses": 5,
+              "pushes": 2
+            }
+          },
+          "odds_changed": {
+            "n": 58,
+            "pnl": {
+              "n": 58,
+              "U": -2.815,
+              "ROI": -4.853,
+              "wins": 28,
+              "losses": 28,
+              "pushes": 2
+            }
+          },
+          "no_change": {
+            "n": 33,
+            "pnl": {
+              "n": 33,
+              "U": -4.93,
+              "ROI": -14.939,
+              "wins": 11,
+              "losses": 15,
+              "pushes": 7
+            }
+          }
+        }
+      },
+      "all": {
+        "AH_result": {
+          "n": 300,
+          "U": 6.38,
+          "ROI": 2.127,
+          "wins": 144,
+          "losses": 129,
+          "pushes": 27
+        },
+        "league_n": 43,
+        "month_counts": {
+          "2026-10": 191,
+          "2026-11": 109
+        },
+        "future_T1_member_posthoc": 0,
+        "prediction_score": {
+          "mean": 0.30738,
+          "median": 0.29697,
+          "q10": 0.27043,
+          "q90": 0.36141
+        },
+        "T12_source_age_hours": {
+          "mean": 16.12245,
+          "median": 5.74667,
+          "q10": 0.88553,
+          "q90": 37.25947
+        },
+        "selected_decimal_price": {
+          "mean": 1.91177,
+          "median": 1.91,
+          "q10": 1.77,
+          "q90": 2.04
+        },
+        "Crown_AH_margin_proxy": {
+          "mean": 0.05775,
+          "median": 0.06386,
+          "q10": 0.03096,
+          "q90": 0.08425
+        },
+        "AH_abs_line": {
+          "mean": 1.11,
+          "median": 1.125,
+          "q10": 0.0,
+          "q90": 2.0
+        },
+        "home_side_percent": 37.333,
+        "won_stake_fraction": {
+          "mean": 0.465,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "lost_stake_fraction": {
+          "mean": 0.39833,
+          "median": 0.0,
+          "q10": 0.0,
+          "q90": 1.0
+        },
+        "reprice_before_T12": {
+          "line_changed": {
+            "n": 45,
+            "pnl": {
+              "n": 45,
+              "U": -1.54,
+              "ROI": -3.422,
+              "wins": 20,
+              "losses": 22,
+              "pushes": 3
+            }
+          },
+          "odds_changed": {
+            "n": 143,
+            "pnl": {
+              "n": 143,
+              "U": 5.065,
+              "ROI": 3.542,
+              "wins": 72,
+              "losses": 62,
+              "pushes": 9
+            }
+          },
+          "no_change": {
+            "n": 112,
+            "pnl": {
+              "n": 112,
+              "U": 2.855,
+              "ROI": 2.549,
+              "wins": 52,
+              "losses": 45,
+              "pushes": 15
+            }
+          }
+        }
+      }
+    }
+  },
+  "decomposition": {
+    "exact_AH_payout_oct_to_nov": {
+      "months": {
+        "2026-10": {
+          "n": 257,
+          "mean_win": 0.4980544747081712,
+          "mean_loss": 0.3754863813229572,
+          "mean_price": 1.9175486381322957,
+          "cov_win_price": -0.0028646913655013665,
+          "ROI": 7.863813229571985
+        },
+        "2026-11": {
+          "n": 118,
+          "mean_win": 0.423728813559322,
+          "mean_loss": 0.423728813559322,
+          "mean_price": 1.9156779661016947,
+          "cov_win_price": -0.0033804941108876684,
+          "ROI": -3.9110169491525433
+        }
+      },
+      "oct_to_nov_roi_pp": -11.77483,
+      "price_vs_realized_stake_contribution_pp": {
+        "selected_price_shift_pp": -0.08622,
+        "winning_stake_fraction_shift_pp": -6.81279,
+        "losing_stake_fraction_shift_pp": -4.82424,
+        "win_price_covariance_shift_pp": -0.05158
+      }
+    },
+    "UTC_day_cluster_uncertainty": {
+      "Oct_unique_days": 21,
+      "Nov_unique_days": 6,
+      "ROI_gap_Nov_minus_Oct_pp_95pct": [
+        -25.348,
+        -0.31
+      ],
+      "method": "independent resampling of complete UTC kickoff days within each month; descriptive, not a prospective model validation"
+    },
+    "same_leagues_oct_nov": {
+      "common_leagues": 31,
+      "Oct_only_leagues": 9,
+      "Nov_only_leagues": 5,
+      "Oct_common_games": 213,
+      "Nov_common_games": 107,
+      "Oct_noncommon_games": 44,
+      "Nov_noncommon_games": 11,
+      "Oct_common_ROI_pct": 4.28169,
+      "Nov_common_ROI_pct": -4.99533,
+      "Nov_minus_Oct_same_league_pp": -9.27702,
+      "within_league_contribution_pp": -8.94204,
+      "league_weight_contribution_pp": -0.33497,
+      "league_details": {
+        "1": {
+          "oct": {
+            "n": 1,
+            "U": -1.0,
+            "ROI": -100.0,
+            "wins": 0,
+            "losses": 1,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 1,
+            "U": 1.05,
+            "ROI": 105.0,
+            "wins": 1,
+            "losses": 0,
+            "pushes": 0
+          }
+        },
+        "109": {
+          "oct": {
+            "n": 5,
+            "U": -1.08,
+            "ROI": -21.6,
+            "wins": 2,
+            "losses": 3,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 5,
+            "U": -0.06,
+            "ROI": -1.2,
+            "wins": 2,
+            "losses": 2,
+            "pushes": 1
+          }
+        },
+        "116": {
+          "oct": {
+            "n": 8,
+            "U": 1.24,
+            "ROI": 15.5,
+            "wins": 4,
+            "losses": 3,
+            "pushes": 1
+          },
+          "nov": {
+            "n": 7,
+            "U": 0.41,
+            "ROI": 5.857,
+            "wins": 4,
+            "losses": 3,
+            "pushes": 0
+          }
+        },
+        "12": {
+          "oct": {
+            "n": 2,
+            "U": -2.0,
+            "ROI": -100.0,
+            "wins": 0,
+            "losses": 2,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 2,
+            "U": -0.14,
+            "ROI": -7.0,
+            "wins": 1,
+            "losses": 1,
+            "pushes": 0
+          }
+        },
+        "14": {
+          "oct": {
+            "n": 1,
+            "U": 0.92,
+            "ROI": 92.0,
+            "wins": 1,
+            "losses": 0,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 2,
+            "U": -2.0,
+            "ROI": -100.0,
+            "wins": 0,
+            "losses": 2,
+            "pushes": 0
+          }
+        },
+        "141": {
+          "oct": {
+            "n": 6,
+            "U": -2.34,
+            "ROI": -39.0,
+            "wins": 2,
+            "losses": 4,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 2,
+            "U": 1.72,
+            "ROI": 86.0,
+            "wins": 2,
+            "losses": 0,
+            "pushes": 0
+          }
+        },
+        "145": {
+          "oct": {
+            "n": 8,
+            "U": 1.73,
+            "ROI": 21.625,
+            "wins": 5,
+            "losses": 3,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 3,
+            "U": -0.5,
+            "ROI": -16.667,
+            "wins": 1,
+            "losses": 2,
+            "pushes": 0
+          }
+        },
+        "152": {
+          "oct": {
+            "n": 17,
+            "U": 6.94,
+            "ROI": 40.824,
+            "wins": 13,
+            "losses": 4,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 7,
+            "U": -1.03,
+            "ROI": -14.714,
+            "wins": 3,
+            "losses": 3,
+            "pushes": 1
+          }
+        },
+        "16": {
+          "oct": {
+            "n": 7,
+            "U": 1.02,
+            "ROI": 14.571,
+            "wins": 4,
+            "losses": 3,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 3,
+            "U": 1.23,
+            "ROI": 41.0,
+            "wins": 2,
+            "losses": 1,
+            "pushes": 0
+          }
+        },
+        "177": {
+          "oct": {
+            "n": 15,
+            "U": -0.86,
+            "ROI": -5.733,
+            "wins": 6,
+            "losses": 6,
+            "pushes": 3
+          },
+          "nov": {
+            "n": 7,
+            "U": 2.045,
+            "ROI": 29.214,
+            "wins": 5,
+            "losses": 2,
+            "pushes": 0
+          }
+        },
+        "262": {
+          "oct": {
+            "n": 6,
+            "U": 1.5,
+            "ROI": 25.0,
+            "wins": 3,
+            "losses": 1,
+            "pushes": 2
+          },
+          "nov": {
+            "n": 3,
+            "U": 0.95,
+            "ROI": 31.667,
+            "wins": 2,
+            "losses": 1,
+            "pushes": 0
+          }
+        },
+        "26540": {
+          "oct": {
+            "n": 13,
+            "U": 4.14,
+            "ROI": 31.846,
+            "wins": 9,
+            "losses": 4,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 3,
+            "U": 0.69,
+            "ROI": 23.0,
+            "wins": 2,
+            "losses": 1,
+            "pushes": 0
+          }
+        },
+        "29": {
+          "oct": {
+            "n": 3,
+            "U": -2.5,
+            "ROI": -83.333,
+            "wins": 0,
+            "losses": 3,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 2,
+            "U": -2.0,
+            "ROI": -100.0,
+            "wins": 0,
+            "losses": 2,
+            "pushes": 0
+          }
+        },
+        "297": {
+          "oct": {
+            "n": 6,
+            "U": 1.58,
+            "ROI": 26.333,
+            "wins": 4,
+            "losses": 2,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 3,
+            "U": -1.17,
+            "ROI": -39.0,
+            "wins": 1,
+            "losses": 2,
+            "pushes": 0
+          }
+        },
+        "299": {
+          "oct": {
+            "n": 3,
+            "U": 3.01,
+            "ROI": 100.333,
+            "wins": 3,
+            "losses": 0,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 3,
+            "U": 0.52,
+            "ROI": 17.333,
+            "wins": 1,
+            "losses": 0,
+            "pushes": 2
+          }
+        },
+        "303": {
+          "oct": {
+            "n": 13,
+            "U": -1.53,
+            "ROI": -11.769,
+            "wins": 6,
+            "losses": 7,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 6,
+            "U": -0.5,
+            "ROI": -8.333,
+            "wins": 3,
+            "losses": 3,
+            "pushes": 0
+          }
+        },
+        "319": {
+          "oct": {
+            "n": 2,
+            "U": 1.92,
+            "ROI": 96.0,
+            "wins": 2,
+            "losses": 0,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 2,
+            "U": -1.5,
+            "ROI": -75.0,
+            "wins": 0,
+            "losses": 2,
+            "pushes": 0
+          }
+        },
+        "328": {
+          "oct": {
+            "n": 8,
+            "U": -2.875,
+            "ROI": -35.938,
+            "wins": 3,
+            "losses": 5,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 3,
+            "U": 0.88,
+            "ROI": 29.333,
+            "wins": 2,
+            "losses": 1,
+            "pushes": 0
+          }
+        },
+        "332": {
+          "oct": {
+            "n": 13,
+            "U": -5.235,
+            "ROI": -40.269,
+            "wins": 3,
+            "losses": 8,
+            "pushes": 2
+          },
+          "nov": {
+            "n": 5,
+            "U": -3.12,
+            "ROI": -62.4,
+            "wins": 1,
+            "losses": 4,
+            "pushes": 0
+          }
+        },
+        "35": {
+          "oct": {
+            "n": 8,
+            "U": 3.34,
+            "ROI": 41.75,
+            "wins": 6,
+            "losses": 2,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 3,
+            "U": -0.14,
+            "ROI": -4.667,
+            "wins": 1,
+            "losses": 1,
+            "pushes": 1
+          }
+        },
+        "37": {
+          "oct": {
+            "n": 9,
+            "U": 4.27,
+            "ROI": 47.444,
+            "wins": 6,
+            "losses": 2,
+            "pushes": 1
+          },
+          "nov": {
+            "n": 1,
+            "U": -1.0,
+            "ROI": -100.0,
+            "wins": 0,
+            "losses": 1,
+            "pushes": 0
+          }
+        },
+        "48": {
+          "oct": {
+            "n": 10,
+            "U": 1.22,
+            "ROI": 12.2,
+            "wins": 5,
+            "losses": 4,
+            "pushes": 1
+          },
+          "nov": {
+            "n": 4,
+            "U": -1.69,
+            "ROI": -42.25,
+            "wins": 1,
+            "losses": 3,
+            "pushes": 0
+          }
+        },
+        "51": {
+          "oct": {
+            "n": 7,
+            "U": -1.1,
+            "ROI": -15.714,
+            "wins": 2,
+            "losses": 3,
+            "pushes": 2
+          },
+          "nov": {
+            "n": 4,
+            "U": 2.9,
+            "ROI": 72.5,
+            "wins": 3,
+            "losses": 0,
+            "pushes": 1
+          }
+        },
+        "52": {
+          "oct": {
+            "n": 7,
+            "U": -2.56,
+            "ROI": -36.571,
+            "wins": 2,
+            "losses": 5,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 4,
+            "U": -0.02,
+            "ROI": -0.5,
+            "wins": 2,
+            "losses": 2,
+            "pushes": 0
+          }
+        },
+        "55": {
+          "oct": {
+            "n": 2,
+            "U": -1.5,
+            "ROI": -75.0,
+            "wins": 0,
+            "losses": 2,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 4,
+            "U": -2.25,
+            "ROI": -56.25,
+            "wins": 1,
+            "losses": 3,
+            "pushes": 0
+          }
+        },
+        "60": {
+          "oct": {
+            "n": 7,
+            "U": 0.38,
+            "ROI": 5.429,
+            "wins": 2,
+            "losses": 2,
+            "pushes": 3
+          },
+          "nov": {
+            "n": 5,
+            "U": -0.05,
+            "ROI": -1.0,
+            "wins": 2,
+            "losses": 2,
+            "pushes": 1
+          }
+        },
+        "62": {
+          "oct": {
+            "n": 6,
+            "U": -1.05,
+            "ROI": -17.5,
+            "wins": 2,
+            "losses": 4,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 2,
+            "U": -2.0,
+            "ROI": -100.0,
+            "wins": 0,
+            "losses": 2,
+            "pushes": 0
+          }
+        },
+        "66": {
+          "oct": {
+            "n": 5,
+            "U": 0.87,
+            "ROI": 17.4,
+            "wins": 3,
+            "losses": 2,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 5,
+            "U": 2.68,
+            "ROI": 53.6,
+            "wins": 3,
+            "losses": 0,
+            "pushes": 2
+          }
+        },
+        "70": {
+          "oct": {
+            "n": 2,
+            "U": -2.0,
+            "ROI": -100.0,
+            "wins": 0,
+            "losses": 2,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 1,
+            "U": 0.84,
+            "ROI": 84.0,
+            "wins": 1,
+            "losses": 0,
+            "pushes": 0
+          }
+        },
+        "8172": {
+          "oct": {
+            "n": 6,
+            "U": -0.25,
+            "ROI": -4.167,
+            "wins": 3,
+            "losses": 3,
+            "pushes": 0
+          },
+          "nov": {
+            "n": 2,
+            "U": 0.91,
+            "ROI": 45.5,
+            "wins": 1,
+            "losses": 0,
+            "pushes": 1
+          }
+        },
+        "88": {
+          "oct": {
+            "n": 7,
+            "U": 2.92,
+            "ROI": 41.714,
+            "wins": 4,
+            "losses": 1,
+            "pushes": 2
+          },
+          "nov": {
+            "n": 3,
+            "U": -3.0,
+            "ROI": -100.0,
+            "wins": 0,
+            "losses": 3,
+            "pushes": 0
+          }
+        }
+      }
+    },
+    "Nov_with_Oct_mean_price_counterfactual": {
+      "Oct_mean_price": 1.91755,
+      "Nov_actual_mean_price": 1.91568,
+      "Nov_if_all_given_Oct_mean_price_ROI_pct": -3.4937,
+      "caveat": "Not executable: quote price from Oct fixtures substituted for Nov matches, which have different handicaps, teams and odds distributions."
+    }
+  },
+  "foundation": {
+    "membership": true,
+    "inputs": true,
+    "scripts": true
+  }
+}
