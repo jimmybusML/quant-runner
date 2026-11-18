@@ -10,7 +10,7 @@
 - 旧实收归档截止后另有21条真实Crown原始响应、7个FID（21/21 SHA吻合SQLite）。6个FID已参加本轮结果设计；固定模型和阈值在T-5近开赛报价上重算后E 4/6选中/-0.820U，I 5/6/-1.420U，market_response 5/6/-1.420U；同FID FT已被前轮研究查看，I/MR还是T24→T5时间外推。第7个FID `203961671` 为真正未参与A–L设计的新FID，但旧归档开球时间错误（11-12）且最新收据确认改期到11-14，当前无可对齐的模型特征和可信FT，故未伪造预测或结算。
 - 初次草稿对E有符号maxEV直接比较正阈值，暂得83场；复核旧分析器后按其abs(confidence)规则改正为431场。最终代码/JSON均为修正版，报告明确记录这一纠错。
 - 同期冻结八组和三个候选的全周拆分、联赛/盘口所有正负分组均完整保留；研究结论仅为窗口内现象，不添加策略Gate、联赛限制、数量限制、生产行为、TG或账本规则。
-- 本轮研究报告、分组结果JSON、两个逐场JSONL、EV符号JSON、两份脚本与执行manifest已提交公开仓库 `jimmybusML/quant-runner`，研究提交 `74a71b21771b531f8fcd36ddc12a209d3f588c0b`；远端 `refs/heads/main` 已核实为该提交。随后handoff本条SHA回执提交为单独跟进提交，研究文件仍在上述research commit内。
+- 本轮研究报告、分组结果JSON、两个逐场JSONL、EV符号JSON、两份脚本与执行manifest已提交公开仓库 `jimmybusML/quant-runner`，研究提交 `74a71b21771b531f8fcd36ddc12a209d3f588c0b`；远端 `refs/heads/main` 已核实为该提交。随后handoff SHA回执单独提交 `3cc3285c118c14366be485e8ae2eac3d3e9ea652`；研究文件仍在上述research commit内。
 
 ---
 
