@@ -1,3 +1,16 @@
+# 2026-11-18 M8 批量盈利扩单 A–L 执行交接（最新）
+
+- 本轮已按 `research/m8/M8_CODEX_BATCH_EXPANSION_BRIEF_20261118.md` 实际完成 A–L 批量研究，复用本机已存 TotalCorner/Crown 历史与 HTTP 实收缓存；未重建采集链。详细总览：`research/m8/M8_BATCH_EXPANSION_INDEX_20261118.md`；唯一 FID 去重、周量、净U/ROI、MDD 与逐个方法+冻结原八组合并：`research/m8/M8_BATCH_INCREMENTAL_UNION_20261118.md` 和同目录 JSON。A–D、E–H、I–L 的研究报告、脚本、汇总和完整逐场 JSONL 均保存在 `research/m8/`。
+- 原八组冻结会员仍为 10,294 唯一比赛，冻结文件 SHA256 `6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665`；manifest SHA256 `74a11ff66c3d4b3e2d5f5958f5570be42fcf40618f0384e341d6586cc458562c`。原八组、规则及历史收益未改。2024–2026冻结样本 6,873 场，+197.765U/+2.877%；2026 2,218 场，+99.820U/+4.500%。
+- 统一汇总发现 21 个候选变体；历史候选共有 28,617 个唯一 FID（其中八组外 22,044），实际赛前 HTTP 收据共有 1,393 个唯一 FID（其中八组外 1,102）。重复候选采用各方法独立展示，组间没有统一选边收益，避免在未授权仲裁规则下重复累计。每一个候选方法在八组外的 2024–2026 整体历史增量均为负，且与原八组分别合并后净U和 ROI 均低于原八组单独表现。所有真实收据方向回放的新增净U也为负；结合后仍为正的组合收益来源是原八组冻结会员，不是候选方法盈利。
+- D 的 `multi_reversal` 后验状态虽在全池+7.645U，但八组外仅128场+0.530U/+0.414%，2025为负，并与 R33 路径状态研究高度重叠，不作为新增盈利证据。B/C 与 J 的部分时点只有真实收据范围，无全历史候选池，报告不把它们记作历史零场或跨年验证。
+- 重要审计：E–H 初次执行的临时 away AH 净胜球符号写错，制造了约+18%假实收结果；错误执行已在 `m8_batch_eh_invalidated_run_20261118.json` 标为作废并保留。正确公式为主队 `HG−AG+home_line`，客队 `AG−HG−home_line`，quarter line 两腿分别结算。修复后重新拟合/输出，历史及实收均负。独立审计按实际 receipt UTC 与实际 snapshot horizon 精确核验 E/F/H 1,230 个比赛、3,690 条预测行、3,690 个 snapshot SHA 和 FT 来源，未解决项0；历史两侧77,692项及收据两侧2,460项收益复核均无差异。
+- 主要执行命令：`python3 research/m8/m8_batch_ad_20261118.py`、`python3 research/m8/m8_batch_eh_20261118.py`、`python3 research/m8/m8_batch_il_20261118.py`、`python3 research/m8/m8_batch_actual_receipt_independent_audit_20261118.py`、`python3 research/m8/m8_batch_union_20261118.py`。另对 A/D 历史逐场输出修正缺失开球时间不再以午夜合成：A 与 D 各有5,177行无可核准 kickoff_utc，现置空，日期仍可做日/周收益汇总。
+- 后续会话先阅读 `M8_BATCH_EXPANSION_INDEX_20261118.md`、`M8_BATCH_INCREMENTAL_UNION_20261118.md`、E–H 无效初跑审计，再决定新的研究变量。历史事件报价不等同当时收到的 Crown 价，收据回放是收据归档后设计的回顾研究，不是前瞻实战。不得将任何本轮结果加入生产模型、Telegram、正式账本、交易 Gate、数量限制、联赛筛选或发布条件。
+- 公开仓库 `jimmybusML/quant-runner` 的提交状态将在本节下方补记本次研究 commit SHA；如远程推送受阻则按真实仓库状态交接。
+
+---
+
 # PROJECT_HANDOFF.md | 最新任务纠偏（2026-11-18）
 
 - **最新用户要求**：M8 现有八组为冻结盈利基础，任务是利用**已经跑通的 TotalCorner 数据（盘口严格 Crown）**寻找可增加正式盈利订单的办法，不是重建数据链、反复验证原八组或围绕外部伤停新闻兜圈。用户明确要求不给原规则自行增加 Gate/数量限制或生产逻辑。

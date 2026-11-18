@@ -1,0 +1,1029 @@
+{
+  "study": "M8 batch independent actual receipt Crown AH settlement audit",
+  "method": "independent manual quarter-line settlement, exact pre-kickoff HTTP receipt match at its actual horizon, SHA256 of stored snapshot.json, verified FT from receipt coverage index",
+  "coverage": {
+    "verified_receipt_FT_fids": 1393,
+    "verified_archive_receipts_all_horizons": 12550,
+    "candidate_actual_rows": 3690,
+    "audited_rows": 3690,
+    "unique_receipt_fids": 1230,
+    "snapshot_sha256_checks": 3690,
+    "unresolved_or_failed_checks": {}
+  },
+  "per_method": {
+    "E_discrete_AH_contract_calibration": {
+      "actual_verified_receipt_sample": {
+        "orders": 1230,
+        "net_u": -56.765,
+        "roi_pct": -4.615041,
+        "weekly_orders_avg": 205.0,
+        "weeks_elapsed": 6,
+        "active_weeks": 6,
+        "max_drawdown_daily_close_u": 73.555,
+        "losses": 511,
+        "half_wins": 461,
+        "half_losses": 57,
+        "pushes": 84,
+        "wins": 117,
+        "weekly": [
+          {
+            "iso_year": 2026,
+            "iso_week": 41,
+            "orders": 222
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 42,
+            "orders": 212
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 43,
+            "orders": 256
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 44,
+            "orders": 249
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 45,
+            "orders": 281
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 46,
+            "orders": 10
+          }
+        ]
+      },
+      "actual_verified_receipt_increment_outside_frozen_eight": {
+        "orders": 977,
+        "net_u": -46.74,
+        "roi_pct": -4.784033,
+        "weekly_orders_avg": 162.833333,
+        "weeks_elapsed": 6,
+        "active_weeks": 6,
+        "max_drawdown_daily_close_u": 59.42,
+        "losses": 405,
+        "half_wins": 386,
+        "pushes": 64,
+        "wins": 77,
+        "half_losses": 45,
+        "weekly": [
+          {
+            "iso_year": 2026,
+            "iso_week": 41,
+            "orders": 168
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 42,
+            "orders": 158
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 43,
+            "orders": 178
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 44,
+            "orders": 193
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 45,
+            "orders": 270
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 46,
+            "orders": 10
+          }
+        ]
+      },
+      "unique_fids": 1230,
+      "foundation_overlap_fids": 253
+    },
+    "F_async_Crown_market_updates": {
+      "actual_verified_receipt_sample": {
+        "orders": 1230,
+        "net_u": -47.155,
+        "roi_pct": -3.83374,
+        "weekly_orders_avg": 205.0,
+        "weeks_elapsed": 6,
+        "active_weeks": 6,
+        "max_drawdown_daily_close_u": 50.825,
+        "half_wins": 456,
+        "losses": 491,
+        "half_losses": 83,
+        "pushes": 84,
+        "wins": 116,
+        "weekly": [
+          {
+            "iso_year": 2026,
+            "iso_week": 41,
+            "orders": 222
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 42,
+            "orders": 212
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 43,
+            "orders": 256
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 44,
+            "orders": 249
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 45,
+            "orders": 281
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 46,
+            "orders": 10
+          }
+        ]
+      },
+      "actual_verified_receipt_increment_outside_frozen_eight": {
+        "orders": 977,
+        "net_u": -43.77,
+        "roi_pct": -4.480041,
+        "weekly_orders_avg": 162.833333,
+        "weeks_elapsed": 6,
+        "active_weeks": 6,
+        "max_drawdown_daily_close_u": 47.66,
+        "half_wins": 376,
+        "losses": 389,
+        "pushes": 64,
+        "wins": 77,
+        "half_losses": 71,
+        "weekly": [
+          {
+            "iso_year": 2026,
+            "iso_week": 41,
+            "orders": 168
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 42,
+            "orders": 158
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 43,
+            "orders": 178
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 44,
+            "orders": 193
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 45,
+            "orders": 270
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 46,
+            "orders": 10
+          }
+        ]
+      },
+      "unique_fids": 1230,
+      "foundation_overlap_fids": 253
+    },
+    "H_team_contract_position_residual": {
+      "actual_verified_receipt_sample": {
+        "orders": 1230,
+        "net_u": -37.785,
+        "roi_pct": -3.071951,
+        "weekly_orders_avg": 205.0,
+        "weeks_elapsed": 6,
+        "active_weeks": 6,
+        "max_drawdown_daily_close_u": 42.44,
+        "half_wins": 440,
+        "losses": 487,
+        "half_losses": 85,
+        "pushes": 84,
+        "wins": 134,
+        "weekly": [
+          {
+            "iso_year": 2026,
+            "iso_week": 41,
+            "orders": 222
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 42,
+            "orders": 212
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 43,
+            "orders": 256
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 44,
+            "orders": 249
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 45,
+            "orders": 281
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 46,
+            "orders": 10
+          }
+        ]
+      },
+      "actual_verified_receipt_increment_outside_frozen_eight": {
+        "orders": 977,
+        "net_u": -51.625,
+        "roi_pct": -5.284033,
+        "weekly_orders_avg": 162.833333,
+        "weeks_elapsed": 6,
+        "active_weeks": 6,
+        "max_drawdown_daily_close_u": 51.625,
+        "half_wins": 353,
+        "losses": 394,
+        "pushes": 64,
+        "wins": 93,
+        "half_losses": 73,
+        "weekly": [
+          {
+            "iso_year": 2026,
+            "iso_week": 41,
+            "orders": 168
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 42,
+            "orders": 158
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 43,
+            "orders": 178
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 44,
+            "orders": 193
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 45,
+            "orders": 270
+          },
+          {
+            "iso_year": 2026,
+            "iso_week": 46,
+            "orders": 10
+          }
+        ]
+      },
+      "unique_fids": 1230,
+      "foundation_overlap_fids": 253
+    }
+  },
+  "2026_frozen_eight_plus_each_research_method": {
+    "E_discrete_AH_contract_calibration": {
+      "orders": 3195,
+      "net_u": 53.08,
+      "roi_pct": 1.661346,
+      "weekly_orders_avg": 69.456522,
+      "weeks_elapsed": 46,
+      "active_weeks": 45,
+      "max_drawdown_daily_close_u": 63.565,
+      "half_wins": 1304,
+      "losses": 1211,
+      "half_losses": 165,
+      "pushes": 199,
+      "wins": 316,
+      "weekly": [
+        {
+          "iso_year": 2026,
+          "iso_week": 1,
+          "orders": 15
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 2,
+          "orders": 20
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 3,
+          "orders": 32
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 4,
+          "orders": 31
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 5,
+          "orders": 54
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 6,
+          "orders": 57
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 7,
+          "orders": 64
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 8,
+          "orders": 44
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 9,
+          "orders": 69
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 10,
+          "orders": 66
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 11,
+          "orders": 77
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 12,
+          "orders": 64
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 13,
+          "orders": 8
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 14,
+          "orders": 62
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 15,
+          "orders": 74
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 16,
+          "orders": 65
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 17,
+          "orders": 75
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 18,
+          "orders": 74
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 19,
+          "orders": 103
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 20,
+          "orders": 102
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 21,
+          "orders": 73
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 22,
+          "orders": 19
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 24,
+          "orders": 4
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 25,
+          "orders": 17
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 26,
+          "orders": 13
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 27,
+          "orders": 16
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 28,
+          "orders": 11
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 29,
+          "orders": 18
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 30,
+          "orders": 30
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 31,
+          "orders": 45
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 32,
+          "orders": 53
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 33,
+          "orders": 50
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 34,
+          "orders": 58
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 35,
+          "orders": 69
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 36,
+          "orders": 91
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 37,
+          "orders": 84
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 38,
+          "orders": 72
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 39,
+          "orders": 8
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 40,
+          "orders": 7
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 41,
+          "orders": 237
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 42,
+          "orders": 228
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 43,
+          "orders": 276
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 44,
+          "orders": 268
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 45,
+          "orders": 282
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 46,
+          "orders": 10
+        }
+      ]
+    },
+    "F_async_Crown_market_updates": {
+      "orders": 3195,
+      "net_u": 56.05,
+      "roi_pct": 1.754304,
+      "weekly_orders_avg": 69.456522,
+      "weeks_elapsed": 46,
+      "active_weeks": 45,
+      "max_drawdown_daily_close_u": 47.6,
+      "half_wins": 1294,
+      "losses": 1195,
+      "half_losses": 191,
+      "pushes": 199,
+      "wins": 316,
+      "weekly": [
+        {
+          "iso_year": 2026,
+          "iso_week": 1,
+          "orders": 15
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 2,
+          "orders": 20
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 3,
+          "orders": 32
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 4,
+          "orders": 31
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 5,
+          "orders": 54
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 6,
+          "orders": 57
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 7,
+          "orders": 64
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 8,
+          "orders": 44
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 9,
+          "orders": 69
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 10,
+          "orders": 66
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 11,
+          "orders": 77
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 12,
+          "orders": 64
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 13,
+          "orders": 8
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 14,
+          "orders": 62
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 15,
+          "orders": 74
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 16,
+          "orders": 65
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 17,
+          "orders": 75
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 18,
+          "orders": 74
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 19,
+          "orders": 103
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 20,
+          "orders": 102
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 21,
+          "orders": 73
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 22,
+          "orders": 19
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 24,
+          "orders": 4
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 25,
+          "orders": 17
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 26,
+          "orders": 13
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 27,
+          "orders": 16
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 28,
+          "orders": 11
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 29,
+          "orders": 18
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 30,
+          "orders": 30
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 31,
+          "orders": 45
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 32,
+          "orders": 53
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 33,
+          "orders": 50
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 34,
+          "orders": 58
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 35,
+          "orders": 69
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 36,
+          "orders": 91
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 37,
+          "orders": 84
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 38,
+          "orders": 72
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 39,
+          "orders": 8
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 40,
+          "orders": 7
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 41,
+          "orders": 237
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 42,
+          "orders": 228
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 43,
+          "orders": 276
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 44,
+          "orders": 268
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 45,
+          "orders": 282
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 46,
+          "orders": 10
+        }
+      ]
+    },
+    "H_team_contract_position_residual": {
+      "orders": 3195,
+      "net_u": 48.195,
+      "roi_pct": 1.508451,
+      "weekly_orders_avg": 69.456522,
+      "weeks_elapsed": 46,
+      "active_weeks": 45,
+      "max_drawdown_daily_close_u": 51.945,
+      "half_wins": 1271,
+      "losses": 1200,
+      "half_losses": 193,
+      "pushes": 199,
+      "wins": 332,
+      "weekly": [
+        {
+          "iso_year": 2026,
+          "iso_week": 1,
+          "orders": 15
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 2,
+          "orders": 20
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 3,
+          "orders": 32
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 4,
+          "orders": 31
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 5,
+          "orders": 54
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 6,
+          "orders": 57
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 7,
+          "orders": 64
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 8,
+          "orders": 44
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 9,
+          "orders": 69
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 10,
+          "orders": 66
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 11,
+          "orders": 77
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 12,
+          "orders": 64
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 13,
+          "orders": 8
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 14,
+          "orders": 62
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 15,
+          "orders": 74
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 16,
+          "orders": 65
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 17,
+          "orders": 75
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 18,
+          "orders": 74
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 19,
+          "orders": 103
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 20,
+          "orders": 102
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 21,
+          "orders": 73
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 22,
+          "orders": 19
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 24,
+          "orders": 4
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 25,
+          "orders": 17
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 26,
+          "orders": 13
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 27,
+          "orders": 16
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 28,
+          "orders": 11
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 29,
+          "orders": 18
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 30,
+          "orders": 30
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 31,
+          "orders": 45
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 32,
+          "orders": 53
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 33,
+          "orders": 50
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 34,
+          "orders": 58
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 35,
+          "orders": 69
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 36,
+          "orders": 91
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 37,
+          "orders": 84
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 38,
+          "orders": 72
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 39,
+          "orders": 8
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 40,
+          "orders": 7
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 41,
+          "orders": 237
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 42,
+          "orders": 228
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 43,
+          "orders": 276
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 44,
+          "orders": 268
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 45,
+          "orders": 282
+        },
+        {
+          "iso_year": 2026,
+          "iso_week": 46,
+          "orders": 10
+        }
+      ]
+    }
+  },
+  "output_per_fixture": "m8_batch_actual_receipt_independently_audited_20261118.jsonl"
+}

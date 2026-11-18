@@ -1,0 +1,26 @@
+{
+  "attempt": "initial execution before independent AH settlement audit",
+  "status": "INVALIDATED_NOT_RESEARCH_EVIDENCE",
+  "reason": "The temporary settlement helper incorrectly used home_goal-away_goal-home_line for away AH bets. Correct away margin under a stored home handicap is away_goal-home_goal-home_line. The mistake affected actual receipt settlement and contaminated H team contract residual features.",
+  "incorrect_actual_receipt_outside_frozen_eight": {
+    "E_discrete_AH_contract_calibration": {"n": 977, "net_U": 181.575, "ROI_pct": 18.585},
+    "F_async_Crown_market_updates": {"n": 977, "net_U": 181.505, "ROI_pct": 18.578},
+    "H_team_contract_position_residual": {"n": 977, "net_U": 176.605, "ROI_pct": 18.076}
+  },
+  "counterexample": {
+    "fid": "200541624",
+    "home_handicap": 1.0,
+    "score_home_away": "4-1",
+    "selected_side": "away",
+    "away_odds": 1.99,
+    "incorrect_pnl_u": 0.99,
+    "correct_pnl_u": -1.0
+  },
+  "action": "Discarded the initial order outputs, corrected settlement signs, reran E-H including historical training/features, and independently audited all side returns before final output.",
+  "corrected_run": {
+    "manual_settlement_mismatches": 0,
+    "historical_side_returns_checked": 77692,
+    "actual_receipt_side_returns_checked": 2460,
+    "receipt_FIDs_with_received_time_raw_SHA_snapshot_SHA_and_FT_source": 1230
+  }
+}

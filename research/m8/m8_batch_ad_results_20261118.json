@@ -1,0 +1,710 @@
+{
+  "study": "M8 A-D batch research",
+  "input_sha256": {
+    "m8_late_full_path_water_features_20261114.jsonl": "f21d4d49621df503efdb607b72b08882c1f1365c3178cce13e696d9aad4b697e",
+    "historical_membership.jsonl": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665",
+    "m7_original49_historical_Crown_dual_market_close_expanded_inventory_20261113T0344Z.jsonl": "39819b7a2b9581965d9a3abbb35bf99127d9127fe5e2cf013a75789aa1de6dfc",
+    "m8_2026_Jan_Nov_49league_cached_complete_schedule_20261113.jsonl": "10d737b3fdeffda9eed4bf523a2287ab39bb3418c79e2dd3fdf7bab685eae1dc",
+    "m8_MR1_full_actual_Crown_receipt_archive_20261113.jsonl": "e3e1250b6e9bf8fe1a8cf638f46b276475e55b85d74fb12c7f105d048a67be5b",
+    "m8_independent_receipt_coverage_20261115.jsonl": "cd2daf859d059783d5280c9644ffccc678b570385634fdfcd4c86b0859c6786f",
+    "snapshot-index.jsonl": "bb5069c38884b8719d309d75b8fe7ae8dbac58a0d3045f3c356e3677546f4cbe"
+  },
+  "coverage": {},
+  "A": {
+    "model": "cKDTree nearest-neighbor expected side return, features=[favorite-relative line delta, favorite-relative de-vig probability delta, interaction], k=200; target-year uses only earlier-year history",
+    "by_year": {
+      "2024": {
+        "train_n": 11219,
+        "target_n": 9152,
+        "all": {
+          "n": 9152,
+          "U": -294.915,
+          "ROI_pct": -3.2224,
+          "active_weeks": 53,
+          "orders_per_active_week": 172.679,
+          "daily_MDD_U": 330.395,
+          "win_loss_push": {
+            "win": 4253,
+            "loss": 4282,
+            "push": 617
+          }
+        },
+        "outside_frozen_eight": {
+          "n": 7194,
+          "U": -238.475,
+          "ROI_pct": -3.3149,
+          "active_weeks": 53,
+          "orders_per_active_week": 135.736,
+          "daily_MDD_U": 264.275,
+          "win_loss_push": {
+            "win": 3328,
+            "loss": 3360,
+            "push": 506
+          }
+        },
+        "outside_eight_favorite_baseline": {
+          "n": 6110,
+          "U": -194.275,
+          "ROI_pct": -3.1796,
+          "active_weeks": 53,
+          "orders_per_active_week": 115.283,
+          "daily_MDD_U": 205.685,
+          "win_loss_push": {
+            "win": 2852,
+            "loss": 3067,
+            "push": 191
+          }
+        },
+        "outside_eight_underdog_baseline": {
+          "n": 6110,
+          "U": -194.14,
+          "ROI_pct": -3.1774,
+          "active_weeks": 53,
+          "orders_per_active_week": 115.283,
+          "daily_MDD_U": 210.07,
+          "win_loss_push": {
+            "loss": 2852,
+            "win": 3067,
+            "push": 191
+          }
+        }
+      },
+      "2025": {
+        "train_n": 20371,
+        "target_n": 10193,
+        "all": {
+          "n": 10193,
+          "U": -283.695,
+          "ROI_pct": -2.7832,
+          "active_weeks": 53,
+          "orders_per_active_week": 192.321,
+          "daily_MDD_U": 290.11,
+          "win_loss_push": {
+            "loss": 4746,
+            "win": 4785,
+            "push": 662
+          }
+        },
+        "outside_frozen_eight": {
+          "n": 7793,
+          "U": -240.455,
+          "ROI_pct": -3.0855,
+          "active_weeks": 53,
+          "orders_per_active_week": 147.038,
+          "daily_MDD_U": 252.38,
+          "win_loss_push": {
+            "loss": 3631,
+            "win": 3632,
+            "push": 530
+          }
+        },
+        "outside_eight_favorite_baseline": {
+          "n": 6658,
+          "U": -340.4,
+          "ROI_pct": -5.1126,
+          "active_weeks": 53,
+          "orders_per_active_week": 125.623,
+          "daily_MDD_U": 342.79,
+          "win_loss_push": {
+            "win": 3013,
+            "loss": 3414,
+            "push": 231
+          }
+        },
+        "outside_eight_underdog_baseline": {
+          "n": 6658,
+          "U": -87.025,
+          "ROI_pct": -1.3071,
+          "active_weeks": 53,
+          "orders_per_active_week": 125.623,
+          "daily_MDD_U": 130.345,
+          "win_loss_push": {
+            "loss": 3013,
+            "win": 3414,
+            "push": 231
+          }
+        }
+      },
+      "2026": {
+        "train_n": 30564,
+        "target_n": 8537,
+        "all": {
+          "n": 8537,
+          "U": -397.52,
+          "ROI_pct": -4.6564,
+          "active_weeks": 45,
+          "orders_per_active_week": 189.711,
+          "daily_MDD_U": 415.35,
+          "win_loss_push": {
+            "loss": 4047,
+            "win": 3899,
+            "push": 591
+          }
+        },
+        "outside_frozen_eight": {
+          "n": 6467,
+          "U": -289.355,
+          "ROI_pct": -4.4743,
+          "active_weeks": 45,
+          "orders_per_active_week": 143.711,
+          "daily_MDD_U": 308.345,
+          "win_loss_push": {
+            "loss": 3052,
+            "win": 2951,
+            "push": 464
+          }
+        },
+        "outside_eight_favorite_baseline": {
+          "n": 5528,
+          "U": -180.0,
+          "ROI_pct": -3.2562,
+          "active_weeks": 44,
+          "orders_per_active_week": 125.636,
+          "daily_MDD_U": 206.385,
+          "win_loss_push": {
+            "loss": 2761,
+            "win": 2597,
+            "push": 170
+          }
+        },
+        "outside_eight_underdog_baseline": {
+          "n": 5528,
+          "U": -194.98,
+          "ROI_pct": -3.5271,
+          "active_weeks": 44,
+          "orders_per_active_week": 125.636,
+          "daily_MDD_U": 214.57,
+          "win_loss_push": {
+            "win": 2761,
+            "loss": 2597,
+            "push": 170
+          }
+        }
+      }
+    }
+  },
+  "B": {
+    "definition": "one verified actual HTTP Crown AH receipt per fixture from the receipt/FT index; bet favorite only as a price-quality diagnostic, not a learned strategy",
+    "rows": 1393,
+    "summary": {
+      "n": 1393,
+      "U": -80.975,
+      "ROI_pct": -5.813,
+      "active_weeks": 6,
+      "orders_per_active_week": 232.167,
+      "daily_MDD_U": 87.94,
+      "win_loss_push": {
+        "loss": 677,
+        "win": 623,
+        "push": 93
+      }
+    },
+    "outside_frozen_eight": {
+      "n": 1102,
+      "U": -72.66,
+      "ROI_pct": -6.5935,
+      "active_weeks": 6,
+      "orders_per_active_week": 183.667,
+      "daily_MDD_U": 74.14,
+      "win_loss_push": {
+        "loss": 546,
+        "win": 486,
+        "push": 70
+      }
+    },
+    "by_year": {
+      "2024": {
+        "n": 0,
+        "U": 0,
+        "ROI_pct": null,
+        "active_weeks": 0,
+        "orders_per_active_week": null,
+        "daily_MDD_U": 0.0,
+        "win_loss_push": {}
+      },
+      "2025": {
+        "n": 0,
+        "U": 0,
+        "ROI_pct": null,
+        "active_weeks": 0,
+        "orders_per_active_week": null,
+        "daily_MDD_U": 0.0,
+        "win_loss_push": {}
+      },
+      "2026": {
+        "n": 1393,
+        "U": -80.975,
+        "ROI_pct": -5.813,
+        "active_weeks": 6,
+        "orders_per_active_week": 232.167,
+        "daily_MDD_U": 87.94,
+        "win_loss_push": {
+          "loss": 677,
+          "win": 623,
+          "push": 93
+        }
+      }
+    },
+    "quote_age_quartiles": [
+      {
+        "q": 1,
+        "age_min_max": [
+          1.337,
+          83.449
+        ],
+        "favorite_diag": {
+          "n": 348,
+          "U": -14.13,
+          "ROI_pct": -4.0603,
+          "active_weeks": 6,
+          "orders_per_active_week": 58.0,
+          "daily_MDD_U": 22.8,
+          "win_loss_push": {
+            "loss": 164,
+            "win": 158,
+            "push": 26
+          }
+        }
+      },
+      {
+        "q": 2,
+        "age_min_max": [
+          83.449,
+          515.536
+        ],
+        "favorite_diag": {
+          "n": 348,
+          "U": -17.28,
+          "ROI_pct": -4.9655,
+          "active_weeks": 6,
+          "orders_per_active_week": 58.0,
+          "daily_MDD_U": 25.555,
+          "win_loss_push": {
+            "win": 158,
+            "loss": 169,
+            "push": 21
+          }
+        }
+      },
+      {
+        "q": 3,
+        "age_min_max": [
+          515.536,
+          1406.795
+        ],
+        "favorite_diag": {
+          "n": 348,
+          "U": -39.28,
+          "ROI_pct": -11.2874,
+          "active_weeks": 6,
+          "orders_per_active_week": 58.0,
+          "daily_MDD_U": 39.6,
+          "win_loss_push": {
+            "win": 148,
+            "loss": 175,
+            "push": 25
+          }
+        }
+      },
+      {
+        "q": 4,
+        "age_min_max": [
+          1406.795,
+          26934.317
+        ],
+        "favorite_diag": {
+          "n": 349,
+          "U": -10.285,
+          "ROI_pct": -2.947,
+          "active_weeks": 6,
+          "orders_per_active_week": 58.167,
+          "daily_MDD_U": 19.325,
+          "win_loss_push": {
+            "win": 159,
+            "loss": 169,
+            "push": 21
+          }
+        }
+      }
+    ]
+  },
+  "C": {
+    "definition": "for independently FT-verified fixtures, revalidate all actual receipts and follow at most one signal per fixture: at the latest receipt with the two preceding successive same-direction normalized home-probability changes at an identical AH line, bet the moved-to side at that receipt Crown AH price.",
+    "verification": {
+      "verified_path_snapshot": 11122
+    },
+    "coverage": {
+      "fixtures_with_receipts": 1393,
+      "verified_receipts": 11122
+    },
+    "rows": 640,
+    "summary": {
+      "n": 640,
+      "U": -25.185,
+      "ROI_pct": -3.9352,
+      "active_weeks": 6,
+      "orders_per_active_week": 106.667,
+      "daily_MDD_U": 34.28,
+      "win_loss_push": {
+        "loss": 294,
+        "win": 301,
+        "push": 45
+      }
+    },
+    "by_year": {
+      "2024": {
+        "n": 0,
+        "U": 0,
+        "ROI_pct": null,
+        "active_weeks": 0,
+        "orders_per_active_week": null,
+        "daily_MDD_U": 0.0,
+        "win_loss_push": {}
+      },
+      "2025": {
+        "n": 0,
+        "U": 0,
+        "ROI_pct": null,
+        "active_weeks": 0,
+        "orders_per_active_week": null,
+        "daily_MDD_U": 0.0,
+        "win_loss_push": {}
+      },
+      "2026": {
+        "n": 640,
+        "U": -25.185,
+        "ROI_pct": -3.9352,
+        "active_weeks": 6,
+        "orders_per_active_week": 106.667,
+        "daily_MDD_U": 34.28,
+        "win_loss_push": {
+          "loss": 294,
+          "win": 301,
+          "push": 45
+        }
+      }
+    },
+    "outside_frozen_eight": {
+      "n": 532,
+      "U": -21.72,
+      "ROI_pct": -4.0827,
+      "active_weeks": 6,
+      "orders_per_active_week": 88.667,
+      "daily_MDD_U": 29.88,
+      "win_loss_push": {
+        "loss": 245,
+        "win": 249,
+        "push": 38
+      }
+    }
+  },
+  "D": {
+    "definition": "whole T6-T1 path state transitions: sustained one-way follows final favorite; reversion/multi-reversal fades final favorite; static/mixed state uses favorite diagnostic. Not R33 phase classes.",
+    "aggregate_years": [
+      2024,
+      2025,
+      2026
+    ],
+    "states": {
+      "line_return_to_open": {
+        "all": {
+          "n": 2512,
+          "U": -33.625,
+          "ROI_pct": -1.3386,
+          "active_weeks": 143,
+          "orders_per_active_week": 17.566,
+          "daily_MDD_U": 63.85,
+          "win_loss_push": {
+            "loss": 1112,
+            "win": 1222,
+            "push": 178
+          }
+        },
+        "by_year": {
+          "2024": {
+            "n": 758,
+            "U": 3.305,
+            "ROI_pct": 0.436,
+            "active_weeks": 52,
+            "orders_per_active_week": 14.577,
+            "daily_MDD_U": 21.77,
+            "win_loss_push": {
+              "loss": 329,
+              "win": 373,
+              "push": 56
+            }
+          },
+          "2025": {
+            "n": 981,
+            "U": 1.305,
+            "ROI_pct": 0.133,
+            "active_weeks": 51,
+            "orders_per_active_week": 19.235,
+            "daily_MDD_U": 21.93,
+            "win_loss_push": {
+              "win": 494,
+              "loss": 426,
+              "push": 61
+            }
+          },
+          "2026": {
+            "n": 773,
+            "U": -38.235,
+            "ROI_pct": -4.9463,
+            "active_weeks": 42,
+            "orders_per_active_week": 18.405,
+            "daily_MDD_U": 41.92,
+            "win_loss_push": {
+              "loss": 357,
+              "win": 355,
+              "push": 61
+            }
+          }
+        },
+        "outside_frozen_eight": {
+          "n": 1214,
+          "U": -24.665,
+          "ROI_pct": -2.0317,
+          "active_weeks": 140,
+          "orders_per_active_week": 8.671,
+          "daily_MDD_U": 30.82,
+          "win_loss_push": {
+            "loss": 544,
+            "win": 594,
+            "push": 76
+          }
+        }
+      },
+      "static": {
+        "all": {
+          "n": 18811,
+          "U": -696.13,
+          "ROI_pct": -3.7007,
+          "active_weeks": 149,
+          "orders_per_active_week": 126.248,
+          "daily_MDD_U": 726.17,
+          "win_loss_push": {
+            "loss": 9081,
+            "win": 8447,
+            "push": 1283
+          }
+        },
+        "by_year": {
+          "2024": {
+            "n": 6384,
+            "U": -213.31,
+            "ROI_pct": -3.3413,
+            "active_weeks": 53,
+            "orders_per_active_week": 120.453,
+            "daily_MDD_U": 222.225,
+            "win_loss_push": {
+              "loss": 3075,
+              "win": 2879,
+              "push": 430
+            }
+          },
+          "2025": {
+            "n": 6747,
+            "U": -328.48,
+            "ROI_pct": -4.8685,
+            "active_weeks": 53,
+            "orders_per_active_week": 127.302,
+            "daily_MDD_U": 330.94,
+            "win_loss_push": {
+              "win": 2975,
+              "loss": 3312,
+              "push": 460
+            }
+          },
+          "2026": {
+            "n": 5680,
+            "U": -154.34,
+            "ROI_pct": -2.7173,
+            "active_weeks": 45,
+            "orders_per_active_week": 126.222,
+            "daily_MDD_U": 184.115,
+            "win_loss_push": {
+              "loss": 2694,
+              "win": 2593,
+              "push": 393
+            }
+          }
+        },
+        "outside_frozen_eight": {
+          "n": 18531,
+          "U": -687.64,
+          "ROI_pct": -3.7108,
+          "active_weeks": 149,
+          "orders_per_active_week": 124.369,
+          "daily_MDD_U": 716.86,
+          "win_loss_push": {
+            "loss": 8986,
+            "win": 8345,
+            "push": 1200
+          }
+        }
+      },
+      "sustained_one_way": {
+        "all": {
+          "n": 5410,
+          "U": -388.8,
+          "ROI_pct": -7.1867,
+          "active_weeks": 148,
+          "orders_per_active_week": 36.554,
+          "daily_MDD_U": 411.56,
+          "win_loss_push": {
+            "loss": 2718,
+            "win": 2343,
+            "push": 349
+          }
+        },
+        "by_year": {
+          "2024": {
+            "n": 1688,
+            "U": -101.505,
+            "ROI_pct": -6.0133,
+            "active_weeks": 53,
+            "orders_per_active_week": 31.849,
+            "daily_MDD_U": 118.465,
+            "win_loss_push": {
+              "loss": 840,
+              "win": 735,
+              "push": 113
+            }
+          },
+          "2025": {
+            "n": 1937,
+            "U": -151.58,
+            "ROI_pct": -7.8255,
+            "active_weeks": 53,
+            "orders_per_active_week": 36.547,
+            "daily_MDD_U": 165.86,
+            "win_loss_push": {
+              "loss": 983,
+              "win": 841,
+              "push": 113
+            }
+          },
+          "2026": {
+            "n": 1785,
+            "U": -135.715,
+            "ROI_pct": -7.6031,
+            "active_weeks": 44,
+            "orders_per_active_week": 40.568,
+            "daily_MDD_U": 143.205,
+            "win_loss_push": {
+              "win": 767,
+              "loss": 895,
+              "push": 123
+            }
+          }
+        },
+        "outside_frozen_eight": {
+          "n": 1581,
+          "U": -67.895,
+          "ROI_pct": -4.2944,
+          "active_weeks": 137,
+          "orders_per_active_week": 11.54,
+          "daily_MDD_U": 85.9,
+          "win_loss_push": {
+            "loss": 694,
+            "win": 682,
+            "push": 205
+          }
+        }
+      },
+      "multi_reversal": {
+        "all": {
+          "n": 1149,
+          "U": 7.645,
+          "ROI_pct": 0.6654,
+          "active_weeks": 133,
+          "orders_per_active_week": 8.639,
+          "daily_MDD_U": 26.065,
+          "win_loss_push": {
+            "win": 574,
+            "loss": 515,
+            "push": 60
+          }
+        },
+        "by_year": {
+          "2024": {
+            "n": 322,
+            "U": 4.7,
+            "ROI_pct": 1.4596,
+            "active_weeks": 47,
+            "orders_per_active_week": 6.851,
+            "daily_MDD_U": 19.965,
+            "win_loss_push": {
+              "win": 160,
+              "loss": 144,
+              "push": 18
+            }
+          },
+          "2025": {
+            "n": 528,
+            "U": -17.35,
+            "ROI_pct": -3.286,
+            "active_weeks": 50,
+            "orders_per_active_week": 10.56,
+            "daily_MDD_U": 20.25,
+            "win_loss_push": {
+              "loss": 245,
+              "win": 255,
+              "push": 28
+            }
+          },
+          "2026": {
+            "n": 299,
+            "U": 20.295,
+            "ROI_pct": 6.7876,
+            "active_weeks": 38,
+            "orders_per_active_week": 7.868,
+            "daily_MDD_U": 9.995,
+            "win_loss_push": {
+              "win": 159,
+              "loss": 126,
+              "push": 14
+            }
+          }
+        },
+        "outside_frozen_eight": {
+          "n": 128,
+          "U": 0.53,
+          "ROI_pct": 0.4141,
+          "active_weeks": 82,
+          "orders_per_active_week": 1.561,
+          "daily_MDD_U": 10.63,
+          "win_loss_push": {
+            "loss": 55,
+            "push": 19,
+            "win": 54
+          }
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Historical rows are post-hoc Crown event-time replays, not real-time received prices.",
+    "The 2026 actual receipt rows were designed from previously observed receipts/outcomes and are retrospective, not frozen forward predictions.",
+    "B favorite diagnostics do not establish a profitable selection signal.",
+    "C uses normalized two-sided AH odds shares as a movement proxy and requires identical home handicap lines across all three quote events.",
+    "C recomputed all snapshots within independently FT-verified fixture IDs and checked raw SHA, receipt time, snapshot-index SHA, snapshot SHA, snapshot receive time, fixture/league identity, Crown line/odds, and that source and receipt times preceded kickoff.",
+    "A nearest-neighbor classifier and k=200 are exploratory parameters selected for this experiment; selection bias remains.",
+    "D aggregates path-shape states already examined within R33; results are a collapse/recheck of existing path structures, not an independent new mechanism.",
+    "D uses available path summaries; exact per-update quote sequence is not retained in this feature cache."
+  ],
+  "foundation": {
+    "rows": 10294,
+    "unique_fid": 10294,
+    "sha256": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665"
+  },
+  "output": {
+    "orders_jsonl": "m8_batch_ad_orders_20261118.jsonl",
+    "rows": 57797,
+    "historical_A": 27882,
+    "historical_D": 27882,
+    "actual_receipt_B": 1393,
+    "actual_receipt_C": 640
+  }
+}
