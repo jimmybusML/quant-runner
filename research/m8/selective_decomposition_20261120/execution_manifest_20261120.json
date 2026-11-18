@@ -1,0 +1,83 @@
+{
+  "study": "M8 selective profitability decomposition",
+  "execution_date": "2026-11-20",
+  "source_inputs": {
+    "handoff": {
+      "path": "PROJECT_HANDOFF.md",
+      "sha256": "48a818eb426caf79854d7c61b1ed934552aa72c571b45353e889a23ae1154bfa"
+    },
+    "prior_report": {
+      "path": "research/m8/M8_SELECTIVE_PROFITABILITY_RESEARCH_20261119.md",
+      "sha256": "16a271428c02281ac8efcfe00708e5e4598f417305b867575ba17ee19c9db091"
+    },
+    "prior_full_result": {
+      "path": "research/m8/selective_research_20261119/M8_SELECTIVE_PROFITABILITY_RESULTS_20261119.json",
+      "sha256": "07d66fc82956a2d5a2262a18bbc61313b6c8ecc74ee4f5f4fe91f6107a4a3e8d"
+    },
+    "prior_fixture_scores": {
+      "path": "research/m8/selective_research_20261119/m8_selective_scores_20261119.jsonl.gz",
+      "sha256": "c89f9bf36d4b2cec78784a14a04838764291561ccfa14fddb82b5e31405db407"
+    },
+    "prior_code": {
+      "path": "research/m8/m8_selective_research_20261119.py",
+      "sha256": "0173963f0493cc1f712c839b78780f62933b96e62b3189041d24758ef03ed18f"
+    },
+    "model_EH_runner": {
+      "path": "research/m8/m8_batch_eh_20261118.py",
+      "sha256": "9aabb36e8bc0dec6dc4063e779eefdfc0a4f2e02bcb7f86047d275b88285bd02"
+    },
+    "model_IL_runner": {
+      "path": "research/m8/m8_batch_il_20261118.py",
+      "sha256": "4c5465cd9c0dec445bafdb704cab5646565c1d59ccfc7935b6c9676f90d232a1"
+    }
+  },
+  "artifacts": {
+    "report": {
+      "path": "research/m8/M8_SELECTIVE_DECOMPOSITION_20261120.md",
+      "sha256": "9ae7cab4c9040e1466b9f9ea8ad8ba4e454386af1b90559cd432c0d7794ff79c",
+      "bytes": 19139
+    },
+    "decomposition_script": {
+      "path": "research/m8/m8_selective_decomposition_20261120.py",
+      "sha256": "ecaa8805e6a7eb9abb9a431b23ac39abe8597eaf18bcd47cf44e105b29db31c1",
+      "bytes": 26166
+    },
+    "ev_sign_script": {
+      "path": "research/m8/m8_selective_ev_sign_diagnostic_20261120.py",
+      "sha256": "4bba242415690c2541337b47982578d8ccaaaf0b7ffeb3ffd457168b26ab6ee1",
+      "bytes": 2434
+    },
+    "full_result": {
+      "path": "research/m8/selective_decomposition_20261120/M8_SELECTIVE_DECOMPOSITION_RESULTS_20261120.json",
+      "sha256": "db69c527428280c0030f244036a72c68363b6a910b3c45d815c813441c9400ee",
+      "bytes": 1209013
+    },
+    "new_receipt_rows": {
+      "path": "research/m8/selective_decomposition_20261120/new_receipt_rescore_20261120.jsonl",
+      "sha256": "bec6e9d021cc8cdf5888ab652c9953f342261f2a68c47f8966a055ff92a12e3c",
+      "bytes": 11806
+    },
+    "direction_conflicts": {
+      "path": "research/m8/selective_decomposition_20261120/direction_conflicts_20261120.jsonl",
+      "sha256": "ea1f7c1101863870d5f8f5a4ffdce46e869a77f6c2ae159057acada83b6e5d94",
+      "bytes": 18830
+    },
+    "ev_sign_result": {
+      "path": "research/m8/selective_decomposition_20261120/M8_SELECTIVE_EV_SIGN_DIAGNOSTIC_20261120.json",
+      "sha256": "620f2b1dd13210aadfcd4b1b828163ddb8bab11271229df74be4831cac3033f6",
+      "bytes": 3494
+    }
+  },
+  "checks": {
+    "full_prior_score_rows_read": 356598,
+    "full_prior_score_methods": 21,
+    "actual_new_capture_rows": 21,
+    "new_capture_unique_fids": 7,
+    "new_capture_raw_file_sha_matches": 21,
+    "receipt_quote_mismatches": 48,
+    "mismatch_unique_fids": 8,
+    "AH_quarter_settlement": "home: HG-AG+home_line; away: AG-HG-home_line; quarter lines split into two half stakes",
+    "production_changes": 0,
+    "foundation_changes": 0
+  }
+}
