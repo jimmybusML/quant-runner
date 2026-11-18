@@ -377,7 +377,7 @@ def assign_bin(value,edges):
 
 def calibrate_gate(train,test,gate):
     train=[r for r in train if score_conf(r) is not None];test=[r for r in test if score_conf(r) is not None]
-    if not train:return list(test),{'reason':'no prior-year score rows; target year is forced baseline, not a learned gate'}
+    if not train:return [],{'reason':'no prior-year training rows; no trained gate is available'}
     cs=[score_conf(r) for r in train];edges=quantile_edges(cs,5);tb=collections.defaultdict(list)
     for r in train:tb[assign_bin(score_conf(r),edges)].append(r)
     bin_train={b:metrics(v) for b,v in tb.items()}
@@ -411,7 +411,7 @@ def score_diagnostics(rows):
     out={}
     for source in ('historical_event_replay','actual_http_receipt'):
       for y in (2024,2025,2026):
-        z=[r for r in rows if r['source_type']==source and int(r['date'][:4])==y and r.get('score_home_minus_away') is not None and r.get('actual_home_u') is not None]
+        z=[r for r in rows if r['source_type']==source and int(r['date'][:4])==y and r.get('score_home_minus_away') is not None and r.get('actual_home_u') is not None and (source!='actual_http_receipt' or r.get('receipt_horizon'))]
         if not z:continue
         x=np.asarray([float(r['score_home_minus_away']) for r in z]);yd=np.asarray([float(r['actual_home_u'])-float(r['actual_away_u']) for r in z]);sel=np.asarray([float(r['pnl_u']) for r in z]);out[f'{source}_{y}']={'n':len(z),'forced_selection_metrics':metrics(z),'pearson_score_vs_realized_home_minus_away':float(np.corrcoef(x,yd)[0,1]) if np.std(x)>0 and np.std(yd)>0 else None,'pearson_abs_confidence_vs_selected_pnl':float(np.corrcoef(np.abs(x),sel)[0,1]) if np.std(x)>0 and np.std(sel)>0 else None,'mean_raw_score':float(x.mean()),'mean_realized_home_minus_away_u':float(yd.mean()),'mean_selected_pnl_u':float(sel.mean()),'mean_market_favorite_odds':float(np.mean([r['market_favorite_odds'] for r in z])),'mean_abs_handicap':float(np.mean([r['absolute_ah_line'] for r in z]))}
     # Market price/handicap state are descriptive slices, not learned cutoffs.
@@ -421,7 +421,7 @@ def score_diagnostics(rows):
         if r['source_type']=='historical_event_replay' and r['date'][:4] in {'2024','2025','2026'} and r.get('score_home_minus_away') is not None and r.get(field):groups[r[field]].append(r)
       out[field]={k:metrics(v) for k,v in groups.items()}
     for field in ('uncertainty_sd_margin','uncertainty_entropy','model_score_dispersion_sd','vote_agreement'):
-      z=[r for r in rows if r.get(field) is not None and r.get('pnl_u') is not None]
+      z=[r for r in rows if r.get(field) is not None and r.get('pnl_u') is not None and (r['source_type']!='actual_http_receipt' or r.get('receipt_horizon'))]
       if z:
        vals=np.asarray([float(r[field]) for r in z]);edges=quantile_edges(vals,5);bins=collections.defaultdict(list)
        for r in z:bins[assign_bin(float(r[field]),edges)].append(r)
@@ -438,7 +438,7 @@ def d_state_gate(train,test):
 GATES=('top20_prior_confidence','prior_positive_confidence_bins','prior_net_max_threshold','prior_roi_max_threshold')
 selective={};paired={};calibrations={}
 for method in sorted({r['method'] for r in score_rows}):
-    mrows=[r for r in score_rows if r['method']==method and r.get('pnl_u') is not None]
+    mrows=[r for r in score_rows if r['method']==method and r.get('pnl_u') is not None and (r['source_type']!='actual_http_receipt' or r.get('receipt_horizon'))]
     selective[method]={};paired[method]={};calibrations[method]={}
     for source in sorted({r['source_type'] for r in mrows}):
       srows=[r for r in mrows if r['source_type']==source]
@@ -458,23 +458,55 @@ for method in sorted({r['method'] for r in score_rows}):
             sameids={r['fid'] for r in chosen};forced_same=[r for r in test if r['fid'] in sameids]
             paired[method][key][gate]={'same_fixture_count':len(test),'forced_all':metrics(test),'selective':metrics(chosen),'same_fid_forced':metrics(forced_same),'added_vs_foundation':metrics(adds),'merged_foundation':metrics(add_foundation({year},adds))}
 
-consensus_summary={};consensus_cal={}
+# Transfer prior historical-event calibrations to 2026 actual Crown receipts.
+# Receipt outcomes are never used to fit a threshold.
+actual_receipt_transfer={};actual_receipt_transfer_cal={}
+for method in sorted({r['method'] for r in score_rows}):
+  hist=[r for r in score_rows if r['method']==method and r['source_type']=='historical_event_replay' and r.get('pnl_u') is not None and int(r['date'][:4])<2026]
+  test=[r for r in score_rows if r['method']==method and r['source_type']=='actual_http_receipt' and int(r['date'][:4])==2026 and r.get('pnl_u') is not None and r.get('receipt_horizon')]
+  if not hist or not test:continue
+  actual_receipt_transfer[method]={'forced_same_receipts':metrics(test)};actual_receipt_transfer_cal[method]={}
+  for gate in GATES:
+    chosen,cal=calibrate_gate(hist,test,gate);ids={r['fid'] for r in chosen};forced_same=[r for r in test if r['fid'] in ids];adds=[r for r in chosen if not r.get('foundation_overlap')]
+    actual_receipt_transfer[method][gate]={'selected':metrics(chosen),'same_fid_forced':metrics(forced_same),'added_vs_foundation':metrics(adds),'merged_foundation':metrics(add_foundation({2026},adds))}
+    actual_receipt_transfer_cal[method][gate]=cal
+
+consensus_summary={};consensus_cal={};consensus_by_horizon={}
 for source in ('historical_event_replay','actual_http_receipt'):
-  rows=[r for r in consensus_rows if r['source_type']==source]
-  consensus_summary[source]={'all':metrics(rows)};consensus_cal[source]={}
-  for year in (2024,2025,2026):
-    test=year_rows(rows,year);train=[r for r in rows if int(r['date'][:4])<year]
-    if not test:continue
-    consensus_summary[source][str(year)]={'forced_all':metrics(test)};consensus_cal[source][str(year)]={}
-    for gate in GATES:
-       chosen,cal=calibrate_gate(train,test,gate);consensus_summary[source][str(year)][gate]=metrics(chosen);consensus_cal[source][str(year)][gate]=cal
-       adds=[r for r in chosen if not r.get('foundation_overlap')]
-       consensus_summary[source][str(year)][gate+'_added_vs_foundation']=metrics(adds)
-       consensus_summary[source][str(year)][gate+'_merged_foundation']=metrics(add_foundation({year},adds))
+  source_rows=[r for r in consensus_rows if r['source_type']==source]
+  consensus_summary[source]={};consensus_cal[source]={}
+  for horizon in sorted({r['analysis_horizon'] for r in source_rows}):
+    rows=[r for r in source_rows if r['analysis_horizon']==horizon and (source!='actual_http_receipt' or r.get('receipt_horizon'))]
+    # One quote horizon per FID; audit and remove any accidental duplicate.
+    unique={}
+    for r in rows: unique.setdefault(r['fid'],r)
+    rows=list(unique.values()); hk=f'{source}|{horizon}'
+    consensus_by_horizon[hk]={'all':metrics(rows),'unique_fids':len(rows)}
+    consensus_summary[source][horizon]={'all':metrics(rows)};consensus_cal[hk]={}
+    for year in (2024,2025,2026):
+      test=year_rows(rows,year);train=[r for r in rows if int(r['date'][:4])<year]
+      if not test:continue
+      consensus_summary[source][horizon][str(year)]={'forced_all':metrics(test)};consensus_cal[hk][str(year)]={}
+      for gate in GATES:
+        chosen,cal=calibrate_gate(train,test,gate);consensus_summary[source][horizon][str(year)][gate]=metrics(chosen);consensus_cal[hk][str(year)][gate]=cal
+        adds=[r for r in chosen if not r.get('foundation_overlap')]
+        consensus_summary[source][horizon][str(year)][gate+'_added_vs_foundation']=metrics(adds)
+        consensus_summary[source][horizon][str(year)][gate+'_merged_foundation']=metrics(add_foundation({year},adds))
+
+consensus_actual_transfer={};consensus_actual_transfer_cal={}
+for horizon in sorted(set(r['analysis_horizon'] for r in consensus_rows if r['source_type']=='actual_http_receipt')):
+  hist=[r for r in consensus_rows if r['source_type']=='historical_event_replay' and r['analysis_horizon']==horizon and int(r['date'][:4])<2026]
+  test=[r for r in consensus_rows if r['source_type']=='actual_http_receipt' and r['analysis_horizon']==horizon and int(r['date'][:4])==2026 and r.get('pnl_u') is not None and r.get('receipt_horizon')]
+  if not hist or not test:continue
+  test=list({r['fid']:r for r in test}.values());consensus_actual_transfer[horizon]={'forced_all':metrics(test)};consensus_actual_transfer_cal[horizon]={}
+  for gate in GATES:
+    chosen,cal=calibrate_gate(hist,test,gate);ids={r['fid'] for r in chosen};forced_same=[r for r in test if r['fid'] in ids];adds=[r for r in chosen if not r.get('foundation_overlap')]
+    consensus_actual_transfer[horizon][gate]={'selected':metrics(chosen),'same_fid_forced':metrics(forced_same),'added_vs_foundation':metrics(adds),'merged_foundation':metrics(add_foundation({2026},adds))}
+    consensus_actual_transfer_cal[horizon][gate]=cal
 
 actual_diag={}
 for method in ('B_actual_receipt_freshness_favorite_diagnostic','C_multiscale_concordant_actual_receipt'):
-  rows=[r for r in score_rows if r['method']==method and r.get('pnl_u') is not None]
+  rows=[r for r in score_rows if r['method']==method and r.get('pnl_u') is not None and (r['source_type']!='actual_http_receipt' or r.get('receipt_horizon'))]
   actual_diag[method]={'all':metrics(rows)}
   fields=('quote_age_minutes','received_minutes_to_kickoff') if method.startswith('B_') else ('raw_move_score','confidence_abs')
   for field in fields:
@@ -489,7 +521,7 @@ by_method={}
 for method in sorted({r['method'] for r in score_rows}):
   by_method[method]={}
   for source in ('historical_event_replay','actual_http_receipt'):
-    rows=[r for r in score_rows if r['method']==method and r['source_type']==source and r.get('pnl_u') is not None]
+    rows=[r for r in score_rows if r['method']==method and r['source_type']==source and r.get('pnl_u') is not None and (source!='actual_http_receipt' or r.get('receipt_horizon'))]
     if rows:
       by_method[method][source]={'all':metrics(rows),'by_year':{str(y):metrics(year_rows(rows,y)) for y in (2024,2025,2026) if year_rows(rows,y)},'outside_foundation':metrics([r for r in rows if not r.get('foundation_overlap')]),'outside_foundation_by_year':{str(y):metrics([r for r in year_rows(rows,y) if not r.get('foundation_overlap')]) for y in (2024,2025,2026) if year_rows(rows,y)}}
 
@@ -499,11 +531,11 @@ for source in ('historical_event_replay','actual_http_receipt'):
   sets={m:{r['fid'] for r in score_rows if r['method']==m and r['source_type']==source} for m in methods}
   overlap[source]={'method_fid_counts':{m:len(v) for m,v in sets.items()},'pairwise_intersection':{f'{a} <> {b}':len(sets[a]&sets[b]) for i,a in enumerate(methods) for b in methods[i+1:]},'union_fids':len(set().union(*sets.values())) if sets else 0,'union_outside_foundation':len(set().union(*sets.values())-{str(x) for x in foundation}) if sets else 0}
 
-summary={'study':'M8 selective profitability research','date':'2026-11-19','foundation_unique_fids':len(foundation),'foundation_sha256':hashlib.sha256(('\n'.join(sorted(foundation))+'\n').encode()).hexdigest(),'score_rows':len(score_rows),'consensus_rows':len(consensus_rows),'methods':by_method,'selective_walk_forward':selective,'paired_same_fixture_and_foundation':paired,'training_calibrations_all_grids':calibrations,'consensus_walk_forward':consensus_summary,'consensus_calibrations':consensus_cal,'consensus_overall':{s:metrics([r for r in consensus_rows if r['source_type']==s]) for s in ('historical_event_replay','actual_http_receipt')},'diagnostics':score_diagnostics(score_rows),'actual_receipt_B_C_diagnostics':actual_diag,'overlap':overlap,'receipt_audit':receipt_audit,'rerun_checks':rerun_checks,'limitations':['Thresholds and confidence bins are research-only and learned only on prior years.','Forecast features do not include target outcomes; foundation membership is used only after prediction for incremental accounting.','B has no direction score and C is movement concordance, so both are descriptive diagnostics.','Actual Crown rows require exact pregame receipt, quote, response/snapshot SHA and independently verified FT/AH quarter settlement.','Actual receipt coverage differs by method/horizon; historical quote replays and real receipts are not pooled.']}
+summary={'study':'M8 selective profitability research','date':'2026-11-19','foundation_unique_fids':len(foundation),'foundation_sha256':hashlib.sha256(('\n'.join(sorted(foundation))+'\n').encode()).hexdigest(),'score_rows':len(score_rows),'consensus_rows':len(consensus_rows),'methods':by_method,'selective_walk_forward':selective,'paired_same_fixture_and_foundation':paired,'training_calibrations_all_grids':calibrations,'consensus_walk_forward':consensus_summary,'consensus_calibrations':consensus_cal,'consensus_actual_receipt_transfer':consensus_actual_transfer,'consensus_actual_receipt_transfer_calibrations':consensus_actual_transfer_cal,'actual_receipt_transfer_by_method':actual_receipt_transfer,'actual_receipt_transfer_calibrations':actual_receipt_transfer_cal,'consensus_overall_by_horizon':consensus_by_horizon,'diagnostics':score_diagnostics(score_rows),'actual_receipt_B_C_diagnostics':actual_diag,'overlap':overlap,'receipt_audit':receipt_audit,'rerun_checks':rerun_checks,'limitations':['Thresholds and confidence bins are research-only and learned only on prior years.','Forecast features do not include target outcomes; foundation membership is used only after prediction for incremental accounting.','B has no direction score and C is movement concordance, so both are descriptive diagnostics.','Actual Crown rows require exact pregame receipt, quote, response/snapshot SHA and independently verified FT/AH quarter settlement.','Actual receipt coverage differs by method/horizon; historical quote replays and real receipts are not pooled.']}
 
-with gzip.open(OUT/'m8_selective_scores_20261119.jsonl.gz','wt',encoding='utf-8',compresslevel=6,mtime=0) as f:
+with gzip.open(OUT/'m8_selective_scores_20261119.jsonl.gz','wt',encoding='utf-8',compresslevel=6) as f:
   for r in score_rows:f.write(json.dumps(r,ensure_ascii=False,separators=(',',':'))+'\n')
-with gzip.open(OUT/'m8_selective_consensus_20261119.jsonl.gz','wt',encoding='utf-8',compresslevel=6,mtime=0) as f:
+with gzip.open(OUT/'m8_selective_consensus_20261119.jsonl.gz','wt',encoding='utf-8',compresslevel=6) as f:
   for r in consensus_rows:f.write(json.dumps(r,ensure_ascii=False,separators=(',',':'))+'\n')
 (OUT/'M8_SELECTIVE_PROFITABILITY_RESULTS_20261119.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
 manifest={'input_scripts':{k:hashlib.sha256(v.read_bytes()).hexdigest() for k,v in SCRIPT_PATHS.items()},'input_order_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in ORDER_PATHS},'foundation_manifest_sha256':hashlib.sha256(FOUNDATION.read_bytes()).hexdigest(),'score_sha256':hashlib.sha256((OUT/'m8_selective_scores_20261119.jsonl.gz').read_bytes()).hexdigest(),'consensus_sha256':hashlib.sha256((OUT/'m8_selective_consensus_20261119.jsonl.gz').read_bytes()).hexdigest(),'summary_sha256':hashlib.sha256((OUT/'M8_SELECTIVE_PROFITABILITY_RESULTS_20261119.json').read_bytes()).hexdigest(),'receipt_audit':receipt_audit,'rerun_checks':rerun_checks}
