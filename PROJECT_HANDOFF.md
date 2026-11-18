@@ -7,7 +7,7 @@
 - 重要审计：E–H 初次执行的临时 away AH 净胜球符号写错，制造了约+18%假实收结果；错误执行已在 `m8_batch_eh_invalidated_run_20261118.json` 标为作废并保留。正确公式为主队 `HG−AG+home_line`，客队 `AG−HG−home_line`，quarter line 两腿分别结算。修复后重新拟合/输出，历史及实收均负。独立审计按实际 receipt UTC 与实际 snapshot horizon 精确核验 E/F/H 1,230 个比赛、3,690 条预测行、3,690 个 snapshot SHA 和 FT 来源，未解决项0；历史两侧77,692项及收据两侧2,460项收益复核均无差异。
 - 主要执行命令：`python3 research/m8/m8_batch_ad_20261118.py`、`python3 research/m8/m8_batch_eh_20261118.py`、`python3 research/m8/m8_batch_il_20261118.py`、`python3 research/m8/m8_batch_actual_receipt_independent_audit_20261118.py`、`python3 research/m8/m8_batch_union_20261118.py`。另对 A/D 历史逐场输出修正缺失开球时间不再以午夜合成：A 与 D 各有5,177行无可核准 kickoff_utc，现置空，日期仍可做日/周收益汇总。
 - 后续会话先阅读 `M8_BATCH_EXPANSION_INDEX_20261118.md`、`M8_BATCH_INCREMENTAL_UNION_20261118.md`、E–H 无效初跑审计，再决定新的研究变量。历史事件报价不等同当时收到的 Crown 价，收据回放是收据归档后设计的回顾研究，不是前瞻实战。不得将任何本轮结果加入生产模型、Telegram、正式账本、交易 Gate、数量限制、联赛筛选或发布条件。
-- 公开仓库 `jimmybusML/quant-runner` 的提交状态将在本节下方补记本次研究 commit SHA；如远程推送受阻则按真实仓库状态交接。
+- 公共仓库 `jimmybusML/quant-runner` 的研究数据、脚本和完整报告已在 `main` 推送，研究提交 SHA：`f31e7c1a73a8c7ec18bc10ee12bca0f5871ef9a8`；远端 `refs/heads/main` 已核实为该 SHA。GitHub 接受了全部文件，并对 61.73 MB 的 I–L 逐场 JSONL 提示超过 50 MB 推荐值（未阻止推送）。本 handoff SHA 记录的后续提交会单独可查。
 
 ---
 
