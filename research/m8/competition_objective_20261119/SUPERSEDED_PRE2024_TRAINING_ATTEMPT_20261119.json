@@ -1,0 +1,17 @@
+{
+  "status": "superseded_invalid_evaluation_not_part_of_final_results",
+  "reason": "The initial implementation restricted the full feature table to 2024-2026 before selecting earlier-year training data. This left 2024 with no training rows and excluded valid 2019-2023 training observations. The script was corrected and the complete walk-forward rerun; only the corrected results in M8_COMPETITIVE_OBJECTIVE_RESULTS_20261119.json are final.",
+  "first_attempt_common_test_fids": 3908,
+  "first_attempt_unique_incremental_fids": 3073,
+  "first_attempt_2024_incremental_n": 0,
+  "first_attempt_models": {
+    "A_market_only": {"net_U": -28.970, "ROI_pct": -0.942727, "2025_net_U": -8.565, "2026_net_U": -20.405},
+    "B_market_plus_season_table": {"net_U": -70.325, "ROI_pct": -2.288480, "2025_net_U": -41.965, "2026_net_U": -28.360},
+    "C_market_plus_competitive_value": {"net_U": -43.960, "ROI_pct": -1.430524, "2025_net_U": -33.805, "2026_net_U": -10.155},
+    "D_market_plus_season_stage": {"net_U": -79.090, "ROI_pct": -2.573706, "2025_net_U": -44.210, "2026_net_U": -34.880},
+    "E_market_plus_table_stage_interactions": {"net_U": -78.465, "ROI_pct": -2.553368, "2025_net_U": -39.490, "2026_net_U": -38.975},
+    "F_market_plus_table_stage_and_prior_tie": {"net_U": -71.830, "ROI_pct": -2.337455, "2025_net_U": -31.285, "2026_net_U": -40.545},
+    "G_competition_information_only": {"net_U": -92.605, "ROI_pct": -3.013505, "2025_net_U": -56.555, "2026_net_U": -36.050}
+  },
+  "interpretation": "Retained for execution transparency only. These values are not valid walk-forward results and must not be combined with or substituted for the corrected final results."
+}
