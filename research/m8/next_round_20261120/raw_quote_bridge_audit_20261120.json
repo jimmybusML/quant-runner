@@ -1,0 +1,27 @@
+{
+  "study": "M8 breakthrough A/B ledgers raw Crown source bridge",
+  "raw_audit_source": "research/m8/cross_competition_team_pricing_20261119/independent_raw_crown_audit_20261119.jsonl.gz",
+  "raw_audit_sha256": "7faa4a59e883c8b9fe36e0bd23e497965fa628ba9c0ebf8d3f1c69951ea22aa6",
+  "raw_audit_unique_fids": 21455,
+  "verified_quote_ft_and_ah_settlements": 128730,
+  "model_rows": {
+    "A:market_baseline": 21455,
+    "A:pregame_market_surprise_shock": 21455,
+    "A:asymmetric_result_shock": 21455,
+    "B:market_contract": 21455,
+    "B:linear": 21455,
+    "B:spline_contract": 21455
+  },
+  "model_unique_fids": {
+    "A:market_baseline": 21455,
+    "A:pregame_market_surprise_shock": 21455,
+    "A:asymmetric_result_shock": 21455,
+    "B:market_contract": 21455,
+    "B:linear": 21455,
+    "B:spline_contract": 21455
+  },
+  "all_method_fids_match_raw_audit": true,
+  "failures": {},
+  "all_checks_pass": true,
+  "scope_note": "Raw Crown bodies were independently re-read in the immediately preceding verifier run; this bridge proves every A/B selection used the identical audited FID, China kickoff date, quote, FT and Crown AH contract. Event time is not HTTP receipt time."
+}
