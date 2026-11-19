@@ -1,0 +1,91 @@
+{
+  "title": "M8 Crown collection read-only diagnostic execution manifest",
+  "executed_at_utc": "2026-11-19T04:56:34.519648+00:00",
+  "repository_head_before_execution": "92b3dce34130ff26e99d303130e13b0b0eaba410",
+  "command": "python3 research/m8/m8_crown_collection_diagnostic_20261119.py",
+  "scope": "Read-only source diagnosis; no TotalCorner API calls; no mutations to source SQLite, MR1 store, launchd, production models, Telegram, or ledger.",
+  "source_input_snapshot": {
+    "shared_crown_sqlite": {
+      "path": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3",
+      "exists": true,
+      "bytes": 1085648896,
+      "mtime_utc": "2026-11-15T18:28:04.810716+00:00"
+    },
+    "crown_capture_store_py": {
+      "exists": true,
+      "sha256": "ee98878ce72c920dba85fa05b6520c16d5d312f933eb96f1d0dd6809854bb727",
+      "bytes": 17405
+    },
+    "m7_runner_py": {
+      "exists": true,
+      "sha256": "c41ac5c1f3e7075c19d5a2f5d56a287c971027dcd5aa3d88b6096743d3356ef1",
+      "bytes": 17871
+    },
+    "mr1_shadow_v23_js": {
+      "exists": true,
+      "sha256": "c02812b88ffca14991dadfa6879978cc8a3ade0541b4b97903492bc3c918fde1",
+      "bytes": 32532
+    },
+    "mr1_crown_source_js": {
+      "exists": true,
+      "sha256": "abc56bb72afc1d995ef4ed310f9338764f3244adac9e1899d1bc988145281610",
+      "bytes": 2886
+    },
+    "mr1_snapshot_index": {
+      "path": "/Users/mac/QuantAsiaDesk/repos/mr1/data/prospective-market/shadow-v23/snapshot-index.jsonl",
+      "bytes_read": 12847998,
+      "sha256_prefix_snapshot": "69cc54bbb763f2f4e9439b8afcc17d8dfb789adc719e3898395a7a51cb353694",
+      "records": 41536
+    },
+    "previous_public_audit": {
+      "exists": true,
+      "sha256": "a199a3ce027caf0fa5bfdbf90a94626784f0b84ba7ceac56280bc30ec5790472",
+      "bytes": 9365
+    },
+    "project_handoff": {
+      "exists": true,
+      "sha256": "b5df8ad9bb6c81253a3e12013c67aeb228f3a9e93b3e1c873326989965e8904d",
+      "bytes": 1329015
+    }
+  },
+  "audit_snapshot": {
+    "mr1_index_sha256": "69cc54bbb763f2f4e9439b8afcc17d8dfb789adc719e3898395a7a51cb353694",
+    "shared_sqlite_bytes": 1085648896,
+    "shared_sqlite_mtime_utc": "2026-11-15T18:28:04.810716+00:00"
+  },
+  "output_files": {
+    "research/m8/M8_CROWN_COLLECTION_DIAGNOSTIC_20261119.md": {
+      "sha256": "cc6fbf8c40bfb68d92c78518e1767fa64550d243efa864923cd4eddcc5ed8092",
+      "bytes": 12871
+    },
+    "research/m8/m8_crown_collection_diagnostic_20261119.py": {
+      "sha256": "a505cfefebc2d5b8d887cc001a48d5a91c24bfefe427fdbe73f034f07a41bbaf",
+      "bytes": 32565
+    },
+    "research/m8/crown_collection_diagnostic_20261119/CROWN_COLLECTION_DIAGNOSTIC_RESULTS_20261119.json": {
+      "sha256": "e9313fa298bffdd986022a968bd660de293dc83448c597b5aac68350bbf6a7b4",
+      "bytes": 26640
+    },
+    "research/m8/crown_collection_diagnostic_20261119/no_crown_quotes_event_inventory_20261119.jsonl": {
+      "sha256": "c907b12b6a03bb0c1acd4b68fc4bd0279ba3238394acec2563441d1cbf103a12",
+      "bytes": 192961
+    },
+    "research/m8/crown_collection_diagnostic_20261119/failed_capture_fid_inventory_20261119.jsonl": {
+      "sha256": "eafda05ab1d973fe9fe623c2e649366f8276a234330731f18ee889107489a5fc",
+      "bytes": 267312
+    }
+  },
+  "headline_counts": {
+    "shared_sqlite_last_live_summary_quote_receipt_utc": "2026-11-14T01:25:02.025530Z",
+    "no_crown_ah_quotes_capture_rows": 1330,
+    "no_crown_ah_quotes_unique_fids": 248,
+    "raw_noquote_sha_matches": 1330,
+    "incomplete_read_failure_rows": 843,
+    "too_many_request_failure_rows": 82,
+    "mr1_post_cutoff_valid_crown_ah_rows": 568,
+    "mr1_post_cutoff_unique_fids_with_valid_crown_ah": 176,
+    "mr1_snapshot_sha_matches": 1344,
+    "mr1_raw_http_body_sha_matches": 2459
+  },
+  "no_changes_to_formal_behavior": true
+}

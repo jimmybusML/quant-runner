@@ -1,0 +1,809 @@
+{
+  "audit_generated_at_utc": "2026-11-19T04:56:34.519648+00:00",
+  "repo_head": "92b3dce34130ff26e99d303130e13b0b0eaba410",
+  "scope": "Read-only diagnosis. No API calls, no writes to source stores, no production changes.",
+  "inputs": {
+    "shared_crown_sqlite": {
+      "path": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3",
+      "exists": true,
+      "bytes": 1085648896,
+      "mtime_utc": "2026-11-15T18:28:04.810716+00:00"
+    },
+    "crown_capture_store_py": {
+      "exists": true,
+      "sha256": "ee98878ce72c920dba85fa05b6520c16d5d312f933eb96f1d0dd6809854bb727",
+      "bytes": 17405
+    },
+    "m7_runner_py": {
+      "exists": true,
+      "sha256": "c41ac5c1f3e7075c19d5a2f5d56a287c971027dcd5aa3d88b6096743d3356ef1",
+      "bytes": 17871
+    },
+    "mr1_shadow_v23_js": {
+      "exists": true,
+      "sha256": "c02812b88ffca14991dadfa6879978cc8a3ade0541b4b97903492bc3c918fde1",
+      "bytes": 32532
+    },
+    "mr1_crown_source_js": {
+      "exists": true,
+      "sha256": "abc56bb72afc1d995ef4ed310f9338764f3244adac9e1899d1bc988145281610",
+      "bytes": 2886
+    },
+    "mr1_snapshot_index": {
+      "path": "/Users/mac/QuantAsiaDesk/repos/mr1/data/prospective-market/shadow-v23/snapshot-index.jsonl",
+      "bytes_read": 12847998,
+      "sha256_prefix_snapshot": "69cc54bbb763f2f4e9439b8afcc17d8dfb789adc719e3898395a7a51cb353694",
+      "records": 41536
+    },
+    "previous_public_audit": {
+      "exists": true,
+      "sha256": "a199a3ce027caf0fa5bfdbf90a94626784f0b84ba7ceac56280bc30ec5790472",
+      "bytes": 9365
+    },
+    "project_handoff": {
+      "exists": true,
+      "sha256": "b5df8ad9bb6c81253a3e12013c67aeb228f3a9e93b3e1c873326989965e8904d",
+      "bytes": 1329015
+    }
+  },
+  "shared_sqlite": {
+    "capture_status_groups": [
+      {
+        "capture_mode": "historical",
+        "data_layer": "movement",
+        "status": "NO_CROWN_AH_QUOTES",
+        "prospective_observation": 0,
+        "captures": 49440,
+        "fids": 49440,
+        "first_received": "2026-11-08T16:06:12.431665Z",
+        "last_received": "2026-11-13T13:52:16.113431Z"
+      },
+      {
+        "capture_mode": "historical",
+        "data_layer": "movement",
+        "status": "QUOTES_SAVED",
+        "prospective_observation": 0,
+        "captures": 47064,
+        "fids": 47064,
+        "first_received": "2026-11-05T11:08:15.443665Z",
+        "last_received": "2026-11-15T18:28:04.795445Z"
+      },
+      {
+        "capture_mode": "historical",
+        "data_layer": "summary",
+        "status": "NO_CROWN_AH_QUOTES",
+        "prospective_observation": 0,
+        "captures": 1204,
+        "fids": 1182,
+        "first_received": "2026-11-04T17:51:25.104627Z",
+        "last_received": "2026-11-06T04:10:14.969719Z"
+      },
+      {
+        "capture_mode": "historical",
+        "data_layer": "summary",
+        "status": "QUOTES_SAVED",
+        "prospective_observation": 0,
+        "captures": 10956,
+        "fids": 10956,
+        "first_received": "2026-11-04T17:54:57.758013Z",
+        "last_received": "2026-11-06T04:10:50.585215Z"
+      },
+      {
+        "capture_mode": "live",
+        "data_layer": "summary",
+        "status": "NO_CROWN_AH_QUOTES",
+        "prospective_observation": 1,
+        "captures": 1330,
+        "fids": 248,
+        "first_received": "2026-11-08T13:12:57.160358Z",
+        "last_received": "2026-11-12T21:37:44.395290Z"
+      },
+      {
+        "capture_mode": "live",
+        "data_layer": "summary",
+        "status": "QUOTES_SAVED",
+        "prospective_observation": 0,
+        "captures": 3,
+        "fids": 3,
+        "first_received": "2026-11-08T19:25:46.083225Z",
+        "last_received": "2026-11-08T20:30:55.551886Z"
+      },
+      {
+        "capture_mode": "live",
+        "data_layer": "summary",
+        "status": "QUOTES_SAVED",
+        "prospective_observation": 1,
+        "captures": 136,
+        "fids": 95,
+        "first_received": "2026-11-08T13:04:49.393689Z",
+        "last_received": "2026-11-14T01:25:02.025530Z"
+      }
+    ],
+    "last_live_summary_quote_receipt_utc": "2026-11-14T01:25:02.025530Z",
+    "failed_attempt_groups": [
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "error_code": "IncompleteRead",
+        "failure_rows": 843,
+        "unique_fids": 703,
+        "first_attempt": "2026-11-08T18:18:49.140327Z",
+        "last_attempt": "2026-11-13T17:24:08.394608Z"
+      },
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "error_code": "RemoteDisconnected",
+        "failure_rows": 1,
+        "unique_fids": 1,
+        "first_attempt": "2026-11-09T15:29:04.192336Z",
+        "last_attempt": "2026-11-09T15:29:04.192336Z"
+      },
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "error_code": "TOO_MANY_REQUEST",
+        "failure_rows": 80,
+        "unique_fids": 79,
+        "first_attempt": "2026-11-08T16:46:07.212192Z",
+        "last_attempt": "2026-11-13T17:16:09.306784Z"
+      },
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "error_code": "URLError",
+        "failure_rows": 2,
+        "unique_fids": 2,
+        "first_attempt": "2026-11-10T13:55:08.008539Z",
+        "last_attempt": "2026-11-10T21:24:10.048460Z"
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "error_code": "TOO_MANY_REQUEST",
+        "failure_rows": 2,
+        "unique_fids": 2,
+        "first_attempt": "2026-11-08T19:22:06.972558Z",
+        "last_attempt": "2026-11-10T15:31:17.692585Z"
+      }
+    ],
+    "failed_attempt_total_rows": 928,
+    "failed_fid_resolution_by_error": {
+      "TOO_MANY_REQUEST": {
+        "quote_saved_after_failure": 67,
+        "quote_saved_before_or_no_later": 1,
+        "terminal_no_crown_quotes": 13
+      },
+      "IncompleteRead": {
+        "quote_saved_before_or_no_later": 2,
+        "quote_saved_after_failure": 701
+      },
+      "RemoteDisconnected": {
+        "quote_saved_after_failure": 1
+      },
+      "URLError": {
+        "quote_saved_after_failure": 2
+      }
+    },
+    "failure_schema_fields": [
+      "attempted_at_utc",
+      "fixture_id",
+      "data_layer",
+      "capture_mode",
+      "error_code"
+    ],
+    "failure_attempt_semantics": "one terminal error row per collect job/FID/layer; crown_capture_store.request_fixture can attempt up to four HTTP calls before the final error is stored."
+  },
+  "no_crown_ah_quotes": {
+    "capture_rows": 1330,
+    "unique_fids": 248,
+    "unique_response_sha256": 251,
+    "raw_integrity": {
+      "files": 1330,
+      "sha_match": 1330,
+      "missing": 0,
+      "mismatch": 0,
+      "success_one": 1330,
+      "matching_fixture": 1330,
+      "bookmakers_empty": 1330,
+      "crown_absent": 1330,
+      "raw_body_invalid": 0
+    },
+    "all_valid_payloads_success_one_matching_fid": true,
+    "all_responses_empty_bookmakers": true,
+    "request_reconstructed_from_code": {
+      "method": "GET",
+      "endpoint": "https://api.totalcorner.com/v1/match/bookmaker_odds/{FID}",
+      "query": "bookmaker=crown",
+      "data_layer": "summary",
+      "raw_request_start_time_and_http_status_not_stored_in_crown_capture_table": true
+    },
+    "response_shape": "TotalCorner JSON success=1; one matching fixture; bookmakers=[]; therefore at that request time the API returned no bookmaker quote object. This is not evidence the underlying Crown market never existed.",
+    "response_week_counts": {
+      "2026-W45": 303,
+      "2026-W46": 1027
+    },
+    "repeat_captures_per_fid": {
+      "5": 74,
+      "6": 153,
+      "2": 9,
+      "3": 6,
+      "1": 6
+    },
+    "kickoff_lead_hours": {
+      "min": 0.37100130833333334,
+      "p10": 246.35050203944442,
+      "median": 316.43955176458337,
+      "p90": 453.97071130138886,
+      "max": 486.53289073555555
+    },
+    "kickoff_utc_range": {
+      "min": "2026-11-12T21:00:00Z",
+      "max": "2026-11-30T20:15:00Z"
+    },
+    "league_event_inventory": [
+      {
+        "league": "Spain La Liga",
+        "capture_rows": 111,
+        "unique_fids": 20
+      },
+      {
+        "league": "England Premier League",
+        "capture_rows": 110,
+        "unique_fids": 20
+      },
+      {
+        "league": "Italy Serie A",
+        "capture_rows": 110,
+        "unique_fids": 20
+      },
+      {
+        "league": "France Ligue 1",
+        "capture_rows": 100,
+        "unique_fids": 18
+      },
+      {
+        "league": "Germany Bundesliga I",
+        "capture_rows": 99,
+        "unique_fids": 18
+      },
+      {
+        "league": "Netherlands Eredivisie",
+        "capture_rows": 99,
+        "unique_fids": 18
+      },
+      {
+        "league": "Scotland Premiership",
+        "capture_rows": 78,
+        "unique_fids": 14
+      },
+      {
+        "league": "Greece Super League 1",
+        "capture_rows": 77,
+        "unique_fids": 14
+      },
+      {
+        "league": "Austria Bundesliga",
+        "capture_rows": 66,
+        "unique_fids": 12
+      },
+      {
+        "league": "Türkiye Super Lig",
+        "capture_rows": 54,
+        "unique_fids": 9
+      },
+      {
+        "league": "Portugal Primeira Liga",
+        "capture_rows": 54,
+        "unique_fids": 9
+      },
+      {
+        "league": "Norway Eliteserien",
+        "capture_rows": 48,
+        "unique_fids": 8
+      },
+      {
+        "league": "Sweden Allsvenskan",
+        "capture_rows": 48,
+        "unique_fids": 8
+      },
+      {
+        "league": "Bulgaria First League",
+        "capture_rows": 42,
+        "unique_fids": 7
+      },
+      {
+        "league": "Cyprus Division 1",
+        "capture_rows": 42,
+        "unique_fids": 7
+      },
+      {
+        "league": "Serbia Super Liga",
+        "capture_rows": 42,
+        "unique_fids": 7
+      },
+      {
+        "league": "Denmark Superligaen",
+        "capture_rows": 36,
+        "unique_fids": 6
+      },
+      {
+        "league": "Slovakia Super Liga",
+        "capture_rows": 36,
+        "unique_fids": 6
+      },
+      {
+        "league": "Switzerland Super League",
+        "capture_rows": 36,
+        "unique_fids": 6
+      },
+      {
+        "league": "Colombia Primera A",
+        "capture_rows": 24,
+        "unique_fids": 9
+      },
+      {
+        "league": "Northern Ireland Premier",
+        "capture_rows": 12,
+        "unique_fids": 6
+      },
+      {
+        "league": "Slovenia Prva Liga",
+        "capture_rows": 5,
+        "unique_fids": 5
+      },
+      {
+        "league": "Ukraine Vyscha Liga",
+        "capture_rows": 1,
+        "unique_fids": 1
+      }
+    ],
+    "later_shared_sqlite_quote_fids": 9,
+    "later_mr1_verified_crown_ah_fids_after_2026_11_14": 13,
+    "event_inventory_file": "no_crown_quotes_event_inventory_20261119.jsonl"
+  },
+  "mr1_independent_production_adjacent_capture": {
+    "store_path": "/Users/mac/QuantAsiaDesk/repos/mr1/data/prospective-market/shadow-v23",
+    "store_is_shared_crown_sqlite": false,
+    "index_cutoff_utc": "2026-11-14T00:00:00Z",
+    "index_rows_since_cutoff": 1344,
+    "unique_fids_since_cutoff": 467,
+    "classification_counts": {
+      "MARKET_UNAVAILABLE": 598,
+      "SNAPSHOT_OK": 568,
+      "MISSED_WINDOW": 178
+    },
+    "verified_actual_pregame_crown_ah_rows": 568,
+    "unique_fids_with_verified_ah": 176,
+    "verified_ah_fids_also_present_in_shared_sqlite": 2,
+    "verified_ah_fids_absent_from_shared_sqlite": 174,
+    "verified_actual_pregame_crown_ou_rows": 568,
+    "unique_fids_with_verified_ou": 176,
+    "weekly_receipts": [
+      {
+        "iso_week": "2026-W46",
+        "snapshot_index_rows": 689,
+        "verified_pregame_crown_ah_snapshots": 420,
+        "unique_fids_with_ah": 89,
+        "verified_pregame_crown_ou_snapshots": 420,
+        "unique_fids_with_ou": 89,
+        "snapshot_sha256_verified": 689,
+        "raw_response_hashes_checked": 1358,
+        "raw_response_hashes_verified": 1358,
+        "rate_limit_attempt_records": 76
+      },
+      {
+        "iso_week": "2026-W47",
+        "snapshot_index_rows": 655,
+        "verified_pregame_crown_ah_snapshots": 148,
+        "unique_fids_with_ah": 95,
+        "verified_pregame_crown_ou_snapshots": 148,
+        "unique_fids_with_ou": 95,
+        "snapshot_sha256_verified": 655,
+        "raw_response_hashes_checked": 1101,
+        "raw_response_hashes_verified": 1101,
+        "rate_limit_attempt_records": 51
+      }
+    ],
+    "recent_weekly_inventory_since_2026_11_02": [
+      {
+        "iso_week": "2026-W45",
+        "snapshot_index_rows": 7462,
+        "unique_fids_with_snapshot": 805,
+        "classification_counts": {
+          "SNAPSHOT_OK": 4042,
+          "MARKET_UNAVAILABLE": 1656,
+          "MISSED_WINDOW": 1730,
+          "TRANSIENT_API_ERROR": 9,
+          "FIXTURE_INVALID": 7,
+          "RATE_LIMITED": 18
+        },
+        "verified_crown_ah_snapshots": 4042,
+        "unique_fids_with_ah": 614,
+        "verified_crown_ou_snapshots": 4042,
+        "unique_fids_with_ou": 614
+      },
+      {
+        "iso_week": "2026-W46",
+        "snapshot_index_rows": 1594,
+        "unique_fids_with_snapshot": 176,
+        "classification_counts": {
+          "SNAPSHOT_OK": 776,
+          "TRANSIENT_API_ERROR": 1,
+          "MARKET_UNAVAILABLE": 610,
+          "MISSED_WINDOW": 201,
+          "FIXTURE_INVALID": 6
+        },
+        "verified_crown_ah_snapshots": 776,
+        "unique_fids_with_ah": 135,
+        "verified_crown_ou_snapshots": 776,
+        "unique_fids_with_ou": 135
+      },
+      {
+        "iso_week": "2026-W47",
+        "snapshot_index_rows": 655,
+        "unique_fids_with_snapshot": 363,
+        "classification_counts": {
+          "MARKET_UNAVAILABLE": 377,
+          "SNAPSHOT_OK": 148,
+          "MISSED_WINDOW": 130
+        },
+        "verified_crown_ah_snapshots": 148,
+        "unique_fids_with_ah": 95,
+        "verified_crown_ou_snapshots": 148,
+        "unique_fids_with_ou": 95
+      }
+    ],
+    "registered_schedule_fixture_inventory_by_kickoff_week": [
+      {
+        "kickoff_iso_week": "2026-W45",
+        "registered_fixtures": 782,
+        "leagues_with_fixture": 100
+      },
+      {
+        "kickoff_iso_week": "2026-W46",
+        "registered_fixtures": 166,
+        "leagues_with_fixture": 36
+      },
+      {
+        "kickoff_iso_week": "2026-W47",
+        "registered_fixtures": 444,
+        "leagues_with_fixture": 80
+      }
+    ],
+    "snapshot_and_raw_hash_audit": {
+      "snapshot_files": 1344,
+      "snapshot_hash_match": 1344,
+      "snapshot_hash_mismatch": 0,
+      "missing_snapshot": 0,
+      "raw_attempts_checked": 2459,
+      "raw_attempts_hash_match": 2459,
+      "raw_attempts_hash_mismatch": 0,
+      "raw_attempts_missing_body": 0
+    },
+    "rate_limit_error_records_in_post_cutoff_snapshots": 127,
+    "rate_limit_provider_messages": {
+      "exceed the rate limit, allowed 5 request in 10 seconds. API Boost raises it to 60 requests per minute: https://www.totalcorner.com/page/api#api_boost": 127
+    },
+    "validation_exceptions": "SNAPSHOT_OK entries counted as usable only when Crown verified, pregame, source quote time <= HTTP receipt < kickoff, and AH/OU line plus both prices exist.",
+    "index_snapshot_sha256": "69cc54bbb763f2f4e9439b8afcc17d8dfb789adc719e3898395a7a51cb353694"
+  },
+  "m7_shared_sqlite_runner": {
+    "runner_status_last_record": {
+      "state": "WAITING_FOR_DAILY_REFRESH",
+      "updated_at_utc": "2026-11-17T00:17:16.537878+00:00",
+      "next_window_utc": "2026-11-18T00:15:00+00:00"
+    },
+    "runner_last_event": {
+      "state": "WAITING_FOR_DAILY_REFRESH",
+      "updated_at_utc": "2026-11-17T00:17:16.537878+00:00",
+      "next_window_utc": "2026-11-18T00:15:00+00:00"
+    },
+    "runner_last_log_event_utc": "2026-11-17T00:17:16.537878+00:00",
+    "runner_process_present_now": false,
+    "dedicated_m7_launchd_loaded": false,
+    "last_live_capture_windows_after_2026_11_14": [
+      {
+        "state": "WINDOW_FAILED",
+        "updated_at_utc": "2026-11-14T00:35:26.397811+00:00",
+        "kickoff_utc": "2026-11-14T01:30:00+00:00",
+        "fixture_ids": [
+          "203961671"
+        ],
+        "collector_counts": {
+          "SAVED": 1
+        },
+        "validation_ok": false
+      },
+      {
+        "state": "WINDOW_FAILED",
+        "updated_at_utc": "2026-11-14T01:05:25.489439+00:00",
+        "kickoff_utc": "2026-11-14T01:30:00+00:00",
+        "fixture_ids": [
+          "203961671"
+        ],
+        "collector_counts": {
+          "SAVED": 1
+        },
+        "validation_ok": false
+      },
+      {
+        "state": "WINDOW_FAILED",
+        "updated_at_utc": "2026-11-14T01:25:26.754648+00:00",
+        "kickoff_utc": "2026-11-14T01:30:00+00:00",
+        "fixture_ids": [
+          "203961671"
+        ],
+        "collector_counts": {
+          "SAVED": 1
+        },
+        "validation_ok": false
+      }
+    ],
+    "skipped_prekickoff_windows_logged": 13,
+    "skipped_unique_fids": [
+      "203961656",
+      "203961660",
+      "203961662",
+      "203961665",
+      "203961667",
+      "203961669",
+      "203961685",
+      "203961688",
+      "204281854",
+      "204379587"
+    ],
+    "source_schedule_snapshot_sha256_latest": "f5f4aea025511f5f008100dee84340d3d1753bcefe390428d965e76e706a2fe6",
+    "source_schedule_candidate_count_latest": 279,
+    "source_schedule_offsets_minutes": [
+      55,
+      25,
+      5
+    ],
+    "runner_code_is_infinite_loop": true,
+    "runner_has_dedicated_launchd_restart": false,
+    "last_status_is_stale_vs_current_time": true
+  },
+  "backfill_run": {
+    "launchd_label": "com.quantasia.crown-ah-five-season-backfill",
+    "last_exit_code_observed_from_launchctl": 0,
+    "terminal_summaries": [
+      {
+        "status": "SEASON_BACKFILL_AND_REPLAY_COMPLETE",
+        "collection_counts": {
+          "five_latest_full_seasons": {
+            "SAVED": 53100,
+            "FETCH_FAILED": 406,
+            "NO_CROWN_AH_QUOTES": 8328
+          },
+          "two_older_seasons_if_available": {
+            "SAVED": 9910,
+            "FETCH_FAILED": 532,
+            "NO_CROWN_AH_QUOTES": 33808
+          }
+        },
+        "retry_counts": {
+          "SAVED": 744,
+          "FETCH_FAILED": 190,
+          "NO_CROWN_AH_QUOTES": 4
+        },
+        "finished_at_epoch": 1794584509
+      }
+    ],
+    "error_log_has_interrupt_or_keyboardinterrupt": true,
+    "backfill_code_request_interval_seconds_explicit": 2.1
+  },
+  "mr1_current_workflow": {
+    "launchd_label": "com.quantasia.mr1.collect",
+    "runs_last_24h": 240,
+    "snapshots_committed_last_24h": 366,
+    "http_requests_last_24h": 2728,
+    "latest_runs": [
+      {
+        "run_id": "2026-11-19T03-58-07-145Z-ad73434c",
+        "status": "COMPLETE",
+        "snapshots_committed_this_run": 0,
+        "requests_this_run": 8,
+        "finished_at": "2026-11-19T03:58:52.775Z"
+      },
+      {
+        "run_id": "2026-11-19T04-03-53-068Z-981c875d",
+        "status": "COMPLETE",
+        "snapshots_committed_this_run": 0,
+        "requests_this_run": 10,
+        "finished_at": "2026-11-19T04:05:12.808Z"
+      },
+      {
+        "run_id": "2026-11-19T04-10-13-188Z-3cbe4811",
+        "status": "COMPLETE",
+        "snapshots_committed_this_run": 0,
+        "requests_this_run": 8,
+        "finished_at": "2026-11-19T04:11:10.047Z"
+      },
+      {
+        "run_id": "2026-11-19T04-16-10-309Z-af836764",
+        "status": "COMPLETE",
+        "snapshots_committed_this_run": 0,
+        "requests_this_run": 8,
+        "finished_at": "2026-11-19T04:16:56.819Z"
+      },
+      {
+        "run_id": "2026-11-19T04-21-57-094Z-b0775967",
+        "status": "COMPLETE",
+        "snapshots_committed_this_run": 0,
+        "requests_this_run": 8,
+        "finished_at": "2026-11-19T04:22:43.076Z"
+      },
+      {
+        "run_id": "2026-11-19T04-27-43-278Z-047bff93",
+        "status": "COMPLETE",
+        "snapshots_committed_this_run": 0,
+        "requests_this_run": 8,
+        "finished_at": "2026-11-19T04:28:32.658Z"
+      },
+      {
+        "run_id": "2026-11-19T04-33-32-935Z-487a9d11",
+        "status": "COMPLETE",
+        "snapshots_committed_this_run": 10,
+        "requests_this_run": 26,
+        "finished_at": "2026-11-19T04:35:41.712Z"
+      },
+      {
+        "run_id": "2026-11-19T04-40-42-054Z-b29e2d85",
+        "status": "COMPLETE",
+        "snapshots_committed_this_run": 15,
+        "requests_this_run": 34,
+        "finished_at": "2026-11-19T04:42:49.875Z"
+      },
+      {
+        "run_id": "2026-11-19T04-47-50-162Z-939a47a7",
+        "status": "COMPLETE",
+        "snapshots_committed_this_run": 5,
+        "requests_this_run": 18,
+        "finished_at": "2026-11-19T04:49:13.419Z"
+      },
+      {
+        "run_id": "2026-11-19T04-54-13-811Z-ff6390a7",
+        "status": "COMPLETE",
+        "snapshots_committed_this_run": 0,
+        "requests_this_run": 8,
+        "finished_at": "2026-11-19T04:55:01.380Z"
+      }
+    ],
+    "current_config": {
+      "launchd_interval_seconds": 300,
+      "scheduler_interval_minutes": 5,
+      "minimum_request_start_interval_ms": 2600,
+      "request_timeout_ms": 30000,
+      "max_run_ms": 180000,
+      "max_snapshots_per_run": 16,
+      "horizons": [
+        {
+          "name": "T72",
+          "minutes": 4320,
+          "window": 30
+        },
+        {
+          "name": "T48",
+          "minutes": 2880,
+          "window": 30
+        },
+        {
+          "name": "T36",
+          "minutes": 2160,
+          "window": 30
+        },
+        {
+          "name": "T24",
+          "minutes": 1440,
+          "window": 30
+        },
+        {
+          "name": "T18",
+          "minutes": 1080,
+          "window": 30
+        },
+        {
+          "name": "T12",
+          "minutes": 720,
+          "window": 30
+        },
+        {
+          "name": "T6",
+          "minutes": 360,
+          "window": 15
+        },
+        {
+          "name": "T3",
+          "minutes": 180,
+          "window": 15
+        },
+        {
+          "name": "T1",
+          "minutes": 60,
+          "window": 10
+        },
+        {
+          "name": "T0.5",
+          "minutes": 30,
+          "window": 5
+        }
+      ],
+      "endpoint_sequence": [
+        "/match/view/{FID}",
+        "/match/bookmaker_odds/{FID}?bookmaker=crown"
+      ]
+    },
+    "separate_from_crown_capture_store_sqlite": true
+  },
+  "rate_limit_evidence": {
+    "stored_crown_db_code": "TOO_MANY_REQUEST; no raw HTTP response/status/headers are kept for those failed jobs.",
+    "provider_message_from_MR1_persisted_http_attempts": "exceed the rate limit, allowed 5 request in 10 seconds. API Boost raises it to 60 requests per minute.",
+    "request_intervals_observed_in_code": {
+      "crown_capture_store_cli_default_seconds": 5.2,
+      "five_season_backfill_override_seconds": 2.1,
+      "m7_runner_override_seconds": 3.0,
+      "MR1_production_minimum_request_start_interval_seconds": 2.6
+    },
+    "same_credential_source": "crown_capture_store reads QuantAsiaDesk.TOTALCORNER_TOKEN from macOS Keychain; mr1_background_maintenance.py reads the same Keychain service and exports TOTALCORNER_TOKEN to MR1 process.",
+    "likely_root_cause": "Provider quota is per credential while the historical backfill, M7 live runner and MR1 collector each implement independent local pacing. Their request starts can overlap and aggregate above the provider 5-per-10-second limit. The 2.1s/3.0s overrides are below the documented 5.2s shared utility default. The old database does not retain failed response bodies, so exact past HTTP status/headers are unavailable."
+  },
+  "root_cause_summary": [
+    "No new rows in crown_quotes.sqlite3 after 2026-11-14 reflects the one-off M7 T-55/T-25/T-5 runner no longer executing; its last log state is 2026-11-17, it is not registered with launchd, and no process is present at audit time.",
+    "This does not mean the whole system stopped collecting Crown AH: MR1 shadow-v23 continued on its own 5-minute launchd schedule and stored verified Crown AH snapshots in a separate immutable snapshot-index/snapshots tree, outside crown_quotes.sqlite3.",
+    "The 1,330 NO_CROWN_AH_QUOTES rows are successful, SHA-verified responses with bookmakers=[] for 248 mostly far-ahead fixtures. They mean no Crown quote object was returned then; repeated calls often preceded market publication and do not prove no market existed later.",
+    "843 IncompleteRead terminal failure rows are historical movement reads. Each of their 703 FIDs has a QUOTES_SAVED movement capture in the database (701 saved after the last recorded failure, 2 had a saved capture before/no later capture); they are transport truncations but did not leave a current movement-data hole.",
+    "82 TOO_MANY_REQUEST rows are explicit TotalCorner quota responses (80 historical movement, 2 live summary). This is a cross-process rate-limit collision risk, not a pricing/business-market status."
+  ],
+  "source_code_or_workflow_hashes": {
+    "shared_crown_sqlite": {
+      "path": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3",
+      "exists": true,
+      "bytes": 1085648896,
+      "mtime_utc": "2026-11-15T18:28:04.810716+00:00"
+    },
+    "crown_capture_store_py": {
+      "exists": true,
+      "sha256": "ee98878ce72c920dba85fa05b6520c16d5d312f933eb96f1d0dd6809854bb727",
+      "bytes": 17405
+    },
+    "m7_runner_py": {
+      "exists": true,
+      "sha256": "c41ac5c1f3e7075c19d5a2f5d56a287c971027dcd5aa3d88b6096743d3356ef1",
+      "bytes": 17871
+    },
+    "mr1_shadow_v23_js": {
+      "exists": true,
+      "sha256": "c02812b88ffca14991dadfa6879978cc8a3ade0541b4b97903492bc3c918fde1",
+      "bytes": 32532
+    },
+    "mr1_crown_source_js": {
+      "exists": true,
+      "sha256": "abc56bb72afc1d995ef4ed310f9338764f3244adac9e1899d1bc988145281610",
+      "bytes": 2886
+    },
+    "mr1_snapshot_index": {
+      "path": "/Users/mac/QuantAsiaDesk/repos/mr1/data/prospective-market/shadow-v23/snapshot-index.jsonl",
+      "bytes_read": 12847998,
+      "sha256_prefix_snapshot": "69cc54bbb763f2f4e9439b8afcc17d8dfb789adc719e3898395a7a51cb353694",
+      "records": 41536
+    },
+    "previous_public_audit": {
+      "exists": true,
+      "sha256": "a199a3ce027caf0fa5bfdbf90a94626784f0b84ba7ceac56280bc30ec5790472",
+      "bytes": 9365
+    },
+    "project_handoff": {
+      "exists": true,
+      "sha256": "b5df8ad9bb6c81253a3e12013c67aeb228f3a9e93b3e1c873326989965e8904d",
+      "bytes": 1329015
+    }
+  },
+  "artifacts": {
+    "noquote_event_inventory": "no_crown_quotes_event_inventory_20261119.jsonl",
+    "failed_fid_inventory": "failed_capture_fid_inventory_20261119.jsonl"
+  },
+  "no_source_store_mutations": true,
+  "no_external_api_requests_made": true,
+  "no_telegram_or_ledger_changes": true
+}
