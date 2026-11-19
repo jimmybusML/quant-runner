@@ -1,0 +1,27 @@
+{
+  "total_fids": 175,
+  "past_kickoff_at_audit": 90,
+  "future_at_audit": 85,
+  "ft_status": {
+    "not_started_at_audit_cutoff": 85,
+    "verified_ft": 86,
+    "not_verified_ft": 4
+  },
+  "league_id_comparison": {
+    "prior_membership_league_id": 32,
+    "outside_prior_membership_league_ids": 143,
+    "past_outside_prior_league_ids": 83,
+    "past_with_prior_league_id": 7
+  },
+  "ft_verified_by_match_view": 86,
+  "prior_m8_path_features_for_new_fids": 0,
+  "validated_new_m8_rule_signals": 0,
+  "new_trade_returns_calculated": false,
+  "roi": "not_applicable",
+  "caveats": [
+    "Past membership league IDs are a descriptive overlap, not a new allowed-league filter.",
+    "Old M8 historical path features do not include new FIDs. MR1 horizon samples do not reproduce the full event movement features.",
+    "Crown actual receipts are not a Telegram trade or evidence that the frozen eight would have selected the game.",
+    "Postgame FT must be matched to the same FID, teams and kickoff; raw SHA evidence remains on the Mac only."
+  ]
+}

@@ -4770,3 +4770,12 @@
 - 175个FID均不在已核对的M8冻结10,294、历史路径39,101及旧实收研究1,230个FID中，M8既存路径特征未覆盖这些新比赛；MR1报价并不自动变成M8信号或订单。
 - 报告research/m8/M8_MR1_NEW_RECEIPT_FT_FEATURE_AUDIT_20261119.md、脚本research/m8/m8_mr1_ft_feature_audit_20261119.py、逐FID数据research/m8/mr1_m8_ft_feature_audit_20261119/per_fixture.jsonl、summary.json 已提交。无生产模型、采集配置、Telegram、账本或冻结策略修改。
 - 建议后续优先核验90场可信赛果及原八组赛前特征是否可在新收据时点重建；建议尚未转为正式Gate或生产规则。
+
+
+## 2026-11-19｜M8 / MR1 175场补充：FT实证与原始Crown盘口路径核验
+
+- 延续已确认的只读数据核对：175场在固定审计时点2026-11-19 04:30 UTC中，90场已到原开球时刻、85场尚未开赛。向此前已授权的TotalCorner match/view只取90场已开球赛事的结果证据：94次查询含4次异常复查，86场经同FID、主客球队、开球时间及status=full验证并保存原响应SHA，4场Ukraine Persha Liga无法证明FT。原始body只存本地，不公开提交。
+- 原八组冻结历史10,294场使用的49个league_id与新175FID对比，仅32场曾出现在该历史ID集合，已开球90场中7场（哥伦比亚甲6、乌克兰顶级1）均有可信FT；这只是历史覆盖，不是正式联赛范围规则或新Gate。
+- 深查MR1已保存的赛前Crown原始bookmaker_odds响应asian_list，90场T1快照及raw响应SHA均通过；81场在收件时已有T−6或之前的皇冠原始报价；63场包含T6-T1窗口实际盘口/水位变化事件。T1收件通常早于精确T−1小时，后续到T1事件未被当作收件时可知，不能直接宣称冻结八组T1信号已锁定。
+- 本轮真实新增的**是赛果与赛前盘口路径证据**，未重建/生成任何原八组新赛前模型信号或正式Telegram订单；收益、ROI不适用。原八组、采集、MR1/M8生产模型和正式账本均未修改。
+- 报告：research/m8/M8_MR1_NEW_RECEIPT_FT_PATH_RESULTS_20261119.md；脚本：m8_mr1_ft_evidence_query_20261119.py、m8_mr1_ft_retry_20261119.py、m8_mr1_ft_feature_synthesis_20261119.py、m8_mr1_raw_path_availability_20261119.py；逐场和manifest位于research/m8/mr1_m8_ft_evidence_20261119/。后续建议仅研究性评估原冻结规则对真实收据前缀特征是否可复现，不改生产准入/选边/时间规则。
