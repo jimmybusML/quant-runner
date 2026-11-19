@@ -4832,3 +4832,6 @@
 - Mac `state/settings.json` 已备份并迁移：关闭旧M3本机自动影子运行；M9保留原06:00,12:00时间配置，但目前自动调度与正式TG均**未开启**，因为还没有经用户选择的M9正式机器人与Chat ID。没有替用户擅用其他机器人、也没有实际发Telegram。M9真正式发单0、已结0、未结0、ROI不可适用。
 - 已运行6项离线模型/Crown/账本/正确quarter盘测试PASS、真实历史联赛1777场双变量泊松模型拟合成功；本地操作台HTTP `/api/status`、`/api/orders?model=m9`、`/api/run` 的test/report真实成功、JS/Python编译通过；不构成实际TG派单成功。旧GitHub M3定时研究工作流未被删除，核查未发现其中研究TG发送调用。
 - 报告 `research/m9/M9_FORMAL_ONLY_DASHBOARD_DEPLOYMENT_20261119.md`、引擎 `ops/m9_formal_ah.py`、测试 `tests/test_m9_formal_ah.py`。下一步用户在操作台选择M9正式TG连接并开启调度之后再以真实TG SENT和正式账本回写验证生产，不提前报已恢复。原八组、M1/MR1正式订单/结算不变，无新增自造EV Gate/数量上限/联赛边界。
+
+
+- 2026-11-19T18:36:34+08 **本轮最后状态更新**：操作台设置JSON在部署后再次更新，实际GET /api/status显示 `m9.schedule_enabled=true, tg_enabled=true, times=06:00,12:00`，而M3调度/TG仍关闭。两项M9专属TG Keychain凭证均未连接；正式TG发送0/正式账本0，不能把开关打开当成已实际生产派单成功。没有擅自覆盖用户较新的设置。此前报告“开关仍关闭”是部署时瞬间状态，不是最终状态。
