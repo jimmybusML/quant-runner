@@ -38,6 +38,20 @@
 
 ---
 
+# 2026-11-19 M8 球员实际负荷与阵容轮换扩单研究交接
+
+- 用户要求保持冻结原八组不变，研究球员累计出场分钟、核心负荷集中、阵容轮换、两队负荷差能否在真实 Crown AH/OU 价格下形成独立盈利增量。本轮读取最新 main 交接及 R34/R50/R63/R27 历史研究，避免重跑同机制；冻结会员文件 SHA-256 `6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665`（10,294 FID），manifest SHA `74a11ff66c3d4b3e2d5f5958f5570be42fcf40618f0384e341d6586cc458562c`。
+- 实际计算2024/2025/2026（仅至2026-06-28）时间前推研究，AH、OU分开；14个方向、共49,280条逐场预测记录。每组均用同一3,520 FID，按唯一 FID 去除八组重叠715后，新增都是2,805 FID；候选彼此重叠率100%，不能叠加计单。冻结八组同期5,937单/+161.325U/ROI2.717%；AH新模型各自并入后合计8,742单，但全部比冻结基线少利润，减少额与新增候选亏损完全一致。
+- 最好 AH 扩展 Crown+累计负荷，新增2,805场、−38.550U、ROI−1.374%、MDD58.415U、周均22.44；最好 OU 扩展 Crown+负荷集中，新增2,805场、−71.020U、ROI−2.532%、MDD119.195U、周均22.44。所有AH/OU候选总体负；AH 2026市场基线/负荷集中及OU 2026负荷集中有单年度正数，但2024/25不复现。加入球员变量的样本外净U预测MSE均未优于 Crown-only 基线。完整逐年逐周、失败结果与逐场方向均已保存。
+- 源数据 SHA/字段/日期均重新登记；球员出场/阵容数据缺首次公开或系统接收时间，appearances 截止2026-06-28。MR1历史真实收据12,550条/1,607 FID的原始HTTP body SHA与快照SHA分别全部通过独立核验，HTTP收件时间与开球关系可证；收据 T24/T12 双市场+FT完整成对1,230 FID。另审计新增189 FID/640条收据，去重并集1,793 FID均在球员信息源截止后；匹配真实人员特征和实时人员快照均为0，故无真实收据盈利测算。
+- 独立从原始 Crown body 重读并按四分之一盘拆腿复算3,421/3,520历史测试 FID（双方AH/OU结算及预测选边一致）；99 FID当前无可定位原始 Crown response，保留为未独立验证限制。不能把整个历史表述为全部经过原始响应独立复核。
+- 主报告：`research/m8/player_load_rotation_20261119/M8_PLAYER_LOAD_ROTATION_RESEARCH_20261119.md`。主脚本：`research/m8/m8_player_load_rotation_crown_20261119.py`；独立核验脚本：`research/m8/verify_m8_player_load_rotation_settlement_20261119.py`。数据与结果：`research/m8/player_load_rotation_20261119/`（source SHA/coverage summary JSON、49,280条预测ledger、6,986行feature/outcome、独立逐FID raw Crown audit gzip、settlement/hash audit JSON、`EXECUTION_MANIFEST_20261119.json`）。
+- 结论：没有发现负荷/轮换变量可在 Crown 实际 AH/OU 价格外增加净利润，也没有足够可验证实收人员快照来证明事前盈利机会。进一步研究需要同FID、同报价时点、带不可变首次发布及系统接收时间的球员阵容/分钟信息；本轮不产生第九组。未修改原八组、生产模型、Telegram、正式账本、采集链、结算及正式规则。
+- 执行记录：`research/m8/player_load_rotation_20261119/RUN_RECORD_20261119.md`（主研究脚本 exit 0；独立复核脚本 exit 0）。
+- 公开仓库提交：待本轮代码、报告、结果和本段交接提交后补记 commit SHA 与远端核验记录。
+
+---
+
 # 2026-11-19 M8 原八组盈利机理与独立扩单研究交接
 
 - 已按 `research/m8/M8_CODEX_MECHANISM_DISCOVERY_BRIEF_20261119.md` 批量执行 M1–M8；报告 `research/m8/M8_MECHANISM_DISCOVERY_20261119.md`，脚本 `research/m8/m8_mechanism_discovery_20261119.py`，摘要JSON及逐场结果位于 `research/m8/mechanism_discovery_20261119/`。输入SHA、方向复算、结算审计、年度前推、三种匹配范围、真实收据与新数据结论均留档。

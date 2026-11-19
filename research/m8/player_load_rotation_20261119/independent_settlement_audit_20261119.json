@@ -1,0 +1,183 @@
+{
+  "study": "M8_PLAYER_LOAD_ROTATION_INDEPENDENT_RAW_CROWN_FT_SETTLEMENT_AUDIT_20261119",
+  "prediction_ledger_rows": 49280,
+  "prediction_fids": 3520,
+  "raw_source_fids_verified": 3421,
+  "raw_source_failures": {
+    "missing_original_crown_body": 99
+  },
+  "ah_ou_both_side_quarterline_reconciliation": "Each raw quote and FT was reread and recalculated with independent two-leg quarter-line settlement; all model selections are checked against these recomputed values.",
+  "actual_receipt_archive": {
+    "rows": 12550,
+    "unique_fids": 1607,
+    "hash_audit": {
+      "raw_body_checked": 12550,
+      "raw_body_sha_match": 12550,
+      "http_received_at_present": 12550,
+      "snapshot_index_match": 12550,
+      "snapshot_sha_match": 12550,
+      "http_receipt_before_kickoff": 12550
+    },
+    "http_received_at_min_utc": "2026-10-08T11:34:15.421000+00:00",
+    "http_received_at_max_utc": "2026-11-13T13:50:53.484000+00:00",
+    "reliable_receipt_pairs_with_both_T24_T12_Crown_AH_OU_and_FT": 1230,
+    "player_data_receipt_feature_fids": 0
+  },
+  "model_incremental_recalculation": {
+    "AH|A_crown_market_only": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -46.28,
+      "outside_ROI_pct": -1.649911,
+      "outside_max_drawdown_U": 66.155,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "AH|B_crown_plus_cumulative_load": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -38.55,
+      "outside_ROI_pct": -1.374332,
+      "outside_max_drawdown_U": 58.415,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "AH|C_crown_plus_load_concentration": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -41.66,
+      "outside_ROI_pct": -1.485205,
+      "outside_max_drawdown_U": 63.24,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "AH|D_crown_plus_rotation": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -109.59,
+      "outside_ROI_pct": -3.906952,
+      "outside_max_drawdown_U": 127.08,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "AH|E_crown_plus_team_load_differences": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -123.525,
+      "outside_ROI_pct": -4.403743,
+      "outside_max_drawdown_U": 123.525,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "AH|F_crown_plus_all_player_features": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -86.12,
+      "outside_ROI_pct": -3.070232,
+      "outside_max_drawdown_U": 101.45,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "AH|G_player_features_only": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -73.135,
+      "outside_ROI_pct": -2.607308,
+      "outside_max_drawdown_U": 89.05,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "OU|A_crown_market_only": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -89.085,
+      "outside_ROI_pct": -3.175936,
+      "outside_max_drawdown_U": 102.51,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "OU|B_crown_plus_cumulative_load": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -104.88,
+      "outside_ROI_pct": -3.739037,
+      "outside_max_drawdown_U": 114.915,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "OU|C_crown_plus_load_concentration": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -71.02,
+      "outside_ROI_pct": -2.531907,
+      "outside_max_drawdown_U": 119.195,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "OU|D_crown_plus_rotation": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -105.145,
+      "outside_ROI_pct": -3.748485,
+      "outside_max_drawdown_U": 129.38,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "OU|E_crown_plus_team_load_differences": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -108.205,
+      "outside_ROI_pct": -3.857576,
+      "outside_max_drawdown_U": 128.695,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "OU|F_crown_plus_all_player_features": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -141.255,
+      "outside_ROI_pct": -5.035829,
+      "outside_max_drawdown_U": 155.025,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    },
+    "OU|G_player_features_only": {
+      "n_prediction_rows": 3520,
+      "unique_fids": 3520,
+      "frozen_overlap_fids": 715,
+      "outside_frozen_unique_fids": 2805,
+      "outside_net_U": -145.07,
+      "outside_ROI_pct": -5.171836,
+      "outside_max_drawdown_U": 172.435,
+      "outside_week_count": 92,
+      "outside_avg_per_calendar_week": 22.44
+    }
+  },
+  "no_actual_receipt_profit_claim": true
+}
