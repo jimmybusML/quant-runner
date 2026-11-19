@@ -4822,3 +4822,13 @@
 - 对MR1独立真实赛前Crown snapshot逐条SHA核验，22,003条同收件AH+1X2可解析观测来自3,061唯一FID，理论LP正8条；8条实际全是相同FID 204379587跨8个horizon重复的旧报价，两市场源事件在第一次收件时均已约12.4天陈旧，实际确认可执行套利**0场**。≤5分钟市场报价源时差的12,549条及5–30分钟1,578条实收记录均无理论正LP。
 - 此研究没有新增可执行盈利单，净U、ROI与周订单不适用；未更改原八组、生产代码、Crown采集、Telegram、正式账本或任何规则。不能把722条历史理论值、8次重复快照冒充盈利扩单。
 - 报告research/m8/M8_CROWN_AH_1X2_CROSS_CONTRACT_RESEARCH_20261119.md；两个独立脚本m8_cross_contract_dominance_20261119.py、m8_cross_contract_actual_receipts_20261119.py；汇总、30,000余条逐场/逐快照研究证据和SHA manifest在research/m8/m8_cross_contract_dominance_20261119/。后续建议为寻找真实同时可成交的跨合约错价证据或更独立的赛前信息机制，未经用户确认不加入正式策略或Gate。
+
+
+## 2026-11-19｜用户授权 M3→独立 M9 正式双变量泊松 AH + 移除未授权研究 TG
+
+- 用户最新明确要求：M3仅保留双变量泊松AH（可另命名M9），原赛事范围、运行逻辑不变，操作台可直接操作，**只有正式 TG，用户从未授权研究TG勾选框**。本轮实际选择**独立M9**，旧M3历史影子账本保留；现有M1/MR1/M4生产链不改。
+- 已在Mac操作台 `~/QuantAsiaDesk/app.py`、`web/index.html`、`web/orders.js`、`order_records.py`、`model_test.py`、`job_explain.py` 落地本地修改、重载launchd `com.quantasia.localdesk`；M9在运行/设置/战绩/逐笔订单页面可见，只有正式 TG；删除M3/M4研究TG复选框、研究连接卡、研究机器人后端凭证与发单调用。旧M3/M4的研究TG设置在backend被硬拒绝（实际HTTP400），已不可能从原操作台发研究TG。
+- M9引擎 `ops/m9_formal_ah.py` 已复制安装至操作台真实Runner `~/QuantAsiaDesk/repos/runner/ops/m9_formal_ah.py`：沿用M3既有赛事识别/北京时间6:00与12:00/两日扫描/至少90分钟预告和双变量泊松 neutral-odds 选边；只做AH并明确要求实际Crown原始盘口，不允许旧M3非Crown影子赔率充当正式数据。以独立事件账本记录M9_PREPARED、Telegram确认M9_TG_SENT或UNKNOWN、可信FT和正确AH五态结算；仅SENT入正式战绩，未知不自动重发。原M3研究账本绝不冒充M9正式订单。
+- Mac `state/settings.json` 已备份并迁移：关闭旧M3本机自动影子运行；M9保留原06:00,12:00时间配置，但目前自动调度与正式TG均**未开启**，因为还没有经用户选择的M9正式机器人与Chat ID。没有替用户擅用其他机器人、也没有实际发Telegram。M9真正式发单0、已结0、未结0、ROI不可适用。
+- 已运行6项离线模型/Crown/账本/正确quarter盘测试PASS、真实历史联赛1777场双变量泊松模型拟合成功；本地操作台HTTP `/api/status`、`/api/orders?model=m9`、`/api/run` 的test/report真实成功、JS/Python编译通过；不构成实际TG派单成功。旧GitHub M3定时研究工作流未被删除，核查未发现其中研究TG发送调用。
+- 报告 `research/m9/M9_FORMAL_ONLY_DASHBOARD_DEPLOYMENT_20261119.md`、引擎 `ops/m9_formal_ah.py`、测试 `tests/test_m9_formal_ah.py`。下一步用户在操作台选择M9正式TG连接并开启调度之后再以真实TG SENT和正式账本回写验证生产，不提前报已恢复。原八组、M1/MR1正式订单/结算不变，无新增自造EV Gate/数量上限/联赛边界。
