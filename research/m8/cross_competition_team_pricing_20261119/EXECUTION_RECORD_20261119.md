@@ -31,4 +31,4 @@
 - 仅执行研究脚本及独立审计，不运行GitHub Actions/生产工作流。
 - 未修改原八组、M9、M1、MR1、正式生产模型、采集频率、Telegram、正式账本或交易规则。
 - 没有正式派单、订单成交、账本回写或部署。
-- 研究脚本、结果和交接待本次版本化提交到用户指定公开仓库`ljm198964-alt/quant-runner`。
+- 研究脚本、结果和交接已于2026-11-19推送至用户指定地址`ljm198964-alt/quant-runner`的公开`main`，研究提交SHA为`6bafef8eb450dd3fa838eb456c0a8cf7a2819806`。GitHub提示仓库已迁移至`jimmybusML/quant-runner`；通过两个地址检查远端`main`均返回同一提交。
