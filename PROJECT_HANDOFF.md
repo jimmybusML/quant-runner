@@ -48,7 +48,7 @@
 - 主报告：`research/m8/player_load_rotation_20261119/M8_PLAYER_LOAD_ROTATION_RESEARCH_20261119.md`。主脚本：`research/m8/m8_player_load_rotation_crown_20261119.py`；独立核验脚本：`research/m8/verify_m8_player_load_rotation_settlement_20261119.py`。数据与结果：`research/m8/player_load_rotation_20261119/`（source SHA/coverage summary JSON、49,280条预测ledger、6,986行feature/outcome、独立逐FID raw Crown audit gzip、settlement/hash audit JSON、`EXECUTION_MANIFEST_20261119.json`）。
 - 结论：没有发现负荷/轮换变量可在 Crown 实际 AH/OU 价格外增加净利润，也没有足够可验证实收人员快照来证明事前盈利机会。进一步研究需要同FID、同报价时点、带不可变首次发布及系统接收时间的球员阵容/分钟信息；本轮不产生第九组。未修改原八组、生产模型、Telegram、正式账本、采集链、结算及正式规则。
 - 执行记录：`research/m8/player_load_rotation_20261119/RUN_RECORD_20261119.md`（主研究脚本 exit 0；独立复核脚本 exit 0）。
-- 公开仓库提交：待本轮代码、报告、结果和本段交接提交后补记 commit SHA 与远端核验记录。
+- 代码、报告、结果、执行manifest及本交接提交已推送公开 `main`：`75a0f01fd5f2dd5d4ea027f0a8b1ca42edf0951f`。本行于该提交后追加，交接更新由紧随其后的提交承载；推送后需核实远端 `main` 指向。
 
 ---
 
