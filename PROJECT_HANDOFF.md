@@ -4908,3 +4908,4 @@
 - A/B/D全量候选均是同一21,455 FID，彼此交集21,455；与原八组交集0。MR1收据归档561快照行/176唯一FID，但与M8比分/身份数据精确FID匹配0，故本轮真实receipt模型回放0；不使用T1回取替代HTTP实收。
 - 总报告 `research/m8/next_round_20261120/M8_BOLD_BREAKTHROUGH_A_D_20261120.md`；机器结果、逐场预测、周度/联赛汇总、收据缺口和候选重叠、原始Crown报价/FT桥接、独立结算与SHA manifest均在同目录。完成结论：当前没有经真实Crown AH价格验证的新独立正利润来源。
 - 执行：A/B/D脚本、独立quarter-line结算和raw Crown bridge均完成，失败0；C根据前一日已执行研究审计、没有重跑阈值。未运行正式工作流或交易，0正式TG订单、0账本回写。
+- GitHub公开 `main` 研究提交：`cc0835b23d8dfb19173967fcaa2cea5470b5e72c`；推送后 `origin/main` 已核实为该 SHA。研究提交只包括本节研究目录与交接，不含工作区原有 M9 代码修改或缓存。
