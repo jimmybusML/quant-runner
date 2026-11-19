@@ -4921,3 +4921,4 @@
 - 既有MR1真实HTTP Crown归档561快照/176FID，与本轮路径和 FT 资料精确交集0，真实收据复算0场；没有以历史盘口源事件冒充HTTP实收。历史回放不是TG实战。
 - 产物包括总报告及A–D方向报告、主脚本、原始Crown/FT/五态独立校验器、收据对齐审计、逐场JSONL、年度/ISO周/联赛/合约分段汇总、执行记录和SHA manifest。详见 `research/m8/crown_market_microstructure_20261120/M8_CROWN_MARKET_MICROSTRUCTURE_RESEARCH_20261120.md` 与 `EXECUTION_RECORD_20261120.md`。
 - 仅新增研究文件与本交接记录；保留现有未提交 `ops/m9_formal_ah.py`、`tests/test_m9_formal_ah.py` 和工作区缓存，不纳入本轮提交。无生产、M1/MR1/M9、冻结八组、Telegram、正式账本、采集链或调度修改；0正式派单、0账本回写、0生产工作流。
+- 本研究内容提交为 `72743f5a…`；合并远端并推送后公开 `main` 核验为 `9f4df7abcf70be89bb78634ba836e4471ed0d936`。该 main 还包含在本轮工作开始后先到达的独立 M3 回执提交 `736d294`；没有改写该上游提交。
