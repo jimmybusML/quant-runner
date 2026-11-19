@@ -1,3 +1,18 @@
+# 2026-11-19 M8 Crown 采集链只读诊断交接
+
+- 用户本轮要求调查采集工作流和故障根因，不开展盈利模型研究。已读取公开 `main` 最新 `PROJECT_HANDOFF.md` 与 `M8_PREMATCH_INFORMATION_LIVE_RECEIPT_AUDIT_20261119.md`，并检查本地共享 Crown SQLite、所有 1,330 条 noquote 原始 HTTP 成功响应、MR1 snapshot/index/raw attempts、M7 runner 和 launchd 状态、五季历史回填记录与相关实现。
+- 主要报告：`research/m8/M8_CROWN_COLLECTION_DIAGNOSTIC_20261119.md`。只读复算脚本：`research/m8/m8_crown_collection_diagnostic_20261119.py`。全量 JSON、248 场 noquote FID 明细、失败 FID 明细及执行 manifest：`research/m8/crown_collection_diagnostic_20261119/`。诊断边界固定于 **2026-11-19 04:56:34 UTC**。
+- 根因：共享 SQLite 最后一个 live summary 赛前 Crown 收据在 2026-11-14 01:25:02 UTC；M7 T−55/T−25/T−5 runner 在同一场三次都 `SAVED=1`，只是其独立验证器将窗口标记 `WINDOW_FAILED`。之后有13个错过窗口、10个 FID；runner 没有专属 launchd，11月17日最后状态已过期且当前无进程。退出原因没有日志，不能断言具体由崩溃或人工停止造成。整套采集未停：MR1 每300秒的 shadow-v23 背景任务继续运行，采用独立存储。
+- MR1 收件核验：11月14日后快照索引1,344行/467 FID；568行是真正赛前、Crown已验证、AH线与双边价格完整且 quote source time≤receipt<kickoff，覆盖176 FID；其中174 FID不在共享SQLite赛前集合。快照 SHA 1,344/1,344、原始HTTP body SHA 2,459/2,459通过。
+- 失败解释：843 `IncompleteRead` 均为历史 movement，覆盖703 FID，所有 FID后来都有 `QUOTES_SAVED`（701在最终错误后，2之前或无后续错误），故不是当前movement缺口。由于失败表只存终态错误码/FID/时间，没有逐次请求状态、响应头/body或截断长度，精确传输故障点未能查实。82 `TOO_MANY_REQUEST`（80历史movement、2 live summary）是明确的额度错误；MR1原始响应说明每10秒5次。历史共享collector、回填、M7、MR1各自独立节流，共用同一个Keychain token，因此并发叠加超额是强支持根因，但旧行缺逐次时间戳，无法逐条证明冲突进程。
+- 1,330条 `NO_CROWN_AH_QUOTES` 覆盖248场、23联赛；全部1,330个原始响应 SHA匹配，且成功返回匹配赛事但 `bookmakers=[]`。这是请求时没有Crown报价对象，不等于该场永久没有皇冠市场。中位收件早于开球316.44小时；9 FID后来在共享库有报价，13 FID后来在MR1有验证赛前报价。
+- 周覆盖：TotalCorner注册赛程W45 782场/100联赛、W46 166场/36联赛、W47 444场/80联赛（部分周）；MR1有效Crown AH收件分别为4,042/614 FID、776/135 FID、148/95 FID。W45至W46真实赛程库存减少78.8%，同时有窗口错过与报价不可用；共享SQLite的M7路径另受runner停止和存储分叉影响。已登记MR1快照无存储丢失证据。
+- 现已确认各链节奏/依赖：共享CLI默认5.2秒；回填代码覆盖2.1秒；M7 runner覆盖3秒、T−55/T−25/T−5；MR1 launchd每300秒、最小请求起始间隔2.6秒、多horizon。全部TotalCorner调用使用Crown `/match/bookmaker_odds` 来源，M7/共享库与MR1库之间没有自动同步；MR1不直接派Telegram。
+- 未改采集频率、重试、请求行为、模型、原八组、Telegram、生产账本或现有采集流程；没有新增正式Gate或规则。建议项仅列于报告，涉及共享token限流、MR1汇入/统一读取、runner监督、空盘口复查时机和失败attempt遥测，均待用户确认后再部署。
+- 完整结果/证据已提交公开仓库 `jimmybusML/quant-runner`，本轮研究报告/脚本/逐场证据 commit SHA: `819533542765094f7070a3858ac09850177bff0f`；本交接记录随后的提交另由 GitHub `main` 历史追溯。
+
+---
+
 # 2026-11-19 M8 赛前独立信息与新增 Crown 收据审计
 
 - 已读取公开 main 最新 `PROJECT_HANDOFF.md`、`M8_INDEPENDENT_INFORMATION_EXPANSION_20261119.md`、批量扩单索引和既有研究索引/查重内容；本轮只核验现存独立赛前信息源与新增 live Crown 收件，不重复熟悉度、H2H 残差、普通盘口 Ridge、q80 或已失败同义实验。
