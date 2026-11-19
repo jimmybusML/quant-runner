@@ -1,5 +1,6 @@
 # 2026-11-19 M8 Crown 采集链只读诊断交接
 
+
 - 用户本轮要求调查采集工作流和故障根因，不开展盈利模型研究。已读取公开 `main` 最新 `PROJECT_HANDOFF.md` 与 `M8_PREMATCH_INFORMATION_LIVE_RECEIPT_AUDIT_20261119.md`，并检查本地共享 Crown SQLite、所有 1,330 条 noquote 原始 HTTP 成功响应、MR1 snapshot/index/raw attempts、M7 runner 和 launchd 状态、五季历史回填记录与相关实现。
 - 主要报告：`research/m8/M8_CROWN_COLLECTION_DIAGNOSTIC_20261119.md`。只读复算脚本：`research/m8/m8_crown_collection_diagnostic_20261119.py`。全量 JSON、248 场 noquote FID 明细、失败 FID 明细及执行 manifest：`research/m8/crown_collection_diagnostic_20261119/`。诊断边界固定于 **2026-11-19 04:56:34 UTC**。
 - 根因：共享 SQLite 最后一个 live summary 赛前 Crown 收据在 2026-11-14 01:25:02 UTC；M7 T−55/T−25/T−5 runner 在同一场三次都 `SAVED=1`，只是其独立验证器将窗口标记 `WINDOW_FAILED`。之后有13个错过窗口、10个 FID；runner 没有专属 launchd，11月17日最后状态已过期且当前无进程。退出原因没有日志，不能断言具体由崩溃或人工停止造成。整套采集未停：MR1 每300秒的 shadow-v23 背景任务继续运行，采用独立存储。
@@ -4874,3 +4875,15 @@
 - 研究特征抽取本身连接10,218个冻结FID；随后独立原始响应审计补齐全部10,294个冻结成员的T−1 Crown盘口、FT及双侧quarter结算，并至少一侧复现冻结PnL。9,703个方向可从冻结PnL唯一识别，591个方向在该FT下产生相同现金流（侧别不可从净U反推），逐场保留双方结算类别，不猜原方向。未用结果推断候选或目标年参数。
 - 文件：`research/m8/M8_FROZEN_EIGHT_BOUNDARY_EXPANSION_20261119.md`；主研究脚本 `research/m8/m8_frozen_eight_boundary_expansion_20261119.py`；独立原始Crown结算校验 `research/m8/verify_m8_frozen_eight_boundary_20261119.py`；报告/完整冻结账本/候选与分数逐FID gzip JSONL/执行记录/SHA清单在 `research/m8/frozen_eight_boundary_expansion_20261119/`。重新构建报告运行 `python3 research/m8/build_m8_frozen_eight_boundary_report_20261119.py`。
 - 结论：当前证据没有确认可跨期稳定增加净利润的原八组外新订单来源；历史q95 base只有微弱正值，q99尾部正值不稳定，真实新收据验证为零。研究没有改变原八组、M9、M1/MR1、Telegram、正式账本、结算、采集链或交易规则。
+
+# 2026-11-19 M8 新订单生产能力突破研究交接
+
+- 本轮先读取并查对当前公开main交接文件、R1–R65/A–L/M1–M8研究索引与球队、联赛、报价、边界等相关报告。A–E所列普通球队残差、H2H、主客角色、联赛价格结构与实力—价格残差均已有同机制研究，不重复换名；新假说限于同一俱乐部跨Crown赛事ID迁移其历史Crown AH结算残差。
+- 主报告：`research/m8/M8_NEW_ORDER_CAPABILITY_BREAKTHROUGH_20261119.md`。脚本：`research/m8/m8_cross_competition_team_pricing_20261119.py`；历史原始Crown独立复核：`research/m8/verify_m8_cross_competition_team_pricing_20261119.py`；真实HTTP receipt独立复核：`research/m8/verify_m8_cross_competition_receipts_20261119.py`。完整逐FID、每周收益、特征、方向、报价及模型比较在`research/m8/cross_competition_team_pricing_20261119/`，SHA清单`SHA256SUMS_20261119.txt`，执行记录`EXECUTION_RECORD_20261119.md`。
+- 原冻结会员SHA `6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665`已复核；原始冻结名单和权威账本10,294个FID、组别与PnL均一致。所有训练/测试年度、比赛日、ISO周和开赛时间按北京时间UTC+08:00统一；2024/25/26八组外测试FID分别7,191/7,794/6,470，共21,455。前推训练年度依次为2019–23、2019–24、2019–25。
+- 新机制覆盖审计：11,714个精确比分/名称锚点后，仅保留362个Crown联赛球队键映射到362个唯一外部俱乐部身份；可用映射内没有俱乐部跨Crown联赛ID的重复身份。2024–26目标池两队均无跨联赛先前Crown AH结算记录，迁移特征覆盖0；因此假说不可估计，不能表述为已证实存在或已证实不存在。
+- 同联赛球队Crown AH结算历史作为控制方案，在八组外21,455唯一FID上2024/25/26分别−289.775/−155.830/−66.045U，合计−511.650U、ROI−2.385%、周均143.993、MDD528.060。并入原八组后28,329唯一FID/−314.385U/ROI−1.110%；同期冻结八组6,874场/+197.265U。Crown-only、跨赛事迁移（零特征）和低赔率侧也全部年度亏损或全期亏损；没有确认第九组。
+- 真实HTTP报价单独重估：从预存MR1收据中选择每FID最早有效赛前Crown AH收据，共873个八组外唯一FID，2026-10-08至11-05中国时间、5个ISO周。检查890个候选收件记录，其中17个报价与原始HTTP Crown报价列表不匹配而排除；余下873个的HTTP响应SHA、snapshot SHA、报价源时间/实际收件/开球先后及Crown AH线价全部复核通过。同联赛模型收据价净−29.110U/−3.334%，市场-only净−40.885U/−4.683%；本模型先前历史特征的当时可用时间未被证明，所以这是实收报价重估而非完整盲测或正式交易。
+- 独立结算：历史源响应21,455个FID、107,275项方向/基准AH结算，失败0；receipt原始HTTP响应和snapshot SHA各873项均通过、4,365项结算，失败0。正确拆算四分之一盘；AH仅研究，不混入OU。
+- 执行：主脚本与两个独立验证脚本均exit 0，产物与SHA已留档。未触发GitHub Actions/生产工作流；未进行正式派单、成交、Telegram发布或账本回写。未修改原八组、M9、M1/MR1、采集链或任何正式规则。研究/结果/交接已准备提交至用户指定公开仓库`ljm198964-alt/quant-runner`；提交SHA待推送后回填。
+- 后续若要继续此新机制，具体缺口是目标赛事中同俱乐部可核验的跨Crown联赛ID身份历史、另一赛事的真实Crown AH/FT记录及这些历史特征当时已可用的时间证明。当前数据未能识别这类样本，不建议通过再调同联赛模型或收益阈值替代。

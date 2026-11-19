@@ -1,0 +1,11 @@
+{
+  "study": "M8_CROSS_COMPETITION_ACTUAL_RECEIPT_RAW_CROWN_INDEPENDENT_AUDIT_20261119",
+  "receipt_ledger_unique_fids": 873,
+  "audited_unique_fids": 873,
+  "raw_body_sha_verified": 873,
+  "snapshot_sha_verified": 873,
+  "settlement_comparisons": 4365,
+  "failures": {},
+  "all_verified_settlements_match": true,
+  "method": "Re-read raw HTTP attempt files; verify raw body SHA and T-horizon snapshot SHA, attempt received_at, receipt < kickoff, Crown quote event <= receipt and exact AH line/two prices in raw asian_list; confirm target FT is absent from receipt body; independently settle every selected side including quarter AH split legs against trusted FT."
+}
