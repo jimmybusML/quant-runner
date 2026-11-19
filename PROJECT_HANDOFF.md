@@ -1,3 +1,14 @@
+# 2026-11-19 M8 赛前独立信息与新增 Crown 收据审计
+
+- 已读取公开 main 最新 `PROJECT_HANDOFF.md`、`M8_INDEPENDENT_INFORMATION_EXPANSION_20261119.md`、批量扩单索引和既有研究索引/查重内容；本轮只核验现存独立赛前信息源与新增 live Crown 收件，不重复熟悉度、H2H 残差、普通盘口 Ridge、q80 或已失败同义实验。
+- 结论：没有发现可用于新盈利订单的独立球队/阵容/比赛信息，且没有真正未见并已结算的新 FID。本轮未训练或挑选新模型；历史候选、真实 receipt 候选、未见新样本均为 0 单，净U/ROI/周均/回撤不适用。已有两条独立信息线仍按前轮记录：熟悉度新增3,028场/−89.620U，直接交锋AH残差新增17,126场/−590.860U；本轮不重跑、不包装为本轮结果。
+- 可用源盘点：`appearances.csv.gz` 1,894,350行（R63已用，无首次发布时间/接收时间）；`game_lineups.csv.gz` 3,179,016行（R50已测，缺首发公布/接收时间）；`games.csv.gz` 88,958行（R44–R46及球队残差研究已覆盖，无采集时间，目标行有赛后信息）；`transfers.csv.gz` 175,165行（R50已测，仅transfer date，无公告/接收时间）；`player_valuations.csv.gz` gzip截断；ESPN赛后表现3,825行、球队强弱路径40,277行已在之前相近研究覆盖且无实时可见快照。Guardian伤停/news由R61–R65覆盖，发布时间≠首次公开/系统接收；两份未来fixture JSON无收件证明、无对应Crown live receipt和赛果。SHA、字段及限制见审计结果JSON。
+- 只读 Crown SQLite 核验：prospective live `QUOTES_SAVED` 136次/95 FID/272报价行；136个原始响应文件SHA全匹配、所有报价在开球前；89 FID在旧1,230行实收审核档案中，另6 FID虽无旧实收审核行但早已进入既有M8研究库存；95/95与既有receipt/FT库存交集。故后到报价不构成新比赛/新独立赛果。收件观测周分布W45为106次/86 FID、W46为30次/9 FID（非订单或收益周）。另有3个非前瞻有报价capture（排除）、1,330次“无Crown AH报价”响应、928条失败尝试；未修改采集链。
+- 报告：`research/m8/M8_PREMATCH_INFORMATION_LIVE_RECEIPT_AUDIT_20261119.md`；脚本：`research/m8/m8_prematch_information_live_receipt_audit_20261119.py`；逐场与来源证据：`research/m8/prematch_information_audit_20261119/`。运行成功，读取输入/输出哈希及逐FID交集可复现。原八组和生产/Telegram/账本均未变。
+- 当前真实信息缺口：带不可变首次公开时间、系统接收时间和版本历史的球队/阵容/伤停/比赛性质快照；与同FID、同时间的真实Crown receipt严密配对；未参与既有研究设计且有可信FT的新FID。若要验证可执行收益还缺订单提交/成交/拒单/滑点记录。
+
+---
+
 # 2026-11-19 M8 独立赛前信息与扩单研究交接
 
 - 用户要求保持冻结八组不变，改用独立球队信息、球队熟悉度/重复交易、特殊对阵/赛季/比赛性质、真实报价可执行时机及其他有经济解释的新机制，研究原八组外的真实 Crown AH 增量。本轮完成公开 main 的历史研究查重、可用输入与 receipt 时序审核、两条可执行候选的全量历史前推/逐场结算、真实 receipt 复算、报价新鲜度诊断及候选FID交集/八组去重合并。

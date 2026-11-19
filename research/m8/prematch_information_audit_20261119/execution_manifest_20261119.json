@@ -1,0 +1,60 @@
+{
+  "study": "M8 prematch information and new live Crown receipt audit",
+  "date": "2026-11-19",
+  "base_head": "df9c32aa6fafe50e55141916bc2c48cac1a501b1",
+  "execution_command": "python3 research/m8/m8_prematch_information_live_receipt_audit_20261119.py",
+  "execution_status": "completed",
+  "data_sources_read_only": [
+    "/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_new_receipt_frozen_eight_FT_20261115.jsonl"
+  ],
+  "results": {
+    "prospective_live_receipt_fids": 95,
+    "prospective_live_captures": 136,
+    "prospective_live_quote_rows": 272,
+    "receipt_observation_weekly": [
+      {
+        "iso_week": "2026-W45",
+        "captures": 106,
+        "unique_fids": 86
+      },
+      {
+        "iso_week": "2026-W46",
+        "captures": 30,
+        "unique_fids": 9
+      }
+    ],
+    "raw_response_sha256_verified": 136,
+    "raw_response_sha256_mismatch": 0,
+    "all_quotes_pre_kickoff": true,
+    "prior_m8_inventory_overlap": 95,
+    "truly_unseen_fids": 0,
+    "new_models_run": 0,
+    "new_candidate_orders": 0,
+    "new_pnl_roi": null
+  },
+  "deliverables": {
+    "PROJECT_HANDOFF.md": {
+      "sha256": "b5df8ad9bb6c81253a3e12013c67aeb228f3a9e93b3e1c873326989965e8904d",
+      "bytes": 1329015
+    },
+    "research/m8/m8_prematch_information_live_receipt_audit_20261119.py": {
+      "sha256": "1db3e778dad61643c3feb1a323dff09efd37d2a82f395d55f05ee7588f0e27ee",
+      "bytes": 10820
+    },
+    "research/m8/M8_PREMATCH_INFORMATION_LIVE_RECEIPT_AUDIT_20261119.md": {
+      "sha256": "a199a3ce027caf0fa5bfdbf90a94626784f0b84ba7ceac56280bc30ec5790472",
+      "bytes": 9365
+    },
+    "research/m8/prematch_information_audit_20261119/M8_PREMATCH_INFORMATION_LIVE_RECEIPT_AUDIT_20261119.json": {
+      "sha256": "d87158b0240c5c077c2f65f6bab343c2938278649ec9a4f34adf1ac12384516a",
+      "bytes": 64552
+    },
+    "research/m8/prematch_information_audit_20261119/crown_live_fid_provenance_20261119.jsonl": {
+      "sha256": "a1407c611e642a120c68c83f07185e5a50d5cddc2206193bfe07aba314e218a8",
+      "bytes": 44388
+    }
+  },
+  "production_or_collection_changes": false
+}
