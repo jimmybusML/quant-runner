@@ -8,6 +8,7 @@
 - 未发现不同于原八组且能增加净利润的新来源。关键缺口是独立球队/阵容/伤停/比赛性质的原始首次公开时间、系统接收时间和当时快照，及与同一时点Crown实际receipt的严格对齐；真实订单提交/成交/拒单/滑点记录也不足。历史event-time重建和2026六周已研究收据不能替代前瞻盲测。详情及 R1–R65/A–L/M1–M8 查重见主报告。
 - 本轮冻结名单SHA仍为 `6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665`。未改原八组、生产模型、Telegram、正式账本、采集链、结算或已确认规则；未添加正式Gate、过滤/限量/自动化条件。Crown数据库只读审计，未把历史回取或替代盘口当真实实收。
 - 执行脚本：`team/run_team_familiarity.py`、`context/h2h_mechanism.py`、`execution/analyze_receipt_quote_freshness.py`、`integrate_overlap_union.py`。各方向都有独立 `REPORT.md`、JSON、逐场JSONL和哈希manifest；集成逐周及去重结果在 `integrated_overlap_and_union.json`。
+- 研究/代码/逐场证据提交并推送公开 `main`：`dbc8cb66c7a4a44ca74e76cbd2b7047033131176`。本段交接 SHA 更新及其哈希manifest随后续交接提交记录。
 
 ---
 
