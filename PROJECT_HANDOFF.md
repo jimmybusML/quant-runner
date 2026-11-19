@@ -4752,3 +4752,12 @@
 - **研究性48h公众可得比分敏感性**：同期全批准AH动态总球 -23.230U/-1.565364%，OU -76.900U/-5.181941%，交集AH +6.155U/+0.566237%，OU -62.865U/-5.783349%；两者和真实FT收到时间模式有显著方向收益差异，不可混作正式事件时间回测。
 - **已真实生成并独立核查PASS的本地Mac文件**：~/QuantAsiaDesk/research-work/m7/m7_goal_intensity_correct_2025_fit_20261110.py 和相应2025fit JSON；m7_goal_intensity_true_Crown_20261110.py、逐场JSONL/summary JSON/report MD、m7_goal_intensity_true_Crown_validate_20261110.py/validation JSON；m7_goal_intensity_online_asof_true_Crown_20261110.py、逐场JSONL/summary JSON/report MD、m7_goal_intensity_online_asof_true_Crown_validate_20261110.py/validation JSON。冻结2025校准版本的全部原1596×AH/OU Crown原始SHA、实收时间和正确原方向独立验证 **17808次**真实Asian-quarter现金流及**7420次**解析比分概率一致；严格FT actual-first-seen和48h proxy动态两个时间模式分别1596全覆盖，独立重建结果接收时间前缀、核实**23744次**正确Crown净收益与**11872次**解析比分概率全部PASS；112未证FT仍NULL，不伪造胜负/推水。
 - **状态与未来接续**：以上都只是2026多次看过样本的研究模拟，不能称未探索未来样本外，更非正式TG下注。原M7单市场至少2000不同场、任一AH或OU独立ROI>=5%研究目标没有完成。没有改任何M1/MR1/M3/M4、M7生产代码、GitHub Actions、Crown API/采集、正式订单/结算/TG、原联赛范围、过滤/交易发布规则。可选后续研究是找2026阶段性进球率偏移的成因（时间、球队、联赛）及继续收取真正赛前已知的新FT，评估持续性；这只是建议，未经用户确认不自动实施为Gate或生产模型逻辑。
+
+
+## 2026-11-19｜M8 与 MR1 Crown 赛前收据只读覆盖比较（用户同意）
+
+- 实际运行只读比较脚本 `research/m8/m8_mr1_receipt_coverage_compare_20261119.py`，读取 M7 共享 Crown SQLite、MR1 shadow-v23 已保存 snapshot index 和 M8 冻结、历史路径、旧实收审核名单。未向 Crown 请求数据，不改变采集、策略、TG、正式账本或冻结八组。
+- 截止 M7 最后一条 live receipt（2026-11-14T01:25:02Z）之后，MR1 有 561 条满足本轮时序与皇冠来源校验的 AH 快照，共 176 唯一 FID；相对 M7 旧 live 95 个FID只有 1 个重合；相对 M8 冻结10,294FID、历史路径39,101FID、旧实收审核1,230FID均无重合；因此四种已检查库存并集外有175FID。
+- 新增的是赛前真实报价覆盖，不等于新增已结算比赛、生产派单或净盈利。尚待检查与其他研究档案的FID交集、可靠FT及赛前模型特征；目前不报告新增收益、ROI或发单数。
+- 报告 `research/m8/M8_MR1_RECEIPT_COVERAGE_COMPARE_20261119.md`，逐场快照 `research/m8/mr1_m8_receipt_coverage_20261119/verified_receipts.jsonl`，FID汇总 `summary.json`。保留原八组与MR1/M8模型身份独立。
+- 后续研究建议：只读利用 MR1 既有 Crown 收据作 M8 研究补充，无需更改 M8 生产数据链；要评估新增策略需另核验赛果与赛前特征。这是研究建议，不是已确认的正式策略、Gate或导入规则。
