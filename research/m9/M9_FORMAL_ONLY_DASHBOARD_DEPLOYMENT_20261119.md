@@ -32,3 +32,9 @@
 ## 2026-11-19 18:36+08 最新操作台设置变化（补充实测）
 
 本报告前文描述了部署时的初始迁移设置（当时 M9 自动运行与正式TG均为false）。**之后本机配置在北京时间18:36:34被更新**。最终实际查询 `/api/status` 得到 `m9.schedule_enabled=true`、`m9.tg_enabled=true`，依然是原M3北京时间 `06:00,12:00`；`m3.schedule_enabled=false`、`m3.tg_enabled=false`。本轮没有替用户复位或覆盖较新的开关状态。两项 M9 专属凭证 `M9_TG_BOT_TOKEN`、`M9_TG_CHAT_ID` 当前连接状态仍为false，因此**即使开关开启，也不能代表Telegram已连通**；实际正式TG确认0、M9正式订单0、ROI不适用。本机 `job_steps('m9','run')` 没有这两项凭证会明确报错，不会自动借用其他机器人的凭证。尚无真正运行发送成功证据。
+
+## 2026-11-19｜M9 TG测试误报修复与真实送达
+
+用户截图中正式TG复选框已勾选且连接状态已设置，测试记录却显示“TG开关关闭”。根因为Mac操作台 `app.py:worker_test` 将 `m9` 硬编码排除在TG测试之外，且没有M9专属凭证键映射。已修复并重启实际launchd服务。
+
+修复后读取Mac settings和Keychain，M9开关、Bot Token、Chat ID三者均确认存在。通过操作台HTTP API运行M9测试，任务 `20261119T104755Z-8ca0af4` 成功，六项离线测试通过，Telegram返回已确认 `message_id=1770`，独立测试回执为 `TEST_ONLY/SENT`。这不是正式下注单；本次没有运行正式M9派单。M9自动调度仍为true，正式TG开关仍为true。

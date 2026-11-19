@@ -4835,3 +4835,13 @@
 
 
 - 2026-11-19T18:36:34+08 **本轮最后状态更新**：操作台设置JSON在部署后再次更新，实际GET /api/status显示 `m9.schedule_enabled=true, tg_enabled=true, times=06:00,12:00`，而M3调度/TG仍关闭。两项M9专属TG Keychain凭证均未连接；正式TG发送0/正式账本0，不能把开关打开当成已实际生产派单成功。没有擅自覆盖用户较新的设置。此前报告“开关仍关闭”是部署时瞬间状态，不是最终状态。
+
+## 2026-11-19｜修复 M9 测试误报 TG 关闭并实测 Telegram 回执
+
+- 用户截图显示 M9 正式TG复选框已勾选、连接状态已设置，但测试结果错误显示“TG开关关闭”。调查 Mac 真实状态：
+  - `state/settings.json`: M9 `tg_enabled=true`、`schedule_enabled=true`、北京时间 `06:00,12:00`。
+  - macOS Keychain: `M9_TG_BOT_TOKEN` 与 `M9_TG_CHAT_ID` 的 exists/get 均为true，未读取或暴露凭证内容。
+- 根因已精确定位到 `~/QuantAsiaDesk/app.py` 的 `worker_test`: `model not in ("m3", "m4", "m9")` 把 M9 硬编码排除；且 token/chat key 选择只涵盖M1/MR1，导致即使开关及连接均正确，测试仍走“关闭”分支。
+- 已修复 Mac 实际运行的 `app.py`: M9 进入正式TG测试逻辑，并映射专属 `M9_TG_BOT_TOKEN` / `M9_TG_CHAT_ID`；M3/M4仍被排除。更新 `model_test.py` 文档描述。Python编译通过，重启launchd `com.quantasia.localdesk`。
+- 通过真实操作台HTTP API触发M9测试：`20261119T104755Z-8ca0af4` 状态 `succeeded`；离线6项测试通过；Telegram API确认 `ok=true` 且 message_id=`1770`。本机 `state/manual_test_telegram_receipts.jsonl` 记录 `model=m9, kind=TEST_ONLY, status=SENT, message_id=1770`。这是真实测试消息送达，不是正式投注订单；没有调用M9正式run，也没有新增正式订单。
+- 本次最终核对正式开关与连接均为true；测试回执已确认。正式投注运行是否产单仍应等真实M9 run及其正式账本回执，不可由测试成功代替。
