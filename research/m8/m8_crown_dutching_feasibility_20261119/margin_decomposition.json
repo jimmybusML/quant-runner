@@ -1,0 +1,646 @@
+{
+  "meaning": "No-vig payouts multiply each outcome odds by its same-quote reciprocal sum. This is an accounting upper-price counterfactual, not available executable odds.",
+  "used_source": "Crown T1 post-retrieved AH same match home/away; frozen-eight FIDs excluded",
+  "frozen_sha256": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665",
+  "input_sha256": "f21d4d49621df503efdb607b72b08882c1f1365c3178cce13e696d9aad4b697e",
+  "actual_quotes_count": 21454,
+  "source_years": {
+    "2024": {
+      "n": 7194,
+      "mean_quote_overround_pct": 3.6708,
+      "min_overround_pct": 2.57489,
+      "max_overround_pct": 10.42324
+    },
+    "2025": {
+      "n": 7793,
+      "mean_quote_overround_pct": 3.82034,
+      "min_overround_pct": 2.82844,
+      "max_overround_pct": 9.89336
+    },
+    "2026": {
+      "n": 6467,
+      "mean_quote_overround_pct": 3.98065,
+      "min_overround_pct": 2.82844,
+      "max_overround_pct": 11.11111
+    }
+  },
+  "selected_methods": {
+    "regime_x_contract": {
+      "2024_2026": {
+        "n": 21454,
+        "actual_U": -742.18,
+        "actual_roi_pct": -3.4594,
+        "zero_vig_counterfactual_U": -70.0006,
+        "zero_vig_roi_pct": -0.3263,
+        "vig_uplift": 672.1794
+      },
+      "by_year": {
+        "2024": {
+          "n": 7194,
+          "actual_U": -284.64,
+          "actual_roi_pct": -3.9566,
+          "zero_vig_counterfactual_U": -69.0867,
+          "zero_vig_roi_pct": -0.9603,
+          "vig_uplift": 215.5533
+        },
+        "2025": {
+          "n": 7793,
+          "actual_U": -254.605,
+          "actual_roi_pct": -3.2671,
+          "zero_vig_counterfactual_U": -9.7911,
+          "zero_vig_roi_pct": -0.1256,
+          "vig_uplift": 244.8139
+        },
+        "2026": {
+          "n": 6467,
+          "actual_U": -202.935,
+          "actual_roi_pct": -3.138,
+          "zero_vig_counterfactual_U": 8.8772,
+          "zero_vig_roi_pct": 0.1373,
+          "vig_uplift": 211.8122
+        }
+      }
+    },
+    "line_direction_x_water": {
+      "2024_2026": {
+        "n": 21454,
+        "actual_U": -780.59,
+        "actual_roi_pct": -3.6384,
+        "zero_vig_counterfactual_U": -106.4996,
+        "zero_vig_roi_pct": -0.4964,
+        "vig_uplift": 674.0904
+      },
+      "by_year": {
+        "2024": {
+          "n": 7194,
+          "actual_U": -319.365,
+          "actual_roi_pct": -4.4393,
+          "zero_vig_counterfactual_U": -104.02,
+          "zero_vig_roi_pct": -1.4459,
+          "vig_uplift": 215.345
+        },
+        "2025": {
+          "n": 7793,
+          "actual_U": -226.925,
+          "actual_roi_pct": -2.9119,
+          "zero_vig_counterfactual_U": 21.0043,
+          "zero_vig_roi_pct": 0.2695,
+          "vig_uplift": 247.9293
+        },
+        "2026": {
+          "n": 6467,
+          "actual_U": -234.3,
+          "actual_roi_pct": -3.623,
+          "zero_vig_counterfactual_U": -23.4838,
+          "zero_vig_roi_pct": -0.3631,
+          "vig_uplift": 210.8162
+        }
+      }
+    },
+    "elasticity_dislocation": {
+      "2024_2026": {
+        "n": 21454,
+        "actual_U": -664.77,
+        "actual_roi_pct": -3.0986,
+        "zero_vig_counterfactual_U": 11.6597,
+        "zero_vig_roi_pct": 0.0543,
+        "vig_uplift": 676.4297
+      },
+      "by_year": {
+        "2024": {
+          "n": 7194,
+          "actual_U": -320.52,
+          "actual_roi_pct": -4.4554,
+          "zero_vig_counterfactual_U": -106.5514,
+          "zero_vig_roi_pct": -1.4811,
+          "vig_uplift": 213.9686
+        },
+        "2025": {
+          "n": 7793,
+          "actual_U": -108.685,
+          "actual_roi_pct": -1.3946,
+          "zero_vig_counterfactual_U": 142.2444,
+          "zero_vig_roi_pct": 1.8253,
+          "vig_uplift": 250.9294
+        },
+        "2026": {
+          "n": 6467,
+          "actual_U": -235.565,
+          "actual_roi_pct": -3.6426,
+          "zero_vig_counterfactual_U": -24.0332,
+          "zero_vig_roi_pct": -0.3716,
+          "vig_uplift": 211.5318
+        }
+      }
+    },
+    "late_vs_early_reprice": {
+      "2024_2026": {
+        "n": 21454,
+        "actual_U": -756.375,
+        "actual_roi_pct": -3.5256,
+        "zero_vig_counterfactual_U": -85.2966,
+        "zero_vig_roi_pct": -0.3976,
+        "vig_uplift": 671.0784
+      },
+      "by_year": {
+        "2024": {
+          "n": 7194,
+          "actual_U": -285.075,
+          "actual_roi_pct": -3.9627,
+          "zero_vig_counterfactual_U": -69.6743,
+          "zero_vig_roi_pct": -0.9685,
+          "vig_uplift": 215.4007
+        },
+        "2025": {
+          "n": 7793,
+          "actual_U": -263.77,
+          "actual_roi_pct": -3.3847,
+          "zero_vig_counterfactual_U": -19.7793,
+          "zero_vig_roi_pct": -0.2538,
+          "vig_uplift": 243.9907
+        },
+        "2026": {
+          "n": 6467,
+          "actual_U": -207.53,
+          "actual_roi_pct": -3.2091,
+          "zero_vig_counterfactual_U": 4.1569,
+          "zero_vig_roi_pct": 0.0643,
+          "vig_uplift": 211.6869
+        }
+      }
+    },
+    "time_path_state": {
+      "2024_2026": {
+        "n": 21454,
+        "actual_U": -973.955,
+        "actual_roi_pct": -4.5397,
+        "zero_vig_counterfactual_U": -309.8204,
+        "zero_vig_roi_pct": -1.4441,
+        "vig_uplift": 664.1346
+      },
+      "by_year": {
+        "2024": {
+          "n": 7194,
+          "actual_U": -353.425,
+          "actual_roi_pct": -4.9128,
+          "zero_vig_counterfactual_U": -140.8673,
+          "zero_vig_roi_pct": -1.9581,
+          "vig_uplift": 212.5577
+        },
+        "2025": {
+          "n": 7793,
+          "actual_U": -344.78,
+          "actual_roi_pct": -4.4242,
+          "zero_vig_counterfactual_U": -103.4478,
+          "zero_vig_roi_pct": -1.3274,
+          "vig_uplift": 241.3322
+        },
+        "2026": {
+          "n": 6467,
+          "actual_U": -275.75,
+          "actual_roi_pct": -4.264,
+          "zero_vig_counterfactual_U": -65.5053,
+          "zero_vig_roi_pct": -1.0129,
+          "vig_uplift": 210.2447
+        }
+      }
+    },
+    "price_contract_tension": {
+      "2024_2026": {
+        "n": 21454,
+        "actual_U": -819.63,
+        "actual_roi_pct": -3.8204,
+        "zero_vig_counterfactual_U": -150.71,
+        "zero_vig_roi_pct": -0.7025,
+        "vig_uplift": 668.92
+      },
+      "by_year": {
+        "2024": {
+          "n": 7194,
+          "actual_U": -260.495,
+          "actual_roi_pct": -3.621,
+          "zero_vig_counterfactual_U": -44.7894,
+          "zero_vig_roi_pct": -0.6226,
+          "vig_uplift": 215.7056
+        },
+        "2025": {
+          "n": 7793,
+          "actual_U": -287.76,
+          "actual_roi_pct": -3.6925,
+          "zero_vig_counterfactual_U": -43.535,
+          "zero_vig_roi_pct": -0.5586,
+          "vig_uplift": 244.225
+        },
+        "2026": {
+          "n": 6467,
+          "actual_U": -271.375,
+          "actual_roi_pct": -4.1963,
+          "zero_vig_counterfactual_U": -62.3856,
+          "zero_vig_roi_pct": -0.9647,
+          "vig_uplift": 208.9894
+        }
+      }
+    },
+    "water_endpoint_discordance": {
+      "2024_2026": {
+        "n": 21454,
+        "actual_U": -752.49,
+        "actual_roi_pct": -3.5075,
+        "zero_vig_counterfactual_U": -78.4161,
+        "zero_vig_roi_pct": -0.3655,
+        "vig_uplift": 674.0739
+      },
+      "by_year": {
+        "2024": {
+          "n": 7194,
+          "actual_U": -331.345,
+          "actual_roi_pct": -4.6059,
+          "zero_vig_counterfactual_U": -117.195,
+          "zero_vig_roi_pct": -1.6291,
+          "vig_uplift": 214.15
+        },
+        "2025": {
+          "n": 7793,
+          "actual_U": -203.43,
+          "actual_roi_pct": -2.6104,
+          "zero_vig_counterfactual_U": 43.9459,
+          "zero_vig_roi_pct": 0.5639,
+          "vig_uplift": 247.3759
+        },
+        "2026": {
+          "n": 6467,
+          "actual_U": -217.715,
+          "actual_roi_pct": -3.3666,
+          "zero_vig_counterfactual_U": -5.167,
+          "zero_vig_roi_pct": -0.0799,
+          "vig_uplift": 212.548
+        }
+      }
+    },
+    "market_state_joint": {
+      "2024_2026": {
+        "n": 21454,
+        "actual_U": -623.225,
+        "actual_roi_pct": -2.9049,
+        "zero_vig_counterfactual_U": 53.9153,
+        "zero_vig_roi_pct": 0.2513,
+        "vig_uplift": 677.1403
+      },
+      "by_year": {
+        "2024": {
+          "n": 7194,
+          "actual_U": -280.865,
+          "actual_roi_pct": -3.9042,
+          "zero_vig_counterfactual_U": -65.3553,
+          "zero_vig_roi_pct": -0.9085,
+          "vig_uplift": 215.5097
+        },
+        "2025": {
+          "n": 7793,
+          "actual_U": -112.53,
+          "actual_roi_pct": -1.444,
+          "zero_vig_counterfactual_U": 136.8004,
+          "zero_vig_roi_pct": 1.7554,
+          "vig_uplift": 249.3304
+        },
+        "2026": {
+          "n": 6467,
+          "actual_U": -229.83,
+          "actual_roi_pct": -3.5539,
+          "zero_vig_counterfactual_U": -17.5297,
+          "zero_vig_roi_pct": -0.2711,
+          "vig_uplift": 212.3003
+        }
+      }
+    },
+    "global_side": {
+      "2024_2026": {
+        "n": 21454,
+        "actual_U": -720.085,
+        "actual_roi_pct": -3.3564,
+        "zero_vig_counterfactual_U": -47.1987,
+        "zero_vig_roi_pct": -0.22,
+        "vig_uplift": 672.8863
+      },
+      "by_year": {
+        "2024": {
+          "n": 7194,
+          "actual_U": -312.66,
+          "actual_roi_pct": -4.3461,
+          "zero_vig_counterfactual_U": -98.1093,
+          "zero_vig_roi_pct": -1.3638,
+          "vig_uplift": 214.5507
+        },
+        "2025": {
+          "n": 7793,
+          "actual_U": -259.73,
+          "actual_roi_pct": -3.3329,
+          "zero_vig_counterfactual_U": -15.5798,
+          "zero_vig_roi_pct": -0.1999,
+          "vig_uplift": 244.1502
+        },
+        "2026": {
+          "n": 6467,
+          "actual_U": -147.695,
+          "actual_roi_pct": -2.2838,
+          "zero_vig_counterfactual_U": 66.4905,
+          "zero_vig_roi_pct": 1.0282,
+          "vig_uplift": 214.1855
+        }
+      }
+    },
+    "regime_x_contract__historical_positive_state": {
+      "2024_2026": {
+        "n": 2667,
+        "actual_U": -116.785,
+        "actual_roi_pct": -4.3789,
+        "zero_vig_counterfactual_U": -34.1446,
+        "zero_vig_roi_pct": -1.2803,
+        "vig_uplift": 82.6404
+      },
+      "by_year": {
+        "2024": {
+          "n": 714,
+          "actual_U": -0.985,
+          "actual_roi_pct": -0.138,
+          "zero_vig_counterfactual_U": 19.4991,
+          "zero_vig_roi_pct": 2.731,
+          "vig_uplift": 20.4841
+        },
+        "2025": {
+          "n": 1524,
+          "actual_U": -101.025,
+          "actual_roi_pct": -6.6289,
+          "zero_vig_counterfactual_U": -53.1998,
+          "zero_vig_roi_pct": -3.4908,
+          "vig_uplift": 47.8252
+        },
+        "2026": {
+          "n": 429,
+          "actual_U": -14.775,
+          "actual_roi_pct": -3.4441,
+          "zero_vig_counterfactual_U": -0.4439,
+          "zero_vig_roi_pct": -0.1035,
+          "vig_uplift": 14.3311
+        }
+      }
+    },
+    "line_direction_x_water__historical_positive_state": {
+      "2024_2026": {
+        "n": 1657,
+        "actual_U": -95.205,
+        "actual_roi_pct": -5.7456,
+        "zero_vig_counterfactual_U": -41.1732,
+        "zero_vig_roi_pct": -2.4848,
+        "vig_uplift": 54.0318
+      },
+      "by_year": {
+        "2024": {
+          "n": 1298,
+          "actual_U": -76.21,
+          "actual_roi_pct": -5.8713,
+          "zero_vig_counterfactual_U": -33.0432,
+          "zero_vig_roi_pct": -2.5457,
+          "vig_uplift": 43.1668
+        },
+        "2025": {
+          "n": 327,
+          "actual_U": -19.495,
+          "actual_roi_pct": -5.9618,
+          "zero_vig_counterfactual_U": -10.1765,
+          "zero_vig_roi_pct": -3.1121,
+          "vig_uplift": 9.3185
+        },
+        "2026": {
+          "n": 32,
+          "actual_U": 0.5,
+          "actual_roi_pct": 1.5625,
+          "zero_vig_counterfactual_U": 2.0465,
+          "zero_vig_roi_pct": 6.3953,
+          "vig_uplift": 1.5465
+        }
+      }
+    },
+    "elasticity_dislocation__historical_positive_state": {
+      "2024_2026": {
+        "n": 3638,
+        "actual_U": -156.575,
+        "actual_roi_pct": -4.3039,
+        "zero_vig_counterfactual_U": -45.7083,
+        "zero_vig_roi_pct": -1.2564,
+        "vig_uplift": 110.8667
+      },
+      "by_year": {
+        "2024": {
+          "n": 1835,
+          "actual_U": -65.815,
+          "actual_roi_pct": -3.5866,
+          "zero_vig_counterfactual_U": -9.2884,
+          "zero_vig_roi_pct": -0.5062,
+          "vig_uplift": 56.5266
+        },
+        "2025": {
+          "n": 1169,
+          "actual_U": -39.5,
+          "actual_roi_pct": -3.379,
+          "zero_vig_counterfactual_U": -4.4081,
+          "zero_vig_roi_pct": -0.3771,
+          "vig_uplift": 35.0919
+        },
+        "2026": {
+          "n": 634,
+          "actual_U": -51.26,
+          "actual_roi_pct": -8.0852,
+          "zero_vig_counterfactual_U": -32.0119,
+          "zero_vig_roi_pct": -5.0492,
+          "vig_uplift": 19.2481
+        }
+      }
+    },
+    "late_vs_early_reprice__historical_positive_state": {
+      "2024_2026": {
+        "n": 1761,
+        "actual_U": -51.77,
+        "actual_roi_pct": -2.9398,
+        "zero_vig_counterfactual_U": 0.4257,
+        "zero_vig_roi_pct": 0.0242,
+        "vig_uplift": 52.1957
+      },
+      "by_year": {
+        "2024": {
+          "n": 870,
+          "actual_U": 1.795,
+          "actual_roi_pct": 0.2063,
+          "zero_vig_counterfactual_U": 27.3492,
+          "zero_vig_roi_pct": 3.1436,
+          "vig_uplift": 25.5542
+        },
+        "2025": {
+          "n": 541,
+          "actual_U": -26.95,
+          "actual_roi_pct": -4.9815,
+          "zero_vig_counterfactual_U": -10.4326,
+          "zero_vig_roi_pct": -1.9284,
+          "vig_uplift": 16.5174
+        },
+        "2026": {
+          "n": 350,
+          "actual_U": -26.615,
+          "actual_roi_pct": -7.6043,
+          "zero_vig_counterfactual_U": -16.4909,
+          "zero_vig_roi_pct": -4.7117,
+          "vig_uplift": 10.1241
+        }
+      }
+    },
+    "time_path_state__historical_positive_state": {
+      "2024_2026": {
+        "n": 3752,
+        "actual_U": -199.505,
+        "actual_roi_pct": -5.3173,
+        "zero_vig_counterfactual_U": -75.5435,
+        "zero_vig_roi_pct": -2.0134,
+        "vig_uplift": 123.9615
+      },
+      "by_year": {
+        "2024": {
+          "n": 2869,
+          "actual_U": -146.995,
+          "actual_roi_pct": -5.1236,
+          "zero_vig_counterfactual_U": -50.5614,
+          "zero_vig_roi_pct": -1.7623,
+          "vig_uplift": 96.4336
+        },
+        "2025": {
+          "n": 667,
+          "actual_U": -28.55,
+          "actual_roi_pct": -4.2804,
+          "zero_vig_counterfactual_U": -7.6421,
+          "zero_vig_roi_pct": -1.1457,
+          "vig_uplift": 20.9079
+        },
+        "2026": {
+          "n": 216,
+          "actual_U": -23.96,
+          "actual_roi_pct": -11.0926,
+          "zero_vig_counterfactual_U": -17.3399,
+          "zero_vig_roi_pct": -8.0277,
+          "vig_uplift": 6.6201
+        }
+      }
+    },
+    "price_contract_tension__historical_positive_state": {
+      "2024_2026": {
+        "n": 5750,
+        "actual_U": -255.79,
+        "actual_roi_pct": -4.4485,
+        "zero_vig_counterfactual_U": -74.3051,
+        "zero_vig_roi_pct": -1.2923,
+        "vig_uplift": 181.4849
+      },
+      "by_year": {
+        "2024": {
+          "n": 3754,
+          "actual_U": -134.37,
+          "actual_roi_pct": -3.5794,
+          "zero_vig_counterfactual_U": -19.7827,
+          "zero_vig_roi_pct": -0.527,
+          "vig_uplift": 114.5873
+        },
+        "2025": {
+          "n": 1678,
+          "actual_U": -91.045,
+          "actual_roi_pct": -5.4258,
+          "zero_vig_counterfactual_U": -34.2658,
+          "zero_vig_roi_pct": -2.0421,
+          "vig_uplift": 56.7792
+        },
+        "2026": {
+          "n": 318,
+          "actual_U": -30.375,
+          "actual_roi_pct": -9.5519,
+          "zero_vig_counterfactual_U": -20.2566,
+          "zero_vig_roi_pct": -6.37,
+          "vig_uplift": 10.1184
+        }
+      }
+    },
+    "water_endpoint_discordance__historical_positive_state": {
+      "2024_2026": {
+        "n": 2065,
+        "actual_U": -130.92,
+        "actual_roi_pct": -6.34,
+        "zero_vig_counterfactual_U": -72.1971,
+        "zero_vig_roi_pct": -3.4962,
+        "vig_uplift": 58.7229
+      },
+      "by_year": {
+        "2024": {
+          "n": 1345,
+          "actual_U": -71.605,
+          "actual_roi_pct": -5.3238,
+          "zero_vig_counterfactual_U": -33.3844,
+          "zero_vig_roi_pct": -2.4821,
+          "vig_uplift": 38.2206
+        },
+        "2025": {
+          "n": 404,
+          "actual_U": -20.75,
+          "actual_roi_pct": -5.1361,
+          "zero_vig_counterfactual_U": -8.562,
+          "zero_vig_roi_pct": -2.1193,
+          "vig_uplift": 12.188
+        },
+        "2026": {
+          "n": 316,
+          "actual_U": -38.565,
+          "actual_roi_pct": -12.2041,
+          "zero_vig_counterfactual_U": -30.2508,
+          "zero_vig_roi_pct": -9.573,
+          "vig_uplift": 8.3142
+        }
+      }
+    },
+    "market_state_joint__historical_positive_state": {
+      "2024_2026": {
+        "n": 4435,
+        "actual_U": -146.235,
+        "actual_roi_pct": -3.2973,
+        "zero_vig_counterfactual_U": 4.1541,
+        "zero_vig_roi_pct": 0.0937,
+        "vig_uplift": 150.3891
+      },
+      "by_year": {
+        "2024": {
+          "n": 1796,
+          "actual_U": -33.145,
+          "actual_roi_pct": -1.8455,
+          "zero_vig_counterfactual_U": 26.0537,
+          "zero_vig_roi_pct": 1.4506,
+          "vig_uplift": 59.1987
+        },
+        "2025": {
+          "n": 1853,
+          "actual_U": -72.505,
+          "actual_roi_pct": -3.9128,
+          "zero_vig_counterfactual_U": -5.3232,
+          "zero_vig_roi_pct": -0.2873,
+          "vig_uplift": 67.1818
+        },
+        "2026": {
+          "n": 786,
+          "actual_U": -40.585,
+          "actual_roi_pct": -5.1635,
+          "zero_vig_counterfactual_U": -16.5763,
+          "zero_vig_roi_pct": -2.1089,
+          "vig_uplift": 24.0087
+        }
+      }
+    }
+  },
+  "overlapping_leagues_2024_2026": {
+    "common_league_ids": 46,
+    "higher_overround_2026": 37,
+    "lower_overround_2026": 9
+  }
+}
