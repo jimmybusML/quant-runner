@@ -4761,3 +4761,12 @@
 - 新增的是赛前真实报价覆盖，不等于新增已结算比赛、生产派单或净盈利。尚待检查与其他研究档案的FID交集、可靠FT及赛前模型特征；目前不报告新增收益、ROI或发单数。
 - 报告 `research/m8/M8_MR1_RECEIPT_COVERAGE_COMPARE_20261119.md`，逐场快照 `research/m8/mr1_m8_receipt_coverage_20261119/verified_receipts.jsonl`，FID汇总 `summary.json`。保留原八组与MR1/M8模型身份独立。
 - 后续研究建议：只读利用 MR1 既有 Crown 收据作 M8 研究补充，无需更改 M8 生产数据链；要评估新增策略需另核验赛果与赛前特征。这是研究建议，不是已确认的正式策略、Gate或导入规则。
+
+
+## 2026-11-19｜M8/MR1 新覆盖175FID 赛果与赛前特征审计
+
+- 已对上一轮比对发现的175个MR1新增Crown AH收据FID进行只读核对，审计时点2026-11-19T04:30:00Z；90场已达到原开球时点，85场尚未开赛。MR1赛事基本信息175场齐备。
+- 已检查MR1 shadow的result-harvest-state.json，这175个FID没有一条FT状态记录；仅代表该来源未提供可信完场比分，不能证明比赛未完场或其他正式账本没有赛果。本轮不编造结算或ROI。
+- 175个FID均不在已核对的M8冻结10,294、历史路径39,101及旧实收研究1,230个FID中，M8既存路径特征未覆盖这些新比赛；MR1报价并不自动变成M8信号或订单。
+- 报告research/m8/M8_MR1_NEW_RECEIPT_FT_FEATURE_AUDIT_20261119.md、脚本research/m8/m8_mr1_ft_feature_audit_20261119.py、逐FID数据research/m8/mr1_m8_ft_feature_audit_20261119/per_fixture.jsonl、summary.json 已提交。无生产模型、采集配置、Telegram、账本或冻结策略修改。
+- 建议后续优先核验90场可信赛果及原八组赛前特征是否可在新收据时点重建；建议尚未转为正式Gate或生产规则。
