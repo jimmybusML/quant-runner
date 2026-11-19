@@ -1,3 +1,16 @@
+# 2026-11-19 M8 独立赛前信息与扩单研究交接
+
+- 用户要求保持冻结八组不变，改用独立球队信息、球队熟悉度/重复交易、特殊对阵/赛季/比赛性质、真实报价可执行时机及其他有经济解释的新机制，研究原八组外的真实 Crown AH 增量。本轮完成公开 main 的历史研究查重、可用输入与 receipt 时序审核、两条可执行候选的全量历史前推/逐场结算、真实 receipt 复算、报价新鲜度诊断及候选FID交集/八组去重合并。
+- 主报告：`research/m8/M8_INDEPENDENT_INFORMATION_EXPANSION_20261119.md`。总执行 manifest：`research/m8/M8_INDEPENDENT_INFORMATION_EXPANSION_EXECUTION_20261119.json`。全部新增代码、结果与逐场数据：`research/m8/independent_info_20261119/`。
+- 熟悉度/重复机会模型：2024–26 八组外新增3,028 FID、−89.620U、ROI −2.960%、周均20.32、MDD92.345U；并入原八组后9,901场/+108.145U/ROI1.092%/MDD106.215U（原八组三年6,873场/+197.765U/2.877%/MDD58.165U）。2025小幅正值+1.340U，2024与2026为负。AH 结算独立核对39,101场、主客共78,202侧，逐笔匹配保存收益，无差异。
+- 同联赛直接交锋AH残差方向：2024–26新增17,126 FID、−590.860U、ROI −3.450%、周均114.94、MDD599.930U；并入冻结八组23,999场/−393.095U/ROI −1.638%/MDD404.585U。已审真实赛前HTTP receipt子集559场、−31.510U/−5.637%/MDD44.885U；同FID favorite也亏−39.680U。收据窗口已参与前轮研究，非盲测。
+- 两候选重叠2,129 FID；去重并集18,025场/−593.725U/ROI−3.294%（只作去重账，非预设组合）。报价年龄诊断无出单方向；八组外 `<15分钟` favorite 的+4.505U仅26场且W45–W46反转，事后描述不构成策略。
+- 未发现不同于原八组且能增加净利润的新来源。关键缺口是独立球队/阵容/伤停/比赛性质的原始首次公开时间、系统接收时间和当时快照，及与同一时点Crown实际receipt的严格对齐；真实订单提交/成交/拒单/滑点记录也不足。历史event-time重建和2026六周已研究收据不能替代前瞻盲测。详情及 R1–R65/A–L/M1–M8 查重见主报告。
+- 本轮冻结名单SHA仍为 `6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665`。未改原八组、生产模型、Telegram、正式账本、采集链、结算或已确认规则；未添加正式Gate、过滤/限量/自动化条件。Crown数据库只读审计，未把历史回取或替代盘口当真实实收。
+- 执行脚本：`team/run_team_familiarity.py`、`context/h2h_mechanism.py`、`execution/analyze_receipt_quote_freshness.py`、`integrate_overlap_union.py`。各方向都有独立 `REPORT.md`、JSON、逐场JSONL和哈希manifest；集成逐周及去重结果在 `integrated_overlap_and_union.json`。
+
+---
+
 # 2026-11-19 M8 原八组盈利机理与独立扩单研究交接
 
 - 已按 `research/m8/M8_CODEX_MECHANISM_DISCOVERY_BRIEF_20261119.md` 批量执行 M1–M8；报告 `research/m8/M8_MECHANISM_DISCOVERY_20261119.md`，脚本 `research/m8/m8_mechanism_discovery_20261119.py`，摘要JSON及逐场结果位于 `research/m8/mechanism_discovery_20261119/`。输入SHA、方向复算、结算审计、年度前推、三种匹配范围、真实收据与新数据结论均留档。

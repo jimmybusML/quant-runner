@@ -1,0 +1,140 @@
+{
+  "study": "M8 independent pregame information and expansion research",
+  "executed_at_local": "2026-11-19 Asia/Shanghai",
+  "repository": "jimmybusML/quant-runner",
+  "base_public_main_commit": "e42750e0e727102a4fff005623b56220115a7d5d",
+  "research_only": true,
+  "production_models_telegram_ledger_frozen": true,
+  "frozen_eight_sha256": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665",
+  "commands": [
+    "python3 research/m8/independent_info_20261119/team/run_team_familiarity.py",
+    "python3 research/m8/independent_info_20261119/context/h2h_mechanism.py",
+    "python3 research/m8/independent_info_20261119/execution/analyze_receipt_quote_freshness.py",
+    "python3 research/m8/independent_info_20261119/integrate_overlap_union.py",
+    "python3 research/m8/independent_info_20261119/build_execution_manifest.py",
+    "git diff --check"
+  ],
+  "input_artifacts": {
+    "/Users/mac/QuantAsiaDesk/research-work/m8_late_full_path_water_features_20261114.jsonl": {
+      "bytes": 38544695,
+      "sha256": "f21d4d49621df503efdb607b72b08882c1f1365c3178cce13e696d9aad4b697e",
+      "included_in_public_commit": false
+    },
+    "/Users/mac/QuantAsiaDesk/research-work/m8_independent_score_strength_20261114.jsonl": {
+      "bytes": 15394177,
+      "sha256": "e8cf152c821725139b5492746faa32fe46889886c3971878ee9cb6473e3662f8",
+      "included_in_public_commit": false
+    },
+    "/Users/mac/QuantAsiaDesk/research-work/m8_foundation_20261115/historical_membership.jsonl": {
+      "bytes": 1336252,
+      "sha256": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665",
+      "included_in_public_commit": false
+    },
+    "/Users/mac/Documents/ChatGPT/quant-runner-m8/research/m8/m8_batch_actual_receipt_independently_audited_20261118.jsonl": {
+      "bytes": 3351948,
+      "sha256": "f542c2ae61ff1fc0d5a8f51942ed74c9ed69ff4a2be19ce39ad2bb411b049bf0",
+      "included_in_public_commit": false
+    },
+    "/Users/mac/Documents/ChatGPT/quant-runner-m8/research/m8/selective_decomposition_20261120/M8_SELECTIVE_DECOMPOSITION_RESULTS_20261120.json": {
+      "bytes": 1209013,
+      "sha256": "db69c527428280c0030f244036a72c68363b6a910b3c45d815c813441c9400ee",
+      "included_in_public_commit": false
+    },
+    "/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3": {
+      "bytes": 1085648896,
+      "sha256": "86a40523e94e5013c16e626a14820425c2e7ba4f48f4a245235f1ce8b3a3911d",
+      "included_in_public_commit": false
+    }
+  },
+  "output_sha256_and_bytes": {
+    "PROJECT_HANDOFF.md": {
+      "bytes": 1325972,
+      "sha256": "bc9ca6dd303fe04f0ba6ded6e657ac3144b35f8f48e49eb79d75dc2415af57a3"
+    },
+    "research/m8/M8_INDEPENDENT_INFORMATION_EXPANSION_20261119.md": {
+      "bytes": 12963,
+      "sha256": "505bc706ee19621c1c85fb1539f48b19c8fbeb19edb76d871f7739c9b37a9d97"
+    },
+    "research/m8/independent_info_20261119/build_execution_manifest.py": {
+      "bytes": 3847,
+      "sha256": "3330445553a38b4c914b5ef3095d922ee70e7d9767518376de1491cbf17fb09c"
+    },
+    "research/m8/independent_info_20261119/context/REPORT.md": {
+      "bytes": 5235,
+      "sha256": "43b7fc9abca8cd1395217c70c439c356ddb93b73d75f94fa551dc44470c2f860"
+    },
+    "research/m8/independent_info_20261119/context/h2h_actual_receipt_orders.jsonl": {
+      "bytes": 330375,
+      "sha256": "27231d0fee2ba3763d8a4d05c87316637835dbb62334ee654fe864dc4304e08a"
+    },
+    "research/m8/independent_info_20261119/context/h2h_candidate_orders.jsonl": {
+      "bytes": 43073697,
+      "sha256": "061d0493bb1fc7f5c8c5cb1240321ca48900c19738c8c0fc77e8dc3d06f13190"
+    },
+    "research/m8/independent_info_20261119/context/h2h_mechanism.py": {
+      "bytes": 15102,
+      "sha256": "f2e1eb36093ff1698ceede1e903a402ae34b378d4bfea035a55a49fe1266356c"
+    },
+    "research/m8/independent_info_20261119/context/h2h_results.json": {
+      "bytes": 393127,
+      "sha256": "2622c86c41b19ba3c9e17403f1bad61957e140647846020ee738af03e42285cc"
+    },
+    "research/m8/independent_info_20261119/execution/REPORT.md": {
+      "bytes": 5707,
+      "sha256": "7760986d78842058460b01e9a779cd3d3b05fda33bdea258037e4f512cf6de3b"
+    },
+    "research/m8/independent_info_20261119/execution/analyze_receipt_quote_freshness.py": {
+      "bytes": 9361,
+      "sha256": "2d78121517ad930125dc61c7fd08fea325bb77d869e8231e97bc8793695106f3"
+    },
+    "research/m8/independent_info_20261119/execution/execution_manifest.json": {
+      "bytes": 1247,
+      "sha256": "00450b610322c450425b9bc1895246279003a83ac61339c320f0b78e249d28f9"
+    },
+    "research/m8/independent_info_20261119/execution/receipt_quote_freshness_fixtures.jsonl": {
+      "bytes": 966886,
+      "sha256": "608e16452a23b446a0b56acb00a8784d4f963c475ebafba9ac108b2c8c509a35"
+    },
+    "research/m8/independent_info_20261119/execution/receipt_quote_freshness_results.json": {
+      "bytes": 17777,
+      "sha256": "64947469daa54b904ba40c305c5aa9cc185dd45b48442d5915e88f659475dd94"
+    },
+    "research/m8/independent_info_20261119/integrate_overlap_union.py": {
+      "bytes": 5081,
+      "sha256": "1d6fe80ca2e6782e1cc2e38f543ac77cbaabd8ff3863032eef8a026ed1463e5a"
+    },
+    "research/m8/independent_info_20261119/integrated_overlap_and_union.json": {
+      "bytes": 138635,
+      "sha256": "eca724675f7b1ea227b4102b3edcbd21a32e3bc2946f6b3923aa4409dbc5d197"
+    },
+    "research/m8/independent_info_20261119/team/REPORT.md": {
+      "bytes": 6046,
+      "sha256": "b32a7b3adef82007465cbcf3b7043dc8113f1fca49a3e8861ffb9cc897b62ee4"
+    },
+    "research/m8/independent_info_20261119/team/execution_manifest.json": {
+      "bytes": 1976,
+      "sha256": "d8146e72c0e0fd2de5fa118f9d3f569d2a9b020c58bad9477d07775207a3e6a9"
+    },
+    "research/m8/independent_info_20261119/team/run_team_familiarity.py": {
+      "bytes": 17581,
+      "sha256": "8f2aef6d6888868ddd80f1d360e39e543349db16687e90ea74594f6f88896bf4"
+    },
+    "research/m8/independent_info_20261119/team/team_familiarity_results.json": {
+      "bytes": 109649,
+      "sha256": "9ffe53c74e7846c520eac6b7a5e993f889ff24103d5541387eeed8ec8b7ee17a"
+    },
+    "research/m8/independent_info_20261119/team/team_familiarity_selected_orders.jsonl": {
+      "bytes": 894425,
+      "sha256": "42228902ff0bdbdd934e5d7cb062ad00b34e93fe3936fa556f99775b21bd8101"
+    },
+    "research/m8/independent_info_20261119/team/team_familiarity_side_predictions.jsonl": {
+      "bytes": 22040242,
+      "sha256": "9c8bbdae05d3633d571f29da2a7132174d63ae3d586e9db5309e05d512d8656b"
+    }
+  },
+  "integrity_notes": {
+    "ah_settlement": "Quarter lines split into two half-stake legs; away margin reverses the home line; verified FT and actual Crown prices retained.",
+    "historical_vs_receipt": "Historical event-time replay and verified pre-kickoff HTTP receipts are separately labeled; no substitute odds used.",
+    "production": "No production, Telegram, formal ledger, frozen-eight, or ingestion changes."
+  }
+}
