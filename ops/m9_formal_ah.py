@@ -1,4 +1,4 @@
-"""M9 formal bivariate Poisson AH, M3 fixture scope and lead-time preserved.
+"""M9 formal AH, M3 fixture scope and lead-time preserved.
 
 Only SENT Telegram receipts count as formal bets. No research Telegram.
 """
@@ -131,6 +131,34 @@ def prediction(frame,home,away):
     model.fit()
     return _serialize_score_probability_grid(model.predict(home,away))
 
+def format_order_message(row,side,quote,price,names=None):
+    """Single-line formal order format shared with the user's MR1 example."""
+    names=names or {}
+    kickoff=iso(row["kickoff"]).astimezone(ZoneInfo("Asia/Shanghai"))
+    time_text=kickoff.strftime("%Y-%m-%d %H:%M")
+    league=names.get("competitions",{}).get(str(row.get("league") or "").strip().casefold()) or str(row.get("league") or "未知联赛")
+    home=names.get("teams",{}).get(str(row["home"]).strip().casefold()) or row["home"]
+    away=names.get("teams",{}).get(str(row["away"]).strip().casefold()) or row["away"]
+    selected_team=home if side=="home" else away
+    selection_line=quote["line"] if side=="home" else -quote["line"]
+    line=f"{selection_line:+g}" if selection_line else "0"
+    hong_kong_odds=float(price)-1.0
+    return f"【M9】{time_text} {league} {home} vs {away} 全场让球 {selected_team} {line}@{hong_kong_odds:.2f}"
+
+def display_names():
+    path=HOME/"QuantAsiaDesk/repos/m1/data/football_display_names/display_names.json"
+    try:doc=json.loads(path.read_text(encoding="utf-8"))
+    except (OSError,ValueError):return {}
+    maps={}
+    for kind in ("teams","competitions"):
+        result={}
+        for item in (doc.get(kind) or {}).values():
+            source=str(item.get("provider_name") or "").strip().casefold()
+            target=item.get("canonical_zh") if item.get("status")=="CANONICAL" else None
+            if source and target:result[source]=target
+        maps[kind]=result
+    return maps
+
 def send_one(row,matrix,token,chat,api):
     mid=str(row["mid"])
     key=receipt_id(mid)
@@ -138,24 +166,19 @@ def send_one(row,matrix,token,chat,api):
     if not gate({"kickoff_utc_verified":row["kickoff"]},dt.datetime.now(UTC))[0]:
         return "time_expired"
     side,price,scores=choose(matrix,quote)
+    row=dict(row)
     record={"kind":"M9_PREPARED","order_key":key,"fid":mid,
         "model":MODEL,"market":"AH","side":side,"line":quote["line"],
         "decimal_odd":price,"home_decimal":quote["home_decimal"],
         "away_decimal":quote["away_decimal"],"home_team":row["home"],
         "away_team":row["away"],"league_id":row["league_id"],
-        "kickoff_utc":row["kickoff"],"crown":quote,"selected_at_utc":now(),
+        "league":row.get("league"),"kickoff_utc":row["kickoff"],
+        "selection_line":quote["line"] if side=="home" else -quote["line"],
+        "hong_kong_odds":round(float(price)-1.0,6),
+        "crown":quote,"selected_at_utc":now(),
         "model_only_neutral_odds_scores":scores,"tg_status":"PREPARED"}
     append(record)
-    side_label="主队" if side=="home" else "客队"
-    selection_line=quote["line"] if side=="home" else -quote["line"]
-    selected_team=row["home"] if side=="home" else row["away"]
-    message=(f"【M9 正式 AH】双变量泊松\n"
-             f"比赛：{row['home']} vs {row['away']}\n"
-             f"方向：{side_label} {selected_team}\n"
-             f"选择盘口：{selection_line:+g}\n"
-             f"赔率：{price:g}（港赔 {price-1:.3f}）\n"
-             f"开赛UTC：{row['kickoff']}\n"
-             f"盘口源：Crown")
+    message=format_order_message(row,side,quote,price,display_names())
     try:
         message_id=deliver(token,chat,message)
     except Exception as ex:
@@ -209,7 +232,8 @@ def run():
             try:
                 matrix=_serialize_score_probability_grid(model.predict(home_id,away_id))
                 outcome=send_one({"mid":mid,"home":str(src.get("h")),
-                    "away":str(src.get("a")),"kickoff":kickoff,"league_id":league_id},
+                    "away":str(src.get("a")),"kickoff":kickoff,"league_id":league_id,
+                    "league":str(src.get("l") or "")},
                     matrix,token,chat,api)
                 stats[outcome]+=1
             except Exception as ex:

@@ -17,6 +17,16 @@ class TestM9FormalAH(unittest.TestCase):
         self.assertEqual(m9.MARKET, "AH")
         self.assertEqual(m9.MAX_DATES, 2)
 
+    def test_exact_single_line_formal_message_format(self):
+        row={"kickoff":"2026-11-03T17:00:00Z","league":"Polish Ekstraklasa",
+             "home":"Radomiak","away":"Wloclawek"}
+        names={"competitions":{"polish ekstraklasa":"波兰甲级联赛"},
+               "teams":{"radomiak":"拉多米亚克","wloclawek":"弗罗茨瓦克"}}
+        message=m9.format_order_message(row,"away",{"line":-0.25},2.06,names)
+        self.assertEqual(message,"【M9】2026-11-04 01:00 波兰甲级联赛 拉多米亚克 vs 弗罗茨瓦克 全场让球 弗罗茨瓦克 +0.25@1.06")
+        self.assertEqual(message.count("\n"),0)
+        self.assertNotIn("双变量泊松",message)
+
     def test_direction_matches_old_m3_neutral_odds_policy(self):
         grid = [[0.1, 0.15], [0.1, 0.65]]
         quote = {"line": -0.25, "home_decimal": 1.91, "away_decimal": 1.97}

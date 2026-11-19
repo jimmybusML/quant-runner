@@ -20,25 +20,25 @@ from zoneinfo import ZoneInfo
 
 import display_data
 import order_records
-import research_notify
 import job_explain
 import model_test
 import mac_keychain
 
 BASE = Path(__file__).resolve().parent
-REPOS = {"m1": BASE / "repos/m1", "mr1": BASE / "repos/mr1", "m3": BASE / "repos/runner", "m4": BASE / "repos/runner"}
+REPOS = {"m1": BASE / "repos/m1", "mr1": BASE / "repos/mr1", "m3": BASE / "repos/runner", "m4": BASE / "repos/runner", "m9": BASE / "repos/runner"}
 STATE = BASE / "state"
 LOGS = BASE / "logs"
 WEB = BASE / "web"
 PORT = 8765
 ACCOUNT = os.environ.get("USER", "mac")
 CSRF = secrets.token_urlsafe(32)
-CREDENTIAL_KEYS = ("TOTALCORNER_TOKEN", "M1_TELEGRAM_BOT_TOKEN", "M1_TELEGRAM_CHAT_ID", "MR1_TG_BOT_TOKEN", "MR1_TG_CHAT_ID", "RESEARCH_TG_BOT_TOKEN", "RESEARCH_TG_CHAT_ID")
+CREDENTIAL_KEYS = ("TOTALCORNER_TOKEN", "M1_TELEGRAM_BOT_TOKEN", "M1_TELEGRAM_CHAT_ID", "MR1_TG_BOT_TOKEN", "MR1_TG_CHAT_ID", "M9_TG_BOT_TOKEN", "M9_TG_CHAT_ID")
 DEFAULT = {"timezone": "Asia/Shanghai", "models": {
     "m1": {"schedule_enabled": False, "schedule_type": "times", "times": "00:05,06:05,12:05,18:05", "interval_minutes": 0, "tg_enabled": False},
     "mr1": {"schedule_enabled": False, "schedule_type": "interval", "times": "", "interval_minutes": 5, "tg_enabled": False},
     "m3": {"schedule_enabled": False, "schedule_type": "times", "times": "06:00,12:00", "interval_minutes": 0, "tg_enabled": False},
     "m4": {"schedule_enabled": False, "schedule_type": "manual", "times": "", "interval_minutes": 0, "tg_enabled": False},
+    "m9": {"schedule_enabled": False, "schedule_type": "times", "times": "06:00,12:00", "interval_minutes": 0, "tg_enabled": False},
 }}
 LOCK = threading.RLock()
 ACTIVE = {}
@@ -74,6 +74,9 @@ def settings():
     for key in REPOS:
         if isinstance(d.get("models", {}).get(key), dict):
             result["models"][key].update(d["models"][key])
+    # Research Telegram is not authorized for M3 or M4. Preserve scheduling.
+    for model in ("m3", "m4"):
+        result["models"][model]["tg_enabled"] = False
     return result
 
 
@@ -156,10 +159,12 @@ def status():
                     j["message"] = "这次任务已执行结束。"
             else:
                 j["message"] = job_explain.friendly_error(j.get("error", "Unknown failure"))
+    p = display_data.readable_stats()
+    p["m9"] = read_json(STATE / "m9_latest.json", {"source_time": None, "sent": 0, "settled": 0, "pending": 0, "pnl": 0, "roi": None, "states": {}, "unknown": 0})
     return {"server_time": now(), "csrf": CSRF, "timezone": settings()["timezone"],
         "settings": settings(), "credentials": {k: credentials(k) for k in CREDENTIAL_KEYS},
         "repos": {key: git_info(repo) for key, repo in REPOS.items()},
-        "metrics": model_metrics(), "performance": display_data.readable_stats(), "jobs": recent, "origin": "127.0.0.1", "port": PORT}
+        "metrics": model_metrics(), "performance": p, "jobs": recent, "origin": "127.0.0.1", "port": PORT}
 
 
 def validate_settings(input_obj):
@@ -173,6 +178,8 @@ def validate_settings(input_obj):
     for model, patch in supplied.items():
         if model not in REPOS or not isinstance(patch, dict):
             raise ValueError("Unknown model")
+        if model in ("m3", "m4") and patch.get("tg_enabled") is True:
+            raise ValueError("研究 TG 未获授权；M3/M4 不支持研究消息推送")
         conf = old["models"][model]
         typ = patch.get("schedule_type", conf["schedule_type"])
         if typ not in ("times", "interval", "manual"):
@@ -189,7 +196,7 @@ def validate_settings(input_obj):
                 raise ValueError("Invalid setting " + key)
         conf.update({"schedule_type": typ, "times": times, "interval_minutes": interval,
             "schedule_enabled": patch.get("schedule_enabled", conf["schedule_enabled"]),
-            "tg_enabled": patch.get("tg_enabled", conf["tg_enabled"])})
+            "tg_enabled": False if model in ("m3", "m4") else patch.get("tg_enabled", conf["tg_enabled"])})
     save_settings(old)
     return old
 
@@ -203,14 +210,26 @@ def job_steps(model: str, action: str):
     env["PYTHONUNBUFFERED"] = "1"
     env["TOTALCORNER_TZ_OFFSET"] = "8"
     env["MR1_RUNTIME_EXECUTOR"] = "LOCAL_QUANT_ASIA_DESK"
+    if model == "mr1":
+        env["FOOTBALL_DISPLAY_REGISTRY_DIR"] = str(REPOS["m1"] / "data/football_display_names")
     config = settings()["models"][model]
     api = credentials("TOTALCORNER_TOKEN", get_value=True)
     if api:
         env["TOTALCORNER_TOKEN"] = api
+    if model == "m9" and action in ("run", "settle", "report"):
+        script = runner / "ops/m9_formal_ah.py"
+        if action == "run":
+            if not config["tg_enabled"]:
+                raise ValueError("M9 正式 TG 未启用，本次不会生成正式订单")
+            bot = credentials("M9_TG_BOT_TOKEN", True)
+            chat = credentials("M9_TG_CHAT_ID", True)
+            if not bot or not chat:
+                raise ValueError("M9 正式 TG 连接资料尚未设置")
+            env.update({"M9_TG_BOT_TOKEN": bot, "M9_TG_CHAT_ID": chat})
+        return [([py, "-m", "ops.m9_formal_ah", action], runner)], env
     if action == "sync":
-        if model == "m4":
-            project = REPOS["m3"]
-        return [(["/usr/bin/git", "pull", "--ff-only"], project)], env
+        # Local refresh: no network git pull and no remote repository dependency.
+        return job_steps(model, "report")
     if action == "report":
         if model == "m1":
             return [([py, "m1_formal_runtime.py", "report"], project)], env
@@ -218,21 +237,14 @@ def job_steps(model: str, action: str):
             return [(["/usr/local/bin/node", "src/v6-ah-formal-settlement.js"], project)], env
         if model == "m3":
             out = str(STATE / "m3_latest.json")
-            return [([py, "-m", "research.m3.segmented_ledger", "materialize"], runner),
+            return [([py, str(BASE / "scripts/local_m3_ledger.py"), "materialize"], runner),
                 ([py, "-m", "research.m3.shadow_performance_report", "--ledger", "research/m3/results/totalcorner/forward_ev_ledger.jsonl", "--output", out], runner)], env
         if model == "m4":
             f = project / "research/m4/mr1_two_league_pass_study.py"
             source = REPOS["mr1"] / "data/mr1-v6-cross-market/formal/settled.json"
             return [([py, str(f), str(source), "--output", str(STATE / "m4_latest.json")], runner)], env
-    if action == "settle":
-        if model == "m1":
-            return [([py, "m1_formal_runtime.py", "settle"], project), ([py, "m1_formal_runtime.py", "report"], project)], env
-        if model == "mr1":
-            return [(["/usr/local/bin/node", "src/v6-ah-formal-settlement.js"], project)], env
-        if model == "m3":
-            return [([py, "-m", "research.m3.segmented_ledger", "materialize"], runner),
-                ([py, "-m", "research.m3.totalcorner_shadow_settle", "--ledger", "research/m3/results/totalcorner/forward_ev_ledger.jsonl"], runner),
-                ([py, "-m", "research.m3.persist_append_ledger", "--candidate", "research/m3/results/totalcorner/forward_ev_ledger.jsonl"], runner)], env
+    if action == "settle" and model in ("m1", "mr1", "m3"):
+        return [(["/usr/bin/python3", str(BASE / "scripts/unified_settlement.py"), model], BASE)], env
     if action == "run":
         if model == "m1":
             approved_ev_patch = ([py, str(BASE / "scripts/ensure_m1_ev_policy.py"), str(project),
@@ -256,21 +268,23 @@ def job_steps(model: str, action: str):
                     raise ValueError("MR1 TG enabled but its local Keychain credentials are missing")
                 env.update({"MR1_TG_BOT_TOKEN": bot, "MR1_TG_CHAT_ID": chat})
                 steps.append((["/usr/local/bin/node", str(BASE / "scripts/mr1_notify.mjs")], project))
-            steps.append((["/usr/local/bin/node", "src/persist-github-state.js"], project))
+            # Formal MR1 ledger and run state are already written locally.
             return steps, env
         if model == "m3":
             ledger = "research/m3/results/totalcorner/forward_ev_ledger.jsonl"
             run = "local-" + dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%S")
             return [
-                ([py, "-m", "research.m3.segmented_ledger", "materialize"], runner),
+                ([py, str(BASE / "scripts/local_m3_ledger.py"), "materialize"], runner),
                 ([py, "-m", "research.m3.future_fixture_audit", "--output", ledger, "--max-dates", "2", "--run-id", run], runner),
-                ([py, "-m", "research.m3.persist_append_ledger", "--candidate", ledger], runner),
+                ([py, str(BASE / "scripts/local_m3_result_fallback.py")], runner),
+                ([py, str(BASE / "scripts/local_m3_ledger.py"), "persist"], runner),
                 ([py, "-m", "research.m3.m1_mr1_scope_audit", "--ledger", ledger, "--run-id", run], runner),
                 ([py, "-m", "research.m3.m1_history_forward", "--cache-dir", str(REPOS["m1"] / "data/m1_history_cache"), "--ledger", ledger, "--max-dates", "2", "--run-id", run], runner),
                 ([py, "-m", "research.m3.m3_shadow_orders", "--ledger", ledger, "--run-id", run], runner),
                 ([py, "-m", "research.m3.future_fixture_model_status", "--ledger", ledger, "--run-id", run], runner),
                 ([py, "-m", "research.m3.totalcorner_shadow_settle", "--ledger", ledger], runner),
-                ([py, "-m", "research.m3.persist_append_ledger", "--candidate", ledger], runner),
+                ([py, str(BASE / "scripts/local_m3_result_fallback.py")], runner),
+                ([py, str(BASE / "scripts/local_m3_ledger.py"), "persist"], runner),
                 ([py, "-m", "research.m3.shadow_performance_report", "--ledger", ledger, "--output", str(STATE / "m3_latest.json")], runner)
             ], env
         if model == "m4":
@@ -279,7 +293,7 @@ def job_steps(model: str, action: str):
 
 
 def needs_api(model, action):
-    return (model == "m1" and action in ("run", "settle")) or (model == "mr1" and action == "run") or (model == "m3" and action in ("run", "settle"))
+    return (model == "m1" and action in ("run", "settle")) or (model == "mr1" and action == "run") or (model == "m3" and action in ("run", "settle")) or (model == "m9" and action in ("run", "settle"))
 
 
 def worker_test(job_id, model):
@@ -289,13 +303,12 @@ def worker_test(job_id, model):
     try:
         offline = model_test.offline_test(model)
         messages = [offline["message"]]
-        tg_enabled = settings()["models"][model]["tg_enabled"]
+        tg_enabled = settings()["models"][model]["tg_enabled"] and model not in ("m3", "m4")
         tg_sent = False
         tg_ok = not tg_enabled
         if tg_enabled:
-            prefix = ("M1_TELEGRAM" if model=="m1" else "MR1_TG" if model=="mr1" else "RESEARCH_TG")
-            token_key = "M1_TELEGRAM_BOT_TOKEN" if model=="m1" else ("MR1_TG_BOT_TOKEN" if model=="mr1" else "RESEARCH_TG_BOT_TOKEN")
-            chat_key = "M1_TELEGRAM_CHAT_ID" if model=="m1" else ("MR1_TG_CHAT_ID" if model=="mr1" else "RESEARCH_TG_CHAT_ID")
+            token_key = {"m1":"M1_TELEGRAM_BOT_TOKEN", "mr1":"MR1_TG_BOT_TOKEN", "m9":"M9_TG_BOT_TOKEN"}[model]
+            chat_key = {"m1":"M1_TELEGRAM_CHAT_ID", "mr1":"MR1_TG_CHAT_ID", "m9":"M9_TG_CHAT_ID"}[model]
             if not (credentials(token_key) and credentials(chat_key)):
                 messages.append("TG 已勾选，但本机还没有连接资料。请到设置中保存。没有发送。")
             else:
@@ -333,9 +346,6 @@ def worker(job_id, model, action):
     try:
         if needs_api(model, action) and not credentials("TOTALCORNER_TOKEN"):
             raise ValueError("TotalCorner credential not saved in local Keychain; add it from the dashboard")
-        if action == "run" and model in ("m3", "m4") and settings()["models"][model]["tg_enabled"]:
-            if not (credentials("RESEARCH_TG_BOT_TOKEN") and credentials("RESEARCH_TG_CHAT_ID")):
-                raise ValueError("research TG credentials missing")
         steps, env = job_steps(model, action)
         if model == "m1" and action == "run" and settings()["models"]["m1"]["tg_enabled"]:
             # Existing formal M1 claim/dispatch requires a unique durable run identity.
@@ -365,24 +375,6 @@ def worker(job_id, model, action):
         with LOCK:
             job["status"] = "succeeded"
             job["message"] = summary
-        if action == "run" and model in ("m3", "m4") and settings()["models"][model]["tg_enabled"]:
-            try:
-                token = credentials("RESEARCH_TG_BOT_TOKEN", True)
-                chat = credentials("RESEARCH_TG_CHAT_ID", True)
-                if model == "m3":
-                    outcome = research_notify.emit_m3(run_identity, token, chat)
-                    note = "TG 已确认发送 " + str(outcome["sent"]) + " 条研究预测。"
-                else:
-                    outcome = research_notify.emit_m4(job_id, read_json(STATE / "m4_latest.json", {}), token, chat)
-                    note = "TG 已确认发送 " + str(outcome["sent"]) + " 条 M4 研究报告（非正式派单）。"
-                with LOCK:
-                    job["tg_count"] = outcome["sent"]
-                    job["message"] += " " + note
-            except Exception as notify_error:
-                with LOCK:
-                    job["status"] = "partial"
-                    job["message"] += " 研究执行成功，但 TG 未确认发送成功。"
-                    job["error"] = job_explain.friendly_error(notify_error)
     except Exception as exc:
         with LOCK:
             job["status"] = "failed"
@@ -402,6 +394,8 @@ def launch(model, action, source="manual"):
         raise ValueError("Unknown action")
     if model == "m4" and action == "settle":
         raise ValueError("M4 has no formal order settlement: research only")
+    if model == "m3" and action in ("run", "test"):
+        raise ValueError("旧 M3 已归档，正式 M9 AH 请使用 M9")
     with LOCK:
         current = ACTIVE.get(model)
         if current:
@@ -502,7 +496,7 @@ class Handler(BaseHTTPRequestHandler):
             keys = {
                 "m1": "M1_TELEGRAM_BOT_TOKEN",
                 "mr1": "MR1_TG_BOT_TOKEN",
-                "research": "RESEARCH_TG_BOT_TOKEN"
+                "m9": "M9_TG_BOT_TOKEN"
             }
             if group not in keys:
                 return self._json(400, {"error": "未知的机器人"})
@@ -526,7 +520,7 @@ class Handler(BaseHTTPRequestHandler):
                 query = parse_qs(path.query)
                 model = query.get("model", ["m1"])[0]
                 ident = query.get("id", [""])[0]
-                if model not in ("m1", "mr1", "m3", "m4"):
+                if model not in ("m1", "mr1", "m3", "m4", "m9"):
                     return self._json(400, {"error": "未知模型"})
                 record = order_records.get_one(model, ident)
                 return self._json(200, {"order": record}) if record else self._json(404, {"error": "订单不存在"})

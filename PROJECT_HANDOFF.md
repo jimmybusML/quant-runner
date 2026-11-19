@@ -4845,3 +4845,10 @@
 - 已修复 Mac 实际运行的 `app.py`: M9 进入正式TG测试逻辑，并映射专属 `M9_TG_BOT_TOKEN` / `M9_TG_CHAT_ID`；M3/M4仍被排除。更新 `model_test.py` 文档描述。Python编译通过，重启launchd `com.quantasia.localdesk`。
 - 通过真实操作台HTTP API触发M9测试：`20261119T104755Z-8ca0af4` 状态 `succeeded`；离线6项测试通过；Telegram API确认 `ok=true` 且 message_id=`1770`。本机 `state/manual_test_telegram_receipts.jsonl` 记录 `model=m9, kind=TEST_ONLY, status=SENT, message_id=1770`。这是真实测试消息送达，不是正式投注订单；没有调用M9正式run，也没有新增正式订单。
 - 本次最终核对正式开关与连接均为true；测试回执已确认。正式投注运行是否产单仍应等真实M9 run及其正式账本回执，不可由测试成功代替。
+
+## 2026-11-19｜M9正式订单格式按用户示例统一
+
+- 用户明确指定今后所有订单消息格式以单行样式为准：`【MR1】YYYY-MM-DD HH:MM 联赛 主队 vs 客队 全场让球 选中球队 +/-盘口@香港水位`；并要求M9名称只保留 `M9 AH`，删除“双变量泊松”字样。
+- 已修改Mac真实Runner `~/QuantAsiaDesk/repos/runner/ops/m9_formal_ah.py`：M9正式TG消息只输出单行格式，开赛时间转换北京时间，使用共享中文球队/赛事名称库，按所选方向输出球队与盘口线，十进制赔率减1转换香港水位。内部模型身份及计算不变。
+- Mac操作台 `app.py`、`model_test.py`、`job_explain.py`、`web/index.html`、`web/orders.js` 已将所有可见的M9“双变量泊松”命名改为 `M9 AH`；launchd服务重载后真实HTTP页面核实新名称，旧字样不再出现。
+- 新增消息格式测试；M9七项离线测试全通过，Python/JS语法检查通过。本轮没有运行M9正式派单，也没有发新的投注TG。

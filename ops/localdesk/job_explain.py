@@ -34,6 +34,17 @@ def summarize(model, action, raw_log):
                 continue
             if x.get("preview_only"):
                 return "本次扫描完成，发现 " + str(x.get("new_signals",0)) + " 条新预测。没有发送 Telegram，也没有占用正式订单。"
+            if x.get("event") == "M1_IMMEDIATE_TELEGRAM_20261004":
+                locked = int(x.get("new_locks") or 0)
+                claimed = int(x.get("telegram_claimed") or 0)
+                sent = int(x.get("telegram_sent") or 0)
+                unknown = int(x.get("telegram_unknown") or 0)
+                if claimed > sent + unknown:
+                    return ("本次新锁单 " + str(locked) + " 笔，TG 已发 " + str(sent) +
+                            " 笔；有 " + str(claimed-sent-unknown) +
+                            " 笔在发单前未通过后续核验，未发送。")
+                return ("本次新锁单 " + str(locked) + " 笔，TG 已发 " + str(sent) +
+                        " 笔，待确认 " + str(unknown) + " 笔。")
             if "telegram_sent" in x:
                 return "本轮 TG 确认发送 " + str(x.get("telegram_sent", 0)) + " 条，状态未知 " + str(x.get("telegram_unknown",0)) + " 条。"
         return "扫描已执行；尚未取得可核实的新 TG 发送数量。"
@@ -42,10 +53,24 @@ def summarize(model, action, raw_log):
             if "MR1_AH_LOCAL_FORMAL_RESULT " in line:
                 try:
                     x = json.loads(line.split("MR1_AH_LOCAL_FORMAL_RESULT ",1)[1])
-                    return "MR1 扫描完成，Telegram 回执：" + json.dumps({k:x[k] for k in ("sent","skipped","unknown") if k in x}, ensure_ascii=False)
+                    if int(x.get("eligible") or 0) == 0:
+                        return "MR1 本轮没有新的可发正式订单，TG 发送 0 笔；扫描程序已完成。"
+                    return ("MR1 新可发订单 " + str(x.get("eligible",0)) +
+                            " 笔，TG 已发 " + str(x.get("sent",0)) +
+                            " 笔，状态未知 " + str(x.get("unknown",0)) + " 笔。")
                 except ValueError:
                     pass
         return "MR1 扫描和研究计算已执行；没有发现新的 TG 发送回执。"
+    if model == "m9":
+        for line in reversed(lines):
+            if line.startswith("{"):
+                try:
+                    row=json.loads(line)
+                    if row.get("model")=="bivariate_poisson" and row.get("formal_sent_now") is not None:
+                        return "M9 AH：本次正式 TG 已确认发送 " + str(row["formal_sent_now"]) + " 条。"
+                except ValueError:
+                    pass
+        return "M9 操作已执行，正式发送数请以 TG 回执账本为准。"
     if model == "m3":
         return "M3 预测、结算与账本更新任务已执行。影子成绩请到「看战绩」查看。"
     if model == "m4":

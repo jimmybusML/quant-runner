@@ -1,4 +1,4 @@
-"""On-demand isolated tests for M1/MR1/M3/M4.
+"""On-demand isolated tests for M1/MR1/M3/M4/M9.
 
 No model candidate, official Telegram dispatch, bankroll, production ledger, or
 schedule is changed. Optional Telegram test is sent only on an enabled switch.
@@ -19,7 +19,7 @@ STATE = BASE / "state"
 RECEIPTS = STATE / "manual_test_telegram_receipts.jsonl"
 PY = str(BASE / "venv/bin/python")
 NODE = "/usr/local/bin/node"
-MODEL_NAMES={"m1":"M1 AH","mr1":"MR1 AH","m3":"M3","m4":"M4"}
+MODEL_NAMES={"m1":"M1 AH","mr1":"MR1 AH","m3":"M3","m4":"M4","m9":"M9 AH"}
 
 
 def offline_test(model: str):
@@ -29,6 +29,7 @@ def offline_test(model: str):
         "m1": ([PY, "-m", "unittest", "-q", "test_m1_formal_runtime.py"], REPOS / "m1", 12),
         "mr1": ([NODE, "--test", "test-v6-ah-formal.js", "test-crown-source.js"], REPOS / "mr1", 6),
         "m3": ([PY, "-m", "unittest", "discover", "-s", "tests", "-p", "test_m3_segmented_ledger.py", "-q"], REPOS / "runner", 2),
+        "m9": ([PY, "-m", "unittest", "discover", "-s", "tests", "-p", "test_m9_formal_ah.py", "-q"], REPOS / "runner", None),
         "m4": ([PY, "research/m4/mr1_two_league_pass_study.py",
                 str(REPOS / "mr1/data/mr1-v6-cross-market/formal/settled.json")], REPOS / "runner", None),
     }

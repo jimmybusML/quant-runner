@@ -8,7 +8,7 @@ function orderWater(x){if(x===null||x===undefined)return "未保存";return Numb
 function orderLine(x){if(x===null||x===undefined)return "—";var v=Number(x);return v>0?"+"+v.toString():v.toString()}
 function orderTime(x){return x?date(x):"未记录"}
 function outcomeClass(x){return x==="全赢"||x==="半赢"?"green":x==="全输"||x==="半输"?"red":""}
-function orderModelName(model){return model==="m1"?"M1 AH":model==="mr1"?"MR1 AH":model==="m3"?"M3":"M4"}
+function orderModelName(model){return model==="m1"?"M1 AH":model==="mr1"?"MR1 AH":model==="m9"?"M9 AH":model==="m3"?"M3 历史":"M4"}
 function orderGame(item){return (item.home_zh||item.home)+" vs "+(item.away_zh||item.away)}
 function orderMarket(item){return item.market==="OU"?"大小球":"让球"}
 function orderSideMarket(item,side){
@@ -18,7 +18,7 @@ function orderSideMarket(item,side){
 }
 
 function orderScoping(){
- return (selected==="m1"||selected==="mr1")?period:"all";
+ return (selected==="m1"||selected==="mr1"||selected==="m9")?period:"all";
 }
 function orderPanelMarkup(){
  const label=selected==="m4"?
@@ -92,7 +92,7 @@ function orderDraw(payload){
  const label=payload.model==="m4"?"MR1 历史研究对照":"模型订单";
  const coveragePercent=payload.total?(payload.with_both_prices/payload.total*100).toFixed(0):"—";
  let explain="当前范围 "+payload.total+" 笔"+label+"，已结 "+payload.settled+"，未结 "+payload.pending+"。";
- if(payload.model==="m1"||payload.model==="mr1"){
+ if(payload.model==="m1"||payload.model==="mr1"||payload.model==="m9"){
    explain+=" 完整双边水位 "+payload.with_both_prices+" 笔；明确验证 Crown 来源 "+payload.verified_crown+" 笔。";
    if(payload.verified_crown<payload.total)explain+=" 未验证来源的旧单会明确标注，不能当成皇冠。";
  }else if(payload.model==="m3"){
@@ -115,7 +115,7 @@ function orderDraw(payload){
        (payload.model==="m3"?'<span class="quote-quiet">'+esc(x.submodel||"")+' · '+orderMarket(x)+'</span><br>':'')+
        '<span class="selection">'+esc(x.direction)+" "+orderLine(x.selection_line)+'</span>';
     return '<tr data-id="'+esc(x.id)+'" onclick="openOrder(this.dataset.id)">'+
-      '<td class="align-left"><div class="match">'+esc(orderGame(x))+'</div><div class="fixture-sub">'+esc(x.league_zh||x.league)+' · '+orderTime(x.posted_at)+'</div>'+
+      '<td class="align-left"><div class="match">'+esc(orderGame(x))+'</div><div class="fixture-sub">'+esc(x.league_zh||x.league)+' · 出单 '+orderTime(x.posted_at)+' · 开赛 '+orderTime(x.kickoff)+'</div>'+
       (x.same_game_orders>1?'<div class="fixture-sub">此范围同场 '+x.same_game_orders+' 单</div>':'')+
       (x.model==='m1'&&!x.bookmaker_verified?'<div class="fixture-sub no-quote">旧单盘口来源未核实</div>':'')+
       (x.quote_at&&x.posted_at?'<div class="fixture-sub">盘口报价距发单 '+shortAge(x.quote_at,x.posted_at)+'</div>':'')+'</td>'+
@@ -248,7 +248,7 @@ function sameMatchHtml(order){
 }
 /* Focused interface: compact performance, evidence stays available on demand. */
 cards = function(){
-  return ["m1","mr1","m3","m4"].map(function(id){
+  return ["m1","mr1","m9","m4"].map(function(id){
     var x=score(id), roi=x.roi==null&&id==="m3"?(x.settled?x.pnl/x.settled*100:null):x.roi;
     var type=id==="m3"?"模拟":id==="m4"?"研究":"";
     var left=id==="m4"?"样本 "+n(x.sent):"发 "+n(x.sent);
@@ -271,6 +271,13 @@ detail = function(){
     return '<div class="compact-detail"><div class="compact-detail-title"><b>'+modelNames[id]+'</b>'+
       '<div class="segments">'+["all","last","this"].map(function(k){return '<button class="'+(period===k?'active':'')+'" onclick="changePeriod(\''+k+'\')">'+({all:'全部',last:'上周',this:'本周'})[k]+'</button>'}).join('')+'</div></div>'+
       '<div class="compact-counts">'+counts+'</div></div>';
+  }
+  if(id==="m9"){
+    var w=p.m9||{sent:0,settled:0,pending:0,pnl:0,roi:null,states:{}};
+    var labels=[['FULL_WIN','全赢'],['HALF_WIN','半赢'],['PUSH','走水'],['HALF_LOSS','半输'],['FULL_LOSS','全输']];
+    return '<div class="compact-detail"><div class="compact-detail-title"><b>M9 AH · 正式 TG</b></div>'+
+      '<div class="compact-counts">'+labels.map(function(x){return '<span>'+x[1]+' <b>'+n((w.states||{})[x[0]]||0)+'</b></span>'}).join('')+'</div>'+
+      '<div class="sub">正式已发送 '+n(w.sent)+' · 已结 '+n(w.settled)+' · 待结 '+n(w.pending)+' · 发送状态未确认 '+n(w.unknown||0)+'</div></div>';
   }
   if(id==="m3"){
     return '<div class="compact-detail"><div class="compact-detail-title"><b>M3</b></div>'+
@@ -309,10 +316,10 @@ function compactScore(item){
 }
 function compactOrderRow(x,model){
  var home=orderSideMarket(x,'home'),away=orderSideMarket(x,'away');
- var homeLine=home.water==null?'—':orderLine(home.line);
- var awayLine=away.water==null?'—':orderLine(away.line);
+ var homeLine=home.line==null?'—':orderLine(home.line);
+ var awayLine=away.line==null?'—':orderLine(away.line);
  var fromX=x.league_zh||x.league||'';
- var shortMeta=esc(fromX)+' <span class="od-dot">·</span> '+esc(shortOrderDate(x.posted_at));
+ var shortMeta=esc(fromX)+' <span class="od-dot">·</span> '+'出单 '+esc(shortOrderDate(x.posted_at))+' <span class="od-dot">·</span> 开赛 '+esc(shortOrderDate(x.kickoff));
  // Historical source evidence is a detail, not a repeated list badge.
  var info=x.model==='m3'?(x.submodel||''):(x.model==='m4'?(x.m4_action||'').replace('研究假设：',''):'');
  var chosen=esc(x.direction||'—')+' '+orderLine(x.selection_line);
@@ -361,7 +368,7 @@ if(data&&currentTab==='scores')renderScores();
 
 /* Short labels for execution/settings; unchanged actions and saved values. */
 runLines = function(){
- return ["m1","mr1","m3","m4"].map(function(id){
+ return ["m1","mr1","m9","m4"].map(function(id){
    return '<div class="runline"><div class="runname">'+modelNames[id]+'</div>'+
     '<div class="runbuttons"><button class="primary" onclick="runModel(\''+id+'\',\'run\')">运行</button>'+
       (id==='m4'?'':'<button onclick="runModel(\''+id+'\',\'settle\')">结算</button>')+
@@ -380,7 +387,7 @@ control = function(id){
  '<option value="interval" '+(c.schedule_type==='interval'?'selected':'')+'>循环间隔</option></select></div>'+
  '<div class="control" data-time="'+id+'"><label>北京时间</label><input data-k="times" value="'+esc(c.times)+'" placeholder="06:00,12:00"></div>'+
  '<div class="control" data-interval="'+id+'"><label>分钟</label><input data-k="interval_minutes" type="number" min="1" value="'+(c.interval_minutes||'')+'"></div>'+
- '<label class="check"><input type="checkbox" data-k="tg_enabled" '+(c.tg_enabled?'checked':'')+'>'+(research?'研究 TG':'正式 TG')+'</label>'+
+ (research?'':'<label class="check"><input type="checkbox" data-k="tg_enabled" '+(c.tg_enabled?'checked':'')+'>正式 TG</label>')+
  '</div></div>';
 };
 var oldCompactOrderRow=compactOrderRow;
@@ -397,16 +404,16 @@ compactOrderRow=function(x,model){
 
 /* Four user-controlled model tests and one-page local connection setup. */
 runLines = function(){
- return ["m1","mr1","m3","m4"].map(function(id){
+ return ["m1","mr1","m9","m4"].map(function(id){
   const c=data.settings.models[id];
   const isResearch=id==="m3"||id==="m4";
   const keySet=(id==="m1"?["M1_TELEGRAM_BOT_TOKEN","M1_TELEGRAM_CHAT_ID"]:
              id==="mr1"?["MR1_TG_BOT_TOKEN","MR1_TG_CHAT_ID"]:
-             ["RESEARCH_TG_BOT_TOKEN","RESEARCH_TG_CHAT_ID"]);
-  const connected=keySet.every(function(k){return data.credentials[k]});
+             id==="m9"?["M9_TG_BOT_TOKEN","M9_TG_CHAT_ID"]:[]);
+  const connected=keySet.length>0&&keySet.every(function(k){return data.credentials[k]});
   return '<div class="runline"><div class="runname">'+modelNames[id]+'</div>'+
-    '<label class="check run-tg-label" title="由你控制测试或运行时是否发 TG"><input class="run-tg" type="checkbox" '+(c.tg_enabled?'checked':'')+' onchange="toggleModelTelegram(\''+id+'\',this)">'+(isResearch?'研究 TG':'正式 TG')+'</label>'+
-    '<span class="run-connect '+(connected?'linked':'')+'">'+(connected?'已设置':'未设置')+'</span>'+
+    (isResearch?'':'<label class="check run-tg-label" title="正式 TG"><input class="run-tg" type="checkbox" '+(c.tg_enabled?'checked':'')+' onchange="toggleModelTelegram(\''+id+'\',this)">正式 TG</label>')+
+    (isResearch?'':'<span class="run-connect '+(connected?'linked':'')+'">'+(connected?'已设置':'未设置')+'</span>')+
     '<div class="runbuttons"><button class="model-test-btn" onclick="runModel(\''+id+'\',\'test\')">测试</button>'+
       '<button class="primary" onclick="runModel(\''+id+'\',\'run\')">运行</button>'+
       (id==="m4"?"":'<button onclick="runModel(\''+id+'\',\'settle\')">结算</button>')+
@@ -415,6 +422,7 @@ runLines = function(){
 };
 
 async function toggleModelTelegram(model, checkbox){
+ if(model==='m3'||model==='m4'){checkbox.checked=false;toast('研究 TG 未获授权',true);return}
  const current=Object.assign({},data.settings.models[model]);
  const previous=!checkbox.checked;
  try{
@@ -434,7 +442,7 @@ function connectionStatus(){
    api:["TOTALCORNER_TOKEN"],
    m1:["M1_TELEGRAM_BOT_TOKEN","M1_TELEGRAM_CHAT_ID"],
    mr1:["MR1_TG_BOT_TOKEN","MR1_TG_CHAT_ID"],
-   research:["RESEARCH_TG_BOT_TOKEN","RESEARCH_TG_CHAT_ID"]
+   m9:["M9_TG_BOT_TOKEN","M9_TG_CHAT_ID"]
  };
  Object.entries(groups).forEach(function([group,keys]){
   const e=document.querySelector('[data-status="'+group+'"]');
@@ -450,8 +458,8 @@ renderSettings = function(){
  // Preserve credential fields during automatic status updates.
  const editing=active&&active.matches('.connect-input');
  if(!editing){
-  el("settingModels").innerHTML=["m1","mr1","m3","m4"].map(control).join("");
-  ["m1","mr1","m3","m4"].forEach(scheduleFields);
+  el("settingModels").innerHTML=["m1","mr1","m9","m4"].map(control).join("");
+  ["m1","mr1","m9","m4"].forEach(scheduleFields);
  }
  connectionStatus();
 };
@@ -538,7 +546,8 @@ renderRuns=function(){
          var steps={
            m1:["策略核对","扫描比赛"],
            mr1:["采集市场","计算模型","核算赛果","保存运行记录"],
-           m3:["整理历史数据","采集赛程","保存赛程","核对赛事范围","模型预测","生成影子订单","核对模型状态","核算比分","保存账本","更新战绩"],
+           m3:["归档旧研究"],
+           m9:["读取原范围赛事","生成AH预测","读取Crown AH","生成正式方向","发送正式 TG","保存回执"],
            m4:["联赛研究"]
          }[job.model]||[];
          var matches=[...text.matchAll(/Step (\d+)\/(\d+):/g)];
