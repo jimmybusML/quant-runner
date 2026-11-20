@@ -1,0 +1,97 @@
+{
+  "study": "M8 dynamic Elo versus Crown AH price; research-only time-forward hindcast",
+  "generated_at_local": "2026-11-20T18:04:17.080434+08:00",
+  "git_head": "51b9fd9ac45a3332e996c381b25de993c6234439",
+  "execution_commands": [
+    "python3 m8_dynamic_elo_crown_ah_20261120.py",
+    "python3 independent_verify_m8_dynamic_elo_crown_ah_20261120.py"
+  ],
+  "inputs": {
+    "scores": {
+      "path": "/Users/mac/QuantAsiaDesk/research-work/m8_independent_score_strength_20261114.jsonl",
+      "sha256": "e8cf152c821725139b5492746faa32fe46889886c3971878ee9cb6473e3662f8"
+    },
+    "crown_features": {
+      "path": "/Users/mac/QuantAsiaDesk/research-work/m8_late_full_path_water_features_20261114.jsonl",
+      "sha256": "f21d4d49621df503efdb607b72b08882c1f1365c3178cce13e696d9aad4b697e"
+    },
+    "frozen_membership": {
+      "path": "/Users/mac/QuantAsiaDesk/research-work/m8_foundation_20261115/historical_membership.jsonl",
+      "sha256": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665"
+    },
+    "actual_crown_receipts": {
+      "path": "/Users/mac/QuantAsiaDesk/research-work/m8_MR1_full_actual_Crown_receipt_archive_20261113.jsonl",
+      "sha256": "e3e1250b6e9bf8fe1a8cf638f46b276475e55b85d74fb12c7f105d048a67be5b"
+    },
+    "verified_ft_index": {
+      "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_actual_received_Crown_verified_FT_index_20261110_v3.jsonl",
+      "sha256": "bc5413f2d50dca059b06da4cbaba3be847011400a1ef182d4b5b9c526706d578"
+    }
+  },
+  "outputs": {
+    "m8_dynamic_elo_crown_ah_20261120.py": {
+      "sha256": "892dc4aaa94ba3f5fe1b542bcbe42c5d65a203dfa834207d94036c1728c8530c",
+      "bytes": 26992
+    },
+    "independent_verify_m8_dynamic_elo_crown_ah_20261120.py": {
+      "sha256": "1af78f54386759fd6b830e417e311372da097000a93e9af29fca353096b41705",
+      "bytes": 5683
+    },
+    "build_execution_manifest_20261120.py": {
+      "sha256": "18ae6d0435cf2e4c3154c2ad63d61315e8bacadaaffba951e9e8e29955fd1da2",
+      "bytes": 2514
+    },
+    "m8_dynamic_elo_crown_ah_predictions_20261120.jsonl.gz": {
+      "sha256": "09670edcc64423411dbb3a4f37bc01dae497e7a9e3bf4de7f3ce32edc0a5ec22",
+      "bytes": 17073561
+    },
+    "m8_dynamic_elo_crown_ah_true_receipt_replay_20261120.jsonl.gz": {
+      "sha256": "72a9f84cb87fca71054a3730e6182668d287b5d37ec402bbd1431c4038068c02",
+      "bytes": 18084
+    },
+    "m8_dynamic_elo_crown_ah_summary_20261120.json": {
+      "sha256": "a46e98d3e9a533936f26365655f6f8b14dc12825bbedd4c6372786a84e61e717",
+      "bytes": 1948691
+    },
+    "independent_verification_20261120.json": {
+      "sha256": "22d44b7345021c81484c9afe26ae540cdc163d4d9d5531e164a21ea2705a5437",
+      "bytes": 748
+    },
+    "M8_DYNAMIC_ELO_CROWN_AH_REPORT_20261120.md": {
+      "sha256": "fcfea09d3bc58083a4a63744a5b78e36a78610f935d53a0b98609c2659d04cb6",
+      "bytes": 12439
+    }
+  },
+  "verification": {
+    "historical_rows_per_method": {
+      "CROWN_ONLY": 27884,
+      "ELO_CONTRACT": 27884,
+      "CROWN_PLUS_ELO": 27884
+    },
+    "unique_test_fids_per_method": {
+      "CROWN_ONLY": 27884,
+      "ELO_CONTRACT": 27884,
+      "CROWN_PLUS_ELO": 27884
+    },
+    "new_fids_per_method": {
+      "CROWN_ONLY": 21455,
+      "ELO_CONTRACT": 21455,
+      "CROWN_PLUS_ELO": 21455
+    },
+    "historical_net_u_recomputed": {
+      "CROWN_ONLY": -966.5249999999954,
+      "ELO_CONTRACT": -906.6199999999933,
+      "CROWN_PLUS_ELO": -943.9049999999975
+    },
+    "receipt_crown_only_rows": 84,
+    "receipt_net_u_recomputed": -0.2,
+    "quarter_lines_recalculated": true,
+    "frozen_fid_overlap_checked": true,
+    "receipt_raw_sha_and_exact_crown_quote_checked": true,
+    "verified_ft_rechecked": true
+  },
+  "production_changes": false,
+  "formal_telegram_orders": 0,
+  "formal_ledger_writes": 0,
+  "note": "This manifest intentionally does not hash itself. Source data and Crown raw HTTP bodies remain local; the published receipt ledger contains quote identities and hashes, not raw response bodies."
+}
