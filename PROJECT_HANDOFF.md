@@ -4,7 +4,7 @@
 - 2024–2026八组外6,960个唯一FID：Crown-only固定强制选边为−299.435U/−4.302%；Crown+阵型为−197.220U/−2.834%，损失减少102.215U，但仍为负。双方净胜球MAE/RMSE没有整体改善；2,094/6,960场改选方向。EV正向诊断策略也为负（Crown-only 1,291场/−21.140U；Crown+阵型2,823场/−122.060U）。三个年度强制方向均亏损。
 - Crown与FT独立复核8,675行全部通过：T−1报价匹配8,675、FT/身份错误0、结算错误0、重复FID0、原八组交集0、真实live Crown收据0。同期冻结八组6,873场/+197.765U；加上阵型强制方向后13,833场/+0.545U，说明候选亏损抵减原组利润，不能称新增盈利。
 - Transfermarkt阵型数据没有可靠首次发布时间或当时接收时间，因此该结果只是历史回放，不能证明赛前可用性；目标比赛自身阵型/首发没有进入特征。未修改原八组、M1/MR1/M9、Telegram、正式账本、Crown采集或生产工作流。
-- 执行与审计细节见 `research/m8/formation_matchup_20261120/EXECUTION_RECORD.md`。本交接在研究提交及PR创建后补记其commit/PR状态。
+- 执行与审计细节见 `research/m8/formation_matchup_20261120/EXECUTION_RECORD.md`。研究提交 `5cc0a57` 已推送到公开分支 `research/m8-formation-matchup-publish`，PR #70（https://github.com/jimmybusML/quant-runner/pull/70）目标为 `main`、保持开放未合并；本交接更新随后的提交单独记录。
 
 ---
 
