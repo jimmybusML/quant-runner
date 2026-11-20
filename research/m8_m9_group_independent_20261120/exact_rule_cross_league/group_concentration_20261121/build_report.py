@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+import json
+from pathlib import Path
+p=Path(__file__).resolve().parent
+x=json.loads((p/'group_concentration_results.json').read_text())
+name={'10':'International Match','10714':'Albania Championship','11498':'Andorra Premier Division','129':'Brazil Serie A','19290':'Argentina Liga Profesional','27388':'UEFA Nations League A','27389':'UEFA Nations League B','27390':'UEFA Nations League C','314':'Belarus Premier League','33':'Bosnia & Herzegovina Premier Liga','378':'Egypt Division 1','670':'Gulf Cup','779':'Mexico Liga MX','8293':'Kosovo Superliga','85':'USA MLS'}
+L=['# M8 冻结原八组跨联赛逐组盈利集中度审计','',f"执行时间（UTC）：{x['execution_utc']}",'','## 目的与边界','',
+'本次审计继续检查冻结 base/A–G 在原49联赛外的既有 1,160 笔规则回放，新增问题是逐组剖析联赛及年度贡献集中度。不是新策略，不改变原策略条件、方向、规则优先级、成员、盘口或已结算订单。所有留一联赛/留一年数值是事后影响诊断，不是筛选条件。',
+'报价为历史回取 Crown source-event T1，不是实际HTTP赛前收件或正式派单。输入是已独立核验的逐笔账本；本次仅重新统计逐组/逐年/逐联赛影响，不重新结算原始市场。', '',
+'## 总体与组间贡献','',
+'| 冻结优先归组 | 唯一订单 | 净U | ROI | MDD U | 正收益年度 | 负收益年度 | 最大盈利联赛 | 移除该联赛后该组净U |', '|---|---:|---:|---:|---:|---:|---:|---|---:|']
+for g,d in x['groups'].items():
+ s=d['assigned_unique_orders']; lead=d['top_positive_league_by_net_U']; lname=name.get(lead,lead) if lead else '无正收益联赛'
+ L.append(f"| {g} | {s['n']} | {s['net_U']:+.3f} | {s['ROI_pct']:+.3f}% | {s['MDD_U']:.3f} | {d['positive_years']} | {d['negative_years']} | {lname} | {d['net_after_removing_top_positive_league']:+.3f} |")
+L += ['', '八组归属逐场互斥，按原优先级去重；分组单量和净U严格合计回1,160笔/+10.890U。累计总数：base 691，A–G 469。F组 +12.180U、base +8.580U、D +4.860U、E +1.900U、G +1.605U、C +0.910U；A/B分别 −13.190/−5.955U。盈利组总和 +30.035U，亏损组总和 −19.145U。不是可互换盈利来源。', '',
+'### 逐组年度成绩','', '| 组 | 年份 | 单量 | 净U | ROI |','|---|---:|---:|---:|---:|']
+for g,d in x['groups'].items():
+ for year,s in d['annual'].items():L.append(f"| {g} | {year} | {s['n']} | {s['net_U']:+.3f} | {s['ROI_pct']:+.3f}% |")
+L += ['', '### 逐组跨联赛盈利贡献','', '| 组 | 有单联赛（正/负） | 最大正贡献联赛（净U/场次） | 次大正贡献联赛 | 最大负贡献联赛（净U/场次） |', '|---|---:|---|---|---|']
+for g,d in x['groups'].items():
+ rank=sorted(((s['net_U'],l,s['n']) for l,s in d['league'].items()),reverse=True)
+ pos=[q for q in rank if q[0]>0]; neg=[q for q in rank if q[0]<0]
+ fmt=lambda q:f"{name.get(q[1],q[1])} ({q[0]:+.3f}U/{q[2]})" if q else '—'
+ L.append(f"| {g} | {len(d['league'])} ({d['positive_leagues']}/{d['negative_leagues']}) | {fmt(pos[0] if pos else None)} | {fmt(pos[1] if len(pos)>1 else None)} | {fmt(neg[-1] if neg else None)} |")
+L += ['', '全部组×联赛和组×年度单元，以及年度/联赛ISO周分布在 `group_concentration_results.json` 与 `group_league_year.csv`。全样本的完整组别每周单量和净U在同一JSON每组 `assigned_unique_orders.weekly` 中。', '',
+'## 留一影响诊断','',
+'- base 共 +8.580U，但其最大正贡献联赛是International Match；移除该联赛后变为 −2.180U。base 2019–2025样本中若干年度亏损，2026只有9笔，因此其年度正收益不能解释为当前时间外稳定性。',
+'- F 为 +12.180U/109笔；主要正贡献分散在 Brazil Serie A (+3.630U/21)、MLS (+3.070U/36)、Egypt (+2.590U/14) 等。去掉最大正贡献Brazil Serie A后仍 +8.550U。其 2019–2025 有6正2负年度，但 2026只有2笔；这是本队列相对分散的组别历史迹象，仍然不等于真实实收验证。',
+'- D 为 +4.860U/11笔，移除最大正贡献 MLS 后 +2.680U，但样本仍非常小；A 亏损 −13.190U，B 亏损 −5.955U。',
+'- E 为 +1.900U/38笔，最大正贡献来自 MLS；删除后仅 +0.110U。G 为 +1.605U/39笔，删除最大正贡献 Albania 后转为 −1.205U。C 仅1笔 +0.910U。',
+'- 各组逐年留一年度净U、逐联赛留一净U均完整保存。该统计在看见历史结算后进行，因此只能量化依赖度；不得将“删掉哪个联赛/年度”转成研究或生产过滤。',
+'- 多组原始触发交叠关系：A|G 23个FID、D|G 7、A|C 4、A|base 1、C|base 1（其中多重交叠使 pair count 不等于 unique overlap FID）。冻结优先级分派后的1,160个订单是唯一FID；本审计没有重复计收益。', '',
+'## 对扩单目标的含义','',
+'原49联赛外精确规则历史新增队列总体仅 +10.890U/+0.939%，且汇总盈利脆弱：既有全组合影响审计显示，移除 International Match 后转为 −0.510U，同时移除 International Match 与 MLS 后为 −11.085U。本次逐组审计进一步发现，base 净收益集中于 International Match；F 的历史正收益来自多个联赛，但2026样本很稀疏；其余小规模正收益组不足以证明可持续容量。历史正ROI本身不能证明这是独立持久盈利来源。',
+'按各组规则原样产生的历史候选量合计周均2.997单（以扩展赛程观测期387周计，来自既有报告）。没有真实HTTP实收订单可以计算实收周量或实收盈利。新增队列有正历史贡献，不等于已证实可增加实战净利润。', '',
+'## 样本核验','',
+'- 输入账本 SHA256：`'+x['source_sha256']+'`；原冻结成员SHA256：`'+x['frozen_sha256']+'`。',
+'- 唯一候选FID：1,160；冻结成员：10,294；交集0；source capture mode全为historical；真实赛前 HTTP 收据标记0。',
+'- 分组分区校验：'+str(x['group_partition_reconciles']['n'])+'单/'+f"{x['group_partition_reconciles']['net_U']:+.3f}U"+' 与并集一致。',
+'- 原始皇冠盘口和FT/亚洲盘结算验证见父目录 `exact_rule_cross_league_independent_verification.json`，其结果1,160/1,160通过。', '',
+'## 文件','',
+'- `audit_group_concentration.py`：读取冻结规则回放订单并计算固定组别、逐年、逐联赛、ISO周与留一影响。',
+'- `group_concentration_results.json`：完整逐组、逐年度、逐联赛、逐周和输入证明SHA。',
+'- `group_league_year.csv`：便于查看的组×联赛/年度账目。',
+'- `GROUP_CONCENTRATION_REPORT.md`：本报告。',
+'- `EXECUTION_RECORD.json`、`SHA256SUMS.txt`：执行和输入/输出哈希。', '',
+'## 研究判断','',
+'此次审计没有增加新订单来源，也没有把原49联赛外旧规则回放提升为新正式策略。F组较少依赖单一竞赛的历史迹象值得保留，但年度、特别是2026实收/持出支持不足；base的净收益依赖国际赛。下一步若要验证原规则跨联赛的可迁移盈利，需要真正独立的新赛事/真实收到的报价数据；现有覆盖止于2026-06-01，且新增联赛真实收据为空。任何后续数据缺口不能以旧报价改名为实收。']
+(p/'GROUP_CONCENTRATION_REPORT.md').write_text('\n'.join(L)+'\n')
