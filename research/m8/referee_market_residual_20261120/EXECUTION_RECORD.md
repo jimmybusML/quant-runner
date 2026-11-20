@@ -30,4 +30,4 @@ The public SHA manifest hashes all research inputs and generated artifacts. The 
 
 ## Publication state
 
-This experiment is on a standalone research branch based on the then-current `origin/main`; it is separate from the older cross-league PR branch. It is not an M8 production or official Telegram result. Commit and PR identifiers are added here only after publication succeeds.
+This experiment is on standalone research branch `research/m8-referee-residual-20261120`, based on `origin/main` `36cedce`; it is separate from the older cross-league PR branch. Commit `b777327e7de9ecc3d9ab7bffaba39cbc4dabe360` was pushed and PR [#69](https://github.com/jimmybusML/quant-runner/pull/69) is OPEN against `main`, not merged. This is not an M8 production or official Telegram result.

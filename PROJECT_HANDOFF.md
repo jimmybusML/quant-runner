@@ -4954,4 +4954,4 @@
 - 与冻结成员FID交集0；同期冻结八组6,873单/+197.765U。原八组合并不改变候选自身负收益的判断。MR1真实HTTP receipt预测交集0，故真实收据模型回放为0。历史 Crown T1均为赛后 source-event 回取，未称为实收或可成交。
 - 主脚本、逐场结果、年度/周/联赛收益、独立quarter-line核验器和 SHA manifest 均在该目录。重跑独立核验7,081/7,081原始 Crown T1线水/身份/FT通过，35,405行方法结算与汇总误差0；覆盖与局限见报告。身份桥继承脚本的经理诊断输出不计入本实验；裁判行以独立校验器逐条复核通过为准。
 - 该结果不证明Crown已充分定价裁判，也不证明裁判无预测信息；缺少赛前任命时间且收据交集为0，当前数据无法验证信息可交易性。原八组、M1/MR1/M9、生产系统、Telegram、正式账本、采集链和正式规则未改。本轮0正式派单、0账本回写、0生产工作流。
-- 研究报告：`research/m8/referee_market_residual_20261120/M8_REFEREE_MARKET_RESIDUAL_RESEARCH_20261120.md`；实际执行和限制：同目录`EXECUTION_RECORD.md`；输入/输出SHA：`SHA256SUMS.txt`。公开研究分支/PR信息在提交后补记。
+- 研究报告：`research/m8/referee_market_residual_20261120/M8_REFEREE_MARKET_RESIDUAL_RESEARCH_20261120.md`；实际执行和限制：同目录`EXECUTION_RECORD.md`；输入/输出SHA：`SHA256SUMS.txt`。已提交公开研究分支`research/m8-referee-residual-20261120`，commit `b777327e7de9ecc3d9ab7bffaba39cbc4dabe360`；PR [#69](https://github.com/jimmybusML/quant-runner/pull/69) OPEN，目标main、未合并。
