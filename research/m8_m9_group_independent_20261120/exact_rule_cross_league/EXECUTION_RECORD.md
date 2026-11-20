@@ -81,3 +81,12 @@ python3 research/m8_m9_group_independent_20261120/exact_rule_cross_league/build_
 - The regenerated report now also renders every group’s annual order count/net U/ROI directly, while the JSON retains full group-by-year, group-by-league, and ISO-week detail. G remains the original independent score-rate/expected-AH-EV logic and is not replaced with M9.
 - Gzip ledger content was compared after decompression with the committed run; it is identical. The refreshed manifest hashes all current deliverables and the current local SQLite input. No membership, rule, direction, cutoff, odds, FT, or P&L changed.
 - This is a historical source-event replay only: no actual receipt or Telegram/production order was created. No production strategy, collector, workflow, or formal ledger was changed.
+
+## User-requested full rerun — 2026-11-20 18:16 UTC
+
+- Research branch: `research/m8-m9-groups`; starting HEAD `fcdfe354a2ec49d92b7c6c8aaadb8e6c19614d40`, clean before run.
+- Re-ran `py_compile`, `run_exact_rule_cross_league.py`, `verify_exact_rule_cross_league.py`, `verify_frozen_e_direction.py`, `build_deliverables.py`, and `write_sha256_manifest.py` against the current read-only inputs.
+- Current input SHA256: expanded schedule `a9d48b40cba84e5bf49f490b4b25bada9bc12a6266e6da0eed51c063166b8258`; Crown SQLite `7401078708d56a122987fde6231ae4b8cf296020d7fae54048437e73462c8a3f`; frozen membership `6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665`.
+- Reproduced the full 18,374-FID outside-49 inventory: 11,266 captures with `NO_CROWN_AH_QUOTES`, 7,108 with saved quotes, 7,106 with at least one pregame source quote, 6,967 complete T6/T3/T1 paths, 139 lacking a T6-or-earlier quote, and 2 with no valid pregame AH quote. Missing paths remain data gaps, not rule non-hits.
+- Exact frozen-priority base/A-G replay reproduced 1,160 unique outside-frozen FIDs, +10.890U, +0.939% ROI, MDD 20.460U, and zero overlap with the 10,294 frozen FIDs. Independent re-read of raw Crown response, FT and quarter-line settlement passed 1,160/1,160 with no issues; all 18,374 outside FIDs were checked for live capture and there were 0. Frozen E direction reproduced 267/267.
+- Report, summary, weekly ledger, compressed orders and SHA manifest were refreshed. No frozen rule, member, direction, cutoff, data source, production workflow, Telegram, formal ledger, or collector was modified. Historical source-event replay is not evidence of HTTP receipt execution or formal orders.
