@@ -4992,3 +4992,10 @@
 - 独立复核脚本重新读取原 Crown T1 路径档案、M5行、扩展完整路径及FT来源，核对五态概率选择后的AH结算、quarter-line拆腿、原八组标记与EV诊断；156,015条模型×FID账本行全部匹配，错误0。复核是输入档案与结算核验，不代表缺少的全部raw HTTP body独立审计。文件SHA与执行记录见 `research/m8/low_score_dependence_20261120/EXECUTION_MANIFEST_20261120.json`、`SHA256SUMS_20261120.txt`。
 - 产物：主报告 `M8_LOW_SCORE_DEPENDENCE_RESEARCH_20261120.md`、主研究/独立校验/报告及manifest builder脚本、逐场gzip、逐年/周/联赛summary、独立验证JSON。主脚本与验证器运行成功；无正式Telegram订单、正式账本写入、生产工作流、采集链或模型变更。
 - 该候选机制未发现原八组外盈利来源；团队/联赛低比分依赖未优于独立Poisson，更未覆盖实际价格成本。成果仅供研究，未新增Gate、正式规则或第九组。
+
+## 2026-11-20｜跨49联赛精确规则研究的 E 组方向来源复核补记
+
+- 对 PR #68 中 `research/m8/exact_rules_outside_original49_20261120/` 的原始跨联赛结果再次执行了逐笔 Crown 原响应 SHA 与赛程 FT 独立结算：1,271/1,271 笔一致、错误0、重算+7.185U。该补充复核未改变原回测输出。
+- 发现两个研究实现对 E 组端点相等时方向处理不同：较新的冻结边界 helper `group_side('E')` 返回无方向；更早完整路径库存生成器 `m8_extra_inventory_frozen_eight_20261115.py` 使用 `net → p0到p3 → p3到p1 → last_move` 的首个非零值决定边。跨联赛复算采用后一完整路径原实现。与冻结 E 组成员可核验路径及 Crown 结算记录交叉的161场方向全部吻合（0不一致）；267名 E 组成员中106名缺少配对路径/结算证据。跨联赛新增 E 组52单均为端点净变化为零的场次。
+- 新增可复跑审计 `research/m8/exact_rules_outside_original49_20261120/audit_frozen_E_direction_consistency_20261120.py` 与 JSON 证据；报告和 SHA 清单同步说明该代码来源差异。没有重定义或修改冻结规则、成员、生产模型或正式订单。
+- 本次校验基于 PR #68 当前研究分支 `research/m8-exact-cross-league-expansion`；原 PR 仍开放、未合并。补记提交后将推送到该分支并供 PR #68 复核。
