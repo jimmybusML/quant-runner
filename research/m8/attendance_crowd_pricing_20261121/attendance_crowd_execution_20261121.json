@@ -1,0 +1,23 @@
+{
+  "study": "M8 previous-home attendance/crowd information vs Crown AH",
+  "execution_completed_utc": "2026-11-20T18:44:44Z",
+  "execution_completed_local": "2026-11-21 Asia/Shanghai",
+  "branch": "research/m8-m9-groups",
+  "execution_record": [
+    "python3 -m py_compile research/m8/attendance_crowd_pricing_20261121/run_attendance_crowd_research.py research/m8/attendance_crowd_pricing_20261121/verify_attendance_crowd_research.py",
+    "python3 research/m8/attendance_crowd_pricing_20261121/run_attendance_crowd_research.py",
+    "python3 research/m8/attendance_crowd_pricing_20261121/verify_attendance_crowd_research.py",
+    "python3 research/m8/attendance_crowd_pricing_20261121/build_attendance_crowd_report.py"
+  ],
+  "raw_crown_t12_contracts_and_ft_rechecked": 41059,
+  "independent_verification_pass": true,
+  "independent_verification_issues": {},
+  "models": {
+    "market_only_ridge": {"n": 6861, "net_U": -63.28, "ROI_pct": -0.922315},
+    "attendance_only_ridge": {"n": 6861, "net_U": -154.615, "ROI_pct": -2.253534},
+    "crown_plus_attendance_ridge": {"n": 6861, "net_U": -210.915, "ROI_pct": -3.074115}
+  },
+  "actual_receipt_model_replays": 0,
+  "production_changes": false,
+  "official_trade_status": "research only; no Telegram order, production ledger write, deployment, or strategy change"
+}
