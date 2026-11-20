@@ -39,3 +39,10 @@ python3 research/m8_m9_group_independent_20261120/exact_rule_cross_league/build_
 - Research files are confined to this independent research directory.
 - No GitHub Actions/workflow execution, formal Telegram dispatch, or formal ledger write occurred.
 - Commit and PR references are appended to `PROJECT_HANDOFF.md` after the research branch push and PR creation.
+
+## Published status
+
+- Research commit: `5aad821` (`research/m8-m9-groups`).
+- Pull request: https://github.com/jimmybusML/quant-runner/pull/67, base `main`; created and intentionally not merged.
+- `PROJECT_HANDOFF.md` now records the actual run, results, limitations, commit and PR.
+- No production workflow, Telegram dispatch, formal ledger write, or production configuration change occurred.
