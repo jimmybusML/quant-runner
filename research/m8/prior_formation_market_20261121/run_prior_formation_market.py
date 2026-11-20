@@ -291,6 +291,10 @@ def main():
   receipt_all[method]=stats(arr);receipt_incremental[method]=stats(inc)
   receipt_weekly[method]=group_stats(inc,'iso_week')
  write_gz(OUT/'formation_market_actual_receipt_replay_20261121.jsonl.gz',[r for m in methods for r in receipt_pred[m]])
+ receipt_unique_rows={r['fid']:r for r in receipt_pred['formation_only']}
+ receipt_target_dates=[dt.date.fromisoformat(r['date']) for r in receipt_unique_rows.values()]
+ receipt_feature_lags=[(d-max(dt.date.fromisoformat(r['formation_history_home_max_date']),dt.date.fromisoformat(r['formation_history_away_max_date']))).days
+                       for d,r in ((dt.date.fromisoformat(r['date']),r) for r in receipt_unique_rows.values())]
  summary={'study':'M8 pregame prior formation mix × Crown AH pricing; historical event-time replay',
   'execution_utc':dt.datetime.now(dt.timezone.utc).isoformat(),
   'input_sha256':{str(p):sha(p) for p in (FOUNDATION,RECEIPTS,GAMES)},
@@ -311,6 +315,9 @@ def main():
   'weekly_incremental':weekly,'league_incremental':league,'frozen_plus_candidate_same_period':merged_same,'frozen_plus_candidate_full_frozen_union':merged_full,
   'actual_receipt_replay':{'selected_latest_pregame_quote_per_FID':len(receipt_quotes),'quote_audit':dict(receipt_audit),
    'outside_frozen_unique_fids':len({r['fid'] for r in receipt_pred['market_plus_formation'] if not r['frozen_overlap']}),
+   'target_date_range':[min(receipt_target_dates).isoformat(),max(receipt_target_dates).isoformat()] if receipt_target_dates else [],
+   'formation_source_latest_date':max(max(str(r['formation_history_home_max_date']),str(r['formation_history_away_max_date'])) for r in receipt_unique_rows.values()) if receipt_unique_rows else None,
+   'target_minus_latest_team_formation_days':{'min':min(receipt_feature_lags),'median':float(np.median(receipt_feature_lags)),'max':max(receipt_feature_lags)} if receipt_feature_lags else None,
    'models_all_receipt_fids':receipt_all,'models_incremental_outside_frozen':receipt_incremental,'weekly_incremental':receipt_weekly,
    'formation_feature_time_status':'Retrospective Formation dataset rows precede each target by date, but first-publication/receipt timestamps are absent; these rows are receipt-price replay with non-verified contemporaneous feature acquisition.'},
   'pairwise_candidate_fid_overlap':{a:{b:len({r['fid'] for r in pred[a] if not r['frozen_overlap']}&{r['fid'] for r in pred[b] if not r['frozen_overlap']}) for b in methods} for a in methods},

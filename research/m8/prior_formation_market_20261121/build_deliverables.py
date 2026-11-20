@@ -39,14 +39,14 @@ def league_table():
 
 text=f'''# M8 阵型历史分布 × Crown AH 定价研究
 
-执行时间（研究重跑）: {s['execution_utc']} UTC  
+执行时间（研究重跑）: {s['execution_utc']} UTC
 范围：仅研究回放；冻结原八组不变；不涉及生产、Telegram或正式账本。
 
 ## 结论
 
 **没有找到正净利润的新订单来源。**在相同的 6,571 个八组外 FID 上，三个固定方案全期均亏损。阵型分布模型把 Crown 市场基线的亏损从 −100.830U 缩小至 −15.995U，但仍为负；加入 Crown 特征后的模型亏损 −93.155U。阵型单独模型的减亏主要来自 2025 年 +44.735U，2024 年接近持平（−3.245U），2026 年转为 −57.485U；没有跨年度正收益延续。
 
-另对实际赛前收到的 Crown 报价进行独立回放：审计到 {s['actual_receipt_replay']['selected_latest_pregame_quote_per_FID']} 个具有合格最新赛前报价的 FID；其中 {s['actual_receipt_replay']['outside_frozen_unique_fids']} 个在冻结八组外。三个方案在这 {s['actual_receipt_replay']['outside_frozen_unique_fids']} 个新增 FID 上分别亏损，详见下表。**这只是使用真实收件价格的历史回放**：Transfermarkt 阵型档案没有首次发布时间/接收时间，不能证明这些特征在当时已可用；这些比赛也已进入以往研究观察，不是盲测或正式派单。
+另对实际赛前收到的 Crown 报价进行独立回放：审计到 {s['actual_receipt_replay']['selected_latest_pregame_quote_per_FID']} 个具有合格最新赛前报价的 FID；其中 {s['actual_receipt_replay']['outside_frozen_unique_fids']} 个在冻结八组外。三个方案在这 {s['actual_receipt_replay']['outside_frozen_unique_fids']} 个新增 FID 上分别亏损，详见下表。**这只是使用真实收件价格的历史回放**：阵型档案截至2026-07-06，而该实收目标窗口在10–11月，最新历史阵型记录距离目标赛日96–330天；首次发布时间/接收时间也不存在，不能证明特征在当时已可用。比赛已经进入此前研究观察，不是盲测或正式派单。
 
 ## 机制假说及与既有研究的区别
 
@@ -85,11 +85,11 @@ text=f'''# M8 阵型历史分布 × Crown AH 定价研究
 
 ## 真实赛前 Crown 收据价格回放
 
-实际收据选择每个FID最新一条通过 HTTP 原响应 SHA、Crown 盘口快照 SHA、Crown身份、赛前接收时刻和双方AH合约核验的报价。独立脚本从原始 HTTP envelope 与 snapshot 重读并重算：报告内{v['actual_receipt_unique_FIDs']}个唯一报价FID（每模型一行，共{v['actual_receipt_model_rows']}条）；八组外 {s['actual_receipt_replay']['outside_frozen_unique_fids']} 个。历史 T12 事件报价未被用来替换实收价。
+实际收据选择每个FID最新一条通过 HTTP 原响应 SHA、Crown 盘口快照 SHA、Crown身份、赛前接收时刻和双方AH合约核验的报价。独立脚本从原始 HTTP envelope 与 snapshot 重读并重算：报告内{v['actual_receipt_unique_FIDs']}个唯一报价FID（每模型一行，共{v['actual_receipt_model_rows']}条）；八组外 {s['actual_receipt_replay']['outside_frozen_unique_fids']} 个。实际目标开赛日期为 {s['actual_receipt_replay']['target_date_range'][0]} 至 {s['actual_receipt_replay']['target_date_range'][1]}，Formation档案最晚历史阵型记录为 {s['actual_receipt_replay']['formation_source_latest_date']}；每场最新可用阵型记录距目标赛日中位数{s['actual_receipt_replay']['target_minus_latest_team_formation_days']['median']:.0f}日，范围{s['actual_receipt_replay']['target_minus_latest_team_formation_days']['min']}–{s['actual_receipt_replay']['target_minus_latest_team_formation_days']['max']}日。因此收据窗口里输入阵型数据明显陈旧。历史 T12 事件报价未被用来替换实收价。
 
 {receipt_table()}
 
-上述窗口为2026 ISO W41–W45，部分周只有7个候选；逐周净U在 `formation_market_summary_20261121.json` 内完整保留。收据回放不是新样本：收据归档时间存在，但阵型信息的首次公告时间不存在。
+上述窗口为2026 ISO W41–W45，部分周只有7个候选；逐周净U在 `formation_market_summary_20261121.json` 内完整保留。收据回放不是新样本：收据归档时间存在，但阵型信息的首次公告时间不存在，且数据源截至2026-07-06，不能代表10–11月赛前球队实际采用的最新阵型。
 
 ## 原始报价、赛果与收益独立复核
 

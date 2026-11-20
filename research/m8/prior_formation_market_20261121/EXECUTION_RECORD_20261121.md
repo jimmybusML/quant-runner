@@ -21,6 +21,7 @@
 - Outside-frozen Crown+formation: 6,571, −93.155U, −1.418%, MDD 118.910U.
 - All three select on the same 6,571 candidate FIDs; mean volume is 44.101 historical bets per ISO week across the common 91-week period. None is profitable.
 - Latest verified actual pregame Crown receipts: 305 FIDs, 218 outside frozen. Outside-frozen replay: market-only −10.850U, formation-only −21.220U, combined −26.850U. These receipts are historical outcomes already observed in prior research. Formation archive first-publication/receipt times are unavailable, so feature contemporaneity is unverified.
+- Receipt target dates run 2026-10-08 through 2026-11-03, but the formation archive's latest date is 2026-07-06; the latest per-team formation observation is 96–330 days old (median 161 days) at those target dates. Treat this only as stale-feature price stress replay, not a contemporary lineup-feature receipt test. Median is calculated once per unique FID (not across the 3 model rows).
 - Frozen eight plus candidates remains a descriptive union only; the new candidate P&L is negative and reported separately.
 
 ## Boundaries and outstanding research evidence
