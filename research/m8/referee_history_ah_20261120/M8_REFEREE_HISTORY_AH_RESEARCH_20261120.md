@@ -64,7 +64,7 @@ Candidate ISO-week count and net U for every method are preserved in `m8_referee
 
 ## League distribution
 
-The central Crown+referee candidate was positive in 8 of 25 leagues and negative in 17; league IDs are the Crown IDs. Positive groups were 1, 12, 25, 29, 48, 52, 70, 75; all 25 counts, net U and ROI are in the result JSON. The largest positive entries include ID 1 (459 orders, +25.165U), ID 48 (351, +15.345U), ID 52 (142, +11.450U), ID 70 (109, +8.245U), and ID 75 (41, +7.275U). The largest negative entries include ID 14 (601, −29.845U), ID 262 (257, −21.730U), ID 26540 (246, −13.270U), ID 61 (160, −11.410U), and ID 319 (101, −10.360U). These are descriptive, not a basis for league filtering; no league-specific rule was fit or selected.
+The central Crown+referee candidate was positive in 8 of 25 leagues and negative in 17; league IDs are the Crown IDs. Positive groups were 1, 48, 51, 52, 62, 70, 75, 88; all 25 counts, net U and ROI are in the result JSON. The largest positive entries include ID 1 (459 orders, +25.165U), ID 48 (351, +15.345U), ID 52 (142, +11.450U), ID 70 (109, +8.245U), and ID 75 (41, +7.275U). The largest negative entries include ID 14 (601, −29.845U), ID 262 (257, −21.730U), ID 26540 (246, −13.270U), ID 61 (160, −11.410U), and ID 319 (101, −10.360U). These are descriptive, not a basis for league filtering; no league-specific rule was fit or selected.
 
 ## Independent verification
 
@@ -74,7 +74,7 @@ The central Crown+referee candidate was positive in 8 of 25 leagues and negative
 
 ## Answer and limits
 
-Retrospective referee identity alone has no independent profitable AH value in this design. Adding it to Crown prices improved one narrow test slice in 2024 by only +0.675U, then lost 47.915U in 2025 and 32.505U in 2026; total incremental loss was 79.745U. This does not support a stable signal or an actionable edge. The reason the hypothesis cannot be conclusively tested as a real pre-match information source is not just limited statistical power: the dataset lacks appointment publication/receipt timestamps, and the later genuine Crown receipt archive has no joinable target with a referee snapshot. The retrospective upper-bound is negative despite that optimistic availability assumption.
+Retrospective referee identity alone has no independent profitable AH value in this design. Crown+referee produced +0.675U in 2024 on the incremental candidate pool, while Crown-only lost 32.920U on the same FIDs; Crown+referee then lost 47.915U in 2025 and 32.505U in 2026, for a total incremental loss of 79.745U. This does not support a stable signal or an actionable edge. The reason the hypothesis cannot be conclusively tested as a real pre-match information source is not just limited statistical power: the dataset lacks appointment publication/receipt timestamps, and the later genuine Crown receipt archive has no joinable target with a referee snapshot. The retrospective upper-bound is negative despite that optimistic availability assumption.
 
 ## Reproduction and artifacts
 
