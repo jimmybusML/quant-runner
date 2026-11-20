@@ -5000,3 +5000,4 @@
 - 独立读取原始Crown响应、FT与AH quarter-line腿结算1,160/1,160通过；真实live Crown收据0/18,374；E原方向复核267/267。全部为历史回放，不是正式Telegram订单或可成交证明。
 - 组别、联赛、年份、ISO周、覆盖状态、逐笔结果、独立校验与SHA文件位于 `research/m8_m9_group_independent_20261120/exact_rule_cross_league/`。详见该目录报告与本次执行记录。
 - 本次只重跑研究，不改原八组、M9/M1/MR1、生产链路、Telegram、正式账本或采集流程。公开PR #67（base `main`）沿用；尚未合并。
+- 本次复跑结果提交 `4589ad4403c98d4743b94688e1547f7f59bc011a` 已推送并核对远端 ref 一致；现有公开PR [#67](https://github.com/jimmybusML/quant-runner/pull/67) 指向main且保持 OPEN，未合并。
