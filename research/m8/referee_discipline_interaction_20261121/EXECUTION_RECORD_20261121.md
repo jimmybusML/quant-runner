@@ -44,3 +44,10 @@ The full input set is recorded in `referee_discipline_interaction_summary_202611
 ## Execution boundary
 
 This was historical event-time research. No live quote was replaced by a source-event quote and no research output was represented as a Telegram/live order or official ledger entry.
+
+## Publication
+
+- Public repository: `jimmybusML/quant-runner`.
+- Research branch: `research/m8-referee-residual-20261120`.
+- Commit: `fa0307b0aba545b243eb9363124ba4a6603f683a`.
+- PR #69: https://github.com/jimmybusML/quant-runner/pull/69, confirmed OPEN and not merged; remote branch SHA checked against the commit above.
