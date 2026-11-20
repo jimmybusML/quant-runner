@@ -1,0 +1,86 @@
+{
+  "pass": true,
+  "archive_sha256": "e3e1250b6e9bf8fe1a8cf638f46b276475e55b85d74fb12c7f105d048a67be5b",
+  "archive_rows": 12550,
+  "candidate_any_pregame_receipt_fids": 873,
+  "candidate_T1_fids": 832,
+  "candidate_T1_exact_historical_path_price_fids": 449,
+  "candidate_T1_price_mismatch_fids": 383,
+  "kickoff_metadata_differences": 6,
+  "raw_sha_identity_timing_market_errors": {},
+  "order_rows_independently_repriced": 4160,
+  "prediction_price_settlement_errors": {},
+  "metrics_by_method": {
+    "market": {
+      "orders": 832,
+      "net_u": -0.95,
+      "roi_pct": -0.114183,
+      "mdd_u": 11.755,
+      "active_iso_weeks": 5,
+      "settlements": {
+        "full_loss": 310,
+        "full_win": 354,
+        "push": 62,
+        "half_loss": 54,
+        "half_win": 52
+      }
+    },
+    "market_plus_raw_form": {
+      "orders": 832,
+      "net_u": -12.85,
+      "roi_pct": -1.544471,
+      "mdd_u": 32.5,
+      "active_iso_weeks": 5,
+      "settlements": {
+        "full_loss": 320,
+        "full_win": 344,
+        "push": 62,
+        "half_loss": 51,
+        "half_win": 55
+      }
+    },
+    "market_plus_red_adjusted_form": {
+      "orders": 832,
+      "net_u": -26.51,
+      "roi_pct": -3.186298,
+      "mdd_u": 37.78,
+      "active_iso_weeks": 5,
+      "settlements": {
+        "full_win": 334,
+        "full_loss": 330,
+        "push": 62,
+        "half_loss": 53,
+        "half_win": 53
+      }
+    },
+    "market_plus_raw_and_red_context": {
+      "orders": 832,
+      "net_u": -69.91,
+      "roi_pct": -8.402644,
+      "mdd_u": 71.92,
+      "active_iso_weeks": 5,
+      "settlements": {
+        "full_win": 313,
+        "full_loss": 351,
+        "push": 62,
+        "half_loss": 54,
+        "half_win": 52
+      }
+    },
+    "low_price": {
+      "orders": 832,
+      "net_u": 4.535,
+      "roi_pct": 0.545072,
+      "mdd_u": 23.63,
+      "active_iso_weeks": 5,
+      "settlements": {
+        "full_loss": 302,
+        "full_win": 362,
+        "push": 62,
+        "half_win": 55,
+        "half_loss": 51
+      }
+    }
+  },
+  "scope_note": "Receipt prices and HTTP raw bodies are verified. Feature snapshots are not time-verified; outcomes are retrospective, not prospective."
+}
