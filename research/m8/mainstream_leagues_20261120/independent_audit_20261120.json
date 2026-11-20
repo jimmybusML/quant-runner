@@ -1,0 +1,153 @@
+{
+  "study": "M8 mainstream league expansion independent audit",
+  "source_path_unique_fids": 39101,
+  "score_unique_fids": 40277,
+  "frozen_unique_fids": 10294,
+  "prediction_rows_read": 102843,
+  "methods": {
+    "league_prior_favorite_vs_underdog": {
+      "outside_eight": {
+        "n": 26436,
+        "net_u": -764.375,
+        "roi_pct": -2.891417,
+        "mdd_u": 782.09
+      },
+      "annual": {
+        "2022": {
+          "n": 1833,
+          "net_u": -12.71,
+          "roi_pct": -0.693399,
+          "mdd_u": 33.265
+        },
+        "2023": {
+          "n": 3148,
+          "net_u": -55.78,
+          "roi_pct": -1.771919,
+          "mdd_u": 85.345
+        },
+        "2024": {
+          "n": 7191,
+          "net_u": -187.37,
+          "roi_pct": -2.605618,
+          "mdd_u": 213.335
+        },
+        "2025": {
+          "n": 7794,
+          "net_u": -302.425,
+          "roi_pct": -3.880228,
+          "mdd_u": 324.815
+        },
+        "2026": {
+          "n": 6470,
+          "net_u": -206.09,
+          "roi_pct": -3.185317,
+          "mdd_u": 221.88
+        }
+      }
+    },
+    "universal_crown_favorite_baseline": {
+      "outside_eight": {
+        "n": 26436,
+        "net_u": -560.46,
+        "roi_pct": -2.120064,
+        "mdd_u": 639.41
+      },
+      "annual": {
+        "2022": {
+          "n": 1833,
+          "net_u": 18.605,
+          "roi_pct": 1.015003,
+          "mdd_u": 28.445
+        },
+        "2023": {
+          "n": 3148,
+          "net_u": -50.16,
+          "roi_pct": -1.593393,
+          "mdd_u": 81.375
+        },
+        "2024": {
+          "n": 7191,
+          "net_u": -155.67,
+          "roi_pct": -2.164789,
+          "mdd_u": 180.01
+        },
+        "2025": {
+          "n": 7794,
+          "net_u": -276.355,
+          "roi_pct": -3.54574,
+          "mdd_u": 306.07
+        },
+        "2026": {
+          "n": 6470,
+          "net_u": -96.88,
+          "roi_pct": -1.497372,
+          "mdd_u": 135.985
+        }
+      }
+    },
+    "universal_crown_underdog_baseline": {
+      "outside_eight": {
+        "n": 26436,
+        "net_u": -1059.995,
+        "roi_pct": -4.009665,
+        "mdd_u": 1065.82
+      },
+      "annual": {
+        "2022": {
+          "n": 1833,
+          "net_u": -110.19,
+          "roi_pct": -6.011457,
+          "mdd_u": 117.74
+        },
+        "2023": {
+          "n": 3148,
+          "net_u": -123.72,
+          "roi_pct": -3.930114,
+          "mdd_u": 123.72
+        },
+        "2024": {
+          "n": 7191,
+          "net_u": -284.88,
+          "roi_pct": -3.961619,
+          "mdd_u": 298.2
+        },
+        "2025": {
+          "n": 7794,
+          "net_u": -212.755,
+          "roi_pct": -2.729728,
+          "mdd_u": 213.235
+        },
+        "2026": {
+          "n": 6470,
+          "net_u": -328.45,
+          "roi_pct": -5.076507,
+          "mdd_u": 335.715
+        }
+      }
+    }
+  },
+  "selected_unique_outside_eight_fids": 26436,
+  "walkforward_training_choices_reconstructed": 201,
+  "merged_original_eight_and_candidate": {
+    "metrics": {
+      "n": 35160,
+      "net_u": -540.45,
+      "roi_pct": -1.537116,
+      "mdd_u": 569.175
+    },
+    "candidate_incremental_net_u": -764.375
+  },
+  "actual_receipt_rows_replayed": 1230,
+  "actual_receipt_unique_fids": 1230,
+  "actual_receipt_frozen_overlap_fids": 253,
+  "actual_receipt_outside_eight_fids": 977,
+  "actual_receipt_selected_method_outside_eight": {
+    "n": 977,
+    "net_u": 18.245,
+    "roi_pct": 1.867451,
+    "mdd_u": 9.08
+  },
+  "all_2024_2026_intensive_ids_found": true,
+  "errors": {},
+  "pass": true
+}
