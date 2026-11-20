@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Independent raw Crown AH/FT/settlement check for venue-model candidates."""
-import collections,datetime as dt,gzip,hashlib,json,math
+import collections,datetime as dt,gzip,hashlib,json,math,io
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];D=ROOT/'research/m8/venue_environment_20261120'
 WORK=Path('/Users/mac/QuantAsiaDesk/research-work');RAW=Path('/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/crown-responses');INDEX=Path('/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/crown-response-index.jsonl')
@@ -67,7 +67,9 @@ def main():
   'failures':dict(fails),'quote_rule':'latest Crown asian_list source-event no later than kickoff minus 60 minutes',
   'full_raw_coverage_pass':not fails and len({x['fid'] for x in out})==len(fid_seen)}
  (D/'independent_crown_ft_audit_20261120.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
- with gzip.open(D/'independent_crown_ft_per_fixture_20261120.jsonl.gz','wt',encoding='utf8') as f:
-  for z in out:f.write(json.dumps(z,ensure_ascii=False,sort_keys=True)+'\n')
+ with (D/'independent_crown_ft_per_fixture_20261120.jsonl.gz').open('wb') as raw:
+  with gzip.GzipFile(filename='',fileobj=raw,mode='wb',mtime=0) as gz:
+   with io.TextIOWrapper(gz,encoding='utf8') as f:
+    for z in out:f.write(json.dumps(z,ensure_ascii=False,sort_keys=True)+'\n')
  print(json.dumps(result,ensure_ascii=False,indent=2))
 if __name__=='__main__':main()
