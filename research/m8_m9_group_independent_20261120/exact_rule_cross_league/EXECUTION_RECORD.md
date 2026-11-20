@@ -70,3 +70,14 @@ python3 research/m8_m9_group_independent_20261120/exact_rule_cross_league/build_
 - Independent audit passed for 1,160/1,160 orders and found no issues; live Crown captures remain 0/18,374. Frozen E-direction audit passed 267/267.
 - Updated run timestamp and SHA manifest only; the research method, group membership, directions, quote inputs, FT, settlements and reported totals are unchanged. `sha256sum --check` passed for the existing manifest before this rerun; the regenerated manifest will be checked again before pushing.
 - PR #67 remains the sole publication target; it is open against `main` and will not be merged by this task. No production workflow, Telegram, formal ledger, collector or production rules changed.
+
+## Full rerun and report completeness update — 2026-11-21 China time (2026-11-20 17:33 UTC)
+
+- Started from the user-designated clean branch `research/m8-m9-groups` at `25ac39c`; no pre-existing uncommitted edits were present in that worktree. The source files were opened read-only.
+- Re-ran Python compilation, the complete T6/T3/T1 reconstruction and exact base/A–G replay, independent Crown raw-response/FT/quarter-line settlement verification, frozen-E direction audit, report/weekly builder, and SHA manifest writer.
+- Current source hashes: finished expanded schedule `a9d48b40cba84e5bf49f490b4b25bada9bc12a6266e6da0eed51c063166b8258`; Crown SQLite `7401078708d56a122987fde6231ae4b8cf296020d7fae54048437e73462c8a3f`; frozen membership `6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665` (10,294 FIDs, +236.015U).
+- Full-scope replay reproduced the same 18,374 target FIDs, 11,266 `NO_CROWN_AH_QUOTES`, 7,108 with saved quotes, 7,106 with at least one pregame source quote, 6,967 complete T6/T3/T1 paths, 139 missing T6, and 2 post-kickoff-only/no-valid-pregame records. Those incomplete-path FIDs remain data gaps, not strategy misses.
+- Frozen-priority replay reproduced 1,160 unique outside-frozen orders, +10.890U, ROI +0.939%, MDD 20.460U; frozen overlap 0. Independent raw-Crown/FT verifier passed 1,160/1,160. The original-E direction audit passed 267/267 frozen members. Live Crown receipts remain 0/18,374.
+- The regenerated report now also renders every group’s annual order count/net U/ROI directly, while the JSON retains full group-by-year, group-by-league, and ISO-week detail. G remains the original independent score-rate/expected-AH-EV logic and is not replaced with M9.
+- Gzip ledger content was compared after decompression with the committed run; it is identical. The refreshed manifest hashes all current deliverables and the current local SQLite input. No membership, rule, direction, cutoff, odds, FT, or P&L changed.
+- This is a historical source-event replay only: no actual receipt or Telegram/production order was created. No production strategy, collector, workflow, or formal ledger was changed.

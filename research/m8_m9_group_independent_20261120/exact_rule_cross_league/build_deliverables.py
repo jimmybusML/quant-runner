@@ -44,8 +44,21 @@ lines+=['',f"*该表周均按整个扩展赛事观测期（{s['period']['observe
 for y,x in s['results']['new_incremental_by_year'].items():
  m=s['results']['merged_by_year'][y]
  lines.append(f"| {y} | {x['n']:,} | {x['net_U']:+.3f} | {x['ROI_pct']:+.3f}% | {x['max_drawdown_U']:.3f} | {x['avg_orders_per_observed_schedule_week']:.3f} | {m['frozen_net_U']:+.3f} | {m['merged_net_U']:+.3f} | {m['merged_ROI_pct']:+.3f}% |")
-lines+=['',f"跨年结果并不稳定：2024新增{s['results']['new_incremental_by_year'].get('2024',{}).get('n',0)}单、{s['results']['new_incremental_by_year'].get('2024',{}).get('net_U',0):+.3f}U；2025新增{s['results']['new_incremental_by_year'].get('2025',{}).get('n',0)}单、{s['results']['new_incremental_by_year'].get('2025',{}).get('net_U',0):+.3f}U；2026新增{s['results']['new_incremental_by_year'].get('2026',{}).get('n',0)}单、{s['results']['new_incremental_by_year'].get('2026',{}).get('net_U',0):+.3f}U，赛程止于{s['period']['schedule_last_date']}。2024/25合计为正，但2025与2026都未显示正收益，不能据此宣称稳定扩单机制。",'',
-'## 联赛拆分','', '| Provider league ID | 冠军/赛事范围名称 | 新增单量 | 净U | ROI | MDD U |','|---:|---|---:|---:|---:|---:|']
+lines+=['',f"跨年结果并不稳定：2024新增{s['results']['new_incremental_by_year'].get('2024',{}).get('n',0)}单、{s['results']['new_incremental_by_year'].get('2024',{}).get('net_U',0):+.3f}U；2025新增{s['results']['new_incremental_by_year'].get('2025',{}).get('n',0)}单、{s['results']['new_incremental_by_year'].get('2025',{}).get('net_U',0):+.3f}U；2026新增{s['results']['new_incremental_by_year'].get('2026',{}).get('n',0)}单、{s['results']['new_incremental_by_year'].get('2026',{}).get('net_U',0):+.3f}U，赛程止于{s['period']['schedule_last_date']}。2024/25合计为正，但2025与2026都未显示正收益，不能据此宣称稳定扩单机制。",'']
+years=sorted({int(y) for x in s['groups'].values() for y in x['per_year']})
+lines+=['### 各组年度明细（按冻结优先级去重）','',
+        '每格为“订单数 / 净U / ROI”；空白年度没有该组新增订单。完整周度和组×联赛表见机器结果JSON。','',
+        '| 组 | '+' | '.join(str(y) for y in years)+' | 全期 |',
+        '|---|'+'|'.join(['---:']*(len(years)+1))+'|']
+for g,x in s['groups'].items():
+    cells=[]
+    for y in years:
+        v=x['per_year'].get(str(y))
+        cells.append('—' if not v else f"{v['n']} / {v['net_U']:+.3f} / {v['ROI_pct']:+.3f}%")
+    a=x['assigned']
+    cells.append(f"{a['n']} / {a['net_U']:+.3f} / {a['ROI_pct']:+.3f}%")
+    lines.append('| '+g+' | '+' | '.join(cells)+' |')
+lines+=['','## 联赛拆分','', '| Provider league ID | 冠军/赛事范围名称 | 新增单量 | 净U | ROI | MDD U |','|---:|---|---:|---:|---:|---:|']
 for lid in league_ids:
  x=s['deduplicated_union']['per_league'].get(lid,{'n':0,'net_U':0.0,'ROI_pct':None,'max_drawdown_U':0.0});name=next((r['source_league'] for r in cov if r['league_id']==lid and r.get('source_league')),lid);roi='—' if x['ROI_pct'] is None else f"{x['ROI_pct']:+.3f}%"
  lines.append(f"| {lid} | {name} | {x['n']:,} | {x['net_U']:+.3f} | {roi} | {x['max_drawdown_U']:.3f} |")
