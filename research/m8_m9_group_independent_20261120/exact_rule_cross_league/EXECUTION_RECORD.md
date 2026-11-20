@@ -54,3 +54,11 @@ python3 research/m8_m9_group_independent_20261120/exact_rule_cross_league/build_
 - Pull request: https://github.com/jimmybusML/quant-runner/pull/67, base `main`; created and intentionally not merged.
 - `PROJECT_HANDOFF.md` now records the actual run, results, limitations, commit and PR.
 - No production workflow, Telegram dispatch, formal ledger write, or production configuration change occurred.
+
+## Full rerun and independent settlement recheck — 2026-11-20 16:08 UTC
+
+- Re-ran `py_compile`, the full `run_exact_rule_cross_league.py`, raw Crown/FT verifier, frozen-E direction audit, report/weekly builder, and SHA manifest writer against the current local inputs. The current read-only Crown SQLite SHA is `7401078708d56a122987fde6231ae4b8cf296020d7fae54048437e73462c8a3f`; the original run's SQLite SHA `86a40523e94e5013c16e626a14820425c2e7ba4f48f4a245235f1ce8b3a3911d` remains preserved as historical provenance.
+- Full replay reproduced all four coverage states exactly (11,266 no-quote capture FIDs; 6,967 complete T6/T3/T1; 139 no quote by T6; 2 post-kickoff-only/no valid pregame rows), all eight group totals, 1,160 unique orders and +10.890U. Frozen overlap remains 0.
+- Independent verifier now computes quarter-line AH from its own two-leg settlement implementation (separate from the runner and shared project settlement helper). Re-read and settlement checks passed 1,160/1,160; all 18,374 outside-49 FIDs were checked for live capture, with 0 live receipts. E direction check passed 267/267 frozen E members.
+- Report, output SHA manifest and current-source summary were regenerated. No rule, member, odds, FT, or outcome changed; the current database differs bytewise but the outside-49 quote/capture states and the replay result are unchanged.
+- Existing PR #67 was confirmed OPEN against `main` before publishing this revalidation; this rerun updates its research branch. No workflow, Telegram, formal ledger or production change occurred.

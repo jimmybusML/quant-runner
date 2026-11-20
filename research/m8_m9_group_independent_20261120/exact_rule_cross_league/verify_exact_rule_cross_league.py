@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Independent raw Crown/FT and Asian settlement audit of cross-league ledger."""
-import collections,datetime as dt,gzip,hashlib,json,pathlib,sqlite3,sys
+import collections,datetime as dt,gzip,hashlib,json,math,pathlib,sqlite3,sys
 ROOT=pathlib.Path(__file__).resolve().parents[3];OUT=pathlib.Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT))
-from research.m3.probabilities import settle_score
 DB=pathlib.Path('/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3')
 SCHEDULE=pathlib.Path('/Users/mac/QuantAsiaDesk/research-work/crown-drop-expanded-62/schedule_universe.jsonl')
 FOUNDATION=pathlib.Path('/Users/mac/QuantAsiaDesk/research-work/m8_foundation_20261115/historical_membership.jsonl')
@@ -12,6 +11,25 @@ def parse_dt(s):
  x=dt.datetime.fromisoformat(str(s).replace('Z','+00:00').replace(' ','T'))
  if x.tzinfo:return x.astimezone(dt.timezone.utc)
  return x.replace(tzinfo=dt.timezone(dt.timedelta(hours=8))).astimezone(dt.timezone.utc)
+def settle_ah_independent(line,side,hg,ag,price):
+ """Independent equal-leg AH settlement, intentionally separate from project helper."""
+ line=float(line);price=float(price)
+ if abs(line*4-round(line*4))>1e-8 or price<=1:raise ValueError('invalid AH contract')
+ signed=line if side=='home' else -line
+ margin=int(hg)-int(ag) if side=='home' else int(ag)-int(hg)
+ if abs(signed*2-round(signed*2))<=1e-8:legs=[signed]
+ else:legs=[math.floor(signed*2)/2,math.ceil(signed*2)/2]
+ outcomes=[]
+ for leg in legs:
+  x=margin+leg
+  outcomes.append(price-1 if x>1e-9 else -1.0 if x< -1e-9 else 0.0)
+ pnl=sum(outcomes)/len(outcomes)
+ if all(x>0 for x in outcomes):state='full_win'
+ elif any(x>0 for x in outcomes):state='half_win'
+ elif all(x==0 for x in outcomes):state='push'
+ elif any(x==0 for x in outcomes):state='half_loss'
+ else:state='full_loss'
+ return state,pnl
 def main():
  s=json.load(open(OUT/'exact_rule_cross_league_summary.json'))
  sched={str(x['match_id']):x for x in map(json.loads,open(SCHEDULE))}
@@ -48,8 +66,8 @@ def main():
    selected=at[-1]
    if (selected[0].isoformat(),selected[1],selected[2],selected[3])!=(r['quote_source_at_utc'],r['AH_line_home'],r['AH_home_odds'],r['AH_away_odds']):issues['T1_raw_quote_mismatch']+=1
    # Recompute every Asian line settlement from the raw Crown line, odds and FT.
-   state,pnl=settle_score('AH',selected[1],r['side'],r['FT_home'],r['FT_away'],selected[2] if r['side']=='home' else selected[3])
-   if state.lower()!=r['settlement']:issues['settlement_state_mismatch']+=1
+   state,pnl=settle_ah_independent(selected[1],r['side'],r['FT_home'],r['FT_away'],selected[2] if r['side']=='home' else selected[3])
+   if state!=r['settlement']:issues['settlement_state_mismatch']+=1
    if abs(pnl-r['net_u'])>1e-9:issues['settlement_pnl_mismatch']+=1
    if not (parse_dt(r['T6_source_quote_utc'])<=parse_dt(r['T3_source_quote_utc'])<=parse_dt(r['T1_source_quote_utc'])<parse_dt(q['kickoff_source_local'])):issues['horizon_order_mismatch']+=1
    if covj[fid]['status']!='complete_T6_T3_T1_path':issues['order_without_complete_path']+=1
