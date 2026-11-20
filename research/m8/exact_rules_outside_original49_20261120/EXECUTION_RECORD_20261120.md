@@ -13,4 +13,5 @@
 - The out-of-scope partial Original49 gap-fetch incident is documented in `out_of_scope_collection_stopped_20261120.json`. None of those FIDs belongs to the 15 target leagues or enters these calculations.
 - Production boundary: no original group definition/member, M9, M1/MR1, production workflow, Telegram, formal ledger, or collector configuration changed.
 - Independent audit: `independent_settlement_verification_20261120.json` reports 1,271 expected, 1,271 checked, 1,271 verified, zero discrepancies, +7.185U recomputed.
-- Publication status at record creation: analysis complete; commit and pull request are recorded in the updated `PROJECT_HANDOFF.md` after publication.
+- Published research commit: `dd2f3d610ec9d1eed1475c9f4944a1992276b33b`; branch `research/m8-exact-cross-league-expansion`.
+- Pull request: `https://github.com/jimmybusML/quant-runner/pull/68`, targeting `main`; it is not merged.

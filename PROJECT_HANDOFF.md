@@ -4956,4 +4956,4 @@
 - 按15个联赛总计6个净U为正、7个为负、2个没有新增订单。新联赛没有真实赛前Crown receipt：forward-shadow索引、M8/MR1 receipt档案和SQLite live capture精确交集均为0；全部收益为历史Crown source-event回放，非HTTP实收、非TG实战。独立校验器重读Crown原始响应SHA、赛程FT及T1合约，1,271/1,271场结算一致，重算+7.185U；四分之一盘按两腿结算。
 - 完整报告、逐场增量和全路径账本、覆盖FID/缺失原因、年度/周度/联赛统计、真实收据审计、独立结算、输入/输出SHA、执行记录及可复跑脚本均在 `research/m8/exact_rules_outside_original49_20261120/`。主报告 `EXACT_RULE_CROSS_LEAGUE_REPORT.md`。主要输出未包含原始私人响应文件；输入SQLite、778个相关赛程页与冻结档案的SHA均登记。
 - 执行期间启动的一项旧Original49缺档回取，在范围核对后停止，217条完整结果记录（141保存、75无Crown AH、1失败；另40行因中断缓冲不完整）。目标FID均不属于本次15联赛、未用于本轮结果；141份响应只进入本地Crown研究库，未触及生产采集配置。该偏离及计数保存在本研究目录的 `out_of_scope_collection_stopped_20261120.json`。
-- 发布：分支已快进到最新公开 `main` 的 `c6c8d3324c06f645496c33ce7e3270c24ab1678a`，并保留为独立研究分支；commit与PR将在发布完成后补记。PR目标为 `main`，不直接合并。
+- 发布：公开研究分支 `research/m8-exact-cross-league-expansion` 基于最新公开 `main` `c6c8d3324c06f645496c33ce7e3270c24ab1678a`；结果提交 `dd2f3d610ec9d1eed1475c9f4944a1992276b33b` 已推送。PR #68：https://github.com/jimmybusML/quant-runner/pull/68，目标 `main`，尚未合并。
