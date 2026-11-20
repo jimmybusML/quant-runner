@@ -1,0 +1,36 @@
+{
+  "rows": 25618,
+  "unique_raw_response_files": 25618,
+  "audit_counts": {
+    "historical_quote_not_true_pregame_http_receipt": 25618,
+    "quote_raw_sha_identity_ft_all_pass": 25618
+  },
+  "errors_first_100": [],
+  "full_quote_and_FT_raw_sha_audit": "PASS",
+  "M1_cache_FT_crosscheck": {
+    "exact_id_teams_FT_match": 25613,
+    "score_or_identity_conflict": 2,
+    "not_in_m1_cache": 3
+  },
+  "resolved_FT_conflicts": [
+    {
+      "fid": "160205699",
+      "crown_raw_and_official_FT": "Inter 4-0 Atalanta",
+      "m1_cache": "Inter 3-0 Atalanta",
+      "resolution": "Use FT verified in SHA-bound Crown match response; independently matches official Inter and Serie A records.",
+      "official_sources": [
+        "https://www.inter.it/en/match_center/5250",
+        "https://www.laliga.com/partido/temporada-2024-2025-serie-a-inter-atalanta-3"
+      ]
+    },
+    {
+      "fid": "172688907",
+      "crown_raw_and_official_FT": "Lecce 0-1 Napoli",
+      "m1_cache": "Lecce 0-0 Napoli",
+      "resolution": "Use FT verified in SHA-bound Crown match response; independently matches SSC Napoli official match report.",
+      "official_sources": [
+        "https://sscnapoli.it/news/match-report-lecce-napoli-0-1"
+      ]
+    }
+  ]
+}
