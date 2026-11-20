@@ -1,25 +1,25 @@
 {
   "protocol": "M3_CROWN_FORWARD_CAPTURE_REPORT_V1",
-  "generated_utc": "2026-11-20T06:02:18.522496Z",
+  "generated_utc": "2026-11-20T16:46:35.983793Z",
   "data_source": "TotalCorner bookmaker=crown only",
   "forecast_source": "M3 OpenFootball forward-only shadow; public M3 ledger only",
   "forecasts_considered": 318,
   "fixtures_with_unique_schedule_identity": 8,
   "forecast_input_fingerprint_sha256": "75a4f862eed75cf1cf812a5eccf00361efd0eafa90b98a143e7dce01df2125f5",
   "forecast_input_changed_vs_previous_run": false,
-  "new_learning_information": false,
+  "new_learning_information": true,
   "new_learning_information_baseline": "previous_capture_report",
-  "quote_commitments_added": 0,
-  "quote_commitments_total": 150,
+  "quote_commitments_added": 15,
+  "quote_commitments_total": 165,
   "quote_commitments_by_market": {
-    "AH": 87,
-    "OU": 63
+    "AH": 99,
+    "OU": 66
   },
   "quote_commitments_by_league_market": {
-    "D1|AH": 66,
+    "D1|AH": 75,
     "D1|OU": 48,
-    "E0|AH": 18,
-    "E0|OU": 12,
+    "E0|AH": 21,
+    "E0|OU": 15,
     "I1|AH": 3,
     "I1|OU": 3
   },
@@ -34,27 +34,27 @@
   "mean_ev_by_market_model_side": {
     "AH|bivariate_poisson|away": {
       "n": 1,
-      "mean_expected_unit_return": -0.11210533
+      "mean_expected_unit_return": -0.09832869
     },
     "AH|bivariate_poisson|home": {
       "n": 1,
-      "mean_expected_unit_return": 0.07378203
+      "mean_expected_unit_return": 0.05800098
     },
     "AH|dixon_coles|away": {
       "n": 1,
-      "mean_expected_unit_return": -0.11193688
+      "mean_expected_unit_return": -0.09865864
     },
     "AH|dixon_coles|home": {
       "n": 1,
-      "mean_expected_unit_return": 0.07523323
+      "mean_expected_unit_return": 0.0598676
     },
     "AH|poisson|away": {
       "n": 1,
-      "mean_expected_unit_return": -0.11245984
+      "mean_expected_unit_return": -0.09857937
     },
     "AH|poisson|home": {
       "n": 1,
-      "mean_expected_unit_return": 0.07381829
+      "mean_expected_unit_return": 0.05793791
     }
   },
   "scope_note": "The research scope remains six M3 leagues; the current OpenFootball forward forecast feed has no B1 fixtures, so B1 coverage is zero until a compatible independent M3 forecast source is available.",
