@@ -62,3 +62,11 @@ python3 research/m8_m9_group_independent_20261120/exact_rule_cross_league/build_
 - Independent verifier now computes quarter-line AH from its own two-leg settlement implementation (separate from the runner and shared project settlement helper). Re-read and settlement checks passed 1,160/1,160; all 18,374 outside-49 FIDs were checked for live capture, with 0 live receipts. E direction check passed 267/267 frozen E members.
 - Report, output SHA manifest and current-source summary were regenerated. No rule, member, odds, FT, or outcome changed; the current database differs bytewise but the outside-49 quote/capture states and the replay result are unchanged.
 - Existing PR #67 was confirmed OPEN against `main` before publishing this revalidation; this rerun updates its research branch. No workflow, Telegram, formal ledger or production change occurred.
+
+## Full rerun — 2026-11-20 16:37 UTC
+
+- On the PR #67 branch at `041d8b4db1530196addbbb576b7e6f67c8a010de`, re-ran the full replay, independent raw Crown/FT settlement audit, frozen E-direction audit, report/weekly builder, and SHA manifest writer.
+- Reproduced the same four coverage states (11,266 no-quote capture FIDs; 6,967 complete T6/T3/T1; 139 missing T6; 2 with only post-kickoff/no valid pregame quotes), all base/A-G group outcomes, 1,160 unique added FIDs and +10.890U. No overlap with the frozen 10,294 FIDs.
+- Independent audit passed for 1,160/1,160 orders and found no issues; live Crown captures remain 0/18,374. Frozen E-direction audit passed 267/267.
+- Updated run timestamp and SHA manifest only; the research method, group membership, directions, quote inputs, FT, settlements and reported totals are unchanged. `sha256sum --check` passed for the existing manifest before this rerun; the regenerated manifest will be checked again before pushing.
+- PR #67 remains the sole publication target; it is open against `main` and will not be merged by this task. No production workflow, Telegram, formal ledger, collector or production rules changed.
