@@ -40,6 +40,14 @@ python3 research/m8_m9_group_independent_20261120/exact_rule_cross_league/build_
 - No GitHub Actions/workflow execution, formal Telegram dispatch, or formal ledger write occurred.
 - Commit and PR references are appended to `PROJECT_HANDOFF.md` after the research branch push and PR creation.
 
+## Read-only revalidation — 2026-11-20
+
+- Re-ran `verify_exact_rule_cross_league.py`: 1,160/1,160 unique orders independently matched to Crown raw response SHA, fixture identity, FT, T1 quote and quarter-line settlement; zero issues. Live Crown receipt FIDs remain 0/18,374.
+- Re-ran `verify_frozen_e_direction.py`: all 267 frozen E members reproduce their archived net U.
+- Reconciled the compressed order ledger independently: 1,160 rows, 1,160 unique FIDs, zero frozen-member overlap; each base/A–G count and net U agrees with the summary JSON.
+- The original execution manifest records Crown SQLite SHA256 `86a40523e94e5013c16e626a14820425c2e7ba4f48f4a245235f1ce8b3a3911d`; the current read-only database file hash is `7401078708d56a122987fde6231ae4b8cf296020d7fae54048437e73462c8a3f`. The database now contains 110,349 captures versus 110,133 at original execution, so its bytes have changed. For all 18,374 outside-49 FIDs, the per-FID movement capture status and quote counts are unchanged (11,266 `NO_CROWN_AH_QUOTES`, 7,108 `QUOTES_SAVED`); the order-level raw-response verifier still passes. The original input SHA is retained as provenance for the original calculation, not overwritten with the later database state.
+- PR #67 remains open against `main`; no merge or production action was performed.
+
 ## Published status
 
 - Research commit: `5aad821` (`research/m8-m9-groups`).
