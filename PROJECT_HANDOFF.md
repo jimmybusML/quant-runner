@@ -5119,3 +5119,9 @@
 - FT截至15:22:52 UTC：future/not due 302、过去开赛但状态未知4,531、明确non-full 669；0:0占位5,061，均未作为比分结算。Crown原始缓存检查104,365文件/零SHA或身份异常；20,719个补充赛程FID与现存Crown raw cache交集为0。
 - PID 10634仍运行；进度文件记录702请求、20,599新FID、ID337 Serbia Prva Liga 49/87页。四个“冲突”是既有ID15记录版本SHA变化，旧缓存无开赛/终态字段、新TotalCorner页含完整记录，既有核对确认球队/联赛身份一致；没有覆盖旧版本。请求日志另有一次ConnectionError后继续成功分页，当前累计failed_pages为空。
 - 完整再现记录见 `COLLECTION_CHECKPOINT_20261121T1523Z.md`、`supplemental_schedule_progress_snapshot_20261121T1523Z.json`、`history_recovery_execution_20261121T1523Z.json` 和SHA清单。所有库存/FT/raw cache审计均离线，只读；没有训练、回测或生产交易操作。
+
+### 2026-11-21 15:32 UTC：显式联赛范围并集复核
+
+- 新增 `research/data_recovery_2019_2026/audit_league_scope_union_2019_2026.py` 与机器结果 `league_scope_union_2019_2026.json`。零网络请求、零SQLite写入。按输入SHA对账M1正式范围51个ID、扩展赛程64个ID、此前已登记的15个失败赛程候选及全源库存中的M1历史缓存独有ID 27391；当前已识别并集80个不同provider league ID。该集合是当前显式来源的并集，不宣称未来不会发现其他比赛或联赛。
+- 最新已合并覆盖快照含74个provider league ID，覆盖上述并集中的74个ID，没有并集外ID；候选清单中9个ID已入快照，尚缺6个ID：542、765、10808、10989、11958、11959。实时TotalCorner分页进程PID 10634仍运行，已进入ID542；其新响应尚未并入覆盖快照。
+- 脚本/JSON SHA256分别为 `794eb6a3069c2576f77a2963f45de1a0f647e81751299c4f3c99e6ea67908b21` / `f0be012c039eac218d13c510ab6076ae11e0ca5b9dce64fb2eda8b684041e1d8`。完成当前分页批次后重新规范化、复跑此并集审计并更新全联赛/逐年/赛季覆盖表；之后按更新后的唯一FID库存恢复Crown历史AH，继续核实未确认FT。
