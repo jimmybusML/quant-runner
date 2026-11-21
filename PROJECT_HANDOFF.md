@@ -5279,6 +5279,13 @@
 - 下一步继续现有Italy分页与本批剩余目标；每有整项完成就重跑同一SHA/FT覆盖审计。整个任务仍未完成；完整库存合并、其余外部联赛排查、赛果缺口复核以及停掉TotalCorner collector后继续的Crown历史行情扩采仍待执行。
 
 
+### 2026-11-21 20:07 UTC：Latvia 1. Liga完成，22个联赛覆盖更新
+
+- 沿用同一TotalCorner schedule collector PID 65966 / session 29157，没有重启。Latvia 1. Liga（ID 242）完成27个源页、756个目标期FID、失败页0；当前载入35项中22项完成、13项未完成，38项队列中的3个精确映射补充ID仍待本批完成后采集。检查点时当前目标为Malta Challenge League（ID 15795）第10/35页、300个FID；全批累计1,280次请求、ledger新增37,506个FID、身份冲突0。
+- 对22个已完成联赛重跑SHA绑定覆盖审计：37,206个唯一赛程FID，其中34,623个TotalCorner `status=full`且FT为数字，2,583个其他/未核实状态。原始页SHA及逐条源记录SHA均通过、身份版本冲突0。仅上述22个已完成目标纳入审计；逐联赛×UTC年结果在`completed_schedule_league_year_coverage_2019_2026.json`。
+- 对该22联赛当前本地Crown SQLite只读交叉：movement capture/quote均为0；数据库SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`。此结果只描述新增赛程FID与本地库的当前交集，不代表赛事没有报价，也未发起Crown网络请求或SQLite写入。
+- 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T2007Z.json`绑定私有progress、request log、fixture ledger、目标清单与覆盖审计SHA；清单`CHECKPOINT_SHA256_20261121T2007Z.txt`。当前覆盖仍是部分分页完成数据，不是全量研究完成声明；继续同一collector，待全部原35项完成后执行队列中的3个补充ID，再统一并入其他来源、刷新赛果缺口，且仅在TotalCorner及MR1/结算互斥任务结束后恢复Crown历史序列补齐。未运行策略、模型、回测或利润筛选。
+
 ### 2026-11-21 20:03 UTC：Italy Serie B完成，21个联赛覆盖更新
 
 - Italy Serie B（ID 13）完成至2019截止/Provider分页终点，共104个原始页、3,066个目标期FID，失败页0。第21个完成目标后，Latvia 1. Liga（ID 242）开始分页；20:03检查点为12/39页、360个FID、失败页0。当前加载35项清单已完成21项，剩余14项；排队38项清单的3个补充精确映射ID仍需后续处理。TotalCorner collector PID 65966仍存活、未重启；累计1,255次请求、fixture ledger新增36,810个FID、身份冲突0（包括当前Latvia部分页）。

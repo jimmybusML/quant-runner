@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-11-21T20:02:49.430468Z",
+  "generated_at_utc": "2026-11-21T20:07:10.475163Z",
   "scope_note": "Only targets marked pagination-complete in the live progress file are included; ongoing targets and queued IDs are not represented as complete.",
   "target_count_in_current_file": 38,
-  "completed_target_count": 21,
+  "completed_target_count": 22,
   "completed_target_leagues": [
     {
       "provider_league_id": "2",
@@ -82,6 +82,15 @@
       "unique_2019_2026_fids": 2469,
       "pages_read": 84,
       "reported_pages": 119,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
+      "provider_league_id": "242",
+      "league_name": "Latvia 1. Liga",
+      "unique_2019_2026_fids": 756,
+      "pages_read": 27,
+      "reported_pages": 39,
       "pagination_status": "complete_to_2019_cutoff_or_provider_end",
       "failed_pages": []
     },
@@ -194,18 +203,18 @@
       "failed_pages": []
     }
   ],
-  "unique_schedule_fids": 36450,
-  "league_fid_pairs": 36450,
+  "unique_schedule_fids": 37206,
+  "league_fid_pairs": 37206,
   "cross_league_fid_collision_count": 0,
   "cross_year_same_league_fid_conflict_count": 0,
   "ambiguous_fid_league_year_keys": [],
-  "verified_full_ft_fids": 33948,
-  "unverified_or_nonfull_fids": 2502,
+  "verified_full_ft_fids": 34623,
+  "unverified_or_nonfull_fids": 2583,
   "identity_version_conflict_count": 0,
   "identity_version_conflicts": [],
   "raw_source_page_audit": {
-    "distinct_referenced_pages": 1225,
-    "source_record_rows_sha_verified": 36450,
+    "distinct_referenced_pages": 1251,
+    "source_record_rows_sha_verified": 37206,
     "errors": {},
     "season_field_source": "exact row in SHA-verified TotalCorner schedule page raw response"
   },
@@ -3338,6 +3347,315 @@
         "f9013631b655d208a4c8c4fe577c2ed3691bec5ee6dad1992a76a66dccaf8ca7"
       ],
       "source_record_versions": 234,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "242",
+      "provider_league_name": "Latvia 1. Liga",
+      "utc_year": "2019",
+      "unique_schedule_fids": 34,
+      "verified_full_ft_fids": 15,
+      "unverified_or_nonfull_fids": 19,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 8,
+        "full": 15,
+        "47": 1,
+        "13": 1,
+        "18": 1,
+        "19": 1,
+        "12": 1,
+        "26": 1,
+        "16": 1,
+        "24": 2,
+        "56": 1,
+        "07": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 34
+      },
+      "source_page_count": 2,
+      "source_page_sha256s": [
+        "6f5c65eac5cfcb7d9a60a8f1dac132284876eaf11ee7086094549ff2f6cb42d6",
+        "958e9f8b22b099e7a7b4a8726f178904069ed975b4322cf437aa21c81ce76176"
+      ],
+      "source_record_versions": 34,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "242",
+      "provider_league_name": "Latvia 1. Liga",
+      "utc_year": "2020",
+      "unique_schedule_fids": 40,
+      "verified_full_ft_fids": 32,
+      "unverified_or_nonfull_fids": 8,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 7,
+        "full": 32,
+        "08": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 40
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "6f5c65eac5cfcb7d9a60a8f1dac132284876eaf11ee7086094549ff2f6cb42d6",
+        "b7db1561b03c4f498728e48ab283ade41dfcc4456c314af544850c36d8558584",
+        "d1d73ea4a33eab1972250b03715cab2c1e7995daee5fc25efd28eecad12450ef"
+      ],
+      "source_record_versions": 40,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "242",
+      "provider_league_name": "Latvia 1. Liga",
+      "utc_year": "2021",
+      "unique_schedule_fids": 54,
+      "verified_full_ft_fids": 35,
+      "unverified_or_nonfull_fids": 19,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 15,
+        "full": 35,
+        "08": 1,
+        "38": 1,
+        "12": 1,
+        "53": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 54
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "2ecaf37177cccc036f5ce61954f13c942b4d14e542673d16eabe8e9e3d5cbf5c",
+        "d1d73ea4a33eab1972250b03715cab2c1e7995daee5fc25efd28eecad12450ef",
+        "ecbca4f3411e40c62d1ddf9aab6ff86f5a7eff870dbc01c1b09d87b6f3088402"
+      ],
+      "source_record_versions": 54,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "242",
+      "provider_league_name": "Latvia 1. Liga",
+      "utc_year": "2022",
+      "unique_schedule_fids": 25,
+      "verified_full_ft_fids": 19,
+      "unverified_or_nonfull_fids": 6,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 19,
+        "MISSING_STATUS": 4,
+        "17": 1,
+        "23": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 25
+      },
+      "source_page_count": 1,
+      "source_page_sha256s": [
+        "2ecaf37177cccc036f5ce61954f13c942b4d14e542673d16eabe8e9e3d5cbf5c"
+      ],
+      "source_record_versions": 25,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "242",
+      "provider_league_name": "Latvia 1. Liga",
+      "utc_year": "2023",
+      "unique_schedule_fids": 141,
+      "verified_full_ft_fids": 129,
+      "unverified_or_nonfull_fids": 12,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 129,
+        "MISSING_STATUS": 11,
+        "36": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 141
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "2ecaf37177cccc036f5ce61954f13c942b4d14e542673d16eabe8e9e3d5cbf5c",
+        "3553e744a4bf38dd14b55b3c678e5d025eddfd07ff0a742b42e3e2d54346f2b7",
+        "5834c946bb6a1b870f984db4fcb8db434e230512ddc3818a968a7831fd505ccc",
+        "78d9aa3eb6a2f488dfb2c4187d08b30d809825ca3af12ff959f191e16d796c8c",
+        "c18420864be9a28d6b93a82d329804ab569863da8589a2767ce1030475b3873b",
+        "da5e450c0416c7c62e52eea7dd1d28368554a125636a627c3475127cfdfe36d9"
+      ],
+      "source_record_versions": 141,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "242",
+      "provider_league_name": "Latvia 1. Liga",
+      "utc_year": "2024",
+      "unique_schedule_fids": 150,
+      "verified_full_ft_fids": 140,
+      "unverified_or_nonfull_fids": 10,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 140,
+        "86": 1,
+        "MISSING_STATUS": 9
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 150
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "2961cb062cf838eef83274ae74f7fb2ca1042287757d76d51625f665515148a5",
+        "37fc83d1c535171fe0356a87ec49206ed33502996ab1933a9adda3a1b9f4ec2a",
+        "5834c946bb6a1b870f984db4fcb8db434e230512ddc3818a968a7831fd505ccc",
+        "bf587d95cac45f9512ca76c16f675ec45d43723b2d753be69a122e5d60802838",
+        "d3271285845002bf00e981b3975281c6b890d1c1260ce4610735f213af67f2bd",
+        "fb79f5be975ab408f25298d2e0c53106dc68c363001430f4b704522f7e840832"
+      ],
+      "source_record_versions": 150,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "242",
+      "provider_league_name": "Latvia 1. Liga",
+      "utc_year": "2025",
+      "unique_schedule_fids": 159,
+      "verified_full_ft_fids": 158,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 158,
+        "MISSING_STATUS": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 159
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "37fc83d1c535171fe0356a87ec49206ed33502996ab1933a9adda3a1b9f4ec2a",
+        "426b6c0df6baf1dbdd5613c56aaaf81002538e3b0e3c234bfcf1c3f30ae8cca6",
+        "590675592ef83bfac13bd282fe5c03195b16707fffdeeb26e5825ed70e9be70e",
+        "7965440098e31513640da9d6e53d344d981930d222c4920dbc1ccbc5403c07f1",
+        "a20238e81c92bb3f808913cedf155703f1914e109788e80d38378064aeb11ed9",
+        "c5fb726972b12efbbb96071c21f6ea5536a994fa51468ccb29f6e6aeec5a0c8a"
+      ],
+      "source_record_versions": 159,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "242",
+      "provider_league_name": "Latvia 1. Liga",
+      "utc_year": "2026",
+      "unique_schedule_fids": 153,
+      "verified_full_ft_fids": 147,
+      "unverified_or_nonfull_fids": 6,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 5,
+        "full": 147,
+        "82": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 153
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "07355b601c0caa827685c92b4e0a2d1d3ce6120bd25522844dd26a55ceac7ce2",
+        "2f1e1f414251d15fc8e1b14810600eb9efde9c9b67565855e60fc824a1f50040",
+        "58cd975ace7c97d4f2955063ac6b6acf802c2a911513ec4307d2f10fd72ab010",
+        "590675592ef83bfac13bd282fe5c03195b16707fffdeeb26e5825ed70e9be70e",
+        "7ab5480cfa3af49f5c024ab6681f1ab9abe284c289c90f661791ef8d28334444",
+        "87213cd733f7f1650d721d7c0764968e36601c16bed6d18bd9e6c3c159174d45"
+      ],
+      "source_record_versions": 153,
       "sqlite_capture_fids_any_layer": 0,
       "sqlite_movement_capture_fids": 0,
       "sqlite_summary_capture_fids": 0,
@@ -7130,9 +7448,9 @@
   ],
   "zero_year_bucket_note": "A zero schedule count means no FID was present in the currently verified source rows for that completed provider pagination; it does not prove no competition season or unindexed source exists.",
   "input_sha256": {
-    "progress": "76ec21e14aeab2f9e07649b45f438c7f86342251679a031fb9baf731a07ddae1",
-    "append_only_fixture_ledger": "32e09f533786ccfbd2989f1a26615ea7f06e00dad1de9cd58d4d0e0663b2bf9d",
-    "append_only_request_log": "8f724a432fe247926da8a464b0a14311dea9ea34faaec9590efe3aef817fb37a",
+    "progress": "b2e319ee3ba145b8c1a8c50ae9996a5a0ce9b913a384faa5615b36cb5ca40e02",
+    "append_only_fixture_ledger": "1382373c7b30bd2bbb02984f7e090a35b93bb5095e453c0171bd91fad79c6f7e",
+    "append_only_request_log": "1564502463e0a707f6d87ab684f9f870483582eb957239c0d8eed0a17649d33b",
     "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
   }
 }
