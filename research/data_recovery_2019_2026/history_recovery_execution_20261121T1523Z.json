@@ -1,0 +1,127 @@
+{
+  "executed_at_utc": "2026-11-21T15:24:46Z",
+  "tasks": [
+    "consolidate_supplemental_totalcorner_schedules.py",
+    "audit_existing_inventory.py",
+    "audit_unverified_ft_readiness.py",
+    "audit_offline_raw_crown_inventory.py"
+  ],
+  "normalized_schedule_snapshot": {
+    "distinct_fids": 20719,
+    "record_versions": 20719,
+    "sha256": "3d2610b38d1c288e62bd29adb770175d30b3cd04e1c67e1ccb0052c06bfc6f19",
+    "bytes": 1396796,
+    "verified_pages_reported_by_consolidator": 702,
+    "note": "snapshot taken while the collector remains active"
+  },
+  "inventory_totals": {
+    "schedule_fids_union": 134839,
+    "totalcorner_schedule_fids": 113634,
+    "expanded_universe_fids": 96503,
+    "supplemental_schedule_fids": 20719,
+    "crown_fixture_metadata_fids": 9,
+    "M1_history_cache_fids": 68196,
+    "T6_priced_inventory_fids": 48890,
+    "complete_FT_fids": 129337,
+    "unverified_FT_fids": 5502,
+    "external_verified_FT_fids": 1,
+    "any_Crown_capture_fids": 103602,
+    "movement_with_quotes_fids": 52999,
+    "movement_capture_fids": 102696,
+    "movement_quote_rows": 4429709,
+    "distinct_movement_source_event_timestamps": 4429067,
+    "summary_with_quotes_fids": 49144,
+    "summary_quote_rows": 99520,
+    "live_quote_receipt_fids": 95,
+    "live_quote_rows": 278,
+    "explicit_no_Crown_AH_movement_fids": 49697,
+    "failed_attempts": 951,
+    "uncovered_schedule_fids": 81840
+  },
+  "ft_readiness": {
+    "as_of_utc": "2026-11-21T15:22:52.164072Z",
+    "candidate_count": 5502,
+    "counts": {
+      "future_fixture_not_due": 302,
+      "past_kickoff_status_missing_or_unknown": 4531,
+      "provider_reports_non_full_status": 669
+    },
+    "placeholder_0_0_fids": 5061
+  },
+  "season_matrix": {
+    "source_season_buckets": 497,
+    "schedule_fid_sum": 134839,
+    "verified_plus_unverified_mismatch_buckets": 0
+  },
+  "offline_crown_cache_audit": {
+    "raw_files": 104365,
+    "valid_raw_cache_fids": 103293,
+    "unanchored_sha": 0,
+    "issues": {},
+    "supplemental_fids_with_raw_crown_match": 0
+  },
+  "api_requests_from_audit_scripts": 0,
+  "sqlite_writes_from_audit_scripts": 0,
+  "outputs": {
+    "consolidate_supplemental_totalcorner_schedules.py": {
+      "bytes": 7257,
+      "sha256": "87042db8eb779444fd5498d1d7e65676f503fd714d96046fff5dbd6b97579a0e"
+    },
+    "audit_existing_inventory.py": {
+      "bytes": 35760,
+      "sha256": "344442199819f8da9a880228482135a28e6e912f554f8bee1690e96b32e6b8d1"
+    },
+    "audit_unverified_ft_readiness.py": {
+      "bytes": 5188,
+      "sha256": "c85845b7e4ce9ea6fd8e7a2cddd1fdf7d620377c16c534212b0c38a86c95c270"
+    },
+    "audit_offline_raw_crown_inventory.py": {
+      "bytes": 7716,
+      "sha256": "a963e1b55eb36ec789d1bc2f38941ce3976ec7b4e609653d999044443da3132c"
+    },
+    "inventory_coverage_summary_2019_2026.json": {
+      "bytes": 878040,
+      "sha256": "2a6b8a8a9e7c2297fc1f9badb57967f1133f65c18317295ee495c50e50ec9ac3"
+    },
+    "league_year_coverage_2019_2026.csv": {
+      "bytes": 43593,
+      "sha256": "9634e0d4fb2c32e92b89138b13aaa49fc64531c82b3c97c9d4d911ca3683b1fb"
+    },
+    "league_season_coverage_2019_2026.csv": {
+      "bytes": 29501,
+      "sha256": "ec2d4b9889a83e110ca809a622d5af3b981c1f5e0c4f2f7ddf07ae8e2524675e"
+    },
+    "fixture_inventory_2019_2026.jsonl.gz": {
+      "bytes": 15039611,
+      "sha256": "74f32e827e4bee86abac343f935d9f8379da276785c767f352e128ce2a695829"
+    },
+    "unverified_ft_readiness_2019_2026_summary.json": {
+      "bytes": 851,
+      "sha256": "a35f4998a6b72c7448af1184ab0e17f8588db7678aaf1cc1d95c3ff33c6c7486"
+    },
+    "unverified_ft_readiness_2019_2026_by_league_year.csv": {
+      "bytes": 47225,
+      "sha256": "4190c2ffc839babe353fab6d1ccad8723b9482e9c2fa7c6bd894788c9a6f0610"
+    },
+    "unverified_ft_readiness_2019_2026_per_fid.jsonl": {
+      "bytes": 1367793,
+      "sha256": "bd89edc7d96e40441ac9623016d086170b02a56db0ba1299c34b59d0a34448b1"
+    },
+    "offline_raw_Crown_response_inventory_audit_2019_2026.json": {
+      "bytes": 185534,
+      "sha256": "223005f6785de13059288c2254d565641526ee8b7a2f564530c1e11ce149bf8e"
+    },
+    "offline_raw_Crown_response_index_audit_2019_2026.jsonl.gz": {
+      "bytes": 5279214,
+      "sha256": "34dc773c3fe0e0432ddb03eebeff3ffa8cefae0b84edaf1388fffbc72d8367c6"
+    },
+    "supplemental_schedule_progress_snapshot_20261121T1523Z.json": {
+      "bytes": 5680,
+      "sha256": "368b907e16f4441fcf6bb9d7fd0d7df627cb8281f4a523c588ecbc74e6486056"
+    },
+    "COLLECTION_CHECKPOINT_20261121T1523Z.md": {
+      "bytes": 3515,
+      "sha256": "b0993e431663211829e02ba0f4e7701836f1a036a94498c2d4be7398eb2f6e92"
+    }
+  }
+}

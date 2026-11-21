@@ -5111,3 +5111,11 @@
 - 当前TotalCorner补充赛程19,429个FID与Crown历史raw报价缓存交集0。不得拿别家报价或插值填充；这些未覆盖FID需待已有分页采集器空闲后，以已确认`crown_capture_store.py` historical movement方法检查目前可取得数据。本轮未并发发Crown请求。
 - 审计报告、逐响应SHA清单及执行清单见 `research/data_recovery_2019_2026/OFFLINE_CROWN_CACHE_AUDIT_20261121T1520Z.md` 和同目录JSON/SHA文件；审计API请求0、SQLite写入0。
 - 同时点TotalCorner补采进程PID 10634仍运行；进度日志记录668次请求尝试、19,579个新FID、4个源记录版本冲突，ID337 Serbia Prva Liga 15/87页，无失败页。后续provider IDs仍需逐一查完，当前全历史恢复未完成。
+
+### 2026-11-21 15:24 UTC：再同步活动分页进度与全部覆盖表
+
+- 将当前append-only TotalCorner响应规范化并重建库存及原始Crown缓存审计。规范化快照702页、20,719个FID/记录版本，SHA256 `3d2610b38d1c288e62bd29adb770175d30b3cd04e1c67e1ccb0052c06bfc6f19`。采集器仍运行，快照属于中间版本。
+- 全源库存134,839个唯一FID、74个provider联赛ID、592个联赛×UTC年桶；已核实FT 129,337、未核实5,502。来源赛季497桶合计134,839，所有分桶 verified+unverified FT 数与赛程FID一致。movement有价52,999 FID/4,429,709行；当前81,840个库存FID无movement有价报价行。
+- FT截至15:22:52 UTC：future/not due 302、过去开赛但状态未知4,531、明确non-full 669；0:0占位5,061，均未作为比分结算。Crown原始缓存检查104,365文件/零SHA或身份异常；20,719个补充赛程FID与现存Crown raw cache交集为0。
+- PID 10634仍运行；进度文件记录702请求、20,599新FID、ID337 Serbia Prva Liga 49/87页。四个“冲突”是既有ID15记录版本SHA变化，旧缓存无开赛/终态字段、新TotalCorner页含完整记录，既有核对确认球队/联赛身份一致；没有覆盖旧版本。请求日志另有一次ConnectionError后继续成功分页，当前累计failed_pages为空。
+- 完整再现记录见 `COLLECTION_CHECKPOINT_20261121T1523Z.md`、`supplemental_schedule_progress_snapshot_20261121T1523Z.json`、`history_recovery_execution_20261121T1523Z.json` 和SHA清单。所有库存/FT/raw cache审计均离线，只读；没有训练、回测或生产交易操作。

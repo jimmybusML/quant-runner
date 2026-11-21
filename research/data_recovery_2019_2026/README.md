@@ -48,3 +48,9 @@ The detailed per-page SHA/date audit is in `cached_schedule_page_continuity_2019
 - The cache contained 52,999 movement FIDs / 4,429,709 movement rows and 49,621 summary-bearing response records / 99,242 summary rows; all available movement and summary response hashes were already indexed in the corresponding historical layer. No raw-cache movement rows were available to import from this snapshot.
 - Of 19,429 supplemental schedule FIDs, zero had a valid Crown raw-cache response. Thus their currently missing movement quotes require a new authorized historical request when the active TotalCorner pagination is idle; no alternative bookmaker or synthesized quote was used.
 - Audit script: `audit_offline_raw_crown_inventory.py`; sanitized result and per-response digest ledger are in `offline_raw_Crown_response_inventory_audit_2019_2026.json` and `offline_raw_Crown_response_index_audit_2019_2026.jsonl.gz`. This audit made no API requests and no SQLite writes.
+
+## Refreshed inventory after active schedule recovery — 2026-11-21 15:24 UTC
+
+- Normalized 702 verified pages / 20,719 target-period FIDs in the current supplemental snapshot; all-source inventory is 134,839 unique FIDs across 74 provider league IDs. The active collector had discovered 20,599 new FIDs and reached Serbia Prva Liga ID 337, page 49/87.
+- Verified FT is 129,337; unresolved FT is 5,502. The 497 provider-season buckets sum to the global inventory and each bucket's verified plus unresolved FT equals its fixture count. Movement quote coverage remains 52,999 FIDs / 4,429,709 rows; 81,840 inventory FIDs currently lack a movement quote row.
+- No raw Crown cache matched any of the 20,719 supplemental FIDs. Full inventory, FT readiness and raw Crown cache audits were rerun and stored with SHA manifests at `COLLECTION_CHECKPOINT_20261121T1523Z.md` and `CHECKPOINT_SHA256_20261121T1523Z.txt`.
