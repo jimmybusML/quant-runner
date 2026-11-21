@@ -1,0 +1,13 @@
+# Execution record: M8 player-pair cohesion
+
+- Executed: 2026-11-21 UTC. The historical runner was rerun after checking the extant output; its final summary was regenerated at 2026-11-21 12:00 China time.
+- Runner: `python3 research/m8/player_pair_cohesion_20261121/run_player_pair_cohesion.py`.
+- Independent check: `python3 research/m8/player_pair_cohesion_20261121/verify_player_pair_cohesion.py`; result `pass=true`, 5,502/5,502 historical FIDs matched raw Crown contract/FT evidence, 16,506/16,506 model settlement rows reconciled, 157/157 actual receipt FIDs had raw HTTP and snapshot audit, and no discrepancies.
+- Report build: `python3 research/m8/player_pair_cohesion_20261121/build_report.py`.
+- Inputs: the frozen M8 membership (10,294 FIDs; SHA in the summary and manifest), MR1 actual receipt archive, the existing Crown T12 market inventory, and Transfermarkt `games.csv.gz`, `game_lineups.csv.gz`, and `appearances.csv.gz`. No collection or data-refresh workflow was run.
+- Scope: 41,059 Crown T12 FIDs; 10,710 had complete player-pair history features. The 2024–2026 walk-forward test contained 5,502 FIDs, of which 4,383 were outside the frozen eight. The latter used the same unique FIDs for all three methods.
+- Result: outside the frozen eight, Crown market-only −121.840U; pair-cohesion-only −90.880U; Crown plus pair cohesion −153.770U. Each method used 4,383 one-unit AH positions; none produced positive net profit. The pair-only model reduced loss by 30.960U relative to the same-FID market-only comparator but remained negative in every test year.
+- Actual Crown receipt replay: 157 receipt FIDs (122 outside the frozen eight), independently audited against original HTTP envelopes and snapshots. Pair-only outside-eight result −5.815U. The Transfermarkt lineup archive ends 2026-05-24, while the receipt target dates are 2026-10-09 through 2026-11-02; prior lineup data is 139–246 days old and has no first-publication/receipt timestamp. This is stale-feature price replay, not validation that the information was available at the time.
+- Frozen membership SHA remained `6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665`. AH quarter-lines were split into equal half-stakes and settled against FT; no other bookmaker was used.
+- No production code, original M8 rules/members, M1/MR1/M9, collector, Telegram, formal ledger, workflow, or scheduling configuration was modified. Formal orders and ledger writes: zero.
+- Report, scripts, three-method per-fixture ledger, combined-model ledger, receipt replay, raw Crown audit indexes, summary and SHA manifest are in this directory. All detailed annual, ISO-week and league results, including losses, remain in the JSON outputs.
