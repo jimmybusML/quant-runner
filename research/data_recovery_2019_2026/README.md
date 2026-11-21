@@ -97,6 +97,13 @@ The detailed per-page SHA/date audit is in `cached_schedule_page_continuity_2019
 - Added `build_recovered_fixture_manifest.py` to emit deduplicated `match_id` inputs with fixture identity and TotalCorner page/response SHA provenance. Extended `safe_window_collection_driver.py` to select `summary` or `movement` separately and retain the collector's default 5.2-second pacing and scheduled-job guard. Failed IDs are retained in collector logs for a later explicit retry pass; no unbounded automatic retry loop is used.
 - These utilities have not yet been used to issue Crown requests. The TotalCorner schedule pager remains active; current checkpoint is in `schedule_recovery_checkpoint_20261121T1718Z.json`.
 
+## Named-competition schedule recovery checkpoint — 2026-11-21 17:54 UTC
+
+- The active TotalCorner schedule process (PID 65966) had completed 11 of its 35 launch-time targets: 13,092 unique schedule FIDs from 485 request attempts. Egypt Division 2 (ID 417) was at page 36/114 with 1,080 rows at the checkpoint; the process remains resumable and the 35-target batch was not complete.
+- A read-only cross-reference of those 11 completed leagues found 12,087 provider rows with `status=full` and numeric scores, and zero matching Crown SQLite capture or AH quote FIDs. This is a local-cache gap, not evidence that the provider has no historical prices.
+- The process launch-time target SHA is `9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9` (35 entries). The current queued file has 38 exact IDs, SHA `effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778`; IDs 10653, 702 and 114 remain queued for a follow-up after the active process exits.
+- Checkpoint and private source-ledger hash references are in `schedule_recovery_checkpoint_20261121T1754Z.json` (SHA `c1f1fc695daf97489d67cb4da28f8075a9ab0b0760d308ce048397d52c901ce0`). No Crown request or SQLite write occurred. Schedule reconciliation, complete inventory refresh, and all Crown summary/movement and unresolved-FT queues remain unfinished.
+
 ## 2019–2022 audit of the three example leagues — 2026-11-21 17:24 UTC
 
 The existing inventory already contains schedules for IDs 51, 61, and 10480 in 2019–2022. Across those 12 league-year rows it has 2,594 FIDs, 2,513 verified full-time scores, and 81 unverified results. There are 2,251 historical movement captures, all explicitly `NO_CROWN_AH_QUOTES`; summary quote coverage and movement quote rows are both zero. Another 343 FIDs lack a movement capture, with one recorded failed attempt. These are Crown price gaps, not absent schedules. Full row-level aggregates and the source CSV SHA are in `known_2019_2022_league_gap_audit.json`.

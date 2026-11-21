@@ -5184,3 +5184,10 @@
 - 6,165个过期未核验FT中，5,930场缺movement历史capture，将由movement批次一并处理；另235场已有movement历史capture，需独立使用`--refresh`取新历史响应，避免对前述5,930重复请求。剩余291场为future/not-due，不进入FT复查。
 - 已识别9个FID的TotalCorner kickoff日期冲突，FIDs和球队/联赛ID仍一致。分层清单保留这些比赛但将kickoff hint置空、保留所有冲突来源值，让精确比赛ID响应提供实际start；没有挑一个冲突日期。
 - 汇总快照 `research/data_recovery_2019_2026/crown_queue_baseline_20261121T1737Z.json` SHA256 `6156d81e927aa7901eb4430de73783148179f8a8ea9669e7d468b70cf90f3442`。候选文件保存在私有research-work，不提交比赛级的API输入。尚未启动Crown历史请求。
+
+### 2026-11-21 17:54 UTC：M7具名联赛映射赛程补采继续
+
+- TotalCorner分页器PID 65966持续运行，按启动时经哈希锚定的35项输入处理；累计485次请求尝试，11个联赛完成、13,092个唯一FID，Egypt Division 2（417）当时第36/114页、1,080场，无已记录分页失败。批次截至该检查点新增FID为14,172（包括Egypt当前部分页）；这不是38个目标全部完成。
+- 对11个完成联赛进行只读FID交叉核对：13,092场中12,087场源状态为full且比分为有效数字；SQLite `capture`全层FID和AH报价FID均为0。该结论只说明当前本地库尚无对应记录，不等于provider无历史报价。未发Crown请求、未写SQLite。
+- 进程启动时目标SHA为旧的35项清单 `9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9`；当前排队清单已扩至38项，SHA `effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778`，增加的10653、702、114三个精确页面映射ID尚需在当前进程结束后续采。
+- 检查点 `research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1754Z.json` SHA256 `c1f1fc695daf97489d67cb4da28f8075a9ab0b0760d308ce048397d52c901ce0`，同时记录私有进度、追加请求日志、比赛ledger和当前目标输入哈希。赛程并表、全源覆盖刷新、Crown historical summary/movement补采和赛果缺口刷新均未完成；本任务继续。

@@ -1,0 +1,152 @@
+{
+  "generated_at_utc": "2026-11-21T17:54:37Z",
+  "purpose": "intermediate progress only; all-league historical collection remains incomplete",
+  "collector": {
+    "script": "collect_m7_named_competition_schedules_20261122.py",
+    "pid": 65966,
+    "started_at_utc": "2026-11-21T16:28:12.968745Z",
+    "finished_at_utc": null,
+    "active_batch_loaded_target_count": 35,
+    "active_batch_target_file_sha256": "9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9",
+    "queued_followup_target_file_count": 38,
+    "queued_followup_target_file_sha256": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778",
+    "queued_followup_unprocessed_ids": [
+      {
+        "provider_league_id": "10653",
+        "league_name": "Bulgaria B PFG",
+        "mapping_source": "Exact TotalCorner league page URL /league/view/10653 verified by title; supplement because no matching name in archived Crown match-view responses"
+      },
+      {
+        "provider_league_id": "702",
+        "league_name": "Georgia First League",
+        "mapping_source": "Exact TotalCorner league page URL /league/table/702 listed in existing project competition identity record"
+      },
+      {
+        "provider_league_id": "114",
+        "league_name": "Iceland 1 Deild",
+        "mapping_source": "Exact TotalCorner league page URL /league/view/114 verified by title; supplement because no matching name in archived Crown match-view responses"
+      }
+    ],
+    "network_request_attempts_in_active_batch": 485,
+    "new_unique_fids_all_active_batch": 14172,
+    "completed_target_count": 11,
+    "completed_target_fids": 13092,
+    "active_target_count": 1,
+    "active_targets": {
+      "417": {
+        "league_name": "Egypt Division 2",
+        "pages_read": 36,
+        "reported_pages": 114,
+        "fids": 1080,
+        "failed_pages": []
+      }
+    },
+    "completed_targets": {
+      "877": {
+        "league_name": "Albania First Division",
+        "pages_read": 20,
+        "reported_pages": 22,
+        "fids": 557,
+        "failed_pages": []
+      },
+      "11559": {
+        "league_name": "Andorra Second Division",
+        "pages_read": 5,
+        "reported_pages": 5,
+        "fids": 128,
+        "failed_pages": []
+      },
+      "11260": {
+        "league_name": "Austria 2. Liga",
+        "pages_read": 66,
+        "reported_pages": 94,
+        "fids": 1936,
+        "failed_pages": []
+      },
+      "227": {
+        "league_name": "Azerbaijan Division 1",
+        "pages_read": 22,
+        "reported_pages": 36,
+        "fids": 619,
+        "failed_pages": []
+      },
+      "119": {
+        "league_name": "Belgium First Division B",
+        "pages_read": 49,
+        "reported_pages": 78,
+        "fids": 1423,
+        "failed_pages": []
+      },
+      "911": {
+        "league_name": "Bosnia & Herzegovina 1st League",
+        "pages_read": 52,
+        "reported_pages": 56,
+        "fids": 1521,
+        "failed_pages": []
+      },
+      "26528": {
+        "league_name": "Bulgaria Second League",
+        "pages_read": 39,
+        "reported_pages": 39,
+        "fids": 1169,
+        "failed_pages": []
+      },
+      "26825": {
+        "league_name": "Croatia 1.NL",
+        "pages_read": 30,
+        "reported_pages": 30,
+        "fids": 885,
+        "failed_pages": []
+      },
+      "571": {
+        "league_name": "Cyprus Division 2",
+        "pages_read": 48,
+        "reported_pages": 56,
+        "fids": 1403,
+        "failed_pages": []
+      },
+      "9115": {
+        "league_name": "Czechia 2. Liga",
+        "pages_read": 65,
+        "reported_pages": 100,
+        "fids": 1906,
+        "failed_pages": []
+      },
+      "90": {
+        "league_name": "Denmark Division 1",
+        "pages_read": 53,
+        "reported_pages": 82,
+        "fids": 1545,
+        "failed_pages": []
+      }
+    },
+    "identity_conflicts": 0,
+    "private_progress_sha256": "0d41780ea41813702d782975127b931d54e8b29b182ae1d5a1132c40079d9fe0",
+    "private_request_log_sha256": "416eda5867162dde3cbf8cecedaff151e4ed236facba415ab0f15f0b126faaa4",
+    "private_fixture_ledger_sha256": "831ac97751c6261e136a76609036ca6cb43ec68c017e882a3aa1e628dfa3755c",
+    "append_only_request_log_lines_all_batches": 1421
+  },
+  "scope": {
+    "explicit_provider_id_union": 118,
+    "inventory_ids_before_current_supplement": 80,
+    "mapped_ids_absent_from_that_inventory": 38,
+    "active_batch_covers_first_35_of_38_absent_ids": true,
+    "followup_ids_are_not_in_active_process_input": true
+  },
+  "read_only_crosscheck_for_completed_targets": {
+    "unique_schedule_fids_in_append_ledger": 13092,
+    "schedule_ids_completed": 11,
+    "verified_full_ft_fids_from_provider_status_and_scores": 12087,
+    "crown_sqlite_capture_fids_all_layers": 0,
+    "crown_sqlite_ah_quote_fids": 0,
+    "interpretation": "no matching local Crown capture rows were found; this does not establish that provider history has no quotes",
+    "sqlite_read_only": true
+  },
+  "constraints": {
+    "no_strategy_or_backtest": true,
+    "no_Crown_network_batch_while_TotalCorner_collector_active": true,
+    "no_Crown_SQLite_write": true,
+    "production_TG_and_ledger_untouched": true,
+    "raw_HTTP_bodies_remain_private": true
+  }
+}
