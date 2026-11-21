@@ -17,3 +17,11 @@
 - Reproducible E-rule check: `python3 research/m8/exact_rules_outside_original49_20261120/audit_frozen_E_direction_consistency_20261120.py`; result is saved in `audit_frozen_E_direction_consistency_20261120.json` (267 frozen E members, 192 with settlement ledger, 161 paired path/settlement checks, 161 direction matches, zero mismatches; all 52 crossleague E orders have zero endpoint movement).
 - Published research commit: `dd2f3d610ec9d1eed1475c9f4944a1992276b33b`; branch `research/m8-exact-cross-league-expansion`.
 - Pull request: `https://github.com/jimmybusML/quant-runner/pull/68`, targeting `main`; it is not merged.
+
+## 2026-11-21 独立复算
+
+- 从现有已授权工作区重新运行主回放、真实收据审计、独立 Crown/FT 结算校验和报告生成器；没有发起 Crown 采集请求。
+- 回放仍输出21,096个赛事FID、6,967条完整T6/T3/T1路径和1,271个按冻结优先级去重的新增FID，净值+7.185U/ROI+0.565303%。新增FID与冻结10,294个FID交集为0。
+- 独立复核重读现有Crown原响应SHA、赔率/盘线、赛程FT及冻结FID：1,271/1,271通过，0差异，quarter-line两腿重算净值+7.185U。目标15联赛真实赛前receipt仍为0。
+- 与已发布账本逐行解压比较：完整路径、覆盖FID、订单及独立结算JSONL语义内容完全相同；gzip文件字节SHA因gzip时间头变化，已刷新输出SHA清单。结果数字未变化。
+- 修复报告生成器，使其持续保留E组历史方向实现差异审计，且自动写入本次复算结果。
