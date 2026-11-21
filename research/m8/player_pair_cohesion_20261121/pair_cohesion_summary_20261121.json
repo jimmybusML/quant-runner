@@ -1,0 +1,6060 @@
+{
+  "study": "M8 historical player-pair co-appearance cohesion vs Crown AH",
+  "execution_utc": "2026-11-21T04:00:40.942930+00:00",
+  "inputs_sha256": {
+    "/Users/mac/QuantAsiaDesk/research-work/m8_foundation_20261115/historical_membership.jsonl": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_MR1_full_actual_Crown_receipt_archive_20261113.jsonl": "e3e1250b6e9bf8fe1a8cf638f46b276475e55b85d74fb12c7f105d048a67be5b",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/games.csv.gz": "142561989017d379bcf9e72bad0b87e0996bae0e7b710ebb3def9255f464c741",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/game_lineups.csv.gz": "5e83d6fad28364aadfea608013700cf09990062eede1ad9ef189189b0af47ba2",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/appearances.csv.gz": "e096c2b158fc3d52c4550526c4d4850dd62f31007652f4bcae112eadb1646802",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_early_joint_market_inventory_20261115.jsonl": "77c95f69e8fb413f23456d0bda49ede2147aa2e9ad9d3340d64af817984c0043"
+  },
+  "source_games_max_date": "2026-05-24",
+  "coverage": {
+    "all_Crown_T12_FIDs": 41059,
+    "complete_pair_cohesion_FIDs": 10710,
+    "valid_train_and_test_rows": 10710,
+    "test_FIDs_2024_2026": 5502,
+    "test_outside_frozen_FIDs": 4383,
+    "frozen_overlap_test_FIDs": 1119,
+    "missing_reasons": {
+      "unmapped_target_team": 23993,
+      "insufficient_complete_prior_lineups": 6356
+    },
+    "history_audit": {
+      "mapped_games": 33987,
+      "incomplete_starting_eleven": 4827,
+      "valid_team_match_lineups": 55371,
+      "starter_without_positive_appearance": 7776
+    },
+    "actual_receipt_FID_overlap": 168
+  },
+  "methodology": {
+    "feature": "prior 365-day co-start pair recurrence, >=2/3 co-start exposure, normalized pair entropy, top-decile pair concentration, last-five lineup pair pre-existing co-start familiarity and recent-vs-old change; per target date cutoff target date-3d; each team must have >=3 complete prior XI records.",
+    "independent_difference": "R50 measured player-level overlap between previous two starting lineups. This experiment measures recurrence of player pairs across the trailing 365-day lineup network; it does not use target lineup.",
+    "model": "fixed Ridge alpha 100, expanding year training, fold-local standardization, Gaussian integer goal difference using train residual RMSE; choose side with higher expected Crown AH net return; no EV/no-bet gate, no parameter search.",
+    "settlement": "Crown T12 AH line and two decimal odds; quarter-lines split into two adjacent half-goal legs, half stakes."
+  },
+  "training_folds": {
+    "2024": {
+      "train_n": 5208,
+      "train_years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "train_max_year": 2023,
+      "test_n": 1885,
+      "receipt_ids_excluded_from_training": true,
+      "ridge_alpha": 100.0,
+      "model_features": {
+        "market_only": 3,
+        "pair_only": 14,
+        "market_plus_pair": 17
+      },
+      "sigma": {
+        "market_only": 1.60468626,
+        "pair_only": 1.7814059,
+        "market_plus_pair": 1.60336075
+      }
+    },
+    "2025": {
+      "train_n": 7093,
+      "train_years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "train_max_year": 2024,
+      "test_n": 2032,
+      "receipt_ids_excluded_from_training": true,
+      "ridge_alpha": 100.0,
+      "model_features": {
+        "market_only": 3,
+        "pair_only": 14,
+        "market_plus_pair": 17
+      },
+      "sigma": {
+        "market_only": 1.60538876,
+        "pair_only": 1.80232945,
+        "market_plus_pair": 1.60430139
+      }
+    },
+    "2026": {
+      "train_n": 9125,
+      "train_years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "train_max_year": 2025,
+      "test_n": 1585,
+      "receipt_ids_excluded_from_training": true,
+      "ridge_alpha": 100.0,
+      "model_features": {
+        "market_only": 3,
+        "pair_only": 14,
+        "market_plus_pair": 17
+      },
+      "sigma": {
+        "market_only": 1.5984782,
+        "pair_only": 1.80351643,
+        "market_plus_pair": 1.59751596
+      }
+    }
+  },
+  "models": {
+    "market_only": {
+      "all_test": {
+        "n": 5502,
+        "net_U": -170.545,
+        "ROI_pct": -3.099691,
+        "MDD_U": 176.83,
+        "orders_per_week": 36.926174,
+        "five_state": {
+          "full_win": 2120,
+          "push": 378,
+          "full_loss": 2223,
+          "half_win": 427,
+          "half_loss": 354
+        }
+      },
+      "incremental_outside_frozen": {
+        "n": 4383,
+        "net_U": -121.84,
+        "ROI_pct": -2.779831,
+        "MDD_U": 127.985,
+        "orders_per_week": 29.416107,
+        "five_state": {
+          "full_win": 1691,
+          "full_loss": 1761,
+          "half_win": 349,
+          "push": 286,
+          "half_loss": 296
+        }
+      },
+      "test_date_range": [
+        "2024-01-01",
+        "2026-11-02"
+      ],
+      "frozen_plus_candidate_same_period": {
+        "frozen_n": 6872,
+        "candidate_n": 4383,
+        "n": 11255,
+        "net_U": 76.425,
+        "ROI_pct": 0.679032,
+        "MDD_U": 88.395,
+        "candidate_net_U": -121.84
+      },
+      "full_frozen_plus_candidate": {
+        "frozen_n": 10294,
+        "candidate_n": 4383,
+        "n": 14677,
+        "net_U": 114.175,
+        "ROI_pct": 0.777918,
+        "MDD_U": 90.975,
+        "candidate_net_U": -121.84
+      }
+    },
+    "pair_only": {
+      "all_test": {
+        "n": 5502,
+        "net_U": -94.805,
+        "ROI_pct": -1.723101,
+        "MDD_U": 118.38,
+        "orders_per_week": 36.926174,
+        "five_state": {
+          "full_loss": 2150,
+          "push": 378,
+          "full_win": 2193,
+          "half_loss": 394,
+          "half_win": 387
+        }
+      },
+      "incremental_outside_frozen": {
+        "n": 4383,
+        "net_U": -90.88,
+        "ROI_pct": -2.073466,
+        "MDD_U": 104.09,
+        "orders_per_week": 29.416107,
+        "five_state": {
+          "full_loss": 1717,
+          "full_win": 1735,
+          "half_loss": 322,
+          "push": 286,
+          "half_win": 323
+        }
+      },
+      "test_date_range": [
+        "2024-01-01",
+        "2026-11-02"
+      ],
+      "frozen_plus_candidate_same_period": {
+        "frozen_n": 6872,
+        "candidate_n": 4383,
+        "n": 11255,
+        "net_U": 107.385,
+        "ROI_pct": 0.954109,
+        "MDD_U": 82.96,
+        "candidate_net_U": -90.88
+      },
+      "full_frozen_plus_candidate": {
+        "frozen_n": 10294,
+        "candidate_n": 4383,
+        "n": 14677,
+        "net_U": 145.135,
+        "ROI_pct": 0.98886,
+        "MDD_U": 90.17,
+        "candidate_net_U": -90.88
+      }
+    },
+    "market_plus_pair": {
+      "all_test": {
+        "n": 5502,
+        "net_U": -157.365,
+        "ROI_pct": -2.860142,
+        "MDD_U": 166.66,
+        "orders_per_week": 36.926174,
+        "five_state": {
+          "full_win": 2134,
+          "push": 378,
+          "full_loss": 2209,
+          "half_win": 426,
+          "half_loss": 355
+        }
+      },
+      "incremental_outside_frozen": {
+        "n": 4383,
+        "net_U": -153.77,
+        "ROI_pct": -3.508328,
+        "MDD_U": 168.85,
+        "orders_per_week": 29.416107,
+        "five_state": {
+          "full_win": 1678,
+          "full_loss": 1774,
+          "half_win": 354,
+          "half_loss": 291,
+          "push": 286
+        }
+      },
+      "test_date_range": [
+        "2024-01-01",
+        "2026-11-02"
+      ],
+      "frozen_plus_candidate_same_period": {
+        "frozen_n": 6872,
+        "candidate_n": 4383,
+        "n": 11255,
+        "net_U": 44.495,
+        "ROI_pct": 0.395335,
+        "MDD_U": 85.55,
+        "candidate_net_U": -153.77
+      },
+      "full_frozen_plus_candidate": {
+        "frozen_n": 10294,
+        "candidate_n": 4383,
+        "n": 14677,
+        "net_U": 82.245,
+        "ROI_pct": 0.560367,
+        "MDD_U": 85.55,
+        "candidate_net_U": -153.77
+      }
+    }
+  },
+  "annual_incremental": {
+    "market_only": {
+      "2024": {
+        "n": 1484,
+        "net_U": -54.315,
+        "ROI_pct": -3.66004,
+        "MDD_U": 59.06,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_win": 576,
+          "full_loss": 590,
+          "half_win": 112,
+          "push": 84,
+          "half_loss": 122
+        }
+      },
+      "2025": {
+        "n": 1628,
+        "net_U": -23.34,
+        "ROI_pct": -1.433661,
+        "MDD_U": 41.415,
+        "orders_per_week": 31.307692,
+        "five_state": {
+          "full_win": 637,
+          "full_loss": 649,
+          "half_loss": 104,
+          "half_win": 132,
+          "push": 106
+        }
+      },
+      "2026": {
+        "n": 1271,
+        "net_U": -44.185,
+        "ROI_pct": -3.476397,
+        "MDD_U": 51.17,
+        "orders_per_week": 28.886364,
+        "five_state": {
+          "half_win": 105,
+          "full_loss": 522,
+          "full_win": 478,
+          "push": 96,
+          "half_loss": 70
+        }
+      }
+    },
+    "pair_only": {
+      "2024": {
+        "n": 1484,
+        "net_U": -23.04,
+        "ROI_pct": -1.552561,
+        "MDD_U": 44.965,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_loss": 578,
+          "full_win": 588,
+          "half_loss": 114,
+          "push": 84,
+          "half_win": 120
+        }
+      },
+      "2025": {
+        "n": 1628,
+        "net_U": -39.75,
+        "ROI_pct": -2.441646,
+        "MDD_U": 79.435,
+        "orders_per_week": 31.307692,
+        "five_state": {
+          "full_loss": 645,
+          "full_win": 641,
+          "half_win": 121,
+          "half_loss": 115,
+          "push": 106
+        }
+      },
+      "2026": {
+        "n": 1271,
+        "net_U": -28.09,
+        "ROI_pct": -2.210071,
+        "MDD_U": 48.405,
+        "orders_per_week": 28.886364,
+        "five_state": {
+          "half_win": 82,
+          "full_win": 506,
+          "full_loss": 494,
+          "half_loss": 93,
+          "push": 96
+        }
+      }
+    },
+    "market_plus_pair": {
+      "2024": {
+        "n": 1484,
+        "net_U": -10.34,
+        "ROI_pct": -0.696765,
+        "MDD_U": 37.12,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_win": 585,
+          "full_loss": 581,
+          "half_win": 139,
+          "half_loss": 95,
+          "push": 84
+        }
+      },
+      "2025": {
+        "n": 1628,
+        "net_U": -87.185,
+        "ROI_pct": -5.355344,
+        "MDD_U": 90.565,
+        "orders_per_week": 31.307692,
+        "five_state": {
+          "full_win": 616,
+          "full_loss": 670,
+          "half_loss": 122,
+          "push": 106,
+          "half_win": 114
+        }
+      },
+      "2026": {
+        "n": 1271,
+        "net_U": -56.245,
+        "ROI_pct": -4.425256,
+        "MDD_U": 67.695,
+        "orders_per_week": 28.886364,
+        "five_state": {
+          "half_loss": 74,
+          "half_win": 101,
+          "full_loss": 523,
+          "full_win": 477,
+          "push": 96
+        }
+      }
+    }
+  },
+  "weekly_incremental": {
+    "market_only": {
+      "2024-W01": {
+        "n": 21,
+        "net_U": 0.36,
+        "ROI_pct": 1.714286,
+        "MDD_U": 1.95,
+        "orders_per_week": 21.0,
+        "five_state": {
+          "full_win": 9,
+          "full_loss": 9,
+          "half_win": 2,
+          "push": 1
+        }
+      },
+      "2024-W02": {
+        "n": 29,
+        "net_U": 0.015,
+        "ROI_pct": 0.051724,
+        "MDD_U": 1.5,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_loss": 8,
+          "half_loss": 5,
+          "full_win": 10,
+          "half_win": 3,
+          "push": 3
+        }
+      },
+      "2024-W03": {
+        "n": 21,
+        "net_U": -0.16,
+        "ROI_pct": -0.761905,
+        "MDD_U": 3.8,
+        "orders_per_week": 21.0,
+        "five_state": {
+          "full_win": 10,
+          "full_loss": 9,
+          "half_loss": 1,
+          "push": 1
+        }
+      },
+      "2024-W04": {
+        "n": 29,
+        "net_U": -2.97,
+        "ROI_pct": -10.241379,
+        "MDD_U": 7.155,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_loss": 13,
+          "half_win": 5,
+          "full_win": 9,
+          "half_loss": 2
+        }
+      },
+      "2024-W05": {
+        "n": 35,
+        "net_U": -3.96,
+        "ROI_pct": -11.314286,
+        "MDD_U": 6.64,
+        "orders_per_week": 35.0,
+        "five_state": {
+          "half_win": 6,
+          "full_win": 9,
+          "half_loss": 8,
+          "push": 1,
+          "full_loss": 11
+        }
+      },
+      "2024-W06": {
+        "n": 26,
+        "net_U": 0.855,
+        "ROI_pct": 3.288462,
+        "MDD_U": 1.17,
+        "orders_per_week": 26.0,
+        "five_state": {
+          "full_loss": 11,
+          "full_win": 12,
+          "half_loss": 1,
+          "half_win": 2
+        }
+      },
+      "2024-W07": {
+        "n": 27,
+        "net_U": -9.785,
+        "ROI_pct": -36.240741,
+        "MDD_U": 11.755,
+        "orders_per_week": 27.0,
+        "five_state": {
+          "full_win": 7,
+          "full_loss": 15,
+          "half_loss": 4,
+          "half_win": 1
+        }
+      },
+      "2024-W08": {
+        "n": 29,
+        "net_U": -0.725,
+        "ROI_pct": -2.5,
+        "MDD_U": 2.19,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_loss": 11,
+          "full_win": 12,
+          "half_loss": 4,
+          "half_win": 1,
+          "push": 1
+        }
+      },
+      "2024-W09": {
+        "n": 45,
+        "net_U": 8.055,
+        "ROI_pct": 17.9,
+        "MDD_U": 3.12,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 23,
+          "half_win": 4,
+          "full_loss": 13,
+          "half_loss": 4,
+          "push": 1
+        }
+      },
+      "2024-W10": {
+        "n": 36,
+        "net_U": 5.495,
+        "ROI_pct": 15.263889,
+        "MDD_U": 0.16,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_win": 19,
+          "full_loss": 11,
+          "half_loss": 5,
+          "half_win": 1
+        }
+      },
+      "2024-W11": {
+        "n": 29,
+        "net_U": 5.08,
+        "ROI_pct": 17.517241,
+        "MDD_U": 1.03,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_win": 15,
+          "half_win": 1,
+          "full_loss": 9,
+          "push": 3,
+          "half_loss": 1
+        }
+      },
+      "2024-W13": {
+        "n": 35,
+        "net_U": -4.685,
+        "ROI_pct": -13.385714,
+        "MDD_U": 4.745,
+        "orders_per_week": 35.0,
+        "five_state": {
+          "full_win": 13,
+          "full_loss": 17,
+          "half_loss": 2,
+          "push": 1,
+          "half_win": 2
+        }
+      },
+      "2024-W14": {
+        "n": 51,
+        "net_U": -13.175,
+        "ROI_pct": -25.833333,
+        "MDD_U": 13.305,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_loss": 28,
+          "half_loss": 2,
+          "push": 4,
+          "full_win": 16,
+          "half_win": 1
+        }
+      },
+      "2024-W15": {
+        "n": 46,
+        "net_U": -10.89,
+        "ROI_pct": -23.673913,
+        "MDD_U": 10.89,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "half_loss": 5,
+          "full_loss": 22,
+          "full_win": 12,
+          "half_win": 5,
+          "push": 2
+        }
+      },
+      "2024-W16": {
+        "n": 41,
+        "net_U": -1.8,
+        "ROI_pct": -4.390244,
+        "MDD_U": 4.26,
+        "orders_per_week": 41.0,
+        "five_state": {
+          "full_loss": 17,
+          "full_win": 15,
+          "half_loss": 2,
+          "push": 4,
+          "half_win": 3
+        }
+      },
+      "2024-W17": {
+        "n": 55,
+        "net_U": 3.44,
+        "ROI_pct": 6.254545,
+        "MDD_U": 1.05,
+        "orders_per_week": 55.0,
+        "five_state": {
+          "full_win": 23,
+          "full_loss": 17,
+          "half_loss": 7,
+          "push": 5,
+          "half_win": 3
+        }
+      },
+      "2024-W18": {
+        "n": 46,
+        "net_U": 1.73,
+        "ROI_pct": 3.76087,
+        "MDD_U": 2.77,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_win": 21,
+          "full_loss": 16,
+          "half_loss": 5,
+          "push": 3,
+          "half_win": 1
+        }
+      },
+      "2024-W19": {
+        "n": 56,
+        "net_U": -1.265,
+        "ROI_pct": -2.258929,
+        "MDD_U": 9.185,
+        "orders_per_week": 56.0,
+        "five_state": {
+          "full_loss": 23,
+          "half_win": 3,
+          "full_win": 24,
+          "push": 2,
+          "half_loss": 4
+        }
+      },
+      "2024-W20": {
+        "n": 62,
+        "net_U": -3.0,
+        "ROI_pct": -4.83871,
+        "MDD_U": 6.03,
+        "orders_per_week": 62.0,
+        "five_state": {
+          "full_loss": 25,
+          "full_win": 23,
+          "half_loss": 4,
+          "push": 6,
+          "half_win": 4
+        }
+      },
+      "2024-W21": {
+        "n": 28,
+        "net_U": 0.63,
+        "ROI_pct": 2.25,
+        "MDD_U": 2.645,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_loss": 12,
+          "push": 1,
+          "half_win": 3,
+          "full_win": 12
+        }
+      },
+      "2024-W22": {
+        "n": 2,
+        "net_U": -1.5,
+        "ROI_pct": -75.0,
+        "MDD_U": 1.5,
+        "orders_per_week": 2.0,
+        "five_state": {
+          "half_loss": 1,
+          "full_loss": 1
+        }
+      },
+      "2024-W30": {
+        "n": 6,
+        "net_U": 0.31,
+        "ROI_pct": 5.166667,
+        "MDD_U": 1.0,
+        "orders_per_week": 6.0,
+        "five_state": {
+          "full_loss": 2,
+          "full_win": 3,
+          "half_loss": 1
+        }
+      },
+      "2024-W31": {
+        "n": 9,
+        "net_U": -0.37,
+        "ROI_pct": -4.111111,
+        "MDD_U": 3.0,
+        "orders_per_week": 9.0,
+        "five_state": {
+          "full_loss": 4,
+          "full_win": 4,
+          "push": 1
+        }
+      },
+      "2024-W32": {
+        "n": 15,
+        "net_U": -10.51,
+        "ROI_pct": -70.066667,
+        "MDD_U": 10.51,
+        "orders_per_week": 15.0,
+        "five_state": {
+          "half_loss": 2,
+          "full_loss": 11,
+          "half_win": 1,
+          "full_win": 1
+        }
+      },
+      "2024-W33": {
+        "n": 26,
+        "net_U": -6.82,
+        "ROI_pct": -26.230769,
+        "MDD_U": 6.82,
+        "orders_per_week": 26.0,
+        "five_state": {
+          "half_loss": 2,
+          "push": 2,
+          "half_win": 3,
+          "full_loss": 13,
+          "full_win": 6
+        }
+      },
+      "2024-W34": {
+        "n": 31,
+        "net_U": 3.695,
+        "ROI_pct": 11.919355,
+        "MDD_U": 1.22,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "half_win": 4,
+          "push": 4,
+          "full_win": 12,
+          "full_loss": 8,
+          "half_loss": 3
+        }
+      },
+      "2024-W35": {
+        "n": 46,
+        "net_U": 1.015,
+        "ROI_pct": 2.206522,
+        "MDD_U": 5.37,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_win": 19,
+          "half_win": 3,
+          "half_loss": 7,
+          "full_loss": 15,
+          "push": 2
+        }
+      },
+      "2024-W37": {
+        "n": 33,
+        "net_U": -4.42,
+        "ROI_pct": -13.393939,
+        "MDD_U": 4.42,
+        "orders_per_week": 33.0,
+        "five_state": {
+          "half_loss": 1,
+          "full_loss": 16,
+          "full_win": 12,
+          "push": 2,
+          "half_win": 2
+        }
+      },
+      "2024-W38": {
+        "n": 47,
+        "net_U": -5.13,
+        "ROI_pct": -10.914894,
+        "MDD_U": 5.13,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_loss": 20,
+          "half_win": 4,
+          "full_win": 16,
+          "push": 2,
+          "half_loss": 5
+        }
+      },
+      "2024-W39": {
+        "n": 54,
+        "net_U": 3.305,
+        "ROI_pct": 6.12037,
+        "MDD_U": 2.04,
+        "orders_per_week": 54.0,
+        "five_state": {
+          "full_win": 22,
+          "half_win": 8,
+          "half_loss": 4,
+          "full_loss": 18,
+          "push": 2
+        }
+      },
+      "2024-W40": {
+        "n": 44,
+        "net_U": 0.72,
+        "ROI_pct": 1.636364,
+        "MDD_U": 3.76,
+        "orders_per_week": 44.0,
+        "five_state": {
+          "full_win": 16,
+          "push": 5,
+          "half_loss": 3,
+          "full_loss": 15,
+          "half_win": 5
+        }
+      },
+      "2024-W42": {
+        "n": 37,
+        "net_U": 1.615,
+        "ROI_pct": 4.364865,
+        "MDD_U": 2.325,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "full_loss": 13,
+          "full_win": 16,
+          "half_loss": 4,
+          "half_win": 3,
+          "push": 1
+        }
+      },
+      "2024-W43": {
+        "n": 41,
+        "net_U": 1.41,
+        "ROI_pct": 3.439024,
+        "MDD_U": 0.41,
+        "orders_per_week": 41.0,
+        "five_state": {
+          "full_win": 18,
+          "full_loss": 15,
+          "push": 7,
+          "half_loss": 1
+        }
+      },
+      "2024-W44": {
+        "n": 50,
+        "net_U": -0.14,
+        "ROI_pct": -0.28,
+        "MDD_U": 2.73,
+        "orders_per_week": 50.0,
+        "five_state": {
+          "half_win": 5,
+          "full_win": 21,
+          "full_loss": 21,
+          "half_loss": 2,
+          "push": 1
+        }
+      },
+      "2024-W45": {
+        "n": 47,
+        "net_U": 3.975,
+        "ROI_pct": 8.457447,
+        "MDD_U": 1.66,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_win": 23,
+          "full_loss": 17,
+          "half_win": 2,
+          "half_loss": 4,
+          "push": 1
+        }
+      },
+      "2024-W47": {
+        "n": 38,
+        "net_U": 10.025,
+        "ROI_pct": 26.381579,
+        "MDD_U": 1.27,
+        "orders_per_week": 38.0,
+        "five_state": {
+          "full_win": 20,
+          "half_loss": 3,
+          "full_loss": 9,
+          "half_win": 4,
+          "push": 2
+        }
+      },
+      "2024-W48": {
+        "n": 51,
+        "net_U": 3.09,
+        "ROI_pct": 6.058824,
+        "MDD_U": 4.08,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_loss": 19,
+          "push": 3,
+          "full_win": 21,
+          "half_win": 6,
+          "half_loss": 2
+        }
+      },
+      "2024-W49": {
+        "n": 55,
+        "net_U": -1.89,
+        "ROI_pct": -3.436364,
+        "MDD_U": 9.27,
+        "orders_per_week": 55.0,
+        "five_state": {
+          "full_win": 19,
+          "full_loss": 21,
+          "push": 4,
+          "half_win": 7,
+          "half_loss": 4
+        }
+      },
+      "2024-W50": {
+        "n": 40,
+        "net_U": -5.975,
+        "ROI_pct": -14.9375,
+        "MDD_U": 6.515,
+        "orders_per_week": 40.0,
+        "five_state": {
+          "full_win": 14,
+          "half_win": 2,
+          "full_loss": 19,
+          "half_loss": 2,
+          "push": 3
+        }
+      },
+      "2024-W51": {
+        "n": 36,
+        "net_U": -12.955,
+        "ROI_pct": -35.986111,
+        "MDD_U": 12.955,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_loss": 21,
+          "push": 2,
+          "full_win": 9,
+          "half_win": 2,
+          "half_loss": 2
+        }
+      },
+      "2024-W52": {
+        "n": 28,
+        "net_U": -6.01,
+        "ROI_pct": -21.464286,
+        "MDD_U": 7.74,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_loss": 14,
+          "full_win": 10,
+          "half_loss": 3,
+          "push": 1
+        }
+      },
+      "2025-W01": {
+        "n": 28,
+        "net_U": -7.61,
+        "ROI_pct": -27.178571,
+        "MDD_U": 7.61,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_loss": 16,
+          "full_win": 8,
+          "half_loss": 1,
+          "half_win": 2,
+          "push": 1
+        }
+      },
+      "2025-W02": {
+        "n": 32,
+        "net_U": 2.545,
+        "ROI_pct": 7.953125,
+        "MDD_U": 3.44,
+        "orders_per_week": 32.0,
+        "five_state": {
+          "full_win": 14,
+          "half_win": 4,
+          "half_loss": 2,
+          "full_loss": 12
+        }
+      },
+      "2025-W03": {
+        "n": 56,
+        "net_U": -9.975,
+        "ROI_pct": -17.8125,
+        "MDD_U": 11.025,
+        "orders_per_week": 56.0,
+        "five_state": {
+          "full_win": 18,
+          "full_loss": 30,
+          "half_win": 5,
+          "push": 3
+        }
+      },
+      "2025-W04": {
+        "n": 41,
+        "net_U": -13.5,
+        "ROI_pct": -32.926829,
+        "MDD_U": 15.43,
+        "orders_per_week": 41.0,
+        "five_state": {
+          "full_win": 13,
+          "full_loss": 25,
+          "half_loss": 3
+        }
+      },
+      "2025-W05": {
+        "n": 45,
+        "net_U": -5.94,
+        "ROI_pct": -13.2,
+        "MDD_U": 8.505,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 15,
+          "half_win": 2,
+          "full_loss": 19,
+          "half_loss": 5,
+          "push": 4
+        }
+      },
+      "2025-W06": {
+        "n": 32,
+        "net_U": 9.205,
+        "ROI_pct": 28.765625,
+        "MDD_U": 0.0,
+        "orders_per_week": 32.0,
+        "five_state": {
+          "full_win": 17,
+          "half_win": 2,
+          "push": 4,
+          "full_loss": 8,
+          "half_loss": 1
+        }
+      },
+      "2025-W07": {
+        "n": 30,
+        "net_U": 4.07,
+        "ROI_pct": 13.566667,
+        "MDD_U": 2.96,
+        "orders_per_week": 30.0,
+        "five_state": {
+          "half_win": 4,
+          "half_loss": 4,
+          "full_loss": 9,
+          "full_win": 13
+        }
+      },
+      "2025-W08": {
+        "n": 29,
+        "net_U": 0.44,
+        "ROI_pct": 1.517241,
+        "MDD_U": 2.57,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_loss": 13,
+          "full_win": 12,
+          "half_win": 3,
+          "push": 1
+        }
+      },
+      "2025-W09": {
+        "n": 43,
+        "net_U": 2.78,
+        "ROI_pct": 6.465116,
+        "MDD_U": 2.38,
+        "orders_per_week": 43.0,
+        "five_state": {
+          "full_loss": 17,
+          "full_win": 20,
+          "half_loss": 2,
+          "half_win": 3,
+          "push": 1
+        }
+      },
+      "2025-W10": {
+        "n": 53,
+        "net_U": -9.465,
+        "ROI_pct": -17.858491,
+        "MDD_U": 9.465,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "full_win": 13,
+          "half_win": 6,
+          "full_loss": 23,
+          "half_loss": 4,
+          "push": 7
+        }
+      },
+      "2025-W11": {
+        "n": 50,
+        "net_U": -1.845,
+        "ROI_pct": -3.69,
+        "MDD_U": 6.44,
+        "orders_per_week": 50.0,
+        "five_state": {
+          "full_win": 21,
+          "half_loss": 3,
+          "full_loss": 22,
+          "push": 1,
+          "half_win": 3
+        }
+      },
+      "2025-W13": {
+        "n": 43,
+        "net_U": -4.995,
+        "ROI_pct": -11.616279,
+        "MDD_U": 6.25,
+        "orders_per_week": 43.0,
+        "five_state": {
+          "half_win": 2,
+          "full_win": 16,
+          "full_loss": 19,
+          "half_loss": 4,
+          "push": 2
+        }
+      },
+      "2025-W14": {
+        "n": 48,
+        "net_U": 7.79,
+        "ROI_pct": 16.229167,
+        "MDD_U": 1.72,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "half_win": 5,
+          "push": 4,
+          "full_loss": 15,
+          "full_win": 22,
+          "half_loss": 2
+        }
+      },
+      "2025-W15": {
+        "n": 52,
+        "net_U": 12.895,
+        "ROI_pct": 24.798077,
+        "MDD_U": 0.0,
+        "orders_per_week": 52.0,
+        "five_state": {
+          "full_win": 28,
+          "full_loss": 14,
+          "push": 5,
+          "half_loss": 3,
+          "half_win": 2
+        }
+      },
+      "2025-W16": {
+        "n": 37,
+        "net_U": 0.455,
+        "ROI_pct": 1.22973,
+        "MDD_U": 4.675,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "full_win": 13,
+          "half_loss": 2,
+          "full_loss": 14,
+          "half_win": 5,
+          "push": 3
+        }
+      },
+      "2025-W17": {
+        "n": 52,
+        "net_U": -6.01,
+        "ROI_pct": -11.557692,
+        "MDD_U": 7.78,
+        "orders_per_week": 52.0,
+        "five_state": {
+          "full_win": 17,
+          "full_loss": 22,
+          "half_win": 4,
+          "half_loss": 5,
+          "push": 4
+        }
+      },
+      "2025-W18": {
+        "n": 47,
+        "net_U": 0.295,
+        "ROI_pct": 0.62766,
+        "MDD_U": 3.785,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_win": 19,
+          "half_win": 5,
+          "full_loss": 19,
+          "push": 2,
+          "half_loss": 2
+        }
+      },
+      "2025-W19": {
+        "n": 45,
+        "net_U": 3.905,
+        "ROI_pct": 8.677778,
+        "MDD_U": 1.93,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 18,
+          "push": 4,
+          "half_win": 6,
+          "full_loss": 15,
+          "half_loss": 2
+        }
+      },
+      "2025-W20": {
+        "n": 53,
+        "net_U": 14.31,
+        "ROI_pct": 27.0,
+        "MDD_U": 0.53,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "full_win": 28,
+          "half_win": 5,
+          "full_loss": 14,
+          "half_loss": 2,
+          "push": 4
+        }
+      },
+      "2025-W21": {
+        "n": 20,
+        "net_U": 6.2,
+        "ROI_pct": 31.0,
+        "MDD_U": 0.18,
+        "orders_per_week": 20.0,
+        "five_state": {
+          "full_loss": 5,
+          "full_win": 12,
+          "push": 1,
+          "half_loss": 1,
+          "half_win": 1
+        }
+      },
+      "2025-W22": {
+        "n": 6,
+        "net_U": 1.47,
+        "ROI_pct": 24.5,
+        "MDD_U": 1.5,
+        "orders_per_week": 6.0,
+        "five_state": {
+          "full_win": 3,
+          "half_loss": 1,
+          "full_loss": 1,
+          "push": 1
+        }
+      },
+      "2025-W29": {
+        "n": 1,
+        "net_U": 0.9,
+        "ROI_pct": 90.0,
+        "MDD_U": 0.0,
+        "orders_per_week": 1.0,
+        "five_state": {
+          "full_win": 1
+        }
+      },
+      "2025-W30": {
+        "n": 3,
+        "net_U": 1.06,
+        "ROI_pct": 35.333333,
+        "MDD_U": 1.0,
+        "orders_per_week": 3.0,
+        "five_state": {
+          "full_loss": 1,
+          "full_win": 2
+        }
+      },
+      "2025-W31": {
+        "n": 7,
+        "net_U": -1.23,
+        "ROI_pct": -17.571429,
+        "MDD_U": 2.13,
+        "orders_per_week": 7.0,
+        "five_state": {
+          "full_win": 3,
+          "full_loss": 4
+        }
+      },
+      "2025-W32": {
+        "n": 11,
+        "net_U": 0.98,
+        "ROI_pct": 8.909091,
+        "MDD_U": 1.0,
+        "orders_per_week": 11.0,
+        "five_state": {
+          "full_loss": 5,
+          "full_win": 6
+        }
+      },
+      "2025-W33": {
+        "n": 27,
+        "net_U": 0.79,
+        "ROI_pct": 2.925926,
+        "MDD_U": 1.21,
+        "orders_per_week": 27.0,
+        "five_state": {
+          "full_win": 10,
+          "full_loss": 9,
+          "half_win": 4,
+          "half_loss": 3,
+          "push": 1
+        }
+      },
+      "2025-W34": {
+        "n": 32,
+        "net_U": 3.145,
+        "ROI_pct": 9.828125,
+        "MDD_U": 1.0,
+        "orders_per_week": 32.0,
+        "five_state": {
+          "full_win": 15,
+          "full_loss": 12,
+          "half_win": 3,
+          "push": 1,
+          "half_loss": 1
+        }
+      },
+      "2025-W35": {
+        "n": 46,
+        "net_U": -4.56,
+        "ROI_pct": -9.913043,
+        "MDD_U": 7.82,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_loss": 21,
+          "full_win": 15,
+          "half_win": 5,
+          "push": 3,
+          "half_loss": 2
+        }
+      },
+      "2025-W37": {
+        "n": 38,
+        "net_U": -9.895,
+        "ROI_pct": -26.039474,
+        "MDD_U": 9.895,
+        "orders_per_week": 38.0,
+        "five_state": {
+          "full_loss": 19,
+          "half_win": 1,
+          "half_loss": 4,
+          "full_win": 11,
+          "push": 3
+        }
+      },
+      "2025-W38": {
+        "n": 49,
+        "net_U": -0.72,
+        "ROI_pct": -1.469388,
+        "MDD_U": 1.93,
+        "orders_per_week": 49.0,
+        "five_state": {
+          "full_loss": 19,
+          "half_win": 6,
+          "full_win": 18,
+          "push": 4,
+          "half_loss": 2
+        }
+      },
+      "2025-W39": {
+        "n": 61,
+        "net_U": -8.81,
+        "ROI_pct": -14.442623,
+        "MDD_U": 10.075,
+        "orders_per_week": 61.0,
+        "five_state": {
+          "full_loss": 27,
+          "half_win": 7,
+          "full_win": 18,
+          "push": 5,
+          "half_loss": 4
+        }
+      },
+      "2025-W40": {
+        "n": 48,
+        "net_U": -5.125,
+        "ROI_pct": -10.677083,
+        "MDD_U": 8.335,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_loss": 22,
+          "full_win": 17,
+          "half_win": 3,
+          "push": 4,
+          "half_loss": 2
+        }
+      },
+      "2025-W42": {
+        "n": 37,
+        "net_U": -4.215,
+        "ROI_pct": -11.391892,
+        "MDD_U": 6.605,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "full_loss": 16,
+          "full_win": 13,
+          "half_win": 3,
+          "push": 1,
+          "half_loss": 4
+        }
+      },
+      "2025-W43": {
+        "n": 51,
+        "net_U": 10.82,
+        "ROI_pct": 21.215686,
+        "MDD_U": 0.445,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_win": 26,
+          "full_loss": 17,
+          "half_win": 6,
+          "half_loss": 1,
+          "push": 1
+        }
+      },
+      "2025-W44": {
+        "n": 54,
+        "net_U": 9.455,
+        "ROI_pct": 17.509259,
+        "MDD_U": 2.0,
+        "orders_per_week": 54.0,
+        "five_state": {
+          "full_win": 28,
+          "push": 5,
+          "full_loss": 16,
+          "half_loss": 4,
+          "half_win": 1
+        }
+      },
+      "2025-W45": {
+        "n": 56,
+        "net_U": -12.275,
+        "ROI_pct": -21.919643,
+        "MDD_U": 13.215,
+        "orders_per_week": 56.0,
+        "five_state": {
+          "push": 6,
+          "full_win": 16,
+          "full_loss": 27,
+          "half_win": 4,
+          "half_loss": 3
+        }
+      },
+      "2025-W47": {
+        "n": 48,
+        "net_U": -0.715,
+        "ROI_pct": -1.489583,
+        "MDD_U": 4.42,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_win": 19,
+          "half_win": 4,
+          "full_loss": 19,
+          "half_loss": 4,
+          "push": 2
+        }
+      },
+      "2025-W48": {
+        "n": 45,
+        "net_U": 0.44,
+        "ROI_pct": 0.977778,
+        "MDD_U": 0.76,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 17,
+          "full_loss": 15,
+          "half_loss": 5,
+          "half_win": 4,
+          "push": 4
+        }
+      },
+      "2025-W49": {
+        "n": 53,
+        "net_U": -7.09,
+        "ROI_pct": -13.377358,
+        "MDD_U": 12.625,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "half_win": 4,
+          "full_win": 18,
+          "full_loss": 26,
+          "push": 4,
+          "half_loss": 1
+        }
+      },
+      "2025-W50": {
+        "n": 45,
+        "net_U": 1.44,
+        "ROI_pct": 3.2,
+        "MDD_U": 3.0,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 19,
+          "half_win": 3,
+          "full_loss": 16,
+          "push": 2,
+          "half_loss": 5
+        }
+      },
+      "2025-W51": {
+        "n": 44,
+        "net_U": -2.67,
+        "ROI_pct": -6.068182,
+        "MDD_U": 5.795,
+        "orders_per_week": 44.0,
+        "five_state": {
+          "push": 7,
+          "full_loss": 14,
+          "full_win": 13,
+          "half_win": 4,
+          "half_loss": 6
+        }
+      },
+      "2025-W52": {
+        "n": 22,
+        "net_U": -3.515,
+        "ROI_pct": -15.977273,
+        "MDD_U": 5.065,
+        "orders_per_week": 22.0,
+        "five_state": {
+          "full_win": 8,
+          "full_loss": 10,
+          "half_loss": 3,
+          "half_win": 1
+        }
+      },
+      "2026-W01": {
+        "n": 40,
+        "net_U": 2.05,
+        "ROI_pct": 5.125,
+        "MDD_U": 1.46,
+        "orders_per_week": 40.0,
+        "five_state": {
+          "full_win": 17,
+          "full_loss": 16,
+          "half_loss": 1,
+          "push": 2,
+          "half_win": 4
+        }
+      },
+      "2026-W02": {
+        "n": 30,
+        "net_U": 0.875,
+        "ROI_pct": 2.916667,
+        "MDD_U": 2.75,
+        "orders_per_week": 30.0,
+        "five_state": {
+          "full_win": 12,
+          "full_loss": 11,
+          "half_loss": 3,
+          "half_win": 3,
+          "push": 1
+        }
+      },
+      "2026-W03": {
+        "n": 47,
+        "net_U": -3.885,
+        "ROI_pct": -8.265957,
+        "MDD_U": 6.275,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_win": 15,
+          "half_win": 4,
+          "full_loss": 19,
+          "push": 6,
+          "half_loss": 3
+        }
+      },
+      "2026-W04": {
+        "n": 43,
+        "net_U": -0.585,
+        "ROI_pct": -1.360465,
+        "MDD_U": 1.0,
+        "orders_per_week": 43.0,
+        "five_state": {
+          "full_win": 16,
+          "full_loss": 17,
+          "half_win": 3,
+          "push": 6,
+          "half_loss": 1
+        }
+      },
+      "2026-W05": {
+        "n": 45,
+        "net_U": -4.05,
+        "ROI_pct": -9.0,
+        "MDD_U": 9.14,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 17,
+          "full_loss": 21,
+          "push": 3,
+          "half_win": 2,
+          "half_loss": 2
+        }
+      },
+      "2026-W06": {
+        "n": 47,
+        "net_U": -2.115,
+        "ROI_pct": -4.5,
+        "MDD_U": 4.845,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_win": 19,
+          "full_loss": 20,
+          "push": 4,
+          "half_win": 2,
+          "half_loss": 2
+        }
+      },
+      "2026-W07": {
+        "n": 48,
+        "net_U": 0.615,
+        "ROI_pct": 1.28125,
+        "MDD_U": 4.665,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_win": 18,
+          "half_win": 6,
+          "full_loss": 17,
+          "half_loss": 4,
+          "push": 3
+        }
+      },
+      "2026-W08": {
+        "n": 46,
+        "net_U": -2.415,
+        "ROI_pct": -5.25,
+        "MDD_U": 5.71,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_loss": 21,
+          "full_win": 18,
+          "push": 3,
+          "half_loss": 1,
+          "half_win": 3
+        }
+      },
+      "2026-W09": {
+        "n": 48,
+        "net_U": -11.4,
+        "ROI_pct": -23.75,
+        "MDD_U": 11.4,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_loss": 24,
+          "half_win": 4,
+          "full_win": 13,
+          "push": 3,
+          "half_loss": 4
+        }
+      },
+      "2026-W10": {
+        "n": 44,
+        "net_U": -2.345,
+        "ROI_pct": -5.329545,
+        "MDD_U": 4.235,
+        "orders_per_week": 44.0,
+        "five_state": {
+          "full_loss": 17,
+          "push": 6,
+          "full_win": 16,
+          "half_win": 2,
+          "half_loss": 3
+        }
+      },
+      "2026-W11": {
+        "n": 47,
+        "net_U": 5.08,
+        "ROI_pct": 10.808511,
+        "MDD_U": 0.14,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_win": 21,
+          "full_loss": 16,
+          "half_loss": 2,
+          "push": 5,
+          "half_win": 3
+        }
+      },
+      "2026-W12": {
+        "n": 51,
+        "net_U": 7.225,
+        "ROI_pct": 14.166667,
+        "MDD_U": 2.0,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_loss": 17,
+          "full_win": 25,
+          "half_win": 4,
+          "push": 1,
+          "half_loss": 4
+        }
+      },
+      "2026-W14": {
+        "n": 40,
+        "net_U": -0.78,
+        "ROI_pct": -1.95,
+        "MDD_U": 2.34,
+        "orders_per_week": 40.0,
+        "five_state": {
+          "half_win": 4,
+          "full_win": 15,
+          "full_loss": 16,
+          "half_loss": 2,
+          "push": 3
+        }
+      },
+      "2026-W15": {
+        "n": 53,
+        "net_U": -0.65,
+        "ROI_pct": -1.226415,
+        "MDD_U": 8.26,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "full_win": 20,
+          "full_loss": 23,
+          "half_win": 7,
+          "half_loss": 2,
+          "push": 1
+        }
+      },
+      "2026-W16": {
+        "n": 36,
+        "net_U": -0.025,
+        "ROI_pct": -0.069444,
+        "MDD_U": 2.11,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_loss": 13,
+          "full_win": 14,
+          "half_loss": 3,
+          "push": 4,
+          "half_win": 2
+        }
+      },
+      "2026-W17": {
+        "n": 65,
+        "net_U": 0.245,
+        "ROI_pct": 0.376923,
+        "MDD_U": 3.325,
+        "orders_per_week": 65.0,
+        "five_state": {
+          "push": 7,
+          "full_win": 25,
+          "full_loss": 25,
+          "half_loss": 3,
+          "half_win": 5
+        }
+      },
+      "2026-W18": {
+        "n": 55,
+        "net_U": -14.37,
+        "ROI_pct": -26.127273,
+        "MDD_U": 19.01,
+        "orders_per_week": 55.0,
+        "five_state": {
+          "full_win": 16,
+          "full_loss": 31,
+          "half_win": 4,
+          "push": 3,
+          "half_loss": 1
+        }
+      },
+      "2026-W19": {
+        "n": 39,
+        "net_U": -1.25,
+        "ROI_pct": -3.205128,
+        "MDD_U": 2.76,
+        "orders_per_week": 39.0,
+        "five_state": {
+          "half_win": 1,
+          "full_loss": 13,
+          "full_win": 14,
+          "half_loss": 5,
+          "push": 6
+        }
+      },
+      "2026-W20": {
+        "n": 67,
+        "net_U": -10.585,
+        "ROI_pct": -15.798507,
+        "MDD_U": 13.31,
+        "orders_per_week": 67.0,
+        "five_state": {
+          "full_loss": 35,
+          "full_win": 23,
+          "push": 5,
+          "half_win": 4
+        }
+      },
+      "2026-W21": {
+        "n": 26,
+        "net_U": -5.38,
+        "ROI_pct": -20.692308,
+        "MDD_U": 5.38,
+        "orders_per_week": 26.0,
+        "five_state": {
+          "full_loss": 13,
+          "full_win": 7,
+          "half_loss": 2,
+          "half_win": 4
+        }
+      },
+      "2026-W30": {
+        "n": 1,
+        "net_U": 0.0,
+        "ROI_pct": 0.0,
+        "MDD_U": 0.0,
+        "orders_per_week": 1.0,
+        "five_state": {
+          "push": 1
+        }
+      },
+      "2026-W31": {
+        "n": 6,
+        "net_U": -1.64,
+        "ROI_pct": -27.333333,
+        "MDD_U": 2.0,
+        "orders_per_week": 6.0,
+        "five_state": {
+          "full_loss": 3,
+          "half_loss": 1,
+          "full_win": 2
+        }
+      },
+      "2026-W32": {
+        "n": 12,
+        "net_U": 1.92,
+        "ROI_pct": 16.0,
+        "MDD_U": 0.5,
+        "orders_per_week": 12.0,
+        "five_state": {
+          "half_loss": 1,
+          "push": 1,
+          "full_win": 4,
+          "full_loss": 3,
+          "half_win": 3
+        }
+      },
+      "2026-W33": {
+        "n": 17,
+        "net_U": 1.02,
+        "ROI_pct": 6.0,
+        "MDD_U": 0.425,
+        "orders_per_week": 17.0,
+        "five_state": {
+          "push": 3,
+          "full_loss": 6,
+          "full_win": 6,
+          "half_win": 2
+        }
+      },
+      "2026-W34": {
+        "n": 28,
+        "net_U": -2.51,
+        "ROI_pct": -8.964286,
+        "MDD_U": 3.46,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "half_win": 3,
+          "half_loss": 3,
+          "full_win": 9,
+          "full_loss": 11,
+          "push": 2
+        }
+      },
+      "2026-W35": {
+        "n": 37,
+        "net_U": 4.015,
+        "ROI_pct": 10.851351,
+        "MDD_U": 3.07,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "half_win": 4,
+          "full_win": 16,
+          "full_loss": 12,
+          "push": 2,
+          "half_loss": 3
+        }
+      },
+      "2026-W36": {
+        "n": 42,
+        "net_U": -0.63,
+        "ROI_pct": -1.5,
+        "MDD_U": 3.79,
+        "orders_per_week": 42.0,
+        "five_state": {
+          "push": 3,
+          "full_win": 13,
+          "full_loss": 16,
+          "half_win": 8,
+          "half_loss": 2
+        }
+      },
+      "2026-W37": {
+        "n": 36,
+        "net_U": 2.155,
+        "ROI_pct": 5.986111,
+        "MDD_U": 1.11,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_loss": 12,
+          "half_loss": 3,
+          "full_win": 14,
+          "half_win": 5,
+          "push": 2
+        }
+      },
+      "2026-W38": {
+        "n": 52,
+        "net_U": 5.505,
+        "ROI_pct": 10.586538,
+        "MDD_U": 2.49,
+        "orders_per_week": 52.0,
+        "five_state": {
+          "full_win": 24,
+          "half_win": 4,
+          "push": 3,
+          "full_loss": 17,
+          "half_loss": 4
+        }
+      },
+      "2026-W40": {
+        "n": 1,
+        "net_U": -1.0,
+        "ROI_pct": -100.0,
+        "MDD_U": 1.0,
+        "orders_per_week": 1.0,
+        "five_state": {
+          "full_loss": 1
+        }
+      },
+      "2026-W41": {
+        "n": 31,
+        "net_U": -4.35,
+        "ROI_pct": -14.032258,
+        "MDD_U": 5.77,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "full_loss": 16,
+          "full_win": 11,
+          "half_win": 2,
+          "push": 2
+        }
+      },
+      "2026-W42": {
+        "n": 34,
+        "net_U": -2.525,
+        "ROI_pct": -7.426471,
+        "MDD_U": 5.405,
+        "orders_per_week": 34.0,
+        "five_state": {
+          "full_loss": 16,
+          "push": 1,
+          "full_win": 14,
+          "half_win": 2,
+          "half_loss": 1
+        }
+      },
+      "2026-W43": {
+        "n": 31,
+        "net_U": -3.04,
+        "ROI_pct": -9.806452,
+        "MDD_U": 3.08,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "push": 5,
+          "full_loss": 12,
+          "full_win": 10,
+          "half_loss": 3,
+          "half_win": 1
+        }
+      },
+      "2026-W44": {
+        "n": 31,
+        "net_U": -0.99,
+        "ROI_pct": -3.193548,
+        "MDD_U": 1.75,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "full_loss": 14,
+          "half_loss": 2,
+          "full_win": 15
+        }
+      },
+      "2026-W45": {
+        "n": 4,
+        "net_U": 2.06,
+        "ROI_pct": 51.5,
+        "MDD_U": 0.0,
+        "orders_per_week": 4.0,
+        "five_state": {
+          "full_win": 3,
+          "full_loss": 1
+        }
+      }
+    },
+    "pair_only": {
+      "2024-W01": {
+        "n": 21,
+        "net_U": 0.24,
+        "ROI_pct": 1.142857,
+        "MDD_U": 3.52,
+        "orders_per_week": 21.0,
+        "five_state": {
+          "full_loss": 8,
+          "full_win": 10,
+          "half_loss": 2,
+          "push": 1
+        }
+      },
+      "2024-W02": {
+        "n": 29,
+        "net_U": -2.71,
+        "ROI_pct": -9.344828,
+        "MDD_U": 5.53,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_loss": 9,
+          "half_loss": 6,
+          "full_win": 9,
+          "half_win": 2,
+          "push": 3
+        }
+      },
+      "2024-W03": {
+        "n": 21,
+        "net_U": -0.895,
+        "ROI_pct": -4.261905,
+        "MDD_U": 3.0,
+        "orders_per_week": 21.0,
+        "five_state": {
+          "full_loss": 10,
+          "full_win": 9,
+          "half_win": 1,
+          "push": 1
+        }
+      },
+      "2024-W04": {
+        "n": 29,
+        "net_U": -2.01,
+        "ROI_pct": -6.931034,
+        "MDD_U": 5.165,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_win": 10,
+          "half_loss": 3,
+          "full_loss": 12,
+          "half_win": 4
+        }
+      },
+      "2024-W05": {
+        "n": 35,
+        "net_U": -3.015,
+        "ROI_pct": -8.614286,
+        "MDD_U": 4.06,
+        "orders_per_week": 35.0,
+        "five_state": {
+          "half_win": 9,
+          "full_loss": 12,
+          "half_loss": 5,
+          "push": 1,
+          "full_win": 8
+        }
+      },
+      "2024-W06": {
+        "n": 26,
+        "net_U": 0.72,
+        "ROI_pct": 2.769231,
+        "MDD_U": 1.3,
+        "orders_per_week": 26.0,
+        "five_state": {
+          "full_loss": 11,
+          "full_win": 12,
+          "half_win": 2,
+          "half_loss": 1
+        }
+      },
+      "2024-W07": {
+        "n": 27,
+        "net_U": 1.84,
+        "ROI_pct": 6.814815,
+        "MDD_U": 4.285,
+        "orders_per_week": 27.0,
+        "five_state": {
+          "full_loss": 10,
+          "full_win": 12,
+          "half_win": 3,
+          "half_loss": 2
+        }
+      },
+      "2024-W08": {
+        "n": 29,
+        "net_U": -0.755,
+        "ROI_pct": -2.603448,
+        "MDD_U": 1.715,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_win": 11,
+          "full_loss": 12,
+          "half_win": 3,
+          "half_loss": 2,
+          "push": 1
+        }
+      },
+      "2024-W09": {
+        "n": 45,
+        "net_U": -2.875,
+        "ROI_pct": -6.388889,
+        "MDD_U": 5.97,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 17,
+          "full_loss": 19,
+          "half_win": 5,
+          "half_loss": 3,
+          "push": 1
+        }
+      },
+      "2024-W10": {
+        "n": 36,
+        "net_U": -7.65,
+        "ROI_pct": -21.25,
+        "MDD_U": 7.69,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_loss": 19,
+          "full_win": 11,
+          "half_win": 4,
+          "half_loss": 2
+        }
+      },
+      "2024-W11": {
+        "n": 29,
+        "net_U": -2.23,
+        "ROI_pct": -7.689655,
+        "MDD_U": 2.23,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_loss": 13,
+          "half_win": 2,
+          "full_win": 11,
+          "push": 3
+        }
+      },
+      "2024-W13": {
+        "n": 35,
+        "net_U": -1.595,
+        "ROI_pct": -4.557143,
+        "MDD_U": 1.595,
+        "orders_per_week": 35.0,
+        "five_state": {
+          "full_loss": 16,
+          "full_win": 14,
+          "half_win": 3,
+          "push": 1,
+          "half_loss": 1
+        }
+      },
+      "2024-W14": {
+        "n": 51,
+        "net_U": 3.215,
+        "ROI_pct": 6.303922,
+        "MDD_U": 1.86,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_loss": 20,
+          "half_win": 2,
+          "push": 4,
+          "full_win": 24,
+          "half_loss": 1
+        }
+      },
+      "2024-W15": {
+        "n": 46,
+        "net_U": 2.465,
+        "ROI_pct": 5.358696,
+        "MDD_U": 3.065,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "half_win": 5,
+          "full_win": 19,
+          "full_loss": 15,
+          "half_loss": 5,
+          "push": 2
+        }
+      },
+      "2024-W16": {
+        "n": 41,
+        "net_U": 2.495,
+        "ROI_pct": 6.085366,
+        "MDD_U": 4.48,
+        "orders_per_week": 41.0,
+        "five_state": {
+          "full_win": 18,
+          "full_loss": 14,
+          "half_win": 2,
+          "push": 4,
+          "half_loss": 3
+        }
+      },
+      "2024-W17": {
+        "n": 55,
+        "net_U": -5.32,
+        "ROI_pct": -9.672727,
+        "MDD_U": 5.32,
+        "orders_per_week": 55.0,
+        "five_state": {
+          "full_loss": 22,
+          "full_win": 18,
+          "half_win": 5,
+          "push": 5,
+          "half_loss": 5
+        }
+      },
+      "2024-W18": {
+        "n": 46,
+        "net_U": -1.54,
+        "ROI_pct": -3.347826,
+        "MDD_U": 2.99,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_loss": 18,
+          "full_win": 19,
+          "half_loss": 5,
+          "push": 3,
+          "half_win": 1
+        }
+      },
+      "2024-W19": {
+        "n": 56,
+        "net_U": -9.84,
+        "ROI_pct": -17.571429,
+        "MDD_U": 10.73,
+        "orders_per_week": 56.0,
+        "five_state": {
+          "full_loss": 28,
+          "full_win": 19,
+          "half_loss": 3,
+          "push": 2,
+          "half_win": 4
+        }
+      },
+      "2024-W20": {
+        "n": 62,
+        "net_U": -1.93,
+        "ROI_pct": -3.112903,
+        "MDD_U": 6.61,
+        "orders_per_week": 62.0,
+        "five_state": {
+          "full_win": 24,
+          "full_loss": 24,
+          "half_win": 4,
+          "half_loss": 4,
+          "push": 6
+        }
+      },
+      "2024-W21": {
+        "n": 28,
+        "net_U": -3.0,
+        "ROI_pct": -10.714286,
+        "MDD_U": 7.09,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_win": 11,
+          "push": 1,
+          "half_loss": 2,
+          "full_loss": 13,
+          "half_win": 1
+        }
+      },
+      "2024-W22": {
+        "n": 2,
+        "net_U": 1.365,
+        "ROI_pct": 68.25,
+        "MDD_U": 0.0,
+        "orders_per_week": 2.0,
+        "five_state": {
+          "half_win": 1,
+          "full_win": 1
+        }
+      },
+      "2024-W30": {
+        "n": 6,
+        "net_U": -1.66,
+        "ROI_pct": -27.666667,
+        "MDD_U": 2.61,
+        "orders_per_week": 6.0,
+        "five_state": {
+          "full_win": 2,
+          "full_loss": 3,
+          "half_loss": 1
+        }
+      },
+      "2024-W31": {
+        "n": 9,
+        "net_U": -0.27,
+        "ROI_pct": -3.0,
+        "MDD_U": 1.15,
+        "orders_per_week": 9.0,
+        "five_state": {
+          "full_win": 4,
+          "full_loss": 4,
+          "push": 1
+        }
+      },
+      "2024-W32": {
+        "n": 15,
+        "net_U": 8.74,
+        "ROI_pct": 58.266667,
+        "MDD_U": 0.0,
+        "orders_per_week": 15.0,
+        "five_state": {
+          "half_win": 3,
+          "full_win": 10,
+          "full_loss": 2
+        }
+      },
+      "2024-W33": {
+        "n": 26,
+        "net_U": 2.61,
+        "ROI_pct": 10.038462,
+        "MDD_U": 3.79,
+        "orders_per_week": 26.0,
+        "five_state": {
+          "half_win": 1,
+          "push": 2,
+          "half_loss": 4,
+          "full_win": 12,
+          "full_loss": 7
+        }
+      },
+      "2024-W34": {
+        "n": 31,
+        "net_U": -0.015,
+        "ROI_pct": -0.048387,
+        "MDD_U": 3.195,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "half_win": 4,
+          "push": 4,
+          "full_loss": 10,
+          "full_win": 10,
+          "half_loss": 3
+        }
+      },
+      "2024-W35": {
+        "n": 46,
+        "net_U": -14.76,
+        "ROI_pct": -32.086957,
+        "MDD_U": 14.76,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_loss": 23,
+          "half_loss": 7,
+          "full_win": 11,
+          "push": 2,
+          "half_win": 3
+        }
+      },
+      "2024-W37": {
+        "n": 33,
+        "net_U": -0.02,
+        "ROI_pct": -0.060606,
+        "MDD_U": 0.3,
+        "orders_per_week": 33.0,
+        "five_state": {
+          "half_loss": 1,
+          "full_loss": 14,
+          "full_win": 14,
+          "push": 2,
+          "half_win": 2
+        }
+      },
+      "2024-W38": {
+        "n": 47,
+        "net_U": -0.885,
+        "ROI_pct": -1.882979,
+        "MDD_U": 9.06,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_win": 17,
+          "half_loss": 3,
+          "half_win": 6,
+          "full_loss": 19,
+          "push": 2
+        }
+      },
+      "2024-W39": {
+        "n": 54,
+        "net_U": 1.68,
+        "ROI_pct": 3.111111,
+        "MDD_U": 1.565,
+        "orders_per_week": 54.0,
+        "five_state": {
+          "full_loss": 19,
+          "half_loss": 5,
+          "half_win": 7,
+          "full_win": 21,
+          "push": 2
+        }
+      },
+      "2024-W40": {
+        "n": 44,
+        "net_U": 7.965,
+        "ROI_pct": 18.102273,
+        "MDD_U": 3.07,
+        "orders_per_week": 44.0,
+        "five_state": {
+          "full_win": 20,
+          "full_loss": 11,
+          "push": 5,
+          "half_win": 4,
+          "half_loss": 4
+        }
+      },
+      "2024-W42": {
+        "n": 37,
+        "net_U": 2.635,
+        "ROI_pct": 7.121622,
+        "MDD_U": 1.08,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "full_win": 16,
+          "full_loss": 13,
+          "half_win": 4,
+          "half_loss": 3,
+          "push": 1
+        }
+      },
+      "2024-W43": {
+        "n": 41,
+        "net_U": -1.02,
+        "ROI_pct": -2.487805,
+        "MDD_U": 5.78,
+        "orders_per_week": 41.0,
+        "five_state": {
+          "full_win": 16,
+          "full_loss": 17,
+          "push": 7,
+          "half_win": 1
+        }
+      },
+      "2024-W44": {
+        "n": 50,
+        "net_U": -3.955,
+        "ROI_pct": -7.91,
+        "MDD_U": 8.06,
+        "orders_per_week": 50.0,
+        "five_state": {
+          "half_loss": 3,
+          "full_loss": 23,
+          "full_win": 19,
+          "half_win": 4,
+          "push": 1
+        }
+      },
+      "2024-W45": {
+        "n": 47,
+        "net_U": -1.435,
+        "ROI_pct": -3.053191,
+        "MDD_U": 3.325,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_loss": 21,
+          "full_win": 19,
+          "half_win": 5,
+          "push": 1,
+          "half_loss": 1
+        }
+      },
+      "2024-W47": {
+        "n": 38,
+        "net_U": -2.405,
+        "ROI_pct": -6.328947,
+        "MDD_U": 3.055,
+        "orders_per_week": 38.0,
+        "five_state": {
+          "full_loss": 14,
+          "half_win": 1,
+          "full_win": 15,
+          "half_loss": 6,
+          "push": 2
+        }
+      },
+      "2024-W48": {
+        "n": 51,
+        "net_U": -4.16,
+        "ROI_pct": -8.156863,
+        "MDD_U": 4.675,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_win": 19,
+          "push": 3,
+          "full_loss": 21,
+          "half_win": 3,
+          "half_loss": 5
+        }
+      },
+      "2024-W49": {
+        "n": 55,
+        "net_U": 0.945,
+        "ROI_pct": 1.718182,
+        "MDD_U": 4.04,
+        "orders_per_week": 55.0,
+        "five_state": {
+          "full_loss": 18,
+          "full_win": 22,
+          "push": 4,
+          "half_loss": 7,
+          "half_win": 4
+        }
+      },
+      "2024-W50": {
+        "n": 40,
+        "net_U": 5.445,
+        "ROI_pct": 13.6125,
+        "MDD_U": 0.65,
+        "orders_per_week": 40.0,
+        "five_state": {
+          "full_loss": 13,
+          "half_loss": 2,
+          "full_win": 20,
+          "push": 3,
+          "half_win": 2
+        }
+      },
+      "2024-W51": {
+        "n": 36,
+        "net_U": 4.655,
+        "ROI_pct": 12.930556,
+        "MDD_U": 2.54,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_win": 18,
+          "push": 2,
+          "full_loss": 12,
+          "half_loss": 2,
+          "half_win": 2
+        }
+      },
+      "2024-W52": {
+        "n": 28,
+        "net_U": 5.085,
+        "ROI_pct": 18.160714,
+        "MDD_U": 2.16,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_win": 15,
+          "full_loss": 9,
+          "half_win": 1,
+          "push": 1,
+          "half_loss": 2
+        }
+      },
+      "2025-W01": {
+        "n": 28,
+        "net_U": 9.15,
+        "ROI_pct": 32.678571,
+        "MDD_U": 1.0,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_win": 17,
+          "full_loss": 7,
+          "half_win": 2,
+          "half_loss": 1,
+          "push": 1
+        }
+      },
+      "2025-W02": {
+        "n": 32,
+        "net_U": -3.075,
+        "ROI_pct": -9.609375,
+        "MDD_U": 5.75,
+        "orders_per_week": 32.0,
+        "five_state": {
+          "full_loss": 15,
+          "half_win": 5,
+          "full_win": 11,
+          "half_loss": 1
+        }
+      },
+      "2025-W03": {
+        "n": 56,
+        "net_U": 1.015,
+        "ROI_pct": 1.8125,
+        "MDD_U": 2.78,
+        "orders_per_week": 56.0,
+        "five_state": {
+          "full_win": 26,
+          "full_loss": 22,
+          "half_loss": 4,
+          "push": 3,
+          "half_win": 1
+        }
+      },
+      "2025-W04": {
+        "n": 41,
+        "net_U": 10.075,
+        "ROI_pct": 24.573171,
+        "MDD_U": 2.0,
+        "orders_per_week": 41.0,
+        "five_state": {
+          "full_loss": 14,
+          "full_win": 24,
+          "half_win": 3
+        }
+      },
+      "2025-W05": {
+        "n": 45,
+        "net_U": 3.275,
+        "ROI_pct": 7.277778,
+        "MDD_U": 2.5,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_loss": 15,
+          "half_loss": 3,
+          "full_win": 19,
+          "half_win": 4,
+          "push": 4
+        }
+      },
+      "2025-W06": {
+        "n": 32,
+        "net_U": -7.01,
+        "ROI_pct": -21.90625,
+        "MDD_U": 7.42,
+        "orders_per_week": 32.0,
+        "five_state": {
+          "full_loss": 16,
+          "half_loss": 1,
+          "push": 4,
+          "full_win": 9,
+          "half_win": 2
+        }
+      },
+      "2025-W07": {
+        "n": 30,
+        "net_U": 2.015,
+        "ROI_pct": 6.716667,
+        "MDD_U": 4.58,
+        "orders_per_week": 30.0,
+        "five_state": {
+          "half_win": 5,
+          "half_loss": 3,
+          "full_win": 12,
+          "full_loss": 10
+        }
+      },
+      "2025-W08": {
+        "n": 29,
+        "net_U": -0.9,
+        "ROI_pct": -3.103448,
+        "MDD_U": 2.88,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_win": 13,
+          "full_loss": 12,
+          "half_loss": 3,
+          "push": 1
+        }
+      },
+      "2025-W09": {
+        "n": 43,
+        "net_U": -10.61,
+        "ROI_pct": -24.674419,
+        "MDD_U": 12.37,
+        "orders_per_week": 43.0,
+        "five_state": {
+          "full_win": 14,
+          "full_loss": 23,
+          "half_win": 2,
+          "half_loss": 3,
+          "push": 1
+        }
+      },
+      "2025-W10": {
+        "n": 53,
+        "net_U": 5.22,
+        "ROI_pct": 9.849057,
+        "MDD_U": 1.0,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "full_loss": 14,
+          "half_loss": 7,
+          "full_win": 22,
+          "half_win": 3,
+          "push": 7
+        }
+      },
+      "2025-W11": {
+        "n": 50,
+        "net_U": 1.225,
+        "ROI_pct": 2.45,
+        "MDD_U": 1.42,
+        "orders_per_week": 50.0,
+        "five_state": {
+          "full_loss": 20,
+          "half_win": 3,
+          "full_win": 23,
+          "push": 1,
+          "half_loss": 3
+        }
+      },
+      "2025-W13": {
+        "n": 43,
+        "net_U": -6.77,
+        "ROI_pct": -15.744186,
+        "MDD_U": 6.77,
+        "orders_per_week": 43.0,
+        "five_state": {
+          "half_loss": 2,
+          "full_loss": 21,
+          "full_win": 14,
+          "half_win": 4,
+          "push": 2
+        }
+      },
+      "2025-W14": {
+        "n": 48,
+        "net_U": -7.42,
+        "ROI_pct": -15.458333,
+        "MDD_U": 7.85,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "half_loss": 5,
+          "push": 4,
+          "full_win": 16,
+          "full_loss": 21,
+          "half_win": 2
+        }
+      },
+      "2025-W15": {
+        "n": 52,
+        "net_U": 3.66,
+        "ROI_pct": 7.038462,
+        "MDD_U": 2.77,
+        "orders_per_week": 52.0,
+        "five_state": {
+          "full_loss": 19,
+          "full_win": 23,
+          "push": 5,
+          "half_win": 3,
+          "half_loss": 2
+        }
+      },
+      "2025-W16": {
+        "n": 37,
+        "net_U": 9.57,
+        "ROI_pct": 25.864865,
+        "MDD_U": 2.515,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "full_loss": 8,
+          "half_win": 3,
+          "full_win": 19,
+          "half_loss": 4,
+          "push": 3
+        }
+      },
+      "2025-W17": {
+        "n": 52,
+        "net_U": 0.275,
+        "ROI_pct": 0.528846,
+        "MDD_U": 4.29,
+        "orders_per_week": 52.0,
+        "five_state": {
+          "full_loss": 19,
+          "full_win": 20,
+          "half_loss": 4,
+          "half_win": 5,
+          "push": 4
+        }
+      },
+      "2025-W18": {
+        "n": 47,
+        "net_U": -0.815,
+        "ROI_pct": -1.734043,
+        "MDD_U": 2.0,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_loss": 19,
+          "half_loss": 3,
+          "full_win": 19,
+          "push": 2,
+          "half_win": 4
+        }
+      },
+      "2025-W19": {
+        "n": 45,
+        "net_U": -3.895,
+        "ROI_pct": -8.655556,
+        "MDD_U": 5.105,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_loss": 17,
+          "full_win": 16,
+          "push": 4,
+          "half_loss": 6,
+          "half_win": 2
+        }
+      },
+      "2025-W20": {
+        "n": 53,
+        "net_U": -14.245,
+        "ROI_pct": -26.877358,
+        "MDD_U": 14.245,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "full_loss": 27,
+          "half_loss": 5,
+          "full_win": 15,
+          "half_win": 2,
+          "push": 4
+        }
+      },
+      "2025-W21": {
+        "n": 20,
+        "net_U": -7.28,
+        "ROI_pct": -36.4,
+        "MDD_U": 7.29,
+        "orders_per_week": 20.0,
+        "five_state": {
+          "full_win": 5,
+          "full_loss": 12,
+          "push": 1,
+          "half_win": 1,
+          "half_loss": 1
+        }
+      },
+      "2025-W22": {
+        "n": 6,
+        "net_U": -3.545,
+        "ROI_pct": -59.083333,
+        "MDD_U": 3.545,
+        "orders_per_week": 6.0,
+        "five_state": {
+          "full_loss": 4,
+          "half_win": 1,
+          "push": 1
+        }
+      },
+      "2025-W29": {
+        "n": 1,
+        "net_U": -1.0,
+        "ROI_pct": -100.0,
+        "MDD_U": 1.0,
+        "orders_per_week": 1.0,
+        "five_state": {
+          "full_loss": 1
+        }
+      },
+      "2025-W30": {
+        "n": 3,
+        "net_U": -1.08,
+        "ROI_pct": -36.0,
+        "MDD_U": 2.0,
+        "orders_per_week": 3.0,
+        "five_state": {
+          "full_win": 1,
+          "full_loss": 2
+        }
+      },
+      "2025-W31": {
+        "n": 7,
+        "net_U": 0.77,
+        "ROI_pct": 11.0,
+        "MDD_U": 1.0,
+        "orders_per_week": 7.0,
+        "five_state": {
+          "full_loss": 3,
+          "full_win": 4
+        }
+      },
+      "2025-W32": {
+        "n": 11,
+        "net_U": -5.3,
+        "ROI_pct": -48.181818,
+        "MDD_U": 6.12,
+        "orders_per_week": 11.0,
+        "five_state": {
+          "full_win": 3,
+          "full_loss": 8
+        }
+      },
+      "2025-W33": {
+        "n": 27,
+        "net_U": -1.32,
+        "ROI_pct": -4.888889,
+        "MDD_U": 2.2,
+        "orders_per_week": 27.0,
+        "five_state": {
+          "full_loss": 9,
+          "full_win": 10,
+          "half_win": 2,
+          "half_loss": 5,
+          "push": 1
+        }
+      },
+      "2025-W34": {
+        "n": 32,
+        "net_U": -2.47,
+        "ROI_pct": -7.71875,
+        "MDD_U": 2.77,
+        "orders_per_week": 32.0,
+        "five_state": {
+          "full_loss": 14,
+          "full_win": 13,
+          "half_loss": 3,
+          "push": 1,
+          "half_win": 1
+        }
+      },
+      "2025-W35": {
+        "n": 46,
+        "net_U": 1.205,
+        "ROI_pct": 2.619565,
+        "MDD_U": 1.22,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_win": 18,
+          "full_loss": 18,
+          "half_win": 6,
+          "push": 3,
+          "half_loss": 1
+        }
+      },
+      "2025-W37": {
+        "n": 38,
+        "net_U": 1.77,
+        "ROI_pct": 4.657895,
+        "MDD_U": 0.44,
+        "orders_per_week": 38.0,
+        "five_state": {
+          "full_loss": 14,
+          "full_win": 16,
+          "half_loss": 2,
+          "half_win": 3,
+          "push": 3
+        }
+      },
+      "2025-W38": {
+        "n": 49,
+        "net_U": -11.295,
+        "ROI_pct": -23.05102,
+        "MDD_U": 12.225,
+        "orders_per_week": 49.0,
+        "five_state": {
+          "full_win": 14,
+          "full_loss": 23,
+          "half_loss": 5,
+          "push": 4,
+          "half_win": 3
+        }
+      },
+      "2025-W39": {
+        "n": 61,
+        "net_U": -4.74,
+        "ROI_pct": -7.770492,
+        "MDD_U": 7.25,
+        "orders_per_week": 61.0,
+        "five_state": {
+          "full_win": 22,
+          "half_loss": 8,
+          "full_loss": 23,
+          "push": 5,
+          "half_win": 3
+        }
+      },
+      "2025-W40": {
+        "n": 48,
+        "net_U": 3.54,
+        "ROI_pct": 7.375,
+        "MDD_U": 4.29,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_win": 22,
+          "full_loss": 17,
+          "half_loss": 3,
+          "push": 4,
+          "half_win": 2
+        }
+      },
+      "2025-W42": {
+        "n": 37,
+        "net_U": 5.19,
+        "ROI_pct": 14.027027,
+        "MDD_U": 0.63,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "full_win": 17,
+          "full_loss": 12,
+          "half_loss": 2,
+          "push": 1,
+          "half_win": 5
+        }
+      },
+      "2025-W43": {
+        "n": 51,
+        "net_U": -12.19,
+        "ROI_pct": -23.901961,
+        "MDD_U": 12.19,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_loss": 27,
+          "full_win": 16,
+          "half_win": 3,
+          "half_loss": 4,
+          "push": 1
+        }
+      },
+      "2025-W44": {
+        "n": 54,
+        "net_U": -11.58,
+        "ROI_pct": -21.444444,
+        "MDD_U": 11.58,
+        "orders_per_week": 54.0,
+        "five_state": {
+          "full_loss": 28,
+          "push": 5,
+          "full_win": 16,
+          "half_win": 4,
+          "half_loss": 1
+        }
+      },
+      "2025-W45": {
+        "n": 56,
+        "net_U": 5.87,
+        "ROI_pct": 10.482143,
+        "MDD_U": 0.0,
+        "orders_per_week": 56.0,
+        "five_state": {
+          "push": 6,
+          "full_win": 25,
+          "full_loss": 18,
+          "half_win": 4,
+          "half_loss": 3
+        }
+      },
+      "2025-W47": {
+        "n": 48,
+        "net_U": 0.22,
+        "ROI_pct": 0.458333,
+        "MDD_U": 1.045,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_win": 20,
+          "half_loss": 5,
+          "full_loss": 18,
+          "half_win": 3,
+          "push": 2
+        }
+      },
+      "2025-W48": {
+        "n": 45,
+        "net_U": 4.41,
+        "ROI_pct": 9.8,
+        "MDD_U": 3.955,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 18,
+          "half_win": 6,
+          "full_loss": 14,
+          "half_loss": 3,
+          "push": 4
+        }
+      },
+      "2025-W49": {
+        "n": 53,
+        "net_U": 7.76,
+        "ROI_pct": 14.641509,
+        "MDD_U": 0.0,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "half_win": 4,
+          "full_win": 26,
+          "full_loss": 18,
+          "half_loss": 1,
+          "push": 4
+        }
+      },
+      "2025-W50": {
+        "n": 45,
+        "net_U": -1.425,
+        "ROI_pct": -3.166667,
+        "MDD_U": 5.475,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 17,
+          "half_loss": 3,
+          "full_loss": 18,
+          "push": 2,
+          "half_win": 5
+        }
+      },
+      "2025-W51": {
+        "n": 44,
+        "net_U": -4.62,
+        "ROI_pct": -10.5,
+        "MDD_U": 5.95,
+        "orders_per_week": 44.0,
+        "five_state": {
+          "push": 7,
+          "full_win": 11,
+          "full_loss": 16,
+          "half_loss": 4,
+          "half_win": 6
+        }
+      },
+      "2025-W52": {
+        "n": 22,
+        "net_U": 8.015,
+        "ROI_pct": 36.431818,
+        "MDD_U": 1.32,
+        "orders_per_week": 22.0,
+        "five_state": {
+          "full_loss": 5,
+          "full_win": 13,
+          "half_win": 3,
+          "half_loss": 1
+        }
+      },
+      "2026-W01": {
+        "n": 40,
+        "net_U": -2.09,
+        "ROI_pct": -5.225,
+        "MDD_U": 3.7,
+        "orders_per_week": 40.0,
+        "five_state": {
+          "full_loss": 18,
+          "full_win": 15,
+          "half_win": 4,
+          "push": 2,
+          "half_loss": 1
+        }
+      },
+      "2026-W02": {
+        "n": 30,
+        "net_U": -0.69,
+        "ROI_pct": -2.3,
+        "MDD_U": 2.175,
+        "orders_per_week": 30.0,
+        "five_state": {
+          "full_loss": 12,
+          "half_win": 4,
+          "full_win": 11,
+          "half_loss": 2,
+          "push": 1
+        }
+      },
+      "2026-W03": {
+        "n": 47,
+        "net_U": 8.05,
+        "ROI_pct": 17.12766,
+        "MDD_U": 4.5,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_win": 21,
+          "half_loss": 2,
+          "full_loss": 13,
+          "push": 6,
+          "half_win": 5
+        }
+      },
+      "2026-W04": {
+        "n": 43,
+        "net_U": -2.82,
+        "ROI_pct": -6.55814,
+        "MDD_U": 4.31,
+        "orders_per_week": 43.0,
+        "five_state": {
+          "full_loss": 17,
+          "full_win": 16,
+          "half_loss": 3,
+          "push": 6,
+          "half_win": 1
+        }
+      },
+      "2026-W05": {
+        "n": 45,
+        "net_U": -0.635,
+        "ROI_pct": -1.411111,
+        "MDD_U": 3.18,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_loss": 20,
+          "full_win": 18,
+          "push": 3,
+          "half_win": 4
+        }
+      },
+      "2026-W06": {
+        "n": 47,
+        "net_U": -6.49,
+        "ROI_pct": -13.808511,
+        "MDD_U": 9.495,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_loss": 22,
+          "full_win": 17,
+          "push": 4,
+          "half_loss": 2,
+          "half_win": 2
+        }
+      },
+      "2026-W07": {
+        "n": 48,
+        "net_U": -5.825,
+        "ROI_pct": -12.135417,
+        "MDD_U": 5.825,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_loss": 19,
+          "half_loss": 7,
+          "full_win": 16,
+          "half_win": 3,
+          "push": 3
+        }
+      },
+      "2026-W08": {
+        "n": 46,
+        "net_U": 4.195,
+        "ROI_pct": 9.119565,
+        "MDD_U": 2.07,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_win": 23,
+          "full_loss": 16,
+          "push": 3,
+          "half_win": 1,
+          "half_loss": 3
+        }
+      },
+      "2026-W09": {
+        "n": 48,
+        "net_U": 1.215,
+        "ROI_pct": 2.53125,
+        "MDD_U": 5.36,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_loss": 17,
+          "full_win": 20,
+          "half_loss": 4,
+          "push": 3,
+          "half_win": 4
+        }
+      },
+      "2026-W10": {
+        "n": 44,
+        "net_U": -0.34,
+        "ROI_pct": -0.772727,
+        "MDD_U": 6.25,
+        "orders_per_week": 44.0,
+        "five_state": {
+          "full_win": 17,
+          "push": 6,
+          "full_loss": 16,
+          "half_loss": 2,
+          "half_win": 3
+        }
+      },
+      "2026-W11": {
+        "n": 47,
+        "net_U": -3.245,
+        "ROI_pct": -6.904255,
+        "MDD_U": 5.6,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_loss": 20,
+          "full_win": 17,
+          "half_win": 3,
+          "push": 5,
+          "half_loss": 2
+        }
+      },
+      "2026-W12": {
+        "n": 51,
+        "net_U": -14.73,
+        "ROI_pct": -28.882353,
+        "MDD_U": 18.56,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_win": 14,
+          "half_loss": 4,
+          "full_loss": 28,
+          "push": 1,
+          "half_win": 4
+        }
+      },
+      "2026-W14": {
+        "n": 40,
+        "net_U": -11.15,
+        "ROI_pct": -27.875,
+        "MDD_U": 11.15,
+        "orders_per_week": 40.0,
+        "five_state": {
+          "half_loss": 4,
+          "full_loss": 20,
+          "full_win": 11,
+          "half_win": 2,
+          "push": 3
+        }
+      },
+      "2026-W15": {
+        "n": 53,
+        "net_U": -0.29,
+        "ROI_pct": -0.54717,
+        "MDD_U": 6.22,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "full_win": 23,
+          "full_loss": 20,
+          "half_loss": 6,
+          "half_win": 3,
+          "push": 1
+        }
+      },
+      "2026-W16": {
+        "n": 36,
+        "net_U": 0.365,
+        "ROI_pct": 1.013889,
+        "MDD_U": 2.4,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_loss": 13,
+          "full_win": 14,
+          "half_win": 3,
+          "push": 4,
+          "half_loss": 2
+        }
+      },
+      "2026-W17": {
+        "n": 65,
+        "net_U": 3.055,
+        "ROI_pct": 4.7,
+        "MDD_U": 7.165,
+        "orders_per_week": 65.0,
+        "five_state": {
+          "push": 7,
+          "full_loss": 23,
+          "full_win": 27,
+          "half_win": 4,
+          "half_loss": 4
+        }
+      },
+      "2026-W18": {
+        "n": 55,
+        "net_U": 7.845,
+        "ROI_pct": 14.263636,
+        "MDD_U": 3.72,
+        "orders_per_week": 55.0,
+        "five_state": {
+          "full_loss": 18,
+          "full_win": 29,
+          "half_loss": 3,
+          "half_win": 2,
+          "push": 3
+        }
+      },
+      "2026-W19": {
+        "n": 39,
+        "net_U": -3.085,
+        "ROI_pct": -7.910256,
+        "MDD_U": 4.89,
+        "orders_per_week": 39.0,
+        "five_state": {
+          "half_loss": 2,
+          "full_win": 12,
+          "full_loss": 15,
+          "half_win": 4,
+          "push": 6
+        }
+      },
+      "2026-W20": {
+        "n": 67,
+        "net_U": 7.265,
+        "ROI_pct": 10.843284,
+        "MDD_U": 3.47,
+        "orders_per_week": 67.0,
+        "five_state": {
+          "full_win": 34,
+          "full_loss": 24,
+          "push": 5,
+          "half_win": 1,
+          "half_loss": 3
+        }
+      },
+      "2026-W21": {
+        "n": 26,
+        "net_U": 1.89,
+        "ROI_pct": 7.269231,
+        "MDD_U": 1.325,
+        "orders_per_week": 26.0,
+        "five_state": {
+          "full_win": 12,
+          "full_loss": 8,
+          "half_win": 2,
+          "half_loss": 4
+        }
+      },
+      "2026-W30": {
+        "n": 1,
+        "net_U": 0.0,
+        "ROI_pct": 0.0,
+        "MDD_U": 0.0,
+        "orders_per_week": 1.0,
+        "five_state": {
+          "push": 1
+        }
+      },
+      "2026-W31": {
+        "n": 6,
+        "net_U": -3.65,
+        "ROI_pct": -60.833333,
+        "MDD_U": 4.5,
+        "orders_per_week": 6.0,
+        "five_state": {
+          "full_win": 1,
+          "full_loss": 4,
+          "half_loss": 1
+        }
+      },
+      "2026-W32": {
+        "n": 12,
+        "net_U": 1.835,
+        "ROI_pct": 15.291667,
+        "MDD_U": 0.04,
+        "orders_per_week": 12.0,
+        "five_state": {
+          "half_win": 1,
+          "push": 1,
+          "full_loss": 2,
+          "full_win": 5,
+          "half_loss": 3
+        }
+      },
+      "2026-W33": {
+        "n": 17,
+        "net_U": 3.815,
+        "ROI_pct": 22.441176,
+        "MDD_U": 0.7,
+        "orders_per_week": 17.0,
+        "five_state": {
+          "push": 3,
+          "full_win": 8,
+          "full_loss": 4,
+          "half_win": 1,
+          "half_loss": 1
+        }
+      },
+      "2026-W34": {
+        "n": 28,
+        "net_U": 2.05,
+        "ROI_pct": 7.321429,
+        "MDD_U": 1.2,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "half_win": 4,
+          "full_loss": 9,
+          "full_win": 11,
+          "push": 2,
+          "half_loss": 2
+        }
+      },
+      "2026-W35": {
+        "n": 37,
+        "net_U": -0.54,
+        "ROI_pct": -1.459459,
+        "MDD_U": 3.46,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "half_loss": 5,
+          "full_win": 15,
+          "full_loss": 13,
+          "push": 2,
+          "half_win": 2
+        }
+      },
+      "2026-W36": {
+        "n": 42,
+        "net_U": -1.03,
+        "ROI_pct": -2.452381,
+        "MDD_U": 6.12,
+        "orders_per_week": 42.0,
+        "five_state": {
+          "push": 3,
+          "full_loss": 14,
+          "half_loss": 6,
+          "full_win": 15,
+          "half_win": 4
+        }
+      },
+      "2026-W37": {
+        "n": 36,
+        "net_U": -3.24,
+        "ROI_pct": -9.0,
+        "MDD_U": 3.54,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_win": 12,
+          "half_loss": 4,
+          "full_loss": 14,
+          "half_win": 4,
+          "push": 2
+        }
+      },
+      "2026-W38": {
+        "n": 52,
+        "net_U": -3.75,
+        "ROI_pct": -7.211538,
+        "MDD_U": 3.75,
+        "orders_per_week": 52.0,
+        "five_state": {
+          "full_loss": 21,
+          "half_loss": 6,
+          "push": 3,
+          "full_win": 20,
+          "half_win": 2
+        }
+      },
+      "2026-W40": {
+        "n": 1,
+        "net_U": -1.0,
+        "ROI_pct": -100.0,
+        "MDD_U": 1.0,
+        "orders_per_week": 1.0,
+        "five_state": {
+          "full_loss": 1
+        }
+      },
+      "2026-W41": {
+        "n": 31,
+        "net_U": 1.42,
+        "ROI_pct": 4.580645,
+        "MDD_U": 1.42,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "full_win": 15,
+          "full_loss": 12,
+          "half_loss": 2,
+          "push": 2
+        }
+      },
+      "2026-W42": {
+        "n": 34,
+        "net_U": -3.56,
+        "ROI_pct": -10.470588,
+        "MDD_U": 3.56,
+        "orders_per_week": 34.0,
+        "five_state": {
+          "full_win": 14,
+          "push": 1,
+          "full_loss": 16,
+          "half_loss": 2,
+          "half_win": 1
+        }
+      },
+      "2026-W43": {
+        "n": 31,
+        "net_U": 2.185,
+        "ROI_pct": 7.048387,
+        "MDD_U": 1.12,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "push": 5,
+          "full_win": 12,
+          "full_loss": 10,
+          "half_win": 3,
+          "half_loss": 1
+        }
+      },
+      "2026-W44": {
+        "n": 31,
+        "net_U": -5.69,
+        "ROI_pct": -18.354839,
+        "MDD_U": 6.46,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "full_loss": 17,
+          "half_win": 2,
+          "full_win": 12
+        }
+      },
+      "2026-W45": {
+        "n": 4,
+        "net_U": -0.01,
+        "ROI_pct": -0.25,
+        "MDD_U": 0.01,
+        "orders_per_week": 4.0,
+        "five_state": {
+          "full_win": 2,
+          "full_loss": 2
+        }
+      }
+    },
+    "market_plus_pair": {
+      "2024-W01": {
+        "n": 21,
+        "net_U": -2.395,
+        "ROI_pct": -11.404762,
+        "MDD_U": 5.63,
+        "orders_per_week": 21.0,
+        "five_state": {
+          "full_win": 8,
+          "full_loss": 10,
+          "half_win": 1,
+          "half_loss": 1,
+          "push": 1
+        }
+      },
+      "2024-W02": {
+        "n": 29,
+        "net_U": -0.935,
+        "ROI_pct": -3.224138,
+        "MDD_U": 3.53,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_loss": 9,
+          "half_win": 4,
+          "full_win": 9,
+          "half_loss": 4,
+          "push": 3
+        }
+      },
+      "2024-W03": {
+        "n": 21,
+        "net_U": 1.355,
+        "ROI_pct": 6.452381,
+        "MDD_U": 3.0,
+        "orders_per_week": 21.0,
+        "five_state": {
+          "full_win": 10,
+          "full_loss": 9,
+          "half_win": 1,
+          "push": 1
+        }
+      },
+      "2024-W04": {
+        "n": 29,
+        "net_U": -3.885,
+        "ROI_pct": -13.396552,
+        "MDD_U": 7.715,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_loss": 13,
+          "half_loss": 3,
+          "full_win": 9,
+          "half_win": 4
+        }
+      },
+      "2024-W05": {
+        "n": 35,
+        "net_U": 15.39,
+        "ROI_pct": 43.971429,
+        "MDD_U": 1.0,
+        "orders_per_week": 35.0,
+        "five_state": {
+          "half_win": 12,
+          "full_win": 16,
+          "push": 1,
+          "full_loss": 4,
+          "half_loss": 2
+        }
+      },
+      "2024-W06": {
+        "n": 26,
+        "net_U": -12.71,
+        "ROI_pct": -48.884615,
+        "MDD_U": 13.61,
+        "orders_per_week": 26.0,
+        "five_state": {
+          "full_loss": 17,
+          "full_win": 6,
+          "half_loss": 3
+        }
+      },
+      "2024-W07": {
+        "n": 27,
+        "net_U": -5.08,
+        "ROI_pct": -18.814815,
+        "MDD_U": 5.08,
+        "orders_per_week": 27.0,
+        "five_state": {
+          "full_loss": 13,
+          "full_win": 9,
+          "half_loss": 3,
+          "half_win": 2
+        }
+      },
+      "2024-W08": {
+        "n": 29,
+        "net_U": -9.855,
+        "ROI_pct": -33.982759,
+        "MDD_U": 9.855,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_loss": 17,
+          "full_win": 6,
+          "half_win": 4,
+          "half_loss": 1,
+          "push": 1
+        }
+      },
+      "2024-W09": {
+        "n": 45,
+        "net_U": 5.415,
+        "ROI_pct": 12.033333,
+        "MDD_U": 1.715,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 22,
+          "half_loss": 5,
+          "full_loss": 14,
+          "half_win": 3,
+          "push": 1
+        }
+      },
+      "2024-W10": {
+        "n": 36,
+        "net_U": -7.81,
+        "ROI_pct": -21.694444,
+        "MDD_U": 7.81,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_win": 11,
+          "full_loss": 19,
+          "half_win": 4,
+          "half_loss": 2
+        }
+      },
+      "2024-W11": {
+        "n": 29,
+        "net_U": 0.84,
+        "ROI_pct": 2.896552,
+        "MDD_U": 3.5,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_loss": 11,
+          "half_loss": 1,
+          "full_win": 13,
+          "push": 3,
+          "half_win": 1
+        }
+      },
+      "2024-W13": {
+        "n": 35,
+        "net_U": 0.26,
+        "ROI_pct": 0.742857,
+        "MDD_U": 5.585,
+        "orders_per_week": 35.0,
+        "five_state": {
+          "full_win": 15,
+          "full_loss": 15,
+          "half_win": 3,
+          "push": 1,
+          "half_loss": 1
+        }
+      },
+      "2024-W14": {
+        "n": 51,
+        "net_U": 6.25,
+        "ROI_pct": 12.254902,
+        "MDD_U": 3.01,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_win": 25,
+          "half_win": 3,
+          "push": 4,
+          "full_loss": 19
+        }
+      },
+      "2024-W15": {
+        "n": 46,
+        "net_U": -2.77,
+        "ROI_pct": -6.021739,
+        "MDD_U": 2.77,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "half_win": 7,
+          "full_loss": 19,
+          "full_win": 15,
+          "half_loss": 3,
+          "push": 2
+        }
+      },
+      "2024-W16": {
+        "n": 41,
+        "net_U": 3.915,
+        "ROI_pct": 9.54878,
+        "MDD_U": 4.0,
+        "orders_per_week": 41.0,
+        "five_state": {
+          "full_win": 18,
+          "full_loss": 14,
+          "half_win": 3,
+          "push": 4,
+          "half_loss": 2
+        }
+      },
+      "2024-W17": {
+        "n": 55,
+        "net_U": -4.885,
+        "ROI_pct": -8.881818,
+        "MDD_U": 8.57,
+        "orders_per_week": 55.0,
+        "five_state": {
+          "full_loss": 22,
+          "half_win": 5,
+          "push": 5,
+          "full_win": 18,
+          "half_loss": 5
+        }
+      },
+      "2024-W18": {
+        "n": 46,
+        "net_U": 6.165,
+        "ROI_pct": 13.402174,
+        "MDD_U": 1.0,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_win": 21,
+          "full_loss": 16,
+          "half_win": 6,
+          "push": 3
+        }
+      },
+      "2024-W19": {
+        "n": 56,
+        "net_U": 4.885,
+        "ROI_pct": 8.723214,
+        "MDD_U": 2.18,
+        "orders_per_week": 56.0,
+        "five_state": {
+          "full_win": 27,
+          "full_loss": 20,
+          "half_win": 3,
+          "push": 2,
+          "half_loss": 4
+        }
+      },
+      "2024-W20": {
+        "n": 62,
+        "net_U": -10.495,
+        "ROI_pct": -16.927419,
+        "MDD_U": 10.495,
+        "orders_per_week": 62.0,
+        "five_state": {
+          "full_loss": 29,
+          "half_loss": 3,
+          "full_win": 19,
+          "half_win": 5,
+          "push": 6
+        }
+      },
+      "2024-W21": {
+        "n": 28,
+        "net_U": 0.12,
+        "ROI_pct": 0.428571,
+        "MDD_U": 3.225,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_loss": 12,
+          "push": 1,
+          "half_win": 2,
+          "full_win": 12,
+          "half_loss": 1
+        }
+      },
+      "2024-W22": {
+        "n": 2,
+        "net_U": -1.5,
+        "ROI_pct": -75.0,
+        "MDD_U": 1.5,
+        "orders_per_week": 2.0,
+        "five_state": {
+          "half_loss": 1,
+          "full_loss": 1
+        }
+      },
+      "2024-W30": {
+        "n": 6,
+        "net_U": -1.71,
+        "ROI_pct": -28.5,
+        "MDD_U": 1.71,
+        "orders_per_week": 6.0,
+        "five_state": {
+          "full_loss": 3,
+          "full_win": 2,
+          "half_loss": 1
+        }
+      },
+      "2024-W31": {
+        "n": 9,
+        "net_U": -0.28,
+        "ROI_pct": -3.111111,
+        "MDD_U": 1.05,
+        "orders_per_week": 9.0,
+        "five_state": {
+          "full_win": 4,
+          "full_loss": 4,
+          "push": 1
+        }
+      },
+      "2024-W32": {
+        "n": 15,
+        "net_U": -4.795,
+        "ROI_pct": -31.966667,
+        "MDD_U": 5.5,
+        "orders_per_week": 15.0,
+        "five_state": {
+          "half_loss": 2,
+          "full_loss": 8,
+          "full_win": 4,
+          "half_win": 1
+        }
+      },
+      "2024-W33": {
+        "n": 26,
+        "net_U": -0.56,
+        "ROI_pct": -2.153846,
+        "MDD_U": 2.815,
+        "orders_per_week": 26.0,
+        "five_state": {
+          "half_win": 4,
+          "push": 2,
+          "half_loss": 1,
+          "full_win": 9,
+          "full_loss": 10
+        }
+      },
+      "2024-W34": {
+        "n": 31,
+        "net_U": -0.16,
+        "ROI_pct": -0.516129,
+        "MDD_U": 1.62,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "half_loss": 3,
+          "push": 4,
+          "full_loss": 10,
+          "full_win": 10,
+          "half_win": 4
+        }
+      },
+      "2024-W35": {
+        "n": 46,
+        "net_U": 7.95,
+        "ROI_pct": 17.282609,
+        "MDD_U": 1.0,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_win": 23,
+          "half_loss": 8,
+          "full_loss": 11,
+          "push": 2,
+          "half_win": 2
+        }
+      },
+      "2024-W37": {
+        "n": 33,
+        "net_U": -4.6,
+        "ROI_pct": -13.939394,
+        "MDD_U": 5.98,
+        "orders_per_week": 33.0,
+        "five_state": {
+          "half_loss": 1,
+          "full_loss": 16,
+          "push": 2,
+          "full_win": 12,
+          "half_win": 2
+        }
+      },
+      "2024-W38": {
+        "n": 47,
+        "net_U": 0.9,
+        "ROI_pct": 1.914894,
+        "MDD_U": 2.655,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_win": 19,
+          "half_win": 4,
+          "full_loss": 17,
+          "push": 2,
+          "half_loss": 5
+        }
+      },
+      "2024-W39": {
+        "n": 54,
+        "net_U": 3.79,
+        "ROI_pct": 7.018519,
+        "MDD_U": 2.205,
+        "orders_per_week": 54.0,
+        "five_state": {
+          "full_win": 21,
+          "half_win": 10,
+          "full_loss": 19,
+          "half_loss": 2,
+          "push": 2
+        }
+      },
+      "2024-W40": {
+        "n": 44,
+        "net_U": -0.89,
+        "ROI_pct": -2.022727,
+        "MDD_U": 1.56,
+        "orders_per_week": 44.0,
+        "five_state": {
+          "full_win": 16,
+          "full_loss": 15,
+          "push": 5,
+          "half_loss": 5,
+          "half_win": 3
+        }
+      },
+      "2024-W42": {
+        "n": 37,
+        "net_U": -1.265,
+        "ROI_pct": -3.418919,
+        "MDD_U": 2.265,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "full_loss": 14,
+          "full_win": 15,
+          "half_loss": 5,
+          "half_win": 2,
+          "push": 1
+        }
+      },
+      "2024-W43": {
+        "n": 41,
+        "net_U": 12.63,
+        "ROI_pct": 30.804878,
+        "MDD_U": 0.0,
+        "orders_per_week": 41.0,
+        "five_state": {
+          "full_win": 23,
+          "full_loss": 10,
+          "push": 7,
+          "half_win": 1
+        }
+      },
+      "2024-W44": {
+        "n": 50,
+        "net_U": 1.375,
+        "ROI_pct": 2.75,
+        "MDD_U": 2.52,
+        "orders_per_week": 50.0,
+        "five_state": {
+          "half_win": 4,
+          "full_loss": 20,
+          "full_win": 22,
+          "half_loss": 3,
+          "push": 1
+        }
+      },
+      "2024-W45": {
+        "n": 47,
+        "net_U": -0.295,
+        "ROI_pct": -0.62766,
+        "MDD_U": 2.835,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_loss": 20,
+          "full_win": 20,
+          "half_win": 4,
+          "push": 1,
+          "half_loss": 2
+        }
+      },
+      "2024-W47": {
+        "n": 38,
+        "net_U": -9.18,
+        "ROI_pct": -24.157895,
+        "MDD_U": 11.09,
+        "orders_per_week": 38.0,
+        "five_state": {
+          "full_win": 10,
+          "half_loss": 3,
+          "full_loss": 19,
+          "half_win": 4,
+          "push": 2
+        }
+      },
+      "2024-W48": {
+        "n": 51,
+        "net_U": -2.885,
+        "ROI_pct": -5.656863,
+        "MDD_U": 5.38,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_loss": 21,
+          "push": 3,
+          "full_win": 19,
+          "half_win": 4,
+          "half_loss": 4
+        }
+      },
+      "2024-W49": {
+        "n": 55,
+        "net_U": 2.935,
+        "ROI_pct": 5.336364,
+        "MDD_U": 1.16,
+        "orders_per_week": 55.0,
+        "five_state": {
+          "full_loss": 19,
+          "full_win": 21,
+          "push": 4,
+          "half_win": 8,
+          "half_loss": 3
+        }
+      },
+      "2024-W50": {
+        "n": 40,
+        "net_U": 7.995,
+        "ROI_pct": 19.9875,
+        "MDD_U": 0.75,
+        "orders_per_week": 40.0,
+        "five_state": {
+          "full_loss": 13,
+          "half_win": 4,
+          "full_win": 20,
+          "push": 3
+        }
+      },
+      "2024-W51": {
+        "n": 36,
+        "net_U": -3.115,
+        "ROI_pct": -8.652778,
+        "MDD_U": 6.785,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_loss": 16,
+          "push": 2,
+          "full_win": 14,
+          "half_win": 2,
+          "half_loss": 2
+        }
+      },
+      "2024-W52": {
+        "n": 28,
+        "net_U": 0.545,
+        "ROI_pct": 1.946429,
+        "MDD_U": 1.0,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_win": 12,
+          "full_loss": 12,
+          "half_win": 3,
+          "push": 1
+        }
+      },
+      "2025-W01": {
+        "n": 28,
+        "net_U": -4.7,
+        "ROI_pct": -16.785714,
+        "MDD_U": 4.7,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "full_loss": 14,
+          "full_win": 10,
+          "half_loss": 2,
+          "push": 1,
+          "half_win": 1
+        }
+      },
+      "2025-W02": {
+        "n": 32,
+        "net_U": -3.915,
+        "ROI_pct": -12.234375,
+        "MDD_U": 4.135,
+        "orders_per_week": 32.0,
+        "five_state": {
+          "full_loss": 15,
+          "half_win": 4,
+          "half_loss": 2,
+          "full_win": 11
+        }
+      },
+      "2025-W03": {
+        "n": 56,
+        "net_U": -14.465,
+        "ROI_pct": -25.830357,
+        "MDD_U": 14.465,
+        "orders_per_week": 56.0,
+        "five_state": {
+          "full_loss": 32,
+          "full_win": 16,
+          "half_win": 5,
+          "push": 3
+        }
+      },
+      "2025-W04": {
+        "n": 41,
+        "net_U": -5.78,
+        "ROI_pct": -14.097561,
+        "MDD_U": 7.71,
+        "orders_per_week": 41.0,
+        "five_state": {
+          "full_win": 17,
+          "full_loss": 21,
+          "half_loss": 3
+        }
+      },
+      "2025-W05": {
+        "n": 45,
+        "net_U": 0.385,
+        "ROI_pct": 0.855556,
+        "MDD_U": 3.48,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 18,
+          "half_loss": 4,
+          "full_loss": 16,
+          "half_win": 3,
+          "push": 4
+        }
+      },
+      "2025-W06": {
+        "n": 32,
+        "net_U": 2.985,
+        "ROI_pct": 9.328125,
+        "MDD_U": 1.22,
+        "orders_per_week": 32.0,
+        "five_state": {
+          "full_win": 14,
+          "half_win": 2,
+          "push": 4,
+          "full_loss": 11,
+          "half_loss": 1
+        }
+      },
+      "2025-W07": {
+        "n": 30,
+        "net_U": 0.68,
+        "ROI_pct": 2.266667,
+        "MDD_U": 2.655,
+        "orders_per_week": 30.0,
+        "five_state": {
+          "half_win": 3,
+          "half_loss": 5,
+          "full_loss": 10,
+          "full_win": 12
+        }
+      },
+      "2025-W08": {
+        "n": 29,
+        "net_U": -2.59,
+        "ROI_pct": -8.931034,
+        "MDD_U": 3.02,
+        "orders_per_week": 29.0,
+        "five_state": {
+          "full_loss": 14,
+          "full_win": 11,
+          "half_loss": 1,
+          "push": 1,
+          "half_win": 2
+        }
+      },
+      "2025-W09": {
+        "n": 43,
+        "net_U": -8.085,
+        "ROI_pct": -18.802326,
+        "MDD_U": 10.915,
+        "orders_per_week": 43.0,
+        "five_state": {
+          "full_win": 15,
+          "full_loss": 22,
+          "half_loss": 3,
+          "half_win": 2,
+          "push": 1
+        }
+      },
+      "2025-W10": {
+        "n": 53,
+        "net_U": -9.44,
+        "ROI_pct": -17.811321,
+        "MDD_U": 11.535,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "full_win": 14,
+          "half_win": 4,
+          "full_loss": 22,
+          "half_loss": 6,
+          "push": 7
+        }
+      },
+      "2025-W11": {
+        "n": 50,
+        "net_U": -7.88,
+        "ROI_pct": -15.76,
+        "MDD_U": 7.88,
+        "orders_per_week": 50.0,
+        "five_state": {
+          "full_win": 18,
+          "half_loss": 3,
+          "full_loss": 25,
+          "push": 1,
+          "half_win": 3
+        }
+      },
+      "2025-W13": {
+        "n": 43,
+        "net_U": -7.13,
+        "ROI_pct": -16.581395,
+        "MDD_U": 8.385,
+        "orders_per_week": 43.0,
+        "five_state": {
+          "half_win": 4,
+          "full_win": 14,
+          "full_loss": 21,
+          "half_loss": 2,
+          "push": 2
+        }
+      },
+      "2025-W14": {
+        "n": 48,
+        "net_U": -2.05,
+        "ROI_pct": -4.270833,
+        "MDD_U": 9.24,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "half_win": 5,
+          "push": 4,
+          "full_loss": 20,
+          "full_win": 17,
+          "half_loss": 2
+        }
+      },
+      "2025-W15": {
+        "n": 52,
+        "net_U": 14.555,
+        "ROI_pct": 27.990385,
+        "MDD_U": 0.0,
+        "orders_per_week": 52.0,
+        "five_state": {
+          "full_win": 28,
+          "push": 5,
+          "full_loss": 14,
+          "half_win": 4,
+          "half_loss": 1
+        }
+      },
+      "2025-W16": {
+        "n": 37,
+        "net_U": -5.665,
+        "ROI_pct": -15.310811,
+        "MDD_U": 8.125,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "full_win": 12,
+          "half_loss": 6,
+          "full_loss": 15,
+          "half_win": 1,
+          "push": 3
+        }
+      },
+      "2025-W17": {
+        "n": 52,
+        "net_U": 5.43,
+        "ROI_pct": 10.442308,
+        "MDD_U": 5.66,
+        "orders_per_week": 52.0,
+        "five_state": {
+          "full_win": 23,
+          "half_win": 4,
+          "full_loss": 16,
+          "half_loss": 5,
+          "push": 4
+        }
+      },
+      "2025-W18": {
+        "n": 47,
+        "net_U": 2.875,
+        "ROI_pct": 6.117021,
+        "MDD_U": 1.895,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_win": 21,
+          "full_loss": 17,
+          "half_win": 4,
+          "half_loss": 3,
+          "push": 2
+        }
+      },
+      "2025-W19": {
+        "n": 45,
+        "net_U": -5.01,
+        "ROI_pct": -11.133333,
+        "MDD_U": 5.99,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 16,
+          "full_loss": 17,
+          "push": 4,
+          "half_loss": 7,
+          "half_win": 1
+        }
+      },
+      "2025-W20": {
+        "n": 53,
+        "net_U": 6.65,
+        "ROI_pct": 12.54717,
+        "MDD_U": 1.21,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "full_win": 24,
+          "half_win": 5,
+          "full_loss": 18,
+          "push": 4,
+          "half_loss": 2
+        }
+      },
+      "2025-W21": {
+        "n": 20,
+        "net_U": 4.31,
+        "ROI_pct": 21.55,
+        "MDD_U": 0.18,
+        "orders_per_week": 20.0,
+        "five_state": {
+          "full_loss": 6,
+          "full_win": 11,
+          "push": 1,
+          "half_loss": 1,
+          "half_win": 1
+        }
+      },
+      "2025-W22": {
+        "n": 6,
+        "net_U": -0.78,
+        "ROI_pct": -13.0,
+        "MDD_U": 1.18,
+        "orders_per_week": 6.0,
+        "five_state": {
+          "full_loss": 2,
+          "full_win": 2,
+          "half_loss": 1,
+          "push": 1
+        }
+      },
+      "2025-W29": {
+        "n": 1,
+        "net_U": 0.9,
+        "ROI_pct": 90.0,
+        "MDD_U": 0.0,
+        "orders_per_week": 1.0,
+        "five_state": {
+          "full_win": 1
+        }
+      },
+      "2025-W30": {
+        "n": 3,
+        "net_U": -3.0,
+        "ROI_pct": -100.0,
+        "MDD_U": 3.0,
+        "orders_per_week": 3.0,
+        "five_state": {
+          "full_loss": 3
+        }
+      },
+      "2025-W31": {
+        "n": 7,
+        "net_U": 0.63,
+        "ROI_pct": 9.0,
+        "MDD_U": 1.0,
+        "orders_per_week": 7.0,
+        "five_state": {
+          "full_win": 4,
+          "full_loss": 3
+        }
+      },
+      "2025-W32": {
+        "n": 11,
+        "net_U": -3.12,
+        "ROI_pct": -28.363636,
+        "MDD_U": 4.08,
+        "orders_per_week": 11.0,
+        "five_state": {
+          "full_win": 4,
+          "full_loss": 7
+        }
+      },
+      "2025-W33": {
+        "n": 27,
+        "net_U": 3.485,
+        "ROI_pct": 12.907407,
+        "MDD_U": 2.095,
+        "orders_per_week": 27.0,
+        "five_state": {
+          "full_win": 12,
+          "full_loss": 7,
+          "half_win": 3,
+          "half_loss": 4,
+          "push": 1
+        }
+      },
+      "2025-W34": {
+        "n": 32,
+        "net_U": -8.185,
+        "ROI_pct": -25.578125,
+        "MDD_U": 9.175,
+        "orders_per_week": 32.0,
+        "five_state": {
+          "full_win": 9,
+          "full_loss": 18,
+          "half_win": 3,
+          "push": 1,
+          "half_loss": 1
+        }
+      },
+      "2025-W35": {
+        "n": 46,
+        "net_U": -8.445,
+        "ROI_pct": -18.358696,
+        "MDD_U": 11.635,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_win": 14,
+          "full_loss": 22,
+          "half_win": 3,
+          "push": 3,
+          "half_loss": 4
+        }
+      },
+      "2025-W37": {
+        "n": 38,
+        "net_U": -5.895,
+        "ROI_pct": -15.513158,
+        "MDD_U": 7.375,
+        "orders_per_week": 38.0,
+        "five_state": {
+          "full_win": 13,
+          "half_loss": 4,
+          "full_loss": 17,
+          "push": 3,
+          "half_win": 1
+        }
+      },
+      "2025-W38": {
+        "n": 49,
+        "net_U": -3.385,
+        "ROI_pct": -6.908163,
+        "MDD_U": 6.77,
+        "orders_per_week": 49.0,
+        "five_state": {
+          "full_win": 17,
+          "full_loss": 20,
+          "half_win": 5,
+          "push": 4,
+          "half_loss": 3
+        }
+      },
+      "2025-W39": {
+        "n": 61,
+        "net_U": -3.715,
+        "ROI_pct": -6.090164,
+        "MDD_U": 4.265,
+        "orders_per_week": 61.0,
+        "five_state": {
+          "full_loss": 24,
+          "half_loss": 5,
+          "push": 5,
+          "full_win": 21,
+          "half_win": 6
+        }
+      },
+      "2025-W40": {
+        "n": 48,
+        "net_U": 3.575,
+        "ROI_pct": 7.447917,
+        "MDD_U": 1.49,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_loss": 18,
+          "full_win": 21,
+          "half_win": 4,
+          "push": 4,
+          "half_loss": 1
+        }
+      },
+      "2025-W42": {
+        "n": 37,
+        "net_U": -4.355,
+        "ROI_pct": -11.77027,
+        "MDD_U": 5.76,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "full_win": 14,
+          "full_loss": 15,
+          "half_loss": 6,
+          "push": 1,
+          "half_win": 1
+        }
+      },
+      "2025-W43": {
+        "n": 51,
+        "net_U": -4.115,
+        "ROI_pct": -8.068627,
+        "MDD_U": 4.115,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_loss": 24,
+          "full_win": 19,
+          "half_win": 5,
+          "half_loss": 2,
+          "push": 1
+        }
+      },
+      "2025-W44": {
+        "n": 54,
+        "net_U": 4.47,
+        "ROI_pct": 8.277778,
+        "MDD_U": 4.2,
+        "orders_per_week": 54.0,
+        "five_state": {
+          "full_win": 26,
+          "push": 5,
+          "full_loss": 18,
+          "half_loss": 5
+        }
+      },
+      "2025-W45": {
+        "n": 56,
+        "net_U": -4.165,
+        "ROI_pct": -7.4375,
+        "MDD_U": 5.995,
+        "orders_per_week": 56.0,
+        "five_state": {
+          "push": 6,
+          "full_win": 20,
+          "full_loss": 23,
+          "half_win": 4,
+          "half_loss": 3
+        }
+      },
+      "2025-W47": {
+        "n": 48,
+        "net_U": 3.075,
+        "ROI_pct": 6.40625,
+        "MDD_U": 2.63,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_win": 21,
+          "half_win": 4,
+          "full_loss": 17,
+          "half_loss": 4,
+          "push": 2
+        }
+      },
+      "2025-W48": {
+        "n": 45,
+        "net_U": -4.035,
+        "ROI_pct": -8.966667,
+        "MDD_U": 4.905,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 15,
+          "full_loss": 17,
+          "half_loss": 6,
+          "half_win": 3,
+          "push": 4
+        }
+      },
+      "2025-W49": {
+        "n": 53,
+        "net_U": -8.435,
+        "ROI_pct": -15.915094,
+        "MDD_U": 13.97,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "half_win": 5,
+          "full_win": 17,
+          "full_loss": 27,
+          "push": 4
+        }
+      },
+      "2025-W50": {
+        "n": 45,
+        "net_U": -2.01,
+        "ROI_pct": -4.466667,
+        "MDD_U": 4.46,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_win": 17,
+          "half_win": 4,
+          "full_loss": 18,
+          "push": 2,
+          "half_loss": 4
+        }
+      },
+      "2025-W51": {
+        "n": 44,
+        "net_U": -0.855,
+        "ROI_pct": -1.943182,
+        "MDD_U": 3.01,
+        "orders_per_week": 44.0,
+        "five_state": {
+          "push": 7,
+          "full_win": 14,
+          "full_loss": 13,
+          "half_loss": 6,
+          "half_win": 4
+        }
+      },
+      "2025-W52": {
+        "n": 22,
+        "net_U": -3.435,
+        "ROI_pct": -15.613636,
+        "MDD_U": 4.265,
+        "orders_per_week": 22.0,
+        "five_state": {
+          "full_win": 8,
+          "full_loss": 10,
+          "half_win": 1,
+          "half_loss": 3
+        }
+      },
+      "2026-W01": {
+        "n": 40,
+        "net_U": 2.685,
+        "ROI_pct": 6.7125,
+        "MDD_U": 1.51,
+        "orders_per_week": 40.0,
+        "five_state": {
+          "full_win": 18,
+          "half_loss": 2,
+          "full_loss": 15,
+          "push": 2,
+          "half_win": 3
+        }
+      },
+      "2026-W02": {
+        "n": 30,
+        "net_U": 1.565,
+        "ROI_pct": 5.216667,
+        "MDD_U": 1.81,
+        "orders_per_week": 30.0,
+        "five_state": {
+          "full_win": 12,
+          "full_loss": 11,
+          "half_win": 4,
+          "half_loss": 2,
+          "push": 1
+        }
+      },
+      "2026-W03": {
+        "n": 47,
+        "net_U": -0.01,
+        "ROI_pct": -0.021277,
+        "MDD_U": 2.0,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_win": 18,
+          "half_loss": 5,
+          "full_loss": 16,
+          "push": 6,
+          "half_win": 2
+        }
+      },
+      "2026-W04": {
+        "n": 43,
+        "net_U": 2.18,
+        "ROI_pct": 5.069767,
+        "MDD_U": 2.27,
+        "orders_per_week": 43.0,
+        "five_state": {
+          "full_loss": 15,
+          "full_win": 18,
+          "half_win": 2,
+          "push": 6,
+          "half_loss": 2
+        }
+      },
+      "2026-W05": {
+        "n": 45,
+        "net_U": -2.47,
+        "ROI_pct": -5.488889,
+        "MDD_U": 5.3,
+        "orders_per_week": 45.0,
+        "five_state": {
+          "full_loss": 20,
+          "full_win": 18,
+          "push": 3,
+          "half_win": 2,
+          "half_loss": 2
+        }
+      },
+      "2026-W06": {
+        "n": 47,
+        "net_U": -4.295,
+        "ROI_pct": -9.138298,
+        "MDD_U": 4.955,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_loss": 21,
+          "full_win": 18,
+          "push": 4,
+          "half_win": 2,
+          "half_loss": 2
+        }
+      },
+      "2026-W07": {
+        "n": 48,
+        "net_U": -4.155,
+        "ROI_pct": -8.65625,
+        "MDD_U": 5.14,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_loss": 19,
+          "half_win": 5,
+          "full_win": 16,
+          "half_loss": 5,
+          "push": 3
+        }
+      },
+      "2026-W08": {
+        "n": 46,
+        "net_U": -5.435,
+        "ROI_pct": -11.815217,
+        "MDD_U": 9.435,
+        "orders_per_week": 46.0,
+        "five_state": {
+          "full_loss": 22,
+          "full_win": 17,
+          "push": 3,
+          "half_loss": 2,
+          "half_win": 2
+        }
+      },
+      "2026-W09": {
+        "n": 48,
+        "net_U": -1.2,
+        "ROI_pct": -2.5,
+        "MDD_U": 4.905,
+        "orders_per_week": 48.0,
+        "five_state": {
+          "full_loss": 19,
+          "full_win": 18,
+          "half_win": 5,
+          "push": 3,
+          "half_loss": 3
+        }
+      },
+      "2026-W10": {
+        "n": 44,
+        "net_U": 2.17,
+        "ROI_pct": 4.931818,
+        "MDD_U": 3.62,
+        "orders_per_week": 44.0,
+        "five_state": {
+          "full_win": 18,
+          "full_loss": 15,
+          "push": 6,
+          "half_win": 3,
+          "half_loss": 2
+        }
+      },
+      "2026-W11": {
+        "n": 47,
+        "net_U": -5.045,
+        "ROI_pct": -10.734043,
+        "MDD_U": 5.345,
+        "orders_per_week": 47.0,
+        "five_state": {
+          "full_loss": 21,
+          "full_win": 16,
+          "half_loss": 2,
+          "push": 5,
+          "half_win": 3
+        }
+      },
+      "2026-W12": {
+        "n": 51,
+        "net_U": 3.395,
+        "ROI_pct": 6.656863,
+        "MDD_U": 2.0,
+        "orders_per_week": 51.0,
+        "five_state": {
+          "full_loss": 20,
+          "full_win": 22,
+          "half_win": 6,
+          "push": 1,
+          "half_loss": 2
+        }
+      },
+      "2026-W14": {
+        "n": 40,
+        "net_U": -2.89,
+        "ROI_pct": -7.225,
+        "MDD_U": 3.34,
+        "orders_per_week": 40.0,
+        "five_state": {
+          "half_win": 4,
+          "full_win": 14,
+          "full_loss": 17,
+          "half_loss": 2,
+          "push": 3
+        }
+      },
+      "2026-W15": {
+        "n": 53,
+        "net_U": -5.25,
+        "ROI_pct": -9.90566,
+        "MDD_U": 6.92,
+        "orders_per_week": 53.0,
+        "five_state": {
+          "full_loss": 24,
+          "full_win": 19,
+          "half_win": 5,
+          "half_loss": 4,
+          "push": 1
+        }
+      },
+      "2026-W16": {
+        "n": 36,
+        "net_U": -0.955,
+        "ROI_pct": -2.652778,
+        "MDD_U": 2.11,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_loss": 14,
+          "full_win": 13,
+          "half_loss": 2,
+          "push": 4,
+          "half_win": 3
+        }
+      },
+      "2026-W17": {
+        "n": 65,
+        "net_U": 6.36,
+        "ROI_pct": 9.784615,
+        "MDD_U": 2.74,
+        "orders_per_week": 65.0,
+        "five_state": {
+          "push": 7,
+          "full_win": 29,
+          "full_loss": 21,
+          "half_loss": 4,
+          "half_win": 4
+        }
+      },
+      "2026-W18": {
+        "n": 55,
+        "net_U": -10.915,
+        "ROI_pct": -19.845455,
+        "MDD_U": 10.915,
+        "orders_per_week": 55.0,
+        "five_state": {
+          "full_win": 19,
+          "full_loss": 28,
+          "half_win": 2,
+          "half_loss": 3,
+          "push": 3
+        }
+      },
+      "2026-W19": {
+        "n": 39,
+        "net_U": -1.61,
+        "ROI_pct": -4.128205,
+        "MDD_U": 2.88,
+        "orders_per_week": 39.0,
+        "five_state": {
+          "half_win": 3,
+          "full_loss": 14,
+          "full_win": 13,
+          "half_loss": 3,
+          "push": 6
+        }
+      },
+      "2026-W20": {
+        "n": 67,
+        "net_U": -4.475,
+        "ROI_pct": -6.679104,
+        "MDD_U": 5.015,
+        "orders_per_week": 67.0,
+        "five_state": {
+          "full_loss": 32,
+          "full_win": 26,
+          "push": 5,
+          "half_win": 4
+        }
+      },
+      "2026-W21": {
+        "n": 26,
+        "net_U": -8.475,
+        "ROI_pct": -32.596154,
+        "MDD_U": 9.05,
+        "orders_per_week": 26.0,
+        "five_state": {
+          "full_loss": 15,
+          "full_win": 5,
+          "half_win": 5,
+          "half_loss": 1
+        }
+      },
+      "2026-W30": {
+        "n": 1,
+        "net_U": 0.0,
+        "ROI_pct": 0.0,
+        "MDD_U": 0.0,
+        "orders_per_week": 1.0,
+        "five_state": {
+          "push": 1
+        }
+      },
+      "2026-W31": {
+        "n": 6,
+        "net_U": -0.73,
+        "ROI_pct": -12.166667,
+        "MDD_U": 2.0,
+        "orders_per_week": 6.0,
+        "five_state": {
+          "full_loss": 3,
+          "half_win": 1,
+          "full_win": 2
+        }
+      },
+      "2026-W32": {
+        "n": 12,
+        "net_U": 2.805,
+        "ROI_pct": 23.375,
+        "MDD_U": 0.5,
+        "orders_per_week": 12.0,
+        "five_state": {
+          "half_loss": 2,
+          "push": 1,
+          "full_win": 5,
+          "full_loss": 2,
+          "half_win": 2
+        }
+      },
+      "2026-W33": {
+        "n": 17,
+        "net_U": 0.98,
+        "ROI_pct": 5.764706,
+        "MDD_U": 0.465,
+        "orders_per_week": 17.0,
+        "five_state": {
+          "push": 3,
+          "full_loss": 6,
+          "full_win": 6,
+          "half_win": 2
+        }
+      },
+      "2026-W34": {
+        "n": 28,
+        "net_U": -5.71,
+        "ROI_pct": -20.392857,
+        "MDD_U": 5.71,
+        "orders_per_week": 28.0,
+        "five_state": {
+          "half_win": 2,
+          "half_loss": 4,
+          "full_loss": 12,
+          "full_win": 8,
+          "push": 2
+        }
+      },
+      "2026-W35": {
+        "n": 37,
+        "net_U": 3.58,
+        "ROI_pct": 9.675676,
+        "MDD_U": 3.3,
+        "orders_per_week": 37.0,
+        "five_state": {
+          "half_win": 4,
+          "full_win": 16,
+          "full_loss": 12,
+          "push": 2,
+          "half_loss": 3
+        }
+      },
+      "2026-W36": {
+        "n": 42,
+        "net_U": 3.895,
+        "ROI_pct": 9.27381,
+        "MDD_U": 2.97,
+        "orders_per_week": 42.0,
+        "five_state": {
+          "push": 3,
+          "full_win": 16,
+          "full_loss": 13,
+          "half_win": 7,
+          "half_loss": 3
+        }
+      },
+      "2026-W37": {
+        "n": 36,
+        "net_U": -3.735,
+        "ROI_pct": -10.375,
+        "MDD_U": 3.735,
+        "orders_per_week": 36.0,
+        "five_state": {
+          "full_loss": 15,
+          "half_loss": 3,
+          "full_win": 11,
+          "half_win": 5,
+          "push": 2
+        }
+      },
+      "2026-W38": {
+        "n": 52,
+        "net_U": -1.22,
+        "ROI_pct": -2.346154,
+        "MDD_U": 4.5,
+        "orders_per_week": 52.0,
+        "five_state": {
+          "full_win": 20,
+          "half_win": 5,
+          "push": 3,
+          "full_loss": 21,
+          "half_loss": 3
+        }
+      },
+      "2026-W40": {
+        "n": 1,
+        "net_U": -1.0,
+        "ROI_pct": -100.0,
+        "MDD_U": 1.0,
+        "orders_per_week": 1.0,
+        "five_state": {
+          "full_loss": 1
+        }
+      },
+      "2026-W41": {
+        "n": 31,
+        "net_U": -2.2,
+        "ROI_pct": -7.096774,
+        "MDD_U": 4.01,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "full_loss": 15,
+          "half_win": 2,
+          "full_win": 12,
+          "push": 2
+        }
+      },
+      "2026-W42": {
+        "n": 34,
+        "net_U": -15.025,
+        "ROI_pct": -44.191176,
+        "MDD_U": 15.025,
+        "orders_per_week": 34.0,
+        "five_state": {
+          "full_loss": 22,
+          "push": 1,
+          "full_win": 8,
+          "half_win": 1,
+          "half_loss": 2
+        }
+      },
+      "2026-W43": {
+        "n": 31,
+        "net_U": 0.67,
+        "ROI_pct": 2.16129,
+        "MDD_U": 1.26,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "push": 5,
+          "full_loss": 10,
+          "full_win": 12,
+          "half_loss": 3,
+          "half_win": 1
+        }
+      },
+      "2026-W44": {
+        "n": 31,
+        "net_U": 0.66,
+        "ROI_pct": 2.129032,
+        "MDD_U": 2.0,
+        "orders_per_week": 31.0,
+        "five_state": {
+          "full_win": 16,
+          "half_loss": 2,
+          "full_loss": 13
+        }
+      },
+      "2026-W45": {
+        "n": 4,
+        "net_U": 2.06,
+        "ROI_pct": 51.5,
+        "MDD_U": 0.0,
+        "orders_per_week": 4.0,
+        "five_state": {
+          "full_win": 3,
+          "full_loss": 1
+        }
+      }
+    }
+  },
+  "league_incremental": {
+    "market_only": {
+      "1": {
+        "n": 483,
+        "net_U": -26.45,
+        "ROI_pct": -5.47619,
+        "MDD_U": 43.37,
+        "orders_per_week": 3.241611,
+        "five_state": {
+          "full_win": 184,
+          "push": 31,
+          "half_loss": 30,
+          "half_win": 34,
+          "full_loss": 204
+        }
+      },
+      "12": {
+        "n": 331,
+        "net_U": -26.78,
+        "ROI_pct": -8.090634,
+        "MDD_U": 36.575,
+        "orders_per_week": 2.236486,
+        "five_state": {
+          "full_loss": 139,
+          "full_win": 121,
+          "half_win": 22,
+          "half_loss": 30,
+          "push": 19
+        }
+      },
+      "14": {
+        "n": 645,
+        "net_U": 15.755,
+        "ROI_pct": 2.442636,
+        "MDD_U": 14.705,
+        "orders_per_week": 4.358108,
+        "five_state": {
+          "full_loss": 238,
+          "full_win": 256,
+          "half_win": 64,
+          "half_loss": 47,
+          "push": 40
+        }
+      },
+      "141": {
+        "n": 68,
+        "net_U": -5.265,
+        "ROI_pct": -7.742647,
+        "MDD_U": 9.78,
+        "orders_per_week": 0.475524,
+        "five_state": {
+          "half_win": 11,
+          "full_loss": 26,
+          "half_loss": 5,
+          "push": 7,
+          "full_win": 19
+        }
+      },
+      "16": {
+        "n": 555,
+        "net_U": -4.355,
+        "ROI_pct": -0.784685,
+        "MDD_U": 24.195,
+        "orders_per_week": 3.77551,
+        "five_state": {
+          "full_win": 225,
+          "full_loss": 219,
+          "half_loss": 36,
+          "push": 38,
+          "half_win": 37
+        }
+      },
+      "25": {
+        "n": 208,
+        "net_U": -25.505,
+        "ROI_pct": -12.262019,
+        "MDD_U": 29.615,
+        "orders_per_week": 1.414966,
+        "five_state": {
+          "full_loss": 99,
+          "full_win": 75,
+          "half_win": 10,
+          "push": 16,
+          "half_loss": 8
+        }
+      },
+      "262": {
+        "n": 341,
+        "net_U": -26.255,
+        "ROI_pct": -7.699413,
+        "MDD_U": 26.825,
+        "orders_per_week": 2.304054,
+        "five_state": {
+          "full_loss": 149,
+          "half_win": 20,
+          "full_win": 132,
+          "half_loss": 25,
+          "push": 15
+        }
+      },
+      "31": {
+        "n": 303,
+        "net_U": 18.19,
+        "ROI_pct": 6.0033,
+        "MDD_U": 11.895,
+        "orders_per_week": 2.089655,
+        "five_state": {
+          "half_win": 28,
+          "full_win": 129,
+          "half_loss": 25,
+          "full_loss": 107,
+          "push": 14
+        }
+      },
+      "319": {
+        "n": 156,
+        "net_U": 7.705,
+        "ROI_pct": 4.939103,
+        "MDD_U": 9.47,
+        "orders_per_week": 1.122302,
+        "five_state": {
+          "push": 13,
+          "half_win": 15,
+          "full_loss": 56,
+          "full_win": 66,
+          "half_loss": 6
+        }
+      },
+      "37": {
+        "n": 286,
+        "net_U": -17.605,
+        "ROI_pct": -6.155594,
+        "MDD_U": 21.745,
+        "orders_per_week": 1.945578,
+        "five_state": {
+          "full_loss": 121,
+          "push": 15,
+          "half_win": 18,
+          "full_win": 111,
+          "half_loss": 21
+        }
+      },
+      "51": {
+        "n": 392,
+        "net_U": -3.085,
+        "ROI_pct": -0.78699,
+        "MDD_U": 23.57,
+        "orders_per_week": 2.648649,
+        "five_state": {
+          "full_win": 143,
+          "push": 45,
+          "full_loss": 146,
+          "half_loss": 25,
+          "half_win": 33
+        }
+      },
+      "62": {
+        "n": 409,
+        "net_U": -14.26,
+        "ROI_pct": -3.486553,
+        "MDD_U": 16.055,
+        "orders_per_week": 2.763514,
+        "five_state": {
+          "full_win": 153,
+          "full_loss": 167,
+          "half_loss": 28,
+          "half_win": 40,
+          "push": 21
+        }
+      },
+      "70": {
+        "n": 206,
+        "net_U": -13.93,
+        "ROI_pct": -6.762136,
+        "MDD_U": 27.495,
+        "orders_per_week": 1.460993,
+        "five_state": {
+          "full_win": 77,
+          "full_loss": 90,
+          "push": 12,
+          "half_win": 17,
+          "half_loss": 10
+        }
+      }
+    },
+    "pair_only": {
+      "1": {
+        "n": 483,
+        "net_U": 27.08,
+        "ROI_pct": 5.606625,
+        "MDD_U": 10.445,
+        "orders_per_week": 3.241611,
+        "five_state": {
+          "full_loss": 175,
+          "push": 31,
+          "half_loss": 32,
+          "half_win": 32,
+          "full_win": 213
+        }
+      },
+      "12": {
+        "n": 331,
+        "net_U": 22.415,
+        "ROI_pct": 6.771903,
+        "MDD_U": 11.22,
+        "orders_per_week": 2.236486,
+        "five_state": {
+          "full_win": 143,
+          "full_loss": 117,
+          "half_loss": 21,
+          "half_win": 31,
+          "push": 19
+        }
+      },
+      "14": {
+        "n": 645,
+        "net_U": -50.335,
+        "ROI_pct": -7.803876,
+        "MDD_U": 51.55,
+        "orders_per_week": 4.358108,
+        "five_state": {
+          "full_loss": 262,
+          "full_win": 232,
+          "half_loss": 60,
+          "half_win": 51,
+          "push": 40
+        }
+      },
+      "141": {
+        "n": 68,
+        "net_U": -7.285,
+        "ROI_pct": -10.713235,
+        "MDD_U": 11.61,
+        "orders_per_week": 0.475524,
+        "five_state": {
+          "half_loss": 11,
+          "full_win": 21,
+          "half_win": 5,
+          "full_loss": 24,
+          "push": 7
+        }
+      },
+      "16": {
+        "n": 555,
+        "net_U": -19.685,
+        "ROI_pct": -3.546847,
+        "MDD_U": 36.305,
+        "orders_per_week": 3.77551,
+        "five_state": {
+          "full_loss": 226,
+          "full_win": 218,
+          "half_loss": 34,
+          "half_win": 39,
+          "push": 38
+        }
+      },
+      "25": {
+        "n": 208,
+        "net_U": 4.445,
+        "ROI_pct": 2.137019,
+        "MDD_U": 11.065,
+        "orders_per_week": 1.414966,
+        "five_state": {
+          "full_win": 93,
+          "full_loss": 81,
+          "half_win": 8,
+          "push": 16,
+          "half_loss": 10
+        }
+      },
+      "262": {
+        "n": 341,
+        "net_U": -17.84,
+        "ROI_pct": -5.231672,
+        "MDD_U": 24.305,
+        "orders_per_week": 2.304054,
+        "five_state": {
+          "full_win": 136,
+          "half_loss": 21,
+          "full_loss": 145,
+          "half_win": 24,
+          "push": 15
+        }
+      },
+      "31": {
+        "n": 303,
+        "net_U": -17.44,
+        "ROI_pct": -5.755776,
+        "MDD_U": 21.215,
+        "orders_per_week": 2.089655,
+        "five_state": {
+          "half_win": 23,
+          "full_loss": 122,
+          "full_win": 114,
+          "half_loss": 30,
+          "push": 14
+        }
+      },
+      "319": {
+        "n": 156,
+        "net_U": -11.54,
+        "ROI_pct": -7.397436,
+        "MDD_U": 17.425,
+        "orders_per_week": 1.122302,
+        "five_state": {
+          "push": 13,
+          "half_win": 10,
+          "full_win": 58,
+          "full_loss": 64,
+          "half_loss": 11
+        }
+      },
+      "37": {
+        "n": 286,
+        "net_U": -2.425,
+        "ROI_pct": -0.847902,
+        "MDD_U": 21.365,
+        "orders_per_week": 1.945578,
+        "five_state": {
+          "full_loss": 116,
+          "push": 15,
+          "half_win": 25,
+          "full_win": 116,
+          "half_loss": 14
+        }
+      },
+      "51": {
+        "n": 392,
+        "net_U": -24.035,
+        "ROI_pct": -6.131378,
+        "MDD_U": 35.48,
+        "orders_per_week": 2.648649,
+        "five_state": {
+          "full_win": 137,
+          "push": 45,
+          "full_loss": 152,
+          "half_loss": 31,
+          "half_win": 27
+        }
+      },
+      "62": {
+        "n": 409,
+        "net_U": -0.975,
+        "ROI_pct": -0.238386,
+        "MDD_U": 19.63,
+        "orders_per_week": 2.763514,
+        "five_state": {
+          "full_loss": 156,
+          "full_win": 164,
+          "half_loss": 33,
+          "half_win": 35,
+          "push": 21
+        }
+      },
+      "70": {
+        "n": 206,
+        "net_U": 6.74,
+        "ROI_pct": 3.271845,
+        "MDD_U": 7.69,
+        "orders_per_week": 1.460993,
+        "five_state": {
+          "full_loss": 77,
+          "full_win": 90,
+          "push": 12,
+          "half_loss": 14,
+          "half_win": 13
+        }
+      }
+    },
+    "market_plus_pair": {
+      "1": {
+        "n": 483,
+        "net_U": -19.225,
+        "ROI_pct": -3.980331,
+        "MDD_U": 33.24,
+        "orders_per_week": 3.241611,
+        "five_state": {
+          "full_win": 190,
+          "push": 31,
+          "half_win": 31,
+          "half_loss": 33,
+          "full_loss": 198
+        }
+      },
+      "12": {
+        "n": 331,
+        "net_U": -16.5,
+        "ROI_pct": -4.984894,
+        "MDD_U": 21.915,
+        "orders_per_week": 2.236486,
+        "five_state": {
+          "full_loss": 137,
+          "full_win": 123,
+          "half_loss": 23,
+          "half_win": 29,
+          "push": 19
+        }
+      },
+      "14": {
+        "n": 645,
+        "net_U": 15.905,
+        "ROI_pct": 2.465891,
+        "MDD_U": 15.61,
+        "orders_per_week": 4.358108,
+        "five_state": {
+          "full_loss": 238,
+          "half_loss": 45,
+          "half_win": 66,
+          "full_win": 256,
+          "push": 40
+        }
+      },
+      "141": {
+        "n": 68,
+        "net_U": -16.285,
+        "ROI_pct": -23.948529,
+        "MDD_U": 20.59,
+        "orders_per_week": 0.475524,
+        "five_state": {
+          "half_win": 10,
+          "full_loss": 31,
+          "half_loss": 6,
+          "push": 7,
+          "full_win": 14
+        }
+      },
+      "16": {
+        "n": 555,
+        "net_U": -26.68,
+        "ROI_pct": -4.807207,
+        "MDD_U": 41.495,
+        "orders_per_week": 3.77551,
+        "five_state": {
+          "full_win": 212,
+          "half_loss": 33,
+          "full_loss": 232,
+          "push": 38,
+          "half_win": 40
+        }
+      },
+      "25": {
+        "n": 208,
+        "net_U": -12.585,
+        "ROI_pct": -6.050481,
+        "MDD_U": 16.155,
+        "orders_per_week": 1.414966,
+        "five_state": {
+          "full_win": 82,
+          "full_loss": 92,
+          "half_win": 10,
+          "push": 16,
+          "half_loss": 8
+        }
+      },
+      "262": {
+        "n": 341,
+        "net_U": -23.1,
+        "ROI_pct": -6.774194,
+        "MDD_U": 33.595,
+        "orders_per_week": 2.304054,
+        "five_state": {
+          "full_win": 134,
+          "half_win": 21,
+          "full_loss": 147,
+          "half_loss": 24,
+          "push": 15
+        }
+      },
+      "31": {
+        "n": 303,
+        "net_U": -5.755,
+        "ROI_pct": -1.89934,
+        "MDD_U": 31.82,
+        "orders_per_week": 2.089655,
+        "five_state": {
+          "half_loss": 23,
+          "full_loss": 120,
+          "half_win": 30,
+          "full_win": 116,
+          "push": 14
+        }
+      },
+      "319": {
+        "n": 156,
+        "net_U": -0.44,
+        "ROI_pct": -0.282051,
+        "MDD_U": 7.775,
+        "orders_per_week": 1.122302,
+        "five_state": {
+          "push": 13,
+          "half_loss": 7,
+          "full_win": 62,
+          "full_loss": 60,
+          "half_win": 14
+        }
+      },
+      "37": {
+        "n": 286,
+        "net_U": -25.205,
+        "ROI_pct": -8.812937,
+        "MDD_U": 37.825,
+        "orders_per_week": 1.945578,
+        "five_state": {
+          "full_win": 107,
+          "push": 15,
+          "half_win": 20,
+          "full_loss": 125,
+          "half_loss": 19
+        }
+      },
+      "51": {
+        "n": 392,
+        "net_U": -18.095,
+        "ROI_pct": -4.616071,
+        "MDD_U": 26.48,
+        "orders_per_week": 2.648649,
+        "five_state": {
+          "full_win": 139,
+          "push": 45,
+          "full_loss": 150,
+          "half_loss": 30,
+          "half_win": 28
+        }
+      },
+      "62": {
+        "n": 409,
+        "net_U": 7.335,
+        "ROI_pct": 1.793399,
+        "MDD_U": 11.9,
+        "orders_per_week": 2.763514,
+        "five_state": {
+          "full_loss": 156,
+          "full_win": 164,
+          "half_win": 41,
+          "half_loss": 27,
+          "push": 21
+        }
+      },
+      "70": {
+        "n": 206,
+        "net_U": -13.14,
+        "ROI_pct": -6.378641,
+        "MDD_U": 16.99,
+        "orders_per_week": 1.460993,
+        "five_state": {
+          "full_loss": 88,
+          "full_win": 79,
+          "push": 12,
+          "half_loss": 13,
+          "half_win": 14
+        }
+      }
+    }
+  },
+  "actual_receipt_replay": {
+    "common_receipt_FIDs": 305,
+    "models": {
+      "market_only": {
+        "all_receipts": {
+          "n": 157,
+          "net_U": -10.38,
+          "ROI_pct": -6.611465,
+          "MDD_U": 13.36,
+          "orders_per_week": 39.25,
+          "five_state": {
+            "full_win": 65,
+            "full_loss": 71,
+            "half_win": 4,
+            "push": 9,
+            "half_loss": 8
+          }
+        },
+        "incremental_outside_frozen": {
+          "n": 122,
+          "net_U": -7.37,
+          "ROI_pct": -6.040984,
+          "MDD_U": 10.78,
+          "orders_per_week": 30.5,
+          "five_state": {
+            "full_win": 50,
+            "full_loss": 54,
+            "half_win": 4,
+            "push": 8,
+            "half_loss": 6
+          }
+        }
+      },
+      "pair_only": {
+        "all_receipts": {
+          "n": 157,
+          "net_U": 2.275,
+          "ROI_pct": 1.449045,
+          "MDD_U": 7.865,
+          "orders_per_week": 39.25,
+          "five_state": {
+            "full_loss": 66,
+            "full_win": 70,
+            "half_loss": 4,
+            "push": 9,
+            "half_win": 8
+          }
+        },
+        "incremental_outside_frozen": {
+          "n": 122,
+          "net_U": -5.815,
+          "ROI_pct": -4.766393,
+          "MDD_U": 6.755,
+          "orders_per_week": 30.5,
+          "five_state": {
+            "full_loss": 54,
+            "full_win": 50,
+            "half_loss": 4,
+            "push": 8,
+            "half_win": 6
+          }
+        }
+      },
+      "market_plus_pair": {
+        "all_receipts": {
+          "n": 157,
+          "net_U": -12.3,
+          "ROI_pct": -7.834395,
+          "MDD_U": 20.55,
+          "orders_per_week": 39.25,
+          "five_state": {
+            "full_win": 64,
+            "full_loss": 72,
+            "half_win": 4,
+            "push": 9,
+            "half_loss": 8
+          }
+        },
+        "incremental_outside_frozen": {
+          "n": 122,
+          "net_U": -9.09,
+          "ROI_pct": -7.45082,
+          "MDD_U": 16.68,
+          "orders_per_week": 30.5,
+          "five_state": {
+            "full_win": 49,
+            "full_loss": 55,
+            "half_win": 4,
+            "push": 8,
+            "half_loss": 6
+          }
+        }
+      }
+    },
+    "weekly_incremental": {
+      "market_only": {
+        "2026-W41": {
+          "n": 27,
+          "net_U": -1.45,
+          "ROI_pct": -5.37037,
+          "MDD_U": 1.74,
+          "orders_per_week": 27.0,
+          "five_state": {
+            "full_win": 11,
+            "full_loss": 12,
+            "half_win": 2,
+            "push": 1,
+            "half_loss": 1
+          }
+        },
+        "2026-W42": {
+          "n": 31,
+          "net_U": -0.215,
+          "ROI_pct": -0.693548,
+          "MDD_U": 3.735,
+          "orders_per_week": 31.0,
+          "five_state": {
+            "push": 2,
+            "full_win": 14,
+            "half_win": 1,
+            "full_loss": 14
+          }
+        },
+        "2026-W43": {
+          "n": 29,
+          "net_U": -5.385,
+          "ROI_pct": -18.568966,
+          "MDD_U": 6.265,
+          "orders_per_week": 29.0,
+          "five_state": {
+            "push": 5,
+            "full_loss": 12,
+            "full_win": 8,
+            "half_win": 1,
+            "half_loss": 3
+          }
+        },
+        "2026-W44": {
+          "n": 31,
+          "net_U": -2.39,
+          "ROI_pct": -7.709677,
+          "MDD_U": 3.38,
+          "orders_per_week": 31.0,
+          "five_state": {
+            "full_win": 14,
+            "half_loss": 2,
+            "full_loss": 15
+          }
+        },
+        "2026-W45": {
+          "n": 4,
+          "net_U": 2.07,
+          "ROI_pct": 51.75,
+          "MDD_U": 0.0,
+          "orders_per_week": 4.0,
+          "five_state": {
+            "full_win": 3,
+            "full_loss": 1
+          }
+        }
+      },
+      "pair_only": {
+        "2026-W41": {
+          "n": 27,
+          "net_U": -1.655,
+          "ROI_pct": -6.12963,
+          "MDD_U": 1.655,
+          "orders_per_week": 27.0,
+          "five_state": {
+            "full_loss": 12,
+            "full_win": 11,
+            "half_loss": 2,
+            "push": 1,
+            "half_win": 1
+          }
+        },
+        "2026-W42": {
+          "n": 31,
+          "net_U": -5.1,
+          "ROI_pct": -16.451613,
+          "MDD_U": 5.1,
+          "orders_per_week": 31.0,
+          "five_state": {
+            "push": 2,
+            "full_loss": 16,
+            "half_loss": 1,
+            "full_win": 12
+          }
+        },
+        "2026-W43": {
+          "n": 29,
+          "net_U": 4.025,
+          "ROI_pct": 13.87931,
+          "MDD_U": 0.28,
+          "orders_per_week": 29.0,
+          "five_state": {
+            "push": 5,
+            "full_win": 12,
+            "full_loss": 8,
+            "half_loss": 1,
+            "half_win": 3
+          }
+        },
+        "2026-W44": {
+          "n": 31,
+          "net_U": -3.085,
+          "ROI_pct": -9.951613,
+          "MDD_U": 4.47,
+          "orders_per_week": 31.0,
+          "five_state": {
+            "full_loss": 16,
+            "half_win": 2,
+            "full_win": 13
+          }
+        },
+        "2026-W45": {
+          "n": 4,
+          "net_U": 0.0,
+          "ROI_pct": 0.0,
+          "MDD_U": 0.0,
+          "orders_per_week": 4.0,
+          "five_state": {
+            "full_loss": 2,
+            "full_win": 2
+          }
+        }
+      },
+      "market_plus_pair": {
+        "2026-W41": {
+          "n": 27,
+          "net_U": -0.9,
+          "ROI_pct": -3.333333,
+          "MDD_U": 1.48,
+          "orders_per_week": 27.0,
+          "five_state": {
+            "full_win": 11,
+            "full_loss": 12,
+            "half_win": 2,
+            "push": 1,
+            "half_loss": 1
+          }
+        },
+        "2026-W42": {
+          "n": 31,
+          "net_U": -12.025,
+          "ROI_pct": -38.790323,
+          "MDD_U": 12.025,
+          "orders_per_week": 31.0,
+          "five_state": {
+            "push": 2,
+            "full_loss": 20,
+            "full_win": 8,
+            "half_win": 1
+          }
+        },
+        "2026-W43": {
+          "n": 29,
+          "net_U": -1.595,
+          "ROI_pct": -5.5,
+          "MDD_U": 4.445,
+          "orders_per_week": 29.0,
+          "five_state": {
+            "push": 5,
+            "full_win": 10,
+            "full_loss": 10,
+            "half_win": 1,
+            "half_loss": 3
+          }
+        },
+        "2026-W44": {
+          "n": 31,
+          "net_U": 3.36,
+          "ROI_pct": 10.83871,
+          "MDD_U": 0.54,
+          "orders_per_week": 31.0,
+          "five_state": {
+            "full_win": 17,
+            "half_loss": 2,
+            "full_loss": 12
+          }
+        },
+        "2026-W45": {
+          "n": 4,
+          "net_U": 2.07,
+          "ROI_pct": 51.75,
+          "MDD_U": 0.0,
+          "orders_per_week": 4.0,
+          "five_state": {
+            "full_win": 3,
+            "full_loss": 1
+          }
+        }
+      }
+    },
+    "feature_target_date_range": [
+      "2026-10-09",
+      "2026-11-02"
+    ],
+    "formation_archive_latest_date": "2026-05-24",
+    "feature_age_days": {
+      "min": 139,
+      "median": 161.0,
+      "max": 246
+    },
+    "feature_timestamp_status": "retrospective game lineups have event dates but no first-publication/receipt timestamps; 2026 receipt feature age is itemized above"
+  },
+  "formal_orders": 0,
+  "formal_ledger_writes": 0,
+  "production_changes": false
+}

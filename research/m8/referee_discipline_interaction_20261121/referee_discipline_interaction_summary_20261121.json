@@ -1,0 +1,6265 @@
+{
+  "study": "M8 AH team-discipline × referee-specific historical residual interaction; historical event-time research only",
+  "execution_utc": "2026-11-20T17:08:07.343255+00:00",
+  "inputs_sha256": {
+    "/Users/mac/QuantAsiaDesk/research-work/m8_late_full_path_water_features_20261114.jsonl": "f21d4d49621df503efdb607b72b08882c1f1365c3178cce13e696d9aad4b697e",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_independent_score_strength_20261114.jsonl": "e8cf152c821725139b5492746faa32fe46889886c3971878ee9cb6473e3662f8",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_foundation_20261115/historical_membership.jsonl": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_MR1_full_actual_Crown_receipt_archive_20261113.jsonl": "e3e1250b6e9bf8fe1a8cf638f46b276475e55b85d74fb12c7f105d048a67be5b",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/appearances.csv.gz": "e096c2b158fc3d52c4550526c4d4850dd62f31007652f4bcae112eadb1646802",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/games.csv.gz": "142561989017d379bcf9e72bad0b87e0996bae0e7b710ebb3def9255f464c741",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/game_lineups.csv.gz": "5e83d6fad28364aadfea608013700cf09990062eede1ad9ef189189b0af47ba2",
+    "/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3": "7401078708d56a122987fde6231ae4b8cf296020d7fae54048437e73462c8a3f",
+    "/Users/mac/.codex/worktrees/m8-discipline-referee/quant-runner-m8-goalkeeper/research/m8/referee_market_residual_20261120/referee_market_residual_per_fixture.jsonl.gz": "a22acc74df90ab19ebc71ad5193da436a96a19cbf6bb30864b04fb563d9d2f48"
+  },
+  "coverage": {
+    "crown_T1_path_rows": 39101,
+    "referee_and_ft_mapped_rows": 10908,
+    "referee_mapping_issues": {
+      "unmapped_team_or_competition": 10974,
+      "tm_unmatched": 3982,
+      "score_or_cached_FT_missing": 13235,
+      "missing_target_referee": 2
+    },
+    "published_PR69_referee_rows": 7081,
+    "published_PR69_referee_bridge_quote_FT_feature_reconciliation": {
+      "published_referee_fid_reconciled": 7081
+    },
+    "discipline_history_fids": 38846,
+    "discipline_history_valid_rows": 34702,
+    "common_valid_rows": 10602,
+    "test_2024_2026_rows": 6847,
+    "test_frozen_overlap": 1531,
+    "test_outside_frozen_unique_FIDs": 5316,
+    "test_receipt_archive_overlap": 0,
+    "live_Crown_receipt_verified_FIDs": 0,
+    "referee_pregame_assignment_timestamp_verified_FIDs": 0,
+    "discipline_match_history_actual_source": "M5 cached completed TotalCorner fixtures; 90/365-day team YC/RC features, UTC-date cutoff lag 3 days",
+    "common_row_audit": {
+      "common_referee_and_discipline_rows": 10602,
+      "frozen_overlap": 2311,
+      "receipt_overlap": 0,
+      "incomplete_team_discipline_history": 135,
+      "no_discipline_FID": 171
+    }
+  },
+  "methodology": {
+    "prediction_target": "home goals minus away goals",
+    "Crown_contract": "T1 Crown AH line and paired decimal prices; source-event time, not received-time executable quote",
+    "time_forward": "for each test year 2024/2025/2026, train only 2019 through prior calendar year; all train/test FIDs share the common valid feature cohort; receipt-archive FIDs excluded from model training",
+    "discipline_features": "The exact 14 pregame yellow/red rate main and team-side interaction features from R48; generated from prior completed M5 schedule matches only, at least 3 UTC calendar days before target; no target cards used.",
+    "referee_feature": "Referee/competition centered historical Crown AH goal-difference residual over previous 365 Beijing dates, 3-day lag, shrink n/(n+5); target assignment from retrospective Transfermarkt games archive with no verified pregame announcement timestamp.",
+    "interaction": "Two fixed products: 365-day team yellow-card home-away rate difference × referee centered/shrunk AH residual; 365-day team red-card rate difference × the same referee residual. No parameter sweep or target-year tuning.",
+    "estimators": "Ridge alpha=100, standardization fitted within each expanding training fold, Gaussian integer-margin approximation using training RMSE; choose side with higher expected net AH return at actual Crown odds. No EV abstention threshold.",
+    "settlement": "Quarter AH split into adjacent half-goal legs and average per-leg stake return."
+  },
+  "year_forward_folds": {
+    "2024": {
+      "train_rows": 3755,
+      "test_rows": 2159,
+      "train_years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "train_max_year": 2023,
+      "ridge_alpha": 100.0,
+      "training_excludes_receipt_archive_fids": true,
+      "models": {
+        "market_only": {
+          "n_features": 3,
+          "sigma": 1.63107401
+        },
+        "discipline_only": {
+          "n_features": 14,
+          "sigma": 1.80687472
+        },
+        "market_plus_discipline": {
+          "n_features": 17,
+          "sigma": 1.62865581
+        },
+        "market_plus_referee": {
+          "n_features": 5,
+          "sigma": 1.63102312
+        },
+        "market_plus_referee_discipline_additive": {
+          "n_features": 19,
+          "sigma": 1.62857425
+        },
+        "market_plus_referee_discipline_interaction": {
+          "n_features": 21,
+          "sigma": 1.62835175
+        }
+      }
+    },
+    "2025": {
+      "train_rows": 5914,
+      "test_rows": 3184,
+      "train_years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "train_max_year": 2024,
+      "ridge_alpha": 100.0,
+      "training_excludes_receipt_archive_fids": true,
+      "models": {
+        "market_only": {
+          "n_features": 3,
+          "sigma": 1.61509918
+        },
+        "discipline_only": {
+          "n_features": 14,
+          "sigma": 1.80724675
+        },
+        "market_plus_discipline": {
+          "n_features": 17,
+          "sigma": 1.6131016
+        },
+        "market_plus_referee": {
+          "n_features": 5,
+          "sigma": 1.61492348
+        },
+        "market_plus_referee_discipline_additive": {
+          "n_features": 19,
+          "sigma": 1.61283078
+        },
+        "market_plus_referee_discipline_interaction": {
+          "n_features": 21,
+          "sigma": 1.61277042
+        }
+      }
+    },
+    "2026": {
+      "train_rows": 9098,
+      "test_rows": 1504,
+      "train_years": [
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "train_max_year": 2025,
+      "ridge_alpha": 100.0,
+      "training_excludes_receipt_archive_fids": true,
+      "models": {
+        "market_only": {
+          "n_features": 3,
+          "sigma": 1.60057189
+        },
+        "discipline_only": {
+          "n_features": 14,
+          "sigma": 1.78957999
+        },
+        "market_plus_discipline": {
+          "n_features": 17,
+          "sigma": 1.59939871
+        },
+        "market_plus_referee": {
+          "n_features": 5,
+          "sigma": 1.60040603
+        },
+        "market_plus_referee_discipline_additive": {
+          "n_features": 19,
+          "sigma": 1.59922158
+        },
+        "market_plus_referee_discipline_interaction": {
+          "n_features": 21,
+          "sigma": 1.5991602
+        }
+      }
+    }
+  },
+  "test_coverage_by_year": {
+    "2024": {
+      "train_rows": 3755,
+      "test_rows": 2159,
+      "test_frozen_overlap": 476,
+      "test_outside_frozen": 1683
+    },
+    "2025": {
+      "train_rows": 5914,
+      "test_rows": 3184,
+      "test_frozen_overlap": 735,
+      "test_outside_frozen": 2449
+    },
+    "2026": {
+      "train_rows": 9098,
+      "test_rows": 1504,
+      "test_frozen_overlap": 320,
+      "test_outside_frozen": 1184
+    }
+  },
+  "frozen_baseline_same_period": {
+    "n": 5955,
+    "net_U": 164.085,
+    "ROI_pct": 2.755416,
+    "MDD_U": 58.165,
+    "orders_per_week": 45.113636,
+    "positive_orders": 3071,
+    "negative_orders": 2538,
+    "zero_orders": 346,
+    "settlement_classes": {
+      "not_recorded": 5955
+    }
+  },
+  "models": {
+    "market_only": {
+      "all_test": {
+        "n": 6847,
+        "net_U": -322.06,
+        "ROI_pct": -4.703666,
+        "MDD_U": 329.6,
+        "orders_per_week": 51.871212,
+        "positive_orders": 3168,
+        "negative_orders": 3202,
+        "zero_orders": 477,
+        "settlement_classes": {
+          "full_win": 2681,
+          "full_loss": 2753,
+          "half_win": 487,
+          "push": 477,
+          "half_loss": 449
+        }
+      },
+      "incremental_outside_frozen": {
+        "n": 5316,
+        "net_U": -242.59,
+        "ROI_pct": -4.563394,
+        "MDD_U": 250.55,
+        "orders_per_week": 40.272727,
+        "positive_orders": 2452,
+        "negative_orders": 2469,
+        "zero_orders": 395,
+        "settlement_classes": {
+          "full_win": 2084,
+          "full_loss": 2120,
+          "half_win": 368,
+          "push": 395,
+          "half_loss": 349
+        }
+      },
+      "weekly": {
+        "2024-W01": {
+          "n": 16,
+          "net_U": -2.5
+        },
+        "2024-W02": {
+          "n": 26,
+          "net_U": 2.97
+        },
+        "2024-W03": {
+          "n": 15,
+          "net_U": -2.05
+        },
+        "2024-W04": {
+          "n": 21,
+          "net_U": -5.625
+        },
+        "2024-W05": {
+          "n": 32,
+          "net_U": -2.155
+        },
+        "2024-W06": {
+          "n": 25,
+          "net_U": -2.04
+        },
+        "2024-W07": {
+          "n": 21,
+          "net_U": -3.67
+        },
+        "2024-W08": {
+          "n": 19,
+          "net_U": -7.46
+        },
+        "2024-W09": {
+          "n": 42,
+          "net_U": 1.71
+        },
+        "2024-W10": {
+          "n": 26,
+          "net_U": -2.775
+        },
+        "2024-W11": {
+          "n": 29,
+          "net_U": 0.425
+        },
+        "2024-W12": {
+          "n": 3,
+          "net_U": 0.67
+        },
+        "2024-W13": {
+          "n": 28,
+          "net_U": -4.355
+        },
+        "2024-W14": {
+          "n": 36,
+          "net_U": -0.895
+        },
+        "2024-W15": {
+          "n": 32,
+          "net_U": -4.88
+        },
+        "2024-W16": {
+          "n": 27,
+          "net_U": 0.645
+        },
+        "2024-W17": {
+          "n": 38,
+          "net_U": 0.1
+        },
+        "2024-W18": {
+          "n": 32,
+          "net_U": 7.72
+        },
+        "2024-W19": {
+          "n": 30,
+          "net_U": -2.97
+        },
+        "2024-W20": {
+          "n": 43,
+          "net_U": -3.57
+        },
+        "2024-W21": {
+          "n": 18,
+          "net_U": 0.075
+        },
+        "2024-W22": {
+          "n": 4,
+          "net_U": 0.44
+        },
+        "2024-W28": {
+          "n": 1,
+          "net_U": -1.0
+        },
+        "2024-W29": {
+          "n": 13,
+          "net_U": -0.485
+        },
+        "2024-W30": {
+          "n": 24,
+          "net_U": 2.1
+        },
+        "2024-W31": {
+          "n": 33,
+          "net_U": 0.04
+        },
+        "2024-W32": {
+          "n": 43,
+          "net_U": -3.025
+        },
+        "2024-W33": {
+          "n": 48,
+          "net_U": -8.795
+        },
+        "2024-W34": {
+          "n": 52,
+          "net_U": 8.33
+        },
+        "2024-W35": {
+          "n": 70,
+          "net_U": -10.075
+        },
+        "2024-W36": {
+          "n": 13,
+          "net_U": 1.765
+        },
+        "2024-W37": {
+          "n": 42,
+          "net_U": 3.41
+        },
+        "2024-W38": {
+          "n": 61,
+          "net_U": -4.155
+        },
+        "2024-W39": {
+          "n": 72,
+          "net_U": -4.965
+        },
+        "2024-W40": {
+          "n": 63,
+          "net_U": -0.83
+        },
+        "2024-W41": {
+          "n": 10,
+          "net_U": -1.725
+        },
+        "2024-W42": {
+          "n": 39,
+          "net_U": -6.88
+        },
+        "2024-W43": {
+          "n": 60,
+          "net_U": -3.01
+        },
+        "2024-W44": {
+          "n": 65,
+          "net_U": -0.025
+        },
+        "2024-W45": {
+          "n": 66,
+          "net_U": -0.695
+        },
+        "2024-W46": {
+          "n": 13,
+          "net_U": -1.65
+        },
+        "2024-W47": {
+          "n": 53,
+          "net_U": -5.09
+        },
+        "2024-W48": {
+          "n": 65,
+          "net_U": -6.14
+        },
+        "2024-W49": {
+          "n": 79,
+          "net_U": 5.135
+        },
+        "2024-W50": {
+          "n": 54,
+          "net_U": -3.66
+        },
+        "2024-W51": {
+          "n": 47,
+          "net_U": -8.195
+        },
+        "2024-W52": {
+          "n": 31,
+          "net_U": -2.08
+        },
+        "2025-W01": {
+          "n": 25,
+          "net_U": -5.88
+        },
+        "2025-W02": {
+          "n": 27,
+          "net_U": -6.275
+        },
+        "2025-W03": {
+          "n": 44,
+          "net_U": -0.455
+        },
+        "2025-W04": {
+          "n": 49,
+          "net_U": -12.315
+        },
+        "2025-W05": {
+          "n": 60,
+          "net_U": 2.11
+        },
+        "2025-W06": {
+          "n": 53,
+          "net_U": 5.495
+        },
+        "2025-W07": {
+          "n": 35,
+          "net_U": 4.58
+        },
+        "2025-W08": {
+          "n": 32,
+          "net_U": 0.06
+        },
+        "2025-W09": {
+          "n": 65,
+          "net_U": -1.81
+        },
+        "2025-W10": {
+          "n": 69,
+          "net_U": -3.915
+        },
+        "2025-W11": {
+          "n": 77,
+          "net_U": 0.23
+        },
+        "2025-W12": {
+          "n": 23,
+          "net_U": 3.35
+        },
+        "2025-W13": {
+          "n": 54,
+          "net_U": -4.51
+        },
+        "2025-W14": {
+          "n": 65,
+          "net_U": -11.32
+        },
+        "2025-W15": {
+          "n": 67,
+          "net_U": 2.745
+        },
+        "2025-W16": {
+          "n": 57,
+          "net_U": -10.58
+        },
+        "2025-W17": {
+          "n": 67,
+          "net_U": -13.03
+        },
+        "2025-W18": {
+          "n": 61,
+          "net_U": -2.03
+        },
+        "2025-W19": {
+          "n": 57,
+          "net_U": -5.885
+        },
+        "2025-W20": {
+          "n": 58,
+          "net_U": 6.96
+        },
+        "2025-W21": {
+          "n": 46,
+          "net_U": -0.025
+        },
+        "2025-W22": {
+          "n": 19,
+          "net_U": -3.845
+        },
+        "2025-W23": {
+          "n": 1,
+          "net_U": -0.5
+        },
+        "2025-W24": {
+          "n": 4,
+          "net_U": -0.68
+        },
+        "2025-W25": {
+          "n": 2,
+          "net_U": 2.0
+        },
+        "2025-W26": {
+          "n": 11,
+          "net_U": 0.305
+        },
+        "2025-W27": {
+          "n": 10,
+          "net_U": 1.9
+        },
+        "2025-W28": {
+          "n": 5,
+          "net_U": -0.37
+        },
+        "2025-W29": {
+          "n": 19,
+          "net_U": 0.035
+        },
+        "2025-W30": {
+          "n": 27,
+          "net_U": 1.78
+        },
+        "2025-W31": {
+          "n": 26,
+          "net_U": -1.365
+        },
+        "2025-W32": {
+          "n": 35,
+          "net_U": -5.85
+        },
+        "2025-W33": {
+          "n": 51,
+          "net_U": -0.075
+        },
+        "2025-W34": {
+          "n": 57,
+          "net_U": 5.32
+        },
+        "2025-W35": {
+          "n": 81,
+          "net_U": -1.115
+        },
+        "2025-W36": {
+          "n": 17,
+          "net_U": -2.6
+        },
+        "2025-W37": {
+          "n": 60,
+          "net_U": -14.41
+        },
+        "2025-W38": {
+          "n": 77,
+          "net_U": -12.01
+        },
+        "2025-W39": {
+          "n": 96,
+          "net_U": -2.47
+        },
+        "2025-W40": {
+          "n": 81,
+          "net_U": -3.64
+        },
+        "2025-W41": {
+          "n": 14,
+          "net_U": -8.76
+        },
+        "2025-W42": {
+          "n": 69,
+          "net_U": -9.01
+        },
+        "2025-W43": {
+          "n": 67,
+          "net_U": 2.23
+        },
+        "2025-W44": {
+          "n": 76,
+          "net_U": -1.885
+        },
+        "2025-W45": {
+          "n": 83,
+          "net_U": 4.11
+        },
+        "2025-W46": {
+          "n": 16,
+          "net_U": 4.235
+        },
+        "2025-W47": {
+          "n": 63,
+          "net_U": -9.765
+        },
+        "2025-W48": {
+          "n": 77,
+          "net_U": 3.585
+        },
+        "2025-W49": {
+          "n": 73,
+          "net_U": -0.425
+        },
+        "2025-W50": {
+          "n": 53,
+          "net_U": 3.315
+        },
+        "2025-W51": {
+          "n": 57,
+          "net_U": 6.0
+        },
+        "2025-W52": {
+          "n": 23,
+          "net_U": -2.555
+        },
+        "2026-W01": {
+          "n": 35,
+          "net_U": -3.995
+        },
+        "2026-W02": {
+          "n": 29,
+          "net_U": -2.34
+        },
+        "2026-W03": {
+          "n": 45,
+          "net_U": -13.285
+        },
+        "2026-W04": {
+          "n": 50,
+          "net_U": -2.57
+        },
+        "2026-W05": {
+          "n": 57,
+          "net_U": -7.64
+        },
+        "2026-W06": {
+          "n": 72,
+          "net_U": -2.14
+        },
+        "2026-W07": {
+          "n": 74,
+          "net_U": 4.915
+        },
+        "2026-W08": {
+          "n": 70,
+          "net_U": -3.415
+        },
+        "2026-W09": {
+          "n": 69,
+          "net_U": -14.315
+        },
+        "2026-W10": {
+          "n": 70,
+          "net_U": 1.255
+        },
+        "2026-W11": {
+          "n": 70,
+          "net_U": -6.32
+        },
+        "2026-W12": {
+          "n": 61,
+          "net_U": 3.01
+        },
+        "2026-W13": {
+          "n": 15,
+          "net_U": 1.86
+        },
+        "2026-W14": {
+          "n": 49,
+          "net_U": 8.815
+        },
+        "2026-W15": {
+          "n": 72,
+          "net_U": -6.105
+        },
+        "2026-W16": {
+          "n": 53,
+          "net_U": -8.905
+        },
+        "2026-W17": {
+          "n": 74,
+          "net_U": 3.135
+        },
+        "2026-W18": {
+          "n": 64,
+          "net_U": -6.185
+        },
+        "2026-W19": {
+          "n": 50,
+          "net_U": -0.705
+        },
+        "2026-W20": {
+          "n": 68,
+          "net_U": -8.83
+        },
+        "2026-W21": {
+          "n": 40,
+          "net_U": -0.78
+        },
+        "2026-W22": {
+          "n": 5,
+          "net_U": 0.225
+        },
+        "2026-W27": {
+          "n": 2,
+          "net_U": 1.71
+        },
+        "2026-W28": {
+          "n": 1,
+          "net_U": 0.92
+        }
+      }
+    },
+    "discipline_only": {
+      "all_test": {
+        "n": 6847,
+        "net_U": 2.63,
+        "ROI_pct": 0.038411,
+        "MDD_U": 72.805,
+        "orders_per_week": 51.871212,
+        "positive_orders": 3274,
+        "negative_orders": 3096,
+        "zero_orders": 477,
+        "settlement_classes": {
+          "full_loss": 2623,
+          "full_win": 2811,
+          "half_loss": 473,
+          "half_win": 463,
+          "push": 477
+        }
+      },
+      "incremental_outside_frozen": {
+        "n": 5316,
+        "net_U": 10.755,
+        "ROI_pct": 0.202314,
+        "MDD_U": 55.05,
+        "orders_per_week": 40.272727,
+        "positive_orders": 2524,
+        "negative_orders": 2397,
+        "zero_orders": 395,
+        "settlement_classes": {
+          "full_loss": 2027,
+          "full_win": 2177,
+          "half_loss": 370,
+          "push": 395,
+          "half_win": 347
+        }
+      },
+      "weekly": {
+        "2024-W01": {
+          "n": 16,
+          "net_U": 1.57
+        },
+        "2024-W02": {
+          "n": 26,
+          "net_U": 3.89
+        },
+        "2024-W03": {
+          "n": 15,
+          "net_U": 3.26
+        },
+        "2024-W04": {
+          "n": 21,
+          "net_U": 6.31
+        },
+        "2024-W05": {
+          "n": 32,
+          "net_U": -5.78
+        },
+        "2024-W06": {
+          "n": 25,
+          "net_U": 4.605
+        },
+        "2024-W07": {
+          "n": 21,
+          "net_U": 1.2
+        },
+        "2024-W08": {
+          "n": 19,
+          "net_U": 3.99
+        },
+        "2024-W09": {
+          "n": 42,
+          "net_U": -8.44
+        },
+        "2024-W10": {
+          "n": 26,
+          "net_U": -1.045
+        },
+        "2024-W11": {
+          "n": 29,
+          "net_U": -4.83
+        },
+        "2024-W12": {
+          "n": 3,
+          "net_U": -1.22
+        },
+        "2024-W13": {
+          "n": 28,
+          "net_U": -0.18
+        },
+        "2024-W14": {
+          "n": 36,
+          "net_U": 3.2
+        },
+        "2024-W15": {
+          "n": 32,
+          "net_U": -4.44
+        },
+        "2024-W16": {
+          "n": 27,
+          "net_U": -2.475
+        },
+        "2024-W17": {
+          "n": 38,
+          "net_U": -2.485
+        },
+        "2024-W18": {
+          "n": 32,
+          "net_U": -3.37
+        },
+        "2024-W19": {
+          "n": 30,
+          "net_U": 0.455
+        },
+        "2024-W20": {
+          "n": 43,
+          "net_U": -7.07
+        },
+        "2024-W21": {
+          "n": 18,
+          "net_U": -2.63
+        },
+        "2024-W22": {
+          "n": 4,
+          "net_U": -1.55
+        },
+        "2024-W28": {
+          "n": 1,
+          "net_U": 1.2
+        },
+        "2024-W29": {
+          "n": 13,
+          "net_U": -5.87
+        },
+        "2024-W30": {
+          "n": 24,
+          "net_U": -6.365
+        },
+        "2024-W31": {
+          "n": 33,
+          "net_U": -1.36
+        },
+        "2024-W32": {
+          "n": 43,
+          "net_U": 1.965
+        },
+        "2024-W33": {
+          "n": 48,
+          "net_U": -5.46
+        },
+        "2024-W34": {
+          "n": 52,
+          "net_U": 3.14
+        },
+        "2024-W35": {
+          "n": 70,
+          "net_U": 6.8
+        },
+        "2024-W36": {
+          "n": 13,
+          "net_U": 1.065
+        },
+        "2024-W37": {
+          "n": 42,
+          "net_U": -1.72
+        },
+        "2024-W38": {
+          "n": 61,
+          "net_U": 5.185
+        },
+        "2024-W39": {
+          "n": 72,
+          "net_U": 10.235
+        },
+        "2024-W40": {
+          "n": 63,
+          "net_U": 4.52
+        },
+        "2024-W41": {
+          "n": 10,
+          "net_U": 2.47
+        },
+        "2024-W42": {
+          "n": 39,
+          "net_U": 2.41
+        },
+        "2024-W43": {
+          "n": 60,
+          "net_U": -0.705
+        },
+        "2024-W44": {
+          "n": 65,
+          "net_U": 8.155
+        },
+        "2024-W45": {
+          "n": 66,
+          "net_U": -3.97
+        },
+        "2024-W46": {
+          "n": 13,
+          "net_U": -1.41
+        },
+        "2024-W47": {
+          "n": 53,
+          "net_U": 9.335
+        },
+        "2024-W48": {
+          "n": 65,
+          "net_U": 4.34
+        },
+        "2024-W49": {
+          "n": 79,
+          "net_U": 11.1
+        },
+        "2024-W50": {
+          "n": 54,
+          "net_U": 3.015
+        },
+        "2024-W51": {
+          "n": 47,
+          "net_U": 0.76
+        },
+        "2024-W52": {
+          "n": 31,
+          "net_U": 2.54
+        },
+        "2025-W01": {
+          "n": 25,
+          "net_U": 7.995
+        },
+        "2025-W02": {
+          "n": 27,
+          "net_U": 0.06
+        },
+        "2025-W03": {
+          "n": 44,
+          "net_U": -3.23
+        },
+        "2025-W04": {
+          "n": 49,
+          "net_U": 10.555
+        },
+        "2025-W05": {
+          "n": 60,
+          "net_U": 0.555
+        },
+        "2025-W06": {
+          "n": 53,
+          "net_U": -3.27
+        },
+        "2025-W07": {
+          "n": 35,
+          "net_U": -4.665
+        },
+        "2025-W08": {
+          "n": 32,
+          "net_U": -0.3
+        },
+        "2025-W09": {
+          "n": 65,
+          "net_U": -8.37
+        },
+        "2025-W10": {
+          "n": 69,
+          "net_U": 7.81
+        },
+        "2025-W11": {
+          "n": 77,
+          "net_U": -10.555
+        },
+        "2025-W12": {
+          "n": 23,
+          "net_U": -0.35
+        },
+        "2025-W13": {
+          "n": 54,
+          "net_U": 0.4
+        },
+        "2025-W14": {
+          "n": 65,
+          "net_U": -10.945
+        },
+        "2025-W15": {
+          "n": 67,
+          "net_U": -10.125
+        },
+        "2025-W16": {
+          "n": 57,
+          "net_U": 9.58
+        },
+        "2025-W17": {
+          "n": 67,
+          "net_U": 16.145
+        },
+        "2025-W18": {
+          "n": 61,
+          "net_U": -4.495
+        },
+        "2025-W19": {
+          "n": 57,
+          "net_U": 5.68
+        },
+        "2025-W20": {
+          "n": 58,
+          "net_U": -6.615
+        },
+        "2025-W21": {
+          "n": 46,
+          "net_U": -5.0
+        },
+        "2025-W22": {
+          "n": 19,
+          "net_U": -5.495
+        },
+        "2025-W23": {
+          "n": 1,
+          "net_U": 0.515
+        },
+        "2025-W24": {
+          "n": 4,
+          "net_U": -2.55
+        },
+        "2025-W25": {
+          "n": 2,
+          "net_U": -2.0
+        },
+        "2025-W26": {
+          "n": 11,
+          "net_U": -0.58
+        },
+        "2025-W27": {
+          "n": 10,
+          "net_U": -1.88
+        },
+        "2025-W28": {
+          "n": 5,
+          "net_U": 1.91
+        },
+        "2025-W29": {
+          "n": 19,
+          "net_U": -0.04
+        },
+        "2025-W30": {
+          "n": 27,
+          "net_U": -3.69
+        },
+        "2025-W31": {
+          "n": 26,
+          "net_U": -3.52
+        },
+        "2025-W32": {
+          "n": 35,
+          "net_U": 7.345
+        },
+        "2025-W33": {
+          "n": 51,
+          "net_U": -4.725
+        },
+        "2025-W34": {
+          "n": 57,
+          "net_U": -0.38
+        },
+        "2025-W35": {
+          "n": 81,
+          "net_U": -0.505
+        },
+        "2025-W36": {
+          "n": 17,
+          "net_U": 4.62
+        },
+        "2025-W37": {
+          "n": 60,
+          "net_U": 3.37
+        },
+        "2025-W38": {
+          "n": 77,
+          "net_U": 6.145
+        },
+        "2025-W39": {
+          "n": 96,
+          "net_U": 0.33
+        },
+        "2025-W40": {
+          "n": 81,
+          "net_U": 5.14
+        },
+        "2025-W41": {
+          "n": 14,
+          "net_U": 3.735
+        },
+        "2025-W42": {
+          "n": 69,
+          "net_U": 9.755
+        },
+        "2025-W43": {
+          "n": 67,
+          "net_U": -9.225
+        },
+        "2025-W44": {
+          "n": 76,
+          "net_U": -9.95
+        },
+        "2025-W45": {
+          "n": 83,
+          "net_U": -0.97
+        },
+        "2025-W46": {
+          "n": 16,
+          "net_U": 0.19
+        },
+        "2025-W47": {
+          "n": 63,
+          "net_U": -0.71
+        },
+        "2025-W48": {
+          "n": 77,
+          "net_U": -2.05
+        },
+        "2025-W49": {
+          "n": 73,
+          "net_U": 5.33
+        },
+        "2025-W50": {
+          "n": 53,
+          "net_U": -2.545
+        },
+        "2025-W51": {
+          "n": 57,
+          "net_U": -12.245
+        },
+        "2025-W52": {
+          "n": 23,
+          "net_U": 9.98
+        },
+        "2026-W01": {
+          "n": 35,
+          "net_U": 3.715
+        },
+        "2026-W02": {
+          "n": 29,
+          "net_U": 3.75
+        },
+        "2026-W03": {
+          "n": 45,
+          "net_U": 8.61
+        },
+        "2026-W04": {
+          "n": 50,
+          "net_U": 6.265
+        },
+        "2026-W05": {
+          "n": 57,
+          "net_U": 4.02
+        },
+        "2026-W06": {
+          "n": 72,
+          "net_U": -1.475
+        },
+        "2026-W07": {
+          "n": 74,
+          "net_U": -4.235
+        },
+        "2026-W08": {
+          "n": 70,
+          "net_U": -6.13
+        },
+        "2026-W09": {
+          "n": 69,
+          "net_U": 9.305
+        },
+        "2026-W10": {
+          "n": 70,
+          "net_U": -9.915
+        },
+        "2026-W11": {
+          "n": 70,
+          "net_U": -2.715
+        },
+        "2026-W12": {
+          "n": 61,
+          "net_U": 1.19
+        },
+        "2026-W13": {
+          "n": 15,
+          "net_U": -4.29
+        },
+        "2026-W14": {
+          "n": 49,
+          "net_U": -6.575
+        },
+        "2026-W15": {
+          "n": 72,
+          "net_U": -1.31
+        },
+        "2026-W16": {
+          "n": 53,
+          "net_U": -8.38
+        },
+        "2026-W17": {
+          "n": 74,
+          "net_U": -1.7
+        },
+        "2026-W18": {
+          "n": 64,
+          "net_U": -2.155
+        },
+        "2026-W19": {
+          "n": 50,
+          "net_U": -9.96
+        },
+        "2026-W20": {
+          "n": 68,
+          "net_U": 7.145
+        },
+        "2026-W21": {
+          "n": 40,
+          "net_U": 3.875
+        },
+        "2026-W22": {
+          "n": 5,
+          "net_U": 2.295
+        },
+        "2026-W27": {
+          "n": 2,
+          "net_U": -2.0
+        },
+        "2026-W28": {
+          "n": 1,
+          "net_U": 0.92
+        }
+      }
+    },
+    "market_plus_discipline": {
+      "all_test": {
+        "n": 6847,
+        "net_U": -159.785,
+        "ROI_pct": -2.33365,
+        "MDD_U": 177.25,
+        "orders_per_week": 51.871212,
+        "positive_orders": 3243,
+        "negative_orders": 3127,
+        "zero_orders": 477,
+        "settlement_classes": {
+          "full_win": 2739,
+          "full_loss": 2695,
+          "half_win": 504,
+          "half_loss": 432,
+          "push": 477
+        }
+      },
+      "incremental_outside_frozen": {
+        "n": 5316,
+        "net_U": -137.89,
+        "ROI_pct": -2.593868,
+        "MDD_U": 150.44,
+        "orders_per_week": 40.272727,
+        "positive_orders": 2496,
+        "negative_orders": 2425,
+        "zero_orders": 395,
+        "settlement_classes": {
+          "full_win": 2117,
+          "full_loss": 2087,
+          "half_win": 379,
+          "half_loss": 338,
+          "push": 395
+        }
+      },
+      "weekly": {
+        "2024-W01": {
+          "n": 16,
+          "net_U": 2.445
+        },
+        "2024-W02": {
+          "n": 26,
+          "net_U": 2.27
+        },
+        "2024-W03": {
+          "n": 15,
+          "net_U": -2.93
+        },
+        "2024-W04": {
+          "n": 21,
+          "net_U": -4.65
+        },
+        "2024-W05": {
+          "n": 32,
+          "net_U": 0.74
+        },
+        "2024-W06": {
+          "n": 25,
+          "net_U": -4.03
+        },
+        "2024-W07": {
+          "n": 21,
+          "net_U": -5.355
+        },
+        "2024-W08": {
+          "n": 19,
+          "net_U": -1.44
+        },
+        "2024-W09": {
+          "n": 42,
+          "net_U": -1.805
+        },
+        "2024-W10": {
+          "n": 26,
+          "net_U": -0.595
+        },
+        "2024-W11": {
+          "n": 29,
+          "net_U": -0.475
+        },
+        "2024-W12": {
+          "n": 3,
+          "net_U": 0.67
+        },
+        "2024-W13": {
+          "n": 28,
+          "net_U": -4.345
+        },
+        "2024-W14": {
+          "n": 36,
+          "net_U": -4.525
+        },
+        "2024-W15": {
+          "n": 32,
+          "net_U": -5.06
+        },
+        "2024-W16": {
+          "n": 27,
+          "net_U": -3.065
+        },
+        "2024-W17": {
+          "n": 38,
+          "net_U": 5.18
+        },
+        "2024-W18": {
+          "n": 32,
+          "net_U": 7.92
+        },
+        "2024-W19": {
+          "n": 30,
+          "net_U": -6.75
+        },
+        "2024-W20": {
+          "n": 43,
+          "net_U": 0.32
+        },
+        "2024-W21": {
+          "n": 18,
+          "net_U": -2.855
+        },
+        "2024-W22": {
+          "n": 4,
+          "net_U": 2.4
+        },
+        "2024-W28": {
+          "n": 1,
+          "net_U": -1.0
+        },
+        "2024-W29": {
+          "n": 13,
+          "net_U": 0.47
+        },
+        "2024-W30": {
+          "n": 24,
+          "net_U": 9.305
+        },
+        "2024-W31": {
+          "n": 33,
+          "net_U": 0.03
+        },
+        "2024-W32": {
+          "n": 43,
+          "net_U": -8.85
+        },
+        "2024-W33": {
+          "n": 48,
+          "net_U": 0.245
+        },
+        "2024-W34": {
+          "n": 52,
+          "net_U": 6.2
+        },
+        "2024-W35": {
+          "n": 70,
+          "net_U": -5.805
+        },
+        "2024-W36": {
+          "n": 13,
+          "net_U": -0.06
+        },
+        "2024-W37": {
+          "n": 42,
+          "net_U": 9.49
+        },
+        "2024-W38": {
+          "n": 61,
+          "net_U": -3.74
+        },
+        "2024-W39": {
+          "n": 72,
+          "net_U": 4.145
+        },
+        "2024-W40": {
+          "n": 63,
+          "net_U": -7.385
+        },
+        "2024-W41": {
+          "n": 10,
+          "net_U": -2.695
+        },
+        "2024-W42": {
+          "n": 39,
+          "net_U": -4.025
+        },
+        "2024-W43": {
+          "n": 60,
+          "net_U": -0.62
+        },
+        "2024-W44": {
+          "n": 65,
+          "net_U": -2.605
+        },
+        "2024-W45": {
+          "n": 66,
+          "net_U": 1.715
+        },
+        "2024-W46": {
+          "n": 13,
+          "net_U": 2.52
+        },
+        "2024-W47": {
+          "n": 53,
+          "net_U": 2.39
+        },
+        "2024-W48": {
+          "n": 65,
+          "net_U": -3.86
+        },
+        "2024-W49": {
+          "n": 79,
+          "net_U": -5.045
+        },
+        "2024-W50": {
+          "n": 54,
+          "net_U": 0.135
+        },
+        "2024-W51": {
+          "n": 47,
+          "net_U": -6.105
+        },
+        "2024-W52": {
+          "n": 31,
+          "net_U": -9.44
+        },
+        "2025-W01": {
+          "n": 25,
+          "net_U": -4.04
+        },
+        "2025-W02": {
+          "n": 27,
+          "net_U": -6.235
+        },
+        "2025-W03": {
+          "n": 44,
+          "net_U": -2.335
+        },
+        "2025-W04": {
+          "n": 49,
+          "net_U": -12.105
+        },
+        "2025-W05": {
+          "n": 60,
+          "net_U": 4.04
+        },
+        "2025-W06": {
+          "n": 53,
+          "net_U": 5.445
+        },
+        "2025-W07": {
+          "n": 35,
+          "net_U": 6.54
+        },
+        "2025-W08": {
+          "n": 32,
+          "net_U": -0.465
+        },
+        "2025-W09": {
+          "n": 65,
+          "net_U": 12.0
+        },
+        "2025-W10": {
+          "n": 69,
+          "net_U": -4.115
+        },
+        "2025-W11": {
+          "n": 77,
+          "net_U": 2.405
+        },
+        "2025-W12": {
+          "n": 23,
+          "net_U": 5.34
+        },
+        "2025-W13": {
+          "n": 54,
+          "net_U": -4.8
+        },
+        "2025-W14": {
+          "n": 65,
+          "net_U": 7.585
+        },
+        "2025-W15": {
+          "n": 67,
+          "net_U": -4.975
+        },
+        "2025-W16": {
+          "n": 57,
+          "net_U": -10.09
+        },
+        "2025-W17": {
+          "n": 67,
+          "net_U": 1.505
+        },
+        "2025-W18": {
+          "n": 61,
+          "net_U": -9.26
+        },
+        "2025-W19": {
+          "n": 57,
+          "net_U": 0.01
+        },
+        "2025-W20": {
+          "n": 58,
+          "net_U": 3.275
+        },
+        "2025-W21": {
+          "n": 46,
+          "net_U": -4.66
+        },
+        "2025-W22": {
+          "n": 19,
+          "net_U": -7.605
+        },
+        "2025-W23": {
+          "n": 1,
+          "net_U": -0.5
+        },
+        "2025-W24": {
+          "n": 4,
+          "net_U": -2.55
+        },
+        "2025-W25": {
+          "n": 2,
+          "net_U": -0.08
+        },
+        "2025-W26": {
+          "n": 11,
+          "net_U": 2.325
+        },
+        "2025-W27": {
+          "n": 10,
+          "net_U": -0.12
+        },
+        "2025-W28": {
+          "n": 5,
+          "net_U": 1.91
+        },
+        "2025-W29": {
+          "n": 19,
+          "net_U": 6.93
+        },
+        "2025-W30": {
+          "n": 27,
+          "net_U": -6.705
+        },
+        "2025-W31": {
+          "n": 26,
+          "net_U": -6.865
+        },
+        "2025-W32": {
+          "n": 35,
+          "net_U": -2.715
+        },
+        "2025-W33": {
+          "n": 51,
+          "net_U": 6.66
+        },
+        "2025-W34": {
+          "n": 57,
+          "net_U": 4.735
+        },
+        "2025-W35": {
+          "n": 81,
+          "net_U": 12.9
+        },
+        "2025-W36": {
+          "n": 17,
+          "net_U": -5.4
+        },
+        "2025-W37": {
+          "n": 60,
+          "net_U": -5.725
+        },
+        "2025-W38": {
+          "n": 77,
+          "net_U": -7.355
+        },
+        "2025-W39": {
+          "n": 96,
+          "net_U": 5.865
+        },
+        "2025-W40": {
+          "n": 81,
+          "net_U": 2.97
+        },
+        "2025-W41": {
+          "n": 14,
+          "net_U": -6.72
+        },
+        "2025-W42": {
+          "n": 69,
+          "net_U": 7.885
+        },
+        "2025-W43": {
+          "n": 67,
+          "net_U": 3.7
+        },
+        "2025-W44": {
+          "n": 76,
+          "net_U": -14.71
+        },
+        "2025-W45": {
+          "n": 83,
+          "net_U": -12.23
+        },
+        "2025-W46": {
+          "n": 16,
+          "net_U": 7.165
+        },
+        "2025-W47": {
+          "n": 63,
+          "net_U": -13.28
+        },
+        "2025-W48": {
+          "n": 77,
+          "net_U": -3.735
+        },
+        "2025-W49": {
+          "n": 73,
+          "net_U": 4.68
+        },
+        "2025-W50": {
+          "n": 53,
+          "net_U": -2.125
+        },
+        "2025-W51": {
+          "n": 57,
+          "net_U": 4.385
+        },
+        "2025-W52": {
+          "n": 23,
+          "net_U": 0.54
+        },
+        "2026-W01": {
+          "n": 35,
+          "net_U": -1.0
+        },
+        "2026-W02": {
+          "n": 29,
+          "net_U": 0.605
+        },
+        "2026-W03": {
+          "n": 45,
+          "net_U": -11.25
+        },
+        "2026-W04": {
+          "n": 50,
+          "net_U": 0.37
+        },
+        "2026-W05": {
+          "n": 57,
+          "net_U": 4.845
+        },
+        "2026-W06": {
+          "n": 72,
+          "net_U": -17.68
+        },
+        "2026-W07": {
+          "n": 74,
+          "net_U": 4.175
+        },
+        "2026-W08": {
+          "n": 70,
+          "net_U": -5.78
+        },
+        "2026-W09": {
+          "n": 69,
+          "net_U": 3.285
+        },
+        "2026-W10": {
+          "n": 70,
+          "net_U": -2.59
+        },
+        "2026-W11": {
+          "n": 70,
+          "net_U": 1.57
+        },
+        "2026-W12": {
+          "n": 61,
+          "net_U": -0.66
+        },
+        "2026-W13": {
+          "n": 15,
+          "net_U": -0.1
+        },
+        "2026-W14": {
+          "n": 49,
+          "net_U": 6.775
+        },
+        "2026-W15": {
+          "n": 72,
+          "net_U": -5.02
+        },
+        "2026-W16": {
+          "n": 53,
+          "net_U": 5.375
+        },
+        "2026-W17": {
+          "n": 74,
+          "net_U": -9.725
+        },
+        "2026-W18": {
+          "n": 64,
+          "net_U": -12.825
+        },
+        "2026-W19": {
+          "n": 50,
+          "net_U": 0.72
+        },
+        "2026-W20": {
+          "n": 68,
+          "net_U": -5.415
+        },
+        "2026-W21": {
+          "n": 40,
+          "net_U": -4.425
+        },
+        "2026-W22": {
+          "n": 5,
+          "net_U": 1.32
+        },
+        "2026-W27": {
+          "n": 2,
+          "net_U": -0.15
+        },
+        "2026-W28": {
+          "n": 1,
+          "net_U": 0.92
+        }
+      }
+    },
+    "market_plus_referee": {
+      "all_test": {
+        "n": 6847,
+        "net_U": -257.47,
+        "ROI_pct": -3.760333,
+        "MDD_U": 268.76,
+        "orders_per_week": 51.871212,
+        "positive_orders": 3205,
+        "negative_orders": 3165,
+        "zero_orders": 477,
+        "settlement_classes": {
+          "full_win": 2704,
+          "full_loss": 2730,
+          "half_win": 501,
+          "push": 477,
+          "half_loss": 435
+        }
+      },
+      "incremental_outside_frozen": {
+        "n": 5316,
+        "net_U": -185.345,
+        "ROI_pct": -3.48655,
+        "MDD_U": 195.28,
+        "orders_per_week": 40.272727,
+        "positive_orders": 2484,
+        "negative_orders": 2437,
+        "zero_orders": 395,
+        "settlement_classes": {
+          "full_win": 2103,
+          "full_loss": 2101,
+          "half_win": 381,
+          "push": 395,
+          "half_loss": 336
+        }
+      },
+      "weekly": {
+        "2024-W01": {
+          "n": 16,
+          "net_U": -0.59
+        },
+        "2024-W02": {
+          "n": 26,
+          "net_U": 4.81
+        },
+        "2024-W03": {
+          "n": 15,
+          "net_U": -2.05
+        },
+        "2024-W04": {
+          "n": 21,
+          "net_U": -5.685
+        },
+        "2024-W05": {
+          "n": 32,
+          "net_U": -5.455
+        },
+        "2024-W06": {
+          "n": 25,
+          "net_U": 0.01
+        },
+        "2024-W07": {
+          "n": 21,
+          "net_U": -3.67
+        },
+        "2024-W08": {
+          "n": 19,
+          "net_U": -7.46
+        },
+        "2024-W09": {
+          "n": 42,
+          "net_U": -0.43
+        },
+        "2024-W10": {
+          "n": 26,
+          "net_U": -2.725
+        },
+        "2024-W11": {
+          "n": 29,
+          "net_U": 4.315
+        },
+        "2024-W12": {
+          "n": 3,
+          "net_U": 2.57
+        },
+        "2024-W13": {
+          "n": 28,
+          "net_U": -4.365
+        },
+        "2024-W14": {
+          "n": 36,
+          "net_U": -2.0
+        },
+        "2024-W15": {
+          "n": 32,
+          "net_U": -4.98
+        },
+        "2024-W16": {
+          "n": 27,
+          "net_U": -2.06
+        },
+        "2024-W17": {
+          "n": 38,
+          "net_U": -0.78
+        },
+        "2024-W18": {
+          "n": 32,
+          "net_U": 9.57
+        },
+        "2024-W19": {
+          "n": 30,
+          "net_U": -4.89
+        },
+        "2024-W20": {
+          "n": 43,
+          "net_U": -3.54
+        },
+        "2024-W21": {
+          "n": 18,
+          "net_U": 0.075
+        },
+        "2024-W22": {
+          "n": 4,
+          "net_U": 0.44
+        },
+        "2024-W28": {
+          "n": 1,
+          "net_U": -1.0
+        },
+        "2024-W29": {
+          "n": 13,
+          "net_U": -0.565
+        },
+        "2024-W30": {
+          "n": 24,
+          "net_U": 2.1
+        },
+        "2024-W31": {
+          "n": 33,
+          "net_U": -0.02
+        },
+        "2024-W32": {
+          "n": 43,
+          "net_U": -3.155
+        },
+        "2024-W33": {
+          "n": 48,
+          "net_U": -8.865
+        },
+        "2024-W34": {
+          "n": 52,
+          "net_U": 4.44
+        },
+        "2024-W35": {
+          "n": 70,
+          "net_U": -10.255
+        },
+        "2024-W36": {
+          "n": 13,
+          "net_U": 1.765
+        },
+        "2024-W37": {
+          "n": 42,
+          "net_U": 3.41
+        },
+        "2024-W38": {
+          "n": 61,
+          "net_U": 0.73
+        },
+        "2024-W39": {
+          "n": 72,
+          "net_U": 1.075
+        },
+        "2024-W40": {
+          "n": 63,
+          "net_U": -1.87
+        },
+        "2024-W41": {
+          "n": 10,
+          "net_U": -3.745
+        },
+        "2024-W42": {
+          "n": 39,
+          "net_U": -6.645
+        },
+        "2024-W43": {
+          "n": 60,
+          "net_U": -1.18
+        },
+        "2024-W44": {
+          "n": 65,
+          "net_U": 0.925
+        },
+        "2024-W45": {
+          "n": 66,
+          "net_U": -2.435
+        },
+        "2024-W46": {
+          "n": 13,
+          "net_U": -1.66
+        },
+        "2024-W47": {
+          "n": 53,
+          "net_U": -7.035
+        },
+        "2024-W48": {
+          "n": 65,
+          "net_U": -6.1
+        },
+        "2024-W49": {
+          "n": 79,
+          "net_U": 7.175
+        },
+        "2024-W50": {
+          "n": 54,
+          "net_U": -3.49
+        },
+        "2024-W51": {
+          "n": 47,
+          "net_U": -8.185
+        },
+        "2024-W52": {
+          "n": 31,
+          "net_U": -3.02
+        },
+        "2025-W01": {
+          "n": 25,
+          "net_U": -5.88
+        },
+        "2025-W02": {
+          "n": 27,
+          "net_U": -2.355
+        },
+        "2025-W03": {
+          "n": 44,
+          "net_U": -6.255
+        },
+        "2025-W04": {
+          "n": 49,
+          "net_U": -9.375
+        },
+        "2025-W05": {
+          "n": 60,
+          "net_U": 1.075
+        },
+        "2025-W06": {
+          "n": 53,
+          "net_U": 4.705
+        },
+        "2025-W07": {
+          "n": 35,
+          "net_U": 5.64
+        },
+        "2025-W08": {
+          "n": 32,
+          "net_U": 3.265
+        },
+        "2025-W09": {
+          "n": 65,
+          "net_U": 0.12
+        },
+        "2025-W10": {
+          "n": 69,
+          "net_U": -14.655
+        },
+        "2025-W11": {
+          "n": 77,
+          "net_U": 0.415
+        },
+        "2025-W12": {
+          "n": 23,
+          "net_U": 2.235
+        },
+        "2025-W13": {
+          "n": 54,
+          "net_U": -1.105
+        },
+        "2025-W14": {
+          "n": 65,
+          "net_U": -10.485
+        },
+        "2025-W15": {
+          "n": 67,
+          "net_U": 8.14
+        },
+        "2025-W16": {
+          "n": 57,
+          "net_U": -8.32
+        },
+        "2025-W17": {
+          "n": 67,
+          "net_U": -9.08
+        },
+        "2025-W18": {
+          "n": 61,
+          "net_U": -7.64
+        },
+        "2025-W19": {
+          "n": 57,
+          "net_U": -5.165
+        },
+        "2025-W20": {
+          "n": 58,
+          "net_U": 10.54
+        },
+        "2025-W21": {
+          "n": 46,
+          "net_U": 1.29
+        },
+        "2025-W22": {
+          "n": 19,
+          "net_U": -3.795
+        },
+        "2025-W23": {
+          "n": 1,
+          "net_U": -0.5
+        },
+        "2025-W24": {
+          "n": 4,
+          "net_U": -2.55
+        },
+        "2025-W25": {
+          "n": 2,
+          "net_U": -0.08
+        },
+        "2025-W26": {
+          "n": 11,
+          "net_U": 2.305
+        },
+        "2025-W27": {
+          "n": 10,
+          "net_U": 5.69
+        },
+        "2025-W28": {
+          "n": 5,
+          "net_U": -2.2
+        },
+        "2025-W29": {
+          "n": 19,
+          "net_U": 2.085
+        },
+        "2025-W30": {
+          "n": 27,
+          "net_U": -3.9
+        },
+        "2025-W31": {
+          "n": 26,
+          "net_U": 3.375
+        },
+        "2025-W32": {
+          "n": 35,
+          "net_U": -5.95
+        },
+        "2025-W33": {
+          "n": 51,
+          "net_U": 7.895
+        },
+        "2025-W34": {
+          "n": 57,
+          "net_U": -3.48
+        },
+        "2025-W35": {
+          "n": 81,
+          "net_U": 3.95
+        },
+        "2025-W36": {
+          "n": 17,
+          "net_U": -0.79
+        },
+        "2025-W37": {
+          "n": 60,
+          "net_U": -11.485
+        },
+        "2025-W38": {
+          "n": 77,
+          "net_U": -8.74
+        },
+        "2025-W39": {
+          "n": 96,
+          "net_U": -2.28
+        },
+        "2025-W40": {
+          "n": 81,
+          "net_U": -3.6
+        },
+        "2025-W41": {
+          "n": 14,
+          "net_U": -4.075
+        },
+        "2025-W42": {
+          "n": 69,
+          "net_U": -8.055
+        },
+        "2025-W43": {
+          "n": 67,
+          "net_U": 4.395
+        },
+        "2025-W44": {
+          "n": 76,
+          "net_U": 10.89
+        },
+        "2025-W45": {
+          "n": 83,
+          "net_U": -5.38
+        },
+        "2025-W46": {
+          "n": 16,
+          "net_U": 4.065
+        },
+        "2025-W47": {
+          "n": 63,
+          "net_U": -3.855
+        },
+        "2025-W48": {
+          "n": 77,
+          "net_U": 14.46
+        },
+        "2025-W49": {
+          "n": 73,
+          "net_U": -5.55
+        },
+        "2025-W50": {
+          "n": 53,
+          "net_U": 5.08
+        },
+        "2025-W51": {
+          "n": 57,
+          "net_U": 6.045
+        },
+        "2025-W52": {
+          "n": 23,
+          "net_U": -4.455
+        },
+        "2026-W01": {
+          "n": 35,
+          "net_U": 0.745
+        },
+        "2026-W02": {
+          "n": 29,
+          "net_U": -0.195
+        },
+        "2026-W03": {
+          "n": 45,
+          "net_U": -13.86
+        },
+        "2026-W04": {
+          "n": 50,
+          "net_U": -11.99
+        },
+        "2026-W05": {
+          "n": 57,
+          "net_U": 0.815
+        },
+        "2026-W06": {
+          "n": 72,
+          "net_U": -1.43
+        },
+        "2026-W07": {
+          "n": 74,
+          "net_U": 7.065
+        },
+        "2026-W08": {
+          "n": 70,
+          "net_U": -8.29
+        },
+        "2026-W09": {
+          "n": 69,
+          "net_U": -10.055
+        },
+        "2026-W10": {
+          "n": 70,
+          "net_U": 5.53
+        },
+        "2026-W11": {
+          "n": 70,
+          "net_U": -0.405
+        },
+        "2026-W12": {
+          "n": 61,
+          "net_U": -11.87
+        },
+        "2026-W13": {
+          "n": 15,
+          "net_U": 1.63
+        },
+        "2026-W14": {
+          "n": 49,
+          "net_U": 11.095
+        },
+        "2026-W15": {
+          "n": 72,
+          "net_U": -14.025
+        },
+        "2026-W16": {
+          "n": 53,
+          "net_U": 4.73
+        },
+        "2026-W17": {
+          "n": 74,
+          "net_U": 3.25
+        },
+        "2026-W18": {
+          "n": 64,
+          "net_U": -16.8
+        },
+        "2026-W19": {
+          "n": 50,
+          "net_U": 2.3
+        },
+        "2026-W20": {
+          "n": 68,
+          "net_U": -2.535
+        },
+        "2026-W21": {
+          "n": 40,
+          "net_U": -0.31
+        },
+        "2026-W22": {
+          "n": 5,
+          "net_U": -3.5
+        },
+        "2026-W27": {
+          "n": 2,
+          "net_U": 1.71
+        },
+        "2026-W28": {
+          "n": 1,
+          "net_U": 0.92
+        }
+      }
+    },
+    "market_plus_referee_discipline_additive": {
+      "all_test": {
+        "n": 6847,
+        "net_U": -225.585,
+        "ROI_pct": -3.294655,
+        "MDD_U": 236.84,
+        "orders_per_week": 51.871212,
+        "positive_orders": 3205,
+        "negative_orders": 3165,
+        "zero_orders": 477,
+        "settlement_classes": {
+          "full_win": 2704,
+          "full_loss": 2730,
+          "half_win": 501,
+          "half_loss": 435,
+          "push": 477
+        }
+      },
+      "incremental_outside_frozen": {
+        "n": 5316,
+        "net_U": -183.535,
+        "ROI_pct": -3.452502,
+        "MDD_U": 190.69,
+        "orders_per_week": 40.272727,
+        "positive_orders": 2470,
+        "negative_orders": 2451,
+        "zero_orders": 395,
+        "settlement_classes": {
+          "full_win": 2092,
+          "full_loss": 2112,
+          "half_win": 378,
+          "half_loss": 339,
+          "push": 395
+        }
+      },
+      "weekly": {
+        "2024-W01": {
+          "n": 16,
+          "net_U": 0.535
+        },
+        "2024-W02": {
+          "n": 26,
+          "net_U": 1.4
+        },
+        "2024-W03": {
+          "n": 15,
+          "net_U": -4.95
+        },
+        "2024-W04": {
+          "n": 21,
+          "net_U": -3.675
+        },
+        "2024-W05": {
+          "n": 32,
+          "net_U": 2.73
+        },
+        "2024-W06": {
+          "n": 25,
+          "net_U": -1.99
+        },
+        "2024-W07": {
+          "n": 21,
+          "net_U": -4.37
+        },
+        "2024-W08": {
+          "n": 19,
+          "net_U": 0.45
+        },
+        "2024-W09": {
+          "n": 42,
+          "net_U": -3.735
+        },
+        "2024-W10": {
+          "n": 26,
+          "net_U": -0.595
+        },
+        "2024-W11": {
+          "n": 29,
+          "net_U": -0.475
+        },
+        "2024-W12": {
+          "n": 3,
+          "net_U": 2.57
+        },
+        "2024-W13": {
+          "n": 28,
+          "net_U": -6.225
+        },
+        "2024-W14": {
+          "n": 36,
+          "net_U": -2.465
+        },
+        "2024-W15": {
+          "n": 32,
+          "net_U": -5.11
+        },
+        "2024-W16": {
+          "n": 27,
+          "net_U": -3.065
+        },
+        "2024-W17": {
+          "n": 38,
+          "net_U": 3.25
+        },
+        "2024-W18": {
+          "n": 32,
+          "net_U": 8.83
+        },
+        "2024-W19": {
+          "n": 30,
+          "net_U": -8.65
+        },
+        "2024-W20": {
+          "n": 43,
+          "net_U": -3.47
+        },
+        "2024-W21": {
+          "n": 18,
+          "net_U": -0.955
+        },
+        "2024-W22": {
+          "n": 4,
+          "net_U": 2.4
+        },
+        "2024-W28": {
+          "n": 1,
+          "net_U": -1.0
+        },
+        "2024-W29": {
+          "n": 13,
+          "net_U": -1.47
+        },
+        "2024-W30": {
+          "n": 24,
+          "net_U": 9.065
+        },
+        "2024-W31": {
+          "n": 33,
+          "net_U": 0.15
+        },
+        "2024-W32": {
+          "n": 43,
+          "net_U": -6.065
+        },
+        "2024-W33": {
+          "n": 48,
+          "net_U": 0.245
+        },
+        "2024-W34": {
+          "n": 52,
+          "net_U": 0.56
+        },
+        "2024-W35": {
+          "n": 70,
+          "net_U": -9.605
+        },
+        "2024-W36": {
+          "n": 13,
+          "net_U": -0.06
+        },
+        "2024-W37": {
+          "n": 42,
+          "net_U": 11.44
+        },
+        "2024-W38": {
+          "n": 61,
+          "net_U": -8.455
+        },
+        "2024-W39": {
+          "n": 72,
+          "net_U": 3.055
+        },
+        "2024-W40": {
+          "n": 63,
+          "net_U": -7.405
+        },
+        "2024-W41": {
+          "n": 10,
+          "net_U": -2.695
+        },
+        "2024-W42": {
+          "n": 39,
+          "net_U": -5.02
+        },
+        "2024-W43": {
+          "n": 60,
+          "net_U": 1.43
+        },
+        "2024-W44": {
+          "n": 65,
+          "net_U": -4.475
+        },
+        "2024-W45": {
+          "n": 66,
+          "net_U": 1.855
+        },
+        "2024-W46": {
+          "n": 13,
+          "net_U": 4.43
+        },
+        "2024-W47": {
+          "n": 53,
+          "net_U": 4.41
+        },
+        "2024-W48": {
+          "n": 65,
+          "net_U": -1.81
+        },
+        "2024-W49": {
+          "n": 79,
+          "net_U": -5.045
+        },
+        "2024-W50": {
+          "n": 54,
+          "net_U": -1.735
+        },
+        "2024-W51": {
+          "n": 47,
+          "net_U": -6.115
+        },
+        "2024-W52": {
+          "n": 31,
+          "net_U": -9.44
+        },
+        "2025-W01": {
+          "n": 25,
+          "net_U": -2.02
+        },
+        "2025-W02": {
+          "n": 27,
+          "net_U": -10.005
+        },
+        "2025-W03": {
+          "n": 44,
+          "net_U": -4.285
+        },
+        "2025-W04": {
+          "n": 49,
+          "net_U": -9.25
+        },
+        "2025-W05": {
+          "n": 60,
+          "net_U": -2.865
+        },
+        "2025-W06": {
+          "n": 53,
+          "net_U": 1.905
+        },
+        "2025-W07": {
+          "n": 35,
+          "net_U": 4.55
+        },
+        "2025-W08": {
+          "n": 32,
+          "net_U": -1.58
+        },
+        "2025-W09": {
+          "n": 65,
+          "net_U": 10.2
+        },
+        "2025-W10": {
+          "n": 69,
+          "net_U": -3.965
+        },
+        "2025-W11": {
+          "n": 77,
+          "net_U": 0.775
+        },
+        "2025-W12": {
+          "n": 23,
+          "net_U": -2.67
+        },
+        "2025-W13": {
+          "n": 54,
+          "net_U": -2.65
+        },
+        "2025-W14": {
+          "n": 65,
+          "net_U": 3.62
+        },
+        "2025-W15": {
+          "n": 67,
+          "net_U": -1.92
+        },
+        "2025-W16": {
+          "n": 57,
+          "net_U": 0.87
+        },
+        "2025-W17": {
+          "n": 67,
+          "net_U": -2.92
+        },
+        "2025-W18": {
+          "n": 61,
+          "net_U": -13.085
+        },
+        "2025-W19": {
+          "n": 57,
+          "net_U": -0.62
+        },
+        "2025-W20": {
+          "n": 58,
+          "net_U": 9.805
+        },
+        "2025-W21": {
+          "n": 46,
+          "net_U": -7.5
+        },
+        "2025-W22": {
+          "n": 19,
+          "net_U": -7.565
+        },
+        "2025-W23": {
+          "n": 1,
+          "net_U": -0.5
+        },
+        "2025-W24": {
+          "n": 4,
+          "net_U": -2.55
+        },
+        "2025-W25": {
+          "n": 2,
+          "net_U": -0.08
+        },
+        "2025-W26": {
+          "n": 11,
+          "net_U": 2.325
+        },
+        "2025-W27": {
+          "n": 10,
+          "net_U": -0.12
+        },
+        "2025-W28": {
+          "n": 5,
+          "net_U": 1.91
+        },
+        "2025-W29": {
+          "n": 19,
+          "net_U": 6.93
+        },
+        "2025-W30": {
+          "n": 27,
+          "net_U": -6.685
+        },
+        "2025-W31": {
+          "n": 26,
+          "net_U": -5.925
+        },
+        "2025-W32": {
+          "n": 35,
+          "net_U": -0.735
+        },
+        "2025-W33": {
+          "n": 51,
+          "net_U": 4.95
+        },
+        "2025-W34": {
+          "n": 57,
+          "net_U": 2.035
+        },
+        "2025-W35": {
+          "n": 81,
+          "net_U": 14.905
+        },
+        "2025-W36": {
+          "n": 17,
+          "net_U": -1.76
+        },
+        "2025-W37": {
+          "n": 60,
+          "net_U": -5.725
+        },
+        "2025-W38": {
+          "n": 77,
+          "net_U": -5.275
+        },
+        "2025-W39": {
+          "n": 96,
+          "net_U": 9.895
+        },
+        "2025-W40": {
+          "n": 81,
+          "net_U": -0.87
+        },
+        "2025-W41": {
+          "n": 14,
+          "net_U": -8.76
+        },
+        "2025-W42": {
+          "n": 69,
+          "net_U": 2.265
+        },
+        "2025-W43": {
+          "n": 67,
+          "net_U": 3.68
+        },
+        "2025-W44": {
+          "n": 76,
+          "net_U": -6.025
+        },
+        "2025-W45": {
+          "n": 83,
+          "net_U": -13.065
+        },
+        "2025-W46": {
+          "n": 16,
+          "net_U": 4.395
+        },
+        "2025-W47": {
+          "n": 63,
+          "net_U": -15.06
+        },
+        "2025-W48": {
+          "n": 77,
+          "net_U": 1.09
+        },
+        "2025-W49": {
+          "n": 73,
+          "net_U": 3.61
+        },
+        "2025-W50": {
+          "n": 53,
+          "net_U": -0.07
+        },
+        "2025-W51": {
+          "n": 57,
+          "net_U": 5.475
+        },
+        "2025-W52": {
+          "n": 23,
+          "net_U": 0.54
+        },
+        "2026-W01": {
+          "n": 35,
+          "net_U": -1.235
+        },
+        "2026-W02": {
+          "n": 29,
+          "net_U": -1.265
+        },
+        "2026-W03": {
+          "n": 45,
+          "net_U": -12.74
+        },
+        "2026-W04": {
+          "n": 50,
+          "net_U": -3.47
+        },
+        "2026-W05": {
+          "n": 57,
+          "net_U": 0.905
+        },
+        "2026-W06": {
+          "n": 72,
+          "net_U": -10.08
+        },
+        "2026-W07": {
+          "n": 74,
+          "net_U": 1.335
+        },
+        "2026-W08": {
+          "n": 70,
+          "net_U": -8.045
+        },
+        "2026-W09": {
+          "n": 69,
+          "net_U": -4.235
+        },
+        "2026-W10": {
+          "n": 70,
+          "net_U": -0.775
+        },
+        "2026-W11": {
+          "n": 70,
+          "net_U": -5.285
+        },
+        "2026-W12": {
+          "n": 61,
+          "net_U": -6.3
+        },
+        "2026-W13": {
+          "n": 15,
+          "net_U": 1.75
+        },
+        "2026-W14": {
+          "n": 49,
+          "net_U": 8.405
+        },
+        "2026-W15": {
+          "n": 72,
+          "net_U": -7.875
+        },
+        "2026-W16": {
+          "n": 53,
+          "net_U": 3.625
+        },
+        "2026-W17": {
+          "n": 74,
+          "net_U": -6.93
+        },
+        "2026-W18": {
+          "n": 64,
+          "net_U": -13.89
+        },
+        "2026-W19": {
+          "n": 50,
+          "net_U": -3.33
+        },
+        "2026-W20": {
+          "n": 68,
+          "net_U": -1.465
+        },
+        "2026-W21": {
+          "n": 40,
+          "net_U": -3.03
+        },
+        "2026-W22": {
+          "n": 5,
+          "net_U": 1.32
+        },
+        "2026-W27": {
+          "n": 2,
+          "net_U": -0.15
+        },
+        "2026-W28": {
+          "n": 1,
+          "net_U": 0.92
+        }
+      }
+    },
+    "market_plus_referee_discipline_interaction": {
+      "all_test": {
+        "n": 6847,
+        "net_U": -226.38,
+        "ROI_pct": -3.306266,
+        "MDD_U": 237.055,
+        "orders_per_week": 51.871212,
+        "positive_orders": 3208,
+        "negative_orders": 3162,
+        "zero_orders": 477,
+        "settlement_classes": {
+          "full_win": 2700,
+          "full_loss": 2734,
+          "half_win": 508,
+          "half_loss": 428,
+          "push": 477
+        }
+      },
+      "incremental_outside_frozen": {
+        "n": 5316,
+        "net_U": -179.315,
+        "ROI_pct": -3.373119,
+        "MDD_U": 185.44,
+        "orders_per_week": 40.272727,
+        "positive_orders": 2475,
+        "negative_orders": 2446,
+        "zero_orders": 395,
+        "settlement_classes": {
+          "full_win": 2091,
+          "full_loss": 2113,
+          "half_win": 384,
+          "half_loss": 333,
+          "push": 395
+        }
+      },
+      "weekly": {
+        "2024-W01": {
+          "n": 16,
+          "net_U": 0.535
+        },
+        "2024-W02": {
+          "n": 26,
+          "net_U": 3.33
+        },
+        "2024-W03": {
+          "n": 15,
+          "net_U": -4.95
+        },
+        "2024-W04": {
+          "n": 21,
+          "net_U": -1.605
+        },
+        "2024-W05": {
+          "n": 32,
+          "net_U": -2.165
+        },
+        "2024-W06": {
+          "n": 25,
+          "net_U": -4.03
+        },
+        "2024-W07": {
+          "n": 21,
+          "net_U": -4.37
+        },
+        "2024-W08": {
+          "n": 19,
+          "net_U": 0.45
+        },
+        "2024-W09": {
+          "n": 42,
+          "net_U": -1.735
+        },
+        "2024-W10": {
+          "n": 26,
+          "net_U": -4.505
+        },
+        "2024-W11": {
+          "n": 29,
+          "net_U": 1.455
+        },
+        "2024-W12": {
+          "n": 3,
+          "net_U": 2.57
+        },
+        "2024-W13": {
+          "n": 28,
+          "net_U": -6.225
+        },
+        "2024-W14": {
+          "n": 36,
+          "net_U": -8.305
+        },
+        "2024-W15": {
+          "n": 32,
+          "net_U": -3.23
+        },
+        "2024-W16": {
+          "n": 27,
+          "net_U": -3.065
+        },
+        "2024-W17": {
+          "n": 38,
+          "net_U": 0.28
+        },
+        "2024-W18": {
+          "n": 32,
+          "net_U": 7.0
+        },
+        "2024-W19": {
+          "n": 30,
+          "net_U": -8.65
+        },
+        "2024-W20": {
+          "n": 43,
+          "net_U": -0.745
+        },
+        "2024-W21": {
+          "n": 18,
+          "net_U": -0.955
+        },
+        "2024-W22": {
+          "n": 4,
+          "net_U": 2.4
+        },
+        "2024-W28": {
+          "n": 1,
+          "net_U": -1.0
+        },
+        "2024-W29": {
+          "n": 13,
+          "net_U": -1.47
+        },
+        "2024-W30": {
+          "n": 24,
+          "net_U": 11.225
+        },
+        "2024-W31": {
+          "n": 33,
+          "net_U": -1.8
+        },
+        "2024-W32": {
+          "n": 43,
+          "net_U": -8.055
+        },
+        "2024-W33": {
+          "n": 48,
+          "net_U": -1.605
+        },
+        "2024-W34": {
+          "n": 52,
+          "net_U": 0.56
+        },
+        "2024-W35": {
+          "n": 70,
+          "net_U": -11.645
+        },
+        "2024-W36": {
+          "n": 13,
+          "net_U": -0.06
+        },
+        "2024-W37": {
+          "n": 42,
+          "net_U": 9.56
+        },
+        "2024-W38": {
+          "n": 61,
+          "net_U": -8.305
+        },
+        "2024-W39": {
+          "n": 72,
+          "net_U": 3.125
+        },
+        "2024-W40": {
+          "n": 63,
+          "net_U": -5.435
+        },
+        "2024-W41": {
+          "n": 10,
+          "net_U": -2.695
+        },
+        "2024-W42": {
+          "n": 39,
+          "net_U": -5.99
+        },
+        "2024-W43": {
+          "n": 60,
+          "net_U": 3.43
+        },
+        "2024-W44": {
+          "n": 65,
+          "net_U": -2.605
+        },
+        "2024-W45": {
+          "n": 66,
+          "net_U": -1.795
+        },
+        "2024-W46": {
+          "n": 13,
+          "net_U": 2.52
+        },
+        "2024-W47": {
+          "n": 53,
+          "net_U": -0.46
+        },
+        "2024-W48": {
+          "n": 65,
+          "net_U": -3.84
+        },
+        "2024-W49": {
+          "n": 79,
+          "net_U": -5.075
+        },
+        "2024-W50": {
+          "n": 54,
+          "net_U": -1.735
+        },
+        "2024-W51": {
+          "n": 47,
+          "net_U": -6.115
+        },
+        "2024-W52": {
+          "n": 31,
+          "net_U": -9.44
+        },
+        "2025-W01": {
+          "n": 25,
+          "net_U": 0.01
+        },
+        "2025-W02": {
+          "n": 27,
+          "net_U": -10.005
+        },
+        "2025-W03": {
+          "n": 44,
+          "net_U": -2.385
+        },
+        "2025-W04": {
+          "n": 49,
+          "net_U": -6.335
+        },
+        "2025-W05": {
+          "n": 60,
+          "net_U": -2.865
+        },
+        "2025-W06": {
+          "n": 53,
+          "net_U": 3.765
+        },
+        "2025-W07": {
+          "n": 35,
+          "net_U": 6.57
+        },
+        "2025-W08": {
+          "n": 32,
+          "net_U": -1.58
+        },
+        "2025-W09": {
+          "n": 65,
+          "net_U": 8.27
+        },
+        "2025-W10": {
+          "n": 69,
+          "net_U": -2.995
+        },
+        "2025-W11": {
+          "n": 77,
+          "net_U": 4.655
+        },
+        "2025-W12": {
+          "n": 23,
+          "net_U": -2.67
+        },
+        "2025-W13": {
+          "n": 54,
+          "net_U": 1.1
+        },
+        "2025-W14": {
+          "n": 65,
+          "net_U": 7.69
+        },
+        "2025-W15": {
+          "n": 67,
+          "net_U": -1.82
+        },
+        "2025-W16": {
+          "n": 57,
+          "net_U": 1.02
+        },
+        "2025-W17": {
+          "n": 67,
+          "net_U": -7.775
+        },
+        "2025-W18": {
+          "n": 61,
+          "net_U": -13.085
+        },
+        "2025-W19": {
+          "n": 57,
+          "net_U": -0.62
+        },
+        "2025-W20": {
+          "n": 58,
+          "net_U": 2.425
+        },
+        "2025-W21": {
+          "n": 46,
+          "net_U": -8.48
+        },
+        "2025-W22": {
+          "n": 19,
+          "net_U": -7.565
+        },
+        "2025-W23": {
+          "n": 1,
+          "net_U": -0.5
+        },
+        "2025-W24": {
+          "n": 4,
+          "net_U": -2.55
+        },
+        "2025-W25": {
+          "n": 2,
+          "net_U": -0.08
+        },
+        "2025-W26": {
+          "n": 11,
+          "net_U": 2.325
+        },
+        "2025-W27": {
+          "n": 10,
+          "net_U": -0.12
+        },
+        "2025-W28": {
+          "n": 5,
+          "net_U": 1.91
+        },
+        "2025-W29": {
+          "n": 19,
+          "net_U": 6.93
+        },
+        "2025-W30": {
+          "n": 27,
+          "net_U": -5.75
+        },
+        "2025-W31": {
+          "n": 26,
+          "net_U": -5.925
+        },
+        "2025-W32": {
+          "n": 35,
+          "net_U": -0.735
+        },
+        "2025-W33": {
+          "n": 51,
+          "net_U": -0.68
+        },
+        "2025-W34": {
+          "n": 57,
+          "net_U": -0.115
+        },
+        "2025-W35": {
+          "n": 81,
+          "net_U": 14.945
+        },
+        "2025-W36": {
+          "n": 17,
+          "net_U": -1.76
+        },
+        "2025-W37": {
+          "n": 60,
+          "net_U": -5.725
+        },
+        "2025-W38": {
+          "n": 77,
+          "net_U": -5.275
+        },
+        "2025-W39": {
+          "n": 96,
+          "net_U": 8.915
+        },
+        "2025-W40": {
+          "n": 81,
+          "net_U": -0.91
+        },
+        "2025-W41": {
+          "n": 14,
+          "net_U": -6.72
+        },
+        "2025-W42": {
+          "n": 69,
+          "net_U": 7.025
+        },
+        "2025-W43": {
+          "n": 67,
+          "net_U": 3.68
+        },
+        "2025-W44": {
+          "n": 76,
+          "net_U": -7.975
+        },
+        "2025-W45": {
+          "n": 83,
+          "net_U": -18.985
+        },
+        "2025-W46": {
+          "n": 16,
+          "net_U": 4.395
+        },
+        "2025-W47": {
+          "n": 63,
+          "net_U": -13.35
+        },
+        "2025-W48": {
+          "n": 77,
+          "net_U": 1.02
+        },
+        "2025-W49": {
+          "n": 73,
+          "net_U": 3.64
+        },
+        "2025-W50": {
+          "n": 53,
+          "net_U": -0.07
+        },
+        "2025-W51": {
+          "n": 57,
+          "net_U": 8.12
+        },
+        "2025-W52": {
+          "n": 23,
+          "net_U": 0.54
+        },
+        "2026-W01": {
+          "n": 35,
+          "net_U": -3.115
+        },
+        "2026-W02": {
+          "n": 29,
+          "net_U": 2.435
+        },
+        "2026-W03": {
+          "n": 45,
+          "net_U": -11.745
+        },
+        "2026-W04": {
+          "n": 50,
+          "net_U": -3.47
+        },
+        "2026-W05": {
+          "n": 57,
+          "net_U": -1.215
+        },
+        "2026-W06": {
+          "n": 72,
+          "net_U": -2.21
+        },
+        "2026-W07": {
+          "n": 74,
+          "net_U": 1.255
+        },
+        "2026-W08": {
+          "n": 70,
+          "net_U": -7.765
+        },
+        "2026-W09": {
+          "n": 69,
+          "net_U": -3.265
+        },
+        "2026-W10": {
+          "n": 70,
+          "net_U": 0.23
+        },
+        "2026-W11": {
+          "n": 70,
+          "net_U": 0.555
+        },
+        "2026-W12": {
+          "n": 61,
+          "net_U": -0.56
+        },
+        "2026-W13": {
+          "n": 15,
+          "net_U": 1.75
+        },
+        "2026-W14": {
+          "n": 49,
+          "net_U": 9.395
+        },
+        "2026-W15": {
+          "n": 72,
+          "net_U": -5.895
+        },
+        "2026-W16": {
+          "n": 53,
+          "net_U": 0.615
+        },
+        "2026-W17": {
+          "n": 74,
+          "net_U": -5.915
+        },
+        "2026-W18": {
+          "n": 64,
+          "net_U": -12.935
+        },
+        "2026-W19": {
+          "n": 50,
+          "net_U": -1.42
+        },
+        "2026-W20": {
+          "n": 68,
+          "net_U": -1.465
+        },
+        "2026-W21": {
+          "n": 40,
+          "net_U": -4.99
+        },
+        "2026-W22": {
+          "n": 5,
+          "net_U": 1.32
+        },
+        "2026-W27": {
+          "n": 2,
+          "net_U": -0.15
+        },
+        "2026-W28": {
+          "n": 1,
+          "net_U": 0.92
+        }
+      }
+    }
+  },
+  "annual_incremental": {
+    "market_only": {
+      "2024": {
+        "n": 1683,
+        "net_U": -79.07,
+        "ROI_pct": -4.698158,
+        "MDD_U": 86.37,
+        "orders_per_week": 32.365385,
+        "positive_orders": 786,
+        "negative_orders": 778,
+        "zero_orders": 119,
+        "settlement_classes": {
+          "full_win": 663,
+          "full_loss": 675,
+          "half_win": 123,
+          "push": 119,
+          "half_loss": 103
+        }
+      },
+      "2025": {
+        "n": 2449,
+        "net_U": -104.915,
+        "ROI_pct": -4.283993,
+        "MDD_U": 115.42,
+        "orders_per_week": 47.096154,
+        "positive_orders": 1134,
+        "negative_orders": 1138,
+        "zero_orders": 177,
+        "settlement_classes": {
+          "full_win": 964,
+          "full_loss": 977,
+          "half_loss": 161,
+          "half_win": 170,
+          "push": 177
+        }
+      },
+      "2026": {
+        "n": 1184,
+        "net_U": -58.605,
+        "ROI_pct": -4.949747,
+        "MDD_U": 65.635,
+        "orders_per_week": 43.851852,
+        "positive_orders": 532,
+        "negative_orders": 553,
+        "zero_orders": 99,
+        "settlement_classes": {
+          "half_loss": 85,
+          "half_win": 75,
+          "full_loss": 468,
+          "full_win": 457,
+          "push": 99
+        }
+      }
+    },
+    "discipline_only": {
+      "2024": {
+        "n": 1683,
+        "net_U": 35.17,
+        "ROI_pct": 2.089721,
+        "MDD_U": 55.05,
+        "orders_per_week": 32.365385,
+        "positive_orders": 813,
+        "negative_orders": 751,
+        "zero_orders": 119,
+        "settlement_classes": {
+          "full_loss": 627,
+          "full_win": 711,
+          "half_loss": 124,
+          "push": 119,
+          "half_win": 102
+        }
+      },
+      "2025": {
+        "n": 2449,
+        "net_U": -13.91,
+        "ROI_pct": -0.567987,
+        "MDD_U": 49.33,
+        "orders_per_week": 47.096154,
+        "positive_orders": 1160,
+        "negative_orders": 1112,
+        "zero_orders": 177,
+        "settlement_classes": {
+          "full_loss": 947,
+          "full_win": 994,
+          "half_win": 166,
+          "half_loss": 165,
+          "push": 177
+        }
+      },
+      "2026": {
+        "n": 1184,
+        "net_U": -10.505,
+        "ROI_pct": -0.887247,
+        "MDD_U": 52.36,
+        "orders_per_week": 43.851852,
+        "positive_orders": 551,
+        "negative_orders": 534,
+        "zero_orders": 99,
+        "settlement_classes": {
+          "half_loss": 81,
+          "full_loss": 453,
+          "full_win": 472,
+          "push": 99,
+          "half_win": 79
+        }
+      }
+    },
+    "market_plus_discipline": {
+      "2024": {
+        "n": 1683,
+        "net_U": -49.695,
+        "ROI_pct": -2.952763,
+        "MDD_U": 59.71,
+        "orders_per_week": 32.365385,
+        "positive_orders": 794,
+        "negative_orders": 770,
+        "zero_orders": 119,
+        "settlement_classes": {
+          "full_win": 674,
+          "full_loss": 664,
+          "half_win": 120,
+          "half_loss": 106,
+          "push": 119
+        }
+      },
+      "2025": {
+        "n": 2449,
+        "net_U": -40.72,
+        "ROI_pct": -1.662719,
+        "MDD_U": 60.31,
+        "orders_per_week": 47.096154,
+        "positive_orders": 1164,
+        "negative_orders": 1108,
+        "zero_orders": 177,
+        "settlement_classes": {
+          "full_win": 988,
+          "full_loss": 953,
+          "half_loss": 155,
+          "half_win": 176,
+          "push": 177
+        }
+      },
+      "2026": {
+        "n": 1184,
+        "net_U": -47.475,
+        "ROI_pct": -4.009713,
+        "MDD_U": 54.185,
+        "orders_per_week": 43.851852,
+        "positive_orders": 538,
+        "negative_orders": 547,
+        "zero_orders": 99,
+        "settlement_classes": {
+          "half_loss": 77,
+          "full_loss": 470,
+          "full_win": 455,
+          "half_win": 83,
+          "push": 99
+        }
+      }
+    },
+    "market_plus_referee": {
+      "2024": {
+        "n": 1683,
+        "net_U": -73.675,
+        "ROI_pct": -4.3776,
+        "MDD_U": 85.755,
+        "orders_per_week": 32.365385,
+        "positive_orders": 787,
+        "negative_orders": 777,
+        "zero_orders": 119,
+        "settlement_classes": {
+          "full_win": 668,
+          "full_loss": 670,
+          "half_win": 119,
+          "push": 119,
+          "half_loss": 107
+        }
+      },
+      "2025": {
+        "n": 2449,
+        "net_U": -57.365,
+        "ROI_pct": -2.342385,
+        "MDD_U": 88.115,
+        "orders_per_week": 47.096154,
+        "positive_orders": 1158,
+        "negative_orders": 1114,
+        "zero_orders": 177,
+        "settlement_classes": {
+          "full_win": 986,
+          "full_loss": 955,
+          "half_loss": 159,
+          "half_win": 172,
+          "push": 177
+        }
+      },
+      "2026": {
+        "n": 1184,
+        "net_U": -54.305,
+        "ROI_pct": -4.586571,
+        "MDD_U": 60.48,
+        "orders_per_week": 43.851852,
+        "positive_orders": 539,
+        "negative_orders": 546,
+        "zero_orders": 99,
+        "settlement_classes": {
+          "half_win": 90,
+          "full_win": 449,
+          "full_loss": 476,
+          "push": 99,
+          "half_loss": 70
+        }
+      }
+    },
+    "market_plus_referee_discipline_additive": {
+      "2024": {
+        "n": 1683,
+        "net_U": -60.49,
+        "ROI_pct": -3.594177,
+        "MDD_U": 66.775,
+        "orders_per_week": 32.365385,
+        "positive_orders": 790,
+        "negative_orders": 774,
+        "zero_orders": 119,
+        "settlement_classes": {
+          "full_win": 666,
+          "full_loss": 672,
+          "half_win": 124,
+          "half_loss": 102,
+          "push": 119
+        }
+      },
+      "2025": {
+        "n": 2449,
+        "net_U": -51.395,
+        "ROI_pct": -2.098612,
+        "MDD_U": 62.06,
+        "orders_per_week": 47.096154,
+        "positive_orders": 1155,
+        "negative_orders": 1117,
+        "zero_orders": 177,
+        "settlement_classes": {
+          "full_win": 983,
+          "full_loss": 958,
+          "half_loss": 159,
+          "half_win": 172,
+          "push": 177
+        }
+      },
+      "2026": {
+        "n": 1184,
+        "net_U": -71.65,
+        "ROI_pct": -6.05152,
+        "MDD_U": 79.27,
+        "orders_per_week": 43.851852,
+        "positive_orders": 525,
+        "negative_orders": 560,
+        "zero_orders": 99,
+        "settlement_classes": {
+          "half_win": 82,
+          "half_loss": 78,
+          "full_win": 443,
+          "full_loss": 482,
+          "push": 99
+        }
+      }
+    },
+    "market_plus_referee_discipline_interaction": {
+      "2024": {
+        "n": 1683,
+        "net_U": -84.39,
+        "ROI_pct": -5.01426,
+        "MDD_U": 90.675,
+        "orders_per_week": 32.365385,
+        "positive_orders": 778,
+        "negative_orders": 786,
+        "zero_orders": 119,
+        "settlement_classes": {
+          "full_win": 653,
+          "full_loss": 685,
+          "half_win": 125,
+          "half_loss": 101,
+          "push": 119
+        }
+      },
+      "2025": {
+        "n": 2449,
+        "net_U": -47.475,
+        "ROI_pct": -1.938546,
+        "MDD_U": 71.05,
+        "orders_per_week": 47.096154,
+        "positive_orders": 1160,
+        "negative_orders": 1112,
+        "zero_orders": 177,
+        "settlement_classes": {
+          "full_win": 982,
+          "full_loss": 959,
+          "half_loss": 153,
+          "half_win": 178,
+          "push": 177
+        }
+      },
+      "2026": {
+        "n": 1184,
+        "net_U": -47.45,
+        "ROI_pct": -4.007601,
+        "MDD_U": 52.285,
+        "orders_per_week": 43.851852,
+        "positive_orders": 537,
+        "negative_orders": 548,
+        "zero_orders": 99,
+        "settlement_classes": {
+          "half_win": 81,
+          "half_loss": 79,
+          "full_win": 456,
+          "full_loss": 469,
+          "push": 99
+        }
+      }
+    }
+  },
+  "league_incremental": {
+    "market_only": {
+      "1": {
+        "n": 454,
+        "net_U": -18.885,
+        "ROI_pct": -4.159692,
+        "MDD_U": 28.555,
+        "orders_per_week": 3.632,
+        "positive_orders": 213,
+        "negative_orders": 209,
+        "zero_orders": 32,
+        "settlement_classes": {
+          "full_win": 177,
+          "half_win": 36,
+          "push": 32,
+          "half_loss": 24,
+          "full_loss": 185
+        }
+      },
+      "14": {
+        "n": 600,
+        "net_U": -10.8,
+        "ROI_pct": -1.8,
+        "MDD_U": 29.025,
+        "orders_per_week": 4.8,
+        "positive_orders": 290,
+        "negative_orders": 270,
+        "zero_orders": 40,
+        "settlement_classes": {
+          "full_win": 238,
+          "full_loss": 228,
+          "half_win": 52,
+          "half_loss": 42,
+          "push": 40
+        }
+      },
+      "16": {
+        "n": 512,
+        "net_U": -28.76,
+        "ROI_pct": -5.617187,
+        "MDD_U": 46.1,
+        "orders_per_week": 4.162602,
+        "positive_orders": 229,
+        "negative_orders": 242,
+        "zero_orders": 41,
+        "settlement_classes": {
+          "full_win": 200,
+          "full_loss": 208,
+          "half_loss": 34,
+          "half_win": 29,
+          "push": 41
+        }
+      },
+      "25": {
+        "n": 196,
+        "net_U": -16.245,
+        "ROI_pct": -8.288265,
+        "MDD_U": 21.765,
+        "orders_per_week": 1.593496,
+        "positive_orders": 90,
+        "negative_orders": 97,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 87,
+          "full_win": 76,
+          "half_loss": 10,
+          "half_win": 14,
+          "push": 9
+        }
+      },
+      "262": {
+        "n": 259,
+        "net_U": -18.13,
+        "ROI_pct": -7.0,
+        "MDD_U": 23.03,
+        "orders_per_week": 2.176471,
+        "positive_orders": 118,
+        "negative_orders": 127,
+        "zero_orders": 14,
+        "settlement_classes": {
+          "full_loss": 109,
+          "half_win": 17,
+          "full_win": 101,
+          "half_loss": 18,
+          "push": 14
+        }
+      },
+      "26540": {
+        "n": 258,
+        "net_U": -10.53,
+        "ROI_pct": -4.081395,
+        "MDD_U": 34.86,
+        "orders_per_week": 2.715789,
+        "positive_orders": 122,
+        "negative_orders": 113,
+        "zero_orders": 23,
+        "settlement_classes": {
+          "full_win": 101,
+          "push": 23,
+          "full_loss": 99,
+          "half_win": 21,
+          "half_loss": 14
+        }
+      },
+      "29": {
+        "n": 128,
+        "net_U": -12.08,
+        "ROI_pct": -9.4375,
+        "MDD_U": 20.7,
+        "orders_per_week": 1.361702,
+        "positive_orders": 56,
+        "negative_orders": 63,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_win": 49,
+          "full_loss": 57,
+          "push": 9,
+          "half_win": 7,
+          "half_loss": 6
+        }
+      },
+      "290": {
+        "n": 87,
+        "net_U": -1.305,
+        "ROI_pct": -1.5,
+        "MDD_U": 14.51,
+        "orders_per_week": 0.945652,
+        "positive_orders": 39,
+        "negative_orders": 37,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "full_loss": 34,
+          "full_win": 37,
+          "half_win": 2,
+          "push": 11,
+          "half_loss": 3
+        }
+      },
+      "303": {
+        "n": 128,
+        "net_U": -4.665,
+        "ROI_pct": -3.644531,
+        "MDD_U": 16.62,
+        "orders_per_week": 1.422222,
+        "positive_orders": 62,
+        "negative_orders": 58,
+        "zero_orders": 8,
+        "settlement_classes": {
+          "full_loss": 48,
+          "half_win": 12,
+          "full_win": 50,
+          "push": 8,
+          "half_loss": 10
+        }
+      },
+      "31": {
+        "n": 182,
+        "net_U": -1.565,
+        "ROI_pct": -0.85989,
+        "MDD_U": 14.99,
+        "orders_per_week": 1.610619,
+        "positive_orders": 87,
+        "negative_orders": 82,
+        "zero_orders": 13,
+        "settlement_classes": {
+          "half_loss": 13,
+          "full_win": 75,
+          "full_loss": 69,
+          "push": 13,
+          "half_win": 12
+        }
+      },
+      "319": {
+        "n": 113,
+        "net_U": 6.345,
+        "ROI_pct": 5.615044,
+        "MDD_U": 7.41,
+        "orders_per_week": 0.965812,
+        "positive_orders": 58,
+        "negative_orders": 44,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "push": 11,
+          "half_win": 12,
+          "full_loss": 37,
+          "full_win": 46,
+          "half_loss": 7
+        }
+      },
+      "35": {
+        "n": 256,
+        "net_U": -25.94,
+        "ROI_pct": -10.132812,
+        "MDD_U": 28.74,
+        "orders_per_week": 2.752688,
+        "positive_orders": 110,
+        "negative_orders": 126,
+        "zero_orders": 20,
+        "settlement_classes": {
+          "full_loss": 108,
+          "full_win": 94,
+          "half_win": 16,
+          "push": 20,
+          "half_loss": 18
+        }
+      },
+      "37": {
+        "n": 255,
+        "net_U": -6.41,
+        "ROI_pct": -2.513725,
+        "MDD_U": 18.935,
+        "orders_per_week": 2.073171,
+        "positive_orders": 122,
+        "negative_orders": 121,
+        "zero_orders": 12,
+        "settlement_classes": {
+          "full_win": 107,
+          "push": 12,
+          "half_win": 15,
+          "full_loss": 101,
+          "half_loss": 20
+        }
+      },
+      "48": {
+        "n": 366,
+        "net_U": -19.225,
+        "ROI_pct": -5.252732,
+        "MDD_U": 30.925,
+        "orders_per_week": 3.773196,
+        "positive_orders": 168,
+        "negative_orders": 174,
+        "zero_orders": 24,
+        "settlement_classes": {
+          "full_win": 145,
+          "half_win": 23,
+          "full_loss": 146,
+          "push": 24,
+          "half_loss": 28
+        }
+      },
+      "51": {
+        "n": 349,
+        "net_U": -18.87,
+        "ROI_pct": -5.406877,
+        "MDD_U": 29.23,
+        "orders_per_week": 2.814516,
+        "positive_orders": 151,
+        "negative_orders": 159,
+        "zero_orders": 39,
+        "settlement_classes": {
+          "full_win": 131,
+          "push": 39,
+          "full_loss": 136,
+          "half_win": 20,
+          "half_loss": 23
+        }
+      },
+      "52": {
+        "n": 161,
+        "net_U": -14.135,
+        "ROI_pct": -8.779503,
+        "MDD_U": 15.58,
+        "orders_per_week": 1.850575,
+        "positive_orders": 68,
+        "negative_orders": 74,
+        "zero_orders": 19,
+        "settlement_classes": {
+          "full_loss": 65,
+          "full_win": 56,
+          "push": 19,
+          "half_win": 12,
+          "half_loss": 9
+        }
+      },
+      "61": {
+        "n": 170,
+        "net_U": 8.01,
+        "ROI_pct": 4.711765,
+        "MDD_U": 6.28,
+        "orders_per_week": 1.770833,
+        "positive_orders": 86,
+        "negative_orders": 75,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 60,
+          "full_win": 81,
+          "half_loss": 15,
+          "half_win": 5,
+          "push": 9
+        }
+      },
+      "62": {
+        "n": 375,
+        "net_U": -29.585,
+        "ROI_pct": -7.889333,
+        "MDD_U": 32.41,
+        "orders_per_week": 3.024194,
+        "positive_orders": 165,
+        "negative_orders": 184,
+        "zero_orders": 26,
+        "settlement_classes": {
+          "full_loss": 156,
+          "full_win": 140,
+          "half_loss": 28,
+          "half_win": 25,
+          "push": 26
+        }
+      },
+      "66": {
+        "n": 103,
+        "net_U": -12.155,
+        "ROI_pct": -11.800971,
+        "MDD_U": 14.36,
+        "orders_per_week": 1.560606,
+        "positive_orders": 44,
+        "negative_orders": 52,
+        "zero_orders": 7,
+        "settlement_classes": {
+          "full_loss": 45,
+          "full_win": 36,
+          "half_win": 8,
+          "push": 7,
+          "half_loss": 7
+        }
+      },
+      "70": {
+        "n": 106,
+        "net_U": 0.715,
+        "ROI_pct": 0.674528,
+        "MDD_U": 8.565,
+        "orders_per_week": 1.0,
+        "positive_orders": 54,
+        "negative_orders": 47,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "full_loss": 44,
+          "full_win": 47,
+          "half_loss": 3,
+          "half_win": 7,
+          "push": 5
+        }
+      },
+      "73": {
+        "n": 165,
+        "net_U": 2.005,
+        "ROI_pct": 1.215152,
+        "MDD_U": 6.155,
+        "orders_per_week": 3.928571,
+        "positive_orders": 81,
+        "negative_orders": 68,
+        "zero_orders": 16,
+        "settlement_classes": {
+          "half_win": 18,
+          "full_win": 63,
+          "full_loss": 58,
+          "half_loss": 10,
+          "push": 16
+        }
+      },
+      "75": {
+        "n": 49,
+        "net_U": -7.555,
+        "ROI_pct": -15.418367,
+        "MDD_U": 10.34,
+        "orders_per_week": 0.844828,
+        "positive_orders": 19,
+        "negative_orders": 25,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "half_win": 2,
+          "full_win": 17,
+          "full_loss": 22,
+          "push": 5,
+          "half_loss": 3
+        }
+      },
+      "88": {
+        "n": 44,
+        "net_U": -2.825,
+        "ROI_pct": -6.420455,
+        "MDD_U": 8.02,
+        "orders_per_week": 0.733333,
+        "positive_orders": 20,
+        "negative_orders": 22,
+        "zero_orders": 2,
+        "settlement_classes": {
+          "half_win": 3,
+          "full_win": 17,
+          "full_loss": 18,
+          "half_loss": 4,
+          "push": 2
+        }
+      }
+    },
+    "discipline_only": {
+      "1": {
+        "n": 454,
+        "net_U": 7.92,
+        "ROI_pct": 1.744493,
+        "MDD_U": 11.23,
+        "orders_per_week": 3.632,
+        "positive_orders": 218,
+        "negative_orders": 204,
+        "zero_orders": 32,
+        "settlement_classes": {
+          "full_loss": 170,
+          "half_loss": 34,
+          "push": 32,
+          "half_win": 26,
+          "full_win": 192
+        }
+      },
+      "14": {
+        "n": 600,
+        "net_U": -17.525,
+        "ROI_pct": -2.920833,
+        "MDD_U": 32.585,
+        "orders_per_week": 4.8,
+        "positive_orders": 275,
+        "negative_orders": 285,
+        "zero_orders": 40,
+        "settlement_classes": {
+          "full_win": 234,
+          "half_loss": 53,
+          "half_win": 41,
+          "full_loss": 232,
+          "push": 40
+        }
+      },
+      "16": {
+        "n": 512,
+        "net_U": -33.425,
+        "ROI_pct": -6.52832,
+        "MDD_U": 52.28,
+        "orders_per_week": 4.162602,
+        "positive_orders": 224,
+        "negative_orders": 247,
+        "zero_orders": 41,
+        "settlement_classes": {
+          "full_loss": 216,
+          "full_win": 192,
+          "half_win": 32,
+          "push": 41,
+          "half_loss": 31
+        }
+      },
+      "25": {
+        "n": 196,
+        "net_U": 6.725,
+        "ROI_pct": 3.431122,
+        "MDD_U": 9.585,
+        "orders_per_week": 1.593496,
+        "positive_orders": 100,
+        "negative_orders": 87,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_win": 87,
+          "full_loss": 76,
+          "half_win": 13,
+          "half_loss": 11,
+          "push": 9
+        }
+      },
+      "262": {
+        "n": 259,
+        "net_U": 15.24,
+        "ROI_pct": 5.88417,
+        "MDD_U": 13.005,
+        "orders_per_week": 2.176471,
+        "positive_orders": 135,
+        "negative_orders": 110,
+        "zero_orders": 14,
+        "settlement_classes": {
+          "full_win": 113,
+          "half_loss": 13,
+          "full_loss": 97,
+          "half_win": 22,
+          "push": 14
+        }
+      },
+      "26540": {
+        "n": 258,
+        "net_U": -0.8,
+        "ROI_pct": -0.310078,
+        "MDD_U": 26.465,
+        "orders_per_week": 2.715789,
+        "positive_orders": 121,
+        "negative_orders": 114,
+        "zero_orders": 23,
+        "settlement_classes": {
+          "full_loss": 94,
+          "push": 23,
+          "full_win": 106,
+          "half_loss": 20,
+          "half_win": 15
+        }
+      },
+      "29": {
+        "n": 128,
+        "net_U": 7.145,
+        "ROI_pct": 5.582031,
+        "MDD_U": 11.035,
+        "orders_per_week": 1.361702,
+        "positive_orders": 63,
+        "negative_orders": 56,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 47,
+          "full_win": 59,
+          "push": 9,
+          "half_loss": 9,
+          "half_win": 4
+        }
+      },
+      "290": {
+        "n": 87,
+        "net_U": 7.415,
+        "ROI_pct": 8.522989,
+        "MDD_U": 4.67,
+        "orders_per_week": 0.945652,
+        "positive_orders": 43,
+        "negative_orders": 33,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "full_win": 40,
+          "full_loss": 31,
+          "half_loss": 2,
+          "push": 11,
+          "half_win": 3
+        }
+      },
+      "303": {
+        "n": 128,
+        "net_U": 3.42,
+        "ROI_pct": 2.671875,
+        "MDD_U": 7.91,
+        "orders_per_week": 1.422222,
+        "positive_orders": 63,
+        "negative_orders": 57,
+        "zero_orders": 8,
+        "settlement_classes": {
+          "full_win": 55,
+          "half_loss": 14,
+          "full_loss": 43,
+          "push": 8,
+          "half_win": 8
+        }
+      },
+      "31": {
+        "n": 182,
+        "net_U": 18.815,
+        "ROI_pct": 10.337912,
+        "MDD_U": 4.5,
+        "orders_per_week": 1.610619,
+        "positive_orders": 96,
+        "negative_orders": 73,
+        "zero_orders": 13,
+        "settlement_classes": {
+          "half_win": 12,
+          "full_loss": 60,
+          "full_win": 84,
+          "push": 13,
+          "half_loss": 13
+        }
+      },
+      "319": {
+        "n": 113,
+        "net_U": 4.7,
+        "ROI_pct": 4.159292,
+        "MDD_U": 7.4,
+        "orders_per_week": 0.965812,
+        "positive_orders": 55,
+        "negative_orders": 47,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "push": 11,
+          "half_win": 10,
+          "full_win": 45,
+          "full_loss": 38,
+          "half_loss": 9
+        }
+      },
+      "35": {
+        "n": 256,
+        "net_U": 3.28,
+        "ROI_pct": 1.28125,
+        "MDD_U": 14.01,
+        "orders_per_week": 2.752688,
+        "positive_orders": 122,
+        "negative_orders": 114,
+        "zero_orders": 20,
+        "settlement_classes": {
+          "full_win": 106,
+          "full_loss": 96,
+          "half_loss": 18,
+          "push": 20,
+          "half_win": 16
+        }
+      },
+      "37": {
+        "n": 255,
+        "net_U": 7.8,
+        "ROI_pct": 3.058824,
+        "MDD_U": 10.555,
+        "orders_per_week": 2.073171,
+        "positive_orders": 131,
+        "negative_orders": 112,
+        "zero_orders": 12,
+        "settlement_classes": {
+          "full_win": 109,
+          "push": 12,
+          "half_win": 22,
+          "full_loss": 99,
+          "half_loss": 13
+        }
+      },
+      "48": {
+        "n": 366,
+        "net_U": 18.375,
+        "ROI_pct": 5.020492,
+        "MDD_U": 10.14,
+        "orders_per_week": 3.773196,
+        "positive_orders": 188,
+        "negative_orders": 154,
+        "zero_orders": 24,
+        "settlement_classes": {
+          "full_loss": 132,
+          "half_loss": 22,
+          "full_win": 159,
+          "half_win": 29,
+          "push": 24
+        }
+      },
+      "51": {
+        "n": 349,
+        "net_U": -4.735,
+        "ROI_pct": -1.356734,
+        "MDD_U": 24.12,
+        "orders_per_week": 2.814516,
+        "positive_orders": 155,
+        "negative_orders": 155,
+        "zero_orders": 39,
+        "settlement_classes": {
+          "full_win": 135,
+          "push": 39,
+          "full_loss": 132,
+          "half_loss": 23,
+          "half_win": 20
+        }
+      },
+      "52": {
+        "n": 161,
+        "net_U": 5.07,
+        "ROI_pct": 3.149068,
+        "MDD_U": 6.455,
+        "orders_per_week": 1.850575,
+        "positive_orders": 74,
+        "negative_orders": 68,
+        "zero_orders": 19,
+        "settlement_classes": {
+          "full_win": 65,
+          "full_loss": 56,
+          "push": 19,
+          "half_loss": 12,
+          "half_win": 9
+        }
+      },
+      "61": {
+        "n": 170,
+        "net_U": -16.03,
+        "ROI_pct": -9.429412,
+        "MDD_U": 21.795,
+        "orders_per_week": 1.770833,
+        "positive_orders": 74,
+        "negative_orders": 87,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 75,
+          "full_win": 66,
+          "half_loss": 12,
+          "half_win": 8,
+          "push": 9
+        }
+      },
+      "62": {
+        "n": 375,
+        "net_U": -5.135,
+        "ROI_pct": -1.369333,
+        "MDD_U": 20.99,
+        "orders_per_week": 3.024194,
+        "positive_orders": 176,
+        "negative_orders": 173,
+        "zero_orders": 26,
+        "settlement_classes": {
+          "full_loss": 147,
+          "full_win": 149,
+          "half_win": 27,
+          "half_loss": 26,
+          "push": 26
+        }
+      },
+      "66": {
+        "n": 103,
+        "net_U": -6.745,
+        "ROI_pct": -6.548544,
+        "MDD_U": 10.135,
+        "orders_per_week": 1.560606,
+        "positive_orders": 46,
+        "negative_orders": 50,
+        "zero_orders": 7,
+        "settlement_classes": {
+          "full_win": 38,
+          "full_loss": 43,
+          "half_loss": 7,
+          "half_win": 8,
+          "push": 7
+        }
+      },
+      "70": {
+        "n": 106,
+        "net_U": 3.34,
+        "ROI_pct": 3.150943,
+        "MDD_U": 7.69,
+        "orders_per_week": 1.0,
+        "positive_orders": 53,
+        "negative_orders": 48,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "full_win": 49,
+          "full_loss": 42,
+          "half_loss": 6,
+          "push": 5,
+          "half_win": 4
+        }
+      },
+      "73": {
+        "n": 165,
+        "net_U": -15.77,
+        "ROI_pct": -9.557576,
+        "MDD_U": 17.84,
+        "orders_per_week": 3.928571,
+        "positive_orders": 67,
+        "negative_orders": 82,
+        "zero_orders": 16,
+        "settlement_classes": {
+          "half_win": 12,
+          "full_win": 55,
+          "full_loss": 66,
+          "half_loss": 16,
+          "push": 16
+        }
+      },
+      "75": {
+        "n": 49,
+        "net_U": 3.125,
+        "ROI_pct": 6.377551,
+        "MDD_U": 5.145,
+        "orders_per_week": 0.844828,
+        "positive_orders": 25,
+        "negative_orders": 19,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "half_win": 4,
+          "full_win": 21,
+          "full_loss": 18,
+          "push": 5,
+          "half_loss": 1
+        }
+      },
+      "88": {
+        "n": 44,
+        "net_U": -1.45,
+        "ROI_pct": -3.295455,
+        "MDD_U": 7.5,
+        "orders_per_week": 0.733333,
+        "positive_orders": 20,
+        "negative_orders": 22,
+        "zero_orders": 2,
+        "settlement_classes": {
+          "half_loss": 5,
+          "full_loss": 17,
+          "full_win": 18,
+          "half_win": 2,
+          "push": 2
+        }
+      }
+    },
+    "market_plus_discipline": {
+      "1": {
+        "n": 454,
+        "net_U": -46.8,
+        "ROI_pct": -10.30837,
+        "MDD_U": 53.49,
+        "orders_per_week": 3.632,
+        "positive_orders": 198,
+        "negative_orders": 224,
+        "zero_orders": 32,
+        "settlement_classes": {
+          "full_win": 162,
+          "half_win": 36,
+          "push": 32,
+          "half_loss": 24,
+          "full_loss": 200
+        }
+      },
+      "14": {
+        "n": 600,
+        "net_U": -2.29,
+        "ROI_pct": -0.381667,
+        "MDD_U": 16.735,
+        "orders_per_week": 4.8,
+        "positive_orders": 291,
+        "negative_orders": 269,
+        "zero_orders": 40,
+        "settlement_classes": {
+          "full_win": 243,
+          "full_loss": 223,
+          "half_loss": 46,
+          "half_win": 48,
+          "push": 40
+        }
+      },
+      "16": {
+        "n": 512,
+        "net_U": -9.395,
+        "ROI_pct": -1.834961,
+        "MDD_U": 30.42,
+        "orders_per_week": 4.162602,
+        "positive_orders": 240,
+        "negative_orders": 231,
+        "zero_orders": 41,
+        "settlement_classes": {
+          "full_win": 205,
+          "full_loss": 203,
+          "half_loss": 28,
+          "push": 41,
+          "half_win": 35
+        }
+      },
+      "25": {
+        "n": 196,
+        "net_U": -25.015,
+        "ROI_pct": -12.762755,
+        "MDD_U": 25.015,
+        "orders_per_week": 1.593496,
+        "positive_orders": 85,
+        "negative_orders": 102,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 92,
+          "full_win": 71,
+          "half_loss": 10,
+          "half_win": 14,
+          "push": 9
+        }
+      },
+      "262": {
+        "n": 259,
+        "net_U": 4.515,
+        "ROI_pct": 1.743243,
+        "MDD_U": 8.91,
+        "orders_per_week": 2.176471,
+        "positive_orders": 130,
+        "negative_orders": 115,
+        "zero_orders": 14,
+        "settlement_classes": {
+          "full_loss": 98,
+          "half_win": 18,
+          "half_loss": 17,
+          "full_win": 112,
+          "push": 14
+        }
+      },
+      "26540": {
+        "n": 258,
+        "net_U": -5.495,
+        "ROI_pct": -2.129845,
+        "MDD_U": 22.435,
+        "orders_per_week": 2.715789,
+        "positive_orders": 123,
+        "negative_orders": 112,
+        "zero_orders": 23,
+        "settlement_classes": {
+          "full_win": 104,
+          "push": 23,
+          "full_loss": 96,
+          "half_win": 19,
+          "half_loss": 16
+        }
+      },
+      "29": {
+        "n": 128,
+        "net_U": -17.88,
+        "ROI_pct": -13.96875,
+        "MDD_U": 19.68,
+        "orders_per_week": 1.361702,
+        "positive_orders": 52,
+        "negative_orders": 67,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 60,
+          "full_win": 46,
+          "push": 9,
+          "half_win": 6,
+          "half_loss": 7
+        }
+      },
+      "290": {
+        "n": 87,
+        "net_U": 5.9,
+        "ROI_pct": 6.781609,
+        "MDD_U": 8.69,
+        "orders_per_week": 0.945652,
+        "positive_orders": 43,
+        "negative_orders": 33,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "full_win": 40,
+          "half_loss": 2,
+          "full_loss": 31,
+          "push": 11,
+          "half_win": 3
+        }
+      },
+      "303": {
+        "n": 128,
+        "net_U": -9.35,
+        "ROI_pct": -7.304688,
+        "MDD_U": 17.685,
+        "orders_per_week": 1.422222,
+        "positive_orders": 58,
+        "negative_orders": 62,
+        "zero_orders": 8,
+        "settlement_classes": {
+          "full_loss": 50,
+          "half_loss": 12,
+          "full_win": 48,
+          "push": 8,
+          "half_win": 10
+        }
+      },
+      "31": {
+        "n": 182,
+        "net_U": 0.175,
+        "ROI_pct": 0.096154,
+        "MDD_U": 10.77,
+        "orders_per_week": 1.610619,
+        "positive_orders": 89,
+        "negative_orders": 80,
+        "zero_orders": 13,
+        "settlement_classes": {
+          "half_loss": 10,
+          "full_win": 74,
+          "full_loss": 70,
+          "push": 13,
+          "half_win": 15
+        }
+      },
+      "319": {
+        "n": 113,
+        "net_U": -4.245,
+        "ROI_pct": -3.756637,
+        "MDD_U": 10.91,
+        "orders_per_week": 0.965812,
+        "positive_orders": 50,
+        "negative_orders": 52,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "push": 11,
+          "half_loss": 11,
+          "full_win": 42,
+          "full_loss": 41,
+          "half_win": 8
+        }
+      },
+      "35": {
+        "n": 256,
+        "net_U": -3.84,
+        "ROI_pct": -1.5,
+        "MDD_U": 19.67,
+        "orders_per_week": 2.752688,
+        "positive_orders": 122,
+        "negative_orders": 114,
+        "zero_orders": 20,
+        "settlement_classes": {
+          "full_win": 103,
+          "full_loss": 99,
+          "half_win": 19,
+          "push": 20,
+          "half_loss": 15
+        }
+      },
+      "37": {
+        "n": 255,
+        "net_U": 11.71,
+        "ROI_pct": 4.592157,
+        "MDD_U": 7.89,
+        "orders_per_week": 2.073171,
+        "positive_orders": 130,
+        "negative_orders": 113,
+        "zero_orders": 12,
+        "settlement_classes": {
+          "full_win": 117,
+          "push": 12,
+          "half_loss": 22,
+          "full_loss": 91,
+          "half_win": 13
+        }
+      },
+      "48": {
+        "n": 366,
+        "net_U": 11.045,
+        "ROI_pct": 3.01776,
+        "MDD_U": 13.19,
+        "orders_per_week": 3.773196,
+        "positive_orders": 188,
+        "negative_orders": 154,
+        "zero_orders": 24,
+        "settlement_classes": {
+          "full_win": 155,
+          "full_loss": 136,
+          "half_win": 33,
+          "push": 24,
+          "half_loss": 18
+        }
+      },
+      "51": {
+        "n": 349,
+        "net_U": -0.69,
+        "ROI_pct": -0.197708,
+        "MDD_U": 26.965,
+        "orders_per_week": 2.814516,
+        "positive_orders": 159,
+        "negative_orders": 151,
+        "zero_orders": 39,
+        "settlement_classes": {
+          "full_win": 140,
+          "push": 39,
+          "full_loss": 127,
+          "half_win": 19,
+          "half_loss": 24
+        }
+      },
+      "52": {
+        "n": 161,
+        "net_U": 0.915,
+        "ROI_pct": 0.568323,
+        "MDD_U": 11.375,
+        "orders_per_week": 1.850575,
+        "positive_orders": 74,
+        "negative_orders": 68,
+        "zero_orders": 19,
+        "settlement_classes": {
+          "full_loss": 57,
+          "full_win": 64,
+          "push": 19,
+          "half_loss": 11,
+          "half_win": 10
+        }
+      },
+      "61": {
+        "n": 170,
+        "net_U": -11.48,
+        "ROI_pct": -6.752941,
+        "MDD_U": 16.975,
+        "orders_per_week": 1.770833,
+        "positive_orders": 77,
+        "negative_orders": 84,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_win": 68,
+          "full_loss": 73,
+          "half_loss": 11,
+          "half_win": 9,
+          "push": 9
+        }
+      },
+      "62": {
+        "n": 375,
+        "net_U": -8.97,
+        "ROI_pct": -2.392,
+        "MDD_U": 27.855,
+        "orders_per_week": 3.024194,
+        "positive_orders": 177,
+        "negative_orders": 172,
+        "zero_orders": 26,
+        "settlement_classes": {
+          "full_loss": 149,
+          "full_win": 147,
+          "half_loss": 23,
+          "half_win": 30,
+          "push": 26
+        }
+      },
+      "66": {
+        "n": 103,
+        "net_U": 1.41,
+        "ROI_pct": 1.368932,
+        "MDD_U": 8.815,
+        "orders_per_week": 1.560606,
+        "positive_orders": 49,
+        "negative_orders": 47,
+        "zero_orders": 7,
+        "settlement_classes": {
+          "full_win": 43,
+          "full_loss": 38,
+          "half_loss": 9,
+          "half_win": 6,
+          "push": 7
+        }
+      },
+      "70": {
+        "n": 106,
+        "net_U": -17.15,
+        "ROI_pct": -16.179245,
+        "MDD_U": 20.805,
+        "orders_per_week": 1.0,
+        "positive_orders": 44,
+        "negative_orders": 57,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "full_win": 38,
+          "full_loss": 53,
+          "half_loss": 4,
+          "half_win": 6,
+          "push": 5
+        }
+      },
+      "73": {
+        "n": 165,
+        "net_U": 8.21,
+        "ROI_pct": 4.975758,
+        "MDD_U": 8.27,
+        "orders_per_week": 3.928571,
+        "positive_orders": 83,
+        "negative_orders": 66,
+        "zero_orders": 16,
+        "settlement_classes": {
+          "half_loss": 11,
+          "full_win": 66,
+          "full_loss": 55,
+          "push": 16,
+          "half_win": 17
+        }
+      },
+      "75": {
+        "n": 49,
+        "net_U": -7.745,
+        "ROI_pct": -15.806122,
+        "MDD_U": 12.61,
+        "orders_per_week": 0.844828,
+        "positive_orders": 19,
+        "negative_orders": 25,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "half_win": 3,
+          "full_win": 16,
+          "full_loss": 23,
+          "push": 5,
+          "half_loss": 2
+        }
+      },
+      "88": {
+        "n": 44,
+        "net_U": -11.425,
+        "ROI_pct": -25.965909,
+        "MDD_U": 13.655,
+        "orders_per_week": 0.733333,
+        "positive_orders": 15,
+        "negative_orders": 27,
+        "zero_orders": 2,
+        "settlement_classes": {
+          "half_loss": 5,
+          "full_win": 13,
+          "full_loss": 22,
+          "half_win": 2,
+          "push": 2
+        }
+      }
+    },
+    "market_plus_referee": {
+      "1": {
+        "n": 454,
+        "net_U": 0.35,
+        "ROI_pct": 0.077093,
+        "MDD_U": 18.81,
+        "orders_per_week": 3.632,
+        "positive_orders": 222,
+        "negative_orders": 200,
+        "zero_orders": 32,
+        "settlement_classes": {
+          "full_win": 187,
+          "half_win": 35,
+          "push": 32,
+          "full_loss": 175,
+          "half_loss": 25
+        }
+      },
+      "14": {
+        "n": 600,
+        "net_U": -17.78,
+        "ROI_pct": -2.963333,
+        "MDD_U": 26.585,
+        "orders_per_week": 4.8,
+        "positive_orders": 289,
+        "negative_orders": 271,
+        "zero_orders": 40,
+        "settlement_classes": {
+          "full_win": 231,
+          "full_loss": 235,
+          "half_win": 58,
+          "half_loss": 36,
+          "push": 40
+        }
+      },
+      "16": {
+        "n": 512,
+        "net_U": -16.16,
+        "ROI_pct": -3.15625,
+        "MDD_U": 31.55,
+        "orders_per_week": 4.162602,
+        "positive_orders": 237,
+        "negative_orders": 234,
+        "zero_orders": 41,
+        "settlement_classes": {
+          "full_win": 204,
+          "full_loss": 204,
+          "half_loss": 30,
+          "half_win": 33,
+          "push": 41
+        }
+      },
+      "25": {
+        "n": 196,
+        "net_U": -8.41,
+        "ROI_pct": -4.290816,
+        "MDD_U": 12.155,
+        "orders_per_week": 1.593496,
+        "positive_orders": 95,
+        "negative_orders": 92,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 84,
+          "full_win": 79,
+          "half_loss": 8,
+          "half_win": 16,
+          "push": 9
+        }
+      },
+      "262": {
+        "n": 259,
+        "net_U": -2.19,
+        "ROI_pct": -0.84556,
+        "MDD_U": 16.95,
+        "orders_per_week": 2.176471,
+        "positive_orders": 126,
+        "negative_orders": 119,
+        "zero_orders": 14,
+        "settlement_classes": {
+          "full_loss": 101,
+          "half_win": 17,
+          "full_win": 109,
+          "half_loss": 18,
+          "push": 14
+        }
+      },
+      "26540": {
+        "n": 258,
+        "net_U": -13.1,
+        "ROI_pct": -5.077519,
+        "MDD_U": 36.69,
+        "orders_per_week": 2.715789,
+        "positive_orders": 121,
+        "negative_orders": 114,
+        "zero_orders": 23,
+        "settlement_classes": {
+          "full_win": 99,
+          "push": 23,
+          "full_loss": 101,
+          "half_win": 22,
+          "half_loss": 13
+        }
+      },
+      "29": {
+        "n": 128,
+        "net_U": -10.92,
+        "ROI_pct": -8.53125,
+        "MDD_U": 19.54,
+        "orders_per_week": 1.361702,
+        "positive_orders": 56,
+        "negative_orders": 63,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_win": 50,
+          "full_loss": 56,
+          "push": 9,
+          "half_win": 6,
+          "half_loss": 7
+        }
+      },
+      "290": {
+        "n": 87,
+        "net_U": -3.215,
+        "ROI_pct": -3.695402,
+        "MDD_U": 14.38,
+        "orders_per_week": 0.945652,
+        "positive_orders": 38,
+        "negative_orders": 38,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "full_loss": 35,
+          "full_win": 36,
+          "half_win": 2,
+          "push": 11,
+          "half_loss": 3
+        }
+      },
+      "303": {
+        "n": 128,
+        "net_U": -8.825,
+        "ROI_pct": -6.894531,
+        "MDD_U": 19.47,
+        "orders_per_week": 1.422222,
+        "positive_orders": 60,
+        "negative_orders": 60,
+        "zero_orders": 8,
+        "settlement_classes": {
+          "full_loss": 50,
+          "half_win": 12,
+          "full_win": 48,
+          "push": 8,
+          "half_loss": 10
+        }
+      },
+      "31": {
+        "n": 182,
+        "net_U": -13.655,
+        "ROI_pct": -7.502747,
+        "MDD_U": 18.33,
+        "orders_per_week": 1.610619,
+        "positive_orders": 80,
+        "negative_orders": 89,
+        "zero_orders": 13,
+        "settlement_classes": {
+          "half_loss": 14,
+          "full_win": 69,
+          "full_loss": 75,
+          "push": 13,
+          "half_win": 11
+        }
+      },
+      "319": {
+        "n": 113,
+        "net_U": -2.4,
+        "ROI_pct": -2.123894,
+        "MDD_U": 9.295,
+        "orders_per_week": 0.965812,
+        "positive_orders": 53,
+        "negative_orders": 49,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "push": 11,
+          "half_win": 11,
+          "full_loss": 41,
+          "full_win": 42,
+          "half_loss": 8
+        }
+      },
+      "35": {
+        "n": 256,
+        "net_U": -17.88,
+        "ROI_pct": -6.984375,
+        "MDD_U": 22.16,
+        "orders_per_week": 2.752688,
+        "positive_orders": 115,
+        "negative_orders": 121,
+        "zero_orders": 20,
+        "settlement_classes": {
+          "full_loss": 105,
+          "full_win": 97,
+          "half_win": 18,
+          "push": 20,
+          "half_loss": 16
+        }
+      },
+      "37": {
+        "n": 255,
+        "net_U": -16.02,
+        "ROI_pct": -6.282353,
+        "MDD_U": 27.105,
+        "orders_per_week": 2.073171,
+        "positive_orders": 116,
+        "negative_orders": 127,
+        "zero_orders": 12,
+        "settlement_classes": {
+          "full_win": 103,
+          "push": 12,
+          "half_win": 13,
+          "full_loss": 105,
+          "half_loss": 22
+        }
+      },
+      "48": {
+        "n": 366,
+        "net_U": -26.51,
+        "ROI_pct": -7.243169,
+        "MDD_U": 37.135,
+        "orders_per_week": 3.773196,
+        "positive_orders": 165,
+        "negative_orders": 177,
+        "zero_orders": 24,
+        "settlement_classes": {
+          "full_win": 139,
+          "full_loss": 152,
+          "half_win": 26,
+          "push": 24,
+          "half_loss": 25
+        }
+      },
+      "51": {
+        "n": 349,
+        "net_U": -7.125,
+        "ROI_pct": -2.041547,
+        "MDD_U": 15.145,
+        "orders_per_week": 2.814516,
+        "positive_orders": 157,
+        "negative_orders": 153,
+        "zero_orders": 39,
+        "settlement_classes": {
+          "full_win": 137,
+          "push": 39,
+          "full_loss": 130,
+          "half_win": 20,
+          "half_loss": 23
+        }
+      },
+      "52": {
+        "n": 161,
+        "net_U": -14.005,
+        "ROI_pct": -8.698758,
+        "MDD_U": 18.485,
+        "orders_per_week": 1.850575,
+        "positive_orders": 68,
+        "negative_orders": 74,
+        "zero_orders": 19,
+        "settlement_classes": {
+          "full_loss": 65,
+          "full_win": 56,
+          "push": 19,
+          "half_win": 12,
+          "half_loss": 9
+        }
+      },
+      "61": {
+        "n": 170,
+        "net_U": 17.925,
+        "ROI_pct": 10.544118,
+        "MDD_U": 8.31,
+        "orders_per_week": 1.770833,
+        "positive_orders": 92,
+        "negative_orders": 69,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_win": 85,
+          "full_loss": 56,
+          "half_loss": 13,
+          "half_win": 7,
+          "push": 9
+        }
+      },
+      "62": {
+        "n": 375,
+        "net_U": -31.245,
+        "ROI_pct": -8.332,
+        "MDD_U": 37.01,
+        "orders_per_week": 3.024194,
+        "positive_orders": 165,
+        "negative_orders": 184,
+        "zero_orders": 26,
+        "settlement_classes": {
+          "full_loss": 158,
+          "full_win": 138,
+          "half_loss": 26,
+          "half_win": 27,
+          "push": 26
+        }
+      },
+      "66": {
+        "n": 103,
+        "net_U": 0.095,
+        "ROI_pct": 0.092233,
+        "MDD_U": 6.94,
+        "orders_per_week": 1.560606,
+        "positive_orders": 49,
+        "negative_orders": 47,
+        "zero_orders": 7,
+        "settlement_classes": {
+          "full_win": 43,
+          "full_loss": 38,
+          "half_win": 6,
+          "half_loss": 9,
+          "push": 7
+        }
+      },
+      "70": {
+        "n": 106,
+        "net_U": 1.755,
+        "ROI_pct": 1.65566,
+        "MDD_U": 10.775,
+        "orders_per_week": 1.0,
+        "positive_orders": 55,
+        "negative_orders": 46,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "full_loss": 44,
+          "full_win": 47,
+          "half_loss": 2,
+          "half_win": 8,
+          "push": 5
+        }
+      },
+      "73": {
+        "n": 165,
+        "net_U": 13.17,
+        "ROI_pct": 7.981818,
+        "MDD_U": 5.69,
+        "orders_per_week": 3.928571,
+        "positive_orders": 85,
+        "negative_orders": 64,
+        "zero_orders": 16,
+        "settlement_classes": {
+          "half_win": 15,
+          "full_win": 70,
+          "full_loss": 51,
+          "push": 16,
+          "half_loss": 13
+        }
+      },
+      "75": {
+        "n": 49,
+        "net_U": -4.445,
+        "ROI_pct": -9.071429,
+        "MDD_U": 9.31,
+        "orders_per_week": 0.844828,
+        "positive_orders": 21,
+        "negative_orders": 23,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "half_win": 3,
+          "full_win": 18,
+          "full_loss": 21,
+          "push": 5,
+          "half_loss": 2
+        }
+      },
+      "88": {
+        "n": 44,
+        "net_U": -4.755,
+        "ROI_pct": -10.806818,
+        "MDD_U": 10.94,
+        "orders_per_week": 0.733333,
+        "positive_orders": 19,
+        "negative_orders": 23,
+        "zero_orders": 2,
+        "settlement_classes": {
+          "half_win": 3,
+          "full_win": 16,
+          "full_loss": 19,
+          "half_loss": 4,
+          "push": 2
+        }
+      }
+    },
+    "market_plus_referee_discipline_additive": {
+      "1": {
+        "n": 454,
+        "net_U": -26.525,
+        "ROI_pct": -5.842511,
+        "MDD_U": 36.625,
+        "orders_per_week": 3.632,
+        "positive_orders": 208,
+        "negative_orders": 214,
+        "zero_orders": 32,
+        "settlement_classes": {
+          "full_win": 173,
+          "half_win": 35,
+          "push": 32,
+          "half_loss": 25,
+          "full_loss": 189
+        }
+      },
+      "14": {
+        "n": 600,
+        "net_U": -13.35,
+        "ROI_pct": -2.225,
+        "MDD_U": 23.8,
+        "orders_per_week": 4.8,
+        "positive_orders": 284,
+        "negative_orders": 276,
+        "zero_orders": 40,
+        "settlement_classes": {
+          "full_win": 238,
+          "full_loss": 228,
+          "half_loss": 48,
+          "half_win": 46,
+          "push": 40
+        }
+      },
+      "16": {
+        "n": 512,
+        "net_U": -14.075,
+        "ROI_pct": -2.749023,
+        "MDD_U": 32.265,
+        "orders_per_week": 4.162602,
+        "positive_orders": 237,
+        "negative_orders": 234,
+        "zero_orders": 41,
+        "settlement_classes": {
+          "full_win": 203,
+          "full_loss": 205,
+          "half_loss": 29,
+          "push": 41,
+          "half_win": 34
+        }
+      },
+      "25": {
+        "n": 196,
+        "net_U": -36.755,
+        "ROI_pct": -18.752551,
+        "MDD_U": 36.755,
+        "orders_per_week": 1.593496,
+        "positive_orders": 80,
+        "negative_orders": 107,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 99,
+          "full_win": 64,
+          "half_loss": 8,
+          "half_win": 16,
+          "push": 9
+        }
+      },
+      "262": {
+        "n": 259,
+        "net_U": 13.79,
+        "ROI_pct": 5.324324,
+        "MDD_U": 6.89,
+        "orders_per_week": 2.176471,
+        "positive_orders": 135,
+        "negative_orders": 110,
+        "zero_orders": 14,
+        "settlement_classes": {
+          "full_loss": 94,
+          "half_win": 19,
+          "full_win": 116,
+          "half_loss": 16,
+          "push": 14
+        }
+      },
+      "26540": {
+        "n": 258,
+        "net_U": -21.525,
+        "ROI_pct": -8.343023,
+        "MDD_U": 32.315,
+        "orders_per_week": 2.715789,
+        "positive_orders": 114,
+        "negative_orders": 121,
+        "zero_orders": 23,
+        "settlement_classes": {
+          "full_win": 96,
+          "push": 23,
+          "full_loss": 104,
+          "half_win": 18,
+          "half_loss": 17
+        }
+      },
+      "29": {
+        "n": 128,
+        "net_U": -12.565,
+        "ROI_pct": -9.816406,
+        "MDD_U": 17.685,
+        "orders_per_week": 1.361702,
+        "positive_orders": 55,
+        "negative_orders": 64,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 58,
+          "full_win": 48,
+          "push": 9,
+          "half_win": 7,
+          "half_loss": 6
+        }
+      },
+      "290": {
+        "n": 87,
+        "net_U": -1.5,
+        "ROI_pct": -1.724138,
+        "MDD_U": 12.7,
+        "orders_per_week": 0.945652,
+        "positive_orders": 39,
+        "negative_orders": 37,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "full_loss": 35,
+          "full_win": 36,
+          "half_loss": 2,
+          "push": 11,
+          "half_win": 3
+        }
+      },
+      "303": {
+        "n": 128,
+        "net_U": -14.495,
+        "ROI_pct": -11.324219,
+        "MDD_U": 19.295,
+        "orders_per_week": 1.422222,
+        "positive_orders": 56,
+        "negative_orders": 64,
+        "zero_orders": 8,
+        "settlement_classes": {
+          "full_loss": 53,
+          "half_loss": 11,
+          "full_win": 45,
+          "push": 8,
+          "half_win": 11
+        }
+      },
+      "31": {
+        "n": 182,
+        "net_U": -7.57,
+        "ROI_pct": -4.159341,
+        "MDD_U": 13.315,
+        "orders_per_week": 1.610619,
+        "positive_orders": 85,
+        "negative_orders": 84,
+        "zero_orders": 13,
+        "settlement_classes": {
+          "half_loss": 10,
+          "full_win": 70,
+          "full_loss": 74,
+          "push": 13,
+          "half_win": 15
+        }
+      },
+      "319": {
+        "n": 113,
+        "net_U": 1.62,
+        "ROI_pct": 1.433628,
+        "MDD_U": 8.34,
+        "orders_per_week": 0.965812,
+        "positive_orders": 54,
+        "negative_orders": 48,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "push": 11,
+          "half_win": 10,
+          "full_loss": 39,
+          "full_win": 44,
+          "half_loss": 9
+        }
+      },
+      "35": {
+        "n": 256,
+        "net_U": -10.94,
+        "ROI_pct": -4.273437,
+        "MDD_U": 21.825,
+        "orders_per_week": 2.752688,
+        "positive_orders": 118,
+        "negative_orders": 118,
+        "zero_orders": 20,
+        "settlement_classes": {
+          "full_win": 99,
+          "full_loss": 103,
+          "half_win": 19,
+          "push": 20,
+          "half_loss": 15
+        }
+      },
+      "37": {
+        "n": 255,
+        "net_U": 13.815,
+        "ROI_pct": 5.417647,
+        "MDD_U": 9.87,
+        "orders_per_week": 2.073171,
+        "positive_orders": 132,
+        "negative_orders": 111,
+        "zero_orders": 12,
+        "settlement_classes": {
+          "full_win": 117,
+          "push": 12,
+          "half_win": 15,
+          "full_loss": 91,
+          "half_loss": 20
+        }
+      },
+      "48": {
+        "n": 366,
+        "net_U": 1.955,
+        "ROI_pct": 0.534153,
+        "MDD_U": 13.135,
+        "orders_per_week": 3.773196,
+        "positive_orders": 181,
+        "negative_orders": 161,
+        "zero_orders": 24,
+        "settlement_classes": {
+          "full_win": 152,
+          "full_loss": 139,
+          "half_win": 29,
+          "push": 24,
+          "half_loss": 22
+        }
+      },
+      "51": {
+        "n": 349,
+        "net_U": 12.855,
+        "ROI_pct": 3.683381,
+        "MDD_U": 15.4,
+        "orders_per_week": 2.814516,
+        "positive_orders": 166,
+        "negative_orders": 144,
+        "zero_orders": 39,
+        "settlement_classes": {
+          "full_win": 147,
+          "push": 39,
+          "full_loss": 120,
+          "half_win": 19,
+          "half_loss": 24
+        }
+      },
+      "52": {
+        "n": 161,
+        "net_U": -3.36,
+        "ROI_pct": -2.086957,
+        "MDD_U": 9.455,
+        "orders_per_week": 1.850575,
+        "positive_orders": 72,
+        "negative_orders": 70,
+        "zero_orders": 19,
+        "settlement_classes": {
+          "full_loss": 60,
+          "full_win": 61,
+          "push": 19,
+          "half_loss": 10,
+          "half_win": 11
+        }
+      },
+      "61": {
+        "n": 170,
+        "net_U": -15.375,
+        "ROI_pct": -9.044118,
+        "MDD_U": 17.845,
+        "orders_per_week": 1.770833,
+        "positive_orders": 74,
+        "negative_orders": 87,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 74,
+          "full_win": 67,
+          "half_loss": 13,
+          "half_win": 7,
+          "push": 9
+        }
+      },
+      "62": {
+        "n": 375,
+        "net_U": -20.465,
+        "ROI_pct": -5.457333,
+        "MDD_U": 28.91,
+        "orders_per_week": 3.024194,
+        "positive_orders": 171,
+        "negative_orders": 178,
+        "zero_orders": 26,
+        "settlement_classes": {
+          "full_loss": 155,
+          "full_win": 141,
+          "half_loss": 23,
+          "half_win": 30,
+          "push": 26
+        }
+      },
+      "66": {
+        "n": 103,
+        "net_U": -1.635,
+        "ROI_pct": -1.587379,
+        "MDD_U": 10.715,
+        "orders_per_week": 1.560606,
+        "positive_orders": 47,
+        "negative_orders": 49,
+        "zero_orders": 7,
+        "settlement_classes": {
+          "full_win": 42,
+          "full_loss": 39,
+          "half_loss": 10,
+          "half_win": 5,
+          "push": 7
+        }
+      },
+      "70": {
+        "n": 106,
+        "net_U": -13.05,
+        "ROI_pct": -12.311321,
+        "MDD_U": 15.875,
+        "orders_per_week": 1.0,
+        "positive_orders": 46,
+        "negative_orders": 55,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "full_win": 40,
+          "full_loss": 51,
+          "half_loss": 4,
+          "half_win": 6,
+          "push": 5
+        }
+      },
+      "73": {
+        "n": 165,
+        "net_U": 4.05,
+        "ROI_pct": 2.454545,
+        "MDD_U": 7.61,
+        "orders_per_week": 3.928571,
+        "positive_orders": 81,
+        "negative_orders": 68,
+        "zero_orders": 16,
+        "settlement_classes": {
+          "half_win": 17,
+          "full_win": 64,
+          "half_loss": 11,
+          "full_loss": 57,
+          "push": 16
+        }
+      },
+      "75": {
+        "n": 49,
+        "net_U": -6.135,
+        "ROI_pct": -12.520408,
+        "MDD_U": 11.0,
+        "orders_per_week": 0.844828,
+        "positive_orders": 20,
+        "negative_orders": 24,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "half_win": 3,
+          "full_win": 17,
+          "full_loss": 22,
+          "push": 5,
+          "half_loss": 2
+        }
+      },
+      "88": {
+        "n": 44,
+        "net_U": -12.3,
+        "ROI_pct": -27.954545,
+        "MDD_U": 14.53,
+        "orders_per_week": 0.733333,
+        "positive_orders": 15,
+        "negative_orders": 27,
+        "zero_orders": 2,
+        "settlement_classes": {
+          "half_loss": 4,
+          "full_win": 12,
+          "full_loss": 23,
+          "half_win": 3,
+          "push": 2
+        }
+      }
+    },
+    "market_plus_referee_discipline_interaction": {
+      "1": {
+        "n": 454,
+        "net_U": -32.245,
+        "ROI_pct": -7.102423,
+        "MDD_U": 40.265,
+        "orders_per_week": 3.632,
+        "positive_orders": 205,
+        "negative_orders": 217,
+        "zero_orders": 32,
+        "settlement_classes": {
+          "full_win": 170,
+          "half_win": 35,
+          "push": 32,
+          "half_loss": 25,
+          "full_loss": 192
+        }
+      },
+      "14": {
+        "n": 600,
+        "net_U": -9.58,
+        "ROI_pct": -1.596667,
+        "MDD_U": 23.0,
+        "orders_per_week": 4.8,
+        "positive_orders": 286,
+        "negative_orders": 274,
+        "zero_orders": 40,
+        "settlement_classes": {
+          "full_win": 240,
+          "full_loss": 226,
+          "half_loss": 48,
+          "half_win": 46,
+          "push": 40
+        }
+      },
+      "16": {
+        "n": 512,
+        "net_U": -11.445,
+        "ROI_pct": -2.235352,
+        "MDD_U": 33.39,
+        "orders_per_week": 4.162602,
+        "positive_orders": 238,
+        "negative_orders": 233,
+        "zero_orders": 41,
+        "settlement_classes": {
+          "full_win": 205,
+          "full_loss": 203,
+          "half_loss": 30,
+          "push": 41,
+          "half_win": 33
+        }
+      },
+      "25": {
+        "n": 196,
+        "net_U": -40.485,
+        "ROI_pct": -20.655612,
+        "MDD_U": 40.485,
+        "orders_per_week": 1.593496,
+        "positive_orders": 78,
+        "negative_orders": 109,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 101,
+          "full_win": 62,
+          "half_loss": 8,
+          "half_win": 16,
+          "push": 9
+        }
+      },
+      "262": {
+        "n": 259,
+        "net_U": 13.79,
+        "ROI_pct": 5.324324,
+        "MDD_U": 7.245,
+        "orders_per_week": 2.176471,
+        "positive_orders": 135,
+        "negative_orders": 110,
+        "zero_orders": 14,
+        "settlement_classes": {
+          "full_loss": 94,
+          "half_win": 19,
+          "full_win": 116,
+          "half_loss": 16,
+          "push": 14
+        }
+      },
+      "26540": {
+        "n": 258,
+        "net_U": -16.89,
+        "ROI_pct": -6.546512,
+        "MDD_U": 32.365,
+        "orders_per_week": 2.715789,
+        "positive_orders": 117,
+        "negative_orders": 118,
+        "zero_orders": 23,
+        "settlement_classes": {
+          "full_win": 98,
+          "push": 23,
+          "full_loss": 102,
+          "half_win": 19,
+          "half_loss": 16
+        }
+      },
+      "29": {
+        "n": 128,
+        "net_U": -10.805,
+        "ROI_pct": -8.441406,
+        "MDD_U": 16.915,
+        "orders_per_week": 1.361702,
+        "positive_orders": 56,
+        "negative_orders": 63,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 57,
+          "full_win": 49,
+          "push": 9,
+          "half_win": 7,
+          "half_loss": 6
+        }
+      },
+      "290": {
+        "n": 87,
+        "net_U": -1.5,
+        "ROI_pct": -1.724138,
+        "MDD_U": 12.7,
+        "orders_per_week": 0.945652,
+        "positive_orders": 39,
+        "negative_orders": 37,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "full_loss": 35,
+          "full_win": 36,
+          "half_loss": 2,
+          "push": 11,
+          "half_win": 3
+        }
+      },
+      "303": {
+        "n": 128,
+        "net_U": -8.615,
+        "ROI_pct": -6.730469,
+        "MDD_U": 17.025,
+        "orders_per_week": 1.422222,
+        "positive_orders": 60,
+        "negative_orders": 60,
+        "zero_orders": 8,
+        "settlement_classes": {
+          "full_loss": 51,
+          "half_loss": 9,
+          "full_win": 47,
+          "push": 8,
+          "half_win": 13
+        }
+      },
+      "31": {
+        "n": 182,
+        "net_U": -11.24,
+        "ROI_pct": -6.175824,
+        "MDD_U": 15.68,
+        "orders_per_week": 1.610619,
+        "positive_orders": 83,
+        "negative_orders": 86,
+        "zero_orders": 13,
+        "settlement_classes": {
+          "half_loss": 10,
+          "full_win": 68,
+          "full_loss": 76,
+          "push": 13,
+          "half_win": 15
+        }
+      },
+      "319": {
+        "n": 113,
+        "net_U": -2.23,
+        "ROI_pct": -1.973451,
+        "MDD_U": 10.19,
+        "orders_per_week": 0.965812,
+        "positive_orders": 52,
+        "negative_orders": 50,
+        "zero_orders": 11,
+        "settlement_classes": {
+          "push": 11,
+          "half_win": 10,
+          "full_loss": 41,
+          "full_win": 42,
+          "half_loss": 9
+        }
+      },
+      "35": {
+        "n": 256,
+        "net_U": -5.94,
+        "ROI_pct": -2.320312,
+        "MDD_U": 20.775,
+        "orders_per_week": 2.752688,
+        "positive_orders": 120,
+        "negative_orders": 116,
+        "zero_orders": 20,
+        "settlement_classes": {
+          "full_win": 102,
+          "full_loss": 100,
+          "half_win": 18,
+          "push": 20,
+          "half_loss": 16
+        }
+      },
+      "37": {
+        "n": 255,
+        "net_U": 12.925,
+        "ROI_pct": 5.068627,
+        "MDD_U": 10.79,
+        "orders_per_week": 2.073171,
+        "positive_orders": 132,
+        "negative_orders": 111,
+        "zero_orders": 12,
+        "settlement_classes": {
+          "full_win": 116,
+          "push": 12,
+          "half_win": 16,
+          "full_loss": 92,
+          "half_loss": 19
+        }
+      },
+      "48": {
+        "n": 366,
+        "net_U": -0.03,
+        "ROI_pct": -0.008197,
+        "MDD_U": 19.805,
+        "orders_per_week": 3.773196,
+        "positive_orders": 181,
+        "negative_orders": 161,
+        "zero_orders": 24,
+        "settlement_classes": {
+          "full_win": 150,
+          "full_loss": 141,
+          "half_win": 31,
+          "push": 24,
+          "half_loss": 20
+        }
+      },
+      "51": {
+        "n": 349,
+        "net_U": 5.165,
+        "ROI_pct": 1.479943,
+        "MDD_U": 17.37,
+        "orders_per_week": 2.814516,
+        "positive_orders": 162,
+        "negative_orders": 148,
+        "zero_orders": 39,
+        "settlement_classes": {
+          "full_win": 143,
+          "push": 39,
+          "full_loss": 124,
+          "half_win": 19,
+          "half_loss": 24
+        }
+      },
+      "52": {
+        "n": 161,
+        "net_U": -7.45,
+        "ROI_pct": -4.627329,
+        "MDD_U": 10.575,
+        "orders_per_week": 1.850575,
+        "positive_orders": 70,
+        "negative_orders": 72,
+        "zero_orders": 19,
+        "settlement_classes": {
+          "full_loss": 62,
+          "full_win": 59,
+          "push": 19,
+          "half_loss": 10,
+          "half_win": 11
+        }
+      },
+      "61": {
+        "n": 170,
+        "net_U": -8.42,
+        "ROI_pct": -4.952941,
+        "MDD_U": 14.83,
+        "orders_per_week": 1.770833,
+        "positive_orders": 78,
+        "negative_orders": 83,
+        "zero_orders": 9,
+        "settlement_classes": {
+          "full_loss": 71,
+          "full_win": 70,
+          "half_loss": 12,
+          "half_win": 8,
+          "push": 9
+        }
+      },
+      "62": {
+        "n": 375,
+        "net_U": -16.415,
+        "ROI_pct": -4.377333,
+        "MDD_U": 24.86,
+        "orders_per_week": 3.024194,
+        "positive_orders": 173,
+        "negative_orders": 176,
+        "zero_orders": 26,
+        "settlement_classes": {
+          "full_loss": 153,
+          "full_win": 143,
+          "half_loss": 23,
+          "half_win": 30,
+          "push": 26
+        }
+      },
+      "66": {
+        "n": 103,
+        "net_U": -0.7,
+        "ROI_pct": -0.679612,
+        "MDD_U": 10.715,
+        "orders_per_week": 1.560606,
+        "positive_orders": 48,
+        "negative_orders": 48,
+        "zero_orders": 7,
+        "settlement_classes": {
+          "full_win": 42,
+          "full_loss": 39,
+          "half_loss": 9,
+          "half_win": 6,
+          "push": 7
+        }
+      },
+      "70": {
+        "n": 106,
+        "net_U": -10.99,
+        "ROI_pct": -10.367925,
+        "MDD_U": 14.715,
+        "orders_per_week": 1.0,
+        "positive_orders": 47,
+        "negative_orders": 54,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "full_win": 41,
+          "full_loss": 50,
+          "half_loss": 4,
+          "half_win": 6,
+          "push": 5
+        }
+      },
+      "73": {
+        "n": 165,
+        "net_U": 0.18,
+        "ROI_pct": 0.109091,
+        "MDD_U": 8.095,
+        "orders_per_week": 3.928571,
+        "positive_orders": 79,
+        "negative_orders": 70,
+        "zero_orders": 16,
+        "settlement_classes": {
+          "half_win": 17,
+          "full_win": 62,
+          "half_loss": 11,
+          "full_loss": 59,
+          "push": 16
+        }
+      },
+      "75": {
+        "n": 49,
+        "net_U": -4.095,
+        "ROI_pct": -8.357143,
+        "MDD_U": 8.96,
+        "orders_per_week": 0.844828,
+        "positive_orders": 21,
+        "negative_orders": 23,
+        "zero_orders": 5,
+        "settlement_classes": {
+          "half_win": 3,
+          "full_win": 18,
+          "full_loss": 21,
+          "push": 5,
+          "half_loss": 2
+        }
+      },
+      "88": {
+        "n": 44,
+        "net_U": -12.3,
+        "ROI_pct": -27.954545,
+        "MDD_U": 14.53,
+        "orders_per_week": 0.733333,
+        "positive_orders": 15,
+        "negative_orders": 27,
+        "zero_orders": 2,
+        "settlement_classes": {
+          "half_loss": 4,
+          "full_win": 12,
+          "full_loss": 23,
+          "half_win": 3,
+          "push": 2
+        }
+      }
+    }
+  },
+  "frozen_plus_candidate_same_period": {
+    "market_only": {
+      "n": 11271,
+      "net_U": -78.505,
+      "ROI_pct": -0.696522,
+      "MDD_U": 128.65,
+      "candidate_incremental_net_U": -242.59,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 5955,
+      "baseline_net_U": 164.085,
+      "avg_candidate_orders_per_week": 40.272727
+    },
+    "discipline_only": {
+      "n": 11271,
+      "net_U": 174.84,
+      "ROI_pct": 1.551238,
+      "MDD_U": 84.09,
+      "candidate_incremental_net_U": 10.755,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 5955,
+      "baseline_net_U": 164.085,
+      "avg_candidate_orders_per_week": 40.272727
+    },
+    "market_plus_discipline": {
+      "n": 11271,
+      "net_U": 26.195,
+      "ROI_pct": 0.232411,
+      "MDD_U": 88.585,
+      "candidate_incremental_net_U": -137.89,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 5955,
+      "baseline_net_U": 164.085,
+      "avg_candidate_orders_per_week": 40.272727
+    },
+    "market_plus_referee": {
+      "n": 11271,
+      "net_U": -21.26,
+      "ROI_pct": -0.188626,
+      "MDD_U": 107.08,
+      "candidate_incremental_net_U": -185.345,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 5955,
+      "baseline_net_U": 164.085,
+      "avg_candidate_orders_per_week": 40.272727
+    },
+    "market_plus_referee_discipline_additive": {
+      "n": 11271,
+      "net_U": -19.45,
+      "ROI_pct": -0.172567,
+      "MDD_U": 86.485,
+      "candidate_incremental_net_U": -183.535,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 5955,
+      "baseline_net_U": 164.085,
+      "avg_candidate_orders_per_week": 40.272727
+    },
+    "market_plus_referee_discipline_interaction": {
+      "n": 11271,
+      "net_U": -15.23,
+      "ROI_pct": -0.135126,
+      "MDD_U": 96.235,
+      "candidate_incremental_net_U": -179.315,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 5955,
+      "baseline_net_U": 164.085,
+      "avg_candidate_orders_per_week": 40.272727
+    }
+  },
+  "frozen_plus_candidate_full_frozen_union": {
+    "market_only": {
+      "n": 15610,
+      "net_U": -6.575,
+      "ROI_pct": -0.04212,
+      "MDD_U": 133.515,
+      "candidate_incremental_net_U": -242.59,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 10294,
+      "baseline_net_U": 236.015,
+      "avg_candidate_orders_per_week": 40.272727
+    },
+    "discipline_only": {
+      "n": 15610,
+      "net_U": 246.77,
+      "ROI_pct": 1.580846,
+      "MDD_U": 84.09,
+      "candidate_incremental_net_U": 10.755,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 10294,
+      "baseline_net_U": 236.015,
+      "avg_candidate_orders_per_week": 40.272727
+    },
+    "market_plus_discipline": {
+      "n": 15610,
+      "net_U": 98.125,
+      "ROI_pct": 0.628603,
+      "MDD_U": 88.585,
+      "candidate_incremental_net_U": -137.89,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 10294,
+      "baseline_net_U": 236.015,
+      "avg_candidate_orders_per_week": 40.272727
+    },
+    "market_plus_referee": {
+      "n": 15610,
+      "net_U": 50.67,
+      "ROI_pct": 0.3246,
+      "MDD_U": 111.085,
+      "candidate_incremental_net_U": -185.345,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 10294,
+      "baseline_net_U": 236.015,
+      "avg_candidate_orders_per_week": 40.272727
+    },
+    "market_plus_referee_discipline_additive": {
+      "n": 15610,
+      "net_U": 52.48,
+      "ROI_pct": 0.336195,
+      "MDD_U": 89.715,
+      "candidate_incremental_net_U": -183.535,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 10294,
+      "baseline_net_U": 236.015,
+      "avg_candidate_orders_per_week": 40.272727
+    },
+    "market_plus_referee_discipline_interaction": {
+      "n": 15610,
+      "net_U": 56.7,
+      "ROI_pct": 0.363229,
+      "MDD_U": 98.665,
+      "candidate_incremental_net_U": -179.315,
+      "candidate_incremental_n": 5316,
+      "baseline_n": 10294,
+      "baseline_net_U": 236.015,
+      "avg_candidate_orders_per_week": 40.272727
+    }
+  },
+  "pairwise_candidate_fid_overlap": {
+    "market_only": {
+      "market_only": 6847,
+      "discipline_only": 6847,
+      "market_plus_discipline": 6847,
+      "market_plus_referee": 6847,
+      "market_plus_referee_discipline_additive": 6847,
+      "market_plus_referee_discipline_interaction": 6847
+    },
+    "discipline_only": {
+      "market_only": 6847,
+      "discipline_only": 6847,
+      "market_plus_discipline": 6847,
+      "market_plus_referee": 6847,
+      "market_plus_referee_discipline_additive": 6847,
+      "market_plus_referee_discipline_interaction": 6847
+    },
+    "market_plus_discipline": {
+      "market_only": 6847,
+      "discipline_only": 6847,
+      "market_plus_discipline": 6847,
+      "market_plus_referee": 6847,
+      "market_plus_referee_discipline_additive": 6847,
+      "market_plus_referee_discipline_interaction": 6847
+    },
+    "market_plus_referee": {
+      "market_only": 6847,
+      "discipline_only": 6847,
+      "market_plus_discipline": 6847,
+      "market_plus_referee": 6847,
+      "market_plus_referee_discipline_additive": 6847,
+      "market_plus_referee_discipline_interaction": 6847
+    },
+    "market_plus_referee_discipline_additive": {
+      "market_only": 6847,
+      "discipline_only": 6847,
+      "market_plus_discipline": 6847,
+      "market_plus_referee": 6847,
+      "market_plus_referee_discipline_additive": 6847,
+      "market_plus_referee_discipline_interaction": 6847
+    },
+    "market_plus_referee_discipline_interaction": {
+      "market_only": 6847,
+      "discipline_only": 6847,
+      "market_plus_discipline": 6847,
+      "market_plus_referee": 6847,
+      "market_plus_referee_discipline_additive": 6847,
+      "market_plus_referee_discipline_interaction": 6847
+    }
+  },
+  "formal_orders": 0,
+  "formal_ledger_writes": 0,
+  "production_changes": false
+}
