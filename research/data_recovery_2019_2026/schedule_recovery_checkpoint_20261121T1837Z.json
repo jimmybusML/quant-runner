@@ -1,0 +1,60 @@
+{
+  "generated_at_utc": "2026-11-21T18:37:55.883203Z",
+  "branch": "data/history-backfill-2019-2026",
+  "git_parent_head": "1c739d2d31073b15584b5189eaccdf2a1c698d3c",
+  "collector": {
+    "pid": 65966,
+    "exec_session": 29157,
+    "observed_running": true,
+    "network_requests": 752,
+    "completed_target_count": 14,
+    "completed_league_ids": [
+      "2",
+      "90",
+      "119",
+      "227",
+      "417",
+      "571",
+      "877",
+      "911",
+      "957",
+      "9115",
+      "11260",
+      "11559",
+      "26528",
+      "26825"
+    ],
+    "active_targets": [
+      {
+        "provider_league_id": "10635",
+        "league_name": "Faroe Islands Div 1",
+        "pages_read": 13,
+        "reported_pages": 15,
+        "new_fids": 390,
+        "failed_pages": []
+      }
+    ],
+    "loaded_start_manifest_sha256": "9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9",
+    "current_queued_manifest_sha256": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
+  },
+  "completed_target_coverage": {
+    "unique_schedule_fids": 21663,
+    "verified_full_ft_fids": 20129,
+    "unverified_or_nonfull_fids": 1534,
+    "sha_verified_raw_pages": 728,
+    "sha_verified_source_record_rows": 21663,
+    "source_record_errors": {},
+    "season_field_missing_fids": 21663,
+    "local_crown_capture_fids": 0,
+    "local_crown_ah_quote_fids": 0
+  },
+  "private_input_sha256": {
+    "progress": "f554400acb4468c45f50505c9186379008e0ab10a84c5cdc1d8114998010ce48",
+    "append_only_fixture_ledger": "16e60f27ef4924e241e8ee7e01e7e2737901bc6081d383ee17fbc5caa9d64f99",
+    "append_only_request_log": "075b1a369565b661eb8755c996b3782db5aff90a4b6e30211e29138da9730693",
+    "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
+  },
+  "coverage_script_sha256": "45dcb43c03a9fe9fa260e3359900a1082d08c6bae431e0978350c6515e43aefd",
+  "coverage_output_sha256": "486baafb5f9a1d6da362ba1a77bc3adeab4af48ad820755c195a565b8a93a2a4",
+  "next_actions": "Continue loaded schedule batch, then process exact-page supplemental IDs, consolidate source rows, rebuild full inventory and FT/Crown gap queues; no modeling or strategy analysis."
+}

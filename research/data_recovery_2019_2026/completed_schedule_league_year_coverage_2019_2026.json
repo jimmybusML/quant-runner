@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-11-21T18:30:20.040835Z",
+  "generated_at_utc": "2026-11-21T18:37:29.672706Z",
   "scope_note": "Only targets marked pagination-complete in the live progress file are included; ongoing targets and queued IDs are not represented as complete.",
   "target_count_in_current_file": 38,
-  "completed_target_count": 13,
+  "completed_target_count": 14,
   "completed_target_leagues": [
     {
       "provider_league_id": "2",
@@ -77,6 +77,15 @@
       "failed_pages": []
     },
     {
+      "provider_league_id": "957",
+      "league_name": "Estonia Esiliiga",
+      "unique_2019_2026_fids": 1308,
+      "pages_read": 45,
+      "reported_pages": 68,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
       "provider_league_id": "9115",
       "league_name": "Czechia 2. Liga",
       "unique_2019_2026_fids": 1906,
@@ -122,18 +131,18 @@
       "failed_pages": []
     }
   ],
-  "unique_schedule_fids": 20355,
-  "league_fid_pairs": 20355,
+  "unique_schedule_fids": 21663,
+  "league_fid_pairs": 21663,
   "cross_league_fid_collision_count": 0,
   "cross_year_same_league_fid_conflict_count": 0,
   "ambiguous_fid_league_year_keys": [],
-  "verified_full_ft_fids": 18890,
-  "unverified_or_nonfull_fids": 1465,
+  "verified_full_ft_fids": 20129,
+  "unverified_or_nonfull_fids": 1534,
   "identity_version_conflict_count": 0,
   "identity_version_conflicts": [],
   "raw_source_page_audit": {
-    "distinct_referenced_pages": 684,
-    "source_record_rows_sha_verified": 20355,
+    "distinct_referenced_pages": 728,
+    "source_record_rows_sha_verified": 21663,
     "errors": {},
     "season_field_source": "exact row in SHA-verified TotalCorner schedule page raw response"
   },
@@ -2849,6 +2858,316 @@
       "live_capture_fids": 0
     },
     {
+      "provider_league_id": "957",
+      "provider_league_name": "Estonia Esiliiga",
+      "utc_year": "2019",
+      "unique_schedule_fids": 177,
+      "verified_full_ft_fids": 175,
+      "unverified_or_nonfull_fids": 2,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 175,
+        "11": 1,
+        "MISSING_STATUS": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 177
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "0380320a60d3850194ea5e358c8618b6f260df4ddac10e5236780287b5173761",
+        "3c2eb0d107df6e3c6b186cb5bac3ba3b2b40945f18c62ddfa079b5dcbff51afd",
+        "409afc1e6a9491d27171f2381d6d6932c4869b6a3f9575aa29fd6bb38915edc8",
+        "49fe754303dd49bf55158f8b6b9f52183b3ee1458e95b3ea4cccf43883bfb782",
+        "6fae0f8d5d4aa720ad5884b90ec542ad0fe8ff1e54fdb8120124227390a70323",
+        "80066692b0339f475cc0a20f88851aab63a2e987a2ba63b0a4e24d2a86181bc4",
+        "9861dc13361d958ae7c1b831bf3713f58ccf2f19a778481a5232b5dbafb4d65f"
+      ],
+      "source_record_versions": 177,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "957",
+      "provider_league_name": "Estonia Esiliiga",
+      "utc_year": "2020",
+      "unique_schedule_fids": 156,
+      "verified_full_ft_fids": 147,
+      "unverified_or_nonfull_fids": 9,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 147,
+        "MISSING_STATUS": 7,
+        "71": 2
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 156
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "0b4fa07814069c22ad18e21a035473af549b98098ccec377111963a4850f6570",
+        "3c2eb0d107df6e3c6b186cb5bac3ba3b2b40945f18c62ddfa079b5dcbff51afd",
+        "3d6d1b487c494ed3bf6b2ef3ea857ed0e448b946b277b4e4949de070f6a35236",
+        "786e29d7c96c48833a6aba4ddbf7eb96c19690126ef3feeddf0b5617ff4f5351",
+        "a4d8da77026675997161ee8af39242aa2e2a5fb3f4aefca498ded4359006583e",
+        "c659690cedc5970fb9c6e314ac19f4c1f23c1d2a89cf19cc692d3ed51f1974d1"
+      ],
+      "source_record_versions": 156,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "957",
+      "provider_league_name": "Estonia Esiliiga",
+      "utc_year": "2021",
+      "unique_schedule_fids": 145,
+      "verified_full_ft_fids": 125,
+      "unverified_or_nonfull_fids": 20,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 125,
+        "MISSING_STATUS": 20
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 145
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "0b4fa07814069c22ad18e21a035473af549b98098ccec377111963a4850f6570",
+        "0f2137ee10482d60e44098113abce05cf800c18677e6cdd41469c96d2424114c",
+        "d0620d41d35f180352e27f17ce4e314e5adf14427905e506e107d81bef2365fb",
+        "da7c79091b41b8dfdd362c14f8e17d92b1f05f930a9c549217fb0e80e37da203",
+        "fbff2191c0aaf1b1912a3b0064e9c6f9ac29fb099307841b2c3acec42c210368",
+        "ff582a9b286c460c47395f0660bff9c09a42b1dbf4de20a102131f307fad0146"
+      ],
+      "source_record_versions": 145,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "957",
+      "provider_league_name": "Estonia Esiliiga",
+      "utc_year": "2022",
+      "unique_schedule_fids": 183,
+      "verified_full_ft_fids": 158,
+      "unverified_or_nonfull_fids": 25,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 23,
+        "full": 158,
+        "45": 1,
+        "half": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 183
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "017ae8b42335e5ce231742b0b7f3ed0afe5071feb0654dfed8698b4d0eca7b30",
+        "0f2137ee10482d60e44098113abce05cf800c18677e6cdd41469c96d2424114c",
+        "49913bc8cbe24cc6f3d0112b0ecdc1aba19b253a8cde681e96d547dbf2e4b54a",
+        "718011ace32a2b1c268d9b038c155aa584a6346935daa66e6a6725c8052538fb",
+        "ce0fbec07df17ea3a141b9a636bea624d62c7205e4e6c636992a1c8b38a00ead",
+        "f87c9927f9dd7431e552913026108edee86471689ed04703642ac47e5498e28f",
+        "f960195cec1c31ad482143c1000e909c29d54d34954babe62d562267f9d20019"
+      ],
+      "source_record_versions": 183,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "957",
+      "provider_league_name": "Estonia Esiliiga",
+      "utc_year": "2023",
+      "unique_schedule_fids": 177,
+      "verified_full_ft_fids": 168,
+      "unverified_or_nonfull_fids": 9,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 168,
+        "MISSING_STATUS": 9
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 177
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "0848e8d7c564c7a2a96f85e5fd485d75a7354d9d94e287c37d953f6852e4dabb",
+        "10be78b5cc0f92d74f4bb6c85eb6fcccc7fb7572dc357f84e5385fd8a50f7725",
+        "255c56a1ae55c55514afdd05c38c4f339a46b5741605a1a3afdc79c097c6a5c7",
+        "2db7b014bac940b5f0f32a19eb6f7db9d12a808d502c2f0ef3ae305270203141",
+        "410bac90e45067381a4ff341d731bd6b1dea64dd82fce4f291204b6e50a841db",
+        "9420bce82d099d4776ea53fa7a03f138a97161d56fea4233d205af1a071d301f",
+        "f87c9927f9dd7431e552913026108edee86471689ed04703642ac47e5498e28f"
+      ],
+      "source_record_versions": 177,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "957",
+      "provider_league_name": "Estonia Esiliiga",
+      "utc_year": "2024",
+      "unique_schedule_fids": 159,
+      "verified_full_ft_fids": 159,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 159
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 159
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "15788833e56816f9df180af92d06e0478885857da8d50702346f53eaab10c4cb",
+        "410bac90e45067381a4ff341d731bd6b1dea64dd82fce4f291204b6e50a841db",
+        "505f0c00d4fbc2dbea50c9c7dd2e066da89752550d8bc524c04d79740872c19f",
+        "93f8e4b9bb8a7252eb73ee7ab888b524ac14208c72c9121bedef30d358d0ab45",
+        "a7bdaa8ffc1e7e9baac46ebfbd155aaba034ccf71e98353343e529773cd8d997",
+        "b604d93d2b0995d0d9c72686712185ecac2d3cac2d67031e0eb5c3508dd128d1"
+      ],
+      "source_record_versions": 159,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "957",
+      "provider_league_name": "Estonia Esiliiga",
+      "utc_year": "2025",
+      "unique_schedule_fids": 149,
+      "verified_full_ft_fids": 149,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 149
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 149
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "15788833e56816f9df180af92d06e0478885857da8d50702346f53eaab10c4cb",
+        "26203adb8bb55dfa209ac0a8234dbb5bd1079e417dd63b0da7efbda0d77b1c56",
+        "96de0a8ae8087cc228e9d30fc3c1a4502a17fdf09f762f7ce770c5a631100d7f",
+        "ba12d50ad652ad62b28e001eff698229e00aa5aea22c09c3782cfa96d42b6b66",
+        "de6cd7c34445db8dd81f864f27a9bb1bf217b5855b508951376c58b6ab2633ea",
+        "f94c04646e570222c02df922cdfb55b88f93b48d646e49e0df396b7f5537cc3b"
+      ],
+      "source_record_versions": 149,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "957",
+      "provider_league_name": "Estonia Esiliiga",
+      "utc_year": "2026",
+      "unique_schedule_fids": 162,
+      "verified_full_ft_fids": 158,
+      "unverified_or_nonfull_fids": 4,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 158,
+        "MISSING_STATUS": 3,
+        "81": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 162
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "1b4fd1a3770dccbe38b2bb670b5fcb29c8140a62a44bc582a728c0bd72213f2f",
+        "23609cac2eda84dbac29a9bde6d02f8ab53be4306e19b69494e6174c05f62ffc",
+        "26203adb8bb55dfa209ac0a8234dbb5bd1079e417dd63b0da7efbda0d77b1c56",
+        "53fded338c210ba3dcd560e247241d75522ad4671ff75738dac4201cdd1de42e",
+        "92405898adb05d94b61c4ca369311f5a4dfd1bf8cb492f573539315ab2b21581",
+        "a318459e82152ed3b6e08de795b0fd6e241e8a5eab3d010ef3c736eabfdacb31"
+      ],
+      "source_record_versions": 162,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
       "provider_league_id": "9115",
       "provider_league_name": "Czechia 2. Liga",
       "utc_year": "2019",
@@ -4356,9 +4675,9 @@
   ],
   "zero_year_bucket_note": "A zero schedule count means no FID was present in the currently verified source rows for that completed provider pagination; it does not prove no competition season or unindexed source exists.",
   "input_sha256": {
-    "progress": "56925bdbad2a8013f85032e4f46042c426672786fe26e2a366e57c45cf2275ae",
-    "append_only_fixture_ledger": "f1572f3aceacf8b6dac8595bac053f5f60705d84f1e14e50255b46ebdf98941b",
-    "append_only_request_log": "f5ef166fb3173d7d62d90d8b26988ea3ec18ae4dc9ebb73140f1c0007dc48d58",
+    "progress": "f554400acb4468c45f50505c9186379008e0ab10a84c5cdc1d8114998010ce48",
+    "append_only_fixture_ledger": "16e60f27ef4924e241e8ee7e01e7e2737901bc6081d383ee17fbc5caa9d64f99",
+    "append_only_request_log": "075b1a369565b661eb8755c996b3782db5aff90a4b6e30211e29138da9730693",
     "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
   }
 }

@@ -5212,3 +5212,10 @@
 - England Championship（ID 2）完成150页并纳入覆盖；TotalCorner采集器PID 65966 / session 29157仍在处理既定35项批次，转到Estonia Esiliiga（ID 957）第13/68页；累计707次请求，无失败页。仍待随后处理剩余目标和排队38项清单中的10653、702、114。
 - 重跑SHA绑定覆盖审计后，13个已完成联赛共20,355个唯一FID，其中18,890个`status=full`且FT为数字，1,465个缺失/非full；684个原始响应页和20,355条逐场源记录SHA全部通过，源记录身份冲突0。赛季字段仍为20,355/20,355缺失。只读Crown SQLite对应FID仍为历史capture 0、AH报价0；这不表示源端无报价。按UTC年和联赛拆分见`completed_schedule_league_year_coverage_2019_2026.json`。
 - 新检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1830Z.json` SHA256 `01fc6aba52ba8e61af4f35aaf076f3f597060ab83e3c2fbe5bcaadbf0d1f547b`。这只是已完成13个目标的阶段矩阵，不代表所有联赛、年份、FT或Crown盘口已补齐。
+
+
+### 2026-11-21 18:37 UTC：14个完成联赛的赛程与FT覆盖更新
+
+- Estonia Esiliiga（ID 957）已完成45页、1,308个FID，无失败页。TotalCorner进程PID 65966 / session 29157继续首批35项输入，当前处理Faroe Islands Div 1（ID 10635）第13/15页；累计752次请求，14个联赛分页完成。38项排队清单内ID 10653、702、114仍待后续续跑。
+- 14个完成联赛的2019–2026逐UTC年矩阵共21,663个唯一FID；20,129场为`status=full`且比分为数字，1,534场为缺失/非full状态。728个SHA验证原始响应页与21,663条源记录均通过，身份版本冲突0。21,663场的原始赛程行无season字段，保留为缺失；对应Crown SQLite capture和AH报价仍为0。逐年及联赛年明细写入覆盖JSON；不能把非full统一等同失败FT。
+- 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1837Z.json` SHA256 `e0fc4e1b5ed2ff8a8f1eb988490e8faee572b4c14e1d1459ebf14dab06943956`。这是进行中的阶段审计；未合并全部赛程库存，未启动Crown回填。
