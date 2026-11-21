@@ -96,3 +96,15 @@ The detailed per-page SHA/date audit is in `cached_schedule_page_continuity_2019
 - Completed schedule subset is now 7,353 FIDs across seven finished provider leagues. A read-only lookup found 0 corresponding SQLite captures, 0 Asian quote rows, and 0 files in the collector's own historical raw cache or the two supported legacy response directories. The database main-file SHA matched the prior inventory snapshot (`292ccb…d298`). The upcoming batch therefore requires source requests for any rows not recovered from another cache, while preserving actual no-quote and failed-response statuses separately.
 - Added `build_recovered_fixture_manifest.py` to emit deduplicated `match_id` inputs with fixture identity and TotalCorner page/response SHA provenance. Extended `safe_window_collection_driver.py` to select `summary` or `movement` separately and retain the collector's default 5.2-second pacing and scheduled-job guard. Failed IDs are retained in collector logs for a later explicit retry pass; no unbounded automatic retry loop is used.
 - These utilities have not yet been used to issue Crown requests. The TotalCorner schedule pager remains active; current checkpoint is in `schedule_recovery_checkpoint_20261121T1718Z.json`.
+
+## 2019–2022 audit of the three example leagues — 2026-11-21 17:24 UTC
+
+The existing inventory already contains schedules for IDs 51, 61, and 10480 in 2019–2022. Across those 12 league-year rows it has 2,594 FIDs, 2,513 verified full-time scores, and 81 unverified results. There are 2,251 historical movement captures, all explicitly `NO_CROWN_AH_QUOTES`; summary quote coverage and movement quote rows are both zero. Another 343 FIDs lack a movement capture, with one recorded failed attempt. These are Crown price gaps, not absent schedules. Full row-level aggregates and the source CSV SHA are in `known_2019_2022_league_gap_audit.json`.
+
+## Schedule pager checkpoint — 2026-11-21 17:24 UTC
+
+The active 35-target run has 305 successful page requests and 8,898 newly discovered FIDs: eight leagues are complete (8,238 FIDs), and Cyprus Division 2 (571) is at page 22/56 (660 rows so far). For all eight completed leagues, a read-only cross-reference found no corresponding Crown SQLite capture, quote row, or supported local raw file. Checkpoint provenance is in `schedule_recovery_checkpoint_20261121T1724Z.json`.
+
+## Current schedule and Crown backlog checkpoint — 2026-11-21 17:26 UTC
+
+The live schedule run is at 321 successful page requests / 9,378 new FIDs. Eight of 35 targets are complete (8,238 FIDs); Cyprus Division 2 ID 571 is at page 38/56, with 1,140 partial rows. The previous reconciled 141,623-FID inventory has 38,927 FIDs without a historical movement capture and 91,423 without a historical summary capture; these baselines will be rebuilt after new schedules merge. The 35-target process remains active, and the 3 supplemental exact-page IDs remain queued. Details and hashes: `schedule_recovery_checkpoint_20261121T1726Z.json`.

@@ -5153,3 +5153,20 @@
 - 对7,353个已完赛程FID进行只读Crown交叉核对：SQLite capture 0、asian_quote行0、官方历史raw目录及两个支持的legacy目录文件0。核查时主库SHA与已审计快照一致：`292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`。这表示本地缓存未覆盖，不能断言TotalCorner API没有历史盘口；还未对这些FID启动Crown请求。
 - 新增 `build_recovered_fixture_manifest.py`，从完成后的规范赛程ledger构造含FID、球队、开赛时间及赛程页SHA的`match_id`输入；扩展研究用 `safe_window_collection_driver.py` 可分别跑 `summary`/`movement`，继续采用现有historical collector和默认5.2秒请求间隔，并等候现有赛果任务空闲。请求失败会留在追加日志，供独立后续重试；本轮不自动无限重试。以上为采集辅助代码，尚未实际请求Crown。
 - 17:18 UTC可复核快照：`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1718Z.json`。赛程批次完成后再生成Crown输入、分层抓取并复核完整覆盖。
+
+### 2026-11-21 17:24 UTC：核实三个示例联赛的早年缺口类型
+
+- 只读分析既有逐联赛逐年覆盖表，ID 51、61、10480在2019–2022已具备2,594个赛程FID，其中2,513个有可信FT、81个未核验。2,251场有历史Crown movement capture，但状态都是显式`NO_CROWN_AH_QUOTES`；这12个联赛年桶的movement报价行和summary报价均为0。另343场没有movement capture，记录1次失败尝试。
+- 因此这三个例子在该期间的主要已核实缺口是Crown AH报价，而非赛程没有采集。逐年数量、状态及源CSV SHA见 `research/data_recovery_2019_2026/known_2019_2022_league_gap_audit.json`（SHA256 `992f850c09f08d73e9fe440abd47d84fcab21c82aa03f9327eecfa4f6198257b`）。当前剩余343场将纳入后续按历史层缺失情况生成的重试/采集清单；显式无报价结果会保留，不会被计作已获取盘口。
+
+### 2026-11-21 17:24 UTC：赛程补采继续及新FID缓存交叉核查
+
+- 活动35项原始目标采集器PID 65966已成功完成305页请求，累计新发现8,898个FID。8个联赛完成共8,238场（ID 119、227、877、911、11260、11559、26528、26825）；Cyprus Division 2（571）第22/56页，新增660场，未见失败页。
+- 对8,238个已完成联赛的FID只读检查Crown SQLite及采集器支持的三个本地历史/legacy raw目录：capture FID、报价FID、raw cache FID均为0。Crown主库SHA已现场重算为 `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`。尚未请求Crown；这些数据待后续按summary/movement分层使用现有采集器回填。
+- 详细进度与ledger/目标哈希见 `research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1724Z.json`。35项仍在采集中，另外3个精确页面核实的ID仍排队；总体历史覆盖未完成。
+
+### 2026-11-21 17:26 UTC：赛程及两种历史Crown层待补量更新
+
+- TotalCorner原35项分页进程PID 65966累计321次成功分页、9,378个新FID；8项完成8,238场，ID 571 Cyprus Division 2正在38/56页、已增1,140场。当前没有宣布整批完成。
+- 从最新已提交的141,623场库存快照读取到历史层缺口：movement层已有102,696个FID采集，缺历史movement capture 38,927场；summary层已有50,200个历史capture，缺91,423场。这两个数量是旧库存基线，必须在新赛程合并后重建。两种层保持分开，实际抓取尚未启动。
+- 最新进度、ledger和38项续跑目标哈希见 `research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1726Z.json`。完成目标后将把新增赛程并入全源库存，再按层生成和运行历史Crown采集清单。
