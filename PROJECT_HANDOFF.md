@@ -5395,3 +5395,17 @@
 - 可复跑脚本`research/data_recovery_2019_2026/reconcile_53_league_schedule_union_20261122.py`；覆盖/来源/哈希清单为`research/data_recovery_2019_2026/schedule_union_53_leagues_reconciliation_20261122.json`。输入、输出及本次更新后的覆盖表SHA见`research/data_recovery_2019_2026/CHECKPOINT_SHA256_20261121T2336Z.txt`；合并库存SHA256 `4a14fc8556a5e39d0fec4f8eb5a54f1aca45534f92472029517ef1730ab6`，脚本SHA256 `5eb6426a5931fa13cfdcf717991ef60517c5241411640ca4d520af2a820457c6`，汇总SHA256 `55cff504877eb1b5fcd969ad8a8165799df44668001957966b9318642c8a55ad`。
 - 以只读方式复核Crown SQLite当前SHA `f5ff99470eeba04b9b5b1c63195ca14af3f766e1868ad3b1675ad0dfdbcabf7c`及capture/quote计数，与覆盖汇总文件在23:31 UTC生成的快照一致。期间未发起网络请求、未写SQLite、未跑策略/模型/回测。基础汇总及年度/赛季CSV因先前16个有终态历史movement响应而更新，保留并入本批提交。
 - 全联赛历史恢复仍未完成：该并集只纳入已审计53联赛赛程批次，不代表其余联赛/赛季已经全部发现，也未补齐4,051条新增赛果缺口或全部Crown报价；本次不宣称完整覆盖。
+
+### 2026-11-21 23:42 UTC：全局FT缺口队列扩展到203,962个FID
+
+- 在53联赛并集库存上按现有覆盖审计口径重算FT状态：193,005个唯一FID至少有一项已核实的完整FT来源，10,957个仍无完整FT来源。新增53批里的4,051条未核实/非full记录已纳入全局缺口队列；另外原库存中原有未核实项也全部保留。
+- 生成`unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz`，共10,957个唯一FID；每行保留可见的赛程/来源状态证据及缺失原因，没有以盘口、比分推测或未来资料填补。按FID与汇总队列数量复核一致，未发现重复FID。
+- 当前可复跑脚本、库存、缺口队列及覆盖汇总的权威哈希见`research/data_recovery_2019_2026/CHECKPOINT_SHA256_20261121T2342Z.txt`。上一检查点`CHECKPOINT_SHA256_20261121T2336Z.txt`记录的是尚未输出全局FT队列的前版脚本与汇总，不再作为当前脚本SHA引用。
+- 本轮继续没有发出TotalCorner/Crown网络请求，也没有写SQLite。结算进程需停止后才能按互斥规则恢复Crown历史队列；其余provider联赛/赛季发现、全部FT缺口以及完整Crown时间序列仍未完成。
+
+### 2026-11-21 23:44 UTC：Crown历史movement安全续采已恢复
+
+- 复核`/Users/mac/QuantAsiaDesk/AGENTS.md`与`docs/CROWN盘口采集方案.md`，继续使用既有`crown_capture_store.py`统一缓存、区分盘口事件时间/实际接收时间、标记`historical`的办法；未调整采集脚本、速率或请求行为。
+- 当时未发现TotalCorner、结算、MR1或其它Crown collector运行进程后，重启既有安全等待驱动PID 56067。它从原movement manifest（SHA `5e24fc27dba4047f52d4a40bef74b50a0dc13694194ecf150f437bc26147d79a`）按追加日志排除16个已有终态FID，生成恢复清单1（SHA `e4fc61261c2fa99b4142263302968fbb47f2365b7af3b08ddc38e4815331da56`），余下101,250个FID；随后启动原采集器PID 56113。日志新增`SAVED` FID `191846696`，共1个FID、192条AH quote；仍在运行中的批次不能据此宣称完成。
+- 本次可复跑并集库存与FT缺口数据哈希见`research/data_recovery_2019_2026/CHECKPOINT_SHA256_20261121T2344Z.txt`。该清单中的Crown数据库SHA是采集恢复前快照；采集过程中数据库会继续变化，应在驱动终止或队列阶段暂停后再更新覆盖快照。
+- 当前只启动历史数据采集，没有正式模型、Telegram、订单或账本操作；全局联赛与赛季发现、10,957场FT缺口、剩余Crown movement/summary报价仍未完成。

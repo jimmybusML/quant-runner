@@ -18,6 +18,7 @@ BASE = ROOT / "fixture_inventory_2019_2026.jsonl.gz"
 SUPP = ROOT / "supplemental_totalcorner_schedules_53leagues_2019_2026.jsonl.gz"
 OUT = ROOT / "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz"
 SUMMARY = ROOT / "schedule_union_53_leagues_reconciliation_20261122.json"
+UNVERIFIED = ROOT / "unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz"
 UTC = dt.timezone.utc
 
 
@@ -180,6 +181,24 @@ def main():
     if persisted != len(existing) or len(seen) != len(existing):
         raise SystemExit("persisted inventory count mismatch")
     merged_verified_ft = sum(has_verified_ft(row) for row in existing.values())
+    unverified_by_league_year = collections.defaultdict(collections.Counter)
+    unverified_count = 0
+    with UNVERIFIED.open("wb") as raw:
+        with gzip.GzipFile(fileobj=raw, mode="wb", mtime=0) as gz:
+            for fid in sorted(existing, key=lambda z: (existing[z].get("provider_league_id", ""), existing[z].get("year") or 9999, z)):
+                row = existing[fid]
+                if has_verified_ft(row):
+                    continue
+                unverified_count += 1
+                sources = []
+                for key in ("totalcorner_page_records", "m1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records"):
+                    for x in row.get(key, []):
+                        sources.append({k: x.get(k) for k in ("status", "home_goals", "away_goals", "kickoff_utc", "provider_league_id", "league_name", "source_file", "page_file", "source_response_sha256", "source_record_sha256") if k in x})
+                year = row.get("year") if row.get("year") is not None else "UNKNOWN_KICKOFF_YEAR"
+                key = (str(row.get("provider_league_id") or ""), str(year))
+                unverified_by_league_year[key]["unverified_FT_fids"] += 1
+                candidate = {"fid": fid, "provider_league_id": row.get("provider_league_id"), "utc_year": row.get("year"), "kickoff_utc": row.get("totalcorner_kickoff_utc"), "evidence_records": sources, "resolution_status": "no_verified_full_time_score_in_reconciled_sources"}
+                gz.write((json.dumps(candidate, ensure_ascii=False, separators=(",", ":")) + "\n").encode())
 
     years = collections.defaultdict(collections.Counter)
     for fid, versions in source_by_fid.items():
@@ -202,6 +221,7 @@ def main():
             "merged_unique_fids": len(existing),
             "merged_verified_FT_fids": merged_verified_ft,
             "merged_unverified_FT_fids": len(existing) - merged_verified_ft,
+            "unverified_queue_rows": unverified_count,
             "identity_conflicts_overwritten": 0,
             "source_fids_with_multiple_versions_preserved": len(source_identity_conflicts),
             "unknown_kickoff_year_unique_fids": sum(1 for fid, rows in source_by_fid.items() if all(scope_year(r) is None for r in rows)),
@@ -213,8 +233,13 @@ def main():
             for (lid, year), counter in sorted(counts.items(), key=lambda x: (x[0][0], str(x[0][1])))
         ],
         "source_unique_fids_by_utc_year": {str(k): v["unique_fids"] for k, v in sorted(years.items(), key=lambda x: str(x[0]))},
+        "unverified_FT_by_provider_league_utc_year": [
+            {"provider_league_id": lid, "utc_year": year, **dict(counter)}
+            for (lid, year), counter in sorted(unverified_by_league_year.items())
+        ],
         "source_identity_conflicts": source_identity_conflicts,
         "output": {"file": OUT.name, "sha256": sha256(OUT), "bytes": OUT.stat().st_size, "unique_fids": persisted},
+        "unverified_ft_queue": {"file": UNVERIFIED.name, "sha256": sha256(UNVERIFIED), "bytes": UNVERIFIED.stat().st_size, "unique_fids": unverified_count},
         "scope_caveat": "This reconciles the audited 53-league schedule batch with the committed baseline only; it does not claim all leagues, FT gaps, or Crown history are complete. Missing kickoff dates remain unassigned to a UTC year; season metadata absent at source remains absent.",
     }
     SUMMARY.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n")

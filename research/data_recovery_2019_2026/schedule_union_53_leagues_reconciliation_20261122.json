@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-21T23:39:42.129617Z",
+  "generated_at_utc": "2026-11-21T23:43:03.875013Z",
   "method": "baseline inventory plus FID-deduplicated 53-league schedule artifact; append-only provenance; no Crown requests",
   "inputs": {
     "fixture_inventory_2019_2026.jsonl.gz": {
@@ -23,6 +23,7 @@
     "merged_unique_fids": 203962,
     "merged_verified_FT_fids": 193005,
     "merged_unverified_FT_fids": 10957,
+    "unverified_queue_rows": 10957,
     "identity_conflicts_overwritten": 0,
     "source_fids_with_multiple_versions_preserved": 0,
     "unknown_kickoff_year_unique_fids": 24,
@@ -3195,12 +3196,4260 @@
     "2026": 10956,
     "UNKNOWN_KICKOFF_YEAR": 24
   },
+  "unverified_FT_by_provider_league_utc_year": [
+    {
+      "provider_league_id": "1",
+      "utc_year": "2020",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "1",
+      "utc_year": "2021",
+      "unverified_FT_fids": 38
+    },
+    {
+      "provider_league_id": "1",
+      "utc_year": "2022",
+      "unverified_FT_fids": 43
+    },
+    {
+      "provider_league_id": "1",
+      "utc_year": "2023",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "1",
+      "utc_year": "2024",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "1",
+      "utc_year": "2026",
+      "unverified_FT_fids": 31
+    },
+    {
+      "provider_league_id": "10",
+      "utc_year": "2019",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "10",
+      "utc_year": "2020",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "10",
+      "utc_year": "2021",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "10",
+      "utc_year": "2022",
+      "unverified_FT_fids": 24
+    },
+    {
+      "provider_league_id": "10",
+      "utc_year": "2023",
+      "unverified_FT_fids": 24
+    },
+    {
+      "provider_league_id": "10",
+      "utc_year": "2024",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "10",
+      "utc_year": "2025",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "10",
+      "utc_year": "2026",
+      "unverified_FT_fids": 57
+    },
+    {
+      "provider_league_id": "10480",
+      "utc_year": "2019",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "10480",
+      "utc_year": "2020",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "10480",
+      "utc_year": "2021",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "10480",
+      "utc_year": "2022",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "10480",
+      "utc_year": "2023",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "10480",
+      "utc_year": "2024",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "10480",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "10480",
+      "utc_year": "2026",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": "2020",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": "2021",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": "2022",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": "2023",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": "2024",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": "2026",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "10653",
+      "utc_year": "2019",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "10653",
+      "utc_year": "2020",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "10653",
+      "utc_year": "2021",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "10653",
+      "utc_year": "2022",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "10653",
+      "utc_year": "2026",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "10714",
+      "utc_year": "2019",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "10714",
+      "utc_year": "2020",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "10714",
+      "utc_year": "2021",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "10714",
+      "utc_year": "2022",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "10714",
+      "utc_year": "2023",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "10714",
+      "utc_year": "2024",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "10714",
+      "utc_year": "2025",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "10714",
+      "utc_year": "2026",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": "2020",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": "2021",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": "2022",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": "2023",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": "2024",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": "2026",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "109",
+      "utc_year": "2019",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "109",
+      "utc_year": "2020",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "109",
+      "utc_year": "2021",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "109",
+      "utc_year": "2022",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "109",
+      "utc_year": "2023",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "109",
+      "utc_year": "2024",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "109",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "109",
+      "utc_year": "2026",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": "2019",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": "2020",
+      "unverified_FT_fids": 67
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": "2021",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": "2022",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": "2023",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": "2024",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": "2026",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": "2019",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": "2020",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": "2021",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": "2022",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": "2023",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": "2024",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": "2026",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": "2019",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": "2020",
+      "unverified_FT_fids": 32
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": "2021",
+      "unverified_FT_fids": 24
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": "2022",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": "2023",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": "2024",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": "2025",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": "2026",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "11498",
+      "utc_year": "2019",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "11498",
+      "utc_year": "2020",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "11498",
+      "utc_year": "2021",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "11498",
+      "utc_year": "2022",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "11498",
+      "utc_year": "2023",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "11498",
+      "utc_year": "2024",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "11498",
+      "utc_year": "2025",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "11498",
+      "utc_year": "2026",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": "2021",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": "2022",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": "2023",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": "2026",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "116",
+      "utc_year": "2019",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "116",
+      "utc_year": "2020",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "116",
+      "utc_year": "2021",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "116",
+      "utc_year": "2022",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "116",
+      "utc_year": "2023",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "116",
+      "utc_year": "2024",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "116",
+      "utc_year": "2025",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "116",
+      "utc_year": "2026",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": "2020",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": "2021",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": "2022",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": "2023",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": "2024",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": "2026",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": "2019",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": "2020",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": "2021",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": "2022",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": "2023",
+      "unverified_FT_fids": 24
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": "2024",
+      "unverified_FT_fids": 37
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": "2025",
+      "unverified_FT_fids": 35
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": "2026",
+      "unverified_FT_fids": 64
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": "2019",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": "2020",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": "2021",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": "2022",
+      "unverified_FT_fids": 29
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": "2023",
+      "unverified_FT_fids": 22
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": "2024",
+      "unverified_FT_fids": 39
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": "2025",
+      "unverified_FT_fids": 32
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": "2026",
+      "unverified_FT_fids": 46
+    },
+    {
+      "provider_league_id": "12",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "12",
+      "utc_year": "2020",
+      "unverified_FT_fids": 47
+    },
+    {
+      "provider_league_id": "12",
+      "utc_year": "2021",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "12",
+      "utc_year": "2022",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "12",
+      "utc_year": "2023",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "12",
+      "utc_year": "2024",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "12",
+      "utc_year": "2026",
+      "unverified_FT_fids": 40
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": "2019",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": "2020",
+      "unverified_FT_fids": 25
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": "2021",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": "2022",
+      "unverified_FT_fids": 41
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": "2023",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": "2025",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": "2026",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": "2019",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": "2020",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": "2021",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": "2022",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": "2023",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": "2026",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": "2020",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": "2021",
+      "unverified_FT_fids": 23
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": "2022",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": "2023",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": "2024",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": "2025",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": "2026",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": "2020",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": "2021",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": "2022",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": "2023",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": "2026",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": "2019",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": "2020",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": "2021",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": "2022",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": "2023",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": "2024",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": "2026",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "129",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "129",
+      "utc_year": "2020",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "129",
+      "utc_year": "2021",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "129",
+      "utc_year": "2022",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "129",
+      "utc_year": "2023",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "129",
+      "utc_year": "2024",
+      "unverified_FT_fids": 31
+    },
+    {
+      "provider_league_id": "129",
+      "utc_year": "2025",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "129",
+      "utc_year": "2026",
+      "unverified_FT_fids": 30
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": "2020",
+      "unverified_FT_fids": 34
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": "2021",
+      "unverified_FT_fids": 29
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": "2022",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": "2023",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": "2025",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": "2026",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "14",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "14",
+      "utc_year": "2020",
+      "unverified_FT_fids": 23
+    },
+    {
+      "provider_league_id": "14",
+      "utc_year": "2021",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "14",
+      "utc_year": "2022",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "14",
+      "utc_year": "2023",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "14",
+      "utc_year": "2024",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "14",
+      "utc_year": "2025",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "14",
+      "utc_year": "2026",
+      "unverified_FT_fids": 39
+    },
+    {
+      "provider_league_id": "141",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "141",
+      "utc_year": "2020",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "141",
+      "utc_year": "2021",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "141",
+      "utc_year": "2022",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "141",
+      "utc_year": "2023",
+      "unverified_FT_fids": 22
+    },
+    {
+      "provider_league_id": "141",
+      "utc_year": "2024",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "141",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "141",
+      "utc_year": "2026",
+      "unverified_FT_fids": 26
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": "2020",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": "2021",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": "2022",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": "2023",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": "2026",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": "2019",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": "2020",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": "2021",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": "2022",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": "2023",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": "2026",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "1439",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "1439",
+      "utc_year": "2020",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "1439",
+      "utc_year": "2021",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "1439",
+      "utc_year": "2022",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "1439",
+      "utc_year": "2023",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "1439",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "1439",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "1439",
+      "utc_year": "2026",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "145",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "145",
+      "utc_year": "2020",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "145",
+      "utc_year": "2021",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "145",
+      "utc_year": "2022",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "145",
+      "utc_year": "2023",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "145",
+      "utc_year": "2024",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "145",
+      "utc_year": "2025",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "145",
+      "utc_year": "2026",
+      "unverified_FT_fids": 65
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": "2019",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": "2020",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": "2021",
+      "unverified_FT_fids": 26
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": "2022",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": "2023",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": "2024",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": "2026",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "152",
+      "utc_year": "2019",
+      "unverified_FT_fids": 34
+    },
+    {
+      "provider_league_id": "152",
+      "utc_year": "2020",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "152",
+      "utc_year": "2021",
+      "unverified_FT_fids": 52
+    },
+    {
+      "provider_league_id": "152",
+      "utc_year": "2022",
+      "unverified_FT_fids": 34
+    },
+    {
+      "provider_league_id": "152",
+      "utc_year": "2023",
+      "unverified_FT_fids": 28
+    },
+    {
+      "provider_league_id": "152",
+      "utc_year": "2024",
+      "unverified_FT_fids": 67
+    },
+    {
+      "provider_league_id": "152",
+      "utc_year": "2025",
+      "unverified_FT_fids": 59
+    },
+    {
+      "provider_league_id": "152",
+      "utc_year": "2026",
+      "unverified_FT_fids": 46
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": "2019",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": "2020",
+      "unverified_FT_fids": 22
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": "2021",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": "2022",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": "2023",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": "2024",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": "2025",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": "2026",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": "2020",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": "2021",
+      "unverified_FT_fids": 22
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": "2022",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": "2023",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": "2024",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": "2025",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": "2026",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "16",
+      "utc_year": "2020",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "16",
+      "utc_year": "2021",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "16",
+      "utc_year": "2022",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "16",
+      "utc_year": "2023",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "16",
+      "utc_year": "2024",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "16",
+      "utc_year": "2026",
+      "unverified_FT_fids": 30
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": "2020",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": "2021",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": "2022",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": "2024",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": "2026",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "177",
+      "utc_year": "2019",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "177",
+      "utc_year": "2020",
+      "unverified_FT_fids": 27
+    },
+    {
+      "provider_league_id": "177",
+      "utc_year": "2021",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "177",
+      "utc_year": "2022",
+      "unverified_FT_fids": 30
+    },
+    {
+      "provider_league_id": "177",
+      "utc_year": "2023",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "177",
+      "utc_year": "2024",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "177",
+      "utc_year": "2025",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "177",
+      "utc_year": "2026",
+      "unverified_FT_fids": 27
+    },
+    {
+      "provider_league_id": "19290",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "19290",
+      "utc_year": "2020",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "19290",
+      "utc_year": "2021",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "19290",
+      "utc_year": "2022",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "19290",
+      "utc_year": "2023",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "19290",
+      "utc_year": "2024",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "19290",
+      "utc_year": "2025",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "19290",
+      "utc_year": "2026",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": "2020",
+      "unverified_FT_fids": 31
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": "2021",
+      "unverified_FT_fids": 49
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": "2022",
+      "unverified_FT_fids": 55
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": "2023",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": "2024",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": "2026",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": "2019",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": "2020",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": "2021",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": "2022",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": "2023",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": "2026",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": "2019",
+      "unverified_FT_fids": 23
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": "2020",
+      "unverified_FT_fids": 23
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": "2021",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": "2022",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": "2023",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": "2024",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": "2025",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": "2026",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": "2019",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": "2020",
+      "unverified_FT_fids": 47
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": "2021",
+      "unverified_FT_fids": 55
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": "2022",
+      "unverified_FT_fids": 35
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": "2023",
+      "unverified_FT_fids": 27
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": "2024",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": "2025",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": "2026",
+      "unverified_FT_fids": 26
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": "2019",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": "2020",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": "2021",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": "2022",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": "2023",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": "2024",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": "2026",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": "2019",
+      "unverified_FT_fids": 87
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": "2020",
+      "unverified_FT_fids": 94
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": "2021",
+      "unverified_FT_fids": 78
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": "2022",
+      "unverified_FT_fids": 35
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": "2023",
+      "unverified_FT_fids": 26
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": "2024",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": "2025",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": "2026",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "25",
+      "utc_year": "2019",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "25",
+      "utc_year": "2020",
+      "unverified_FT_fids": 31
+    },
+    {
+      "provider_league_id": "25",
+      "utc_year": "2021",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "25",
+      "utc_year": "2022",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "25",
+      "utc_year": "2023",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "25",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "25",
+      "utc_year": "2026",
+      "unverified_FT_fids": 35
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": "2019",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": "2020",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": "2021",
+      "unverified_FT_fids": 24
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": "2022",
+      "unverified_FT_fids": 33
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": "2023",
+      "unverified_FT_fids": 37
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": "2024",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": "2026",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "262",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "262",
+      "utc_year": "2020",
+      "unverified_FT_fids": 23
+    },
+    {
+      "provider_league_id": "262",
+      "utc_year": "2021",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "262",
+      "utc_year": "2022",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "262",
+      "utc_year": "2023",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "262",
+      "utc_year": "2024",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "262",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "262",
+      "utc_year": "2026",
+      "unverified_FT_fids": 30
+    },
+    {
+      "provider_league_id": "26528",
+      "utc_year": "2023",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "26528",
+      "utc_year": "2024",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "26528",
+      "utc_year": "2025",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "26528",
+      "utc_year": "2026",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "26540",
+      "utc_year": "2022",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "26540",
+      "utc_year": "2023",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "26540",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "26540",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "26540",
+      "utc_year": "2026",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "26825",
+      "utc_year": "2022",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "26825",
+      "utc_year": "2023",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "26825",
+      "utc_year": "2024",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "26825",
+      "utc_year": "2025",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "26825",
+      "utc_year": "2026",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": "2020",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": "2021",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": "2022",
+      "unverified_FT_fids": 28
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": "2023",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": "2024",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": "2026",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": "2019",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": "2020",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": "2021",
+      "unverified_FT_fids": 29
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": "2022",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": "2023",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": "2024",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": "2025",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": "2026",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "27388",
+      "utc_year": "2022",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "27388",
+      "utc_year": "2026",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "27389",
+      "utc_year": "2022",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "27389",
+      "utc_year": "2026",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "27390",
+      "utc_year": "2022",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "27390",
+      "utc_year": "2026",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "27391",
+      "utc_year": "2022",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "27391",
+      "utc_year": "2024",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "27391",
+      "utc_year": "2026",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": "2019",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": "2020",
+      "unverified_FT_fids": 36
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": "2021",
+      "unverified_FT_fids": 26
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": "2022",
+      "unverified_FT_fids": 29
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": "2023",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": "2024",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": "2025",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": "2026",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "29",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "29",
+      "utc_year": "2020",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "29",
+      "utc_year": "2021",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "29",
+      "utc_year": "2022",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "29",
+      "utc_year": "2023",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "29",
+      "utc_year": "2024",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "29",
+      "utc_year": "2026",
+      "unverified_FT_fids": 22
+    },
+    {
+      "provider_league_id": "290",
+      "utc_year": "2019",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "290",
+      "utc_year": "2020",
+      "unverified_FT_fids": 103
+    },
+    {
+      "provider_league_id": "290",
+      "utc_year": "2021",
+      "unverified_FT_fids": 41
+    },
+    {
+      "provider_league_id": "290",
+      "utc_year": "2022",
+      "unverified_FT_fids": 23
+    },
+    {
+      "provider_league_id": "290",
+      "utc_year": "2023",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "290",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "290",
+      "utc_year": "2025",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "290",
+      "utc_year": "2026",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "297",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "297",
+      "utc_year": "2020",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "297",
+      "utc_year": "2021",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "297",
+      "utc_year": "2022",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "297",
+      "utc_year": "2023",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "297",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "297",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "297",
+      "utc_year": "2026",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "298",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "298",
+      "utc_year": "2020",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "298",
+      "utc_year": "2021",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "298",
+      "utc_year": "2022",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "298",
+      "utc_year": "2023",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "298",
+      "utc_year": "2024",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "298",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "298",
+      "utc_year": "2026",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "299",
+      "utc_year": "2020",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "299",
+      "utc_year": "2021",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "299",
+      "utc_year": "2022",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "299",
+      "utc_year": "2023",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "299",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "299",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "299",
+      "utc_year": "2026",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "303",
+      "utc_year": "2019",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "303",
+      "utc_year": "2020",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "303",
+      "utc_year": "2021",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "303",
+      "utc_year": "2022",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "303",
+      "utc_year": "2023",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "303",
+      "utc_year": "2024",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "303",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "303",
+      "utc_year": "2026",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "31",
+      "utc_year": "2019",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "31",
+      "utc_year": "2020",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "31",
+      "utc_year": "2021",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "31",
+      "utc_year": "2022",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "31",
+      "utc_year": "2023",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "31",
+      "utc_year": "2024",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "31",
+      "utc_year": "2026",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "314",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "314",
+      "utc_year": "2020",
+      "unverified_FT_fids": 25
+    },
+    {
+      "provider_league_id": "314",
+      "utc_year": "2021",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "319",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "319",
+      "utc_year": "2020",
+      "unverified_FT_fids": 25
+    },
+    {
+      "provider_league_id": "319",
+      "utc_year": "2021",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "319",
+      "utc_year": "2022",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "319",
+      "utc_year": "2023",
+      "unverified_FT_fids": 30
+    },
+    {
+      "provider_league_id": "319",
+      "utc_year": "2024",
+      "unverified_FT_fids": 27
+    },
+    {
+      "provider_league_id": "319",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "319",
+      "utc_year": "2026",
+      "unverified_FT_fids": 32
+    },
+    {
+      "provider_league_id": "328",
+      "utc_year": "2020",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "328",
+      "utc_year": "2021",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "328",
+      "utc_year": "2022",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "328",
+      "utc_year": "2023",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "328",
+      "utc_year": "2024",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "328",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "328",
+      "utc_year": "2026",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "33",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "33",
+      "utc_year": "2020",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "33",
+      "utc_year": "2021",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "33",
+      "utc_year": "2022",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "33",
+      "utc_year": "2023",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "33",
+      "utc_year": "2024",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "33",
+      "utc_year": "2025",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "33",
+      "utc_year": "2026",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "330",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "330",
+      "utc_year": "2020",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "330",
+      "utc_year": "2021",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "330",
+      "utc_year": "2022",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "330",
+      "utc_year": "2024",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "330",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "330",
+      "utc_year": "2026",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "332",
+      "utc_year": "2019",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "332",
+      "utc_year": "2020",
+      "unverified_FT_fids": 29
+    },
+    {
+      "provider_league_id": "332",
+      "utc_year": "2021",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "332",
+      "utc_year": "2022",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "332",
+      "utc_year": "2023",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "332",
+      "utc_year": "2024",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "332",
+      "utc_year": "2025",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "332",
+      "utc_year": "2026",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": "2019",
+      "unverified_FT_fids": 22
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": "2020",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": "2021",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": "2022",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": "2023",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": "2024",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": "2026",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "345",
+      "utc_year": "2020",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "345",
+      "utc_year": "2021",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "345",
+      "utc_year": "2022",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "345",
+      "utc_year": "2023",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "345",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "345",
+      "utc_year": "2025",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "345",
+      "utc_year": "2026",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "35",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "35",
+      "utc_year": "2020",
+      "unverified_FT_fids": 24
+    },
+    {
+      "provider_league_id": "35",
+      "utc_year": "2021",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "35",
+      "utc_year": "2022",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "35",
+      "utc_year": "2023",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "35",
+      "utc_year": "2024",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "35",
+      "utc_year": "2025",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "35",
+      "utc_year": "2026",
+      "unverified_FT_fids": 23
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": "2019",
+      "unverified_FT_fids": 24
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": "2020",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": "2021",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": "2022",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": "2023",
+      "unverified_FT_fids": 22
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": "2024",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": "2026",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "37",
+      "utc_year": "2020",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "37",
+      "utc_year": "2021",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "37",
+      "utc_year": "2022",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "37",
+      "utc_year": "2023",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "37",
+      "utc_year": "2024",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "37",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "37",
+      "utc_year": "2026",
+      "unverified_FT_fids": 34
+    },
+    {
+      "provider_league_id": "378",
+      "utc_year": "2019",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "378",
+      "utc_year": "2020",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "378",
+      "utc_year": "2021",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "378",
+      "utc_year": "2022",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "378",
+      "utc_year": "2023",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "378",
+      "utc_year": "2024",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "378",
+      "utc_year": "2025",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "378",
+      "utc_year": "2026",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "40",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "40",
+      "utc_year": "2020",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "40",
+      "utc_year": "2021",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "40",
+      "utc_year": "2022",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "40",
+      "utc_year": "2023",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "40",
+      "utc_year": "2024",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "40",
+      "utc_year": "2026",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": "2019",
+      "unverified_FT_fids": 31
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": "2020",
+      "unverified_FT_fids": 33
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": "2021",
+      "unverified_FT_fids": 76
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": "2022",
+      "unverified_FT_fids": 64
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": "2023",
+      "unverified_FT_fids": 34
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": "2024",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": "2025",
+      "unverified_FT_fids": 28
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": "2026",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "43",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "43",
+      "utc_year": "2020",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "43",
+      "utc_year": "2021",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "43",
+      "utc_year": "2022",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "43",
+      "utc_year": "2023",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "43",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "43",
+      "utc_year": "2026",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "45",
+      "utc_year": "2019",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "45",
+      "utc_year": "2020",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "45",
+      "utc_year": "2022",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "45",
+      "utc_year": "2023",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "45",
+      "utc_year": "2024",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "45",
+      "utc_year": "2025",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "45",
+      "utc_year": "2026",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "46",
+      "utc_year": "2019",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "46",
+      "utc_year": "2020",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "46",
+      "utc_year": "2021",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "46",
+      "utc_year": "2022",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "46",
+      "utc_year": "2023",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "46",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "46",
+      "utc_year": "2025",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "46",
+      "utc_year": "2026",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "47",
+      "utc_year": "2019",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "47",
+      "utc_year": "2020",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "47",
+      "utc_year": "2021",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "47",
+      "utc_year": "2022",
+      "unverified_FT_fids": 25
+    },
+    {
+      "provider_league_id": "47",
+      "utc_year": "2023",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "47",
+      "utc_year": "2024",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "47",
+      "utc_year": "2025",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "47",
+      "utc_year": "2026",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "48",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "48",
+      "utc_year": "2020",
+      "unverified_FT_fids": 22
+    },
+    {
+      "provider_league_id": "48",
+      "utc_year": "2021",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "48",
+      "utc_year": "2022",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "48",
+      "utc_year": "2023",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "48",
+      "utc_year": "2024",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "48",
+      "utc_year": "2025",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "48",
+      "utc_year": "2026",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": "2020",
+      "unverified_FT_fids": 26
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": "2021",
+      "unverified_FT_fids": 31
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": "2022",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": "2023",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": "2024",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": "2026",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "51",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "51",
+      "utc_year": "2020",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "51",
+      "utc_year": "2021",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "51",
+      "utc_year": "2022",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "51",
+      "utc_year": "2023",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "51",
+      "utc_year": "2024",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "51",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "51",
+      "utc_year": "2026",
+      "unverified_FT_fids": 22
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": "2019",
+      "unverified_FT_fids": 25
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": "2020",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": "2021",
+      "unverified_FT_fids": 43
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": "2022",
+      "unverified_FT_fids": 147
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": "2023",
+      "unverified_FT_fids": 37
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": "2024",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": "2025",
+      "unverified_FT_fids": 35
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": "2026",
+      "unverified_FT_fids": 27
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": "2019",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": "2020",
+      "unverified_FT_fids": 26
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": "2021",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": "2022",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": "2023",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": "2024",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": "2025",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": "2026",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "52",
+      "utc_year": "2019",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "52",
+      "utc_year": "2020",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "52",
+      "utc_year": "2021",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "52",
+      "utc_year": "2022",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "52",
+      "utc_year": "2023",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "52",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "52",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "52",
+      "utc_year": "2026",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": "2019",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": "2020",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": "2021",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": "2022",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": "2023",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": "2024",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": "2025",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": "2026",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "55",
+      "utc_year": "2019",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "55",
+      "utc_year": "2020",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "55",
+      "utc_year": "2021",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "55",
+      "utc_year": "2022",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "55",
+      "utc_year": "2023",
+      "unverified_FT_fids": 83
+    },
+    {
+      "provider_league_id": "55",
+      "utc_year": "2024",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "55",
+      "utc_year": "2025",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "55",
+      "utc_year": "2026",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": "2020",
+      "unverified_FT_fids": 22
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": "2021",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": "2022",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": "2024",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": "2025",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": "2026",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": "2019",
+      "unverified_FT_fids": 22
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": "2020",
+      "unverified_FT_fids": 33
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": "2021",
+      "unverified_FT_fids": 55
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": "2022",
+      "unverified_FT_fids": 38
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": "2023",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": "2024",
+      "unverified_FT_fids": 30
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": "2025",
+      "unverified_FT_fids": 40
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": "2026",
+      "unverified_FT_fids": 25
+    },
+    {
+      "provider_league_id": "60",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "60",
+      "utc_year": "2020",
+      "unverified_FT_fids": 21
+    },
+    {
+      "provider_league_id": "60",
+      "utc_year": "2021",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "60",
+      "utc_year": "2022",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "60",
+      "utc_year": "2023",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "60",
+      "utc_year": "2024",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "60",
+      "utc_year": "2025",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "60",
+      "utc_year": "2026",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "61",
+      "utc_year": "2019",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "61",
+      "utc_year": "2020",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "61",
+      "utc_year": "2021",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "61",
+      "utc_year": "2022",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "61",
+      "utc_year": "2023",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "61",
+      "utc_year": "2025",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "61",
+      "utc_year": "2026",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "62",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "62",
+      "utc_year": "2020",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "62",
+      "utc_year": "2021",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "62",
+      "utc_year": "2022",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "62",
+      "utc_year": "2023",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "62",
+      "utc_year": "2024",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "62",
+      "utc_year": "2025",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "62",
+      "utc_year": "2026",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": "2019",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": "2020",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": "2021",
+      "unverified_FT_fids": 23
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": "2022",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": "2023",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": "2024",
+      "unverified_FT_fids": 37
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": "2025",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": "2026",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "66",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "66",
+      "utc_year": "2020",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "66",
+      "utc_year": "2021",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "66",
+      "utc_year": "2022",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "66",
+      "utc_year": "2024",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "66",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "66",
+      "utc_year": "2026",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "670",
+      "utc_year": "2024",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "68",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "68",
+      "utc_year": "2020",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "68",
+      "utc_year": "2021",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "68",
+      "utc_year": "2022",
+      "unverified_FT_fids": 15
+    },
+    {
+      "provider_league_id": "68",
+      "utc_year": "2023",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "68",
+      "utc_year": "2024",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "68",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "68",
+      "utc_year": "2026",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": "2019",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": "2020",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": "2021",
+      "unverified_FT_fids": 28
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": "2022",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": "2023",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": "2024",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": "2025",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": "2026",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "70",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "70",
+      "utc_year": "2020",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "70",
+      "utc_year": "2021",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "70",
+      "utc_year": "2022",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "70",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "70",
+      "utc_year": "2026",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "702",
+      "utc_year": "2023",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "702",
+      "utc_year": "2026",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "702",
+      "utc_year": "UNKNOWN_KICKOFF_YEAR",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": "2020",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": "2021",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": "2022",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": "2023",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": "2025",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": "2026",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "73",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "73",
+      "utc_year": "2020",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "73",
+      "utc_year": "2021",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "73",
+      "utc_year": "2022",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "73",
+      "utc_year": "2023",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "73",
+      "utc_year": "2024",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "73",
+      "utc_year": "2026",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "75",
+      "utc_year": "2019",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "75",
+      "utc_year": "2020",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "75",
+      "utc_year": "2021",
+      "unverified_FT_fids": 11
+    },
+    {
+      "provider_league_id": "75",
+      "utc_year": "2022",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "75",
+      "utc_year": "2024",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "75",
+      "utc_year": "2025",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "75",
+      "utc_year": "2026",
+      "unverified_FT_fids": 13
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": "2019",
+      "unverified_FT_fids": 12
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": "2020",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": "2021",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": "2022",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": "2023",
+      "unverified_FT_fids": 25
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": "2024",
+      "unverified_FT_fids": 57
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": "2025",
+      "unverified_FT_fids": 125
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": "2026",
+      "unverified_FT_fids": 72
+    },
+    {
+      "provider_league_id": "779",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "779",
+      "utc_year": "2020",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "779",
+      "utc_year": "2021",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "779",
+      "utc_year": "2022",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "779",
+      "utc_year": "2023",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "779",
+      "utc_year": "2024",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "779",
+      "utc_year": "2025",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "779",
+      "utc_year": "2026",
+      "unverified_FT_fids": 18
+    },
+    {
+      "provider_league_id": "8172",
+      "utc_year": "2019",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "8172",
+      "utc_year": "2020",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "8172",
+      "utc_year": "2021",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "8172",
+      "utc_year": "2022",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "8172",
+      "utc_year": "2023",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "8172",
+      "utc_year": "2024",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "8172",
+      "utc_year": "2025",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "8172",
+      "utc_year": "2026",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "8293",
+      "utc_year": "2019",
+      "unverified_FT_fids": 17
+    },
+    {
+      "provider_league_id": "8293",
+      "utc_year": "2020",
+      "unverified_FT_fids": 34
+    },
+    {
+      "provider_league_id": "8293",
+      "utc_year": "2021",
+      "unverified_FT_fids": 28
+    },
+    {
+      "provider_league_id": "8293",
+      "utc_year": "2022",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "8293",
+      "utc_year": "2023",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "8293",
+      "utc_year": "2024",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "8293",
+      "utc_year": "2025",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "8293",
+      "utc_year": "2026",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "85",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "85",
+      "utc_year": "2020",
+      "unverified_FT_fids": 28
+    },
+    {
+      "provider_league_id": "85",
+      "utc_year": "2021",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "85",
+      "utc_year": "2022",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "85",
+      "utc_year": "2023",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "85",
+      "utc_year": "2024",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "85",
+      "utc_year": "2025",
+      "unverified_FT_fids": 6
+    },
+    {
+      "provider_league_id": "85",
+      "utc_year": "2026",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": "2019",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": "2020",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": "2021",
+      "unverified_FT_fids": 3
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": "2022",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": "2023",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": "2024",
+      "unverified_FT_fids": 23
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": "2025",
+      "unverified_FT_fids": 40
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": "2026",
+      "unverified_FT_fids": 35
+    },
+    {
+      "provider_league_id": "88",
+      "utc_year": "2019",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "88",
+      "utc_year": "2020",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "88",
+      "utc_year": "2021",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "88",
+      "utc_year": "2022",
+      "unverified_FT_fids": 7
+    },
+    {
+      "provider_league_id": "88",
+      "utc_year": "2023",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "88",
+      "utc_year": "2024",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "88",
+      "utc_year": "2026",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": "2019",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": "2020",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": "2021",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": "2022",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": "2023",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": "2024",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": "2025",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": "2019",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": "2020",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": "2021",
+      "unverified_FT_fids": 24
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": "2022",
+      "unverified_FT_fids": 37
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": "2023",
+      "unverified_FT_fids": 42
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": "2024",
+      "unverified_FT_fids": 37
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": "2025",
+      "unverified_FT_fids": 14
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": "2026",
+      "unverified_FT_fids": 24
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": "2019",
+      "unverified_FT_fids": 8
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": "2020",
+      "unverified_FT_fids": 19
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": "2021",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": "2022",
+      "unverified_FT_fids": 16
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": "2023",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": "2024",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": "2025",
+      "unverified_FT_fids": 5
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": "2026",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": "2019",
+      "unverified_FT_fids": 2
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": "2020",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": "2021",
+      "unverified_FT_fids": 20
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": "2022",
+      "unverified_FT_fids": 25
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": "2023",
+      "unverified_FT_fids": 9
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": "2026",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "979",
+      "utc_year": "2020",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "979",
+      "utc_year": "2021",
+      "unverified_FT_fids": 10
+    },
+    {
+      "provider_league_id": "979",
+      "utc_year": "2022",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "979",
+      "utc_year": "2023",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "979",
+      "utc_year": "2024",
+      "unverified_FT_fids": 4
+    },
+    {
+      "provider_league_id": "979",
+      "utc_year": "2026",
+      "unverified_FT_fids": 3
+    }
+  ],
   "source_identity_conflicts": [],
   "output": {
     "file": "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz",
     "sha256": "4a14fc8556a5e39d0fec4f8eb5a54f1aca45534f92472029517ef1738be5b07c",
     "bytes": 20792934,
     "unique_fids": 203962
+  },
+  "unverified_ft_queue": {
+    "file": "unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz",
+    "sha256": "c785228ba6b70a3fd93bc1ad061e5aa2ab2c269495a39047737a449e22c7898d",
+    "bytes": 520219,
+    "unique_fids": 10957
   },
   "scope_caveat": "This reconciles the audited 53-league schedule batch with the committed baseline only; it does not claim all leagues, FT gaps, or Crown history are complete. Missing kickoff dates remain unassigned to a UTC year; season metadata absent at source remains absent."
 }
