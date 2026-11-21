@@ -1,0 +1,42 @@
+{
+  "snapshot_at_utc": "2026-11-21T12:26:46Z",
+  "batch": "crown_movement_batch02",
+  "candidate_manifest_sha256": "c65717c97de845200dd3503927432ff198a2efd21fcee4b58c217eb1d3aa2025",
+  "candidate_unique_fids": 11703,
+  "attempted_unique_fids": 289,
+  "remaining_unique_fids": 11414,
+  "latest_status_counts_by_fid": {
+    "REUSED_DB": 51,
+    "SAVED": 79,
+    "FETCH_FAILED": 4,
+    "NO_CROWN_AH_QUOTES": 155
+  },
+  "unique_fids_with_http_receive_timestamp": 285,
+  "latest_http_receive_at_utc": "2026-11-21T12:17:42.702714Z",
+  "append_log_rows": 367,
+  "append_log_malformed_rows": 0,
+  "append_log_sha256_at_snapshot": "b452ccf5b5d98c163edacc9a28cb03fc43273e3f308d86531f5ea4114b4e4d59",
+  "fetch_failed_fids": [
+    {
+      "fid": "108593130",
+      "error": "IncompleteRead"
+    },
+    {
+      "fid": "113872870",
+      "error": "IncompleteRead"
+    },
+    {
+      "fid": "113872883",
+      "error": "IncompleteRead"
+    },
+    {
+      "fid": "115515191",
+      "error": "IncompleteRead"
+    }
+  ],
+  "safe_window_process_snapshot": [
+    "4914 4909 S 01:54 /usr/local/bin/node /Users/mac/QuantAsiaDesk/repos/mr1/src/shadow-v23.js --scheduled"
+  ],
+  "driver_state": "safe-window driver and Crown child are not running; the last event is a safe pause of the child for a scheduled MR1 job. Append-only log and immutable candidate manifest remain available for resume.",
+  "capture_semantics": "historical; prospective_observation=false. NO_CROWN_AH_QUOTES describes only the response captured for that request."
+}

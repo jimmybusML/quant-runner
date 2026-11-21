@@ -5014,3 +5014,10 @@
 - 对`league_year_coverage_2019_2026.csv`（生成于10:23:53 UTC）按年核对ID 51、61、10480，数据见`research/data_recovery_2019_2026/named_early_year_gap_review_20261121.json`。这是batch 02继续写入前的库存基线，不是当前数据库状态。
 - 基线分别为：ID 51有1,245场赛程、1,207场已核实FT；ID 61有730场赛程、702场FT；ID 10480有619场赛程、604场FT。三者在2019–2022的规范化movement及summary层Crown AH报价FID均为0。部分比赛已有movement capture但响应没有报价，不能与未请求或传输失败混为一类。
 - 这三联赛的缺失movement请求已排入不可变batch 02清单，分别在第8,554、9,392和634位；对应排队样例均为2019 UTC年。batch 02仍在运行，后续要以请求响应与独立覆盖重算确认结果。清单SHA256为`c65717c97de845200dd3503927432ff198a2efd21fcee4b58c217eb1d3aa2025`。
+
+## 2026-11-21｜2019–2026赛程页完整性核验与Crown批次暂停（12:25 UTC）
+
+- 新增只读脚本`research/data_recovery_2019_2026/audit_cached_schedule_page_coverage_2019_2026.py`及逐页日期/SHA JSON和逐联赛CSV。该脚本从本地现有64个TotalCorner联赛目录读取9,840个分页响应，不触网。64/64联赛在2019–2026目标期的页序连续；目标期页洞0、与2019年前分页交界洞0、解析错误0、联赛ID不匹配0。API总页数中373页未缓存，但位于已验证目标期之后的2019年前历史范围；缓存源日期范围2013-12-29至2026-11-24。该结论只针对64个已存在分页目录，不包括league15部分补充及14个未解析的额外赛程源。
+- 10:23 UTC库存中的M1-only provider ID 27391另有30个赛程FID（2022年6、2024年12、2026年12），不在64个分页目录中；其中当前库存有28个verified FT、2个未核实FT，Crown capture 0。其联赛身份及可用赛程源仍待核对，不能与64联赛合并当作已完整。
+- Crown movement batch 02追加日志截至12:25:48 UTC为289/11,703唯一FID已出现、11,414尚未尝试；状态51 `REUSED_DB`、79 `SAVED`、155 `NO_CROWN_AH_QUOTES`、4 `FETCH_FAILED/IncompleteRead`，285个FID有HTTP收件时刻，最新12:17:42.702714Z。日志SHA256 `b452ccf5b5d98c163edacc9a28cb03fc43273e3f308d86531f5ea4114b4e4d59`。无报价仅说明该次响应。
+- MR1定时shadow任务开始时，安全驱动已在12:17:53 UTC暂停collector PID 2558。为避免后续赛程补采与Crown历史回取共享TotalCorner速率额度，随后停止本研究safe-window driver；当前没有Crown collector进程，immutable候选清单及append-only日志均保留，之后可用现有resumable driver从已尝试FID之后续跑。生产任务未停止或修改。12:25:48 UTC进程状态快照见`collection_progress_snapshot_20261121T1225Z.json`。
