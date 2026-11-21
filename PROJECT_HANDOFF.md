@@ -5024,3 +5024,5 @@
 - 独立复核重新读取309份原始Crown响应body及SHA、核对赛事/球队/联赛/开球/FT，并从asian_list重建T12最新价；927笔三模型结算全部吻合，错误0。另校验787项输入哈希（含778赛程原始页）、冻结成员文件SHA/数量、前推训练年度与FID去重。
 - 完整报告、代码、逐场记录、年度覆盖、接收档案交集和SHA256清单在 `research/m8/player_pair_expanded15_20261121/`。执行记录包含主研究、独立核验和报告构建命令。
 - 研究仍不构成第九组或实盘收益。没有修改M8/M1/MR1/M9、Telegram、正式账本、Crown采集/生产工作流或现有规则。公开分支/PR提交回执在研究交付后补记。
+
+- 发布回执（2026-11-21）：研究文件与完整分析提交 `1f68d18748cf19e231380f06450e66d2af62d354`，已推送到公开分支 `research/m8-referee-residual-20261120`。PR #69 `https://github.com/jimmybusML/quant-runner/pull/69` 仍 OPEN、未合并；GitHub PR 文件清单已确认包含本目录报告、脚本、逐场数据及独立核验。推送时公开 `main` 为 `8bb0cc899d781ffc9b9bbf153db1e107f406d7d1`；PR base 状态由 GitHub 后续更新。该实验不是正式生产规则或实战派单。
