@@ -1,0 +1,60 @@
+{
+  "generated_at_utc": "2026-11-21T22:21:01.095644Z",
+  "purpose": "2019-2026 schedule recovery checkpoint; original 35-target run complete, 3 exact-mapped supplemental IDs explicitly pending",
+  "collector": {
+    "pid": 65966,
+    "session_id": 29157,
+    "process_alive_at_checkpoint": false,
+    "started_at_utc": "2026-11-21T16:28:12.968745Z",
+    "finished_at_utc": "2026-11-21T22:19:26.900554Z",
+    "loaded_target_count": 35,
+    "loaded_target_manifest_sha256": "9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524a62382d6f778",
+    "current_candidate_target_count": 38,
+    "current_candidate_manifest_sha256": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778",
+    "supplemental_targets_not_in_finished_run": [
+      {
+        "provider_league_id": "10653",
+        "league_name": "Bulgaria B PFG",
+        "mapping_source": "Exact TotalCorner league page URL /league/view/10653 verified by title; supplement because no matching name in archived Crown match-view responses"
+      },
+      {
+        "provider_league_id": "702",
+        "league_name": "Georgia First League",
+        "mapping_source": "Exact TotalCorner league page URL /league/table/702 listed in existing project competition identity record"
+      },
+      {
+        "provider_league_id": "114",
+        "league_name": "Iceland 1 Deild",
+        "mapping_source": "Exact TotalCorner league page URL /league/view/114 verified by title; supplement because no matching name in archived Crown match-view responses"
+      }
+    ],
+    "batch_network_requests": 2048,
+    "batch_new_unique_fids_ledger": 59684,
+    "identity_conflicts": 0,
+    "completed_targets": 35,
+    "active_targets": []
+  },
+  "completed_target_audit": {
+    "target_count_in_current_file": 38,
+    "completed_target_count": 35,
+    "unique_schedule_fids": 59684,
+    "verified_full_ft_fids": 55794,
+    "unverified_or_nonfull_fids": 3890,
+    "source_pages_referenced_and_sha_verified": 2008,
+    "source_rows_sha_verified": 59684,
+    "source_audit_errors": {},
+    "identity_version_conflicts": 0,
+    "crown_sqlite_read_only_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+    "crown_quote_fids_in_completed_targets": 0,
+    "coverage_audit_json_sha256": "731f084303e1c2ccd59f5d7c744b1d8ff1f6ed485ead8cd12654a571d38863a6"
+  },
+  "private_progress_sha256": "313adab941ebde6e04c316b4c10c8328dedbc0b1793829555960529294b8b97e",
+  "private_request_log_sha256": "50e36759dbf51676d2c984542f3a2aadc3fefcf9712fc7d0666fafbd4c0496fb",
+  "private_fixture_ledger_sha256": "9b7d222bfdd0dfa813935bfb1c19ed57f74c86eccd7576c3714a5f81734e182d",
+  "constraints": {
+    "no_strategy_or_model_research": true,
+    "no_crown_network_requests_during_active_totalcorner_collector": true,
+    "no_crown_sqlite_writes": true,
+    "raw_http_bodies_remain_private": true
+  }
+}

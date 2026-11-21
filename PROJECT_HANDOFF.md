@@ -5279,6 +5279,13 @@
 - 下一步继续现有Italy分页与本批剩余目标；每有整项完成就重跑同一SHA/FT覆盖审计。整个任务仍未完成；完整库存合并、其余外部联赛排查、赛果缺口复核以及停掉TotalCorner collector后继续的Crown历史行情扩采仍待执行。
 
 
+### 2026-11-21 22:21 UTC：原35项TotalCorner批次完成，3个后加ID待单独补采
+
+- 同一TotalCorner collector PID 65966 / session 29157 已正常结束，`finished_at_utc=2026-11-21T22:19:26.900554Z`。本进程实际载入原35项清单并全部完成：2,048次请求、新FID ledger计数59,684、身份冲突0；35/35目标均为`complete_to_2019_cutoff_or_provider_end`且失败页0。
+- 当前清单在进程启动后扩为38项；ID 10653 Bulgaria B PFG、ID 702 Georgia First League、ID 114 Iceland 1 Deild未包含在已结束的35项执行中，均以独立精确TotalCorner页面映射核实。不得将它们记作已采；接下来用同一分页器和私有追加式缓存单独采集3项。
+- 35个已完成目标审计：59,684个唯一赛程FID，55,794场status=full且FT为数字，3,890场其他/未核实；2,008个原始页与59,684条源记录SHA均通过，错误和身份版本冲突0。Crown SQLite对这些补充目标FID的只读movement quote交集为0，仅为本地存储现状。
+- 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T2221Z.json` SHA256 `f70e2601996057b4faf8c2bd35516a62aad4b255e60509e77527e25ae46008a3`，清单`CHECKPOINT_SHA256_20261121T2221Z.txt`。这不是全项目采集完成；3个精确映射目标、全部已有联赛其他年份覆盖、未核实赛果与Crown历史AH序列仍需处理。
+
 ### 2026-11-21 22:02 UTC：Switzerland Challenge League完成，34个联赛覆盖更新
 
 - 同一TotalCorner collector PID 65966 / session 29157继续。Switzerland Challenge League（ID 125）按2019历史目标范围完成50页、1,461个FID、失败页0。当前38项目标清单完成34项；累计1,965次请求、ledger新FID计数57,246、身份冲突0。Türkiye 1 Lig（ID 709）第8/137页、240个FID，失败页0。
