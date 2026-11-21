@@ -12,12 +12,15 @@ import gzip
 import hashlib
 import json
 import pathlib
+import re
 import sys
 
 ROOT = pathlib.Path('/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery')
 RAW = ROOT / 'raw'
+DIAGNOSTICS = ROOT.parent / 'totalcorner_schedule_diagnostics'
 REQUESTS = ROOT / 'requests.jsonl'
 OUT = ROOT / 'fixtures_2019_2026.verified.jsonl.gz'
+PAGE_RE = re.compile(r'league-(\d+)-page-(\d+)-([0-9a-f]{64})\.json$')
 
 
 def sha(path: pathlib.Path) -> str:
@@ -47,8 +50,9 @@ def main() -> int:
         if item.get('event') != 'page_succeeded' or not item.get('success'):
             continue
         lid, page, digest = str(item['league_id']), int(item['page']), item['response_sha256']
-        path = RAW / f'league-{lid}-page-{page}-{digest}.json'
-        if not path.is_file() or sha(path) != digest:
+        candidates = [base / f'league-{lid}-page-{page}-{digest}.json' for base in (RAW, DIAGNOSTICS)]
+        path = next((candidate for candidate in candidates if candidate.is_file() and sha(candidate) == digest), None)
+        if path is None:
             continue
         body = json.loads(path.read_text(encoding='utf-8'))
         matches, league, _ = page_matches(body)
@@ -58,6 +62,35 @@ def main() -> int:
         if (league.get('league_id') and str(league['league_id']) != lid) or (row_leagues and row_leagues != {lid}):
             continue
         successful[(lid, page)] = {'meta': item, 'body': body}
+
+    # The verified one-off league-57 page-1 diagnostic predates the append-only
+    # request log. Include any such SHA-valid successful diagnostic page too.
+    if DIAGNOSTICS.exists():
+        for path in DIAGNOSTICS.glob('league-*-page-*.json'):
+            match = PAGE_RE.fullmatch(path.name)
+            if not match:
+                continue
+            lid, page, digest = match.group(1), int(match.group(2)), match.group(3)
+            if (lid, page) in successful or sha(path) != digest:
+                continue
+            meta_path = path.with_name(path.stem + '.meta.json')
+            if not meta_path.is_file():
+                continue
+            meta = json.loads(meta_path.read_text(encoding='utf-8'))
+            request = meta.get('request') or {}
+            if (str(request.get('league_id')) != lid or int(request.get('page') or 0) != page
+                    or meta.get('http_status') != 200 or meta.get('provider_success') not in (1, '1', True)
+                    or meta.get('response_sha256') != digest):
+                continue
+            body = json.loads(path.read_text(encoding='utf-8'))
+            successful[(lid, page)] = {'meta': {
+                'league_id': lid,
+                'page': page,
+                'response_sha256': digest,
+                'response_received_at_utc': meta.get('response_received_at_utc'),
+                'request_started_at_utc': meta.get('request_started_at_utc'),
+                'source_diagnostic_file': path.name,
+            }, 'body': body}
 
     versions: dict[tuple[str, str, str], dict] = {}
     for (lid, page), source in sorted(successful.items()):
