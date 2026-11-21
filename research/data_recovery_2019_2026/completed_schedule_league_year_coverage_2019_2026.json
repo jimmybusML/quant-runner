@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-11-21T21:08:58.101135Z",
+  "generated_at_utc": "2026-11-21T21:24:12.950447Z",
   "scope_note": "Only targets marked pagination-complete in the live progress file are included; ongoing targets and queued IDs are not represented as complete.",
   "target_count_in_current_file": 38,
-  "completed_target_count": 29,
+  "completed_target_count": 31,
   "completed_target_leagues": [
     {
       "provider_league_id": "2",
@@ -131,6 +131,15 @@
       "failed_pages": []
     },
     {
+      "provider_league_id": "355",
+      "league_name": "Slovakia 2. Liga",
+      "unique_2019_2026_fids": 1659,
+      "pages_read": 57,
+      "reported_pages": 87,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
       "provider_league_id": "417",
       "league_name": "Egypt Division 2",
       "unique_2019_2026_fids": 2815,
@@ -163,6 +172,15 @@
       "unique_2019_2026_fids": 1403,
       "pages_read": 48,
       "reported_pages": 56,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
+      "provider_league_id": "680",
+      "league_name": "Slovenia 2. SNL",
+      "unique_2019_2026_fids": 1566,
+      "pages_read": 54,
+      "reported_pages": 64,
       "pagination_status": "complete_to_2019_cutoff_or_provider_end",
       "failed_pages": []
     },
@@ -266,18 +284,18 @@
       "failed_pages": []
     }
   ],
-  "unique_schedule_fids": 48643,
-  "league_fid_pairs": 48643,
+  "unique_schedule_fids": 51868,
+  "league_fid_pairs": 51868,
   "cross_league_fid_collision_count": 0,
   "cross_year_same_league_fid_conflict_count": 0,
   "ambiguous_fid_league_year_keys": [],
-  "verified_full_ft_fids": 45168,
-  "unverified_or_nonfull_fids": 3475,
+  "verified_full_ft_fids": 48175,
+  "unverified_or_nonfull_fids": 3693,
   "identity_version_conflict_count": 0,
   "identity_version_conflicts": [],
   "raw_source_page_audit": {
-    "distinct_referenced_pages": 1636,
-    "source_record_rows_sha_verified": 48643,
+    "distinct_referenced_pages": 1745,
+    "source_record_rows_sha_verified": 51868,
     "errors": {},
     "season_field_source": "exact row in SHA-verified TotalCorner schedule page raw response"
   },
@@ -5085,6 +5103,335 @@
       "live_capture_fids": 0
     },
     {
+      "provider_league_id": "355",
+      "provider_league_name": "Slovakia 2. Liga",
+      "utc_year": "2019",
+      "unique_schedule_fids": 207,
+      "verified_full_ft_fids": 183,
+      "unverified_or_nonfull_fids": 24,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 183,
+        "MISSING_STATUS": 23,
+        "11": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 207
+      },
+      "source_page_count": 8,
+      "source_page_sha256s": [
+        "3499a4d05bbe3555778758af7d5156f7ae8b77f38349a91dc80238562965e843",
+        "7a74956c85caea370a840a97f9df47fd7f83f1cca8e392915cd833830eea2124",
+        "7c173be8ab6aa78cfd209341de5a7b96392c453ed8f40204ea81528a054a0ca0",
+        "83fec05bc33db21ef32764e5ead915a527f4c8c340eae44df51527cd3b19c35e",
+        "905f41e135b31a218df4a4a641bf324ae5ade021cbba36162c0661cf7bf251e7",
+        "ac81d0d3da9d9c8b766b7370c6246acb7e93d13391774ceede539e2d1a1b6348",
+        "e66ae86984b42c5adcc80009c8fc46d0711f7e1ecc25adb9450f8f7b7ca73873",
+        "f0d9b24dda90d3ec517424bd6d974b4a9ffc0a582f933c18ec72c6383df0675d"
+      ],
+      "source_record_versions": 207,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "355",
+      "provider_league_name": "Slovakia 2. Liga",
+      "utc_year": "2020",
+      "unique_schedule_fids": 129,
+      "verified_full_ft_fids": 119,
+      "unverified_or_nonfull_fids": 10,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 119,
+        "MISSING_STATUS": 10
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 129
+      },
+      "source_page_count": 5,
+      "source_page_sha256s": [
+        "168941dbe18d95c9f72e52fffc2bb5dca4f5f9c09971abe57d1b52ae4e03d75d",
+        "2ce8ce9b3edf957e24d9b239771fd2e0a11887e63d1d248106193bcd4443c256",
+        "3499a4d05bbe3555778758af7d5156f7ae8b77f38349a91dc80238562965e843",
+        "e9bbbdd343be965378a75e899931756433900d208ade0c7646c68cc9d6582ef4",
+        "ebe30a05bc8ea33c2678fffc1b30c58a0642b3adb8e90606e319c7dc4c590a47"
+      ],
+      "source_record_versions": 129,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "355",
+      "provider_league_name": "Slovakia 2. Liga",
+      "utc_year": "2021",
+      "unique_schedule_fids": 248,
+      "verified_full_ft_fids": 229,
+      "unverified_or_nonfull_fids": 19,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 229,
+        "MISSING_STATUS": 17,
+        "84": 1,
+        "86": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 248
+      },
+      "source_page_count": 10,
+      "source_page_sha256s": [
+        "0095b0d18183d50f0751f1e823719f5637610644aae730875d0343120a81f222",
+        "2ce8ce9b3edf957e24d9b239771fd2e0a11887e63d1d248106193bcd4443c256",
+        "38350b39053644ae851884ba004dcd16fb4cae9eb5163ba86709831c4f782280",
+        "498909ee10ebdb65d9d6bcbf75b838a31ecd06e41bf815766e6a0586fcac43ab",
+        "595cb279b435b927ce5915562aded0a2b49ea231e2f97a110ba5573f52b3dd62",
+        "5aa083da807f832e4a66709b43cdd89bd5246ed4d0bc82c245e243b99cdf67cc",
+        "6ae6cd84d6173adea19803f6650d025027c4942e18b59597a29946f7b5a152f1",
+        "80676791fc0e2bff66e9312399ce287ecfc3ea9f76dde2d9338a5e92a01206a6",
+        "b3aa0b63d0a2c3d613d34fb3cab5bf36b116bdc91b8ce73ba0811d21f12b7ffc",
+        "ef9dc8e1b9ae44926d374d4c74c35286c294fb2c0853fc99356281d81c2d0431"
+      ],
+      "source_record_versions": 248,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "355",
+      "provider_league_name": "Slovakia 2. Liga",
+      "utc_year": "2022",
+      "unique_schedule_fids": 245,
+      "verified_full_ft_fids": 226,
+      "unverified_or_nonfull_fids": 19,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 226,
+        "MISSING_STATUS": 14,
+        "62": 3,
+        "60": 1,
+        "40": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 245
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "1477f1379b6c343aadc205ab2ebca3f2783f66cc98f77240d9f9b7c1d25afcc4",
+        "55329c8f0297037e94f51a9e608c4754cb8e7c2f30a43d01c761fceb965789db",
+        "5aa083da807f832e4a66709b43cdd89bd5246ed4d0bc82c245e243b99cdf67cc",
+        "5dd36360f6309f47afb5d0e1f86d4c949de8f6fcb169758bd79aa6fbe8f9f035",
+        "626de519352faafb8dcc457477da74e2c3916db0565f8be5e54b01ff271c9d35",
+        "7bac020c1b3afdaddd2acd538a908507a4ede7489b988041eb14924b860415ba",
+        "ad7dd8ce5556dc7574213c65f08d0ce51c631b8821eded0239e7b467e6d76282",
+        "c8c442a2277e9921eb9ff38730878ccd8a9c1de60145ee73d8dbe40dcbf2aa70",
+        "ddd03d0502002118fb429d3d0eee66e9b815bbe16501f0d100fec33612662065"
+      ],
+      "source_record_versions": 245,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "355",
+      "provider_league_name": "Slovakia 2. Liga",
+      "utc_year": "2023",
+      "unique_schedule_fids": 245,
+      "verified_full_ft_fids": 223,
+      "unverified_or_nonfull_fids": 22,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 223,
+        "MISSING_STATUS": 19,
+        "84": 1,
+        "15": 1,
+        "half": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 245
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "101938ef1bea8b718ed92e113e0358fe89a6ddfb6eb91e1e312c8728f4420a87",
+        "1477f1379b6c343aadc205ab2ebca3f2783f66cc98f77240d9f9b7c1d25afcc4",
+        "3ae45b7e04fc98e538d16e2ef2729558fb25a6136fb0b7e59fffa5678f7061e1",
+        "743cf931465ffcbedc375f98930358a6966360b02cecaebe1399f853773aa611",
+        "8425fa5640f2a6c09c0fa9a1110e653fde56523f9be68aa0af4662871affb2f1",
+        "9cc281d8d1d21b826d90240110b5f3c527f39ffa4f6db4f1f6c8ae018956c7d6",
+        "aa5fad99725eb0175c801daac3ce498177a663e4e72e0e0855acb51022aa716c",
+        "ab224a98118cd25f0e77758151f7a0556af8d579fc6e635e86c32d456aa586f5",
+        "fd83005586606af58c4e9658317ad1161223149a7e11e66a9f2fb569404b39ee"
+      ],
+      "source_record_versions": 245,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "355",
+      "provider_league_name": "Slovakia 2. Liga",
+      "utc_year": "2024",
+      "unique_schedule_fids": 166,
+      "verified_full_ft_fids": 152,
+      "unverified_or_nonfull_fids": 14,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 152,
+        "MISSING_STATUS": 13,
+        "06": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 166
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "101938ef1bea8b718ed92e113e0358fe89a6ddfb6eb91e1e312c8728f4420a87",
+        "1ef4c274fd3666aaff13f893ce3eb985141b23a79197cb373318659a080e0efe",
+        "2bb430dec1509e7bbf53324493eb44baf8764fe5070339c9bf3394d9314898b4",
+        "72b2a5002470ce594a7235e03469d0ce18624765c31ecf794982496e8649594c",
+        "7aa0be631c14ae70e41fb317bd72a41ee3cecbedc243d57e9fc9e2048d406cfc",
+        "e2bbb89a20bbf42908141318990ecb8bcb0b00961cf4e353d0867073320f5ae4",
+        "e71bd84f7806eea62a0e3ef392905650f9972782b1df3153f5079e4554e5b39d"
+      ],
+      "source_record_versions": 166,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "355",
+      "provider_league_name": "Slovakia 2. Liga",
+      "utc_year": "2025",
+      "unique_schedule_fids": 193,
+      "verified_full_ft_fids": 189,
+      "unverified_or_nonfull_fids": 4,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 189,
+        "MISSING_STATUS": 4
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 193
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "4200a61458777d12fcbc4f12d6ae2f974305105bfac1f3ff520bc88034d6fd35",
+        "4dcd7db7931af53c802900d1cfca29a34d2eb75e6c8b5b70264c97607155a6a7",
+        "77e3de41a30695f9ee7561bf350b94ab8deffce52ee1da9f5a6f04ee3c32cfd8",
+        "80bcd4572a420dc8f33fa40ed79cc39f7a03c7c68372be6b18f9f282ad19a9e4",
+        "c35f8216b4de19e77d3a8f2add3622e27e2de034d2a7b7696f8dceedda5aabe2",
+        "c50deebd79ff283fbf1b581c8173d5c27031748ae6f0997f85306c3f988b8d10",
+        "e2bbb89a20bbf42908141318990ecb8bcb0b00961cf4e353d0867073320f5ae4"
+      ],
+      "source_record_versions": 193,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "355",
+      "provider_league_name": "Slovakia 2. Liga",
+      "utc_year": "2026",
+      "unique_schedule_fids": 226,
+      "verified_full_ft_fids": 224,
+      "unverified_or_nonfull_fids": 2,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 224,
+        "MISSING_STATUS": 2
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 226
+      },
+      "source_page_count": 8,
+      "source_page_sha256s": [
+        "05d0f0a255738b58c1f56a5114e7188df438e87af444cbd3a784b507fdea01bc",
+        "19ea31e4b5eceeec1e482fb717c51d5c877f217388124b4038abc7008386a0ba",
+        "33c80cbd3fa0d111b94071ca7e297b416390f64f6a0c2ae5d2ef85a5ba55eca8",
+        "4200a61458777d12fcbc4f12d6ae2f974305105bfac1f3ff520bc88034d6fd35",
+        "be65bcbf7a5ade932d471d694c95e2bc1fcea0b9150e80d658f8cf11cd335dcb",
+        "d7f761e4a2e3021d68207d9e66a21458665aa81dc7cde77d3cf824eb34f52783",
+        "e4d3c1320a5bc2e87aadc97cf83e68739413627621f7160bad382d8a317cfb77",
+        "e9f80f68fbe629caa8657f4338bcc88a072dedd8debfd1aaba08df17230394bd"
+      ],
+      "source_record_versions": 226,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
       "provider_league_id": "417",
       "provider_league_name": "Egypt Division 2",
       "utc_year": "2019",
@@ -6476,6 +6823,327 @@
         "d3430a9da2d014540b60a23e89ccc5526f18113d7bdef729e46fe3699f110c0c"
       ],
       "source_record_versions": 143,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "680",
+      "provider_league_name": "Slovenia 2. SNL",
+      "utc_year": "2019",
+      "unique_schedule_fids": 152,
+      "verified_full_ft_fids": 138,
+      "unverified_or_nonfull_fids": 14,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 138,
+        "MISSING_STATUS": 14
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 152
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "128ecd22a2dd5d836be968048a784b60a1a7435348697469e7ac6a7121887e77",
+        "1a7c58afcc938f2285e2b452105e9e65d8d16b8e9d63f990fd03a7e00cfdfcf9",
+        "2bd763bc0aea7a29da9fc2c7d70a7c262b19becd6a9894d19b02eca3156fbc5b",
+        "48faaacd6c81d65635fab5cf5449e984e9f3138e9fe2939aee689ebc6479f239",
+        "69feaeb5b47c1bd5f6d7f2a07971ed52f48c27a9318cb4425da08c8c55b5a235",
+        "e74bf798a9462907f52794efb401be0cd102ec037aa8d37104a7ac8e55f59984"
+      ],
+      "source_record_versions": 152,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "680",
+      "provider_league_name": "Slovenia 2. SNL",
+      "utc_year": "2020",
+      "unique_schedule_fids": 100,
+      "verified_full_ft_fids": 86,
+      "unverified_or_nonfull_fids": 14,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 13,
+        "full": 86,
+        "49": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 100
+      },
+      "source_page_count": 5,
+      "source_page_sha256s": [
+        "6609e6d71c2b4fc604573f0d8aad8f616ed4b6aea68cb57183f9e54c73126b5f",
+        "9c2d5b175b158127f5be5336107b2ebf4bf1a2debbc129c1418983580e285454",
+        "c264d83a78ef7e79cd9886e6c6746935f7c3d7bc90572cd28f6eecf79db69ffb",
+        "d5b367209f69f57731b84e63679b48d97e119ca59011ae0789ff6f494a127a74",
+        "e74bf798a9462907f52794efb401be0cd102ec037aa8d37104a7ac8e55f59984"
+      ],
+      "source_record_versions": 100,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "680",
+      "provider_league_name": "Slovenia 2. SNL",
+      "utc_year": "2021",
+      "unique_schedule_fids": 204,
+      "verified_full_ft_fids": 176,
+      "unverified_or_nonfull_fids": 28,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 28,
+        "full": 176
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 204
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "095a81621a02e8a0726b17bc20a30f8297c54cbcc038c6897441646a59540ef3",
+        "4e2bcf10dad679c6f12547861ab167ad5daa812c3d7976b582b702dd834bb6f8",
+        "4f26ed924a3b9364805ce9c26f6093114308c3ffd52b3e52cd0b2cb32818972f",
+        "6609e6d71c2b4fc604573f0d8aad8f616ed4b6aea68cb57183f9e54c73126b5f",
+        "b91da530ef8a41608265f39a4b97ce093f9f5277a5baa237e28ae166ba37f4fc",
+        "e2d4f007c2fb90fad7701e15a25baf760c185e7e0d4d1e0d164cdb67d3b189fe",
+        "f259192f66e38524dae7520eed448421742e49ee8b4489a7e93ab58d41e7a641"
+      ],
+      "source_record_versions": 204,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "680",
+      "provider_league_name": "Slovenia 2. SNL",
+      "utc_year": "2022",
+      "unique_schedule_fids": 247,
+      "verified_full_ft_fids": 235,
+      "unverified_or_nonfull_fids": 12,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 235,
+        "MISSING_STATUS": 11,
+        "45": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 247
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "1f6d095844e57c538b6ea10072fb812af20be3c02f6589b21f41e6c084983850",
+        "264301a47c43871f25edb17a23067320d18784bda09039e84aebac160e2e30eb",
+        "4db5e01adfced3e8fc7b69b892e28783963598977d830f7c20d0cd3ad1945835",
+        "5d5a960f3603b59106c6141f7ce2fef72f68bd9cffafae3485742ad58569aa53",
+        "85ed042a65c9b361c4583c4a70974a49815897ec3990fb00f94ae076e4333e56",
+        "89452a96a4cce8f55d1501e239544ffeebd691b66aa1df50d6fab0cfe5ac0834",
+        "a198bb57bcb19f08d55080f2fd3ac00a16efb6bfc9b6494481de98b78bd40c98",
+        "a68da264d1ec7e638c6bfb21a63d702e3b78cd19d40d6c87290b4113a9c4be15",
+        "fe087bcfc4ab3388782ee2d5d0e94565983ceb5295a73b9d8ac2b0e93370855d"
+      ],
+      "source_record_versions": 247,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "680",
+      "provider_league_name": "Slovenia 2. SNL",
+      "utc_year": "2023",
+      "unique_schedule_fids": 240,
+      "verified_full_ft_fids": 223,
+      "unverified_or_nonfull_fids": 17,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 223,
+        "MISSING_STATUS": 16,
+        "half": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 240
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "266cecd96bb301bde1aad647f3d4a1f5eb3be5bcd9499f4abcc9fc1f910d9530",
+        "425fa9328668c125829aad579dec7300c630c9c404d954dd45a0d7d50e852304",
+        "49844cae067425d360b1793b774d735d1c25d8f63a3a6814b5196878d1bd8d59",
+        "5e69d571010c5437e84316750e4201fea3194e70c45a9afeae20cfd1bc72e0f3",
+        "825f4648b6f22c3fd82f81bbf0c94585a5ccdc4f5c6f5cdb1e19a895f2ec8637",
+        "a198bb57bcb19f08d55080f2fd3ac00a16efb6bfc9b6494481de98b78bd40c98",
+        "b1ea5f65626f10dbfa92e030bfd336563203c6d9c6656d568b37004153f09c43",
+        "d2412902400531defd9656f1cee25ddc44058934e986f68bd154e285cdcaafe6",
+        "f9307fe5d76cbe6f582f0764690d789ab5648cb31da4688b28997cdcc301cc2c"
+      ],
+      "source_record_versions": 240,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "680",
+      "provider_league_name": "Slovenia 2. SNL",
+      "utc_year": "2024",
+      "unique_schedule_fids": 213,
+      "verified_full_ft_fids": 205,
+      "unverified_or_nonfull_fids": 8,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 205,
+        "MISSING_STATUS": 8
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 213
+      },
+      "source_page_count": 8,
+      "source_page_sha256s": [
+        "016be804ece6f8c2824c55ae87699ca8b53a916d4f10f96d9c97b3b14225640f",
+        "2095b8ee969f8f4049bea9b4c7a0fda3cfad266786ea29431dff3c9a298107fb",
+        "266cecd96bb301bde1aad647f3d4a1f5eb3be5bcd9499f4abcc9fc1f910d9530",
+        "31b2d022eb92f59acec93a90937d00b06053ac88489487c331750f3cbd6a73e6",
+        "990a34e59d9eee4182fb90207bdff544e42354d4126efedf31d3604281967818",
+        "9d43e9fc9e52ed349df121a5ab0a916efa8365d43ad5438abd48d2320bb6342d",
+        "b682bcc36a9a6a4ac8846fd3f2e6019026b0e72555b7d6fc5a70512397eb60fe",
+        "f2da3d4e20cef01ac377476b2308f6294b70d217907380df4511f18b90303eeb"
+      ],
+      "source_record_versions": 213,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "680",
+      "provider_league_name": "Slovenia 2. SNL",
+      "utc_year": "2025",
+      "unique_schedule_fids": 212,
+      "verified_full_ft_fids": 209,
+      "unverified_or_nonfull_fids": 3,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 209,
+        "MISSING_STATUS": 2,
+        "half": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 212
+      },
+      "source_page_count": 8,
+      "source_page_sha256s": [
+        "448f42f4c903f6c9e0cf9de5dc20b0ab8bb74fd23464d6da4e02764b1d31ea8a",
+        "583d72e31278543722e72f29481198ecef056756ad7c2787b8abf9b043da0ca3",
+        "5fecbb01f57e7d698f8895cf417a89442c704b13ea83aff58195eb19a7e2953d",
+        "709ce4e296209e60c89a5fd8f97083b445d67d864f68d5f09480c85458a90b50",
+        "9d43e9fc9e52ed349df121a5ab0a916efa8365d43ad5438abd48d2320bb6342d",
+        "d680755b401ff289d242a386a5b97f08fb579dca740c329e247d91848e3f0dcb",
+        "ebb275032ba28228ca87527b1e48b0d772180789ba1b18374393f1b5ed12416b",
+        "f387ff8d78ccdbf1f242a06d7e43caed9f18f98705732b836b3e3c20a260894f"
+      ],
+      "source_record_versions": 212,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "680",
+      "provider_league_name": "Slovenia 2. SNL",
+      "utc_year": "2026",
+      "unique_schedule_fids": 198,
+      "verified_full_ft_fids": 190,
+      "unverified_or_nonfull_fids": 8,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 6,
+        "full": 190,
+        "12": 1,
+        "81": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 198
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "0ae7420946d28a4a9e7422d27f701f0371db22c2ae539e7a2d95d28e98cee8a1",
+        "1d1cf2a34db39a8f8bc70513bef2532fb7906ae7c542e28dfdd0f0147ef6e73f",
+        "4a5e777b08474d9a8ef79ab19819af109143b75cfa49f9f79ea8ebadfcf41a94",
+        "84d7191b983aa27d24dde1fb315d43a88bd75084e8691c63f534a9d9c3ddf2f7",
+        "abe13871c5a6dae9d701d1642748bc61ab20fb05c0ab208129f11e122b049546",
+        "e0bf0647a3ff7a4105c57e30effe79cdbfe9c82bc9560d860814395c91a4525d",
+        "ebb275032ba28228ca87527b1e48b0d772180789ba1b18374393f1b5ed12416b"
+      ],
+      "source_record_versions": 198,
       "sqlite_capture_fids_any_layer": 0,
       "sqlite_movement_capture_fids": 0,
       "sqlite_summary_capture_fids": 0,
@@ -9785,9 +10453,9 @@
   ],
   "zero_year_bucket_note": "A zero schedule count means no FID was present in the currently verified source rows for that completed provider pagination; it does not prove no competition season or unindexed source exists.",
   "input_sha256": {
-    "progress": "45f328493c6f389a4ed2374e887e1c8a05f9375b945aa5452e79bd6651f5dcc7",
-    "append_only_fixture_ledger": "fc24fddecf7b36108584937bbb6a1be63436b9060f41af96d14d73380e11cfc8",
-    "append_only_request_log": "07d8bfdb4141c9e5a2943888c7702cff14a9e5d37c745d276b71a975b75fc8c3",
+    "progress": "2c54ecee41081ef98af14eb836960127703ff2f8a417f264dd8cadd75b1a0278",
+    "append_only_fixture_ledger": "9615d4f56ef9dfb831dadc88c60940dfa880e27a12403381a06ff504a30b5cb5",
+    "append_only_request_log": "4ceff9423fc73ce865ce7379e2fa1848a83c762685c0a95299aa76262cc4d448",
     "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
   }
 }
