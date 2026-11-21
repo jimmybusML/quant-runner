@@ -5233,3 +5233,10 @@
 - 沿用TotalCorner分页句柄PID 65966 / session 29157，未重启；累计846次请求。首批35项目标中16个联赛完成；France Ligue 2（ID 27）第51/151页、当前新增1,530个FID、失败页0。此检查点时`unified_settlement.py`仍占用共享流程，collector继续按互斥逻辑等待。
 - 已完成子集覆盖保持23,267个FID，21,606个verified full FT、1,661个非full/缺失状态；782个原始页和23,267条逐场记录SHA通过，无身份冲突。季节字段23,267场均缺失；对应本地Crown capture/AH报价0。当前阶段没有发出Crown请求。
 - 私有进度和日志SHA检查点：`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1858Z.json`，SHA256 `e62c8acc0f3f51666d8073a8d42856d9e43067378e3240e06be912355b8d60d9`。France目标未完成，后续从同一私有进度继续。
+
+
+### 2026-11-21 19:03 UTC：17个完成联赛覆盖及Germany Bundesliga II断点
+
+- France Ligue 2（ID 27）完成94页、2,763 FID、失败页0。当前同一TotalCorner collector PID 65966 / session 29157继续Germany Bundesliga II（ID 17）第2/127页；首批35项目标有17项完成，累计891次请求，Germany当前新增60 FID，无失败页。其余未处理和38项补充清单仍待续跑。
+- 重跑逐联赛×UTC年覆盖后，17个已完成联赛有26,030个唯一FID；24,287场`status=full`且FT为数字，1,743场缺失/非full状态。875个SHA核验原始响应页、26,030条逐场记录均验证通过，源身份冲突0。赛季字段26,030场均缺失；本地Crown历史capture和AH报价FID仍是0。各年/联赛明细见覆盖JSON；此范围只是已完成子集。
+- 当前进度SHA检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1903Z.json` SHA256 `e7839f0a60d1465304d785dd7abb5aea1988ae4c8bf3022aadbd20a1c6e2de76`。完整多源赛程合并、全量FT复查与Crown AH补采仍未完成；未做模型/策略研究。
