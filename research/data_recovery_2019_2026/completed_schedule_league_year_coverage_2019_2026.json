@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-11-21T21:39:52.227981Z",
+  "generated_at_utc": "2026-11-21T21:53:39.993374Z",
   "scope_note": "Only targets marked pagination-complete in the live progress file are included; ongoing targets and queued IDs are not represented as complete.",
   "target_count_in_current_file": 38,
-  "completed_target_count": 32,
+  "completed_target_count": 33,
   "completed_target_leagues": [
     {
       "provider_league_id": "2",
@@ -73,6 +73,15 @@
       "unique_2019_2026_fids": 1184,
       "pages_read": 41,
       "reported_pages": 61,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
+      "provider_league_id": "126",
+      "league_name": "Sweden Superettan",
+      "unique_2019_2026_fids": 1935,
+      "pages_read": 66,
+      "reported_pages": 102,
       "pagination_status": "complete_to_2019_cutoff_or_provider_end",
       "failed_pages": []
     },
@@ -293,18 +302,18 @@
       "failed_pages": []
     }
   ],
-  "unique_schedule_fids": 53610,
-  "league_fid_pairs": 53610,
+  "unique_schedule_fids": 55545,
+  "league_fid_pairs": 55545,
   "cross_league_fid_collision_count": 0,
   "cross_year_same_league_fid_conflict_count": 0,
   "ambiguous_fid_league_year_keys": [],
-  "verified_full_ft_fids": 49886,
-  "unverified_or_nonfull_fids": 3724,
+  "verified_full_ft_fids": 51796,
+  "unverified_or_nonfull_fids": 3749,
   "identity_version_conflict_count": 0,
   "identity_version_conflicts": [],
   "raw_source_page_audit": {
-    "distinct_referenced_pages": 1804,
-    "source_record_rows_sha_verified": 53610,
+    "distinct_referenced_pages": 1869,
+    "source_record_rows_sha_verified": 55545,
     "errors": {},
     "season_field_source": "exact row in SHA-verified TotalCorner schedule page raw response"
   },
@@ -3138,6 +3147,333 @@
         "de8e4007a1ace448935a41f77823dec50e95905807cca2e63dcb0d60aacdc5fb"
       ],
       "source_record_versions": 136,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "126",
+      "provider_league_name": "Sweden Superettan",
+      "utc_year": "2019",
+      "unique_schedule_fids": 241,
+      "verified_full_ft_fids": 239,
+      "unverified_or_nonfull_fids": 2,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 239,
+        "half": 1,
+        "MISSING_STATUS": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 241
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "11800451a03c7adec86ffac73fce845ff12dc099cd4d357a324cbb400bf6c9de",
+        "2b79bf1ffafb9d8ef43a9a95539f19c9a088c4f3845acf3229d2d54e150a6ff5",
+        "4e13aa4fd41961d376269cfc7820edb99f71c308ebcff76b14f4a67579d04528",
+        "58c8b6efac824df93a2a6a86b12b964034c27b0ac50767877c4c1429ad8da5fb",
+        "81e74ce3959063a3b0158d0d79ff3e2dad7aa4b3c976ac82d4b8d791fc5920b5",
+        "857a65da65e6bf32db2cc8c8f7cf76afabd943716da5b16ff29ac2423b1f63b6",
+        "b3f6f930e5418572771331f8170dc58427a57ab155ce59cbb43fd61b1d80d1fc",
+        "d1ae98cd9294a2971ddbfdaf3424baa14105ee9483ed8bc42de263ca213d0246",
+        "f56d92a5a39b543d2bce08f7ad6a53417431616dd2a3dc1234cfb582cd96b9be"
+      ],
+      "source_record_versions": 241,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "126",
+      "provider_league_name": "Sweden Superettan",
+      "utc_year": "2020",
+      "unique_schedule_fids": 248,
+      "verified_full_ft_fids": 236,
+      "unverified_or_nonfull_fids": 12,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 236,
+        "85": 1,
+        "16": 1,
+        "MISSING_STATUS": 10
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 248
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "00c637e87950a72f5f6177e0b991684f8e2aad2a993b398e802c3ab31c5491d4",
+        "28c3054370897f41bb50c6dd080afe3c19ef69afcb34db7e4622c8244b697c6f",
+        "3d4fde42c57d952a577495fbae93cf76bbf0e1b700139aed26c4c927eefdcd57",
+        "4b583a0ff48c3654a0d592e95f4d744ccffc2cca4a68c8dd57b900973b5d6d90",
+        "6b01b19c926573ee54cd64c317b9a4c91b6f0a3ba98de7aaa1890490ecce5127",
+        "857a65da65e6bf32db2cc8c8f7cf76afabd943716da5b16ff29ac2423b1f63b6",
+        "93af1a9e9d905a509e1bcf30429eddc884855e9d0dad782eb6694273ee4fd52b",
+        "95296e6db1e5720508a6cc495eb5ce4700b1135fe094a8d29b52c14e24d73c82",
+        "df0acf4770a56e3cee3bbad97a8c75fcfb03ff2694089890ed2af686854f1ed6"
+      ],
+      "source_record_versions": 248,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "126",
+      "provider_league_name": "Sweden Superettan",
+      "utc_year": "2021",
+      "unique_schedule_fids": 243,
+      "verified_full_ft_fids": 239,
+      "unverified_or_nonfull_fids": 4,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 239,
+        "MISSING_STATUS": 4
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 243
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "25199c067185df316ff23014edfb417debc815c836cbbe7df69e7420d99ebc31",
+        "35e1eecb8a71b79aaeeea13ab0aae7448b597afa70b11e673832a1b439585beb",
+        "4bbbbcfaddba03e083647472d0186b125b243bd048ffa58aca71ee0f81ec22dc",
+        "5a019c5d6707eb27b1aabef752f89747bfb9dba13b20045feb1842deb839063a",
+        "95296e6db1e5720508a6cc495eb5ce4700b1135fe094a8d29b52c14e24d73c82",
+        "a84bd303c0611b13a47a9c93816f3a1476e0d253337696efd831356a371f32cf",
+        "d3780d765fe06daea6ef72ce501213d6622bdf9a8c74b2d5d2d0c99b2a08badf",
+        "e5ad64bd2cd5e5b366ba7424b9d43460606d6626022fbe580d9c18ff1b04c8d6",
+        "e825f21ea2475f1977cd863f59f7aa1c6d61b8f0b8714f663c0e0b89ecf42b4c"
+      ],
+      "source_record_versions": 243,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "126",
+      "provider_league_name": "Sweden Superettan",
+      "utc_year": "2022",
+      "unique_schedule_fids": 243,
+      "verified_full_ft_fids": 238,
+      "unverified_or_nonfull_fids": 5,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 238,
+        "84": 1,
+        "MISSING_STATUS": 3,
+        "half": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 243
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "0770a4948c3162e369cd26e5760f2933934b4099e7877144451e7be9ec155119",
+        "2c3d71ee344c18764866f1f25064cc5ecd046ea4b1889d4db956dd1fd0dcdfad",
+        "610526356d117b5f9438952a9e1f4f8e838a1ba59b70a611579428bab852437b",
+        "68a079efb02a73f7da5288ca19ad5d532004f4398b3e1b6e43a78d8e527377c6",
+        "81dc9046cb3b124cb8e837d51600f4b24c54de5f949d6c9ea35e847b4e5541b1",
+        "d32e5a8a5ef38a8048055308e4a1e386b5253e31185e9e485a1c480dfaa2094e",
+        "e099b64b5bb7a3ac4f7a606dfb4787adcc4dd65d396aa4b358ed01979fe499e8",
+        "e825f21ea2475f1977cd863f59f7aa1c6d61b8f0b8714f663c0e0b89ecf42b4c",
+        "ec511b057adf124847ccae8309d4042d5f4cb14f10d444e127f1e1ee8098f29d"
+      ],
+      "source_record_versions": 243,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "126",
+      "provider_league_name": "Sweden Superettan",
+      "utc_year": "2023",
+      "unique_schedule_fids": 240,
+      "verified_full_ft_fids": 239,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 239,
+        "65": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 240
+      },
+      "source_page_count": 8,
+      "source_page_sha256s": [
+        "1f8448215e0af5809306d13165e026e837660fe170589086a376a104091c3f60",
+        "2e1ff4e263a474698854021e5f295afa87136a43bc4934a6a3a8772eda5bc5fd",
+        "323b0a296a175e9410d62fd8dbd0c985a79524fbc858aae87578b7dfb104163d",
+        "3efae662b01ee36c6717847ab1602d31564b945c9f25d35ad341287032d5a2a9",
+        "5dc444526decf16d32bb837474b97193925e0792f2ba4d4cc02f82886530b33f",
+        "7639f143c39d01410cfe5f50cee93c53d0eae1080422043d9afc151fa5964d08",
+        "baafc42738db8c013a5617fc4b676bcb836e50595ddb6b42d3361bad908cf6a3",
+        "d68ea1ee5e89bb1b139ffe90ef1bebe658f88869786c4dbee1edffe42c511f9b"
+      ],
+      "source_record_versions": 240,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "126",
+      "provider_league_name": "Sweden Superettan",
+      "utc_year": "2024",
+      "unique_schedule_fids": 240,
+      "verified_full_ft_fids": 240,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 240
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 240
+      },
+      "source_page_count": 8,
+      "source_page_sha256s": [
+        "3757a978fa5344ebc94be03703a294b75431df6afba47197c43d943a3b9319ee",
+        "3c46b660e6bde444caecde28ea08f50c879f78cfe38750c16a192bfb033f3650",
+        "3cdc1aedccc1dc7eead9c52a3c2b9c30684b5cf02742a8a415cf20a4fb0b3644",
+        "5723c6bca257b65da28c2bd8be1ed7b52c52c76464b909210f0f4b7ff5e1768f",
+        "8abbfbce2f06932a9a9d7d89960fa506b095f098fa00a18aad87ea131b1f6793",
+        "a14a9728341d1e562c2d730b96b218260856883ff6dec31c9d818574b38a1543",
+        "ab225dd5dcd5e6759ac3c3cd26cc49018ebc18a8eb859579426a9651cdef4ab6",
+        "da36c16eb5904d41ac310f0bfaa5e82631810afedb95f28d4fecdedfaedbaca0"
+      ],
+      "source_record_versions": 240,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "126",
+      "provider_league_name": "Sweden Superettan",
+      "utc_year": "2025",
+      "unique_schedule_fids": 240,
+      "verified_full_ft_fids": 240,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 240
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 240
+      },
+      "source_page_count": 8,
+      "source_page_sha256s": [
+        "57f1f20dfa79748440b2dea5055d0b2472a92c9ea3121cc6c82ee66fc0b544c3",
+        "6722b074cc08878c8dff72229ac65a98c5bc15be5ea80a4ab21c4b4be721de67",
+        "7fc901b1825afbd085f9e720bdd94fb314121fcbd06f207b1d64c7598fa1f016",
+        "8398459bc4b88bdaf9d33952e40519f97b59cbf5a2ed421b7049a8c5fdf00a89",
+        "96b022ad8acca08ef83e8a7177ad458565eb16c35d81e95a1f8493a2dcd5a5d8",
+        "b7bcaa35fce3873ced3371f75224415ea38092328fbfa8f09bc161e5983a7abb",
+        "d613c4a9512c8fb29ca3f731af78b9c5daf0f8167e4b97e805a4e80545fc0bbb",
+        "df55b087f9f8880708fc955108f298caf7ed30bf6fefd2c38e04e69b912ee579"
+      ],
+      "source_record_versions": 240,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "126",
+      "provider_league_name": "Sweden Superettan",
+      "utc_year": "2026",
+      "unique_schedule_fids": 240,
+      "verified_full_ft_fids": 239,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 239,
+        "MISSING_STATUS": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 240
+      },
+      "source_page_count": 8,
+      "source_page_sha256s": [
+        "0ab72aae4f134d422a2bfcd088e76a31ffc4eab7b4d0b7c204c48e376e43f91e",
+        "0de1c8409b19764bcfb19391e3c1b699b768ed077b46f0fdd2ae5cfc410b06ea",
+        "505aca4f1c041c1ae1ee2f0fe88e3b34dd2fa392a4137f86f8dae5e8c70df901",
+        "64726c10fc7cc23dd27ac955ff04048ad45b545c22007cb58e4b0b528fd0c2ba",
+        "72a098810e5bbc6057da0e53dfb26c249b3eb334a76d6ea4602c2e20542f0fc0",
+        "8c1e6cc2a829073496f8c8b574b4735e8fc6b122da2f211f81b4982bc5a89854",
+        "e9ddcdad45dfac3e31f6dd09e776ddea8a065e26454faede9eb0b1e905674fbd",
+        "ef33d6188056ea682a0b2258afa20e09f2abbaf3fd15e7e3ad69b0745b83150e"
+      ],
+      "source_record_versions": 240,
       "sqlite_capture_fids_any_layer": 0,
       "sqlite_movement_capture_fids": 0,
       "sqlite_summary_capture_fids": 0,
@@ -10788,9 +11124,9 @@
   ],
   "zero_year_bucket_note": "A zero schedule count means no FID was present in the currently verified source rows for that completed provider pagination; it does not prove no competition season or unindexed source exists.",
   "input_sha256": {
-    "progress": "686e04a562f6a957ef81eb1643d33a0a63ba9d6cfdaa58ce7f163d1cf4e8b498",
-    "append_only_fixture_ledger": "f03ab7ccb04d1a3f7b8189fb269374c4193a7c2ad04958a953f80a397f794f62",
-    "append_only_request_log": "75b3dbdcb344f597e17d88893327dee4ebe07579f33462dcef0500600ac3bda8",
+    "progress": "5daf4f653aab91665f4bd2b8f0a19ecb66139d93fe6d98ec280473d68a41edb6",
+    "append_only_fixture_ledger": "7fe18766904f1690c93f32069a8d735784de53909b74543b41c9a048b4b96b1b",
+    "append_only_request_log": "0f7e804ea0fd8590652153ecd5344bdb8b08630fdd5ef1de52b1f8a831756f1d",
     "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
   }
 }
