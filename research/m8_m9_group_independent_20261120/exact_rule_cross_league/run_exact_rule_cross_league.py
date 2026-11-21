@@ -282,6 +282,14 @@ def main():
  for y in sorted({int(x['season_year']) for x in outside}):
   dates=[dt.date.fromisoformat(str(x['kickoff_source_local'])[:10]) for x in outside if int(x['season_year'])==y]
   observed_year_weeks[str(y)]=(max(dates)-min(dates)).days//7+1 if dates else 0
+ # Keep the order-only date span as a separate diagnostic, while making the
+ # requested annual weekly rate consistent with the full schedule denominator
+ # used by the report and merged annual table.
+ for y,metric in summary['results']['annual_incremental_orders'].items():
+  metric['avg_per_order_date_span_week']=metric.pop('avg_per_calendar_week')
+  metric['observed_schedule_weeks']=observed_year_weeks.get(y,0)
+  metric['avg_per_observed_schedule_week']=(round(metric['n']/metric['observed_schedule_weeks'],6)
+      if metric['observed_schedule_weeks'] else 0.0)
  annual_union={}
  for y in sorted({x['year'] for x in orders}):
   yy=[x for x in orders if x['year']==y]; st=stat(yy)
