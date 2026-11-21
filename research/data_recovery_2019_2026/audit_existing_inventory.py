@@ -338,6 +338,30 @@ def main():
     for name in ('fixture_inventory_2019_2026.jsonl.gz','league_year_coverage_2019_2026.csv','schedule_page_sha256.jsonl','m1_history_cache_sha256.jsonl','crown_raw_response_sha256.jsonl','movement_missing_capture_candidates.jsonl','unverified_FT_candidates.jsonl'):
         p=OUT/name;out['outputs'][name]={'bytes':p.stat().st_size,'sha256':sha256(p)}
     (OUT/'inventory_audit_2019_2026.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+    conflict_counts=collections.Counter(x.get('type','unknown') for x in conflicts)
+    public_summary={
+      'generated_at_utc':out['generated_at'],
+      'scope':'All currently identified provider league IDs, UTC calendar years 2019-2026; this is a moving inventory snapshot, not a completion claim.',
+      'source_file_sha256':[{'file':Path(x['path']).name,'sha256':x['sha256'],'bytes':x['bytes']} for x in inputs],
+      'crown_store_snapshot':{
+        'main_db_bytes':db_stat['bytes'],'main_db_sha256_at_snapshot':db_stat['sha256'],
+        'inventory_mapped_raw_response_file_count':out['unique_crown_raw_response_files'],
+        'raw_response_files_missing':raw_missing,'raw_response_sha256_mismatches':raw_mismatch,
+      },
+      'schedule_pages':{
+        'physical_page_files':len(page_paths),'page_records_including_repeats':page_rows,
+        'expanded_schedule_rows':universe_rows,'completeness':page_completeness,
+        'supplemental_schedule_record_versions':supplemental_rows,
+        'recovered_schedule_record_versions':recovered_rows,
+      },
+      'inventory_totals_2019_2026':out['totals_2019_2026'],
+      'provider_league_ids':all_leagues,
+      'league_year_coverage':matrix,
+      'identity_conflict_counts_by_type':dict(conflict_counts),
+      'local_unpublished_audit_artifact_hashes':out['outputs'],
+      'privacy_note':'Raw Crown response bodies, SQLite, full per-FID inventory and exact private response locations remain in the authorized local data store; this public summary carries aggregate coverage and content digests only.',
+    }
+    (OUT/'inventory_coverage_summary_2019_2026.json').write_text(json.dumps(public_summary,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({'expanded_schedule_rows':universe_rows,'schedule_page_rows':page_rows,'M1_history_cache_rows':m1_cache_rows,'union_unique_fids':out['union_unique_fids'],
       'league_ids':len(out['league_ids']),'league_year_rows':len(matrix),'totals':out['totals_2019_2026'],
       'conflicts':len(conflicts),'bad_pages':len(bad_pages),'sqlite_fids':len(capture_by_fid) if False else None,

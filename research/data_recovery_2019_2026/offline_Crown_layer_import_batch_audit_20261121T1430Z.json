@@ -1,0 +1,29 @@
+{
+  "study": "Independent read-only verification of exact offline historical Crown import references",
+  "source_inventory_sha256": "04583ae246faa4dfeaec427d837ac8746eb1eb3f0b1af22274ac3eaddff1c7bc",
+  "import_reference_file_sha256": "13014898c463d12ed916e7dd6870d312a54cd61e4a8e8751943324d077e2e33e",
+  "candidate_capture_rows": 62,
+  "verified_capture_rows": 62,
+  "verified_quote_rows": 124,
+  "unique_fids_by_layer": {
+    "summary": 62
+  },
+  "capture_rows_by_layer_and_status": {
+    "summary|QUOTES_SAVED": 62
+  },
+  "errors": {},
+  "pass": true,
+  "checks": [
+    "raw response SHA matches capture",
+    "response FID and Crown bookmaker",
+    "layer-specific parser output and row count",
+    "Asian handicap line and both raw decimal prices",
+    "source event timestamp",
+    "indexed HTTP receive timestamp only when exact legacy SHA mapping exists",
+    "historical capture remains non-prospective",
+    "quote-before-kickoff provenance flag"
+  ],
+  "verified_capture_ledger": "offline_Crown_layer_import_verified_rows_20261121T1430Z.jsonl.gz",
+  "verified_capture_ledger_sha256": "5aef3c7bc0879c8ecaa696ec372daedef3d64926e7b061c2e9c10fc24cb64043",
+  "note": "Scope is exactly the response references emitted by the latest offline import pass. Other contemporaneous movement captures are outside this import verification. This does not assert a historical HTTP response was received pre-kickoff or that absent quotes never existed."
+}

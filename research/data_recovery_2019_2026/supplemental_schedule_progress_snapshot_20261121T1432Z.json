@@ -1,0 +1,88 @@
+{
+  "snapshot_at_utc": "2026-11-21T14:32:37Z",
+  "task": "2019-2026 all-current-league historical data recovery; data collection/reconciliation only",
+  "collector": {
+    "pid": 10634,
+    "process_alive": true,
+    "script": "collect_supplemental_totalcorner_schedules.py",
+    "network_requests_logged": 457,
+    "new_unique_fids_logged": 13402,
+    "identity_conflicts_logged": 4,
+    "waiting_for_scheduled_production_job": true,
+    "request_log_sha256": "8ab58d2a516bd5bd3d7f2b29e5b283c4e39b43c7a6753b2599ef6d99f36cd5e5",
+    "normalized_private_ledger_sha256": "2165a0ecabfc54c9007412a32c1af2c2e853618494f66b2ea9257d67ce5622ca",
+    "targets": {
+      "15": {
+        "league_name": "Spain Segunda",
+        "pages_read": 126,
+        "reported_pages": 196,
+        "unique_2019_2026_fids": 3731,
+        "failed_pages": [],
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "57": {
+        "league_name": "Portugal Segunda Liga",
+        "pages_read": 80,
+        "reported_pages": 149,
+        "unique_2019_2026_fids": 2366,
+        "failed_pages": [],
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "63": {
+        "league_name": "Ukraine Persha Liga",
+        "pages_read": 38,
+        "reported_pages": 65,
+        "unique_2019_2026_fids": 1101,
+        "failed_pages": [],
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "121": {
+        "league_name": "Netherlands Eerste Divisie",
+        "pages_read": 102,
+        "reported_pages": 157,
+        "unique_2019_2026_fids": 3017,
+        "failed_pages": [],
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "128": {
+        "league_name": "Japan J2-League",
+        "pages_read": 111,
+        "reported_pages": 184,
+        "unique_2019_2026_fids": 3307,
+        "failed_pages": [],
+        "pagination_status": null
+      }
+    }
+  },
+  "all_inventory_audit": {
+    "unique_schedule_fids": 127633,
+    "provider_league_ids": 70,
+    "league_year_rows": 560,
+    "verified_ft_fids": 122504,
+    "unverified_ft_fids": 5129,
+    "movement_quoted_fids": 52999,
+    "movement_quote_rows": 4429709,
+    "summary_quote_fids": 49144,
+    "summary_quote_rows": 99520,
+    "explicit_no_quote_fids": 49697,
+    "failed_capture_attempts": 951,
+    "uncovered_schedule_fids": 74634,
+    "identity_conflicts": 9,
+    "bad_schedule_pages": []
+  },
+  "strict_crown_raw_ft_audit": {
+    "candidate_fids": 5129,
+    "candidate_fids_with_capture": 456,
+    "distinct_raw_responses_checked": 1493,
+    "strict_full_ft_fids": 0,
+    "issues": {},
+    "api_requests": 0,
+    "sqlite_writes": 0
+  },
+  "public_artifact_sha256": {
+    "inventory_coverage_summary_2019_2026.json": "6f2eb8c22ca1020843f7d4939768bb60ec6ce74954cd684d909f690154d5d1cb",
+    "league_year_coverage_2019_2026.csv": "85bd1881bc29fc3f3c6a23c7b73282e02b67946d2bb3de0ca3069acb1f3b89f2",
+    "crown_raw_ft_candidate_audit_2019_2026.json": "5979ab35610acb904e21a7216c17aee02f17b93e7a6495598b07ba3221644736"
+  },
+  "completion_status": "interim; supplemental league schedule recovery remains live and the full historical schedule/FT/Crown movement inventory is not complete"
+}

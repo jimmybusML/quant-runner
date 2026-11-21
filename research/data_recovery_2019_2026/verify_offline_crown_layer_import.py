@@ -7,7 +7,9 @@ BASE=pathlib.Path('/Users/mac/QuantAsiaDesk')
 OUT=pathlib.Path(__file__).resolve().parent
 DB=BASE/'data/crown_quote_store/crown_quotes.sqlite3'
 INVENTORY=OUT/'fixture_inventory_2019_2026.jsonl.gz'
-CUTOFF='2026-11-21T11:08:00Z'
+IMPORTED_REFS=OUT/'offline_Crown_layer_imported_responses_2019_2026.jsonl.gz'
+VERIFIED_LEDGER=OUT/'offline_Crown_layer_import_verified_rows_20261121T1430Z.jsonl.gz'
+AUDIT_RESULT=OUT/'offline_Crown_layer_import_batch_audit_20261121T1430Z.json'
 sys.path.insert(0,str(BASE/'scripts'))
 import crown_capture_store as store
 
@@ -24,9 +26,17 @@ def main():
    x=json.loads(line);fixtures[str(x['fid'])]=x
  cx=sqlite3.connect(f'file:{DB}?mode=ro',uri=True,timeout=30);cx.row_factory=sqlite3.Row;cx.execute('BEGIN')
  receipt=store.source_received_index();groups=collections.Counter();errors=collections.Counter();ledger=[];netfiles=0;quote_rows=0;quote_fids=collections.defaultdict(set)
- captures=cx.execute("select * from capture where capture_mode='historical' and status='QUOTES_SAVED' and processed_at_utc>=? order by processed_at_utc,capture_key",(CUTOFF,)).fetchall()
- for c in captures:
-  fid=str(c['fixture_id']);layer=str(c['data_layer']);path=pathlib.Path(c['source_file']);netfiles+=1
+ refs=[]
+ with gzip.open(IMPORTED_REFS,'rt',encoding='utf-8') as f:
+  for line in f:
+   refs.append(json.loads(line))
+ for ref in refs:
+  fid=str(ref['fid']);layer=str(ref['layer']);digest=str(ref['response_sha256'])
+  captures=cx.execute("select * from capture where fixture_id=? and data_layer=? and response_sha256=? and capture_mode='historical' and status='QUOTES_SAVED' order by processed_at_utc,capture_key",(fid,layer,digest)).fetchall()
+  if len(captures)!=1:
+   errors['import_reference_capture_count_mismatch']+=1
+   continue
+  c=captures[0];path=pathlib.Path(c['source_file']);netfiles+=1
   try:
    body=path.read_bytes();digest=sha_bytes(body)
    if digest!=c['response_sha256']:errors['raw_sha_mismatch']+=1;continue
@@ -54,22 +64,22 @@ def main():
       'layer':layer,'capture_key':c['capture_key'],'response_sha256':digest,'source_file_basename':path.name,
       'response_received_at_utc':c['response_received_at_utc'],'quote_count':len(actual),'prospective_observation':0,'verified':True})
   except Exception as e:errors[type(e).__name__]+=1
- # This cutoff includes the exact import run; outputs are deterministic to inspect/reproduce.
+ # Verify exactly the append-only import references; unrelated captures are excluded.
  ledger.sort(key=lambda x:(x['layer'],x['provider_league_id'],x['year'] or 0,x['fid'],x['response_sha256']))
- ledger_path=OUT/'offline_Crown_layer_import_verified_rows_2019_2026.jsonl.gz'
+ ledger_path=VERIFIED_LEDGER
  with ledger_path.open('wb') as raw:
   with gzip.GzipFile(fileobj=raw,mode='wb',mtime=0) as gz:
    for x in ledger:gz.write((json.dumps(x,separators=(',',':'))+'\n').encode())
- result={'study':'Independent read-only verification of offline historical Crown layer normalization',
-  'source_inventory_sha256':sha_bytes(INVENTORY.read_bytes()),'capture_processed_at_utc_cutoff':CUTOFF,
-  'candidate_capture_rows':len(captures),'verified_capture_rows':len(ledger),'verified_quote_rows':quote_rows,
+ result={'study':'Independent read-only verification of exact offline historical Crown import references',
+  'source_inventory_sha256':sha_bytes(INVENTORY.read_bytes()),'import_reference_file_sha256':sha_bytes(IMPORTED_REFS.read_bytes()),
+  'candidate_capture_rows':len(refs),'verified_capture_rows':len(ledger),'verified_quote_rows':quote_rows,
   'unique_fids_by_layer':{k:len(v) for k,v in quote_fids.items()},'capture_rows_by_layer_and_status':{f'{k[0]}|{k[1]}':v for k,v in groups.items()},
-  'errors':dict(errors),'pass':not errors and len(ledger)==len(captures),
+  'errors':dict(errors),'pass':not errors and len(ledger)==len(refs),
   'checks':['raw response SHA matches capture','response FID and Crown bookmaker','layer-specific parser output and row count','Asian handicap line and both raw decimal prices','source event timestamp','indexed HTTP receive timestamp only when exact legacy SHA mapping exists','historical capture remains non-prospective','quote-before-kickoff provenance flag'],
-  'verified_capture_ledger':'offline_Crown_layer_import_verified_rows_2019_2026.jsonl.gz',
+  'verified_capture_ledger':VERIFIED_LEDGER.name,
   'verified_capture_ledger_sha256':sha_bytes(ledger_path.read_bytes()),
-  'note':'This verifies persisted local normalization of already-existing raw responses; it does not assert a historical HTTP response was received pre-kickoff or that absent quotes never existed.'}
- (OUT/'offline_Crown_layer_import_independent_verification_2019_2026.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+  'note':'Scope is exactly the response references emitted by the latest offline import pass. Other contemporaneous movement captures are outside this import verification. This does not assert a historical HTTP response was received pre-kickoff or that absent quotes never existed.'}
+ AUDIT_RESULT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
  print(json.dumps(result,ensure_ascii=False),flush=True)
  cx.close()
 
