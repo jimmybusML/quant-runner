@@ -1,0 +1,21 @@
+{
+  "generated_at_utc": "2026-11-21T15:00:19.152742Z",
+  "scheduled_inventory_sha256": "35d6aac4e5788fd5398eb4f1ae3c4e420891c86f6dc1fbb14fd2e8239250a7aa",
+  "crown_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+  "crown_capture_fids_not_in_schedule_inventory": 46,
+  "identity_rows_retained": 10,
+  "scope_position_counts": {
+    "within_utc_2019_2026": 9,
+    "china_date_2019_start_boundary_utc_2018": 1
+  },
+  "by_league_scope_year": {
+    "10|china_date_2019_start_boundary_utc_2018|2018": 1,
+    "51|within_utc_2019_2026|2026": 9
+  },
+  "identity_conflict_or_parse_issues": {},
+  "api_requests": 0,
+  "sqlite_writes": 0,
+  "output_file": "crown_only_fixture_identity_candidates_2019_2026.jsonl.gz",
+  "output_sha256": "bf4e3ad9ed8d4992a96780ef787f6cb32c74b30371e68e9a45a30b1f98163592",
+  "interpretation": "Fixture metadata from quote-capture responses is retained as a distinct source and does not claim a separate schedule page or Crown AH quote existed. Nine target UTC-period rows are future fixtures; scores shown in source metadata remain unverified unless status is full and separately reconciled. One 2019 China-date boundary record is UTC 2018-12-31 and is preserved separately."
+}

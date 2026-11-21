@@ -4,7 +4,7 @@ This is an active collection and reconciliation task, not a strategy or model st
 
 ## Current evidence
 
-- `inventory_coverage_summary_2019_2026.json` and `league_year_coverage_2019_2026.csv`: per-provider-league/per-UTC-year coverage snapshot generated 2026-11-21 10:23 UTC, with source file content digests and conflict counts.
+- `inventory_coverage_summary_2019_2026.json` and `league_year_coverage_2019_2026.csv`: moving per-provider-league/per-UTC-year coverage snapshot; current committed checkpoint is described below.
 - `collection_progress_snapshot_*.json` and matching checkpoint Markdown: later live progress snapshots. They explicitly state the run is incomplete.
 - `score_source_disagreements.jsonl`: two exact-FID FT conflicts retained for audit; the source score records are not rewritten.
 
@@ -27,3 +27,11 @@ Raw Crown response files and full per-FID inventories are intentionally not comm
 `audit_cached_schedule_page_coverage_2019_2026.py` re-read 5,505 unique cached page numbers for the 64 expanded provider leagues, preferring the original raw response when both raw and normalized copies exist; the baseline inventory records 9,840 physical page files. It found 0 missing page numbers before the last cached page containing a 2019–2026 fixture, 0 gaps between that page and the first cached page wholly before 2019, 0 response parse errors, and 0 league-ID mismatches. The source-reported 373 uncached pages are in the provider's all-history pagination beyond the verified 2019+ interval; they were not fetched because they fall before the requested 2019 start. Cached source dates span 2013-12-29 through 2026-11-24. This audit does not cover the separate 14 additional scoped competition candidates that still lack saved schedule pages, the partial league-15 supplement, or Crown quote completeness.
 
 The detailed per-page SHA/date audit is in `cached_schedule_page_continuity_2019_2026.json`; the per-league summary is in the matching CSV. The 2019–2026 inventory includes 64 expanded schedule leagues plus M1-only league ID 27391; the latter currently appears in M1 history-cache rows rather than these page directories.
+
+## Crown-captured fixture metadata overlay — 2026-11-21 15:06 UTC
+
+- A read-only audit of Crown capture FIDs not yet represented in the reconciled schedule found 46 identifiers. Ten had SHA-valid, identity-consistent fixture metadata in existing Crown responses: nine fall inside UTC 2019–2026 and one is a China-date 2019 boundary match whose kickoff is UTC 2018-12-31, retained separately.
+- The nine in-scope FIDs are Portugal Primeira Liga (provider ID 51) future fixtures. Their saved live summary responses have no Crown bookmaker entry and no AH quote rows. Their `0:0` values are placeholders, their status is absent, and they are not counted as verified FT or Crown AH. The row-level overlay records response SHA, receipt times, identity fields and the missing bookmaker fact.
+- `audit_existing_inventory.py` now adds this as a distinct fixture-metadata source. It does not call these rows TotalCorner schedule records, priced quotes, or verified scores. Inventory rose from 129,567 to 129,576 unique in-scope FIDs; verified FT stayed 124,387, unverified FT rose to 5,189, and Crown movement quote FIDs stayed 52,999.
+- Readiness classification at 15:06:43 UTC: 300 future/not-due, 4,254 past-kickoff with missing/unknown status, 635 with explicitly non-full status; 4,766 have a placeholder `0:0`, none promoted to FT. This is an as-of-time classification, not a final abandonment judgment.
+- Full local audit, per-FID inventory and source response paths stay on the authorized host. Public aggregate summary, 71×8 league/year matrix, 501 source-season buckets, separate Crown-only overlay and SHA manifest are committed. The TotalCorner supplemental schedule collector remained live on provider league ID 270 (Scotland Championship), page 12/76, after 616 successful requests and 18,065 newly observed FIDs; the full scope is still incomplete.

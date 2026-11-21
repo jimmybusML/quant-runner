@@ -5085,3 +5085,13 @@
 - 14:49全覆盖复核：129,567唯一FID、71个联赛、568个联赛-UTC年桶；verified FT 124,387、unverified FT 5,180。Crown movement报价52,999FID/4,429,709行，explicit no-quote 49,697FID，失败请求951，缺movement报价库存76,568FID。严格Crown raw FT候选扫描扩到5,180，456个候选有capture、1,493个raw response已检，0个新增严格验证FT，0审计异常。
 - 持久化矩阵为`league_year_coverage_2019_2026.csv`及新增`league_season_coverage_2019_2026.csv`。纠正后覆盖输出、检查点及脚本位于`supplemental_schedule_progress_snapshot_20261121T1450Z.json`和`COLLECTION_CHECKPOINT_20261121T1450Z.md`；ID210仍有33页且其余外部联赛ID仍待检查，全任务未完成。
 - 14:53 UTC补充赛果时效分层：5,180个未核实FT候选中，310场开赛时间仍在未来，暂不该进入赛后修复；4,235场已过开赛时间但已有来源状态均缺失/未知；635场已有来源明确非full状态；开赛时间缺失0。4,757场出现占位`0:0`，未当作赛果。逐联赛年明细及逐场原状态见`UNVERIFIED_FT_READINESS_20261121T1453Z.md`、`unverified_ft_readiness_2019_2026_by_league_year.csv`、`unverified_ft_readiness_2019_2026_per_fid.jsonl`；分类脚本只读、API请求0、SQLite写入0。
+
+## 2026-11-21｜全历史补采恢复检查点（15:06 UTC）
+
+- 在当前 `data/history-backfill-2019-2026` 隔离分支继续执行全源盘点；当前工作树状态已检查。原有独立研究目录 `/Users/mac/Documents/ChatGPT/m8-m9-group-research` 的未提交工作未触碰。本任务仍只做历史数据发现、补齐、去重与持久化，不进行策略/模型研究，不触发正式交易。
+- 新增只读脚本 `research/data_recovery_2019_2026/audit_crown_only_fixture_metadata.py`，核查本地 Crown SQLite 中未关联现有赛程库存的 capture FID及其原始 HTTP 响应SHA。46个Crown capture FID里有10个可从SHA匹配的响应重建身份；9个属于UTC 2019–2026，均为 Portugal Primeira Liga (ID 51) 未来赛程；另1个是中国时区2019-01-01但UTC 2018-12-31的边界赛事，单独保留，不混入UTC目标矩阵。9场的响应无 Crown bookmaker 项、无AH报价行；响应中的0:0为占位比分、status缺失，未当作FT。
+- `audit_existing_inventory.py` 已把9个目标期 Crown fixture metadata 作为独立来源层纳入全局覆盖矩阵及逐FID记录，不把它们伪装成TotalCorner分页赛程、Crown报价或可信赛果。当前只读覆盖审计：129,576个唯一目标期FID、71个provider league ID、568个联赛-UTC年桶；TotalCorner页记录113,634 FID、扩展清单96,503、补充页记录15,456、M1缓存68,196、Crown-only metadata 9。已核实FT 124,387，未核实5,189；T6定价库存48,890；Crown movement有价52,999 FID/4,429,709行，summary有价49,144/99,520行；明确movement无AH报价49,697，采集失败951，当前无movement报价76,577。9项身份冲突保留，坏页0。其余明细见覆盖汇总及逐联赛年/来源赛季矩阵。
+- 15:06:43 UTC FT时效分类重跑：未核实5,189场中300场开赛仍在未来、4,254场已过开赛但状态缺失/未知、635场为明确非full状态；开赛时间缺失0，4,766条含0:0占位。没有把空状态或占位比分提升为赛果。逐场/逐联赛年文件与 `audit_unverified_ft_readiness.py` 已更新。
+- TotalCorner补充分页仍在实际运行，PID 10634；截至15:06 UTC日志616次成功页请求、新发现18,065个目标期FID。ID15/57/63/121/128已推进到2019截止；ID210已到66/98页，ID252到80/122页；ID270 Scotland Championship推进到12/76页。不得把这些中间页数写为该批全部完成；后续联赛ID仍待探查。
+- 本检查点产物：`research/data_recovery_2019_2026/crown_only_fixture_identity_candidates_2019_2026.jsonl.gz`及摘要JSON、更新的`audit_existing_inventory.py`、覆盖汇总/矩阵、`UNVERIFIED_FT_READINESS_20261121T1506Z.md`与执行JSON、SHA清单。执行时Crown/TotalCorner API请求均为0（活跃分页采集器除外；本审计没有发请求）；SQLite只读。
+- 仍未完成全目标：继续让当前分页采集推进并核查剩余赛事ID；之后以更新后唯一FID库存对账所有Crown历史AH原始缓存/报价路径，分层定位报价缺口；继续核实非full/缺失FT及各源ID映射。任何收集失败保留原始状态并可恢复。

@@ -16,6 +16,7 @@ M1_CACHE = BASE/'repos/m1/data/m1_history_cache'
 SUPPLEMENTAL_SCHEDULE = Path(__file__).resolve().parent/'supplemental_totalcorner_league15_schedule_20261121.jsonl.gz'
 RECOVERED_SCHEDULE = BASE/'research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/fixtures_2019_2026.verified.jsonl.gz'
 EXTERNAL_FT_OVERLAY = Path(__file__).resolve().parent/'external_verified_ft_2019_2026.jsonl'
+CROWN_FIXTURE_OVERLAY = Path(__file__).resolve().parent/'crown_only_fixture_identity_candidates_2019_2026.jsonl.gz'
 TZ_SH = ZoneInfo('Asia/Shanghai')
 
 
@@ -49,7 +50,7 @@ def main():
     page_paths=sorted(set(SCHEDULES.glob('*/*.raw.json')) | set(SCHEDULES.glob('*/*.json')))
     page_catalog=collections.defaultdict(lambda:{'page_numbers':set(),'reported_totals':set(),'league_names':set(),'rows_by_page':{},'page_date_ranges':{},'date_min':None,'date_max':None})
     def row_for(fid):
-        return fixtures.setdefault(str(fid),{'fid':str(fid),'expanded_universe':[],'totalcorner_schedule':[],'supplemental_schedule':[],'priced_t6':[]})
+        return fixtures.setdefault(str(fid),{'fid':str(fid),'expanded_universe':[],'totalcorner_schedule':[],'supplemental_schedule':[],'crown_fixture_metadata':[],'priced_t6':[]})
     for line in UNIVERSE.open(encoding='utf-8'):
         x=json.loads(line); fid=str(x.get('match_id') or '')
         if not fid:continue
@@ -133,6 +134,32 @@ def main():
                   'home_name':x.get('home_name'),'away_name':x.get('away_name'),'status':x.get('status_raw'),
                   'home_goals':x.get('home_goals_raw'),'away_goals':x.get('away_goals_raw'),
                   'season':x.get('season_raw'),'observed_at_utc':x.get('response_received_at_utc')})
+    crown_fixture_rows=0
+    if CROWN_FIXTURE_OVERLAY.exists():
+        with gzip.open(CROWN_FIXTURE_OVERLAY,'rt',encoding='utf-8') as f:
+            for line in f:
+                if not line.strip():continue
+                x=json.loads(line)
+                # The China-local 2019 boundary record is retained in the source
+                # artifact but remains outside the UTC 2019-2026 matrix.
+                if x.get('scope_position')!='within_utc_2019_2026':continue
+                fid=str(x.get('fid') or '')
+                if not fid:continue
+                crown_fixture_rows+=1
+                refs=[{'data_layer':z[0],'capture_mode':z[1],'response_sha256':z[2],
+                       'source_basename':z[3],'response_received_at_utc':z[4]}
+                      for z in x.get('response_references',[])]
+                row_for(fid)['crown_fixture_metadata'].append({'source':x.get('source'),
+                  'provider_league_id':str(x.get('provider_league_id') or ''),
+                  'provider_league_name':x.get('provider_league_name'),
+                  'kickoff_source':x.get('kickoff_source_raw'),'kickoff_utc':x.get('kickoff_utc'),
+                  'kickoff_china':x.get('kickoff_china'),'home_id':str(x.get('home_id') or ''),
+                  'away_id':str(x.get('away_id') or ''),'home_name':x.get('home_name'),
+                  'away_name':x.get('away_name'),'status':x.get('status_raw'),
+                  'home_goals':x.get('home_goals_raw'),'away_goals':x.get('away_goals_raw'),
+                  'crown_bookmaker_present':x.get('crown_bookmaker_present_in_selected_raw_response'),
+                  'source_identity_consistent':x.get('source_identity_consistent_across_captures'),
+                  'response_references':refs})
     external_ft_rows=0
     if EXTERNAL_FT_OVERLAY.exists():
         for line in EXTERNAL_FT_OVERLAY.read_text(encoding='utf-8').splitlines():
@@ -178,16 +205,17 @@ def main():
     for fid,layer,mode,code,n in c.execute('select fixture_id,data_layer,capture_mode,error_code,count(*) from failed_attempt group by 1,2,3,4'):
         failures[str(fid)][f'{layer}|{mode}|{code}']=n
     # Build a conservative league/year denominator from every schedule source; only exact provider IDs are joined.
-    group=collections.defaultdict(lambda:{'fids':set(),'schedule_page_fids':set(),'supplemental_schedule_fids':set(),'m1_history_cache_fids':set(),'expanded_fids':set(),'priced_t6_fids':set(),'external_ft_fids':set(),
+    group=collections.defaultdict(lambda:{'fids':set(),'schedule_page_fids':set(),'supplemental_schedule_fids':set(),'crown_fixture_metadata_fids':set(),'m1_history_cache_fids':set(),'expanded_fids':set(),'priced_t6_fids':set(),'external_ft_fids':set(),
       'complete_ft_fids':set(),'unverified_ft_fids':set(),'schedule_status':collections.Counter(),'capture_fids':set(),'movement_capture_fids':set(),'movement_quotes_fids':set(),
       'summary_quotes_fids':set(),'live_quote_fids':set(),'movement_quote_rows':0,'summary_quote_rows':0,'live_quote_rows':0,
       'source_event_timestamps':0,'failures':0,'no_quote_fids':set(),'capture_sha_file_missing':0})
     inventory=[];conflicts=[];missing_movement=[]
     for fid,r in fixtures.items():
         # Identity dimensions are kept per source. Conflicts are not auto-collapsed.
-        page=r['totalcorner_schedule'];supp=r['supplemental_schedule'];uni=r['expanded_universe'];
+        page=r['totalcorner_schedule'];supp=r['supplemental_schedule'];crown_meta=r['crown_fixture_metadata'];uni=r['expanded_universe'];
         league_ids={z['provider_league_id'] for z in page if z.get('provider_league_id')}
         league_ids.update(z['provider_league_id'] for z in supp if z.get('provider_league_id'))
+        league_ids.update(z['provider_league_id'] for z in crown_meta if z.get('provider_league_id'))
         league_ids.update(z['league_id'] for z in uni if z.get('league_id'))
         league_ids.update(str(z.get('league') or z.get('league_id')) for z in r['priced_t6'] if z.get('league') or z.get('league_id'))
         m1_records=r.get('m1_history_cache',[])
@@ -195,14 +223,14 @@ def main():
         if len(league_ids)>1:conflicts.append({'fid':fid,'type':'league_id_conflict','league_ids':sorted(league_ids)})
         league=sorted(league_ids)[0] if len(league_ids)==1 else (sorted(league_ids)[0] if league_ids else 'UNKNOWN')
         date_values=set()
-        for z in page+m1_records+supp:
+        for z in page+m1_records+supp+crown_meta:
             if z.get('kickoff_utc'):date_values.add(z['kickoff_utc'][:10])
         for z in uni:
             # Keep source-local date independently; do not treat it as UTC.
             if z.get('kickoff_source_local'):date_values.add('LOCAL:'+str(z['kickoff_source_local'])[:10])
         calendar_dates={x for x in date_values if not x.startswith('LOCAL:')}
         if len(calendar_dates)>1:conflicts.append({'fid':fid,'type':'totalcorner_kickoff_utc_conflict','dates':sorted(calendar_dates)})
-        utc_values=sorted([z['kickoff_utc'] for z in page+m1_records+supp if z.get('kickoff_utc')])
+        utc_values=sorted([z['kickoff_utc'] for z in page+m1_records+supp+crown_meta if z.get('kickoff_utc')])
         kickoff_utc=utc_values[0] if utc_values else None
         year=parse_year(kickoff_utc) if kickoff_utc else next((parse_year(z.get('kickoff_source_local')) for z in uni if z.get('kickoff_source_local')),None)
         if year is None:
@@ -213,21 +241,22 @@ def main():
         d=group[(league,year)];d['fids'].add(fid)
         if page:d['schedule_page_fids'].add(fid)
         if supp:d['supplemental_schedule_fids'].add(fid)
+        if crown_meta:d['crown_fixture_metadata_fids'].add(fid)
         if m1_records:d['m1_history_cache_fids'].add(fid)
         if uni:d['expanded_fids'].add(fid)
         if r['priced_t6']:d['priced_t6_fids'].add(fid)
-        status_set={str(z.get('status') or 'unknown') for z in page+m1_records+supp}
+        status_set={str(z.get('status') or 'unknown') for z in page+m1_records+supp+crown_meta}
         for s in status_set:d['schedule_status'][s]+=1
         external_ft=r.get('external_ft_evidence',[])
         if external_ft:d['external_ft_fids'].add(fid)
-        verified_ft=bool(external_ft) or any(z.get('status')=='full' and nonnegative_int(z.get('home_goals')) is not None and nonnegative_int(z.get('away_goals')) is not None for z in page+m1_records+supp)
+        verified_ft=bool(external_ft) or any(z.get('status')=='full' and nonnegative_int(z.get('home_goals')) is not None and nonnegative_int(z.get('away_goals')) is not None for z in page+m1_records+supp+crown_meta)
         if verified_ft:d['complete_ft_fids'].add(fid)
         else:d['unverified_ft_fids'].add(fid)
         caps=r.get('crown_captures',[]);qgs=r.get('crown_quote_groups',[])
         if caps:d['capture_fids'].add(fid)
         if any(x['layer']=='movement' for x in caps):d['movement_capture_fids'].add(fid)
         if not any(x['layer']=='movement' for x in caps):
-            identity=(page or m1_records or supp or [None])[0]
+            identity=(page or m1_records or supp or crown_meta or [None])[0]
             missing_movement.append({'match_id':fid,'kickoff_utc':kickoff_utc,
               'kickoff_source':identity.get('kickoff_source') if identity else None,
               'provider_league_id':league,'league_name':identity.get('league_name') if identity else None,
@@ -245,7 +274,7 @@ def main():
         if any(x['layer']=='movement' and x['status']=='NO_CROWN_AH_QUOTES' for x in caps):d['no_quote_fids'].add(fid)
         d['failures']+=sum(failures.get(fid,{}).values())
         inventory.append({'fid':fid,'provider_league_id':league,'year':year,'totalcorner_kickoff_utc':kickoff_utc,
-          'totalcorner_page_records':page,'supplemental_schedule_records':supp,'M1_history_cache_records':m1_records,'expanded_universe_records':uni,'priced_t6_records':r['priced_t6'],
+          'totalcorner_page_records':page,'supplemental_schedule_records':supp,'crown_fixture_metadata_records':crown_meta,'M1_history_cache_records':m1_records,'expanded_universe_records':uni,'priced_t6_records':r['priced_t6'],
           'crown_captures':caps,'crown_quote_groups':qgs,'external_ft_evidence':external_ft,'failed_attempts':dict(failures.get(fid,{})),
           'identity_conflicts':[x for x in conflicts if x['fid']==fid]})
     # Output full league/year coverage matrix and source inventories.
@@ -253,13 +282,14 @@ def main():
     all_leagues=sorted({league for league,year in group})
     for league in all_leagues:
       for year in range(2019,2027):
-        d=group.get((league,year),{'fids':set(),'schedule_page_fids':set(),'supplemental_schedule_fids':set(),'m1_history_cache_fids':set(),'expanded_fids':set(),'priced_t6_fids':set(),'external_ft_fids':set(),
+        d=group.get((league,year),{'fids':set(),'schedule_page_fids':set(),'supplemental_schedule_fids':set(),'crown_fixture_metadata_fids':set(),'m1_history_cache_fids':set(),'expanded_fids':set(),'priced_t6_fids':set(),'external_ft_fids':set(),
           'complete_ft_fids':set(),'unverified_ft_fids':set(),'schedule_status':collections.Counter(),'capture_fids':set(),'movement_capture_fids':set(),'movement_quotes_fids':set(),
           'summary_quotes_fids':set(),'live_quote_fids':set(),'movement_quote_rows':0,'summary_quote_rows':0,'live_quote_rows':0,
           'source_event_timestamps':0,'failures':0,'no_quote_fids':set(),'capture_sha_file_missing':0})
         matrix.append({'provider_league_id':league,'calendar_year_utc':year,'schedule_fids_union':len(d['fids']),
           'totalcorner_schedule_fids':len(d['schedule_page_fids']),'expanded_universe_fids':len(d['expanded_fids']),
           'supplemental_schedule_fids':len(d['supplemental_schedule_fids']),
+          'crown_fixture_metadata_fids':len(d['crown_fixture_metadata_fids']),
           'M1_history_cache_fids':len(d['m1_history_cache_fids']),'T6_priced_inventory_fids':len(d['priced_t6_fids']),'complete_FT_fids':len(d['complete_ft_fids']),
           'unverified_FT_fids':len(d['unverified_ft_fids']),
           'external_verified_FT_fids':len(d['external_ft_fids']),
@@ -281,10 +311,10 @@ def main():
       'expanded_universe_fids':set(),'season_metadata_records':0,'season_conflict_fids':set()})
     for inv in inventory:
         fid=inv['fid'];league_id=inv['provider_league_id']
-        page=inv['totalcorner_page_records'];supp=inv['supplemental_schedule_records'];uni=inv['expanded_universe_records'];m1_records=inv['M1_history_cache_records']
+        page=inv['totalcorner_page_records'];supp=inv['supplemental_schedule_records'];crown_meta=inv['crown_fixture_metadata_records'];uni=inv['expanded_universe_records'];m1_records=inv['M1_history_cache_records']
         seasons=sorted({str(z.get('season')).strip() for z in uni if z.get('season') is not None and str(z.get('season')).strip()})
         season_key=seasons[0] if len(seasons)==1 else ('UNKNOWN_SOURCE_SEASON' if not seasons else 'SEASON_SOURCE_CONFLICT:'+'|'.join(seasons))
-        sources=page+m1_records+supp
+        sources=page+m1_records+supp+crown_meta
         external_ft=inv.get('external_ft_evidence',[])
         verified_ft=bool(external_ft) or any(z.get('status')=='full' and nonnegative_int(z.get('home_goals')) is not None and nonnegative_int(z.get('away_goals')) is not None for z in sources)
         caps=inv.get('crown_captures',[]);qgs=inv.get('crown_quote_groups',[])
@@ -325,7 +355,7 @@ def main():
         for row in missing_movement:f.write(json.dumps(row,separators=(',',':'))+'\n')
     missing_ft=[]
     for row in inventory:
-        sources=row['totalcorner_page_records']+row['supplemental_schedule_records']+row['M1_history_cache_records']
+        sources=row['totalcorner_page_records']+row['supplemental_schedule_records']+row['M1_history_cache_records']+row['crown_fixture_metadata_records']
         if row.get('external_ft_evidence') or any(z.get('status')=='full' and nonnegative_int(z.get('home_goals')) is not None and nonnegative_int(z.get('away_goals')) is not None for z in sources):continue
         latest=next((z for z in sources if z.get('kickoff_utc')),sources[0] if sources else {})
         missing_ft.append({'match_id':row['fid'],'kickoff_utc':row['totalcorner_kickoff_utc'],'provider_league_id':row['provider_league_id'],
@@ -336,7 +366,7 @@ def main():
     missing_ft.sort(key=lambda x:(x['provider_league_id'],x['calendar_year_utc'],x['match_id']))
     with (OUT/'unverified_FT_candidates.jsonl').open('w',encoding='utf-8') as f:
         for row in missing_ft:f.write(json.dumps(row,separators=(',',':'))+'\n')
-    files=[UNIVERSE,M5_INDEX,PRICED_T6,SUPPLEMENTAL_SCHEDULE,RECOVERED_SCHEDULE,EXTERNAL_FT_OVERLAY]
+    files=[UNIVERSE,M5_INDEX,PRICED_T6,SUPPLEMENTAL_SCHEDULE,RECOVERED_SCHEDULE,EXTERNAL_FT_OVERLAY,CROWN_FIXTURE_OVERLAY]
     inputs=[{'path':str(p),'bytes':p.stat().st_size,'sha256':sha256(p)} for p in files if p.exists()]
     page_manifest=[{'path':str(p),'bytes':p.stat().st_size,'sha256':sha256(p)} for p in page_paths]
     with (OUT/'schedule_page_sha256.jsonl').open('w',encoding='utf-8') as f:

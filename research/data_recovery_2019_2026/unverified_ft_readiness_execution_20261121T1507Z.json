@@ -1,0 +1,106 @@
+{
+  "executed_at_utc": "2026-11-21T15:09:36Z",
+  "scripts": [
+    "audit_existing_inventory.py",
+    "audit_unverified_ft_readiness.py",
+    "audit_crown_only_fixture_metadata.py"
+  ],
+  "inventory_audit_result": {
+    "schedule_fids_union": 129576,
+    "totalcorner_schedule_fids": 113634,
+    "expanded_universe_fids": 96503,
+    "supplemental_schedule_fids": 15456,
+    "crown_fixture_metadata_fids": 9,
+    "M1_history_cache_fids": 68196,
+    "T6_priced_inventory_fids": 48890,
+    "complete_FT_fids": 124387,
+    "unverified_FT_fids": 5189,
+    "external_verified_FT_fids": 1,
+    "any_Crown_capture_fids": 103602,
+    "movement_with_quotes_fids": 52999,
+    "movement_capture_fids": 102696,
+    "movement_quote_rows": 4429709,
+    "distinct_movement_source_event_timestamps": 4429067,
+    "summary_with_quotes_fids": 49144,
+    "summary_quote_rows": 99520,
+    "live_quote_receipt_fids": 95,
+    "live_quote_rows": 278,
+    "explicit_no_Crown_AH_movement_fids": 49697,
+    "failed_attempts": 951,
+    "uncovered_schedule_fids": 76577
+  },
+  "inventory_unique_fids": 129576,
+  "league_count": 71,
+  "ft_readiness": {
+    "as_of_utc": "2026-11-21T15:06:43.580083Z",
+    "candidate_count": 5189,
+    "input_sha256": "e1dde9ea5141709d34cdebdd70e47f3304341924b158aa73b646aaa1287c9eae",
+    "counts_by_ft_readiness": {
+      "future_fixture_not_due": 300,
+      "past_kickoff_status_missing_or_unknown": 4254,
+      "provider_reports_non_full_status": 635
+    },
+    "placeholder_0_0_fids": 4766,
+    "league_year_rows": 501,
+    "outputs": {
+      "unverified_ft_readiness_2019_2026_by_league_year.csv": "6c6c92e4161172c53e783f0fcb310eb2b3f4c4688dba7013b5bea97cff7e7ff5",
+      "unverified_ft_readiness_2019_2026_per_fid.jsonl": "b3c92d28f724fa13ad7afd4d770418ec52fb10b918a92a2807f73af8a368edf0"
+    },
+    "interpretation": "Future fixtures are not yet due for FT verification. Past-kickoff statuses and 0:0 values are preserved as source observations and never treated as verified final scores."
+  },
+  "crown_metadata_overlay_sha256": "bf4e3ad9ed8d4992a96780ef787f6cb32c74b30371e68e9a45a30b1f98163592",
+  "outputs": {
+    "audit_existing_inventory.py": {
+      "bytes": 35760,
+      "sha256": "344442199819f8da9a880228482135a28e6e912f554f8bee1690e96b32e6b8d1"
+    },
+    "audit_crown_only_fixture_metadata.py": {
+      "bytes": 6055,
+      "sha256": "3c55b5107a953afc7e2d9c08e8d3f36aff0e2ae7bafce18962ed05665bc11268"
+    },
+    "audit_unverified_ft_readiness.py": {
+      "bytes": 5188,
+      "sha256": "c85845b7e4ce9ea6fd8e7a2cddd1fdf7d620377c16c534212b0c38a86c95c270"
+    },
+    "inventory_coverage_summary_2019_2026.json": {
+      "bytes": 855113,
+      "sha256": "d820e44ea8c061737ae980846acd3cee74a38d41544ff128dc555f8ed774decf"
+    },
+    "league_year_coverage_2019_2026.csv": {
+      "bytes": 42134,
+      "sha256": "eef4bbb8bcda17cbe04e2c75c68797a1207cef276aa1400ea571d2672ee52827"
+    },
+    "league_season_coverage_2019_2026.csv": {
+      "bytes": 29310,
+      "sha256": "2d81dcdbc0a17de8abef4f26669ccf143c403b71f15d272cf0d02a688b393e05"
+    },
+    "crown_only_fixture_identity_candidates_2019_2026.json": {
+      "bytes": 1233,
+      "sha256": "4a091335a92265f2e7590325aed09e915ee159c42e2d5717fe8d1757fd898e82"
+    },
+    "crown_only_fixture_identity_candidates_2019_2026.jsonl.gz": {
+      "bytes": 2508,
+      "sha256": "bf4e3ad9ed8d4992a96780ef787f6cb32c74b30371e68e9a45a30b1f98163592"
+    },
+    "unverified_ft_readiness_2019_2026_summary.json": {
+      "bytes": 851,
+      "sha256": "e0a9509796c1b74a1091705e360fcd8af4855346e48a8b7b94bda9837fdb8a5a"
+    },
+    "unverified_ft_readiness_2019_2026_by_league_year.csv": {
+      "bytes": 45216,
+      "sha256": "6c6c92e4161172c53e783f0fcb310eb2b3f4c4688dba7013b5bea97cff7e7ff5"
+    },
+    "unverified_ft_readiness_2019_2026_per_fid.jsonl": {
+      "bytes": 1289586,
+      "sha256": "b3c92d28f724fa13ad7afd4d770418ec52fb10b918a92a2807f73af8a368edf0"
+    },
+    "supplemental_schedule_progress_snapshot_20261121T1507Z.json": {
+      "bytes": 4980,
+      "sha256": "1317eaec2b348647ba0d88e6a3b3cff22ac85b525a89f762a8444d272b08192a"
+    },
+    "COLLECTION_CHECKPOINT_20261121T1507Z.md": {
+      "bytes": 3472,
+      "sha256": "ae63644dcbef6a91aff1ab8d4839ad3589bc6bc67b6d10989095abfda4713832"
+    }
+  }
+}
