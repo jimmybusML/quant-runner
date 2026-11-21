@@ -1,0 +1,139 @@
+{
+  "source_files": {
+    "pair": "/Users/mac/.codex/worktrees/m8-discipline-referee/quant-runner-m8-goalkeeper/research/m8/player_pair_cohesion_20261121/pair_cohesion_per_fixture_20261121.jsonl.gz",
+    "formation": "/Users/mac/.codex/worktrees/m8-discipline-referee/quant-runner-m8-goalkeeper/research/m8/prior_formation_market_20261121/formation_market_per_fixture_20261121.jsonl.gz",
+    "expanded_pair": "/Users/mac/.codex/worktrees/m8-discipline-referee/quant-runner-m8-goalkeeper/research/m8/player_pair_expanded15_20261121/pooled_pair_cohesion_market_plus_pair_ledger.jsonl.gz"
+  },
+  "counts": {
+    "pair": 4383,
+    "formation": 6571,
+    "common": 3949,
+    "expanded_pair": 309
+  },
+  "year": {
+    "2024": {
+      "n": 1309,
+      "methods": {
+        "pair:market_only": {
+          "n": 1309,
+          "net_u": -36.51,
+          "ROI_pct": -2.789
+        },
+        "pair:pair_only": {
+          "n": 1309,
+          "net_u": -40.075,
+          "ROI_pct": -3.061
+        },
+        "pair:market_plus_pair": {
+          "n": 1309,
+          "net_u": 0.185,
+          "ROI_pct": 0.014
+        },
+        "formation:market_only": {
+          "n": 1309,
+          "net_u": -29.87,
+          "ROI_pct": -2.282
+        },
+        "formation:formation_only": {
+          "n": 1309,
+          "net_u": -20.17,
+          "ROI_pct": -1.541
+        },
+        "formation:market_plus_formation": {
+          "n": 1309,
+          "net_u": -6.065,
+          "ROI_pct": -0.463
+        }
+      }
+    },
+    "2025": {
+      "n": 1473,
+      "methods": {
+        "pair:market_only": {
+          "n": 1473,
+          "net_u": -26.88,
+          "ROI_pct": -1.825
+        },
+        "pair:pair_only": {
+          "n": 1473,
+          "net_u": -31.955,
+          "ROI_pct": -2.169
+        },
+        "pair:market_plus_pair": {
+          "n": 1473,
+          "net_u": -81.37,
+          "ROI_pct": -5.524
+        },
+        "formation:market_only": {
+          "n": 1473,
+          "net_u": -6.115,
+          "ROI_pct": -0.415
+        },
+        "formation:formation_only": {
+          "n": 1473,
+          "net_u": 13.875,
+          "ROI_pct": 0.942
+        },
+        "formation:market_plus_formation": {
+          "n": 1473,
+          "net_u": 28.435,
+          "ROI_pct": 1.93
+        }
+      }
+    },
+    "2026": {
+      "n": 1167,
+      "methods": {
+        "pair:market_only": {
+          "n": 1167,
+          "net_u": -36.355,
+          "ROI_pct": -3.115
+        },
+        "pair:pair_only": {
+          "n": 1167,
+          "net_u": -26.18,
+          "ROI_pct": -2.243
+        },
+        "pair:market_plus_pair": {
+          "n": 1167,
+          "net_u": -38.54,
+          "ROI_pct": -3.302
+        },
+        "formation:market_only": {
+          "n": 1167,
+          "net_u": -1.395,
+          "ROI_pct": -0.12
+        },
+        "formation:formation_only": {
+          "n": 1167,
+          "net_u": -4.88,
+          "ROI_pct": -0.418
+        },
+        "formation:market_plus_formation": {
+          "n": 1167,
+          "net_u": -35.015,
+          "ROI_pct": -3.0
+        }
+      }
+    }
+  },
+  "fixed_equal_EV": {
+    "n": 3949,
+    "net_u": -103.71,
+    "agreement_n": 2466,
+    "by_year": {
+      "2024": {
+        "n": 1309,
+        "net_u": -1.16
+      },
+      "2025": {
+        "n": 1473,
+        "net_u": -67.815
+      },
+      "2026": {
+        "n": 1167,
+        "net_u": -34.735
+      }
+    }
+  }
+}

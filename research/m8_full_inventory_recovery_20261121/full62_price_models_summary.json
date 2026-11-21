@@ -1,0 +1,1098 @@
+{
+  "coverage": {
+    "T6_priced": 48890,
+    "leagues": 62,
+    "T6_2024_26": 33139,
+    "T6_2024_26_outside": 26523
+  },
+  "fit": {
+    "price_only_binary|fixed_2019_23|2024": {
+      "train_n": 15751,
+      "test_n": 11418,
+      "feature_n": 5
+    },
+    "price_only_binary|fixed_2019_23|2025": {
+      "train_n": 15751,
+      "test_n": 12405,
+      "feature_n": 5
+    },
+    "price_only_binary|fixed_2019_23|2026": {
+      "train_n": 15751,
+      "test_n": 9316,
+      "feature_n": 5
+    },
+    "price_only_binary|annual_forward|2024": {
+      "train_n": 15751,
+      "test_n": 11418,
+      "feature_n": 5
+    },
+    "price_only_binary|annual_forward|2025": {
+      "train_n": 27169,
+      "test_n": 12405,
+      "feature_n": 5
+    },
+    "price_only_binary|annual_forward|2026": {
+      "train_n": 39574,
+      "test_n": 9316,
+      "feature_n": 5
+    },
+    "price_only_cashflow|fixed_2019_23|2024": {
+      "train_n": 15751,
+      "test_n": 11418,
+      "feature_n": 5
+    },
+    "price_only_cashflow|fixed_2019_23|2025": {
+      "train_n": 15751,
+      "test_n": 12405,
+      "feature_n": 5
+    },
+    "price_only_cashflow|fixed_2019_23|2026": {
+      "train_n": 15751,
+      "test_n": 9316,
+      "feature_n": 5
+    },
+    "price_only_cashflow|annual_forward|2024": {
+      "train_n": 15751,
+      "test_n": 11418,
+      "feature_n": 5
+    },
+    "price_only_cashflow|annual_forward|2025": {
+      "train_n": 27169,
+      "test_n": 12405,
+      "feature_n": 5
+    },
+    "price_only_cashflow|annual_forward|2026": {
+      "train_n": 39574,
+      "test_n": 9316,
+      "feature_n": 5
+    },
+    "price_league_binary|fixed_2019_23|2024": {
+      "train_n": 15751,
+      "test_n": 11418,
+      "feature_n": 67
+    },
+    "price_league_binary|fixed_2019_23|2025": {
+      "train_n": 15751,
+      "test_n": 12405,
+      "feature_n": 67
+    },
+    "price_league_binary|fixed_2019_23|2026": {
+      "train_n": 15751,
+      "test_n": 9316,
+      "feature_n": 67
+    },
+    "price_league_binary|annual_forward|2024": {
+      "train_n": 15751,
+      "test_n": 11418,
+      "feature_n": 67
+    },
+    "price_league_binary|annual_forward|2025": {
+      "train_n": 27169,
+      "test_n": 12405,
+      "feature_n": 67
+    },
+    "price_league_binary|annual_forward|2026": {
+      "train_n": 39574,
+      "test_n": 9316,
+      "feature_n": 67
+    },
+    "price_league_cashflow|fixed_2019_23|2024": {
+      "train_n": 15751,
+      "test_n": 11418,
+      "feature_n": 67
+    },
+    "price_league_cashflow|fixed_2019_23|2025": {
+      "train_n": 15751,
+      "test_n": 12405,
+      "feature_n": 67
+    },
+    "price_league_cashflow|fixed_2019_23|2026": {
+      "train_n": 15751,
+      "test_n": 9316,
+      "feature_n": 67
+    },
+    "price_league_cashflow|annual_forward|2024": {
+      "train_n": 15751,
+      "test_n": 11418,
+      "feature_n": 67
+    },
+    "price_league_cashflow|annual_forward|2025": {
+      "train_n": 27169,
+      "test_n": 12405,
+      "feature_n": 67
+    },
+    "price_league_cashflow|annual_forward|2026": {
+      "train_n": 39574,
+      "test_n": 9316,
+      "feature_n": 67
+    }
+  },
+  "results": {
+    "price_only_binary|fixed_2019_23|expanded15|2024": {
+      "n": 2199,
+      "net_U": -9.805,
+      "ROI_pct": -0.4459,
+      "binary_accuracy_pct": 59.3452
+    },
+    "price_only_binary|fixed_2019_23|expanded15|overall": {
+      "n": 4403,
+      "net_U": -28.21,
+      "ROI_pct": -0.6407,
+      "binary_accuracy_pct": 59.1188
+    },
+    "price_only_binary|fixed_2019_23|outside|2024": {
+      "n": 9438,
+      "net_U": -271.395,
+      "ROI_pct": -2.8756,
+      "binary_accuracy_pct": 57.3744
+    },
+    "price_only_binary|fixed_2019_23|outside|overall": {
+      "n": 26523,
+      "net_U": -814.105,
+      "ROI_pct": -3.0694,
+      "binary_accuracy_pct": 57.2032
+    },
+    "price_only_binary|fixed_2019_23|all|2024": {
+      "n": 11418,
+      "net_U": -316.43,
+      "ROI_pct": -2.7713,
+      "binary_accuracy_pct": 57.4269
+    },
+    "price_only_binary|fixed_2019_23|all|overall": {
+      "n": 33139,
+      "net_U": -975.855,
+      "ROI_pct": -2.9447,
+      "binary_accuracy_pct": 57.3282
+    },
+    "price_only_binary|fixed_2019_23|original49_outside|2024": {
+      "n": 7239,
+      "net_U": -261.59,
+      "ROI_pct": -3.6136,
+      "binary_accuracy_pct": 56.7758
+    },
+    "price_only_binary|fixed_2019_23|original49_outside|overall": {
+      "n": 22120,
+      "net_U": -785.895,
+      "ROI_pct": -3.5529,
+      "binary_accuracy_pct": 56.8219
+    },
+    "price_only_binary|fixed_2019_23|frozen|2024": {
+      "n": 3960,
+      "net_U": -90.07,
+      "ROI_pct": -2.2745,
+      "binary_accuracy_pct": 57.6768
+    },
+    "price_only_binary|fixed_2019_23|frozen|overall": {
+      "n": 13232,
+      "net_U": -323.5,
+      "ROI_pct": -2.4448,
+      "binary_accuracy_pct": 57.8295
+    },
+    "price_only_binary|fixed_2019_23|expanded15|2025": {
+      "n": 2130,
+      "net_U": -8.255,
+      "ROI_pct": -0.3876,
+      "binary_accuracy_pct": 59.2019
+    },
+    "price_only_binary|fixed_2019_23|outside|2025": {
+      "n": 9987,
+      "net_U": -267.335,
+      "ROI_pct": -2.6768,
+      "binary_accuracy_pct": 57.4347
+    },
+    "price_only_binary|fixed_2019_23|all|2025": {
+      "n": 12405,
+      "net_U": -350.71,
+      "ROI_pct": -2.8272,
+      "binary_accuracy_pct": 57.4688
+    },
+    "price_only_binary|fixed_2019_23|original49_outside|2025": {
+      "n": 7857,
+      "net_U": -259.08,
+      "ROI_pct": -3.2974,
+      "binary_accuracy_pct": 56.9556
+    },
+    "price_only_binary|fixed_2019_23|frozen|2025": {
+      "n": 4836,
+      "net_U": -166.75,
+      "ROI_pct": -3.4481,
+      "binary_accuracy_pct": 57.6096
+    },
+    "price_only_binary|fixed_2019_23|original49_outside|2026": {
+      "n": 7024,
+      "net_U": -265.225,
+      "ROI_pct": -3.776,
+      "binary_accuracy_pct": 56.7198
+    },
+    "price_only_binary|fixed_2019_23|outside|2026": {
+      "n": 7098,
+      "net_U": -275.375,
+      "ROI_pct": -3.8796,
+      "binary_accuracy_pct": 56.6498
+    },
+    "price_only_binary|fixed_2019_23|all|2026": {
+      "n": 9316,
+      "net_U": -308.715,
+      "ROI_pct": -3.3138,
+      "binary_accuracy_pct": 57.0202
+    },
+    "price_only_binary|fixed_2019_23|frozen|2026": {
+      "n": 4436,
+      "net_U": -66.68,
+      "ROI_pct": -1.5032,
+      "binary_accuracy_pct": 58.2056
+    },
+    "price_only_binary|fixed_2019_23|expanded15|2026": {
+      "n": 74,
+      "net_U": -10.15,
+      "ROI_pct": -13.7162,
+      "binary_accuracy_pct": 50.0
+    },
+    "price_only_binary|annual_forward|expanded15|2024": {
+      "n": 2199,
+      "net_U": -9.805,
+      "ROI_pct": -0.4459,
+      "binary_accuracy_pct": 59.3452
+    },
+    "price_only_binary|annual_forward|expanded15|overall": {
+      "n": 4403,
+      "net_U": -12.005,
+      "ROI_pct": -0.2727,
+      "binary_accuracy_pct": 59.3459
+    },
+    "price_only_binary|annual_forward|outside|2024": {
+      "n": 9438,
+      "net_U": -271.395,
+      "ROI_pct": -2.8756,
+      "binary_accuracy_pct": 57.3744
+    },
+    "price_only_binary|annual_forward|outside|overall": {
+      "n": 26523,
+      "net_U": -883.85,
+      "ROI_pct": -3.3324,
+      "binary_accuracy_pct": 57.1579
+    },
+    "price_only_binary|annual_forward|all|2024": {
+      "n": 11418,
+      "net_U": -316.43,
+      "ROI_pct": -2.7713,
+      "binary_accuracy_pct": 57.4269
+    },
+    "price_only_binary|annual_forward|all|overall": {
+      "n": 33139,
+      "net_U": -1008.145,
+      "ROI_pct": -3.0422,
+      "binary_accuracy_pct": 57.3705
+    },
+    "price_only_binary|annual_forward|original49_outside|2024": {
+      "n": 7239,
+      "net_U": -261.59,
+      "ROI_pct": -3.6136,
+      "binary_accuracy_pct": 56.7758
+    },
+    "price_only_binary|annual_forward|original49_outside|overall": {
+      "n": 22120,
+      "net_U": -871.845,
+      "ROI_pct": -3.9414,
+      "binary_accuracy_pct": 56.7224
+    },
+    "price_only_binary|annual_forward|frozen|2024": {
+      "n": 3960,
+      "net_U": -90.07,
+      "ROI_pct": -2.2745,
+      "binary_accuracy_pct": 57.6768
+    },
+    "price_only_binary|annual_forward|frozen|overall": {
+      "n": 13232,
+      "net_U": -248.59,
+      "ROI_pct": -1.8787,
+      "binary_accuracy_pct": 58.2225
+    },
+    "price_only_binary|annual_forward|expanded15|2025": {
+      "n": 2130,
+      "net_U": 7.84,
+      "ROI_pct": 0.3681,
+      "binary_accuracy_pct": 59.6714
+    },
+    "price_only_binary|annual_forward|outside|2025": {
+      "n": 9987,
+      "net_U": -302.175,
+      "ROI_pct": -3.0257,
+      "binary_accuracy_pct": 57.3546
+    },
+    "price_only_binary|annual_forward|all|2025": {
+      "n": 12405,
+      "net_U": -356.73,
+      "ROI_pct": -2.8757,
+      "binary_accuracy_pct": 57.5333
+    },
+    "price_only_binary|annual_forward|original49_outside|2025": {
+      "n": 7857,
+      "net_U": -310.015,
+      "ROI_pct": -3.9457,
+      "binary_accuracy_pct": 56.7265
+    },
+    "price_only_binary|annual_forward|frozen|2025": {
+      "n": 4836,
+      "net_U": -109.11,
+      "ROI_pct": -2.2562,
+      "binary_accuracy_pct": 58.2713
+    },
+    "price_only_binary|annual_forward|original49_outside|2026": {
+      "n": 7024,
+      "net_U": -300.24,
+      "ROI_pct": -4.2745,
+      "binary_accuracy_pct": 56.6629
+    },
+    "price_only_binary|annual_forward|outside|2026": {
+      "n": 7098,
+      "net_U": -310.28,
+      "ROI_pct": -4.3714,
+      "binary_accuracy_pct": 56.5934
+    },
+    "price_only_binary|annual_forward|all|2026": {
+      "n": 9316,
+      "net_U": -334.985,
+      "ROI_pct": -3.5958,
+      "binary_accuracy_pct": 57.0846
+    },
+    "price_only_binary|annual_forward|frozen|2026": {
+      "n": 4436,
+      "net_U": -49.41,
+      "ROI_pct": -1.1138,
+      "binary_accuracy_pct": 58.6564
+    },
+    "price_only_binary|annual_forward|expanded15|2026": {
+      "n": 74,
+      "net_U": -10.04,
+      "ROI_pct": -13.5676,
+      "binary_accuracy_pct": 50.0
+    },
+    "price_only_cashflow|fixed_2019_23|expanded15|2024": {
+      "n": 2199,
+      "net_U": -48.685,
+      "ROI_pct": -2.214,
+      "binary_accuracy_pct": 49.2951
+    },
+    "price_only_cashflow|fixed_2019_23|expanded15|overall": {
+      "n": 4403,
+      "net_U": -69.905,
+      "ROI_pct": -1.5877,
+      "binary_accuracy_pct": 50.1022
+    },
+    "price_only_cashflow|fixed_2019_23|outside|2024": {
+      "n": 9438,
+      "net_U": -412.585,
+      "ROI_pct": -4.3715,
+      "binary_accuracy_pct": 48.4213
+    },
+    "price_only_cashflow|fixed_2019_23|outside|overall": {
+      "n": 26523,
+      "net_U": -894.435,
+      "ROI_pct": -3.3723,
+      "binary_accuracy_pct": 49.0518
+    },
+    "price_only_cashflow|fixed_2019_23|all|2024": {
+      "n": 11418,
+      "net_U": -514.645,
+      "ROI_pct": -4.5073,
+      "binary_accuracy_pct": 48.4498
+    },
+    "price_only_cashflow|fixed_2019_23|all|overall": {
+      "n": 33139,
+      "net_U": -1143.66,
+      "ROI_pct": -3.4511,
+      "binary_accuracy_pct": 49.0419
+    },
+    "price_only_cashflow|fixed_2019_23|original49_outside|2024": {
+      "n": 7239,
+      "net_U": -363.9,
+      "ROI_pct": -5.0269,
+      "binary_accuracy_pct": 48.1558
+    },
+    "price_only_cashflow|fixed_2019_23|original49_outside|overall": {
+      "n": 22120,
+      "net_U": -824.53,
+      "ROI_pct": -3.7275,
+      "binary_accuracy_pct": 48.8427
+    },
+    "price_only_cashflow|fixed_2019_23|frozen|2024": {
+      "n": 3960,
+      "net_U": -204.12,
+      "ROI_pct": -5.1545,
+      "binary_accuracy_pct": 48.5859
+    },
+    "price_only_cashflow|fixed_2019_23|frozen|overall": {
+      "n": 13232,
+      "net_U": -498.45,
+      "ROI_pct": -3.767,
+      "binary_accuracy_pct": 49.0024
+    },
+    "price_only_cashflow|fixed_2019_23|expanded15|2025": {
+      "n": 2130,
+      "net_U": -21.545,
+      "ROI_pct": -1.0115,
+      "binary_accuracy_pct": 50.939
+    },
+    "price_only_cashflow|fixed_2019_23|outside|2025": {
+      "n": 9987,
+      "net_U": -207.735,
+      "ROI_pct": -2.0801,
+      "binary_accuracy_pct": 49.8348
+    },
+    "price_only_cashflow|fixed_2019_23|all|2025": {
+      "n": 12405,
+      "net_U": -294.175,
+      "ROI_pct": -2.3714,
+      "binary_accuracy_pct": 49.8267
+    },
+    "price_only_cashflow|fixed_2019_23|original49_outside|2025": {
+      "n": 7857,
+      "net_U": -186.19,
+      "ROI_pct": -2.3697,
+      "binary_accuracy_pct": 49.5354
+    },
+    "price_only_cashflow|fixed_2019_23|frozen|2025": {
+      "n": 4836,
+      "net_U": -172.88,
+      "ROI_pct": -3.5749,
+      "binary_accuracy_pct": 49.7932
+    },
+    "price_only_cashflow|fixed_2019_23|original49_outside|2026": {
+      "n": 7024,
+      "net_U": -274.44,
+      "ROI_pct": -3.9072,
+      "binary_accuracy_pct": 48.7756
+    },
+    "price_only_cashflow|fixed_2019_23|outside|2026": {
+      "n": 7098,
+      "net_U": -274.115,
+      "ROI_pct": -3.8619,
+      "binary_accuracy_pct": 48.7884
+    },
+    "price_only_cashflow|fixed_2019_23|all|2026": {
+      "n": 9316,
+      "net_U": -334.84,
+      "ROI_pct": -3.5942,
+      "binary_accuracy_pct": 48.7226
+    },
+    "price_only_cashflow|fixed_2019_23|frozen|2026": {
+      "n": 4436,
+      "net_U": -121.45,
+      "ROI_pct": -2.7378,
+      "binary_accuracy_pct": 48.5122
+    },
+    "price_only_cashflow|fixed_2019_23|expanded15|2026": {
+      "n": 74,
+      "net_U": 0.325,
+      "ROI_pct": 0.4392,
+      "binary_accuracy_pct": 50.0
+    },
+    "price_only_cashflow|annual_forward|expanded15|2024": {
+      "n": 2199,
+      "net_U": -48.685,
+      "ROI_pct": -2.214,
+      "binary_accuracy_pct": 49.2951
+    },
+    "price_only_cashflow|annual_forward|expanded15|overall": {
+      "n": 4403,
+      "net_U": -110.06,
+      "ROI_pct": -2.4997,
+      "binary_accuracy_pct": 50.6246
+    },
+    "price_only_cashflow|annual_forward|outside|2024": {
+      "n": 9438,
+      "net_U": -412.585,
+      "ROI_pct": -4.3715,
+      "binary_accuracy_pct": 48.4213
+    },
+    "price_only_cashflow|annual_forward|outside|overall": {
+      "n": 26523,
+      "net_U": -938.105,
+      "ROI_pct": -3.5369,
+      "binary_accuracy_pct": 50.2545
+    },
+    "price_only_cashflow|annual_forward|all|2024": {
+      "n": 11418,
+      "net_U": -514.645,
+      "ROI_pct": -4.5073,
+      "binary_accuracy_pct": 48.4498
+    },
+    "price_only_cashflow|annual_forward|all|overall": {
+      "n": 33139,
+      "net_U": -1107.96,
+      "ROI_pct": -3.3434,
+      "binary_accuracy_pct": 50.4119
+    },
+    "price_only_cashflow|annual_forward|original49_outside|2024": {
+      "n": 7239,
+      "net_U": -363.9,
+      "ROI_pct": -5.0269,
+      "binary_accuracy_pct": 48.1558
+    },
+    "price_only_cashflow|annual_forward|original49_outside|overall": {
+      "n": 22120,
+      "net_U": -828.045,
+      "ROI_pct": -3.7434,
+      "binary_accuracy_pct": 50.1808
+    },
+    "price_only_cashflow|annual_forward|frozen|2024": {
+      "n": 3960,
+      "net_U": -204.12,
+      "ROI_pct": -5.1545,
+      "binary_accuracy_pct": 48.5859
+    },
+    "price_only_cashflow|annual_forward|frozen|overall": {
+      "n": 13232,
+      "net_U": -339.71,
+      "ROI_pct": -2.5673,
+      "binary_accuracy_pct": 51.0429
+    },
+    "price_only_cashflow|annual_forward|expanded15|2025": {
+      "n": 2130,
+      "net_U": -58.85,
+      "ROI_pct": -2.7629,
+      "binary_accuracy_pct": 52.0188
+    },
+    "price_only_cashflow|annual_forward|outside|2025": {
+      "n": 9987,
+      "net_U": -293.935,
+      "ROI_pct": -2.9432,
+      "binary_accuracy_pct": 51.2466
+    },
+    "price_only_cashflow|annual_forward|all|2025": {
+      "n": 12405,
+      "net_U": -328.115,
+      "ROI_pct": -2.645,
+      "binary_accuracy_pct": 51.4389
+    },
+    "price_only_cashflow|annual_forward|original49_outside|2025": {
+      "n": 7857,
+      "net_U": -235.085,
+      "ROI_pct": -2.992,
+      "binary_accuracy_pct": 51.0373
+    },
+    "price_only_cashflow|annual_forward|frozen|2025": {
+      "n": 4836,
+      "net_U": -68.36,
+      "ROI_pct": -1.4136,
+      "binary_accuracy_pct": 52.2333
+    },
+    "price_only_cashflow|annual_forward|original49_outside|2026": {
+      "n": 7024,
+      "net_U": -229.06,
+      "ROI_pct": -3.2611,
+      "binary_accuracy_pct": 51.3098
+    },
+    "price_only_cashflow|annual_forward|outside|2026": {
+      "n": 7098,
+      "net_U": -231.585,
+      "ROI_pct": -3.2627,
+      "binary_accuracy_pct": 51.2961
+    },
+    "price_only_cashflow|annual_forward|all|2026": {
+      "n": 9316,
+      "net_U": -265.2,
+      "ROI_pct": -2.8467,
+      "binary_accuracy_pct": 51.4491
+    },
+    "price_only_cashflow|annual_forward|frozen|2026": {
+      "n": 4436,
+      "net_U": -67.23,
+      "ROI_pct": -1.5156,
+      "binary_accuracy_pct": 51.9387
+    },
+    "price_only_cashflow|annual_forward|expanded15|2026": {
+      "n": 74,
+      "net_U": -2.525,
+      "ROI_pct": -3.4122,
+      "binary_accuracy_pct": 50.0
+    },
+    "price_league_binary|fixed_2019_23|expanded15|2024": {
+      "n": 2199,
+      "net_U": -0.43,
+      "ROI_pct": -0.0196,
+      "binary_accuracy_pct": 59.4816
+    },
+    "price_league_binary|fixed_2019_23|expanded15|overall": {
+      "n": 4403,
+      "net_U": -8.845,
+      "ROI_pct": -0.2009,
+      "binary_accuracy_pct": 59.1869
+    },
+    "price_league_binary|fixed_2019_23|outside|2024": {
+      "n": 9438,
+      "net_U": -169.61,
+      "ROI_pct": -1.7971,
+      "binary_accuracy_pct": 57.7029
+    },
+    "price_league_binary|fixed_2019_23|outside|overall": {
+      "n": 26523,
+      "net_U": -618.46,
+      "ROI_pct": -2.3318,
+      "binary_accuracy_pct": 57.2824
+    },
+    "price_league_binary|fixed_2019_23|all|2024": {
+      "n": 11418,
+      "net_U": -181.465,
+      "ROI_pct": -1.5893,
+      "binary_accuracy_pct": 57.8122
+    },
+    "price_league_binary|fixed_2019_23|all|overall": {
+      "n": 33139,
+      "net_U": -800.25,
+      "ROI_pct": -2.4148,
+      "binary_accuracy_pct": 57.286
+    },
+    "price_league_binary|fixed_2019_23|original49_outside|2024": {
+      "n": 7239,
+      "net_U": -169.18,
+      "ROI_pct": -2.3371,
+      "binary_accuracy_pct": 57.1626
+    },
+    "price_league_binary|fixed_2019_23|original49_outside|overall": {
+      "n": 22120,
+      "net_U": -609.615,
+      "ROI_pct": -2.7559,
+      "binary_accuracy_pct": 56.9033
+    },
+    "price_league_binary|fixed_2019_23|frozen|2024": {
+      "n": 3960,
+      "net_U": -23.71,
+      "ROI_pct": -0.5987,
+      "binary_accuracy_pct": 58.3333
+    },
+    "price_league_binary|fixed_2019_23|frozen|overall": {
+      "n": 13232,
+      "net_U": -363.58,
+      "ROI_pct": -2.7477,
+      "binary_accuracy_pct": 57.3005
+    },
+    "price_league_binary|fixed_2019_23|expanded15|2025": {
+      "n": 2130,
+      "net_U": 5.695,
+      "ROI_pct": 0.2674,
+      "binary_accuracy_pct": 59.3427
+    },
+    "price_league_binary|fixed_2019_23|outside|2025": {
+      "n": 9987,
+      "net_U": -220.93,
+      "ROI_pct": -2.2122,
+      "binary_accuracy_pct": 57.3746
+    },
+    "price_league_binary|fixed_2019_23|all|2025": {
+      "n": 12405,
+      "net_U": -336.4,
+      "ROI_pct": -2.7118,
+      "binary_accuracy_pct": 57.1866
+    },
+    "price_league_binary|fixed_2019_23|original49_outside|2025": {
+      "n": 7857,
+      "net_U": -226.625,
+      "ROI_pct": -2.8844,
+      "binary_accuracy_pct": 56.841
+    },
+    "price_league_binary|fixed_2019_23|frozen|2025": {
+      "n": 4836,
+      "net_U": -230.94,
+      "ROI_pct": -4.7754,
+      "binary_accuracy_pct": 56.4103
+    },
+    "price_league_binary|fixed_2019_23|original49_outside|2026": {
+      "n": 7024,
+      "net_U": -213.81,
+      "ROI_pct": -3.044,
+      "binary_accuracy_pct": 56.7056
+    },
+    "price_league_binary|fixed_2019_23|outside|2026": {
+      "n": 7098,
+      "net_U": -227.92,
+      "ROI_pct": -3.211,
+      "binary_accuracy_pct": 56.5934
+    },
+    "price_league_binary|fixed_2019_23|all|2026": {
+      "n": 9316,
+      "net_U": -282.385,
+      "ROI_pct": -3.0312,
+      "binary_accuracy_pct": 56.7733
+    },
+    "price_league_binary|fixed_2019_23|frozen|2026": {
+      "n": 4436,
+      "net_U": -108.93,
+      "ROI_pct": -2.4556,
+      "binary_accuracy_pct": 57.349
+    },
+    "price_league_binary|fixed_2019_23|expanded15|2026": {
+      "n": 74,
+      "net_U": -14.11,
+      "ROI_pct": -19.0676,
+      "binary_accuracy_pct": 45.9459
+    },
+    "price_league_binary|annual_forward|expanded15|2024": {
+      "n": 2199,
+      "net_U": -0.43,
+      "ROI_pct": -0.0196,
+      "binary_accuracy_pct": 59.4816
+    },
+    "price_league_binary|annual_forward|expanded15|overall": {
+      "n": 4403,
+      "net_U": -12.035,
+      "ROI_pct": -0.2733,
+      "binary_accuracy_pct": 59.3459
+    },
+    "price_league_binary|annual_forward|outside|2024": {
+      "n": 9438,
+      "net_U": -169.61,
+      "ROI_pct": -1.7971,
+      "binary_accuracy_pct": 57.7029
+    },
+    "price_league_binary|annual_forward|outside|overall": {
+      "n": 26523,
+      "net_U": -715.19,
+      "ROI_pct": -2.6965,
+      "binary_accuracy_pct": 57.3842
+    },
+    "price_league_binary|annual_forward|all|2024": {
+      "n": 11418,
+      "net_U": -181.465,
+      "ROI_pct": -1.5893,
+      "binary_accuracy_pct": 57.8122
+    },
+    "price_league_binary|annual_forward|all|overall": {
+      "n": 33139,
+      "net_U": -821.12,
+      "ROI_pct": -2.4778,
+      "binary_accuracy_pct": 57.5696
+    },
+    "price_league_binary|annual_forward|original49_outside|2024": {
+      "n": 7239,
+      "net_U": -169.18,
+      "ROI_pct": -2.3371,
+      "binary_accuracy_pct": 57.1626
+    },
+    "price_league_binary|annual_forward|original49_outside|overall": {
+      "n": 22120,
+      "net_U": -703.155,
+      "ROI_pct": -3.1788,
+      "binary_accuracy_pct": 56.9937
+    },
+    "price_league_binary|annual_forward|frozen|2024": {
+      "n": 3960,
+      "net_U": -23.71,
+      "ROI_pct": -0.5987,
+      "binary_accuracy_pct": 58.3333
+    },
+    "price_league_binary|annual_forward|frozen|overall": {
+      "n": 13232,
+      "net_U": -211.86,
+      "ROI_pct": -1.6011,
+      "binary_accuracy_pct": 58.3132
+    },
+    "price_league_binary|annual_forward|expanded15|2025": {
+      "n": 2130,
+      "net_U": 0.135,
+      "ROI_pct": 0.0063,
+      "binary_accuracy_pct": 59.5775
+    },
+    "price_league_binary|annual_forward|outside|2025": {
+      "n": 9987,
+      "net_U": -256.285,
+      "ROI_pct": -2.5662,
+      "binary_accuracy_pct": 57.6049
+    },
+    "price_league_binary|annual_forward|all|2025": {
+      "n": 12405,
+      "net_U": -329.3,
+      "ROI_pct": -2.6546,
+      "binary_accuracy_pct": 57.6703
+    },
+    "price_league_binary|annual_forward|original49_outside|2025": {
+      "n": 7857,
+      "net_U": -256.42,
+      "ROI_pct": -3.2636,
+      "binary_accuracy_pct": 57.0701
+    },
+    "price_league_binary|annual_forward|frozen|2025": {
+      "n": 4836,
+      "net_U": -146.03,
+      "ROI_pct": -3.0196,
+      "binary_accuracy_pct": 57.9404
+    },
+    "price_league_binary|annual_forward|original49_outside|2026": {
+      "n": 7024,
+      "net_U": -277.555,
+      "ROI_pct": -3.9515,
+      "binary_accuracy_pct": 56.7341
+    },
+    "price_league_binary|annual_forward|outside|2026": {
+      "n": 7098,
+      "net_U": -289.295,
+      "ROI_pct": -4.0757,
+      "binary_accuracy_pct": 56.6498
+    },
+    "price_league_binary|annual_forward|all|2026": {
+      "n": 9316,
+      "net_U": -310.355,
+      "ROI_pct": -3.3314,
+      "binary_accuracy_pct": 57.1383
+    },
+    "price_league_binary|annual_forward|frozen|2026": {
+      "n": 4436,
+      "net_U": -42.12,
+      "ROI_pct": -0.9495,
+      "binary_accuracy_pct": 58.7015
+    },
+    "price_league_binary|annual_forward|expanded15|2026": {
+      "n": 74,
+      "net_U": -11.74,
+      "ROI_pct": -15.8649,
+      "binary_accuracy_pct": 48.6486
+    },
+    "price_league_cashflow|fixed_2019_23|expanded15|2024": {
+      "n": 2199,
+      "net_U": -130.58,
+      "ROI_pct": -5.9382,
+      "binary_accuracy_pct": 47.749
+    },
+    "price_league_cashflow|fixed_2019_23|expanded15|overall": {
+      "n": 4403,
+      "net_U": -196.23,
+      "ROI_pct": -4.4567,
+      "binary_accuracy_pct": 49.1937
+    },
+    "price_league_cashflow|fixed_2019_23|outside|2024": {
+      "n": 9438,
+      "net_U": -313.445,
+      "ROI_pct": -3.3211,
+      "binary_accuracy_pct": 49.449
+    },
+    "price_league_cashflow|fixed_2019_23|outside|overall": {
+      "n": 26523,
+      "net_U": -856.135,
+      "ROI_pct": -3.2279,
+      "binary_accuracy_pct": 49.6286
+    },
+    "price_league_cashflow|fixed_2019_23|all|2024": {
+      "n": 11418,
+      "net_U": -368.255,
+      "ROI_pct": -3.2252,
+      "binary_accuracy_pct": 49.6059
+    },
+    "price_league_cashflow|fixed_2019_23|all|overall": {
+      "n": 33139,
+      "net_U": -1043.175,
+      "ROI_pct": -3.1479,
+      "binary_accuracy_pct": 49.7571
+    },
+    "price_league_cashflow|fixed_2019_23|original49_outside|2024": {
+      "n": 7239,
+      "net_U": -182.865,
+      "ROI_pct": -2.5261,
+      "binary_accuracy_pct": 49.9655
+    },
+    "price_league_cashflow|fixed_2019_23|original49_outside|overall": {
+      "n": 22120,
+      "net_U": -659.905,
+      "ROI_pct": -2.9833,
+      "binary_accuracy_pct": 49.7152
+    },
+    "price_league_cashflow|fixed_2019_23|frozen|2024": {
+      "n": 3960,
+      "net_U": -109.62,
+      "ROI_pct": -2.7682,
+      "binary_accuracy_pct": 50.3535
+    },
+    "price_league_cashflow|fixed_2019_23|frozen|overall": {
+      "n": 13232,
+      "net_U": -374.08,
+      "ROI_pct": -2.8271,
+      "binary_accuracy_pct": 50.2721
+    },
+    "price_league_cashflow|fixed_2019_23|expanded15|2025": {
+      "n": 2130,
+      "net_U": -59.62,
+      "ROI_pct": -2.7991,
+      "binary_accuracy_pct": 50.7512
+    },
+    "price_league_cashflow|fixed_2019_23|outside|2025": {
+      "n": 9987,
+      "net_U": -270.985,
+      "ROI_pct": -2.7134,
+      "binary_accuracy_pct": 49.995
+    },
+    "price_league_cashflow|fixed_2019_23|all|2025": {
+      "n": 12405,
+      "net_U": -383.545,
+      "ROI_pct": -3.0919,
+      "binary_accuracy_pct": 49.9718
+    },
+    "price_league_cashflow|fixed_2019_23|original49_outside|2025": {
+      "n": 7857,
+      "net_U": -211.365,
+      "ROI_pct": -2.6901,
+      "binary_accuracy_pct": 49.79
+    },
+    "price_league_cashflow|fixed_2019_23|frozen|2025": {
+      "n": 4836,
+      "net_U": -225.12,
+      "ROI_pct": -4.6551,
+      "binary_accuracy_pct": 49.8759
+    },
+    "price_league_cashflow|fixed_2019_23|original49_outside|2026": {
+      "n": 7024,
+      "net_U": -265.675,
+      "ROI_pct": -3.7824,
+      "binary_accuracy_pct": 49.3736
+    },
+    "price_league_cashflow|fixed_2019_23|outside|2026": {
+      "n": 7098,
+      "net_U": -271.705,
+      "ROI_pct": -3.8279,
+      "binary_accuracy_pct": 49.3519
+    },
+    "price_league_cashflow|fixed_2019_23|all|2026": {
+      "n": 9316,
+      "net_U": -291.375,
+      "ROI_pct": -3.1277,
+      "binary_accuracy_pct": 49.6565
+    },
+    "price_league_cashflow|fixed_2019_23|frozen|2026": {
+      "n": 4436,
+      "net_U": -39.34,
+      "ROI_pct": -0.8868,
+      "binary_accuracy_pct": 50.6312
+    },
+    "price_league_cashflow|fixed_2019_23|expanded15|2026": {
+      "n": 74,
+      "net_U": -6.03,
+      "ROI_pct": -8.1486,
+      "binary_accuracy_pct": 47.2973
+    },
+    "price_league_cashflow|annual_forward|expanded15|2024": {
+      "n": 2199,
+      "net_U": -130.58,
+      "ROI_pct": -5.9382,
+      "binary_accuracy_pct": 47.749
+    },
+    "price_league_cashflow|annual_forward|expanded15|overall": {
+      "n": 4403,
+      "net_U": -189.67,
+      "ROI_pct": -4.3077,
+      "binary_accuracy_pct": 48.8985
+    },
+    "price_league_cashflow|annual_forward|outside|2024": {
+      "n": 9438,
+      "net_U": -313.445,
+      "ROI_pct": -3.3211,
+      "binary_accuracy_pct": 49.449
+    },
+    "price_league_cashflow|annual_forward|outside|overall": {
+      "n": 26523,
+      "net_U": -782.78,
+      "ROI_pct": -2.9513,
+      "binary_accuracy_pct": 50.5674
+    },
+    "price_league_cashflow|annual_forward|all|2024": {
+      "n": 11418,
+      "net_U": -368.255,
+      "ROI_pct": -3.2252,
+      "binary_accuracy_pct": 49.6059
+    },
+    "price_league_cashflow|annual_forward|all|overall": {
+      "n": 33139,
+      "net_U": -933.425,
+      "ROI_pct": -2.8167,
+      "binary_accuracy_pct": 50.7106
+    },
+    "price_league_cashflow|annual_forward|original49_outside|2024": {
+      "n": 7239,
+      "net_U": -182.865,
+      "ROI_pct": -2.5261,
+      "binary_accuracy_pct": 49.9655
+    },
+    "price_league_cashflow|annual_forward|original49_outside|overall": {
+      "n": 22120,
+      "net_U": -593.11,
+      "ROI_pct": -2.6813,
+      "binary_accuracy_pct": 50.8996
+    },
+    "price_league_cashflow|annual_forward|frozen|2024": {
+      "n": 3960,
+      "net_U": -109.62,
+      "ROI_pct": -2.7682,
+      "binary_accuracy_pct": 50.3535
+    },
+    "price_league_cashflow|annual_forward|frozen|overall": {
+      "n": 13232,
+      "net_U": -301.29,
+      "ROI_pct": -2.277,
+      "binary_accuracy_pct": 51.2848
+    },
+    "price_league_cashflow|annual_forward|expanded15|2025": {
+      "n": 2130,
+      "net_U": -64.925,
+      "ROI_pct": -3.0481,
+      "binary_accuracy_pct": 49.8122
+    },
+    "price_league_cashflow|annual_forward|outside|2025": {
+      "n": 9987,
+      "net_U": -330.73,
+      "ROI_pct": -3.3116,
+      "binary_accuracy_pct": 50.5457
+    },
+    "price_league_cashflow|annual_forward|all|2025": {
+      "n": 12405,
+      "net_U": -353.495,
+      "ROI_pct": -2.8496,
+      "binary_accuracy_pct": 50.923
+    },
+    "price_league_cashflow|annual_forward|original49_outside|2025": {
+      "n": 7857,
+      "net_U": -265.805,
+      "ROI_pct": -3.383,
+      "binary_accuracy_pct": 50.7446
+    },
+    "price_league_cashflow|annual_forward|frozen|2025": {
+      "n": 4836,
+      "net_U": -45.53,
+      "ROI_pct": -0.9415,
+      "binary_accuracy_pct": 52.4814
+    },
+    "price_league_cashflow|annual_forward|original49_outside|2026": {
+      "n": 7024,
+      "net_U": -144.44,
+      "ROI_pct": -2.0564,
+      "binary_accuracy_pct": 52.0359
+    },
+    "price_league_cashflow|annual_forward|outside|2026": {
+      "n": 7098,
+      "net_U": -138.605,
+      "ROI_pct": -1.9527,
+      "binary_accuracy_pct": 52.0851
+    },
+    "price_league_cashflow|annual_forward|all|2026": {
+      "n": 9316,
+      "net_U": -211.675,
+      "ROI_pct": -2.2722,
+      "binary_accuracy_pct": 51.7819
+    },
+    "price_league_cashflow|annual_forward|frozen|2026": {
+      "n": 4436,
+      "net_U": -146.14,
+      "ROI_pct": -3.2944,
+      "binary_accuracy_pct": 50.8115
+    },
+    "price_league_cashflow|annual_forward|expanded15|2026": {
+      "n": 74,
+      "net_U": 5.835,
+      "ROI_pct": 7.8851,
+      "binary_accuracy_pct": 56.7568
+    }
+  },
+  "limitations": [
+    "Source-event quotes retrieved historically, not contemporaneous receipts",
+    "No optional lineup/formation/FT dataset filter; all priced T6 fixtures",
+    "Simple market-price and league features; not Jack faithful",
+    "Historic explored data; research-only, no new release rules"
+  ]
+}
