@@ -5020,3 +5020,10 @@
 - 真实收据归档12,550行/1,607 FID；经校正的2024-2026特征测试集合交集0；球员估值快照时间证据0。实收盈利不可计算，全部历史quote为source-event回放而非实收/TG实战。
 - 独立脚本重新从原始Crown T12库存、FT、冻结10,294 FID及逐场预测验证21,476条模型行的比赛/球队/联赛/盘口线/双边赔率/比分、AH方向和quarter-line拆腿净U，并检查特征截止与冻结重叠；21,476项全部通过，错误0。所有周度/联赛拆分在结果JSON保留。
 - 代码、报告、完整预测与结算gzip、超范围作废尝试、输入/输出SHA和执行记录在 `research/m8/squad_value_crown_ah_20261120/`。结果报告 `M8_SQUAD_VALUE_CROWN_AH_RESEARCH_20261120.md`。此研究不修改冻结八组、M9/M1/MR1、生产、Telegram、正式账本、采集链、调度或交易规则。球员估值研究提交 `2ae488d` 已写入当前独立研究分支并推送至PR #68；PR目标 `main`、当前保持开放且未合并。
+
+## 2026-11-21｜M8 原八组精确跨联赛研究复核
+
+- 应本轮复核任务，在隔离分支 `research/m8-exact-cross-league-expansion` 对既有跨联赛精确规则交付重新核验；没有覆盖 `/Users/mac/Documents/ChatGPT/m8-m9-group-research` checkout 中未提交的 venue 修改或 formation-matchup 文件。
+- 重新读取当前本地 Crown SQLite 与原始响应文件，独立校验器逐场复核1,271笔新增订单的 Crown 原始报价 SHA、T1合约、赛程FT、方向与 AH 五态/quarter-line 拆腿结算：1,271/1,271通过、差异0，重算净值+7.185U。重新核对10,294冻结FID，新增订单唯一FID 1,271，冻结交集0。
+- 当前输入清单的788项（10个直接文件、778个相关赛程页）和输出清单20项全部SHA匹配，无缺失或差异；原结果不变。全量1,271单+7.185U（ROI +0.565%、380个观测ISO周平均3.345单/周）；2024 +13.310U、2025 −9.565U、2026截至6月1日 −6.260U。无目标新联赛真实赛前 Crown receipt；这仍是历史回放，不是实收或正式派单。
+- 完整逐组结果、缺失覆盖、联赛和年度拆分见 `research/m8/exact_rules_outside_original49_20261120/EXACT_RULE_CROSS_LEAGUE_REPORT.md`。PR #68 已包含此研究，保持开放、目标为 `main`；未合并。此次复核仅更新交接证据，没有改动生产策略、TG或正式账本。
