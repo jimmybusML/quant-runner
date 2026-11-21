@@ -1,0 +1,362 @@
+{
+  "sample": {
+    "historical_results": 78848,
+    "T6_total": 41923,
+    "T6_2024_26": 28736,
+    "T6_2024_26_outside": 22120,
+    "T6_2024_26_frozen": 6616,
+    "five_state_disagreements": 0
+  },
+  "assumptions": [
+    "Jack-inspired proxy, missing 4 Poisson xG features and original exact season/ranking; not faithful Jack J1",
+    "kickoff+48h FT availability is a research counterfactual, not verified",
+    "Crown historical source-event T6 quotes; not actual pre-kickoff HTTP receipt",
+    "Frozen original8 excluded only for separate incremental return, no training gate",
+    "2024-26 results explored historically, not untouched OOS"
+  ],
+  "features": [
+    "rate_h2h_win",
+    "rate_h2h_lose",
+    "hcap_mag",
+    "n_rest_day_net",
+    "rate_seas_win_net",
+    "rate_seas_lose_net",
+    "scores_net",
+    "rank_proxy_season_points_rate_net",
+    "rating_seas_proxy_net",
+    "rating_hist_net",
+    "past_goal_diff_last10_net",
+    "past_goals_for_last10_net",
+    "past_goals_against_last10_net",
+    "history_count_home",
+    "history_count_away",
+    "season_count_home",
+    "season_count_away",
+    "past_h2h_count",
+    "T6_home_odds",
+    "T6_away_odds",
+    "T6_no_vig_home_share",
+    "T6_quote_age_hours",
+    "T6_ou_line",
+    "T6_ou_odds_over",
+    "T6_ou_odds_under",
+    "T6_1x2_home",
+    "T6_1x2_draw",
+    "T6_1x2_away",
+    "T6_1x2_missing"
+  ],
+  "fits": {
+    "J1_fixed_2019_23_2024": {
+      "train_n": 13187,
+      "test_n": 9219,
+      "train_max_year": 2023,
+      "feature_importances": {
+        "hcap_mag": 0.07829799503087997,
+        "T6_no_vig_home_share": 0.05818823352456093,
+        "T6_away_odds": 0.05372202768921852,
+        "T6_1x2_home": 0.04985659196972847,
+        "rank_proxy_season_points_rate_net": 0.0452103391289711,
+        "rate_seas_lose_net": 0.04017352685332298,
+        "season_count_away": 0.03880782052874565,
+        "rate_h2h_lose": 0.038249172270298004,
+        "rate_h2h_win": 0.037482671439647675,
+        "past_h2h_count": 0.0347297377884388,
+        "T6_home_odds": 0.034675419330596924,
+        "rating_seas_proxy_net": 0.03386373072862625
+      }
+    },
+    "J1_fixed_2019_23_2025": {
+      "train_n": 13187,
+      "test_n": 10275,
+      "train_max_year": 2023,
+      "feature_importances": {
+        "hcap_mag": 0.07829799503087997,
+        "T6_no_vig_home_share": 0.05818823352456093,
+        "T6_away_odds": 0.05372202768921852,
+        "T6_1x2_home": 0.04985659196972847,
+        "rank_proxy_season_points_rate_net": 0.0452103391289711,
+        "rate_seas_lose_net": 0.04017352685332298,
+        "season_count_away": 0.03880782052874565,
+        "rate_h2h_lose": 0.038249172270298004,
+        "rate_h2h_win": 0.037482671439647675,
+        "past_h2h_count": 0.0347297377884388,
+        "T6_home_odds": 0.034675419330596924,
+        "rating_seas_proxy_net": 0.03386373072862625
+      }
+    },
+    "J1_fixed_2019_23_2026": {
+      "train_n": 13187,
+      "test_n": 9242,
+      "train_max_year": 2023,
+      "feature_importances": {
+        "hcap_mag": 0.07829799503087997,
+        "T6_no_vig_home_share": 0.05818823352456093,
+        "T6_away_odds": 0.05372202768921852,
+        "T6_1x2_home": 0.04985659196972847,
+        "rank_proxy_season_points_rate_net": 0.0452103391289711,
+        "rate_seas_lose_net": 0.04017352685332298,
+        "season_count_away": 0.03880782052874565,
+        "rate_h2h_lose": 0.038249172270298004,
+        "rate_h2h_win": 0.037482671439647675,
+        "past_h2h_count": 0.0347297377884388,
+        "T6_home_odds": 0.034675419330596924,
+        "rating_seas_proxy_net": 0.03386373072862625
+      }
+    },
+    "J3_annual_forward_2024": {
+      "train_n": 13187,
+      "test_n": 9219,
+      "train_max_year": 2023,
+      "feature_importances": {
+        "hcap_mag": 0.07829799503087997,
+        "T6_no_vig_home_share": 0.05818823352456093,
+        "T6_away_odds": 0.05372202768921852,
+        "T6_1x2_home": 0.04985659196972847,
+        "rank_proxy_season_points_rate_net": 0.0452103391289711,
+        "rate_seas_lose_net": 0.04017352685332298,
+        "season_count_away": 0.03880782052874565,
+        "rate_h2h_lose": 0.038249172270298004,
+        "rate_h2h_win": 0.037482671439647675,
+        "past_h2h_count": 0.0347297377884388,
+        "T6_home_odds": 0.034675419330596924,
+        "rating_seas_proxy_net": 0.03386373072862625
+      }
+    },
+    "J3_annual_forward_2025": {
+      "train_n": 22406,
+      "test_n": 10275,
+      "train_max_year": 2024,
+      "feature_importances": {
+        "hcap_mag": 0.0901465192437172,
+        "T6_no_vig_home_share": 0.0833047553896904,
+        "T6_1x2_home": 0.06590498238801956,
+        "T6_home_odds": 0.04241497814655304,
+        "rank_proxy_season_points_rate_net": 0.03839409723877907,
+        "season_count_away": 0.037051767110824585,
+        "T6_1x2_draw": 0.03468853980302811,
+        "T6_away_odds": 0.03382156044244766,
+        "rate_seas_win_net": 0.03323297202587128,
+        "rating_seas_proxy_net": 0.03281937539577484,
+        "T6_1x2_away": 0.032696984708309174,
+        "T6_ou_line": 0.03151555359363556
+      }
+    },
+    "J3_annual_forward_2026": {
+      "train_n": 32681,
+      "test_n": 9242,
+      "train_max_year": 2025,
+      "feature_importances": {
+        "hcap_mag": 0.12208137661218643,
+        "T6_no_vig_home_share": 0.06983718276023865,
+        "T6_1x2_home": 0.059330422431230545,
+        "T6_home_odds": 0.039430972188711166,
+        "T6_1x2_draw": 0.03840663656592369,
+        "T6_away_odds": 0.03786727786064148,
+        "rank_proxy_season_points_rate_net": 0.03607343137264252,
+        "rate_seas_win_net": 0.03601936623454094,
+        "rate_h2h_lose": 0.03528590500354767,
+        "rate_seas_lose_net": 0.034816719591617584,
+        "T6_1x2_away": 0.03284002095460892,
+        "rating_hist_net": 0.03204675763845444
+      }
+    }
+  },
+  "results": {
+    "J1_fixed_2019_23": {
+      "('all', 2024)": {
+        "n": 9219,
+        "binary_accuracy_pct": 56.0256,
+        "binary_sim180_U": 78.0,
+        "binary_sim180_ROI_pct": 0.8461,
+        "Crown_net_U": -262.08,
+        "Crown_ROI_pct": -2.8428
+      },
+      "('outside', 2024)": {
+        "n": 7239,
+        "binary_accuracy_pct": 55.7536,
+        "binary_sim180_U": 25.8,
+        "binary_sim180_ROI_pct": 0.3564,
+        "Crown_net_U": -233.6,
+        "Crown_ROI_pct": -3.227
+      },
+      "('all', 'overall')": {
+        "n": 28736,
+        "binary_accuracy_pct": 55.8776,
+        "binary_sim180_U": 166.6,
+        "binary_sim180_ROI_pct": 0.5798,
+        "Crown_net_U": -865.235,
+        "Crown_ROI_pct": -3.011
+      },
+      "('outside', 'overall')": {
+        "n": 22120,
+        "binary_accuracy_pct": 55.4566,
+        "binary_sim180_U": -39.4,
+        "binary_sim180_ROI_pct": -0.1781,
+        "Crown_net_U": -813.355,
+        "Crown_ROI_pct": -3.677
+      },
+      "('frozen', 2024)": {
+        "n": 1980,
+        "binary_accuracy_pct": 57.0202,
+        "binary_sim180_U": 52.2,
+        "binary_sim180_ROI_pct": 2.6364,
+        "Crown_net_U": -28.48,
+        "Crown_ROI_pct": -1.4384
+      },
+      "('frozen', 'overall')": {
+        "n": 6616,
+        "binary_accuracy_pct": 57.2854,
+        "binary_sim180_U": 206.0,
+        "binary_sim180_ROI_pct": 3.1137,
+        "Crown_net_U": -51.88,
+        "Crown_ROI_pct": -0.7842
+      },
+      "('all', 2025)": {
+        "n": 10275,
+        "binary_accuracy_pct": 55.8345,
+        "binary_sim180_U": 51.6,
+        "binary_sim180_ROI_pct": 0.5022,
+        "Crown_net_U": -291.96,
+        "Crown_ROI_pct": -2.8415
+      },
+      "('outside', 2025)": {
+        "n": 7857,
+        "binary_accuracy_pct": 55.3774,
+        "binary_sim180_U": -25.2,
+        "binary_sim180_ROI_pct": -0.3207,
+        "Crown_net_U": -266.885,
+        "Crown_ROI_pct": -3.3968
+      },
+      "('frozen', 2025)": {
+        "n": 2418,
+        "binary_accuracy_pct": 57.3201,
+        "binary_sim180_U": 76.8,
+        "binary_sim180_ROI_pct": 3.1762,
+        "Crown_net_U": -25.075,
+        "Crown_ROI_pct": -1.037
+      },
+      "('all', 2026)": {
+        "n": 9242,
+        "binary_accuracy_pct": 55.778,
+        "binary_sim180_U": 37.0,
+        "binary_sim180_ROI_pct": 0.4003,
+        "Crown_net_U": -311.195,
+        "Crown_ROI_pct": -3.3672
+      },
+      "('outside', 2026)": {
+        "n": 7024,
+        "binary_accuracy_pct": 55.2392,
+        "binary_sim180_U": -40.0,
+        "binary_sim180_ROI_pct": -0.5695,
+        "Crown_net_U": -312.87,
+        "Crown_ROI_pct": -4.4543
+      },
+      "('frozen', 2026)": {
+        "n": 2218,
+        "binary_accuracy_pct": 57.4842,
+        "binary_sim180_U": 77.0,
+        "binary_sim180_ROI_pct": 3.4716,
+        "Crown_net_U": 1.675,
+        "Crown_ROI_pct": 0.0755
+      }
+    },
+    "J3_annual_forward": {
+      "('all', 2024)": {
+        "n": 9219,
+        "binary_accuracy_pct": 56.0256,
+        "binary_sim180_U": 78.0,
+        "binary_sim180_ROI_pct": 0.8461,
+        "Crown_net_U": -262.08,
+        "Crown_ROI_pct": -2.8428
+      },
+      "('outside', 2024)": {
+        "n": 7239,
+        "binary_accuracy_pct": 55.7536,
+        "binary_sim180_U": 25.8,
+        "binary_sim180_ROI_pct": 0.3564,
+        "Crown_net_U": -233.6,
+        "Crown_ROI_pct": -3.227
+      },
+      "('all', 'overall')": {
+        "n": 28736,
+        "binary_accuracy_pct": 56.6119,
+        "binary_sim180_U": 546.4,
+        "binary_sim180_ROI_pct": 1.9014,
+        "Crown_net_U": -810.625,
+        "Crown_ROI_pct": -2.8209
+      },
+      "('outside', 'overall')": {
+        "n": 22120,
+        "binary_accuracy_pct": 56.198,
+        "binary_sim180_U": 255.8,
+        "binary_sim180_ROI_pct": 1.1564,
+        "Crown_net_U": -753.63,
+        "Crown_ROI_pct": -3.407
+      },
+      "('frozen', 2024)": {
+        "n": 1980,
+        "binary_accuracy_pct": 57.0202,
+        "binary_sim180_U": 52.2,
+        "binary_sim180_ROI_pct": 2.6364,
+        "Crown_net_U": -28.48,
+        "Crown_ROI_pct": -1.4384
+      },
+      "('frozen', 'overall')": {
+        "n": 6616,
+        "binary_accuracy_pct": 57.9958,
+        "binary_sim180_U": 290.6,
+        "binary_sim180_ROI_pct": 4.3924,
+        "Crown_net_U": -56.995,
+        "Crown_ROI_pct": -0.8615
+      },
+      "('all', 2025)": {
+        "n": 10275,
+        "binary_accuracy_pct": 57.0803,
+        "binary_sim180_U": 282.0,
+        "binary_sim180_ROI_pct": 2.7445,
+        "Crown_net_U": -231.64,
+        "Crown_ROI_pct": -2.2544
+      },
+      "('outside', 2025)": {
+        "n": 7857,
+        "binary_accuracy_pct": 56.4592,
+        "binary_sim180_U": 127.8,
+        "binary_sim180_ROI_pct": 1.6266,
+        "Crown_net_U": -246.3,
+        "Crown_ROI_pct": -3.1348
+      },
+      "('frozen', 2025)": {
+        "n": 2418,
+        "binary_accuracy_pct": 59.0984,
+        "binary_sim180_U": 154.2,
+        "binary_sim180_ROI_pct": 6.3772,
+        "Crown_net_U": 14.66,
+        "Crown_ROI_pct": 0.6063
+      },
+      "('all', 2026)": {
+        "n": 9242,
+        "binary_accuracy_pct": 56.676,
+        "binary_sim180_U": 186.4,
+        "binary_sim180_ROI_pct": 2.0169,
+        "Crown_net_U": -316.905,
+        "Crown_ROI_pct": -3.429
+      },
+      "('outside', 2026)": {
+        "n": 7024,
+        "binary_accuracy_pct": 56.3639,
+        "binary_sim180_U": 102.2,
+        "binary_sim180_ROI_pct": 1.455,
+        "Crown_net_U": -273.73,
+        "Crown_ROI_pct": -3.8971
+      },
+      "('frozen', 2026)": {
+        "n": 2218,
+        "binary_accuracy_pct": 57.6646,
+        "binary_sim180_U": 84.2,
+        "binary_sim180_ROI_pct": 3.7962,
+        "Crown_net_U": -43.175,
+        "Crown_ROI_pct": -1.9466
+      }
+    }
+  }
+}

@@ -1,0 +1,1171 @@
+{
+  "methods": {
+    "jack10_binary": {
+      "features": [
+        "rate_h2h_win",
+        "rate_h2h_lose",
+        "hcap_mag",
+        "n_rest_day_net",
+        "rate_seas_win_net",
+        "rate_seas_lose_net",
+        "scores_net",
+        "rank_proxy_season_points_rate_net",
+        "rating_seas_proxy_net",
+        "rating_hist_net"
+      ],
+      "type": "class"
+    },
+    "market_binary": {
+      "features": [
+        "hcap_mag",
+        "T6_home_odds",
+        "T6_away_odds",
+        "T6_no_vig_home_share",
+        "T6_quote_age_hours",
+        "T6_ou_line",
+        "T6_ou_odds_over",
+        "T6_ou_odds_under",
+        "T6_1x2_home",
+        "T6_1x2_draw",
+        "T6_1x2_away",
+        "T6_1x2_missing"
+      ],
+      "type": "class"
+    },
+    "jack10_direct_cashflow": {
+      "features": [
+        "rate_h2h_win",
+        "rate_h2h_lose",
+        "hcap_mag",
+        "n_rest_day_net",
+        "rate_seas_win_net",
+        "rate_seas_lose_net",
+        "scores_net",
+        "rank_proxy_season_points_rate_net",
+        "rating_seas_proxy_net",
+        "rating_hist_net"
+      ],
+      "type": "cashflow"
+    },
+    "market_history_direct_cashflow": {
+      "features": [
+        "rate_h2h_win",
+        "rate_h2h_lose",
+        "hcap_mag",
+        "n_rest_day_net",
+        "rate_seas_win_net",
+        "rate_seas_lose_net",
+        "scores_net",
+        "rank_proxy_season_points_rate_net",
+        "rating_seas_proxy_net",
+        "rating_hist_net",
+        "past_goal_diff_last10_net",
+        "past_goals_for_last10_net",
+        "past_goals_against_last10_net",
+        "history_count_home",
+        "history_count_away",
+        "season_count_home",
+        "season_count_away",
+        "past_h2h_count",
+        "T6_home_odds",
+        "T6_away_odds",
+        "T6_no_vig_home_share",
+        "T6_quote_age_hours",
+        "T6_ou_line",
+        "T6_ou_odds_over",
+        "T6_ou_odds_under",
+        "T6_1x2_home",
+        "T6_1x2_draw",
+        "T6_1x2_away",
+        "T6_1x2_missing"
+      ],
+      "type": "cashflow"
+    }
+  },
+  "method_settings": "Experimental fixed XGBoost settings, not product rule or optimized parameters",
+  "cohort_note": "All 41923 T6 Crown quotes retained for features; outside only for reporting. 2024-26 28736 all / 22120 outside.",
+  "fit": {
+    "jack10_binary|fixed_2019_23|2024": {
+      "train_n": 13187,
+      "test_n": 9219,
+      "feature_count": 10,
+      "importances": {
+        "hcap_mag": 0.22785945236682892,
+        "rate_h2h_win": 0.10744516551494598,
+        "rank_proxy_season_points_rate_net": 0.09256169199943542,
+        "rating_hist_net": 0.08852783590555191,
+        "n_rest_day_net": 0.08849606662988663,
+        "scores_net": 0.0851750522851944,
+        "rate_seas_lose_net": 0.08254892379045486,
+        "rate_h2h_lose": 0.08241629600524902,
+        "rating_seas_proxy_net": 0.08079539984464645,
+        "rate_seas_win_net": 0.06417408585548401
+      }
+    },
+    "jack10_binary|fixed_2019_23|2025": {
+      "train_n": 13187,
+      "test_n": 10275,
+      "feature_count": 10,
+      "importances": {
+        "hcap_mag": 0.22785945236682892,
+        "rate_h2h_win": 0.10744516551494598,
+        "rank_proxy_season_points_rate_net": 0.09256169199943542,
+        "rating_hist_net": 0.08852783590555191,
+        "n_rest_day_net": 0.08849606662988663,
+        "scores_net": 0.0851750522851944,
+        "rate_seas_lose_net": 0.08254892379045486,
+        "rate_h2h_lose": 0.08241629600524902,
+        "rating_seas_proxy_net": 0.08079539984464645,
+        "rate_seas_win_net": 0.06417408585548401
+      }
+    },
+    "jack10_binary|fixed_2019_23|2026": {
+      "train_n": 13187,
+      "test_n": 9242,
+      "feature_count": 10,
+      "importances": {
+        "hcap_mag": 0.22785945236682892,
+        "rate_h2h_win": 0.10744516551494598,
+        "rank_proxy_season_points_rate_net": 0.09256169199943542,
+        "rating_hist_net": 0.08852783590555191,
+        "n_rest_day_net": 0.08849606662988663,
+        "scores_net": 0.0851750522851944,
+        "rate_seas_lose_net": 0.08254892379045486,
+        "rate_h2h_lose": 0.08241629600524902,
+        "rating_seas_proxy_net": 0.08079539984464645,
+        "rate_seas_win_net": 0.06417408585548401
+      }
+    },
+    "jack10_binary|annual_forward|2024": {
+      "train_n": 13187,
+      "test_n": 9219,
+      "feature_count": 10,
+      "importances": {
+        "hcap_mag": 0.22785945236682892,
+        "rate_h2h_win": 0.10744516551494598,
+        "rank_proxy_season_points_rate_net": 0.09256169199943542,
+        "rating_hist_net": 0.08852783590555191,
+        "n_rest_day_net": 0.08849606662988663,
+        "scores_net": 0.0851750522851944,
+        "rate_seas_lose_net": 0.08254892379045486,
+        "rate_h2h_lose": 0.08241629600524902,
+        "rating_seas_proxy_net": 0.08079539984464645,
+        "rate_seas_win_net": 0.06417408585548401
+      }
+    },
+    "jack10_binary|annual_forward|2025": {
+      "train_n": 22406,
+      "test_n": 10275,
+      "feature_count": 10,
+      "importances": {
+        "hcap_mag": 0.30404120683670044,
+        "rate_h2h_win": 0.09019245207309723,
+        "rating_seas_proxy_net": 0.08549565821886063,
+        "rating_hist_net": 0.08524801582098007,
+        "rank_proxy_season_points_rate_net": 0.08501625061035156,
+        "rate_h2h_lose": 0.07468964904546738,
+        "n_rest_day_net": 0.07261625677347183,
+        "rate_seas_win_net": 0.07208405435085297,
+        "rate_seas_lose_net": 0.07144559174776077,
+        "scores_net": 0.0591709166765213
+      }
+    },
+    "jack10_binary|annual_forward|2026": {
+      "train_n": 32681,
+      "test_n": 9242,
+      "feature_count": 10,
+      "importances": {
+        "hcap_mag": 0.34220969676971436,
+        "rate_h2h_win": 0.08597533404827118,
+        "rate_seas_lose_net": 0.08584489673376083,
+        "rating_hist_net": 0.0827731266617775,
+        "rank_proxy_season_points_rate_net": 0.0807165801525116,
+        "rate_h2h_lose": 0.07706527411937714,
+        "n_rest_day_net": 0.06944021582603455,
+        "rate_seas_win_net": 0.06246168166399002,
+        "rating_seas_proxy_net": 0.060939524322748184,
+        "scores_net": 0.05257365480065346
+      }
+    },
+    "market_binary|fixed_2019_23|2024": {
+      "train_n": 13187,
+      "test_n": 9219,
+      "feature_count": 12,
+      "importances": {
+        "hcap_mag": 0.18123759329319,
+        "T6_away_odds": 0.1559840887784958,
+        "T6_no_vig_home_share": 0.13164986670017242,
+        "T6_ou_line": 0.09461282938718796,
+        "T6_1x2_draw": 0.07830166071653366,
+        "T6_1x2_home": 0.0775132104754448,
+        "T6_quote_age_hours": 0.07103709876537323,
+        "T6_1x2_away": 0.06110045313835144,
+        "T6_ou_odds_over": 0.049778614193201065,
+        "T6_ou_odds_under": 0.04966806620359421
+      }
+    },
+    "market_binary|fixed_2019_23|2025": {
+      "train_n": 13187,
+      "test_n": 10275,
+      "feature_count": 12,
+      "importances": {
+        "hcap_mag": 0.18123759329319,
+        "T6_away_odds": 0.1559840887784958,
+        "T6_no_vig_home_share": 0.13164986670017242,
+        "T6_ou_line": 0.09461282938718796,
+        "T6_1x2_draw": 0.07830166071653366,
+        "T6_1x2_home": 0.0775132104754448,
+        "T6_quote_age_hours": 0.07103709876537323,
+        "T6_1x2_away": 0.06110045313835144,
+        "T6_ou_odds_over": 0.049778614193201065,
+        "T6_ou_odds_under": 0.04966806620359421
+      }
+    },
+    "market_binary|fixed_2019_23|2026": {
+      "train_n": 13187,
+      "test_n": 9242,
+      "feature_count": 12,
+      "importances": {
+        "hcap_mag": 0.18123759329319,
+        "T6_away_odds": 0.1559840887784958,
+        "T6_no_vig_home_share": 0.13164986670017242,
+        "T6_ou_line": 0.09461282938718796,
+        "T6_1x2_draw": 0.07830166071653366,
+        "T6_1x2_home": 0.0775132104754448,
+        "T6_quote_age_hours": 0.07103709876537323,
+        "T6_1x2_away": 0.06110045313835144,
+        "T6_ou_odds_over": 0.049778614193201065,
+        "T6_ou_odds_under": 0.04966806620359421
+      }
+    },
+    "market_binary|annual_forward|2024": {
+      "train_n": 13187,
+      "test_n": 9219,
+      "feature_count": 12,
+      "importances": {
+        "hcap_mag": 0.18123759329319,
+        "T6_away_odds": 0.1559840887784958,
+        "T6_no_vig_home_share": 0.13164986670017242,
+        "T6_ou_line": 0.09461282938718796,
+        "T6_1x2_draw": 0.07830166071653366,
+        "T6_1x2_home": 0.0775132104754448,
+        "T6_quote_age_hours": 0.07103709876537323,
+        "T6_1x2_away": 0.06110045313835144,
+        "T6_ou_odds_over": 0.049778614193201065,
+        "T6_ou_odds_under": 0.04966806620359421
+      }
+    },
+    "market_binary|annual_forward|2025": {
+      "train_n": 22406,
+      "test_n": 10275,
+      "feature_count": 12,
+      "importances": {
+        "hcap_mag": 0.20483382046222687,
+        "T6_no_vig_home_share": 0.15535704791545868,
+        "T6_1x2_home": 0.12325892597436905,
+        "T6_1x2_draw": 0.07981646806001663,
+        "T6_1x2_away": 0.07708420604467392,
+        "T6_quote_age_hours": 0.07027766853570938,
+        "T6_away_odds": 0.06558489054441452,
+        "T6_ou_odds_under": 0.05924588814377785,
+        "T6_home_odds": 0.05885431170463562,
+        "T6_ou_line": 0.055732861161231995
+      }
+    },
+    "market_binary|annual_forward|2026": {
+      "train_n": 32681,
+      "test_n": 9242,
+      "feature_count": 12,
+      "importances": {
+        "hcap_mag": 0.2580970823764801,
+        "T6_no_vig_home_share": 0.16366486251354218,
+        "T6_1x2_home": 0.10383627563714981,
+        "T6_home_odds": 0.08007156848907471,
+        "T6_quote_age_hours": 0.07224269956350327,
+        "T6_1x2_draw": 0.0649581253528595,
+        "T6_1x2_away": 0.056987959891557693,
+        "T6_away_odds": 0.05500488728284836,
+        "T6_ou_odds_over": 0.05239514634013176,
+        "T6_ou_line": 0.05184788629412651
+      }
+    },
+    "jack10_direct_cashflow|fixed_2019_23|2024": {
+      "train_n": 13187,
+      "test_n": 9219,
+      "feature_count": 10,
+      "importances": {
+        "rate_h2h_win": 0.12297307699918747,
+        "rank_proxy_season_points_rate_net": 0.11565616726875305,
+        "rate_seas_lose_net": 0.10624980181455612,
+        "rate_seas_win_net": 0.10163131356239319,
+        "rating_hist_net": 0.10049678385257721,
+        "n_rest_day_net": 0.09969919174909592,
+        "rate_h2h_lose": 0.09094490110874176,
+        "rating_seas_proxy_net": 0.09070565551519394,
+        "scores_net": 0.08826816082000732,
+        "hcap_mag": 0.083374984562397
+      }
+    },
+    "jack10_direct_cashflow|fixed_2019_23|2025": {
+      "train_n": 13187,
+      "test_n": 10275,
+      "feature_count": 10,
+      "importances": {
+        "rate_h2h_win": 0.12297307699918747,
+        "rank_proxy_season_points_rate_net": 0.11565616726875305,
+        "rate_seas_lose_net": 0.10624980181455612,
+        "rate_seas_win_net": 0.10163131356239319,
+        "rating_hist_net": 0.10049678385257721,
+        "n_rest_day_net": 0.09969919174909592,
+        "rate_h2h_lose": 0.09094490110874176,
+        "rating_seas_proxy_net": 0.09070565551519394,
+        "scores_net": 0.08826816082000732,
+        "hcap_mag": 0.083374984562397
+      }
+    },
+    "jack10_direct_cashflow|fixed_2019_23|2026": {
+      "train_n": 13187,
+      "test_n": 9242,
+      "feature_count": 10,
+      "importances": {
+        "rate_h2h_win": 0.12297307699918747,
+        "rank_proxy_season_points_rate_net": 0.11565616726875305,
+        "rate_seas_lose_net": 0.10624980181455612,
+        "rate_seas_win_net": 0.10163131356239319,
+        "rating_hist_net": 0.10049678385257721,
+        "n_rest_day_net": 0.09969919174909592,
+        "rate_h2h_lose": 0.09094490110874176,
+        "rating_seas_proxy_net": 0.09070565551519394,
+        "scores_net": 0.08826816082000732,
+        "hcap_mag": 0.083374984562397
+      }
+    },
+    "jack10_direct_cashflow|annual_forward|2024": {
+      "train_n": 13187,
+      "test_n": 9219,
+      "feature_count": 10,
+      "importances": {
+        "rate_h2h_win": 0.12297307699918747,
+        "rank_proxy_season_points_rate_net": 0.11565616726875305,
+        "rate_seas_lose_net": 0.10624980181455612,
+        "rate_seas_win_net": 0.10163131356239319,
+        "rating_hist_net": 0.10049678385257721,
+        "n_rest_day_net": 0.09969919174909592,
+        "rate_h2h_lose": 0.09094490110874176,
+        "rating_seas_proxy_net": 0.09070565551519394,
+        "scores_net": 0.08826816082000732,
+        "hcap_mag": 0.083374984562397
+      }
+    },
+    "jack10_direct_cashflow|annual_forward|2025": {
+      "train_n": 22406,
+      "test_n": 10275,
+      "feature_count": 10,
+      "importances": {
+        "rate_h2h_lose": 0.11664313822984695,
+        "rating_seas_proxy_net": 0.11268768459558487,
+        "rate_seas_win_net": 0.11029946058988571,
+        "rank_proxy_season_points_rate_net": 0.10411680489778519,
+        "rate_h2h_win": 0.10032743215560913,
+        "rating_hist_net": 0.0997178927063942,
+        "rate_seas_lose_net": 0.09733971208333969,
+        "scores_net": 0.088687002658844,
+        "hcap_mag": 0.08824295550584793,
+        "n_rest_day_net": 0.08193794637918472
+      }
+    },
+    "jack10_direct_cashflow|annual_forward|2026": {
+      "train_n": 32681,
+      "test_n": 9242,
+      "feature_count": 10,
+      "importances": {
+        "rate_h2h_lose": 0.11726237088441849,
+        "rank_proxy_season_points_rate_net": 0.11649183928966522,
+        "rating_seas_proxy_net": 0.10387466102838516,
+        "rating_hist_net": 0.10265772044658661,
+        "rate_seas_lose_net": 0.09759902954101562,
+        "rate_h2h_win": 0.09647774696350098,
+        "rate_seas_win_net": 0.0952044427394867,
+        "hcap_mag": 0.09417838603258133,
+        "n_rest_day_net": 0.08843083679676056,
+        "scores_net": 0.08782298117876053
+      }
+    },
+    "market_history_direct_cashflow|fixed_2019_23|2024": {
+      "train_n": 13187,
+      "test_n": 9219,
+      "feature_count": 29,
+      "importances": {
+        "T6_away_odds": 0.05909217894077301,
+        "rate_seas_lose_net": 0.04675156995654106,
+        "T6_no_vig_home_share": 0.044437430799007416,
+        "T6_ou_line": 0.04383654147386551,
+        "T6_quote_age_hours": 0.043094735592603683,
+        "rank_proxy_season_points_rate_net": 0.04237373545765877,
+        "rate_h2h_win": 0.03850625455379486,
+        "T6_home_odds": 0.03827391192317009,
+        "past_goal_diff_last10_net": 0.037614788860082626,
+        "scores_net": 0.0375002920627594
+      }
+    },
+    "market_history_direct_cashflow|fixed_2019_23|2025": {
+      "train_n": 13187,
+      "test_n": 10275,
+      "feature_count": 29,
+      "importances": {
+        "T6_away_odds": 0.05909217894077301,
+        "rate_seas_lose_net": 0.04675156995654106,
+        "T6_no_vig_home_share": 0.044437430799007416,
+        "T6_ou_line": 0.04383654147386551,
+        "T6_quote_age_hours": 0.043094735592603683,
+        "rank_proxy_season_points_rate_net": 0.04237373545765877,
+        "rate_h2h_win": 0.03850625455379486,
+        "T6_home_odds": 0.03827391192317009,
+        "past_goal_diff_last10_net": 0.037614788860082626,
+        "scores_net": 0.0375002920627594
+      }
+    },
+    "market_history_direct_cashflow|fixed_2019_23|2026": {
+      "train_n": 13187,
+      "test_n": 9242,
+      "feature_count": 29,
+      "importances": {
+        "T6_away_odds": 0.05909217894077301,
+        "rate_seas_lose_net": 0.04675156995654106,
+        "T6_no_vig_home_share": 0.044437430799007416,
+        "T6_ou_line": 0.04383654147386551,
+        "T6_quote_age_hours": 0.043094735592603683,
+        "rank_proxy_season_points_rate_net": 0.04237373545765877,
+        "rate_h2h_win": 0.03850625455379486,
+        "T6_home_odds": 0.03827391192317009,
+        "past_goal_diff_last10_net": 0.037614788860082626,
+        "scores_net": 0.0375002920627594
+      }
+    },
+    "market_history_direct_cashflow|annual_forward|2024": {
+      "train_n": 13187,
+      "test_n": 9219,
+      "feature_count": 29,
+      "importances": {
+        "T6_away_odds": 0.05909217894077301,
+        "rate_seas_lose_net": 0.04675156995654106,
+        "T6_no_vig_home_share": 0.044437430799007416,
+        "T6_ou_line": 0.04383654147386551,
+        "T6_quote_age_hours": 0.043094735592603683,
+        "rank_proxy_season_points_rate_net": 0.04237373545765877,
+        "rate_h2h_win": 0.03850625455379486,
+        "T6_home_odds": 0.03827391192317009,
+        "past_goal_diff_last10_net": 0.037614788860082626,
+        "scores_net": 0.0375002920627594
+      }
+    },
+    "market_history_direct_cashflow|annual_forward|2025": {
+      "train_n": 22406,
+      "test_n": 10275,
+      "feature_count": 29,
+      "importances": {
+        "T6_ou_line": 0.05034870281815529,
+        "season_count_away": 0.0435035303235054,
+        "past_goals_against_last10_net": 0.04315029829740524,
+        "past_goal_diff_last10_net": 0.04237554594874382,
+        "rate_seas_lose_net": 0.039363451302051544,
+        "T6_quote_age_hours": 0.03914234787225723,
+        "rating_seas_proxy_net": 0.03883105516433716,
+        "past_h2h_count": 0.03865233436226845,
+        "hcap_mag": 0.03817954286932945,
+        "rate_h2h_lose": 0.03723857179284096
+      }
+    },
+    "market_history_direct_cashflow|annual_forward|2026": {
+      "train_n": 32681,
+      "test_n": 9242,
+      "feature_count": 29,
+      "importances": {
+        "past_goal_diff_last10_net": 0.046111274510622025,
+        "T6_ou_line": 0.0452386848628521,
+        "T6_no_vig_home_share": 0.04403727501630783,
+        "rate_seas_win_net": 0.043995097279548645,
+        "rank_proxy_season_points_rate_net": 0.042220376431941986,
+        "rating_hist_net": 0.040432412177324295,
+        "T6_1x2_home": 0.038118280470371246,
+        "T6_1x2_away": 0.03784706071019173,
+        "T6_quote_age_hours": 0.03752625733613968,
+        "T6_1x2_draw": 0.037187669426202774
+      }
+    }
+  },
+  "results": {
+    "jack10_binary|fixed_2019_23|all|2024": {
+      "n": 9219,
+      "net_u": -183.32,
+      "ROI_pct": -1.9885,
+      "binary_accuracy_pct": 57.078,
+      "binary_sim180_ROI_pct": 2.74
+    },
+    "jack10_binary|fixed_2019_23|all|overall": {
+      "n": 28736,
+      "net_u": -712.5,
+      "ROI_pct": -2.4795,
+      "binary_accuracy_pct": 56.852,
+      "binary_sim180_ROI_pct": 2.3337
+    },
+    "jack10_binary|fixed_2019_23|outside|2024": {
+      "n": 7239,
+      "net_u": -172.56,
+      "ROI_pct": -2.3838,
+      "binary_accuracy_pct": 56.817,
+      "binary_sim180_ROI_pct": 2.271
+    },
+    "jack10_binary|fixed_2019_23|outside|overall": {
+      "n": 22120,
+      "net_u": -587.22,
+      "ROI_pct": -2.6547,
+      "binary_accuracy_pct": 56.695,
+      "binary_sim180_ROI_pct": 2.0515
+    },
+    "jack10_binary|fixed_2019_23|frozen|2024": {
+      "n": 1980,
+      "net_u": -10.76,
+      "ROI_pct": -0.5434,
+      "binary_accuracy_pct": 58.03,
+      "binary_sim180_ROI_pct": 4.4545
+    },
+    "jack10_binary|fixed_2019_23|frozen|overall": {
+      "n": 6616,
+      "net_u": -125.28,
+      "ROI_pct": -1.8936,
+      "binary_accuracy_pct": 57.376,
+      "binary_sim180_ROI_pct": 3.2769
+    },
+    "jack10_binary|fixed_2019_23|all|2025": {
+      "n": 10275,
+      "net_u": -283.09,
+      "ROI_pct": -2.7551,
+      "binary_accuracy_pct": 56.759,
+      "binary_sim180_ROI_pct": 2.1664
+    },
+    "jack10_binary|fixed_2019_23|outside|2025": {
+      "n": 7857,
+      "net_u": -221.0,
+      "ROI_pct": -2.8128,
+      "binary_accuracy_pct": 56.599,
+      "binary_sim180_ROI_pct": 1.8786
+    },
+    "jack10_binary|fixed_2019_23|frozen|2025": {
+      "n": 2418,
+      "net_u": -62.09,
+      "ROI_pct": -2.5678,
+      "binary_accuracy_pct": 57.279,
+      "binary_sim180_ROI_pct": 3.1017
+    },
+    "jack10_binary|fixed_2019_23|all|2026": {
+      "n": 9242,
+      "net_u": -246.09,
+      "ROI_pct": -2.6627,
+      "binary_accuracy_pct": 56.73,
+      "binary_sim180_ROI_pct": 2.1143
+    },
+    "jack10_binary|fixed_2019_23|outside|2026": {
+      "n": 7024,
+      "net_u": -193.66,
+      "ROI_pct": -2.7571,
+      "binary_accuracy_pct": 56.677,
+      "binary_sim180_ROI_pct": 2.0188
+    },
+    "jack10_binary|fixed_2019_23|frozen|2026": {
+      "n": 2218,
+      "net_u": -52.43,
+      "ROI_pct": -2.3638,
+      "binary_accuracy_pct": 56.898,
+      "binary_sim180_ROI_pct": 2.4166
+    },
+    "jack10_binary|annual_forward|all|2024": {
+      "n": 9219,
+      "net_u": -183.32,
+      "ROI_pct": -1.9885,
+      "binary_accuracy_pct": 57.078,
+      "binary_sim180_ROI_pct": 2.74
+    },
+    "jack10_binary|annual_forward|all|overall": {
+      "n": 28736,
+      "net_u": -834.175,
+      "ROI_pct": -2.9029,
+      "binary_accuracy_pct": 56.782,
+      "binary_sim180_ROI_pct": 2.2084
+    },
+    "jack10_binary|annual_forward|outside|2024": {
+      "n": 7239,
+      "net_u": -172.56,
+      "ROI_pct": -2.3838,
+      "binary_accuracy_pct": 56.817,
+      "binary_sim180_ROI_pct": 2.271
+    },
+    "jack10_binary|annual_forward|outside|overall": {
+      "n": 22120,
+      "net_u": -736.27,
+      "ROI_pct": -3.3285,
+      "binary_accuracy_pct": 56.469,
+      "binary_sim180_ROI_pct": 1.6447
+    },
+    "jack10_binary|annual_forward|frozen|2024": {
+      "n": 1980,
+      "net_u": -10.76,
+      "ROI_pct": -0.5434,
+      "binary_accuracy_pct": 58.03,
+      "binary_sim180_ROI_pct": 4.4545
+    },
+    "jack10_binary|annual_forward|frozen|overall": {
+      "n": 6616,
+      "net_u": -97.905,
+      "ROI_pct": -1.4798,
+      "binary_accuracy_pct": 57.83,
+      "binary_sim180_ROI_pct": 4.0931
+    },
+    "jack10_binary|annual_forward|all|2025": {
+      "n": 10275,
+      "net_u": -242.61,
+      "ROI_pct": -2.3612,
+      "binary_accuracy_pct": 57.109,
+      "binary_sim180_ROI_pct": 2.7971
+    },
+    "jack10_binary|annual_forward|outside|2025": {
+      "n": 7857,
+      "net_u": -228.15,
+      "ROI_pct": -2.9038,
+      "binary_accuracy_pct": 56.688,
+      "binary_sim180_ROI_pct": 2.0389
+    },
+    "jack10_binary|annual_forward|frozen|2025": {
+      "n": 2418,
+      "net_u": -14.46,
+      "ROI_pct": -0.598,
+      "binary_accuracy_pct": 58.478,
+      "binary_sim180_ROI_pct": 5.2605
+    },
+    "jack10_binary|annual_forward|all|2026": {
+      "n": 9242,
+      "net_u": -408.245,
+      "ROI_pct": -4.4173,
+      "binary_accuracy_pct": 56.124,
+      "binary_sim180_ROI_pct": 1.0236
+    },
+    "jack10_binary|annual_forward|outside|2026": {
+      "n": 7024,
+      "net_u": -335.56,
+      "ROI_pct": -4.7773,
+      "binary_accuracy_pct": 55.866,
+      "binary_sim180_ROI_pct": 0.5581
+    },
+    "jack10_binary|annual_forward|frozen|2026": {
+      "n": 2218,
+      "net_u": -72.685,
+      "ROI_pct": -3.2771,
+      "binary_accuracy_pct": 56.943,
+      "binary_sim180_ROI_pct": 2.4977
+    },
+    "market_binary|fixed_2019_23|all|2024": {
+      "n": 9219,
+      "net_u": -261.615,
+      "ROI_pct": -2.8378,
+      "binary_accuracy_pct": 56.839,
+      "binary_sim180_ROI_pct": 2.3104
+    },
+    "market_binary|fixed_2019_23|all|overall": {
+      "n": 28736,
+      "net_u": -806.155,
+      "ROI_pct": -2.8054,
+      "binary_accuracy_pct": 56.765,
+      "binary_sim180_ROI_pct": 2.1771
+    },
+    "market_binary|fixed_2019_23|outside|2024": {
+      "n": 7239,
+      "net_u": -228.855,
+      "ROI_pct": -3.1614,
+      "binary_accuracy_pct": 56.665,
+      "binary_sim180_ROI_pct": 1.9975
+    },
+    "market_binary|fixed_2019_23|outside|overall": {
+      "n": 22120,
+      "net_u": -709.59,
+      "ROI_pct": -3.2079,
+      "binary_accuracy_pct": 56.496,
+      "binary_sim180_ROI_pct": 1.6935
+    },
+    "market_binary|fixed_2019_23|frozen|2024": {
+      "n": 1980,
+      "net_u": -32.76,
+      "ROI_pct": -1.6545,
+      "binary_accuracy_pct": 57.475,
+      "binary_sim180_ROI_pct": 3.4545
+    },
+    "market_binary|fixed_2019_23|frozen|overall": {
+      "n": 6616,
+      "net_u": -96.565,
+      "ROI_pct": -1.4596,
+      "binary_accuracy_pct": 57.663,
+      "binary_sim180_ROI_pct": 3.7938
+    },
+    "market_binary|fixed_2019_23|all|2025": {
+      "n": 10275,
+      "net_u": -259.13,
+      "ROI_pct": -2.5219,
+      "binary_accuracy_pct": 56.905,
+      "binary_sim180_ROI_pct": 2.4292
+    },
+    "market_binary|fixed_2019_23|outside|2025": {
+      "n": 7857,
+      "net_u": -211.94,
+      "ROI_pct": -2.6975,
+      "binary_accuracy_pct": 56.701,
+      "binary_sim180_ROI_pct": 2.0619
+    },
+    "market_binary|fixed_2019_23|frozen|2025": {
+      "n": 2418,
+      "net_u": -47.19,
+      "ROI_pct": -1.9516,
+      "binary_accuracy_pct": 57.568,
+      "binary_sim180_ROI_pct": 3.6228
+    },
+    "market_binary|fixed_2019_23|all|2026": {
+      "n": 9242,
+      "net_u": -285.41,
+      "ROI_pct": -3.0882,
+      "binary_accuracy_pct": 56.535,
+      "binary_sim180_ROI_pct": 1.7637
+    },
+    "market_binary|fixed_2019_23|outside|2026": {
+      "n": 7024,
+      "net_u": -268.795,
+      "ROI_pct": -3.8268,
+      "binary_accuracy_pct": 56.093,
+      "binary_sim180_ROI_pct": 0.9681
+    },
+    "market_binary|fixed_2019_23|frozen|2026": {
+      "n": 2218,
+      "net_u": -16.615,
+      "ROI_pct": -0.7491,
+      "binary_accuracy_pct": 57.935,
+      "binary_sim180_ROI_pct": 4.2831
+    },
+    "market_binary|annual_forward|all|2024": {
+      "n": 9219,
+      "net_u": -261.615,
+      "ROI_pct": -2.8378,
+      "binary_accuracy_pct": 56.839,
+      "binary_sim180_ROI_pct": 2.3104
+    },
+    "market_binary|annual_forward|all|overall": {
+      "n": 28736,
+      "net_u": -901.955,
+      "ROI_pct": -3.1388,
+      "binary_accuracy_pct": 56.842,
+      "binary_sim180_ROI_pct": 2.3149
+    },
+    "market_binary|annual_forward|outside|2024": {
+      "n": 7239,
+      "net_u": -228.855,
+      "ROI_pct": -3.1614,
+      "binary_accuracy_pct": 56.665,
+      "binary_sim180_ROI_pct": 1.9975
+    },
+    "market_binary|annual_forward|outside|overall": {
+      "n": 22120,
+      "net_u": -761.885,
+      "ROI_pct": -3.4443,
+      "binary_accuracy_pct": 56.623,
+      "binary_sim180_ROI_pct": 1.9213
+    },
+    "market_binary|annual_forward|frozen|2024": {
+      "n": 1980,
+      "net_u": -32.76,
+      "ROI_pct": -1.6545,
+      "binary_accuracy_pct": 57.475,
+      "binary_sim180_ROI_pct": 3.4545
+    },
+    "market_binary|annual_forward|frozen|overall": {
+      "n": 6616,
+      "net_u": -140.07,
+      "ROI_pct": -2.1171,
+      "binary_accuracy_pct": 57.573,
+      "binary_sim180_ROI_pct": 3.6306
+    },
+    "market_binary|annual_forward|all|2025": {
+      "n": 10275,
+      "net_u": -304.385,
+      "ROI_pct": -2.9624,
+      "binary_accuracy_pct": 56.925,
+      "binary_sim180_ROI_pct": 2.4642
+    },
+    "market_binary|annual_forward|outside|2025": {
+      "n": 7857,
+      "net_u": -244.01,
+      "ROI_pct": -3.1056,
+      "binary_accuracy_pct": 56.752,
+      "binary_sim180_ROI_pct": 2.1535
+    },
+    "market_binary|annual_forward|frozen|2025": {
+      "n": 2418,
+      "net_u": -60.375,
+      "ROI_pct": -2.4969,
+      "binary_accuracy_pct": 57.486,
+      "binary_sim180_ROI_pct": 3.4739
+    },
+    "market_binary|annual_forward|all|2026": {
+      "n": 9242,
+      "net_u": -335.955,
+      "ROI_pct": -3.6351,
+      "binary_accuracy_pct": 56.752,
+      "binary_sim180_ROI_pct": 2.1532
+    },
+    "market_binary|annual_forward|outside|2026": {
+      "n": 7024,
+      "net_u": -289.02,
+      "ROI_pct": -4.1147,
+      "binary_accuracy_pct": 56.435,
+      "binary_sim180_ROI_pct": 1.5831
+    },
+    "market_binary|annual_forward|frozen|2026": {
+      "n": 2218,
+      "net_u": -46.935,
+      "ROI_pct": -2.1161,
+      "binary_accuracy_pct": 57.755,
+      "binary_sim180_ROI_pct": 3.9585
+    },
+    "jack10_direct_cashflow|fixed_2019_23|all|2024": {
+      "n": 9219,
+      "net_u": -113.95,
+      "ROI_pct": -1.236,
+      "binary_accuracy_pct": 51.058,
+      "binary_sim180_ROI_pct": -8.0963
+    },
+    "jack10_direct_cashflow|fixed_2019_23|all|overall": {
+      "n": 28736,
+      "net_u": -768.245,
+      "ROI_pct": -2.6735,
+      "binary_accuracy_pct": 50.306,
+      "binary_sim180_ROI_pct": -9.4488
+    },
+    "jack10_direct_cashflow|fixed_2019_23|outside|2024": {
+      "n": 7239,
+      "net_u": -143.32,
+      "ROI_pct": -1.9798,
+      "binary_accuracy_pct": 50.67,
+      "binary_sim180_ROI_pct": -8.794
+    },
+    "jack10_direct_cashflow|fixed_2019_23|outside|overall": {
+      "n": 22120,
+      "net_u": -664.6,
+      "ROI_pct": -3.0045,
+      "binary_accuracy_pct": 50.054,
+      "binary_sim180_ROI_pct": -9.9024
+    },
+    "jack10_direct_cashflow|fixed_2019_23|frozen|2024": {
+      "n": 1980,
+      "net_u": 29.37,
+      "ROI_pct": 1.4833,
+      "binary_accuracy_pct": 52.475,
+      "binary_sim180_ROI_pct": -5.5455
+    },
+    "jack10_direct_cashflow|fixed_2019_23|frozen|overall": {
+      "n": 6616,
+      "net_u": -103.645,
+      "ROI_pct": -1.5666,
+      "binary_accuracy_pct": 51.149,
+      "binary_sim180_ROI_pct": -7.9323
+    },
+    "jack10_direct_cashflow|fixed_2019_23|all|2025": {
+      "n": 10275,
+      "net_u": -381.3,
+      "ROI_pct": -3.7109,
+      "binary_accuracy_pct": 49.732,
+      "binary_sim180_ROI_pct": -10.4818
+    },
+    "jack10_direct_cashflow|fixed_2019_23|outside|2025": {
+      "n": 7857,
+      "net_u": -295.005,
+      "ROI_pct": -3.7547,
+      "binary_accuracy_pct": 49.561,
+      "binary_sim180_ROI_pct": -10.7904
+    },
+    "jack10_direct_cashflow|fixed_2019_23|frozen|2025": {
+      "n": 2418,
+      "net_u": -86.295,
+      "ROI_pct": -3.5689,
+      "binary_accuracy_pct": 50.289,
+      "binary_sim180_ROI_pct": -9.4789
+    },
+    "jack10_direct_cashflow|fixed_2019_23|all|2026": {
+      "n": 9242,
+      "net_u": -272.995,
+      "ROI_pct": -2.9539,
+      "binary_accuracy_pct": 50.195,
+      "binary_sim180_ROI_pct": -9.6494
+    },
+    "jack10_direct_cashflow|fixed_2019_23|outside|2026": {
+      "n": 7024,
+      "net_u": -226.275,
+      "ROI_pct": -3.2215,
+      "binary_accuracy_pct": 49.972,
+      "binary_sim180_ROI_pct": -10.0513
+    },
+    "jack10_direct_cashflow|fixed_2019_23|frozen|2026": {
+      "n": 2218,
+      "net_u": -46.72,
+      "ROI_pct": -2.1064,
+      "binary_accuracy_pct": 50.902,
+      "binary_sim180_ROI_pct": -8.3769
+    },
+    "jack10_direct_cashflow|annual_forward|all|2024": {
+      "n": 9219,
+      "net_u": -113.95,
+      "ROI_pct": -1.236,
+      "binary_accuracy_pct": 51.058,
+      "binary_sim180_ROI_pct": -8.0963
+    },
+    "jack10_direct_cashflow|annual_forward|all|overall": {
+      "n": 28736,
+      "net_u": -638.805,
+      "ROI_pct": -2.223,
+      "binary_accuracy_pct": 50.832,
+      "binary_sim180_ROI_pct": -8.5029
+    },
+    "jack10_direct_cashflow|annual_forward|outside|2024": {
+      "n": 7239,
+      "net_u": -143.32,
+      "ROI_pct": -1.9798,
+      "binary_accuracy_pct": 50.67,
+      "binary_sim180_ROI_pct": -8.794
+    },
+    "jack10_direct_cashflow|annual_forward|outside|overall": {
+      "n": 22120,
+      "net_u": -596.87,
+      "ROI_pct": -2.6983,
+      "binary_accuracy_pct": 50.579,
+      "binary_sim180_ROI_pct": -8.9584
+    },
+    "jack10_direct_cashflow|annual_forward|frozen|2024": {
+      "n": 1980,
+      "net_u": 29.37,
+      "ROI_pct": 1.4833,
+      "binary_accuracy_pct": 52.475,
+      "binary_sim180_ROI_pct": -5.5455
+    },
+    "jack10_direct_cashflow|annual_forward|frozen|overall": {
+      "n": 6616,
+      "net_u": -41.935,
+      "ROI_pct": -0.6338,
+      "binary_accuracy_pct": 51.678,
+      "binary_sim180_ROI_pct": -6.98
+    },
+    "jack10_direct_cashflow|annual_forward|all|2025": {
+      "n": 10275,
+      "net_u": -266.84,
+      "ROI_pct": -2.597,
+      "binary_accuracy_pct": 50.404,
+      "binary_sim180_ROI_pct": -9.273
+    },
+    "jack10_direct_cashflow|annual_forward|outside|2025": {
+      "n": 7857,
+      "net_u": -203.785,
+      "ROI_pct": -2.5937,
+      "binary_accuracy_pct": 50.388,
+      "binary_sim180_ROI_pct": -9.3013
+    },
+    "jack10_direct_cashflow|annual_forward|frozen|2025": {
+      "n": 2418,
+      "net_u": -63.055,
+      "ROI_pct": -2.6077,
+      "binary_accuracy_pct": 50.455,
+      "binary_sim180_ROI_pct": -9.1811
+    },
+    "jack10_direct_cashflow|annual_forward|all|2026": {
+      "n": 9242,
+      "net_u": -258.015,
+      "ROI_pct": -2.7918,
+      "binary_accuracy_pct": 51.082,
+      "binary_sim180_ROI_pct": -8.0524
+    },
+    "jack10_direct_cashflow|annual_forward|outside|2026": {
+      "n": 7024,
+      "net_u": -249.765,
+      "ROI_pct": -3.5559,
+      "binary_accuracy_pct": 50.698,
+      "binary_sim180_ROI_pct": -8.7443
+    },
+    "jack10_direct_cashflow|annual_forward|frozen|2026": {
+      "n": 2218,
+      "net_u": -8.25,
+      "ROI_pct": -0.372,
+      "binary_accuracy_pct": 52.299,
+      "binary_sim180_ROI_pct": -5.8611
+    },
+    "market_history_direct_cashflow|fixed_2019_23|all|2024": {
+      "n": 9219,
+      "net_u": -311.6,
+      "ROI_pct": -3.38,
+      "binary_accuracy_pct": 49.365,
+      "binary_sim180_ROI_pct": -11.1422
+    },
+    "market_history_direct_cashflow|fixed_2019_23|all|overall": {
+      "n": 28736,
+      "net_u": -963.85,
+      "ROI_pct": -3.3542,
+      "binary_accuracy_pct": 49.224,
+      "binary_sim180_ROI_pct": -11.3969
+    },
+    "market_history_direct_cashflow|fixed_2019_23|outside|2024": {
+      "n": 7239,
+      "net_u": -282.52,
+      "ROI_pct": -3.9027,
+      "binary_accuracy_pct": 48.957,
+      "binary_sim180_ROI_pct": -11.8773
+    },
+    "market_history_direct_cashflow|fixed_2019_23|outside|overall": {
+      "n": 22120,
+      "net_u": -736.115,
+      "ROI_pct": -3.3278,
+      "binary_accuracy_pct": 49.241,
+      "binary_sim180_ROI_pct": -11.3671
+    },
+    "market_history_direct_cashflow|fixed_2019_23|frozen|2024": {
+      "n": 1980,
+      "net_u": -29.08,
+      "ROI_pct": -1.4687,
+      "binary_accuracy_pct": 50.859,
+      "binary_sim180_ROI_pct": -8.4545
+    },
+    "market_history_direct_cashflow|fixed_2019_23|frozen|overall": {
+      "n": 6616,
+      "net_u": -227.735,
+      "ROI_pct": -3.4422,
+      "binary_accuracy_pct": 49.169,
+      "binary_sim180_ROI_pct": -11.4964
+    },
+    "market_history_direct_cashflow|fixed_2019_23|all|2025": {
+      "n": 10275,
+      "net_u": -334.095,
+      "ROI_pct": -3.2515,
+      "binary_accuracy_pct": 49.187,
+      "binary_sim180_ROI_pct": -11.4628
+    },
+    "market_history_direct_cashflow|fixed_2019_23|outside|2025": {
+      "n": 7857,
+      "net_u": -217.485,
+      "ROI_pct": -2.768,
+      "binary_accuracy_pct": 49.345,
+      "binary_sim180_ROI_pct": -11.1798
+    },
+    "market_history_direct_cashflow|fixed_2019_23|frozen|2025": {
+      "n": 2418,
+      "net_u": -116.61,
+      "ROI_pct": -4.8226,
+      "binary_accuracy_pct": 48.677,
+      "binary_sim180_ROI_pct": -12.3821
+    },
+    "market_history_direct_cashflow|fixed_2019_23|all|2026": {
+      "n": 9242,
+      "net_u": -318.155,
+      "ROI_pct": -3.4425,
+      "binary_accuracy_pct": 49.124,
+      "binary_sim180_ROI_pct": -11.5776
+    },
+    "market_history_direct_cashflow|fixed_2019_23|outside|2026": {
+      "n": 7024,
+      "net_u": -236.11,
+      "ROI_pct": -3.3615,
+      "binary_accuracy_pct": 49.416,
+      "binary_sim180_ROI_pct": -11.0507
+    },
+    "market_history_direct_cashflow|fixed_2019_23|frozen|2026": {
+      "n": 2218,
+      "net_u": -82.045,
+      "ROI_pct": -3.6991,
+      "binary_accuracy_pct": 48.197,
+      "binary_sim180_ROI_pct": -13.2462
+    },
+    "market_history_direct_cashflow|annual_forward|all|2024": {
+      "n": 9219,
+      "net_u": -311.6,
+      "ROI_pct": -3.38,
+      "binary_accuracy_pct": 49.365,
+      "binary_sim180_ROI_pct": -11.1422
+    },
+    "market_history_direct_cashflow|annual_forward|all|overall": {
+      "n": 28736,
+      "net_u": -959.425,
+      "ROI_pct": -3.3388,
+      "binary_accuracy_pct": 50.038,
+      "binary_sim180_ROI_pct": -9.9311
+    },
+    "market_history_direct_cashflow|annual_forward|outside|2024": {
+      "n": 7239,
+      "net_u": -282.52,
+      "ROI_pct": -3.9027,
+      "binary_accuracy_pct": 48.957,
+      "binary_sim180_ROI_pct": -11.8773
+    },
+    "market_history_direct_cashflow|annual_forward|outside|overall": {
+      "n": 22120,
+      "net_u": -892.915,
+      "ROI_pct": -4.0367,
+      "binary_accuracy_pct": 49.607,
+      "binary_sim180_ROI_pct": -10.708
+    },
+    "market_history_direct_cashflow|annual_forward|frozen|2024": {
+      "n": 1980,
+      "net_u": -29.08,
+      "ROI_pct": -1.4687,
+      "binary_accuracy_pct": 50.859,
+      "binary_sim180_ROI_pct": -8.4545
+    },
+    "market_history_direct_cashflow|annual_forward|frozen|overall": {
+      "n": 6616,
+      "net_u": -66.51,
+      "ROI_pct": -1.0053,
+      "binary_accuracy_pct": 51.481,
+      "binary_sim180_ROI_pct": -7.3337
+    },
+    "market_history_direct_cashflow|annual_forward|all|2025": {
+      "n": 10275,
+      "net_u": -318.675,
+      "ROI_pct": -3.1015,
+      "binary_accuracy_pct": 50.482,
+      "binary_sim180_ROI_pct": -9.1328
+    },
+    "market_history_direct_cashflow|annual_forward|outside|2025": {
+      "n": 7857,
+      "net_u": -304.84,
+      "ROI_pct": -3.8799,
+      "binary_accuracy_pct": 50.045,
+      "binary_sim180_ROI_pct": -9.9198
+    },
+    "market_history_direct_cashflow|annual_forward|frozen|2025": {
+      "n": 2418,
+      "net_u": -13.835,
+      "ROI_pct": -0.5722,
+      "binary_accuracy_pct": 51.902,
+      "binary_sim180_ROI_pct": -6.5757
+    },
+    "market_history_direct_cashflow|annual_forward|all|2026": {
+      "n": 9242,
+      "net_u": -329.15,
+      "ROI_pct": -3.5615,
+      "binary_accuracy_pct": 50.216,
+      "binary_sim180_ROI_pct": -9.6105
+    },
+    "market_history_direct_cashflow|annual_forward|outside|2026": {
+      "n": 7024,
+      "net_u": -305.555,
+      "ROI_pct": -4.3502,
+      "binary_accuracy_pct": 49.786,
+      "binary_sim180_ROI_pct": -10.3844
+    },
+    "market_history_direct_cashflow|annual_forward|frozen|2026": {
+      "n": 2218,
+      "net_u": -23.595,
+      "ROI_pct": -1.0638,
+      "binary_accuracy_pct": 51.578,
+      "binary_sim180_ROI_pct": -7.1596
+    }
+  }
+}
