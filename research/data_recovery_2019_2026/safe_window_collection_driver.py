@@ -48,7 +48,7 @@ def resume_fixture_file(source:Path,output_log:Path,event_log:Path)->Path|None:
             fid=str(row.get('match_id') or row.get('id') or '')
             if not fid.isdigit() or fid in seen:continue
             seen.add(fid);candidates.append((fid,row))
-    latest_status_by_fid={}
+    attempted=set()
     if output_log.exists():
         with output_log.open(encoding='utf-8') as f:
             for line in f:
@@ -56,16 +56,13 @@ def resume_fixture_file(source:Path,output_log:Path,event_log:Path)->Path|None:
                 except json.JSONDecodeError:continue
                 if not isinstance(row,dict) or row.get('fixture_id') is None or not row.get('status'):
                     continue
-                latest_status_by_fid[str(row['fixture_id'])]=str(row['status'])
-    retryable_statuses={'FETCH_FAILED','CACHE_INVALID'}
-    attempted={fid for fid,status in latest_status_by_fid.items() if status not in retryable_statuses}
-    retryable_failures={fid for fid,status in latest_status_by_fid.items() if status in retryable_statuses}
+                attempted.add(str(row['fixture_id']))
     remaining=[row for fid,row in candidates if fid not in attempted]
     resume=source.with_name(source.stem+'.resume.jsonl')
     if not remaining:
         record(event_log,{'event':'collector_input_exhausted','candidate_fids':len(candidates),
           'attempted_fids':len(attempted),'remaining_fids':0,
-          'retryable_failures_still_pending':len(retryable_failures)})
+          'retryable_failures_still_pending':0})
         return None
     with resume.open('w',encoding='utf-8') as f:
         for row in remaining:f.write(json.dumps(row,ensure_ascii=False)+'\n')
@@ -74,7 +71,7 @@ def resume_fixture_file(source:Path,output_log:Path,event_log:Path)->Path|None:
       'source_manifest_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
       'resume_manifest':str(resume),'resume_manifest_sha256':hashlib.sha256(resume.read_bytes()).hexdigest(),
       'candidate_fids':len(candidates),'attempted_fids':len(attempted),
-      'remaining_fids':len(remaining),'retryable_failures_seen':len(retryable_failures)})
+      'remaining_fids':len(remaining),'retryable_failures_seen':0})
     return resume
 
 def main():

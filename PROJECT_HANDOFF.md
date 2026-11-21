@@ -5146,3 +5146,10 @@
 - 重跑只读 `audit_league_scope_union_2019_2026.py`，在原SHA锚定Crown响应映射之外，加入独立的精确TotalCorner provider页面映射证据。结果：M7三份名称清单的73个精确竞赛名全部对应唯一provider ID；当前明确ID并集118个；其中38个尚未进入已重建赛程库存。此为当前来源的显式并集，并不声称未来不会发现新来源。
 - 活动35项采集器截至17:13 UTC累计225次请求、6,514个新FID：6个联赛完成、共6,184场；Bulgaria Second League（26528）进行至第11/39页、该联赛暂增330场。当前统一赛果处理进程活动，分页器按既有保护暂停等待；等待期间未发请求。
 - 当前38项续跑目标SHA、活动进度及本地ledger SHA保存在 `research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1713Z.json`（SHA256 `9d1b1ea6c21d9d51517871219f94872c9e60fb5600cd532ef64ed3fa9f4bc9da`）。赛程、FT、Crown报价全范围覆盖仍未完成。
+
+### 2026-11-21 17:18 UTC：新增赛程的Crown缓存缺口复核
+
+- 活动TotalCorner分页进程PID 65966仍使用启动时原35项输入。当前累计274次请求、7,983个FID；7个联赛已完，共7,353场；Croatia 1.NL（26825）第21/30页，暂增630场，无已记录分页失败。当前完成状态仍未达到全批终点。
+- 对7,353个已完赛程FID进行只读Crown交叉核对：SQLite capture 0、asian_quote行0、官方历史raw目录及两个支持的legacy目录文件0。核查时主库SHA与已审计快照一致：`292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`。这表示本地缓存未覆盖，不能断言TotalCorner API没有历史盘口；还未对这些FID启动Crown请求。
+- 新增 `build_recovered_fixture_manifest.py`，从完成后的规范赛程ledger构造含FID、球队、开赛时间及赛程页SHA的`match_id`输入；扩展研究用 `safe_window_collection_driver.py` 可分别跑 `summary`/`movement`，继续采用现有historical collector和默认5.2秒请求间隔，并等候现有赛果任务空闲。请求失败会留在追加日志，供独立后续重试；本轮不自动无限重试。以上为采集辅助代码，尚未实际请求Crown。
+- 17:18 UTC可复核快照：`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1718Z.json`。赛程批次完成后再生成Crown输入、分层抓取并复核完整覆盖。
