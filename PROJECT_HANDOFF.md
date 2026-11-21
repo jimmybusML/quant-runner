@@ -5095,3 +5095,11 @@
 - TotalCorner补充分页仍在实际运行，PID 10634；截至15:06 UTC日志616次成功页请求、新发现18,065个目标期FID。ID15/57/63/121/128已推进到2019截止；ID210已到66/98页，ID252到80/122页；ID270 Scotland Championship推进到12/76页。不得把这些中间页数写为该批全部完成；后续联赛ID仍待探查。
 - 本检查点产物：`research/data_recovery_2019_2026/crown_only_fixture_identity_candidates_2019_2026.jsonl.gz`及摘要JSON、更新的`audit_existing_inventory.py`、覆盖汇总/矩阵、`UNVERIFIED_FT_READINESS_20261121T1506Z.md`与执行JSON、SHA清单。执行时Crown/TotalCorner API请求均为0（活跃分页采集器除外；本审计没有发请求）；SQLite只读。
 - 仍未完成全目标：继续让当前分页采集推进并核查剩余赛事ID；之后以更新后唯一FID库存对账所有Crown历史AH原始缓存/报价路径，分层定位报价缺口；继续核实非full/缺失FT及各源ID映射。任何收集失败保留原始状态并可恢复。
+
+### 2026-11-21 全历史补采增量（15:13 UTC）
+
+- 在15:06 UTC检查点之后，重新合并现有append-only TotalCorner分页响应并按FID重建覆盖表；规范化快照659个已验证响应页、19,429个唯一FID记录版本，SHA256 `b0c0a1488b917edffc2c54bd670b0b19e98d20d0b30d1d12b4101c863b17a065`。采集器仍活动，因此该压缩文件是可复用的中间版本，不代表采集完成。
+- 全源覆盖增长到133,549个唯一目标期FID、74个provider联赛ID、592个联赛×UTC年桶；FT核实128,105、未核实5,444。新增来源覆盖及Crown各层数据见 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261121T1513Z.md` 和更新后的两份覆盖矩阵。当前无movement报价库存80,550 FID；Crown实际报价行数未因赛程来源变更而假增长。
+- FT状态只读复核于15:13:33 UTC：5,444个未核实候选中305场开赛时间尚未来到、4,474场开赛后状态缺失/未知、665场为明确非full状态；5,006场保留占位0:0观察，均未推断赛果。
+- TotalCorner补采进程PID 10634仍运行；15:13检查点的请求日志/进度文件分别记录658个成功页响应与659次请求尝试，新发现19,309个目标FID、4个源记录版本冲突。当前进度ID337 Serbia Prva Liga 6/87页；已确认完成到2019边界的联赛仍保留原始证明。其余指定联赛继续排队处理。
+- 交付含完整快照、每项SHA与执行记录；此次规范化/覆盖审计与FT分类没有发TotalCorner/Crown API请求、没有写Crown SQLite。全项目仍只做数据收集和持久化；模型研究、回测、生产派单、TG和账本均未执行或修改。
