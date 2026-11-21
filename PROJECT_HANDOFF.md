@@ -5279,6 +5279,13 @@
 - 下一步继续现有Italy分页与本批剩余目标；每有整项完成就重跑同一SHA/FT覆盖审计。整个任务仍未完成；完整库存合并、其余外部联赛排查、赛果缺口复核以及停掉TotalCorner collector后继续的Crown历史行情扩采仍待执行。
 
 
+### 2026-11-21 22:02 UTC：Switzerland Challenge League完成，34个联赛覆盖更新
+
+- 同一TotalCorner collector PID 65966 / session 29157继续。Switzerland Challenge League（ID 125）按2019历史目标范围完成50页、1,461个FID、失败页0。当前38项目标清单完成34项；累计1,965次请求、ledger新FID计数57,246、身份冲突0。Türkiye 1 Lig（ID 709）第8/137页、240个FID，失败页0。
+- 34个已完成目标逐联赛×UTC年覆盖：57,006个唯一FID、53,189场TotalCorner `status=full`数字FT、3,817场其他/未核实；1,918个原始页与57,006条源记录SHA均核验通过，错误0、身份版本冲突0。未提供season的schedule行仍保留为未知。
+- Crown SQLite只读movement quote FID交集为0（数据库SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`）；这不意味着Crown源无盘口。采集期间未发Crown网络请求、未写SQLite。
+- 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T2202Z.json` SHA256 `1307c165eee3950b7241cca9533fc7cba736a4e9a322a173137cc6aedec68ade`；清单`CHECKPOINT_SHA256_20261121T2202Z.txt`。仍需推进清单剩余目标及更广全联赛库存、赛果缺口和Crown历史AH补齐；只进行数据恢复与核对。
+
 ### 2026-11-21 21:54 UTC：Sweden Superettan完成，33个联赛覆盖更新
 
 - 同一TotalCorner collector PID 65966 / session 29157继续运行。Sweden Superettan（ID 126）完成66个历史范围页、1,935个FID、失败页0；当前38项目标文件完成33项，累计1,917次请求、ledger新FID计数55,845、身份冲突0。下一目标Switzerland Challenge League（ID 125）在第10/77页、300个FID、失败页0。

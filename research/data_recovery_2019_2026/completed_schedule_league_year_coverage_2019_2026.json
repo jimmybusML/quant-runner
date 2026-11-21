@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-11-21T21:53:39.993374Z",
+  "generated_at_utc": "2026-11-21T22:01:54.671886Z",
   "scope_note": "Only targets marked pagination-complete in the live progress file are included; ongoing targets and queued IDs are not represented as complete.",
   "target_count_in_current_file": 38,
-  "completed_target_count": 33,
+  "completed_target_count": 34,
   "completed_target_leagues": [
     {
       "provider_league_id": "2",
@@ -73,6 +73,15 @@
       "unique_2019_2026_fids": 1184,
       "pages_read": 41,
       "reported_pages": 61,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
+      "provider_league_id": "125",
+      "league_name": "Switzerland Challenge League",
+      "unique_2019_2026_fids": 1461,
+      "pages_read": 50,
+      "reported_pages": 77,
       "pagination_status": "complete_to_2019_cutoff_or_provider_end",
       "failed_pages": []
     },
@@ -302,18 +311,18 @@
       "failed_pages": []
     }
   ],
-  "unique_schedule_fids": 55545,
-  "league_fid_pairs": 55545,
+  "unique_schedule_fids": 57006,
+  "league_fid_pairs": 57006,
   "cross_league_fid_collision_count": 0,
   "cross_year_same_league_fid_conflict_count": 0,
   "ambiguous_fid_league_year_keys": [],
-  "verified_full_ft_fids": 51796,
-  "unverified_or_nonfull_fids": 3749,
+  "verified_full_ft_fids": 53189,
+  "unverified_or_nonfull_fids": 3817,
   "identity_version_conflict_count": 0,
   "identity_version_conflicts": [],
   "raw_source_page_audit": {
-    "distinct_referenced_pages": 1869,
-    "source_record_rows_sha_verified": 55545,
+    "distinct_referenced_pages": 1918,
+    "source_record_rows_sha_verified": 57006,
     "errors": {},
     "season_field_source": "exact row in SHA-verified TotalCorner schedule page raw response"
   },
@@ -3147,6 +3156,328 @@
         "de8e4007a1ace448935a41f77823dec50e95905807cca2e63dcb0d60aacdc5fb"
       ],
       "source_record_versions": 136,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "125",
+      "provider_league_name": "Switzerland Challenge League",
+      "utc_year": "2019",
+      "unique_schedule_fids": 182,
+      "verified_full_ft_fids": 180,
+      "unverified_or_nonfull_fids": 2,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 180,
+        "MISSING_STATUS": 2
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 182
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "1538f3867270579a29d939f2834f30ca4d45565b41dad914080730d4a490f419",
+        "8cc843ddafcc76f2038d0424d9289b19309cedb53cf1398968893aa26afead13",
+        "940976cb2ddb4eee39a1e2d78694af8e999fcfb986db6e1ea80f9e00257d2305",
+        "bce4f6fa8b5d317f5329134a554791863b40079226265ac9ec4f866e8ff809ff",
+        "c3c4bfd1e7a478660246168906c0f0cc6b90e70e171656c8597a7b70a4539568",
+        "d8c2c4e2d001988ff99a81f5512d9aaba77fc1d8632dec32a7677965a33d9d54",
+        "e64e1e5fe94b3d783de87a8ce22318053206a2f39a4bb19bbcd4a5fb659e7d2a"
+      ],
+      "source_record_versions": 182,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "125",
+      "provider_league_name": "Switzerland Challenge League",
+      "utc_year": "2020",
+      "unique_schedule_fids": 179,
+      "verified_full_ft_fids": 160,
+      "unverified_or_nonfull_fids": 19,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 160,
+        "MISSING_STATUS": 17,
+        "34": 1,
+        "78": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 179
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "0c42876eb9c2cd21610c445c1bb38dd4341d81821d2c615346dbd128be870c88",
+        "613d08f0f844f212dd7d52b252865c5d59f8fabc49462d05204b64292e1dc83f",
+        "a9fa4e1bd251230bde27f7575326fa8356180df9cda97c06fdad02502147f3b6",
+        "b4cf8f634f716d3dfba7bca4947c3de40a780dc18d2c9aef94ea6d95e27e650c",
+        "d8c2c4e2d001988ff99a81f5512d9aaba77fc1d8632dec32a7677965a33d9d54",
+        "e8713322a9afc746ba5bee17260324c1d611ca8ba03a4c5702e4a22bd475248d",
+        "ec850c8c55c222991b589d8708a8638ed320322d0b0c1d11077209ddccb28c60"
+      ],
+      "source_record_versions": 179,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "125",
+      "provider_league_name": "Switzerland Challenge League",
+      "utc_year": "2021",
+      "unique_schedule_fids": 209,
+      "verified_full_ft_fids": 186,
+      "unverified_or_nonfull_fids": 23,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 186,
+        "MISSING_STATUS": 19,
+        "80": 1,
+        "77": 2,
+        "65": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 209
+      },
+      "source_page_count": 8,
+      "source_page_sha256s": [
+        "0f9e80a5489ded8dfe0c4848770132d758b1c98b1326dde781bba5a082d0636b",
+        "1f65189588ba400900f623e9f7c8b3d27d6b2e5cb9414e01c27b365a296f24db",
+        "6a5c78f6b690e3ab986d5dbbd093704a73f3394a53926ac8ad091e2196c598b8",
+        "6aa9c8786a34b70ce2323780e868486f14037121222f251d7b30d6344bf75cce",
+        "7e688f130f9065e94a0302c75b989f0bc111276fd827e0b40096cd3c6aee8f04",
+        "a9fa4e1bd251230bde27f7575326fa8356180df9cda97c06fdad02502147f3b6",
+        "ccdfc6609f2a63f273cb9b99e92e8c903084c3440e0078e43dc5484df3979e97",
+        "e7981f69a47308045099e7ca09e76b06a6c183b471ecd732e0d4761b118b0d21"
+      ],
+      "source_record_versions": 209,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "125",
+      "provider_league_name": "Switzerland Challenge League",
+      "utc_year": "2022",
+      "unique_schedule_fids": 181,
+      "verified_full_ft_fids": 171,
+      "unverified_or_nonfull_fids": 10,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 171,
+        "61": 1,
+        "24": 1,
+        "MISSING_STATUS": 7,
+        "09": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 181
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "210da6f9fbec7b328fbfa6b07ea9da04aa6e2e9cb21d3c707c1cec54a32a2621",
+        "555bb2f4a822f2a553a6f7f7eeca9c93bdb0163d5364e39d97fb51f1c20c83d1",
+        "6a5c78f6b690e3ab986d5dbbd093704a73f3394a53926ac8ad091e2196c598b8",
+        "6c0e0f39d3424d2dc962fb92a5ca2048a983cdac0887decd4a6024049827b2fa",
+        "7f2aa5c33aa06f6ed8a257e1793d7ac04eb901a5956e34e8b3181e29829d56b3",
+        "d662608d4957f371bd2c0db6266eef56c34ced9e5178b4cb4d2093a2959cc0cd",
+        "db764bdc8a7ec5c57e3a51e1c771925e7f63650bf517007ae6322e24f399c01a"
+      ],
+      "source_record_versions": 181,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "125",
+      "provider_league_name": "Switzerland Challenge League",
+      "utc_year": "2023",
+      "unique_schedule_fids": 182,
+      "verified_full_ft_fids": 177,
+      "unverified_or_nonfull_fids": 5,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 177,
+        "MISSING_STATUS": 5
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 182
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "2131aee72432825576f087cbea04327d051ab77180308de343224173428726b3",
+        "5891846b07aab033ff21032dbe8a9f07798b82a4a33916baf67a2403ee56b324",
+        "9486fbe96c1a6ce967df70d8731b7fe0c8236760cf5c0be78eef4ded106ac1a3",
+        "b8843e05a47f07698dbdc3fdf33688a5b9293c5a4992409677f4db2c5a0de529",
+        "cf44bf64871b36f6208a1ae1c4a0c46cfc5ee89aaeb28c06b4be89c6d6281b37",
+        "db764bdc8a7ec5c57e3a51e1c771925e7f63650bf517007ae6322e24f399c01a",
+        "ef9cec32e4cc5d9649e5a88f602db4f6cc658b65e0beae8c8aa67e2f104bf743"
+      ],
+      "source_record_versions": 182,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "125",
+      "provider_league_name": "Switzerland Challenge League",
+      "utc_year": "2024",
+      "unique_schedule_fids": 185,
+      "verified_full_ft_fids": 179,
+      "unverified_or_nonfull_fids": 6,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 179,
+        "17": 1,
+        "MISSING_STATUS": 4,
+        "24": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 185
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "2fbb5436058b78532e7d077a94b44565def555687c63776ba7af865ef04e40b1",
+        "618a4bdb5d159ce88726af1bb758724ee687da51ed04263b4f5050016d8b66b5",
+        "7cbafc9582e464b447cfc13b11b70790ba7bf925c80a773502691343aec78b19",
+        "9991e04a3a2bcc03011ed17e7bd0ee58abc40186bd2e863bf19d8dfea31bf979",
+        "a9cecf04e7ceb22b35aa3a9d8e1731b39770fddc3ce72b9ce7c388f773d5ccbf",
+        "b8843e05a47f07698dbdc3fdf33688a5b9293c5a4992409677f4db2c5a0de529",
+        "e7825e164ad8a6339fc6e4689beca084eb7bd4b87e53a5e7b5cda67284b81679"
+      ],
+      "source_record_versions": 185,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "125",
+      "provider_league_name": "Switzerland Challenge League",
+      "utc_year": "2025",
+      "unique_schedule_fids": 183,
+      "verified_full_ft_fids": 181,
+      "unverified_or_nonfull_fids": 2,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 181,
+        "MISSING_STATUS": 2
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 183
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "15cf0a999734dd43578cfb1eaff02ac0c39d0aa3bc1f9ad06ac82bc346e87c9b",
+        "2d5939f49cdd1977ad068142aef75e4422bf77bb4b6297a659d56c1e4e7aa1c8",
+        "519111456aef9bf76d37b078b2d7eaa94f2442fabc3e6b2ba84701ef2ab2bb98",
+        "7f5e49cf5c8b15b8d59a1fd6d472dfc57250e528213dd20fdf840394c34d3072",
+        "9991e04a3a2bcc03011ed17e7bd0ee58abc40186bd2e863bf19d8dfea31bf979",
+        "b2c4b7982929d7d7028a941f9f3ba8484ada977a22422f2e81d6f5e808948014",
+        "b336f591543cd1bf0ebfd596c1ce99c4714a4f07ea329c0ccf13b2ec9f024340"
+      ],
+      "source_record_versions": 183,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "125",
+      "provider_league_name": "Switzerland Challenge League",
+      "utc_year": "2026",
+      "unique_schedule_fids": 160,
+      "verified_full_ft_fids": 159,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 159,
+        "MISSING_STATUS": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 160
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "0289ae0911b1be3c9c2d04c4a38b173614e0e096e2614dc8be2ab4ae5b5a0edf",
+        "0dcf86a87f332c7963dc223885c5d7b5c95f9e74628e5c2e5fc26380e27aa4fe",
+        "78e20c559e7ae1f7ceb405d2ee1b612ccbace40a75309169535273455befc488",
+        "ac49792c85b9188fa544524f342c75fea425a6d22e6422f0f1970f3f7f91223f",
+        "b313462d5667ea9da2cd854b29401f711c9be57ca9976d5440d1402f0cc09d7d",
+        "b336f591543cd1bf0ebfd596c1ce99c4714a4f07ea329c0ccf13b2ec9f024340"
+      ],
+      "source_record_versions": 160,
       "sqlite_capture_fids_any_layer": 0,
       "sqlite_movement_capture_fids": 0,
       "sqlite_summary_capture_fids": 0,
@@ -11124,9 +11455,9 @@
   ],
   "zero_year_bucket_note": "A zero schedule count means no FID was present in the currently verified source rows for that completed provider pagination; it does not prove no competition season or unindexed source exists.",
   "input_sha256": {
-    "progress": "5daf4f653aab91665f4bd2b8f0a19ecb66139d93fe6d98ec280473d68a41edb6",
-    "append_only_fixture_ledger": "7fe18766904f1690c93f32069a8d735784de53909b74543b41c9a048b4b96b1b",
-    "append_only_request_log": "0f7e804ea0fd8590652153ecd5344bdb8b08630fdd5ef1de52b1f8a831756f1d",
+    "progress": "4a1957b20f9ec11b2b89953175248d803544c699a4d4c21170728b76627b083e",
+    "append_only_fixture_ledger": "6d6078df3f7c26fea6f0091a08d57c7313620dafad519c0ea1f4c9707e7fc5bf",
+    "append_only_request_log": "3f02e8ccdaecb92385781f5649ecd955b2dfbd125bb9f151ba3b23933fbc4a0f",
     "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
   }
 }
