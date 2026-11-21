@@ -4946,3 +4946,9 @@
 - 独立验证器从原始保存Crown价格路径、FT/球队FID源及冻结清单复算102,843条（3方法×34,281FID）逐场行，校验双方quarter-line AH五态收益、FID去重、训练年度和真实receipt价格；结果`pass=true`、无差异。实际收据SHA沿用之前的原始审计证明；历史source-event quote与HTTP receipt严格分开。
 - 报告 `research/m8/mainstream_leagues_20261120/M8_MAINSTREAM_LEAGUE_EXPANSION_20261120.md`；主回测、独立校验、覆盖与全量结果、逐场账本、SHA清单和执行记录均在 `research/m8/mainstream_leagues_20261120/`。输出清单对应输入/结果SHA；raw HTTP body没有上传。
 - 主流联赛研究提交 `7ad082d7f38bad6c29cbf864d962749ff483f0bb` 已推送，推送后 `origin/main` 核验相同；本交接段随其后的独立交接提交记录。原八组、M9、M1、MR1、TG、正式账本、Crown采集/调度和生产规则均未改。
+
+## 2026-11-20 M8 × M9 联合历史回放与新增盈利研究
+
+- 完整报告及脚本、账本、源数据审计、年度和 ISO 周收益表位于 `research/m8_m9_joint_20261120/`；研究只读，不改 M8/M9 正式派单、M1/MR1、Telegram、正式账本或 Crown 采集。M8 冻结八组账本 10,294 FID、+236.015U；按月时间前推重建的 M9 25,618 FID、-843.530U。M9 与 M8 重叠 5,591 场；八组外新增 20,027 个唯一 FID、-682.225U、ROI -3.407%。保留 M8 原订单并只加入 M9-only 的去重并集为 30,321 FID、-446.210U；结论是 M9 扩大订单量但本轮未增加利润。
+- 样本仅覆盖有比分预测、T−1h 同线 Crown AH 历史事件报价及 FT 的 25,618 场；SHA 绑定 Crown raw/报价/FT 审计 25,618/25,618 通过。source-event 不等于 HTTP 接收时间：历史 capture 的响应全部在比赛后。训练使用不晚于每联赛 UTC 月首场目标开赛前的 M1 完整赛果，严格不含未来赛果，但月内不逐场刷新，因此不是 M9 逐场真实实盘状态。报告列明覆盖缺口和两条 M1 FT 冲突。
+- 重跑入口 `research/m8_m9_joint_20261120/run_research.sh`，需原 Mac 私有输入仍可用；公开仓库不含本地训练缓存或 Crown raw。哈希见 `SHA256SUMS.txt`。研究回放不写入正式账本；当时正式事件快照 M9_PREPARED/TG_SENT/SETTLED 为 106/106/4。
