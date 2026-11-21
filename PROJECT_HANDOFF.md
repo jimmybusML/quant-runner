@@ -4984,3 +4984,10 @@
 - 原始响应清单复核：104,167个缓存文件对应103,115个有效唯一赛事FID，有1,052个FID存有多个缓存副本，未见解析或身份错误。逐场SHA/盘口摘要审计gzip保存在`research/data_recovery_2019_2026/offline_raw_Crown_response_index_audit_2019_2026.jsonl.gz`，离线入库复核账本为`offline_Crown_layer_import_verified_rows_2019_2026.jsonl.gz`；均不含响应正文。
 - Crown movement batch 02候选11,703个FID。至2026-11-21 11:21 UTC日志覆盖88个唯一FID（尝试166次；最新状态51 REUSED_DB、9 SAVED、27 NO_CROWN_AH_QUOTES、1 FETCH_FAILED/IncompleteRead），11,615个未尝试，36个实际响应记录HTTP接收时间。安全窗口驱动PID 86436已恢复但当时仍等待MR1定时任务PID 86145结束；请求间隔沿用collector默认5.2秒。4次IncompleteRead作为待重试失败保留，绝不记为无盘口。
 - 新增离线审计、幂等归一化和独立核验脚本及脱敏输出哈希清单已提交到`data/history-backfill-2019-2026`；这只是历史库存的结构化补齐，不表示全联赛补采已完成。后续继续从append-only日志排除已尝试FID，收集候选剩余报价并重新按联赛/年份核对全部缺口。
+
+## 2026-11-21｜Crown movement batch 02续跑检查点（11:48 UTC）
+
+- 对同一11,703个候选清单去重日志后，143个唯一FID已有当前状态，11,560个未尝试；状态为51 `REUSED_DB`、39 `SAVED`、49 `NO_CROWN_AH_QUOTES`、4 `FETCH_FAILED`。其中88个FID有本次日志记录的HTTP实际接收时间，最新为11:45:59.636750Z。清单SHA256为`c65717c97de845200dd3503927432ff198a2efd21fcee4b58c217eb1d3aa2025`。
+- 4个传输失败FID（provider league 1）：2021年`108593130`及2022年`113872870`、`113872883`、`115515191`，均为`IncompleteRead`；待主批次结束后另行重试，不与无报价结果合并。`NO_CROWN_AH_QUOTES`只表示该次保存响应未返回AH movement，不推断其他历史时点无报价。
+- 安全窗口驱动器PID 86436仍在运行；11:46:09 UTC它因生产`unified_settlement.py` PID 92133运行而暂停采集子进程。生产作业未被停止或改动；驱动将在安全窗口恢复后续跑。请求仍由既有collector串行发起，capture标记historical、`prospective_observation=false`。
+- 可复核快照 `research/data_recovery_2019_2026/collection_progress_snapshot_20261121T1148Z.json` 记录候选清单SHA、追加日志快照SHA、逐FID状态及失败项。数据库在此后仍可能增长，以上是11:48 UTC中途快照，不能表述为批次完成。

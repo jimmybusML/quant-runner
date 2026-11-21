@@ -1,0 +1,26 @@
+{
+  "snapshot_at_utc": "2026-11-21T11:48:12Z",
+  "batch": "crown_movement_batch02",
+  "candidate_unique_fids": 11703,
+  "attempted_unique_fids": 143,
+  "remaining_unique_fids": 11560,
+  "latest_status_counts_by_fid": {
+    "REUSED_DB": 51,
+    "SAVED": 39,
+    "FETCH_FAILED": 4,
+    "NO_CROWN_AH_QUOTES": 49
+  },
+  "unique_fids_with_http_receive_timestamp": 88,
+  "latest_http_receive_at_utc": "2026-11-21T11:45:59.636750Z",
+  "candidate_manifest_sha256": "c65717c97de845200dd3503927432ff198a2efd21fcee4b58c217eb1d3aa2025",
+  "append_log_sha256_at_snapshot": "7bd3d16186432a2f38ad5831af2f3bd07d27258b4c7ffb777f829479a8057697",
+  "fetch_failed_fids": [
+    {"fid": "108593130", "provider_league_id": "1", "calendar_year_utc": 2021, "error": "IncompleteRead"},
+    {"fid": "113872870", "provider_league_id": "1", "calendar_year_utc": 2022, "error": "IncompleteRead"},
+    {"fid": "113872883", "provider_league_id": "1", "calendar_year_utc": 2022, "error": "IncompleteRead"},
+    {"fid": "115515191", "provider_league_id": "1", "calendar_year_utc": 2022, "error": "IncompleteRead"}
+  ],
+  "capture_semantics": "Historical retrieval only; prospective_observation=false. NO_CROWN_AH_QUOTES describes the saved response for that request, not proof no Crown quote exists at other times.",
+  "driver_state_at_snapshot": "safe-window driver PID 86436 alive; collector paused while scheduled unified_settlement.py PID 92133 was active",
+  "production_jobs_modified_or_stopped": false
+}
