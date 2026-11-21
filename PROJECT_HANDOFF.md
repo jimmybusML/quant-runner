@@ -5247,3 +5247,13 @@
 - 同一TotalCorner进程PID 65966 / session 29157仍在运行；首批35项中17个联赛已完成。Germany Bundesliga II（ID 17）推进到第53/127页，新增1,590 FID，当前失败页0；累计942次请求。当前38项排队清单中的额外ID 10653、702、114仍需后续单独续跑。
 - 已完成17联赛覆盖矩阵维持26,030 FID、24,287 verified full FT、1,743缺失/非full；875个raw页、26,030条源行SHA核验通过；season字段全部缺失，本地Crown对应capture/AH quote为0。Germany部分页尚不计入该完成覆盖矩阵。
 - 进度快照 `research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1911Z.json` SHA256 `e5a0aefd657a706ee297aa12fa18cb606447c7d2815327fd9ffbe198838df296`。历史赛程全量合并和Crown补采仍未开始。
+
+
+### 2026-11-21 19:19 UTC：18个已完成联赛覆盖复核，Greece Super League 2分页继续
+
+- 沿用TotalCorner schedule collector PID 65966 / session 29157，进程仍在运行，未重启。加载的35项清单SHA为 `9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9`；当前排队38项清单SHA为 `effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778`，新增3个精确映射ID仍需本批结束后续采。
+- Germany Bundesliga II（ID 17）已完成127页、2,405个目标期FID、失败页0。当前转至Greece Super League 2（ID 514）第28/115页、840个目标期FID、失败页0。累计999次网络请求、追加fixture ledger记录29,275个新唯一FID、身份冲突0；其中29,275包括当前希腊联赛已分页部分，不等于18个已完成联赛数量。
+- 对18个已完成联赛按逐联赛×UTC年重跑原始页SHA及逐场源记录哈希核验：28,435个唯一赛程FID，26,629场status=full且有数字FT，1,806场缺失/非full状态；956个原始响应页、28,435条源记录SHA均通过，身份版本冲突0。逐年赛程/已核实FT/其他状态：2019 3,039/2,888/151；2020 2,780/2,506/274；2021 3,602/3,263/339；2022 3,580/3,231/349；2023 4,109/3,922/187；2024 3,867/3,702/165；2025 3,943/3,768/175；2026 3,515/3,349/166。28,435条经SHA核验的原始TotalCorner行均无season字段，未按比赛年份推导赛季。
+- 当前只读Crown SQLite SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`；上述18个新采集目标FID对应capture和AH quote均为0。该本地交集缺失不表示Crown历史报价不存在于其他未核范围；本轮没有发出Crown网络请求，未写SQLite。需待TotalCorner collector停止后按完整唯一FID队列继续Crown及FT补齐。
+- 更新脚本 `research/data_recovery_2019_2026/audit_completed_schedule_league_year_coverage.py` 生成 `completed_schedule_league_year_coverage_2019_2026.json`。可核验进度快照 `schedule_recovery_checkpoint_20261122T1920Z.json` SHA256 `07c2046c4bd6d48ff034ae89bda6f5c504e9f3fb79daf98e10b7eb8ac4318315`，其中记录私有progress/request/fixture ledger哈希。此为18个已完成目标的中间子集，不代表全部现有联赛或数据任务完成。
+- 全任务仍继续：先让同一分页进程完成其已载入35项，再续跑排队清单剩余3项；随后重新对账全项目联赛映射、合并赛程、逐联赛×年/赛季检查、刷新赛果缺口，并在TotalCorner进程结束后继续恢复真实Crown历史AH原始时间序列。没有进行策略、模型、回测或盈利筛选。
