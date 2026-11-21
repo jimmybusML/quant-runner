@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-11-21T18:37:29.672706Z",
+  "generated_at_utc": "2026-11-21T18:46:02.184553Z",
   "scope_note": "Only targets marked pagination-complete in the live progress file are included; ongoing targets and queued IDs are not represented as complete.",
   "target_count_in_current_file": 38,
-  "completed_target_count": 14,
+  "completed_target_count": 16,
   "completed_target_leagues": [
     {
       "provider_league_id": "2",
@@ -28,6 +28,15 @@
       "unique_2019_2026_fids": 1423,
       "pages_read": 49,
       "reported_pages": 78,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
+      "provider_league_id": "122",
+      "league_name": "Finland Ykkosliiga",
+      "unique_2019_2026_fids": 1184,
+      "pages_read": 41,
+      "reported_pages": 61,
       "pagination_status": "complete_to_2019_cutoff_or_provider_end",
       "failed_pages": []
     },
@@ -95,6 +104,15 @@
       "failed_pages": []
     },
     {
+      "provider_league_id": "10635",
+      "league_name": "Faroe Islands Div 1",
+      "unique_2019_2026_fids": 420,
+      "pages_read": 15,
+      "reported_pages": 15,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
       "provider_league_id": "11260",
       "league_name": "Austria 2. Liga",
       "unique_2019_2026_fids": 1936,
@@ -131,18 +149,18 @@
       "failed_pages": []
     }
   ],
-  "unique_schedule_fids": 21663,
-  "league_fid_pairs": 21663,
+  "unique_schedule_fids": 23267,
+  "league_fid_pairs": 23267,
   "cross_league_fid_collision_count": 0,
   "cross_year_same_league_fid_conflict_count": 0,
   "ambiguous_fid_league_year_keys": [],
-  "verified_full_ft_fids": 20129,
-  "unverified_or_nonfull_fids": 1534,
+  "verified_full_ft_fids": 21606,
+  "unverified_or_nonfull_fids": 1661,
   "identity_version_conflict_count": 0,
   "identity_version_conflicts": [],
   "raw_source_page_audit": {
-    "distinct_referenced_pages": 728,
-    "source_record_rows_sha_verified": 21663,
+    "distinct_referenced_pages": 782,
+    "source_record_rows_sha_verified": 23267,
     "errors": {},
     "season_field_source": "exact row in SHA-verified TotalCorner schedule page raw response"
   },
@@ -1218,6 +1236,309 @@
         "fc8e22ddcd2bedb5a8b8fafe442279a15bc393597b4928b271618bd73fb33eee"
       ],
       "source_record_versions": 203,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "122",
+      "provider_league_name": "Finland Ykkosliiga",
+      "utc_year": "2019",
+      "unique_schedule_fids": 136,
+      "verified_full_ft_fids": 120,
+      "unverified_or_nonfull_fids": 16,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 120,
+        "MISSING_STATUS": 15,
+        "80": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 136
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "1680cfbd8da58094d228477413a98ee8895635543ef55f57c9a7705c6e45aea9",
+        "28701c99738b4401c6330532f41dcabe6b7c2d9a4bfab2f2c626c8bd45bb8f04",
+        "69eafd9d8a444dc8cfe306304fa67c1b61a16e50cad559d652e4cc6fdf452798",
+        "9997eb5bf25c17c61b04cb58d7e2152d0cccfd93548ae8fdd0f27835a0f38b64",
+        "d10dc5e5526e32eae05e5cfc9e1b9e5981e6830815067dc24e7faacecfe9445c",
+        "df16ebf23d3255c494291db398bef19f35aa63138205a10ccac6e04bf2c09199"
+      ],
+      "source_record_versions": 136,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "122",
+      "provider_league_name": "Finland Ykkosliiga",
+      "utc_year": "2020",
+      "unique_schedule_fids": 139,
+      "verified_full_ft_fids": 122,
+      "unverified_or_nonfull_fids": 17,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 122,
+        "MISSING_STATUS": 17
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 139
+      },
+      "source_page_count": 5,
+      "source_page_sha256s": [
+        "2aae46b5a88ee4d11e84bfa8f9e7e30a4dbe7ce7123c07590ac917788c61e38b",
+        "2ad2d89e198544a9934fda8859d8c9b80906689e386fe4d683deec3d201cba2d",
+        "69eafd9d8a444dc8cfe306304fa67c1b61a16e50cad559d652e4cc6fdf452798",
+        "7e80575cc2b7e22935cd705f31c3791c88b108941df2e070abfb942ce70b97a5",
+        "c9a73bcde835a537b283a1d93d1d1960f5ca1bde05a0d7d6862637d4f080af70"
+      ],
+      "source_record_versions": 139,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "122",
+      "provider_league_name": "Finland Ykkosliiga",
+      "utc_year": "2021",
+      "unique_schedule_fids": 169,
+      "verified_full_ft_fids": 150,
+      "unverified_or_nonfull_fids": 19,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 150,
+        "MISSING_STATUS": 19
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 169
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "07255c2eda71ff345055a7d72433ef23defd431b07173b5ce15e13617b9bb12d",
+        "5e34fbd4f699cdc29294c9039258b0650b34fd35bf12e7cb0804993e4382f434",
+        "7e80575cc2b7e22935cd705f31c3791c88b108941df2e070abfb942ce70b97a5",
+        "8702b853623e0189bfb9f5038f1006192a70810d3b45f8bb350a0052c1b76d41",
+        "9f8249da0f7f7573bb30f33fb20938ed4a88cc54abc904253154d7d47e460837",
+        "af4828f462ea2a41080ffb2b2a654f1d75aa30a613dff89e3e4d65f423f9c0d6",
+        "db693ec6f8e77472a91fdf732f2c31116df490e3633deaac5b947c32de759f51"
+      ],
+      "source_record_versions": 169,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "122",
+      "provider_league_name": "Finland Ykkosliiga",
+      "utc_year": "2022",
+      "unique_schedule_fids": 167,
+      "verified_full_ft_fids": 155,
+      "unverified_or_nonfull_fids": 12,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 155,
+        "MISSING_STATUS": 11,
+        "84": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 167
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "3974fc7ac8517f54fd99f7b118827aebd218bddbb4dac21587adf8d82759da5a",
+        "891bee08e44b0f70d256a6971c9783af993352743850512c3d681acace8ea851",
+        "8e7e89a3dacf1b32e9d9f17fe2f349aad62cabda3f16f6ad1c2e47ed13033bbf",
+        "af4828f462ea2a41080ffb2b2a654f1d75aa30a613dff89e3e4d65f423f9c0d6",
+        "c015c9e91f763baa20da6ea72c19c9116834a3f2945be6cd20edc8896f74f9ae",
+        "dd3a1ebc10d0e3dcacc21c5a590b3fd0ac6b139796e68e450c12307aaaa4e126"
+      ],
+      "source_record_versions": 167,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "122",
+      "provider_league_name": "Finland Ykkosliiga",
+      "utc_year": "2023",
+      "unique_schedule_fids": 165,
+      "verified_full_ft_fids": 164,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 164,
+        "07": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 165
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "0719be2d5ec76089a43167ffddc3387d440d2018862385e3292a50e6069f0e9a",
+        "62ff0ea7b562617c8ceb109a604eaafa69da349a6cc71230ff148bcd41f6c28d",
+        "88b28776f193467e15ebb0a57f079e7ce5189fc9cd461f43d45f089eba77e569",
+        "a47d044ea3860efea8a89d236a60eccd2a9cfe97c7d124dd842cf209420295be",
+        "c899e0497809afcf1e02257690bfc5d996adf113dd8f1c7f3753c46e51693488",
+        "d9095813b6277e3b11e3e9a5461849f0ec0328de25f8e5d9a6eb29c7d2a82981",
+        "dd3a1ebc10d0e3dcacc21c5a590b3fd0ac6b139796e68e450c12307aaaa4e126"
+      ],
+      "source_record_versions": 165,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "122",
+      "provider_league_name": "Finland Ykkosliiga",
+      "utc_year": "2024",
+      "unique_schedule_fids": 135,
+      "verified_full_ft_fids": 135,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 135
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 135
+      },
+      "source_page_count": 5,
+      "source_page_sha256s": [
+        "0719be2d5ec76089a43167ffddc3387d440d2018862385e3292a50e6069f0e9a",
+        "39c80b17c4274579a0ec51c98d0c6e9526e5a70c2d20517a536797afb57cfb3a",
+        "5063927cfc125dc4a00c30b6cec2e0b783d8ec7b33e97d7d63e313ef7cfb94bb",
+        "9e9fd469d42a5a28d6e884f8b968e6f98ee121938bc61a32fdd162509b505c3d",
+        "c044989a970ce118ba388d1a2d648a9b9a92306a3e6321a4143414d48b19314f"
+      ],
+      "source_record_versions": 135,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "122",
+      "provider_league_name": "Finland Ykkosliiga",
+      "utc_year": "2025",
+      "unique_schedule_fids": 137,
+      "verified_full_ft_fids": 137,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 137
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 137
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "4976cd7571dc9df6cf97def431b4636a3e0adaeeb36eda30f5211c9ab3ae903b",
+        "4cbaa2a0b28d19e0dec0d566f2f9add611ff06c3d3a85414d80bdc7ba3b8d573",
+        "5063927cfc125dc4a00c30b6cec2e0b783d8ec7b33e97d7d63e313ef7cfb94bb",
+        "6192a44ac67c6edbd20b62fb7f3bcb0321ef47ecddda5a97a7280f3b9494942b",
+        "70d6ee0866c14f58ea4c37a24e462afb09eea5b34497298582823b474983e728",
+        "ade1123610cd16d53ca23a230602390920896779d8c361b8870e16d44ca19032"
+      ],
+      "source_record_versions": 137,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "122",
+      "provider_league_name": "Finland Ykkosliiga",
+      "utc_year": "2026",
+      "unique_schedule_fids": 136,
+      "verified_full_ft_fids": 135,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 135,
+        "MISSING_STATUS": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 136
+      },
+      "source_page_count": 5,
+      "source_page_sha256s": [
+        "1a82903730328801b96b42751c940c5245778ab7f5a81368070a5fbbebd403af",
+        "2aa554dac9514987dd2ba31cdb3148621163b1666005ee45c6d45ed5171646f9",
+        "70d6ee0866c14f58ea4c37a24e462afb09eea5b34497298582823b474983e728",
+        "73fd015e2a11e0a05c83d9a5c42a88f45c83ddc9b5dff980e4e79cc301c0a7c3",
+        "de8e4007a1ace448935a41f77823dec50e95905807cca2e63dcb0d60aacdc5fb"
+      ],
+      "source_record_versions": 136,
       "sqlite_capture_fids_any_layer": 0,
       "sqlite_movement_capture_fids": 0,
       "sqlite_summary_capture_fids": 0,
@@ -3505,6 +3826,289 @@
       "live_capture_fids": 0
     },
     {
+      "provider_league_id": "10635",
+      "provider_league_name": "Faroe Islands Div 1",
+      "utc_year": "2019",
+      "unique_schedule_fids": 21,
+      "verified_full_ft_fids": 20,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 20,
+        "half": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 21
+      },
+      "source_page_count": 1,
+      "source_page_sha256s": [
+        "60467b6a09a6c4848ddb3cc9edfe248f50cad9460b1ec835dc2377c3cf88dfdf"
+      ],
+      "source_record_versions": 21,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10635",
+      "provider_league_name": "Faroe Islands Div 1",
+      "utc_year": "2020",
+      "unique_schedule_fids": 80,
+      "verified_full_ft_fids": 59,
+      "unverified_or_nonfull_fids": 21,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 59,
+        "21": 1,
+        "MISSING_STATUS": 20
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 80
+      },
+      "source_page_count": 4,
+      "source_page_sha256s": [
+        "13c90373e0959b80a95de8d85b7fe3a6a54ba16d5ec1337568a9d38e5b98f667",
+        "288d8fc8087d4c2318252edd05da44a3f2843d432bd6339d0cba5321c5a10ef8",
+        "60467b6a09a6c4848ddb3cc9edfe248f50cad9460b1ec835dc2377c3cf88dfdf",
+        "d55af453435d8bba1ff0ff929199143db79d65936df47626c127cb264bc7d95b"
+      ],
+      "source_record_versions": 80,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10635",
+      "provider_league_name": "Faroe Islands Div 1",
+      "utc_year": "2021",
+      "unique_schedule_fids": 54,
+      "verified_full_ft_fids": 47,
+      "unverified_or_nonfull_fids": 7,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "75": 1,
+        "77": 1,
+        "full": 47,
+        "MISSING_STATUS": 4,
+        "67": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 54
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "288d8fc8087d4c2318252edd05da44a3f2843d432bd6339d0cba5321c5a10ef8",
+        "abbc6cb075b06c2dd1fd8aa3c0bd12a66490c6edd2c0202d767b06cd89050412",
+        "e87d74c39f8460f2d5c9026893f08f4294d9d9b23b2c17836a2cdffc34e6ee4a"
+      ],
+      "source_record_versions": 54,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10635",
+      "provider_league_name": "Faroe Islands Div 1",
+      "utc_year": "2022",
+      "unique_schedule_fids": 47,
+      "verified_full_ft_fids": 42,
+      "unverified_or_nonfull_fids": 5,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 42,
+        "MISSING_STATUS": 5
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 47
+      },
+      "source_page_count": 2,
+      "source_page_sha256s": [
+        "35a8010d4082b20bbedbd9df38ccba92b76c863598e577679017118f6182ddcd",
+        "e87d74c39f8460f2d5c9026893f08f4294d9d9b23b2c17836a2cdffc34e6ee4a"
+      ],
+      "source_record_versions": 47,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10635",
+      "provider_league_name": "Faroe Islands Div 1",
+      "utc_year": "2023",
+      "unique_schedule_fids": 49,
+      "verified_full_ft_fids": 37,
+      "unverified_or_nonfull_fids": 12,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 37,
+        "MISSING_STATUS": 12
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 49
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "35a8010d4082b20bbedbd9df38ccba92b76c863598e577679017118f6182ddcd",
+        "6e8d1027ddc89afdd61c192a60ba2455299135c6b048475c1eee11d176fbb21d",
+        "9f6bb4c8ea454f1a3456ffdfde41bf865bcdf923219830c76018976207f56e8a"
+      ],
+      "source_record_versions": 49,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10635",
+      "provider_league_name": "Faroe Islands Div 1",
+      "utc_year": "2024",
+      "unique_schedule_fids": 55,
+      "verified_full_ft_fids": 48,
+      "unverified_or_nonfull_fids": 7,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 48,
+        "38": 1,
+        "MISSING_STATUS": 6
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 55
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "25be1a68f041175033244141de10dcb70bf0d946b622fd5ee1161c8715b9549b",
+        "552b168dd6c1fb87e6397dd3a20d30d6d67eab14cc2094319ba5fc80c0943067",
+        "6e8d1027ddc89afdd61c192a60ba2455299135c6b048475c1eee11d176fbb21d"
+      ],
+      "source_record_versions": 55,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10635",
+      "provider_league_name": "Faroe Islands Div 1",
+      "utc_year": "2025",
+      "unique_schedule_fids": 63,
+      "verified_full_ft_fids": 59,
+      "unverified_or_nonfull_fids": 4,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 59,
+        "MISSING_STATUS": 4
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 63
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "0caa70f1c172f32f05fcfabc5146c9de8fedc0930cf55efeec9d15a0c6d2f4df",
+        "25be1a68f041175033244141de10dcb70bf0d946b622fd5ee1161c8715b9549b",
+        "92f6d740513a50772558e28c9e8936e5a80450ffeb6ac511317b4fa6b811b84e"
+      ],
+      "source_record_versions": 63,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10635",
+      "provider_league_name": "Faroe Islands Div 1",
+      "utc_year": "2026",
+      "unique_schedule_fids": 51,
+      "verified_full_ft_fids": 47,
+      "unverified_or_nonfull_fids": 4,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 47,
+        "MISSING_STATUS": 3,
+        "74": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 51
+      },
+      "source_page_count": 2,
+      "source_page_sha256s": [
+        "0caa70f1c172f32f05fcfabc5146c9de8fedc0930cf55efeec9d15a0c6d2f4df",
+        "3906a5041bd1896c08df20e9181ab7407cf62f6e6b599c72e6122e585e99beec"
+      ],
+      "source_record_versions": 51,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
       "provider_league_id": "11260",
       "provider_league_name": "Austria 2. Liga",
       "utc_year": "2019",
@@ -4675,9 +5279,9 @@
   ],
   "zero_year_bucket_note": "A zero schedule count means no FID was present in the currently verified source rows for that completed provider pagination; it does not prove no competition season or unindexed source exists.",
   "input_sha256": {
-    "progress": "f554400acb4468c45f50505c9186379008e0ab10a84c5cdc1d8114998010ce48",
-    "append_only_fixture_ledger": "16e60f27ef4924e241e8ee7e01e7e2737901bc6081d383ee17fbc5caa9d64f99",
-    "append_only_request_log": "075b1a369565b661eb8755c996b3782db5aff90a4b6e30211e29138da9730693",
+    "progress": "dcb175c72ba737d46553a6c77db65a6e03ba6285626b8b181a3335cfbd7a55ad",
+    "append_only_fixture_ledger": "294b4be60dfa6836fefe7fde6196c0e344bfe6f9636aad6874b900929904bd7c",
+    "append_only_request_log": "dd35b33d6aa07fa7b9d65c8c6d690e0e1cfcda8213e0e6c6dd620c0cd01a399a",
     "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
   }
 }

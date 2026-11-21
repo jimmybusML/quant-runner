@@ -5219,3 +5219,10 @@
 - Estonia Esiliiga（ID 957）已完成45页、1,308个FID，无失败页。TotalCorner进程PID 65966 / session 29157继续首批35项输入，当前处理Faroe Islands Div 1（ID 10635）第13/15页；累计752次请求，14个联赛分页完成。38项排队清单内ID 10653、702、114仍待后续续跑。
 - 14个完成联赛的2019–2026逐UTC年矩阵共21,663个唯一FID；20,129场为`status=full`且比分为数字，1,534场为缺失/非full状态。728个SHA验证原始响应页与21,663条源记录均通过，身份版本冲突0。21,663场的原始赛程行无season字段，保留为缺失；对应Crown SQLite capture和AH报价仍为0。逐年及联赛年明细写入覆盖JSON；不能把非full统一等同失败FT。
 - 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1837Z.json` SHA256 `e0fc4e1b5ed2ff8a8f1eb988490e8faee572b4c14e1d1459ebf14dab06943956`。这是进行中的阶段审计；未合并全部赛程库存，未启动Crown回填。
+
+
+### 2026-11-21 18:46 UTC：16个完成联赛覆盖更新，France Ligue 2分页开始
+
+- Finland Ykkosliiga（ID 122）依据2019截止停止条件完成41页、1,184 FID，失败页0。当前TotalCorner句柄PID 65966 / session 29157处理France Ligue 2（ID 27）第5/151页；本运行35项输入下已有16个联赛完成、800次请求。排队38项清单的补充ID 10653、702、114尚未运行。
+- 16个完成联赛累计23,267个唯一赛程FID，21,606场为`status=full`且FT是数字，1,661场缺失/非full；782个SHA验证原始页、23,267条逐场源记录均通过，身份版本冲突0。所有23,267条源行season字段缺失；本地Crown历史capture/AH quote仍均为0。完整逐联赛×UTC年矩阵在`completed_schedule_league_year_coverage_2019_2026.json`，所有数值仍仅属已完成目标子集。
+- 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1846Z.json` SHA256 `7d3daa36ed0ed26f8566a15a30f68218c7a87b26914535a3c165605653c05f9b`。未将schedule覆盖快照误述为已合并的全项目库存；Crown历史请求仍未启动。

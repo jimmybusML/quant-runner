@@ -1,0 +1,62 @@
+{
+  "generated_at_utc": "2026-11-21T18:46:37.858688Z",
+  "branch": "data/history-backfill-2019-2026",
+  "git_parent_head": "e900bb496c7b0cebec9dd3e448b967a9b20971b1",
+  "collector": {
+    "pid": 65966,
+    "exec_session": 29157,
+    "observed_running": true,
+    "network_requests": 800,
+    "completed_target_count": 16,
+    "completed_league_ids": [
+      "2",
+      "90",
+      "119",
+      "122",
+      "227",
+      "417",
+      "571",
+      "877",
+      "911",
+      "957",
+      "9115",
+      "10635",
+      "11260",
+      "11559",
+      "26528",
+      "26825"
+    ],
+    "active_targets": [
+      {
+        "provider_league_id": "27",
+        "league_name": "France Ligue 2",
+        "pages_read": 5,
+        "reported_pages": 151,
+        "new_fids": 150,
+        "failed_pages": []
+      }
+    ],
+    "loaded_start_manifest_sha256": "9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9",
+    "current_queued_manifest_sha256": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
+  },
+  "completed_target_coverage": {
+    "unique_schedule_fids": 23267,
+    "verified_full_ft_fids": 21606,
+    "unverified_or_nonfull_fids": 1661,
+    "sha_verified_raw_pages": 782,
+    "sha_verified_source_record_rows": 23267,
+    "source_record_errors": {},
+    "season_field_missing_fids": 23267,
+    "local_crown_capture_fids": 0,
+    "local_crown_ah_quote_fids": 0
+  },
+  "private_input_sha256": {
+    "progress": "dcb175c72ba737d46553a6c77db65a6e03ba6285626b8b181a3335cfbd7a55ad",
+    "append_only_fixture_ledger": "294b4be60dfa6836fefe7fde6196c0e344bfe6f9636aad6874b900929904bd7c",
+    "append_only_request_log": "dd35b33d6aa07fa7b9d65c8c6d690e0e1cfcda8213e0e6c6dd620c0cd01a399a",
+    "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
+  },
+  "coverage_script_sha256": "45dcb43c03a9fe9fa260e3359900a1082d08c6bae431e0978350c6515e43aefd",
+  "coverage_output_sha256": "d7dd599c5eee3563fc4c727560009a6c0f55cf53fc82b22d7d907583cf67ffdc",
+  "next_actions": "Continue loaded batch; after its terminal status, resume the remaining exact competition targets and rebuild the full unified schedule/FT/Crown inventory. No model training or strategy analysis."
+}
