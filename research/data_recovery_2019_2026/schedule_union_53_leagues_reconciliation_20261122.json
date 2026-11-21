@@ -1,0 +1,3206 @@
+{
+  "generated_at_utc": "2026-11-21T23:39:42.129617Z",
+  "method": "baseline inventory plus FID-deduplicated 53-league schedule artifact; append-only provenance; no Crown requests",
+  "inputs": {
+    "fixture_inventory_2019_2026.jsonl.gz": {
+      "sha256": "b25d73d97f0dd3ba4be4fa609f2fadcb626bee10d373c873495e3d348f23f83c",
+      "bytes": 15833894,
+      "unique_fids": 141623
+    },
+    "supplemental_totalcorner_schedules_53leagues_2019_2026.jsonl.gz": {
+      "sha256": "861e5884f4a97307c0e5fa82366194cfc6a3ccad335c7e11f1a7817a4be7b119",
+      "bytes": 10129991,
+      "source_rows": 89842,
+      "unique_fids": 89842
+    }
+  },
+  "results": {
+    "baseline_unique_fids": 141623,
+    "supplemental_source_rows": 89842,
+    "supplemental_unique_fids": 89842,
+    "supplemental_overlap_fids": 27503,
+    "supplemental_new_unique_fids": 62339,
+    "merged_unique_fids": 203962,
+    "merged_verified_FT_fids": 193005,
+    "merged_unverified_FT_fids": 10957,
+    "identity_conflicts_overwritten": 0,
+    "source_fids_with_multiple_versions_preserved": 0,
+    "unknown_kickoff_year_unique_fids": 24,
+    "new_unique_status_by_utc_year": {
+      "2019": {
+        "new_unique_source_rows": 7021,
+        "verified_full_time": 6614,
+        "unverified_or_nonfull": 407,
+        "missing_kickoff": 0
+      },
+      "2020": {
+        "new_unique_source_rows": 6173,
+        "verified_full_time": 5449,
+        "unverified_or_nonfull": 724,
+        "missing_kickoff": 0
+      },
+      "2021": {
+        "new_unique_source_rows": 8323,
+        "verified_full_time": 7538,
+        "unverified_or_nonfull": 785,
+        "missing_kickoff": 0
+      },
+      "2022": {
+        "new_unique_source_rows": 8279,
+        "verified_full_time": 7512,
+        "unverified_or_nonfull": 767,
+        "missing_kickoff": 0
+      },
+      "2023": {
+        "new_unique_source_rows": 8604,
+        "verified_full_time": 8178,
+        "unverified_or_nonfull": 426,
+        "missing_kickoff": 0
+      },
+      "2024": {
+        "new_unique_source_rows": 8141,
+        "verified_full_time": 7844,
+        "unverified_or_nonfull": 297,
+        "missing_kickoff": 0
+      },
+      "2025": {
+        "new_unique_source_rows": 8278,
+        "verified_full_time": 7947,
+        "unverified_or_nonfull": 331,
+        "missing_kickoff": 0
+      },
+      "2026": {
+        "new_unique_source_rows": 7496,
+        "verified_full_time": 7184,
+        "unverified_or_nonfull": 312,
+        "missing_kickoff": 0
+      },
+      "UNKNOWN_KICKOFF_YEAR": {
+        "new_unique_source_rows": 24,
+        "verified_full_time": 22,
+        "unverified_or_nonfull": 2,
+        "missing_kickoff": 24
+      }
+    },
+    "new_unique_status_by_provider_league": {
+      "10635": {
+        "new_unique_source_rows": 420,
+        "verified_full_time": 359,
+        "unverified_or_nonfull": 61,
+        "missing_kickoff": 0
+      },
+      "10653": {
+        "new_unique_source_rows": 810,
+        "verified_full_time": 763,
+        "unverified_or_nonfull": 47,
+        "missing_kickoff": 0
+      },
+      "11260": {
+        "new_unique_source_rows": 1936,
+        "verified_full_time": 1856,
+        "unverified_or_nonfull": 80,
+        "missing_kickoff": 0
+      },
+      "114": {
+        "new_unique_source_rows": 1063,
+        "verified_full_time": 965,
+        "unverified_or_nonfull": 98,
+        "missing_kickoff": 0
+      },
+      "11559": {
+        "new_unique_source_rows": 128,
+        "verified_full_time": 96,
+        "unverified_or_nonfull": 32,
+        "missing_kickoff": 0
+      },
+      "119": {
+        "new_unique_source_rows": 1423,
+        "verified_full_time": 1376,
+        "unverified_or_nonfull": 47,
+        "missing_kickoff": 0
+      },
+      "122": {
+        "new_unique_source_rows": 1184,
+        "verified_full_time": 1118,
+        "unverified_or_nonfull": 66,
+        "missing_kickoff": 0
+      },
+      "125": {
+        "new_unique_source_rows": 1461,
+        "verified_full_time": 1393,
+        "unverified_or_nonfull": 68,
+        "missing_kickoff": 0
+      },
+      "126": {
+        "new_unique_source_rows": 1935,
+        "verified_full_time": 1910,
+        "unverified_or_nonfull": 25,
+        "missing_kickoff": 0
+      },
+      "13": {
+        "new_unique_source_rows": 3066,
+        "verified_full_time": 2960,
+        "unverified_or_nonfull": 106,
+        "missing_kickoff": 0
+      },
+      "14123": {
+        "new_unique_source_rows": 1742,
+        "verified_full_time": 1711,
+        "unverified_or_nonfull": 31,
+        "missing_kickoff": 0
+      },
+      "143": {
+        "new_unique_source_rows": 1939,
+        "verified_full_time": 1907,
+        "unverified_or_nonfull": 32,
+        "missing_kickoff": 0
+      },
+      "15517": {
+        "new_unique_source_rows": 557,
+        "verified_full_time": 493,
+        "unverified_or_nonfull": 64,
+        "missing_kickoff": 0
+      },
+      "15795": {
+        "new_unique_source_rows": 1043,
+        "verified_full_time": 936,
+        "unverified_or_nonfull": 107,
+        "missing_kickoff": 0
+      },
+      "17": {
+        "new_unique_source_rows": 2405,
+        "verified_full_time": 2342,
+        "unverified_or_nonfull": 63,
+        "missing_kickoff": 0
+      },
+      "2": {
+        "new_unique_source_rows": 4448,
+        "verified_full_time": 4277,
+        "unverified_or_nonfull": 171,
+        "missing_kickoff": 0
+      },
+      "227": {
+        "new_unique_source_rows": 619,
+        "verified_full_time": 546,
+        "unverified_or_nonfull": 73,
+        "missing_kickoff": 0
+      },
+      "241": {
+        "new_unique_source_rows": 2469,
+        "verified_full_time": 2222,
+        "unverified_or_nonfull": 247,
+        "missing_kickoff": 0
+      },
+      "242": {
+        "new_unique_source_rows": 756,
+        "verified_full_time": 675,
+        "unverified_or_nonfull": 81,
+        "missing_kickoff": 0
+      },
+      "246": {
+        "new_unique_source_rows": 2326,
+        "verified_full_time": 1964,
+        "unverified_or_nonfull": 362,
+        "missing_kickoff": 0
+      },
+      "26528": {
+        "new_unique_source_rows": 1169,
+        "verified_full_time": 1127,
+        "unverified_or_nonfull": 42,
+        "missing_kickoff": 0
+      },
+      "26825": {
+        "new_unique_source_rows": 885,
+        "verified_full_time": 856,
+        "unverified_or_nonfull": 29,
+        "missing_kickoff": 0
+      },
+      "27": {
+        "new_unique_source_rows": 2763,
+        "verified_full_time": 2681,
+        "unverified_or_nonfull": 82,
+        "missing_kickoff": 0
+      },
+      "280": {
+        "new_unique_source_rows": 991,
+        "verified_full_time": 853,
+        "unverified_or_nonfull": 138,
+        "missing_kickoff": 0
+      },
+      "355": {
+        "new_unique_source_rows": 1659,
+        "verified_full_time": 1545,
+        "unverified_or_nonfull": 114,
+        "missing_kickoff": 0
+      },
+      "417": {
+        "new_unique_source_rows": 2815,
+        "verified_full_time": 2526,
+        "unverified_or_nonfull": 289,
+        "missing_kickoff": 0
+      },
+      "49": {
+        "new_unique_source_rows": 2473,
+        "verified_full_time": 2382,
+        "unverified_or_nonfull": 91,
+        "missing_kickoff": 0
+      },
+      "514": {
+        "new_unique_source_rows": 2480,
+        "verified_full_time": 2137,
+        "unverified_or_nonfull": 343,
+        "missing_kickoff": 0
+      },
+      "515": {
+        "new_unique_source_rows": 2108,
+        "verified_full_time": 2010,
+        "unverified_or_nonfull": 98,
+        "missing_kickoff": 0
+      },
+      "571": {
+        "new_unique_source_rows": 1403,
+        "verified_full_time": 1141,
+        "unverified_or_nonfull": 262,
+        "missing_kickoff": 0
+      },
+      "680": {
+        "new_unique_source_rows": 1566,
+        "verified_full_time": 1462,
+        "unverified_or_nonfull": 104,
+        "missing_kickoff": 0
+      },
+      "702": {
+        "new_unique_source_rows": 782,
+        "verified_full_time": 766,
+        "unverified_or_nonfull": 16,
+        "missing_kickoff": 24
+      },
+      "709": {
+        "new_unique_source_rows": 2678,
+        "verified_full_time": 2605,
+        "unverified_or_nonfull": 73,
+        "missing_kickoff": 0
+      },
+      "877": {
+        "new_unique_source_rows": 557,
+        "verified_full_time": 436,
+        "unverified_or_nonfull": 121,
+        "missing_kickoff": 0
+      },
+      "90": {
+        "new_unique_source_rows": 1545,
+        "verified_full_time": 1505,
+        "unverified_or_nonfull": 40,
+        "missing_kickoff": 0
+      },
+      "911": {
+        "new_unique_source_rows": 1521,
+        "verified_full_time": 1323,
+        "unverified_or_nonfull": 198,
+        "missing_kickoff": 0
+      },
+      "9115": {
+        "new_unique_source_rows": 1906,
+        "verified_full_time": 1825,
+        "unverified_or_nonfull": 81,
+        "missing_kickoff": 0
+      },
+      "957": {
+        "new_unique_source_rows": 1308,
+        "verified_full_time": 1239,
+        "unverified_or_nonfull": 69,
+        "missing_kickoff": 0
+      }
+    }
+  },
+  "source_by_league_utc_year": [
+    {
+      "provider_league_id": "10635",
+      "utc_year": 2019,
+      "supplemental_source_rows": 21,
+      "verified_full_time_rows": 20,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": 2020,
+      "supplemental_source_rows": 80,
+      "unverified_or_nonfull_rows": 21,
+      "verified_full_time_rows": 59
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": 2021,
+      "supplemental_source_rows": 54,
+      "verified_full_time_rows": 47,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": 2022,
+      "supplemental_source_rows": 47,
+      "verified_full_time_rows": 42,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": 2023,
+      "supplemental_source_rows": 49,
+      "verified_full_time_rows": 37,
+      "unverified_or_nonfull_rows": 12
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": 2024,
+      "supplemental_source_rows": 55,
+      "verified_full_time_rows": 48,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": 2025,
+      "supplemental_source_rows": 63,
+      "verified_full_time_rows": 59,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "10635",
+      "utc_year": 2026,
+      "supplemental_source_rows": 51,
+      "verified_full_time_rows": 47,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "10653",
+      "utc_year": 2019,
+      "supplemental_source_rows": 225,
+      "verified_full_time_rows": 212,
+      "unverified_or_nonfull_rows": 13
+    },
+    {
+      "provider_league_id": "10653",
+      "utc_year": 2020,
+      "supplemental_source_rows": 153,
+      "verified_full_time_rows": 143,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "10653",
+      "utc_year": 2021,
+      "supplemental_source_rows": 259,
+      "verified_full_time_rows": 250,
+      "unverified_or_nonfull_rows": 9
+    },
+    {
+      "provider_league_id": "10653",
+      "utc_year": 2022,
+      "supplemental_source_rows": 152,
+      "verified_full_time_rows": 138,
+      "unverified_or_nonfull_rows": 14
+    },
+    {
+      "provider_league_id": "10653",
+      "utc_year": 2023,
+      "supplemental_source_rows": 16,
+      "verified_full_time_rows": 16
+    },
+    {
+      "provider_league_id": "10653",
+      "utc_year": 2026,
+      "supplemental_source_rows": 5,
+      "verified_full_time_rows": 4,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": 2019,
+      "supplemental_source_rows": 15,
+      "unverified_or_nonfull_rows": 3,
+      "verified_full_time_rows": 12
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": 2020,
+      "supplemental_source_rows": 35,
+      "unverified_or_nonfull_rows": 13,
+      "verified_full_time_rows": 22
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": 2021,
+      "supplemental_source_rows": 30,
+      "verified_full_time_rows": 23,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": 2022,
+      "supplemental_source_rows": 45,
+      "verified_full_time_rows": 34,
+      "unverified_or_nonfull_rows": 11
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": 2023,
+      "supplemental_source_rows": 33,
+      "verified_full_time_rows": 28,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": 2024,
+      "supplemental_source_rows": 33,
+      "unverified_or_nonfull_rows": 6,
+      "verified_full_time_rows": 27
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": 2025,
+      "supplemental_source_rows": 18,
+      "verified_full_time_rows": 18
+    },
+    {
+      "provider_league_id": "10808",
+      "utc_year": 2026,
+      "supplemental_source_rows": 30,
+      "verified_full_time_rows": 25,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": 2019,
+      "supplemental_source_rows": 138,
+      "verified_full_time_rows": 134,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": 2020,
+      "supplemental_source_rows": 97,
+      "verified_full_time_rows": 30,
+      "unverified_or_nonfull_rows": 67
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": 2021,
+      "supplemental_source_rows": 142,
+      "verified_full_time_rows": 139,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": 2022,
+      "supplemental_source_rows": 149,
+      "verified_full_time_rows": 138,
+      "unverified_or_nonfull_rows": 11
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": 2023,
+      "supplemental_source_rows": 183,
+      "verified_full_time_rows": 175,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": 2024,
+      "supplemental_source_rows": 192,
+      "verified_full_time_rows": 184,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": 2025,
+      "supplemental_source_rows": 188,
+      "verified_full_time_rows": 184,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "10989",
+      "utc_year": 2026,
+      "supplemental_source_rows": 186,
+      "verified_full_time_rows": 184,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": 2019,
+      "supplemental_source_rows": 250,
+      "verified_full_time_rows": 242,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": 2020,
+      "supplemental_source_rows": 232,
+      "verified_full_time_rows": 211,
+      "unverified_or_nonfull_rows": 21
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": 2021,
+      "supplemental_source_rows": 272,
+      "verified_full_time_rows": 260,
+      "unverified_or_nonfull_rows": 12
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": 2022,
+      "supplemental_source_rows": 242,
+      "verified_full_time_rows": 228,
+      "unverified_or_nonfull_rows": 14
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": 2023,
+      "supplemental_source_rows": 245,
+      "verified_full_time_rows": 234,
+      "unverified_or_nonfull_rows": 11
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": 2024,
+      "supplemental_source_rows": 251,
+      "verified_full_time_rows": 244,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": 2025,
+      "supplemental_source_rows": 245,
+      "unverified_or_nonfull_rows": 3,
+      "verified_full_time_rows": 242
+    },
+    {
+      "provider_league_id": "11260",
+      "utc_year": 2026,
+      "supplemental_source_rows": 199,
+      "verified_full_time_rows": 195,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": 2019,
+      "supplemental_source_rows": 133,
+      "verified_full_time_rows": 117,
+      "unverified_or_nonfull_rows": 16
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": 2020,
+      "supplemental_source_rows": 112,
+      "verified_full_time_rows": 80,
+      "unverified_or_nonfull_rows": 32
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": 2021,
+      "supplemental_source_rows": 139,
+      "verified_full_time_rows": 115,
+      "unverified_or_nonfull_rows": 24
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": 2022,
+      "supplemental_source_rows": 133,
+      "verified_full_time_rows": 124,
+      "unverified_or_nonfull_rows": 9
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": 2023,
+      "supplemental_source_rows": 131,
+      "verified_full_time_rows": 125,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": 2024,
+      "supplemental_source_rows": 137,
+      "verified_full_time_rows": 136,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": 2025,
+      "supplemental_source_rows": 139,
+      "verified_full_time_rows": 131,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "114",
+      "utc_year": 2026,
+      "supplemental_source_rows": 139,
+      "verified_full_time_rows": 137,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": 2019,
+      "supplemental_source_rows": 15,
+      "unverified_or_nonfull_rows": 2,
+      "verified_full_time_rows": 13
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": 2020,
+      "supplemental_source_rows": 6,
+      "verified_full_time_rows": 6
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": 2021,
+      "supplemental_source_rows": 27,
+      "verified_full_time_rows": 20,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": 2022,
+      "supplemental_source_rows": 32,
+      "unverified_or_nonfull_rows": 6,
+      "verified_full_time_rows": 26
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": 2023,
+      "supplemental_source_rows": 16,
+      "unverified_or_nonfull_rows": 5,
+      "verified_full_time_rows": 11
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": 2025,
+      "supplemental_source_rows": 12,
+      "verified_full_time_rows": 8,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "11559",
+      "utc_year": 2026,
+      "supplemental_source_rows": 20,
+      "unverified_or_nonfull_rows": 8,
+      "verified_full_time_rows": 12
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": 2019,
+      "supplemental_source_rows": 125,
+      "verified_full_time_rows": 122,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": 2020,
+      "supplemental_source_rows": 98,
+      "verified_full_time_rows": 91,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": 2021,
+      "supplemental_source_rows": 119,
+      "verified_full_time_rows": 114,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": 2022,
+      "supplemental_source_rows": 158,
+      "verified_full_time_rows": 149,
+      "unverified_or_nonfull_rows": 9
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": 2023,
+      "supplemental_source_rows": 217,
+      "verified_full_time_rows": 213,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": 2024,
+      "supplemental_source_rows": 243,
+      "verified_full_time_rows": 238,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": 2025,
+      "supplemental_source_rows": 260,
+      "unverified_or_nonfull_rows": 4,
+      "verified_full_time_rows": 256
+    },
+    {
+      "provider_league_id": "119",
+      "utc_year": 2026,
+      "supplemental_source_rows": 203,
+      "verified_full_time_rows": 193,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": 2019,
+      "supplemental_source_rows": 35,
+      "verified_full_time_rows": 25,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": 2020,
+      "supplemental_source_rows": 11,
+      "verified_full_time_rows": 7,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": 2021,
+      "supplemental_source_rows": 53,
+      "verified_full_time_rows": 51,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": 2022,
+      "supplemental_source_rows": 87,
+      "verified_full_time_rows": 66,
+      "unverified_or_nonfull_rows": 21
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": 2023,
+      "supplemental_source_rows": 114,
+      "verified_full_time_rows": 90,
+      "unverified_or_nonfull_rows": 24
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": 2024,
+      "supplemental_source_rows": 208,
+      "verified_full_time_rows": 171,
+      "unverified_or_nonfull_rows": 37
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": 2025,
+      "supplemental_source_rows": 251,
+      "unverified_or_nonfull_rows": 35,
+      "verified_full_time_rows": 216
+    },
+    {
+      "provider_league_id": "11958",
+      "utc_year": 2026,
+      "supplemental_source_rows": 243,
+      "verified_full_time_rows": 179,
+      "unverified_or_nonfull_rows": 64
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": 2019,
+      "supplemental_source_rows": 48,
+      "verified_full_time_rows": 36,
+      "unverified_or_nonfull_rows": 12
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": 2020,
+      "supplemental_source_rows": 32,
+      "verified_full_time_rows": 25,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": 2021,
+      "supplemental_source_rows": 59,
+      "verified_full_time_rows": 58,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": 2022,
+      "supplemental_source_rows": 130,
+      "verified_full_time_rows": 101,
+      "unverified_or_nonfull_rows": 29
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": 2023,
+      "supplemental_source_rows": 158,
+      "verified_full_time_rows": 136,
+      "unverified_or_nonfull_rows": 22
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": 2024,
+      "supplemental_source_rows": 232,
+      "unverified_or_nonfull_rows": 39,
+      "verified_full_time_rows": 193
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": 2025,
+      "supplemental_source_rows": 246,
+      "unverified_or_nonfull_rows": 32,
+      "verified_full_time_rows": 214
+    },
+    {
+      "provider_league_id": "11959",
+      "utc_year": 2026,
+      "supplemental_source_rows": 250,
+      "verified_full_time_rows": 204,
+      "unverified_or_nonfull_rows": 46
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": 2019,
+      "supplemental_source_rows": 394,
+      "verified_full_time_rows": 385,
+      "unverified_or_nonfull_rows": 9
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": 2020,
+      "supplemental_source_rows": 278,
+      "verified_full_time_rows": 253,
+      "unverified_or_nonfull_rows": 25
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": 2021,
+      "supplemental_source_rows": 420,
+      "verified_full_time_rows": 400,
+      "unverified_or_nonfull_rows": 20
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": 2022,
+      "supplemental_source_rows": 374,
+      "verified_full_time_rows": 333,
+      "unverified_or_nonfull_rows": 41
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": 2023,
+      "supplemental_source_rows": 415,
+      "verified_full_time_rows": 405,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": 2024,
+      "supplemental_source_rows": 384,
+      "verified_full_time_rows": 382,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": 2025,
+      "supplemental_source_rows": 397,
+      "unverified_or_nonfull_rows": 10,
+      "verified_full_time_rows": 387
+    },
+    {
+      "provider_league_id": "121",
+      "utc_year": 2026,
+      "supplemental_source_rows": 355,
+      "unverified_or_nonfull_rows": 21,
+      "verified_full_time_rows": 334
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": 2019,
+      "supplemental_source_rows": 136,
+      "verified_full_time_rows": 120,
+      "unverified_or_nonfull_rows": 16
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": 2020,
+      "supplemental_source_rows": 139,
+      "verified_full_time_rows": 122,
+      "unverified_or_nonfull_rows": 17
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": 2021,
+      "supplemental_source_rows": 169,
+      "verified_full_time_rows": 150,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": 2022,
+      "supplemental_source_rows": 167,
+      "verified_full_time_rows": 155,
+      "unverified_or_nonfull_rows": 12
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": 2023,
+      "supplemental_source_rows": 165,
+      "verified_full_time_rows": 164,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": 2024,
+      "supplemental_source_rows": 135,
+      "verified_full_time_rows": 135
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": 2025,
+      "supplemental_source_rows": 137,
+      "verified_full_time_rows": 137
+    },
+    {
+      "provider_league_id": "122",
+      "utc_year": 2026,
+      "supplemental_source_rows": 136,
+      "unverified_or_nonfull_rows": 1,
+      "verified_full_time_rows": 135
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": 2019,
+      "supplemental_source_rows": 182,
+      "verified_full_time_rows": 180,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": 2020,
+      "supplemental_source_rows": 179,
+      "verified_full_time_rows": 160,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": 2021,
+      "supplemental_source_rows": 209,
+      "verified_full_time_rows": 186,
+      "unverified_or_nonfull_rows": 23
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": 2022,
+      "supplemental_source_rows": 181,
+      "unverified_or_nonfull_rows": 10,
+      "verified_full_time_rows": 171
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": 2023,
+      "supplemental_source_rows": 182,
+      "verified_full_time_rows": 177,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": 2024,
+      "supplemental_source_rows": 185,
+      "verified_full_time_rows": 179,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": 2025,
+      "supplemental_source_rows": 183,
+      "verified_full_time_rows": 181,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "125",
+      "utc_year": 2026,
+      "supplemental_source_rows": 160,
+      "verified_full_time_rows": 159,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": 2019,
+      "supplemental_source_rows": 241,
+      "verified_full_time_rows": 239,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": 2020,
+      "supplemental_source_rows": 248,
+      "unverified_or_nonfull_rows": 12,
+      "verified_full_time_rows": 236
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": 2021,
+      "supplemental_source_rows": 243,
+      "verified_full_time_rows": 239,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": 2022,
+      "supplemental_source_rows": 243,
+      "verified_full_time_rows": 238,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": 2023,
+      "supplemental_source_rows": 240,
+      "verified_full_time_rows": 239,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": 2024,
+      "supplemental_source_rows": 240,
+      "verified_full_time_rows": 240
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": 2025,
+      "supplemental_source_rows": 240,
+      "verified_full_time_rows": 240
+    },
+    {
+      "provider_league_id": "126",
+      "utc_year": 2026,
+      "supplemental_source_rows": 240,
+      "verified_full_time_rows": 239,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": 2019,
+      "supplemental_source_rows": 468,
+      "verified_full_time_rows": 464,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": 2020,
+      "supplemental_source_rows": 476,
+      "verified_full_time_rows": 462,
+      "unverified_or_nonfull_rows": 14
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": 2021,
+      "supplemental_source_rows": 477,
+      "verified_full_time_rows": 461,
+      "unverified_or_nonfull_rows": 16
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": 2022,
+      "supplemental_source_rows": 476,
+      "verified_full_time_rows": 459,
+      "unverified_or_nonfull_rows": 17
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": 2023,
+      "supplemental_source_rows": 465,
+      "verified_full_time_rows": 462,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": 2024,
+      "supplemental_source_rows": 381,
+      "verified_full_time_rows": 376,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": 2025,
+      "supplemental_source_rows": 384,
+      "verified_full_time_rows": 383,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "128",
+      "utc_year": 2026,
+      "supplemental_source_rows": 180,
+      "verified_full_time_rows": 179,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": 2019,
+      "supplemental_source_rows": 362,
+      "verified_full_time_rows": 360,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": 2020,
+      "supplemental_source_rows": 361,
+      "verified_full_time_rows": 327,
+      "unverified_or_nonfull_rows": 34
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": 2021,
+      "supplemental_source_rows": 435,
+      "verified_full_time_rows": 406,
+      "unverified_or_nonfull_rows": 29
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": 2022,
+      "supplemental_source_rows": 407,
+      "unverified_or_nonfull_rows": 21,
+      "verified_full_time_rows": 386
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": 2023,
+      "supplemental_source_rows": 391,
+      "verified_full_time_rows": 389,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": 2024,
+      "supplemental_source_rows": 400,
+      "verified_full_time_rows": 400
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": 2025,
+      "supplemental_source_rows": 379,
+      "verified_full_time_rows": 366,
+      "unverified_or_nonfull_rows": 13
+    },
+    {
+      "provider_league_id": "13",
+      "utc_year": 2026,
+      "supplemental_source_rows": 331,
+      "verified_full_time_rows": 326,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": 2019,
+      "supplemental_source_rows": 182,
+      "verified_full_time_rows": 182
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": 2020,
+      "supplemental_source_rows": 139,
+      "verified_full_time_rows": 133,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": 2021,
+      "supplemental_source_rows": 185,
+      "verified_full_time_rows": 182,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": 2022,
+      "supplemental_source_rows": 224,
+      "verified_full_time_rows": 210,
+      "unverified_or_nonfull_rows": 14
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": 2023,
+      "supplemental_source_rows": 237,
+      "verified_full_time_rows": 236,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": 2024,
+      "supplemental_source_rows": 236,
+      "verified_full_time_rows": 234,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": 2025,
+      "supplemental_source_rows": 275,
+      "verified_full_time_rows": 274,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "14123",
+      "utc_year": 2026,
+      "supplemental_source_rows": 264,
+      "verified_full_time_rows": 260,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": 2019,
+      "supplemental_source_rows": 241,
+      "verified_full_time_rows": 235,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": 2020,
+      "supplemental_source_rows": 249,
+      "verified_full_time_rows": 240,
+      "unverified_or_nonfull_rows": 9
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": 2021,
+      "supplemental_source_rows": 243,
+      "verified_full_time_rows": 233,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": 2022,
+      "supplemental_source_rows": 241,
+      "verified_full_time_rows": 240,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": 2023,
+      "supplemental_source_rows": 242,
+      "verified_full_time_rows": 240,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": 2024,
+      "supplemental_source_rows": 240,
+      "verified_full_time_rows": 238,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": 2025,
+      "supplemental_source_rows": 241,
+      "verified_full_time_rows": 241
+    },
+    {
+      "provider_league_id": "143",
+      "utc_year": 2026,
+      "supplemental_source_rows": 242,
+      "verified_full_time_rows": 240,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": 2019,
+      "supplemental_source_rows": 479,
+      "verified_full_time_rows": 468,
+      "unverified_or_nonfull_rows": 11
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": 2020,
+      "supplemental_source_rows": 463,
+      "verified_full_time_rows": 443,
+      "unverified_or_nonfull_rows": 20
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": 2021,
+      "supplemental_source_rows": 509,
+      "verified_full_time_rows": 483,
+      "unverified_or_nonfull_rows": 26
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": 2022,
+      "supplemental_source_rows": 461,
+      "verified_full_time_rows": 459,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": 2023,
+      "supplemental_source_rows": 468,
+      "verified_full_time_rows": 466,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": 2024,
+      "supplemental_source_rows": 475,
+      "verified_full_time_rows": 466,
+      "unverified_or_nonfull_rows": 9
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": 2025,
+      "supplemental_source_rows": 451,
+      "verified_full_time_rows": 447,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "15",
+      "utc_year": 2026,
+      "supplemental_source_rows": 425,
+      "verified_full_time_rows": 411,
+      "unverified_or_nonfull_rows": 14
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": 2019,
+      "supplemental_source_rows": 38,
+      "verified_full_time_rows": 33,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": 2020,
+      "supplemental_source_rows": 82,
+      "unverified_or_nonfull_rows": 22,
+      "verified_full_time_rows": 60
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": 2021,
+      "supplemental_source_rows": 93,
+      "verified_full_time_rows": 90,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": 2022,
+      "supplemental_source_rows": 65,
+      "verified_full_time_rows": 60,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": 2023,
+      "supplemental_source_rows": 61,
+      "verified_full_time_rows": 55,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": 2024,
+      "supplemental_source_rows": 68,
+      "verified_full_time_rows": 65,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": 2025,
+      "supplemental_source_rows": 77,
+      "verified_full_time_rows": 63,
+      "unverified_or_nonfull_rows": 14
+    },
+    {
+      "provider_league_id": "15517",
+      "utc_year": 2026,
+      "supplemental_source_rows": 73,
+      "verified_full_time_rows": 67,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": 2020,
+      "supplemental_source_rows": 79,
+      "verified_full_time_rows": 61,
+      "unverified_or_nonfull_rows": 18
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": 2021,
+      "supplemental_source_rows": 153,
+      "verified_full_time_rows": 131,
+      "unverified_or_nonfull_rows": 22
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": 2022,
+      "supplemental_source_rows": 208,
+      "verified_full_time_rows": 190,
+      "unverified_or_nonfull_rows": 18
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": 2023,
+      "supplemental_source_rows": 159,
+      "verified_full_time_rows": 144,
+      "unverified_or_nonfull_rows": 15
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": 2024,
+      "supplemental_source_rows": 155,
+      "verified_full_time_rows": 143,
+      "unverified_or_nonfull_rows": 12
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": 2025,
+      "supplemental_source_rows": 161,
+      "verified_full_time_rows": 145,
+      "unverified_or_nonfull_rows": 16
+    },
+    {
+      "provider_league_id": "15795",
+      "utc_year": 2026,
+      "supplemental_source_rows": 128,
+      "verified_full_time_rows": 122,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": 2019,
+      "supplemental_source_rows": 309,
+      "verified_full_time_rows": 306,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": 2020,
+      "supplemental_source_rows": 274,
+      "verified_full_time_rows": 255,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": 2021,
+      "supplemental_source_rows": 363,
+      "verified_full_time_rows": 348,
+      "unverified_or_nonfull_rows": 15
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": 2022,
+      "supplemental_source_rows": 299,
+      "verified_full_time_rows": 278,
+      "unverified_or_nonfull_rows": 21
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": 2023,
+      "supplemental_source_rows": 301,
+      "verified_full_time_rows": 301
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": 2024,
+      "supplemental_source_rows": 297,
+      "verified_full_time_rows": 296,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": 2025,
+      "supplemental_source_rows": 302,
+      "verified_full_time_rows": 302
+    },
+    {
+      "provider_league_id": "17",
+      "utc_year": 2026,
+      "supplemental_source_rows": 260,
+      "verified_full_time_rows": 256,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": 2019,
+      "supplemental_source_rows": 558,
+      "verified_full_time_rows": 555,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": 2020,
+      "supplemental_source_rows": 547,
+      "verified_full_time_rows": 516,
+      "unverified_or_nonfull_rows": 31
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": 2021,
+      "supplemental_source_rows": 611,
+      "verified_full_time_rows": 562,
+      "unverified_or_nonfull_rows": 49
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": 2022,
+      "supplemental_source_rows": 589,
+      "unverified_or_nonfull_rows": 55,
+      "verified_full_time_rows": 534
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": 2023,
+      "supplemental_source_rows": 563,
+      "verified_full_time_rows": 552,
+      "unverified_or_nonfull_rows": 11
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": 2024,
+      "supplemental_source_rows": 548,
+      "verified_full_time_rows": 538,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": 2025,
+      "supplemental_source_rows": 562,
+      "verified_full_time_rows": 558,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "2",
+      "utc_year": 2026,
+      "supplemental_source_rows": 470,
+      "verified_full_time_rows": 462,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": 2019,
+      "supplemental_source_rows": 234,
+      "verified_full_time_rows": 216,
+      "unverified_or_nonfull_rows": 18
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": 2020,
+      "supplemental_source_rows": 139,
+      "verified_full_time_rows": 137,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": 2021,
+      "supplemental_source_rows": 297,
+      "verified_full_time_rows": 284,
+      "unverified_or_nonfull_rows": 13
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": 2022,
+      "supplemental_source_rows": 306,
+      "verified_full_time_rows": 298,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": 2023,
+      "supplemental_source_rows": 232,
+      "verified_full_time_rows": 228,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": 2024,
+      "supplemental_source_rows": 240,
+      "verified_full_time_rows": 240
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": 2025,
+      "supplemental_source_rows": 243,
+      "verified_full_time_rows": 240,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "210",
+      "utc_year": 2026,
+      "supplemental_source_rows": 243,
+      "verified_full_time_rows": 240,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": 2019,
+      "supplemental_source_rows": 169,
+      "verified_full_time_rows": 146,
+      "unverified_or_nonfull_rows": 23
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": 2020,
+      "supplemental_source_rows": 33,
+      "verified_full_time_rows": 10,
+      "unverified_or_nonfull_rows": 23
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": 2021,
+      "supplemental_source_rows": 2,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": 2022,
+      "supplemental_source_rows": 15,
+      "verified_full_time_rows": 12,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": 2023,
+      "supplemental_source_rows": 67,
+      "verified_full_time_rows": 57,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": 2024,
+      "supplemental_source_rows": 109,
+      "verified_full_time_rows": 101,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": 2025,
+      "supplemental_source_rows": 120,
+      "verified_full_time_rows": 118,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "227",
+      "utc_year": 2026,
+      "supplemental_source_rows": 104,
+      "verified_full_time_rows": 102,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": 2019,
+      "supplemental_source_rows": 359,
+      "verified_full_time_rows": 341,
+      "unverified_or_nonfull_rows": 18
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": 2020,
+      "supplemental_source_rows": 278,
+      "verified_full_time_rows": 231,
+      "unverified_or_nonfull_rows": 47
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": 2021,
+      "supplemental_source_rows": 366,
+      "unverified_or_nonfull_rows": 55,
+      "verified_full_time_rows": 311
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": 2022,
+      "supplemental_source_rows": 377,
+      "verified_full_time_rows": 342,
+      "unverified_or_nonfull_rows": 35
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": 2023,
+      "supplemental_source_rows": 347,
+      "verified_full_time_rows": 320,
+      "unverified_or_nonfull_rows": 27
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": 2024,
+      "supplemental_source_rows": 266,
+      "verified_full_time_rows": 248,
+      "unverified_or_nonfull_rows": 18
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": 2025,
+      "supplemental_source_rows": 242,
+      "verified_full_time_rows": 221,
+      "unverified_or_nonfull_rows": 21
+    },
+    {
+      "provider_league_id": "241",
+      "utc_year": 2026,
+      "supplemental_source_rows": 234,
+      "verified_full_time_rows": 208,
+      "unverified_or_nonfull_rows": 26
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": 2019,
+      "supplemental_source_rows": 34,
+      "verified_full_time_rows": 15,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": 2020,
+      "supplemental_source_rows": 40,
+      "verified_full_time_rows": 32,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": 2021,
+      "supplemental_source_rows": 54,
+      "unverified_or_nonfull_rows": 19,
+      "verified_full_time_rows": 35
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": 2022,
+      "supplemental_source_rows": 25,
+      "verified_full_time_rows": 19,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": 2023,
+      "supplemental_source_rows": 141,
+      "unverified_or_nonfull_rows": 12,
+      "verified_full_time_rows": 129
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": 2024,
+      "supplemental_source_rows": 150,
+      "verified_full_time_rows": 140,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": 2025,
+      "supplemental_source_rows": 159,
+      "verified_full_time_rows": 158,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "242",
+      "utc_year": 2026,
+      "supplemental_source_rows": 153,
+      "verified_full_time_rows": 147,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": 2019,
+      "supplemental_source_rows": 323,
+      "unverified_or_nonfull_rows": 87,
+      "verified_full_time_rows": 236
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": 2020,
+      "supplemental_source_rows": 157,
+      "verified_full_time_rows": 63,
+      "unverified_or_nonfull_rows": 94
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": 2021,
+      "supplemental_source_rows": 307,
+      "unverified_or_nonfull_rows": 78,
+      "verified_full_time_rows": 229
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": 2022,
+      "supplemental_source_rows": 327,
+      "verified_full_time_rows": 292,
+      "unverified_or_nonfull_rows": 35
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": 2023,
+      "supplemental_source_rows": 321,
+      "verified_full_time_rows": 295,
+      "unverified_or_nonfull_rows": 26
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": 2024,
+      "supplemental_source_rows": 293,
+      "verified_full_time_rows": 287,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": 2025,
+      "supplemental_source_rows": 310,
+      "verified_full_time_rows": 292,
+      "unverified_or_nonfull_rows": 18
+    },
+    {
+      "provider_league_id": "246",
+      "utc_year": 2026,
+      "supplemental_source_rows": 288,
+      "verified_full_time_rows": 270,
+      "unverified_or_nonfull_rows": 18
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": 2019,
+      "supplemental_source_rows": 298,
+      "verified_full_time_rows": 294,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": 2020,
+      "supplemental_source_rows": 309,
+      "verified_full_time_rows": 291,
+      "unverified_or_nonfull_rows": 18
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": 2021,
+      "supplemental_source_rows": 325,
+      "verified_full_time_rows": 301,
+      "unverified_or_nonfull_rows": 24
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": 2022,
+      "supplemental_source_rows": 281,
+      "verified_full_time_rows": 248,
+      "unverified_or_nonfull_rows": 33
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": 2023,
+      "supplemental_source_rows": 269,
+      "verified_full_time_rows": 232,
+      "unverified_or_nonfull_rows": 37
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": 2024,
+      "supplemental_source_rows": 313,
+      "verified_full_time_rows": 305,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": 2025,
+      "supplemental_source_rows": 295,
+      "verified_full_time_rows": 292,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "252",
+      "utc_year": 2026,
+      "supplemental_source_rows": 279,
+      "verified_full_time_rows": 270,
+      "unverified_or_nonfull_rows": 9
+    },
+    {
+      "provider_league_id": "26528",
+      "utc_year": 2022,
+      "supplemental_source_rows": 21,
+      "verified_full_time_rows": 21
+    },
+    {
+      "provider_league_id": "26528",
+      "utc_year": 2023,
+      "supplemental_source_rows": 293,
+      "unverified_or_nonfull_rows": 7,
+      "verified_full_time_rows": 286
+    },
+    {
+      "provider_league_id": "26528",
+      "utc_year": 2024,
+      "supplemental_source_rows": 319,
+      "verified_full_time_rows": 309,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "26528",
+      "utc_year": 2025,
+      "supplemental_source_rows": 291,
+      "verified_full_time_rows": 279,
+      "unverified_or_nonfull_rows": 12
+    },
+    {
+      "provider_league_id": "26528",
+      "utc_year": 2026,
+      "supplemental_source_rows": 245,
+      "verified_full_time_rows": 232,
+      "unverified_or_nonfull_rows": 13
+    },
+    {
+      "provider_league_id": "26825",
+      "utc_year": 2022,
+      "supplemental_source_rows": 85,
+      "unverified_or_nonfull_rows": 4,
+      "verified_full_time_rows": 81
+    },
+    {
+      "provider_league_id": "26825",
+      "utc_year": 2023,
+      "supplemental_source_rows": 202,
+      "verified_full_time_rows": 198,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "26825",
+      "utc_year": 2024,
+      "supplemental_source_rows": 199,
+      "verified_full_time_rows": 194,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "26825",
+      "utc_year": 2025,
+      "supplemental_source_rows": 199,
+      "verified_full_time_rows": 189,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "26825",
+      "utc_year": 2026,
+      "supplemental_source_rows": 200,
+      "verified_full_time_rows": 194,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": 2019,
+      "supplemental_source_rows": 384,
+      "verified_full_time_rows": 382,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": 2020,
+      "supplemental_source_rows": 274,
+      "verified_full_time_rows": 258,
+      "unverified_or_nonfull_rows": 16
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": 2021,
+      "supplemental_source_rows": 409,
+      "verified_full_time_rows": 389,
+      "unverified_or_nonfull_rows": 20
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": 2022,
+      "supplemental_source_rows": 366,
+      "verified_full_time_rows": 338,
+      "unverified_or_nonfull_rows": 28
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": 2023,
+      "supplemental_source_rows": 406,
+      "verified_full_time_rows": 399,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": 2024,
+      "supplemental_source_rows": 337,
+      "verified_full_time_rows": 334,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": 2025,
+      "supplemental_source_rows": 317,
+      "verified_full_time_rows": 314,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "27",
+      "utc_year": 2026,
+      "supplemental_source_rows": 270,
+      "verified_full_time_rows": 267,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": 2019,
+      "supplemental_source_rows": 189,
+      "verified_full_time_rows": 180,
+      "unverified_or_nonfull_rows": 9
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": 2020,
+      "supplemental_source_rows": 104,
+      "verified_full_time_rows": 85,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": 2021,
+      "supplemental_source_rows": 204,
+      "verified_full_time_rows": 175,
+      "unverified_or_nonfull_rows": 29
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": 2022,
+      "supplemental_source_rows": 191,
+      "verified_full_time_rows": 172,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": 2023,
+      "supplemental_source_rows": 184,
+      "verified_full_time_rows": 174,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": 2024,
+      "supplemental_source_rows": 192,
+      "verified_full_time_rows": 185,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": 2025,
+      "supplemental_source_rows": 190,
+      "unverified_or_nonfull_rows": 5,
+      "verified_full_time_rows": 185
+    },
+    {
+      "provider_league_id": "270",
+      "utc_year": 2026,
+      "supplemental_source_rows": 170,
+      "verified_full_time_rows": 155,
+      "unverified_or_nonfull_rows": 15
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": 2019,
+      "supplemental_source_rows": 50,
+      "verified_full_time_rows": 40,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": 2020,
+      "supplemental_source_rows": 148,
+      "verified_full_time_rows": 112,
+      "unverified_or_nonfull_rows": 36
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": 2021,
+      "supplemental_source_rows": 134,
+      "unverified_or_nonfull_rows": 26,
+      "verified_full_time_rows": 108
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": 2022,
+      "supplemental_source_rows": 110,
+      "verified_full_time_rows": 81,
+      "unverified_or_nonfull_rows": 29
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": 2023,
+      "supplemental_source_rows": 141,
+      "verified_full_time_rows": 123,
+      "unverified_or_nonfull_rows": 18
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": 2024,
+      "supplemental_source_rows": 146,
+      "verified_full_time_rows": 138,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": 2025,
+      "supplemental_source_rows": 145,
+      "verified_full_time_rows": 136,
+      "unverified_or_nonfull_rows": 9
+    },
+    {
+      "provider_league_id": "280",
+      "utc_year": 2026,
+      "supplemental_source_rows": 117,
+      "verified_full_time_rows": 115,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": 2019,
+      "supplemental_source_rows": 237,
+      "verified_full_time_rows": 215,
+      "unverified_or_nonfull_rows": 22
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": 2020,
+      "supplemental_source_rows": 196,
+      "verified_full_time_rows": 189,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": 2021,
+      "supplemental_source_rows": 306,
+      "verified_full_time_rows": 285,
+      "unverified_or_nonfull_rows": 21
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": 2022,
+      "supplemental_source_rows": 257,
+      "verified_full_time_rows": 246,
+      "unverified_or_nonfull_rows": 11
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": 2023,
+      "supplemental_source_rows": 295,
+      "verified_full_time_rows": 277,
+      "unverified_or_nonfull_rows": 18
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": 2024,
+      "supplemental_source_rows": 270,
+      "verified_full_time_rows": 250,
+      "unverified_or_nonfull_rows": 20
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": 2025,
+      "supplemental_source_rows": 288,
+      "verified_full_time_rows": 285,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "337",
+      "utc_year": 2026,
+      "supplemental_source_rows": 242,
+      "verified_full_time_rows": 235,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": 2019,
+      "supplemental_source_rows": 207,
+      "verified_full_time_rows": 183,
+      "unverified_or_nonfull_rows": 24
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": 2020,
+      "supplemental_source_rows": 129,
+      "verified_full_time_rows": 119,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": 2021,
+      "supplemental_source_rows": 248,
+      "verified_full_time_rows": 229,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": 2022,
+      "supplemental_source_rows": 245,
+      "verified_full_time_rows": 226,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": 2023,
+      "supplemental_source_rows": 245,
+      "verified_full_time_rows": 223,
+      "unverified_or_nonfull_rows": 22
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": 2024,
+      "supplemental_source_rows": 166,
+      "verified_full_time_rows": 152,
+      "unverified_or_nonfull_rows": 14
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": 2025,
+      "supplemental_source_rows": 193,
+      "verified_full_time_rows": 189,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "355",
+      "utc_year": 2026,
+      "supplemental_source_rows": 226,
+      "verified_full_time_rows": 224,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": 2019,
+      "supplemental_source_rows": 229,
+      "verified_full_time_rows": 198,
+      "unverified_or_nonfull_rows": 31
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": 2020,
+      "supplemental_source_rows": 219,
+      "unverified_or_nonfull_rows": 33,
+      "verified_full_time_rows": 186
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": 2021,
+      "supplemental_source_rows": 604,
+      "verified_full_time_rows": 528,
+      "unverified_or_nonfull_rows": 76
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": 2022,
+      "supplemental_source_rows": 459,
+      "verified_full_time_rows": 395,
+      "unverified_or_nonfull_rows": 64
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": 2023,
+      "supplemental_source_rows": 446,
+      "verified_full_time_rows": 412,
+      "unverified_or_nonfull_rows": 34
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": 2024,
+      "supplemental_source_rows": 282,
+      "verified_full_time_rows": 270,
+      "unverified_or_nonfull_rows": 12
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": 2025,
+      "supplemental_source_rows": 320,
+      "verified_full_time_rows": 292,
+      "unverified_or_nonfull_rows": 28
+    },
+    {
+      "provider_league_id": "417",
+      "utc_year": 2026,
+      "supplemental_source_rows": 256,
+      "verified_full_time_rows": 245,
+      "unverified_or_nonfull_rows": 11
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": 2019,
+      "supplemental_source_rows": 299,
+      "verified_full_time_rows": 297,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": 2020,
+      "supplemental_source_rows": 300,
+      "verified_full_time_rows": 274,
+      "unverified_or_nonfull_rows": 26
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": 2021,
+      "supplemental_source_rows": 359,
+      "verified_full_time_rows": 328,
+      "unverified_or_nonfull_rows": 31
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": 2022,
+      "supplemental_source_rows": 294,
+      "verified_full_time_rows": 287,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": 2023,
+      "supplemental_source_rows": 321,
+      "verified_full_time_rows": 313,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": 2024,
+      "supplemental_source_rows": 315,
+      "verified_full_time_rows": 307,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": 2025,
+      "supplemental_source_rows": 310,
+      "unverified_or_nonfull_rows": 1,
+      "verified_full_time_rows": 309
+    },
+    {
+      "provider_league_id": "49",
+      "utc_year": 2026,
+      "supplemental_source_rows": 275,
+      "verified_full_time_rows": 267,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": 2019,
+      "supplemental_source_rows": 291,
+      "verified_full_time_rows": 266,
+      "unverified_or_nonfull_rows": 25
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": 2020,
+      "supplemental_source_rows": 123,
+      "verified_full_time_rows": 113,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": 2021,
+      "supplemental_source_rows": 422,
+      "verified_full_time_rows": 379,
+      "unverified_or_nonfull_rows": 43
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": 2022,
+      "supplemental_source_rows": 513,
+      "unverified_or_nonfull_rows": 147,
+      "verified_full_time_rows": 366
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": 2023,
+      "supplemental_source_rows": 363,
+      "verified_full_time_rows": 326,
+      "unverified_or_nonfull_rows": 37
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": 2024,
+      "supplemental_source_rows": 322,
+      "verified_full_time_rows": 303,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": 2025,
+      "supplemental_source_rows": 257,
+      "verified_full_time_rows": 222,
+      "unverified_or_nonfull_rows": 35
+    },
+    {
+      "provider_league_id": "514",
+      "utc_year": 2026,
+      "supplemental_source_rows": 189,
+      "verified_full_time_rows": 162,
+      "unverified_or_nonfull_rows": 27
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": 2019,
+      "supplemental_source_rows": 359,
+      "verified_full_time_rows": 349,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": 2020,
+      "supplemental_source_rows": 202,
+      "verified_full_time_rows": 176,
+      "unverified_or_nonfull_rows": 26
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": 2021,
+      "supplemental_source_rows": 285,
+      "verified_full_time_rows": 272,
+      "unverified_or_nonfull_rows": 13
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": 2022,
+      "supplemental_source_rows": 250,
+      "unverified_or_nonfull_rows": 12,
+      "verified_full_time_rows": 238
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": 2023,
+      "supplemental_source_rows": 246,
+      "verified_full_time_rows": 237,
+      "unverified_or_nonfull_rows": 9
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": 2024,
+      "supplemental_source_rows": 259,
+      "verified_full_time_rows": 246,
+      "unverified_or_nonfull_rows": 13
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": 2025,
+      "supplemental_source_rows": 272,
+      "verified_full_time_rows": 264,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "515",
+      "utc_year": 2026,
+      "supplemental_source_rows": 235,
+      "verified_full_time_rows": 228,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": 2019,
+      "supplemental_source_rows": 175,
+      "verified_full_time_rows": 167,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": 2020,
+      "supplemental_source_rows": 125,
+      "unverified_or_nonfull_rows": 3,
+      "verified_full_time_rows": 122
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": 2021,
+      "supplemental_source_rows": 141,
+      "verified_full_time_rows": 139,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": 2022,
+      "supplemental_source_rows": 157,
+      "verified_full_time_rows": 138,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": 2023,
+      "supplemental_source_rows": 204,
+      "verified_full_time_rows": 201,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": 2024,
+      "supplemental_source_rows": 206,
+      "verified_full_time_rows": 203,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": 2025,
+      "supplemental_source_rows": 215,
+      "verified_full_time_rows": 213,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "542",
+      "utc_year": 2026,
+      "supplemental_source_rows": 246,
+      "verified_full_time_rows": 241,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": 2019,
+      "supplemental_source_rows": 307,
+      "verified_full_time_rows": 306,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": 2020,
+      "supplemental_source_rows": 220,
+      "verified_full_time_rows": 198,
+      "unverified_or_nonfull_rows": 22
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": 2021,
+      "supplemental_source_rows": 345,
+      "verified_full_time_rows": 329,
+      "unverified_or_nonfull_rows": 16
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": 2022,
+      "supplemental_source_rows": 293,
+      "verified_full_time_rows": 278,
+      "unverified_or_nonfull_rows": 15
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": 2023,
+      "supplemental_source_rows": 316,
+      "verified_full_time_rows": 316
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": 2024,
+      "supplemental_source_rows": 312,
+      "verified_full_time_rows": 308,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": 2025,
+      "supplemental_source_rows": 309,
+      "verified_full_time_rows": 307,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "57",
+      "utc_year": 2026,
+      "supplemental_source_rows": 264,
+      "verified_full_time_rows": 261,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": 2019,
+      "supplemental_source_rows": 124,
+      "verified_full_time_rows": 102,
+      "unverified_or_nonfull_rows": 22
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": 2020,
+      "supplemental_source_rows": 172,
+      "verified_full_time_rows": 139,
+      "unverified_or_nonfull_rows": 33
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": 2021,
+      "supplemental_source_rows": 227,
+      "verified_full_time_rows": 172,
+      "unverified_or_nonfull_rows": 55
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": 2022,
+      "supplemental_source_rows": 210,
+      "verified_full_time_rows": 172,
+      "unverified_or_nonfull_rows": 38
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": 2023,
+      "supplemental_source_rows": 173,
+      "verified_full_time_rows": 154,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": 2024,
+      "supplemental_source_rows": 176,
+      "verified_full_time_rows": 146,
+      "unverified_or_nonfull_rows": 30
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": 2025,
+      "supplemental_source_rows": 178,
+      "unverified_or_nonfull_rows": 40,
+      "verified_full_time_rows": 138
+    },
+    {
+      "provider_league_id": "571",
+      "utc_year": 2026,
+      "supplemental_source_rows": 143,
+      "verified_full_time_rows": 118,
+      "unverified_or_nonfull_rows": 25
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": 2019,
+      "supplemental_source_rows": 183,
+      "verified_full_time_rows": 175,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": 2020,
+      "supplemental_source_rows": 119,
+      "unverified_or_nonfull_rows": 18,
+      "verified_full_time_rows": 101
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": 2021,
+      "supplemental_source_rows": 208,
+      "verified_full_time_rows": 185,
+      "unverified_or_nonfull_rows": 23
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": 2022,
+      "supplemental_source_rows": 54,
+      "verified_full_time_rows": 41,
+      "unverified_or_nonfull_rows": 13
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": 2023,
+      "supplemental_source_rows": 123,
+      "verified_full_time_rows": 115,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": 2024,
+      "supplemental_source_rows": 144,
+      "verified_full_time_rows": 107,
+      "unverified_or_nonfull_rows": 37
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": 2025,
+      "supplemental_source_rows": 126,
+      "verified_full_time_rows": 114,
+      "unverified_or_nonfull_rows": 12
+    },
+    {
+      "provider_league_id": "63",
+      "utc_year": 2026,
+      "supplemental_source_rows": 144,
+      "unverified_or_nonfull_rows": 14,
+      "verified_full_time_rows": 130
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": 2019,
+      "supplemental_source_rows": 152,
+      "verified_full_time_rows": 138,
+      "unverified_or_nonfull_rows": 14
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": 2020,
+      "supplemental_source_rows": 100,
+      "verified_full_time_rows": 86,
+      "unverified_or_nonfull_rows": 14
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": 2021,
+      "supplemental_source_rows": 204,
+      "verified_full_time_rows": 176,
+      "unverified_or_nonfull_rows": 28
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": 2022,
+      "supplemental_source_rows": 247,
+      "verified_full_time_rows": 235,
+      "unverified_or_nonfull_rows": 12
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": 2023,
+      "supplemental_source_rows": 240,
+      "verified_full_time_rows": 223,
+      "unverified_or_nonfull_rows": 17
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": 2024,
+      "supplemental_source_rows": 213,
+      "verified_full_time_rows": 205,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": 2025,
+      "supplemental_source_rows": 212,
+      "verified_full_time_rows": 209,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "680",
+      "utc_year": 2026,
+      "supplemental_source_rows": 198,
+      "verified_full_time_rows": 190,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "702",
+      "utc_year": 2021,
+      "supplemental_source_rows": 41,
+      "verified_full_time_rows": 41
+    },
+    {
+      "provider_league_id": "702",
+      "utc_year": 2022,
+      "supplemental_source_rows": 105,
+      "verified_full_time_rows": 105
+    },
+    {
+      "provider_league_id": "702",
+      "utc_year": 2023,
+      "supplemental_source_rows": 154,
+      "verified_full_time_rows": 148,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "702",
+      "utc_year": 2024,
+      "supplemental_source_rows": 160,
+      "verified_full_time_rows": 160
+    },
+    {
+      "provider_league_id": "702",
+      "utc_year": 2025,
+      "supplemental_source_rows": 155,
+      "verified_full_time_rows": 155
+    },
+    {
+      "provider_league_id": "702",
+      "utc_year": 2026,
+      "supplemental_source_rows": 143,
+      "unverified_or_nonfull_rows": 8,
+      "verified_full_time_rows": 135
+    },
+    {
+      "provider_league_id": "702",
+      "utc_year": "UNKNOWN_KICKOFF_YEAR",
+      "supplemental_source_rows": 24,
+      "verified_full_time_rows": 22,
+      "missing_kickoff_timestamp_rows": 24,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": 2019,
+      "supplemental_source_rows": 304,
+      "verified_full_time_rows": 303,
+      "unverified_or_nonfull_rows": 1
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": 2020,
+      "supplemental_source_rows": 314,
+      "verified_full_time_rows": 297,
+      "unverified_or_nonfull_rows": 17
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": 2021,
+      "supplemental_source_rows": 342,
+      "verified_full_time_rows": 335,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": 2022,
+      "supplemental_source_rows": 352,
+      "verified_full_time_rows": 333,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": 2023,
+      "supplemental_source_rows": 317,
+      "verified_full_time_rows": 298,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": 2024,
+      "supplemental_source_rows": 323,
+      "verified_full_time_rows": 321,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": 2025,
+      "supplemental_source_rows": 385,
+      "verified_full_time_rows": 383,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "709",
+      "utc_year": 2026,
+      "supplemental_source_rows": 341,
+      "verified_full_time_rows": 335,
+      "unverified_or_nonfull_rows": 6
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": 2019,
+      "supplemental_source_rows": 42,
+      "verified_full_time_rows": 30,
+      "unverified_or_nonfull_rows": 12
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": 2020,
+      "supplemental_source_rows": 22,
+      "unverified_or_nonfull_rows": 6,
+      "verified_full_time_rows": 16
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": 2021,
+      "supplemental_source_rows": 66,
+      "verified_full_time_rows": 59,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": 2022,
+      "supplemental_source_rows": 105,
+      "verified_full_time_rows": 87,
+      "unverified_or_nonfull_rows": 18
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": 2023,
+      "supplemental_source_rows": 186,
+      "verified_full_time_rows": 161,
+      "unverified_or_nonfull_rows": 25
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": 2024,
+      "supplemental_source_rows": 195,
+      "verified_full_time_rows": 138,
+      "unverified_or_nonfull_rows": 57
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": 2025,
+      "supplemental_source_rows": 204,
+      "unverified_or_nonfull_rows": 125,
+      "verified_full_time_rows": 79
+    },
+    {
+      "provider_league_id": "765",
+      "utc_year": 2026,
+      "supplemental_source_rows": 203,
+      "unverified_or_nonfull_rows": 72,
+      "verified_full_time_rows": 131
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": 2019,
+      "supplemental_source_rows": 32,
+      "verified_full_time_rows": 25,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": 2020,
+      "supplemental_source_rows": 41,
+      "verified_full_time_rows": 34,
+      "unverified_or_nonfull_rows": 7
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": 2021,
+      "supplemental_source_rows": 29,
+      "verified_full_time_rows": 26,
+      "unverified_or_nonfull_rows": 3
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": 2022,
+      "supplemental_source_rows": 37,
+      "unverified_or_nonfull_rows": 4,
+      "verified_full_time_rows": 33
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": 2023,
+      "supplemental_source_rows": 55,
+      "verified_full_time_rows": 53,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": 2024,
+      "supplemental_source_rows": 79,
+      "unverified_or_nonfull_rows": 23,
+      "verified_full_time_rows": 56
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": 2025,
+      "supplemental_source_rows": 137,
+      "verified_full_time_rows": 97,
+      "unverified_or_nonfull_rows": 40
+    },
+    {
+      "provider_league_id": "877",
+      "utc_year": 2026,
+      "supplemental_source_rows": 147,
+      "verified_full_time_rows": 112,
+      "unverified_or_nonfull_rows": 35
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": 2019,
+      "supplemental_source_rows": 197,
+      "verified_full_time_rows": 187,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": 2020,
+      "supplemental_source_rows": 193,
+      "verified_full_time_rows": 185,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": 2021,
+      "supplemental_source_rows": 206,
+      "verified_full_time_rows": 201,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": 2022,
+      "supplemental_source_rows": 189,
+      "verified_full_time_rows": 181,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": 2023,
+      "supplemental_source_rows": 201,
+      "verified_full_time_rows": 196,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": 2024,
+      "supplemental_source_rows": 193,
+      "verified_full_time_rows": 191,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": 2025,
+      "supplemental_source_rows": 192,
+      "verified_full_time_rows": 190,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "90",
+      "utc_year": 2026,
+      "supplemental_source_rows": 174,
+      "verified_full_time_rows": 174
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": 2019,
+      "supplemental_source_rows": 73,
+      "verified_full_time_rows": 63,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": 2020,
+      "supplemental_source_rows": 102,
+      "verified_full_time_rows": 92,
+      "unverified_or_nonfull_rows": 10
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": 2021,
+      "supplemental_source_rows": 129,
+      "verified_full_time_rows": 105,
+      "unverified_or_nonfull_rows": 24
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": 2022,
+      "supplemental_source_rows": 232,
+      "verified_full_time_rows": 195,
+      "unverified_or_nonfull_rows": 37
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": 2023,
+      "supplemental_source_rows": 289,
+      "verified_full_time_rows": 247,
+      "unverified_or_nonfull_rows": 42
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": 2024,
+      "supplemental_source_rows": 240,
+      "verified_full_time_rows": 203,
+      "unverified_or_nonfull_rows": 37
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": 2025,
+      "supplemental_source_rows": 215,
+      "verified_full_time_rows": 201,
+      "unverified_or_nonfull_rows": 14
+    },
+    {
+      "provider_league_id": "911",
+      "utc_year": 2026,
+      "supplemental_source_rows": 241,
+      "verified_full_time_rows": 217,
+      "unverified_or_nonfull_rows": 24
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": 2019,
+      "supplemental_source_rows": 240,
+      "verified_full_time_rows": 232,
+      "unverified_or_nonfull_rows": 8
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": 2020,
+      "supplemental_source_rows": 214,
+      "verified_full_time_rows": 195,
+      "unverified_or_nonfull_rows": 19
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": 2021,
+      "supplemental_source_rows": 236,
+      "verified_full_time_rows": 216,
+      "unverified_or_nonfull_rows": 20
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": 2022,
+      "supplemental_source_rows": 249,
+      "verified_full_time_rows": 233,
+      "unverified_or_nonfull_rows": 16
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": 2023,
+      "supplemental_source_rows": 244,
+      "verified_full_time_rows": 240,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": 2024,
+      "supplemental_source_rows": 245,
+      "verified_full_time_rows": 240,
+      "unverified_or_nonfull_rows": 5
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": 2025,
+      "supplemental_source_rows": 244,
+      "unverified_or_nonfull_rows": 5,
+      "verified_full_time_rows": 239
+    },
+    {
+      "provider_league_id": "9115",
+      "utc_year": 2026,
+      "supplemental_source_rows": 234,
+      "verified_full_time_rows": 230,
+      "unverified_or_nonfull_rows": 4
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": 2019,
+      "supplemental_source_rows": 177,
+      "verified_full_time_rows": 175,
+      "unverified_or_nonfull_rows": 2
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": 2020,
+      "supplemental_source_rows": 156,
+      "unverified_or_nonfull_rows": 9,
+      "verified_full_time_rows": 147
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": 2021,
+      "supplemental_source_rows": 145,
+      "verified_full_time_rows": 125,
+      "unverified_or_nonfull_rows": 20
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": 2022,
+      "supplemental_source_rows": 183,
+      "verified_full_time_rows": 158,
+      "unverified_or_nonfull_rows": 25
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": 2023,
+      "supplemental_source_rows": 177,
+      "unverified_or_nonfull_rows": 9,
+      "verified_full_time_rows": 168
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": 2024,
+      "supplemental_source_rows": 159,
+      "verified_full_time_rows": 159
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": 2025,
+      "supplemental_source_rows": 149,
+      "verified_full_time_rows": 149
+    },
+    {
+      "provider_league_id": "957",
+      "utc_year": 2026,
+      "supplemental_source_rows": 162,
+      "verified_full_time_rows": 158,
+      "unverified_or_nonfull_rows": 4
+    }
+  ],
+  "source_unique_fids_by_utc_year": {
+    "2019": 10263,
+    "2020": 8799,
+    "2021": 11905,
+    "2022": 11645,
+    "2023": 12249,
+    "2024": 11918,
+    "2025": 12083,
+    "2026": 10956,
+    "UNKNOWN_KICKOFF_YEAR": 24
+  },
+  "source_identity_conflicts": [],
+  "output": {
+    "file": "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz",
+    "sha256": "4a14fc8556a5e39d0fec4f8eb5a54f1aca45534f92472029517ef1738be5b07c",
+    "bytes": 20792934,
+    "unique_fids": 203962
+  },
+  "scope_caveat": "This reconciles the audited 53-league schedule batch with the committed baseline only; it does not claim all leagues, FT gaps, or Crown history are complete. Missing kickoff dates remain unassigned to a UTC year; season metadata absent at source remains absent."
+}
