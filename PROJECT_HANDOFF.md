@@ -5409,3 +5409,9 @@
 - 当时未发现TotalCorner、结算、MR1或其它Crown collector运行进程后，重启既有安全等待驱动PID 56067。它从原movement manifest（SHA `5e24fc27dba4047f52d4a40bef74b50a0dc13694194ecf150f437bc26147d79a`）按追加日志排除16个已有终态FID，生成恢复清单1（SHA `e4fc61261c2fa99b4142263302968fbb47f2365b7af3b08ddc38e4815331da56`），余下101,250个FID；随后启动原采集器PID 56113。日志新增`SAVED` FID `191846696`，共1个FID、192条AH quote；仍在运行中的批次不能据此宣称完成。
 - 本次可复跑并集库存与FT缺口数据哈希见`research/data_recovery_2019_2026/CHECKPOINT_SHA256_20261121T2344Z.txt`。该清单中的Crown数据库SHA是采集恢复前快照；采集过程中数据库会继续变化，应在驱动终止或队列阶段暂停后再更新覆盖快照。
 - 当前只启动历史数据采集，没有正式模型、Telegram、订单或账本操作；全局联赛与赛季发现、10,957场FT缺口、剩余Crown movement/summary报价仍未完成。
+
+### 2026-11-21 23:47 UTC：Crown movement续采遇到新结算窗口后安全暂停
+
+- 恢复清单启动后已追加7个终态FID（6个`SAVED`、1个`NO_CROWN_AH_QUOTES`）。包括之前16个终态在内，日志共23个FID、21个`SAVED`、2个`NO_CROWN_AH_QUOTES`、4,497条AH quote；这只是101,250个待处理FID中的短暂进度。
+- 安全驱动于23:45:49Z检测到`unified_settlement.py`并向collector发SIGTERM；随后检测到`research.m3.totalcorner_shadow_settle`也在运行，因此collector维持暂停。驱动PID 56067仍在等待，后续会继续遵守互斥检查。
+- 这7个新终态均为historical回取结果，不是赛前实收；本检查点没有更新原始缓存、盘口数据库审计汇总或模型数据覆盖表。下次停止采集并确认无其它任务后再生成准确的数据库SHA和覆盖快照。
