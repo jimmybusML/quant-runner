@@ -1,9 +1,9 @@
 {
   "audit": "explicit provider league source union for 2019-2026 historical recovery",
-  "generated_at_utc": "2026-11-21T15:32:28.414032Z",
+  "generated_at_utc": "2026-11-21T16:05:39.442904Z",
   "network_requests": 0,
   "scope_is_exhaustive_forever": false,
-  "scope_note": "Union of the currently available formal M1 scope, expanded schedule universe, unresolved scoped schedule candidates, and observed M1-history-only provider IDs. New source discoveries can extend it.",
+  "scope_note": "Provider-ID union is limited to explicit ID sources. M7 also contains exact-name research-universe lists; names not mapped by exact existing records remain unresolved and must be investigated. This is not a claim that no additional competition can be discovered.",
   "sources": {
     "formal_m1_scope": {
       "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/m1-scope-leagues.json",
@@ -222,6 +222,1270 @@
         "11959"
       ]
     },
+    "m7_research_universe_named_competitions": {
+      "path": "/Users/mac/QuantAsiaDesk/repos/mr1/config/mr1-research-universe-v1.json",
+      "sha256": "a74bff96200423cd6bccba013694dbbe46722c6440b8607ecb2bc5ef8f06da4d",
+      "production_scope_changed_field": true,
+      "interpretation": "Historical source-scope evidence only. Deprecated second-tier entries are inventoried for data recovery; this audit does not apply them to production filtering.",
+      "competition_counts_by_list": {
+        "first_tier_totalcorner_exact": 20,
+        "opponent_observed_totalcorner_exact": 31,
+        "deprecated_second_tier_totalcorner_exact": 53
+      },
+      "unique_exact_names": 73,
+      "exact_name_to_id_mapping_sources": [
+        "formal M1 ID/name file",
+        "expanded schedule-universe rows",
+        "scoped schedule candidate records",
+        "saved TotalCorner shared-history JSONL",
+        "saved M1 and M7 TotalCorner schedule responses",
+        "active supplemental schedule responses with matching SHA sidecars"
+      ],
+      "cached_mapping_input_files": {
+        "/Users/mac/QuantAsiaDesk/research-work/recovered_factors_20261121/report-branch/research/shared_history/totalcorner/league-15.jsonl": "b8f4a121934eaa546bb5f6369ad2162d18c5f1cd3d89f1d7462263db39282f6b",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/12/page-110.raw.json": "c803ae29ea2a6643774ad6cf8ed1861b7639495d7802167c5a439ab0b7c42d8e",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/14/page-1.raw.json": "13e5002fab39bf87d4ce7c96be857d35a7d0880b862309684cd4e01c9041cd5f",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/145/page-1.raw.json": "9189110363a1c6ca104f8c6f734b6794b1fee8271c4dd142b37f19af96cf6e1d",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/16/page-1.raw.json": "339aeb98d271aa76434752e0664664b9cb81ae249779a4334d5166ed46a6a4b3",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/25/page-1.raw.json": "471a302fb8e3a704cef0860ea1dd45e6eb3dd5b2d2f0cfa5185f2509359b1df8",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/262/page-1.raw.json": "084bca71124c018f1c9e214cb23db9578ba2fcd542064580dadb4cdd40efc98c",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/29/page-1.raw.json": "d565360bc134187975f0c82606a6df31b5ca45f9a4a95cc7a2138464a13c6450",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/31/page-1.raw.json": "7fc71d0630ac1a4d351f09027caf800e5e21649325dea5010813772c5b7430ab",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/319/page-1.raw.json": "50f4ed6491fa7218a82687869dc51b32f3f5b193386b60ee1f17a7d8f1c3cd71",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/37/page-1.raw.json": "989f0cc1fbe715023de0c4cb2d529877e4012fcfd5a47bedf3c031e1c7249181",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/48/page-1.raw.json": "4dd7a76dded50138036177f0530df7e51a006e981a8de95e58ec563518edc7da",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/51/page-1.raw.json": "6ee2ba6cc1ade931ddb90384d039b471e03041739e1ecca27721b35ac3827dcd",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/61/page-1.raw.json": "658284267c252c2188e6178c90d1a1d20470dcb8523dc1359fdd328484614e93",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/62/page-1.raw.json": "8f6e74122fb9aa46aef11969405035cd5c4c271765261a2587c785fa7139f28a",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/66/page-1.raw.json": "09b5548daa1cb740248fb435de42933cceee335dbe9a2d7688be8fbf79e071ec",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/68/page-1.raw.json": "ea88e704ce4feb9e795a4b507cbfb07b91b095d52c7e450d750c12685c1dddc4",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/70/page-1.raw.json": "20e2e251dba4dcda15e2eb68dcbd86890ee51ba5d22b8dcecdfe27a6acf0ae6a",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/73/page-1.raw.json": "7f96605eecccc15df5f9fb907a880fc802026d62624f026e83a1dae7181ba58f",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/75/page-1.raw.json": "722d7ccb6f45510725c30c95b170eccdaf75379914c7d94c259e884d495794d4",
+        "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/88/page-1.raw.json": "dd1f0fc5373e71f7fb70dd6f229f99efec872e648d1765f33ae33d9c9e0a8041",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/12-037a5f2e39a4f9182de29ece4806a9f50567ab3fa0b74fc689b39f6dc820b9aa.json": "037a5f2e39a4f9182de29ece4806a9f50567ab3fa0b74fc689b39f6dc820b9aa",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/14-564c5fcb4932feafa2021b213a2473d2895eefa5957e7244bacd66026006a4db.json": "564c5fcb4932feafa2021b213a2473d2895eefa5957e7244bacd66026006a4db",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/145-4765866d21517e1dd5f44448b9c296c66ac797ba517be31cf1c397eb48964b19.json": "4765866d21517e1dd5f44448b9c296c66ac797ba517be31cf1c397eb48964b19",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/16-bfeb064ab39c65b9b6de4a20ba81894c4037ea52f1bc6d08e4db033bd257c425.json": "bfeb064ab39c65b9b6de4a20ba81894c4037ea52f1bc6d08e4db033bd257c425",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/25-d30e3fb04c975734d9a6512872a2096c3aab667d0eab1642c78df099feb7e13d.json": "d30e3fb04c975734d9a6512872a2096c3aab667d0eab1642c78df099feb7e13d",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/262-275225f636b3d657f844e8d1c071b6f3e176200f4bc19f32d980f16cb97c5472.json": "275225f636b3d657f844e8d1c071b6f3e176200f4bc19f32d980f16cb97c5472",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/29-aa22123937c311fd3f3aa0e55770770bcdfdb7b0131f48fd7f98886c335a486b.json": "aa22123937c311fd3f3aa0e55770770bcdfdb7b0131f48fd7f98886c335a486b",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/31-2dc16b98be7e0ec44e0eb0d94477775295ac2cbd4649997a7e4f5d1c88bd9067.json": "2dc16b98be7e0ec44e0eb0d94477775295ac2cbd4649997a7e4f5d1c88bd9067",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/319-a796409c006ea0cad8cf2981ccae5f367b2a54f0b220aed0ad598b6193d7c19b.json": "a796409c006ea0cad8cf2981ccae5f367b2a54f0b220aed0ad598b6193d7c19b",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/37-82c8a2312018af21296e7b30f553d21757a7bd390be672946eda9efcd5a8d5f7.json": "82c8a2312018af21296e7b30f553d21757a7bd390be672946eda9efcd5a8d5f7",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/48-46d48ce5ddb20a2ab26d7e356acfe210af4c34dd481a3c1316bc98d5a6ed3e3d.json": "46d48ce5ddb20a2ab26d7e356acfe210af4c34dd481a3c1316bc98d5a6ed3e3d",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/51-retry-2a6167ba585186d11d3913f741dedab22e768b0a91f441fd2ea3479a3b636922.json": "2a6167ba585186d11d3913f741dedab22e768b0a91f441fd2ea3479a3b636922",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/61-011e61bd7edfe0bf4b0813d576d8cd7b3ea7fb27a2cbe931831e2956ea739fc2.json": "011e61bd7edfe0bf4b0813d576d8cd7b3ea7fb27a2cbe931831e2956ea739fc2",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/62-8d2a8de4c95841278b0307ec85902cc6d814bb53345ab6c46d330fe76140d04d.json": "8d2a8de4c95841278b0307ec85902cc6d814bb53345ab6c46d330fe76140d04d",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/66-c393793910e017798508ecf81d6ed29c854880a22b36cb6cf6c54c89f5e625d0.json": "c393793910e017798508ecf81d6ed29c854880a22b36cb6cf6c54c89f5e625d0",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/68-ea88e704ce4feb9e795a4b507cbfb07b91b095d52c7e450d750c12685c1dddc4.json": "ea88e704ce4feb9e795a4b507cbfb07b91b095d52c7e450d750c12685c1dddc4",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/70-retry-435c1e198ffae8a7b34c3cb5c75da100d2ded64b4ea6c3239959b14d1894b689.json": "435c1e198ffae8a7b34c3cb5c75da100d2ded64b4ea6c3239959b14d1894b689",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/73-7922f6fe371f3f85f6a478f0ce96525903219899ef59000a30217cc878b1b20f.json": "7922f6fe371f3f85f6a478f0ce96525903219899ef59000a30217cc878b1b20f",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/75-6187dfb40e59f1c76ba70e7fb46fc1727327a105f2378b1ba6b1515aaca38ae1.json": "6187dfb40e59f1c76ba70e7fb46fc1727327a105f2378b1ba6b1515aaca38ae1",
+        "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/88-b32831ef81c143773a4a9015e926b5c67118e4d4f337483610cd94db4c9df1af.json": "b32831ef81c143773a4a9015e926b5c67118e4d4f337483610cd94db4c9df1af",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-10808-page-1-b7e9cca55ad79ce22181b59bdb89144d7c3165bce5a4894f2a841dfa09f58141.meta.json": "be5df5153efed392a228aea81ba81db0202076378d7f6e4afeac11a8c89ea776",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-10808-page-1-b7e9cca55ad79ce22181b59bdb89144d7c3165bce5a4894f2a841dfa09f58141.json": "b7e9cca55ad79ce22181b59bdb89144d7c3165bce5a4894f2a841dfa09f58141",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-10989-page-1-7d4ce5e7ccf1f642797ce92029f1e909f7f22a9b1a28f13f319a1d54cb502568.meta.json": "4fff79e28b23db210a8441f0b8e6bf605e4b961300d61e74ba8e6a8ddcd56e1c",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-10989-page-1-7d4ce5e7ccf1f642797ce92029f1e909f7f22a9b1a28f13f319a1d54cb502568.json": "7d4ce5e7ccf1f642797ce92029f1e909f7f22a9b1a28f13f319a1d54cb502568",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11958-page-1-da890ac72260f1c1cc21f55662e48e9e8dbd8b37c8bc3ca4b0693986958a4ad5.meta.json": "1d8b75853637eb8e5b57d3d01e057eec7f42a085bcc875bbd98dcaab0ea328c0",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11958-page-1-da890ac72260f1c1cc21f55662e48e9e8dbd8b37c8bc3ca4b0693986958a4ad5.json": "da890ac72260f1c1cc21f55662e48e9e8dbd8b37c8bc3ca4b0693986958a4ad5",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11959-page-1-91d904e32c8965482fec72d4337ee4a398aaf532415ac2cfd67736dfc25be38b.meta.json": "8c1e14bf130e9e95f11e8ac277da706ad9a2d31f63afe2c40202780867ffec10",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11959-page-1-91d904e32c8965482fec72d4337ee4a398aaf532415ac2cfd67736dfc25be38b.json": "91d904e32c8965482fec72d4337ee4a398aaf532415ac2cfd67736dfc25be38b",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-121-page-1-10914ce6e60dc9b7c3073e0a8b580495940783728d102642a72d30d307bfa76d.meta.json": "884998d62c13887ff40d2383079f885b876fc312490435313b1436a8dfa325d8",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-121-page-1-10914ce6e60dc9b7c3073e0a8b580495940783728d102642a72d30d307bfa76d.json": "10914ce6e60dc9b7c3073e0a8b580495940783728d102642a72d30d307bfa76d",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-128-page-1-2988c0f723cc0c40fb506013cc8c81c22dc3b5fd99f5fac9f20ed5c106159154.meta.json": "ebe21cd83cd8c117141dc4f3675f949569c5cd0849f1dcaa5e19782f22f88ce7",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-128-page-1-2988c0f723cc0c40fb506013cc8c81c22dc3b5fd99f5fac9f20ed5c106159154.json": "2988c0f723cc0c40fb506013cc8c81c22dc3b5fd99f5fac9f20ed5c106159154",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-15-page-1-c4d436d3c02b4eee759cb148354a5c71a5524b2a7f3ef113f408e10981391d4b.meta.json": "ed9cc80977b3a049473c9d5202814f465713acacb6ac57756a41c717ef6b624c",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-15-page-1-c4d436d3c02b4eee759cb148354a5c71a5524b2a7f3ef113f408e10981391d4b.json": "c4d436d3c02b4eee759cb148354a5c71a5524b2a7f3ef113f408e10981391d4b",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-210-page-1-0334c5ba3797c3b9a367a124fcb85aedd429dd0ec904cc8f07bfd043186fc911.meta.json": "6b176e7eea0f46ea4050c43f4cfdf74e978cd2375bde72c4f4370c10632102f1",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-210-page-1-0334c5ba3797c3b9a367a124fcb85aedd429dd0ec904cc8f07bfd043186fc911.json": "0334c5ba3797c3b9a367a124fcb85aedd429dd0ec904cc8f07bfd043186fc911",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-252-page-1-9076274fb441d54d2cc48349e2584566bc4f9e1f8f153027875df86d0f5c78f9.meta.json": "074786234f53bbbbe51a77a1be05c1e9639ccdccbb242592e3a53174cfa0cea3",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-252-page-1-9076274fb441d54d2cc48349e2584566bc4f9e1f8f153027875df86d0f5c78f9.json": "9076274fb441d54d2cc48349e2584566bc4f9e1f8f153027875df86d0f5c78f9",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-270-page-1-e91efeef431d22ea594c7c45308494c1ca457caa98a93ae1eb4e9bc30b6b7522.meta.json": "63e2d41a1c397fd903f5cdfaaea7688663de02acd8397715746c9b23f6de0883",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-270-page-1-e91efeef431d22ea594c7c45308494c1ca457caa98a93ae1eb4e9bc30b6b7522.json": "e91efeef431d22ea594c7c45308494c1ca457caa98a93ae1eb4e9bc30b6b7522",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-337-page-1-b611715e6729cdf310598ec7f9df46cd7bfd036162ce2cb7dae65b9c956945a9.meta.json": "f04e9b15d56ca1bc9367d4955853855ac3d16b015f288bfadad53e8a95dab7a2",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-337-page-1-b611715e6729cdf310598ec7f9df46cd7bfd036162ce2cb7dae65b9c956945a9.json": "b611715e6729cdf310598ec7f9df46cd7bfd036162ce2cb7dae65b9c956945a9",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-542-page-1-21eedc28376fb017487b8e76ec3097529055731ba5dfc7bd4aa55da3b18baa15.meta.json": "d2ff06a5e64f47d6112aadb11e7f97f8de3ee699fd4fac863c2fb2a2240a6032",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-542-page-1-21eedc28376fb017487b8e76ec3097529055731ba5dfc7bd4aa55da3b18baa15.json": "21eedc28376fb017487b8e76ec3097529055731ba5dfc7bd4aa55da3b18baa15",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-57-page-10-61168a6e8cf63c67a6a89f526e3573b4a04d8e2d78ba223b77ea60382d014870.meta.json": "f2d0299d1493026fcd84b2c1714d4d851f9a156631a05aced6d5bbcec14bf146",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-57-page-10-61168a6e8cf63c67a6a89f526e3573b4a04d8e2d78ba223b77ea60382d014870.json": "61168a6e8cf63c67a6a89f526e3573b4a04d8e2d78ba223b77ea60382d014870",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-63-page-1-63622e4132bde6024e34b838c867946b6e33bfbc3443d921ef375d8aa33ed67b.meta.json": "57137e420f299377fa7fff801ffe2b7df222936ae000916f314907bd897ff2af",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-63-page-1-63622e4132bde6024e34b838c867946b6e33bfbc3443d921ef375d8aa33ed67b.json": "63622e4132bde6024e34b838c867946b6e33bfbc3443d921ef375d8aa33ed67b",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-765-page-1-51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12.meta.json": "1953248f48dbd593ad97939088d3f2bbb484d3a450f0946aa839859f89abdab4",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-765-page-1-51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12.json": "51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12"
+      },
+      "mapped_exact_names": [
+        {
+          "competition_name_exact": "Austria Bundesliga",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "29"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/29/page-1.raw.json",
+              "file_sha256": "d565360bc134187975f0c82606a6df31b5ca45f9a4a95cc7a2138464a13c6450",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/29-aa22123937c311fd3f3aa0e55770770bcdfdb7b0131f48fd7f98886c335a486b.json",
+              "file_sha256": "aa22123937c311fd3f3aa0e55770770bcdfdb7b0131f48fd7f98886c335a486b",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Belgium First Division A",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "31"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/31/page-1.raw.json",
+              "file_sha256": "7fc71d0630ac1a4d351f09027caf800e5e21649325dea5010813772c5b7430ab",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/31-2dc16b98be7e0ec44e0eb0d94477775295ac2cbd4649997a7e4f5d1c88bd9067.json",
+              "file_sha256": "2dc16b98be7e0ec44e0eb0d94477775295ac2cbd4649997a7e4f5d1c88bd9067",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "China Division 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "210"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-210-page-1-0334c5ba3797c3b9a367a124fcb85aedd429dd0ec904cc8f07bfd043186fc911.json",
+              "file_sha256": "0334c5ba3797c3b9a367a124fcb85aedd429dd0ec904cc8f07bfd043186fc911",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-210-page-1-0334c5ba3797c3b9a367a124fcb85aedd429dd0ec904cc8f07bfd043186fc911.meta.json",
+              "sidecar_sha256": "6b176e7eea0f46ea4050c43f4cfdf74e978cd2375bde72c4f4370c10632102f1"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Colombia Primera A",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "145"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/145/page-1.raw.json",
+              "file_sha256": "9189110363a1c6ca104f8c6f734b6794b1fee8271c4dd142b37f19af96cf6e1d",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/145-4765866d21517e1dd5f44448b9c296c66ac797ba517be31cf1c397eb48964b19.json",
+              "file_sha256": "4765866d21517e1dd5f44448b9c296c66ac797ba517be31cf1c397eb48964b19",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Denmark Superligaen",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "70"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/70/page-1.raw.json",
+              "file_sha256": "20e2e251dba4dcda15e2eb68dcbd86890ee51ba5d22b8dcecdfe27a6acf0ae6a",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/70-retry-435c1e198ffae8a7b34c3cb5c75da100d2ded64b4ea6c3239959b14d1894b689.json",
+              "file_sha256": "435c1e198ffae8a7b34c3cb5c75da100d2ded64b4ea6c3239959b14d1894b689",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "France Ligue 1",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "25"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/25/page-1.raw.json",
+              "file_sha256": "471a302fb8e3a704cef0860ea1dd45e6eb3dd5b2d2f0cfa5185f2509359b1df8",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/25-d30e3fb04c975734d9a6512872a2096c3aab667d0eab1642c78df099feb7e13d.json",
+              "file_sha256": "d30e3fb04c975734d9a6512872a2096c3aab667d0eab1642c78df099feb7e13d",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Germany Bundesliga I",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "16"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/16/page-1.raw.json",
+              "file_sha256": "339aeb98d271aa76434752e0664664b9cb81ae249779a4334d5166ed46a6a4b3",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/16-bfeb064ab39c65b9b6de4a20ba81894c4037ea52f1bc6d08e4db033bd257c425.json",
+              "file_sha256": "bfeb064ab39c65b9b6de4a20ba81894c4037ea52f1bc6d08e4db033bd257c425",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Israel Leumit Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "252"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-252-page-1-9076274fb441d54d2cc48349e2584566bc4f9e1f8f153027875df86d0f5c78f9.json",
+              "file_sha256": "9076274fb441d54d2cc48349e2584566bc4f9e1f8f153027875df86d0f5c78f9",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-252-page-1-9076274fb441d54d2cc48349e2584566bc4f9e1f8f153027875df86d0f5c78f9.meta.json",
+              "sidecar_sha256": "074786234f53bbbbe51a77a1be05c1e9639ccdccbb242592e3a53174cfa0cea3"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Italy Serie A",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "12"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/12/page-110.raw.json",
+              "file_sha256": "c803ae29ea2a6643774ad6cf8ed1861b7639495d7802167c5a439ab0b7c42d8e",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/12-037a5f2e39a4f9182de29ece4806a9f50567ab3fa0b74fc689b39f6dc820b9aa.json",
+              "file_sha256": "037a5f2e39a4f9182de29ece4806a9f50567ab3fa0b74fc689b39f6dc820b9aa",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Japan J-League",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "73"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/73/page-1.raw.json",
+              "file_sha256": "7f96605eecccc15df5f9fb907a880fc802026d62624f026e83a1dae7181ba58f",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/73-7922f6fe371f3f85f6a478f0ce96525903219899ef59000a30217cc878b1b20f.json",
+              "file_sha256": "7922f6fe371f3f85f6a478f0ce96525903219899ef59000a30217cc878b1b20f",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Japan J2-League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "128"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-128-page-1-2988c0f723cc0c40fb506013cc8c81c22dc3b5fd99f5fac9f20ed5c106159154.json",
+              "file_sha256": "2988c0f723cc0c40fb506013cc8c81c22dc3b5fd99f5fac9f20ed5c106159154",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-128-page-1-2988c0f723cc0c40fb506013cc8c81c22dc3b5fd99f5fac9f20ed5c106159154.meta.json",
+              "sidecar_sha256": "ebe21cd83cd8c117141dc4f3675f949569c5cd0849f1dcaa5e19782f22f88ce7"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Kosovo Division 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "10808"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-10808-page-1-b7e9cca55ad79ce22181b59bdb89144d7c3165bce5a4894f2a841dfa09f58141.json",
+              "file_sha256": "b7e9cca55ad79ce22181b59bdb89144d7c3165bce5a4894f2a841dfa09f58141",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-10808-page-1-b7e9cca55ad79ce22181b59bdb89144d7c3165bce5a4894f2a841dfa09f58141.meta.json",
+              "sidecar_sha256": "be5df5153efed392a228aea81ba81db0202076378d7f6e4afeac11a8c89ea776"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Lithuania 1 Lyga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "542"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-542-page-1-21eedc28376fb017487b8e76ec3097529055731ba5dfc7bd4aa55da3b18baa15.json",
+              "file_sha256": "21eedc28376fb017487b8e76ec3097529055731ba5dfc7bd4aa55da3b18baa15",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-542-page-1-21eedc28376fb017487b8e76ec3097529055731ba5dfc7bd4aa55da3b18baa15.meta.json",
+              "sidecar_sha256": "d2ff06a5e64f47d6112aadb11e7f97f8de3ee699fd4fac863c2fb2a2240a6032"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Netherlands Eerste Divisie",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "121"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-121-page-1-10914ce6e60dc9b7c3073e0a8b580495940783728d102642a72d30d307bfa76d.json",
+              "file_sha256": "10914ce6e60dc9b7c3073e0a8b580495940783728d102642a72d30d307bfa76d",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-121-page-1-10914ce6e60dc9b7c3073e0a8b580495940783728d102642a72d30d307bfa76d.meta.json",
+              "sidecar_sha256": "884998d62c13887ff40d2383079f885b876fc312490435313b1436a8dfa325d8"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Netherlands Eredivisie",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "37"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/37/page-1.raw.json",
+              "file_sha256": "989f0cc1fbe715023de0c4cb2d529877e4012fcfd5a47bedf3c031e1c7249181",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/37-82c8a2312018af21296e7b30f553d21757a7bd390be672946eda9efcd5a8d5f7.json",
+              "file_sha256": "82c8a2312018af21296e7b30f553d21757a7bd390be672946eda9efcd5a8d5f7",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Northern Ireland Championship",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "765"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-765-page-1-51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12.json",
+              "file_sha256": "51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-765-page-1-51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12.meta.json",
+              "sidecar_sha256": "1953248f48dbd593ad97939088d3f2bbb484d3a450f0946aa839859f89abdab4"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Norway Eliteserien",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "88"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/88/page-1.raw.json",
+              "file_sha256": "dd1f0fc5373e71f7fb70dd6f229f99efec872e648d1765f33ae33d9c9e0a8041",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/88-b32831ef81c143773a4a9015e926b5c67118e4d4f337483610cd94db4c9df1af.json",
+              "file_sha256": "b32831ef81c143773a4a9015e926b5c67118e4d4f337483610cd94db4c9df1af",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Poland Ekstraklasa",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "48"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/48/page-1.raw.json",
+              "file_sha256": "4dd7a76dded50138036177f0530df7e51a006e981a8de95e58ec563518edc7da",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/48-46d48ce5ddb20a2ab26d7e356acfe210af4c34dd481a3c1316bc98d5a6ed3e3d.json",
+              "file_sha256": "46d48ce5ddb20a2ab26d7e356acfe210af4c34dd481a3c1316bc98d5a6ed3e3d",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Portugal Primeira Liga",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "51"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/51/page-1.raw.json",
+              "file_sha256": "6ee2ba6cc1ade931ddb90384d039b471e03041739e1ecca27721b35ac3827dcd",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/51-retry-2a6167ba585186d11d3913f741dedab22e768b0a91f441fd2ea3479a3b636922.json",
+              "file_sha256": "2a6167ba585186d11d3913f741dedab22e768b0a91f441fd2ea3479a3b636922",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Portugal Segunda Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "57"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-57-page-10-61168a6e8cf63c67a6a89f526e3573b4a04d8e2d78ba223b77ea60382d014870.json",
+              "file_sha256": "61168a6e8cf63c67a6a89f526e3573b4a04d8e2d78ba223b77ea60382d014870",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-57-page-10-61168a6e8cf63c67a6a89f526e3573b4a04d8e2d78ba223b77ea60382d014870.meta.json",
+              "sidecar_sha256": "f2d0299d1493026fcd84b2c1714d4d851f9a156631a05aced6d5bbcec14bf146"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Republic of Ireland First Division",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "10989"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-10989-page-1-7d4ce5e7ccf1f642797ce92029f1e909f7f22a9b1a28f13f319a1d54cb502568.json",
+              "file_sha256": "7d4ce5e7ccf1f642797ce92029f1e909f7f22a9b1a28f13f319a1d54cb502568",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-10989-page-1-7d4ce5e7ccf1f642797ce92029f1e909f7f22a9b1a28f13f319a1d54cb502568.meta.json",
+              "sidecar_sha256": "4fff79e28b23db210a8441f0b8e6bf605e4b961300d61e74ba8e6a8ddcd56e1c"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Republic of Ireland Premier Division",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "68"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/68/page-1.raw.json",
+              "file_sha256": "ea88e704ce4feb9e795a4b507cbfb07b91b095d52c7e450d750c12685c1dddc4",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/68-ea88e704ce4feb9e795a4b507cbfb07b91b095d52c7e450d750c12685c1dddc4.json",
+              "file_sha256": "ea88e704ce4feb9e795a4b507cbfb07b91b095d52c7e450d750c12685c1dddc4",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Scotland Championship",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "270"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-270-page-1-e91efeef431d22ea594c7c45308494c1ca457caa98a93ae1eb4e9bc30b6b7522.json",
+              "file_sha256": "e91efeef431d22ea594c7c45308494c1ca457caa98a93ae1eb4e9bc30b6b7522",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-270-page-1-e91efeef431d22ea594c7c45308494c1ca457caa98a93ae1eb4e9bc30b6b7522.meta.json",
+              "sidecar_sha256": "63e2d41a1c397fd903f5cdfaaea7688663de02acd8397715746c9b23f6de0883"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Scotland Premiership",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "262"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/262/page-1.raw.json",
+              "file_sha256": "084bca71124c018f1c9e214cb23db9578ba2fcd542064580dadb4cdd40efc98c",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/262-275225f636b3d657f844e8d1c071b6f3e176200f4bc19f32d980f16cb97c5472.json",
+              "file_sha256": "275225f636b3d657f844e8d1c071b6f3e176200f4bc19f32d980f16cb97c5472",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Serbia Prva Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "337"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-337-page-1-b611715e6729cdf310598ec7f9df46cd7bfd036162ce2cb7dae65b9c956945a9.json",
+              "file_sha256": "b611715e6729cdf310598ec7f9df46cd7bfd036162ce2cb7dae65b9c956945a9",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-337-page-1-b611715e6729cdf310598ec7f9df46cd7bfd036162ce2cb7dae65b9c956945a9.meta.json",
+              "sidecar_sha256": "f04e9b15d56ca1bc9367d4955853855ac3d16b015f288bfadad53e8a95dab7a2"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "South Korea K League 1",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "75"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/75/page-1.raw.json",
+              "file_sha256": "722d7ccb6f45510725c30c95b170eccdaf75379914c7d94c259e884d495794d4",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/75-6187dfb40e59f1c76ba70e7fb46fc1727327a105f2378b1ba6b1515aaca38ae1.json",
+              "file_sha256": "6187dfb40e59f1c76ba70e7fb46fc1727327a105f2378b1ba6b1515aaca38ae1",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Spain La Liga",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "14"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/14/page-1.raw.json",
+              "file_sha256": "13e5002fab39bf87d4ce7c96be857d35a7d0880b862309684cd4e01c9041cd5f",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/14-564c5fcb4932feafa2021b213a2473d2895eefa5957e7244bacd66026006a4db.json",
+              "file_sha256": "564c5fcb4932feafa2021b213a2473d2895eefa5957e7244bacd66026006a4db",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Spain Segunda",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "15"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "recovered_totalcorner_shared_history",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/recovered_factors_20261121/report-branch/research/shared_history/totalcorner/league-15.jsonl",
+              "file_sha256": "b8f4a121934eaa546bb5f6369ad2162d18c5f1cd3d89f1d7462263db39282f6b",
+              "sidecar_verified": false
+            },
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-15-page-1-c4d436d3c02b4eee759cb148354a5c71a5524b2a7f3ef113f408e10981391d4b.json",
+              "file_sha256": "c4d436d3c02b4eee759cb148354a5c71a5524b2a7f3ef113f408e10981391d4b",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-15-page-1-c4d436d3c02b4eee759cb148354a5c71a5524b2a7f3ef113f408e10981391d4b.meta.json",
+              "sidecar_sha256": "ed9cc80977b3a049473c9d5202814f465713acacb6ac57756a41c717ef6b624c"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Sweden Allsvenskan",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "66"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/66/page-1.raw.json",
+              "file_sha256": "09b5548daa1cb740248fb435de42933cceee335dbe9a2d7688be8fbf79e071ec",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/66-c393793910e017798508ecf81d6ed29c854880a22b36cb6cf6c54c89f5e625d0.json",
+              "file_sha256": "c393793910e017798508ecf81d6ed29c854880a22b36cb6cf6c54c89f5e625d0",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Switzerland Super League",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "61"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/61/page-1.raw.json",
+              "file_sha256": "658284267c252c2188e6178c90d1a1d20470dcb8523dc1359fdd328484614e93",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/61-011e61bd7edfe0bf4b0813d576d8cd7b3ea7fb27a2cbe931831e2956ea739fc2.json",
+              "file_sha256": "011e61bd7edfe0bf4b0813d576d8cd7b3ea7fb27a2cbe931831e2956ea739fc2",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Türkiye Super Lig",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "62"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/62/page-1.raw.json",
+              "file_sha256": "8f6e74122fb9aa46aef11969405035cd5c4c271765261a2587c785fa7139f28a",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/62-8d2a8de4c95841278b0307ec85902cc6d814bb53345ab6c46d330fe76140d04d.json",
+              "file_sha256": "8d2a8de4c95841278b0307ec85902cc6d814bb53345ab6c46d330fe76140d04d",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Ukraine Persha Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "63"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-63-page-1-63622e4132bde6024e34b838c867946b6e33bfbc3443d921ef375d8aa33ed67b.json",
+              "file_sha256": "63622e4132bde6024e34b838c867946b6e33bfbc3443d921ef375d8aa33ed67b",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-63-page-1-63622e4132bde6024e34b838c867946b6e33bfbc3443d921ef375d8aa33ed67b.meta.json",
+              "sidecar_sha256": "57137e420f299377fa7fff801ffe2b7df222936ae000916f314907bd897ff2af"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Ukraine Vyscha Liga",
+          "listed_in": [
+            "first_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "319"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "m1_cached_totalcorner_schedule_page",
+              "path": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/319/page-1.raw.json",
+              "file_sha256": "50f4ed6491fa7218a82687869dc51b32f3f5b193386b60ee1f17a7d8f1c3cd71",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            },
+            {
+              "source": "m7_cached_totalcorner_schedule_refresh",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_current_approved_schedule_refresh_20261110/raw/319-a796409c006ea0cad8cf2981ccae5f367b2a54f0b220aed0ad598b6193d7c19b.json",
+              "file_sha256": "a796409c006ea0cad8cf2981ccae5f367b2a54f0b220aed0ad598b6193d7c19b",
+              "sidecar_verified": false,
+              "sidecar_path": null,
+              "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Wales Championship North",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "11958"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11958-page-1-da890ac72260f1c1cc21f55662e48e9e8dbd8b37c8bc3ca4b0693986958a4ad5.json",
+              "file_sha256": "da890ac72260f1c1cc21f55662e48e9e8dbd8b37c8bc3ca4b0693986958a4ad5",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11958-page-1-da890ac72260f1c1cc21f55662e48e9e8dbd8b37c8bc3ca4b0693986958a4ad5.meta.json",
+              "sidecar_sha256": "1d8b75853637eb8e5b57d3d01e057eec7f42a085bcc875bbd98dcaab0ea328c0"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Wales Championship South",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "11959"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11959-page-1-91d904e32c8965482fec72d4337ee4a398aaf532415ac2cfd67736dfc25be38b.json",
+              "file_sha256": "91d904e32c8965482fec72d4337ee4a398aaf532415ac2cfd67736dfc25be38b",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11959-page-1-91d904e32c8965482fec72d4337ee4a398aaf532415ac2cfd67736dfc25be38b.meta.json",
+              "sidecar_sha256": "8c1e14bf130e9e95f11e8ac277da706ad9a2d31f63afe2c40202780867ffec10"
+            }
+          ]
+        }
+      ],
+      "unmapped_exact_names": [
+        {
+          "competition_name_exact": "Albania First Division",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Andorra Second Division",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Austria 2. Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Azerbaijan Division 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Belgium First Division B",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Bosnia & Herzegovina 1st League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Bulgaria B PFG",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Bulgaria Second League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Croatia 1.NL",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Cyprus Division 2",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Czechia 2. Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Denmark Division 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Egypt Division 2",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "England Championship",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Estonia Esiliiga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Faroe Islands Div 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Finland Ykkosliiga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "France Ligue 2",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Georgia First League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Germany Bundesliga II",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Greece Super League 2",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Hungary NB II",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Iceland 1 Deild",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Italy Serie B",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Latvia 1. Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Malta Challenge League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Montenegro Druga Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "North Macedonia Second League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Norway Division 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Poland I Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Romania Liga II",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Saudi Arabia Division 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Slovakia 2. Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Slovenia 2. SNL",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "South Korea K League 2",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Sweden Superettan",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Switzerland Challenge League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        },
+        {
+          "competition_name_exact": "Türkiye 1 Lig",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [],
+          "raw_source_evidence": []
+        }
+      ],
+      "multiply_mapped_exact_names": []
+    },
     "current_reconciled_inventory": {
       "path": "/private/tmp/quant-runner-history-backfill/research/data_recovery_2019_2026/inventory_coverage_summary_2019_2026.json",
       "sha256": "2a6b8a8a9e7c2297fc1f9badb57967f1133f65c18317295ee495c50e50ec9ac3",
@@ -351,6 +1615,8 @@
       "11958",
       "11959"
     ],
+    "m7_exact_names_unmapped_to_provider_id": 38,
+    "m7_exact_names_mapped_to_multiple_provider_ids": 0,
     "formal_ids_not_in_inventory": [],
     "expanded_ids_not_in_inventory": []
   },

@@ -5120,8 +5120,15 @@
 - PID 10634仍运行；进度文件记录702请求、20,599新FID、ID337 Serbia Prva Liga 49/87页。四个“冲突”是既有ID15记录版本SHA变化，旧缓存无开赛/终态字段、新TotalCorner页含完整记录，既有核对确认球队/联赛身份一致；没有覆盖旧版本。请求日志另有一次ConnectionError后继续成功分页，当前累计failed_pages为空。
 - 完整再现记录见 `COLLECTION_CHECKPOINT_20261121T1523Z.md`、`supplemental_schedule_progress_snapshot_20261121T1523Z.json`、`history_recovery_execution_20261121T1523Z.json` 和SHA清单。所有库存/FT/raw cache审计均离线，只读；没有训练、回测或生产交易操作。
 
-### 2026-11-21 15:32 UTC：显式联赛范围并集复核
+### 2026-11-21 15:32 UTC：扩大显式竞赛范围并集复核
 
-- 新增 `research/data_recovery_2019_2026/audit_league_scope_union_2019_2026.py` 与机器结果 `league_scope_union_2019_2026.json`。零网络请求、零SQLite写入。按输入SHA对账M1正式范围51个ID、扩展赛程64个ID、此前已登记的15个失败赛程候选及全源库存中的M1历史缓存独有ID 27391；当前已识别并集80个不同provider league ID。该集合是当前显式来源的并集，不宣称未来不会发现其他比赛或联赛。
-- 最新已合并覆盖快照含74个provider league ID，覆盖上述并集中的74个ID，没有并集外ID；候选清单中9个ID已入快照，尚缺6个ID：542、765、10808、10989、11958、11959。实时TotalCorner分页进程PID 10634仍运行，已进入ID542；其新响应尚未并入覆盖快照。
-- 脚本/JSON SHA256分别为 `794eb6a3069c2576f77a2963f45de1a0f647e81751299c4f3c99e6ea67908b21` / `f0be012c039eac218d13c510ab6076ae11e0ca5b9dce64fb2eda8b684041e1d8`。完成当前分页批次后重新规范化、复跑此并集审计并更新全联赛/逐年/赛季覆盖表；之后按更新后的唯一FID库存恢复Crown历史AH，继续核实未确认FT。
+- 新增 `research/data_recovery_2019_2026/audit_league_scope_union_2019_2026.py` 与机器结果 `league_scope_union_2019_2026.json`。M1正式ID范围51、扩展赛程64、先前失败候选15及M1历史缓存独有ID 27391合并后，已知ID并集为80。最新已合并库存为74 ID，尚待并入候选为542、765、10808、10989、11958、11959。采集器PID 10634仍运行；当时ID542页50/57，ID765已开始分页。此快照尚未涵盖运行中的新响应。
+- 审计进一步读取MR1/M7研究范围配置：三个具名竞赛列表合计73个唯一精确名称，当前正式ID、扩展赛程和已知候选名称可精确映射35个，另38个没有可追溯provider ID。已将名称、所属配置清单和映射缺失留在JSON中。弃用二级联赛表作为历史数据来源证据保留，不把它套用成生产范围或过滤规则。80个ID只是目前明确ID来源并集，不能视为完整结束。
+- 本次脚本与JSON SHA256为 `e9343a10cd8c24967025b13b4daba1fd9326174bb15fdb1ec9325fcdee7e0aa6` / `a9f3dca43bfa22e1d6e523f7ee5936cb2af4633ee9cba94020743a374504548d`。此离线审计请求0、SQLite写入0。下一步继续从本地赛程身份/映射记录为38个名称查找精确ID，同时完成活动赛程分页；更新源并集、FID/FT及Crown覆盖快照后再继续历史AH补采。
+
+### 2026-11-21 16:05 UTC：M7精确名称来源哈希与分页进度更新
+
+- 将只读范围审计扩展到已保存的TotalCorner shared-history JSONL、M1赛程页、M7赛程刷新和当前补充赛程raw响应。M7三份名单合计仍是73个唯一精确名称；35个映射到已知provider ID，38个仍未映射，没有根据相似赛事名推测ID。逐条映射现在附一份匹配的源文件SHA；补充采集raw响应仅在body SHA与sidecar一致时接受，并同时登记body/sidecar SHA。
+- Wales Championship North的原始`/v1/league/schedule/11958`响应及sidecar提供了精确ID来源证据；该名称本已映射，故映射数仍为35。完整未映射名单和逐项哈希在`research/data_recovery_2019_2026/league_scope_union_2019_2026.json`。
+- TotalCorner赛程采集器PID 10634仍运行。16:05 UTC权威进度：925次请求、累计发现27,068个目标期新FID；ID 15、57、63、121、128、210、252、270、337、542、765、10808、10989、11958均已到2019 cutoff/provider终点且没有失败页；ID11959 Wales Championship South到第28页，总页数尚未报告。原始响应尚未合并进规范化库存。
+- 合并库存仍是先前74个provider ID；542、765、10808、10989、11958、11959六个候选ID等待合并。该范围审计请求0次网络、SQLite写入0次。TotalCorner进程活动期间不另发TotalCorner请求，不启动Crown批次；待其退出后再整合赛程、FT和Crown覆盖并更新逐联赛/赛季矩阵。
