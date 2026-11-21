@@ -1,0 +1,50 @@
+{
+  "generated_at_utc": "2026-11-21T21:09:22.485701Z",
+  "purpose": "ongoing all-league 2019-2026 schedule recovery; intermediate completed-target audit only, not a completion claim",
+  "collector": {
+    "pid": 65966,
+    "process_alive_at_checkpoint": true,
+    "session_id": 29157,
+    "started_at_utc": "2026-11-21T16:28:12.968745Z",
+    "loaded_target_count": 38,
+    "loaded_target_manifest_sha256": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778",
+    "batch_network_requests": 1671,
+    "batch_new_unique_fids_ledger": 48943,
+    "identity_conflicts": 0,
+    "completed_targets": 29,
+    "targets_started": 30,
+    "active_targets": [
+      {
+        "provider_league_id": "355",
+        "name": "Slovakia 2. Liga",
+        "pages_read": 10,
+        "pages_reported": 87,
+        "new_fids": 300,
+        "failed_pages": []
+      }
+    ]
+  },
+  "completed_target_audit": {
+    "target_count_in_current_file": 38,
+    "completed_target_count": 29,
+    "unique_schedule_fids": 48643,
+    "verified_full_ft_fids": 45168,
+    "unverified_or_nonfull_fids": 3475,
+    "source_pages_referenced_and_sha_verified": 1636,
+    "source_rows_sha_verified": 48643,
+    "source_audit_errors": {},
+    "identity_version_conflicts": 0,
+    "crown_sqlite_read_only_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+    "crown_quote_fids_in_completed_targets": 0,
+    "coverage_audit_json_sha256": "213dbbff1f96a07a67cf980e5df4f699d8415b07ce515d2499a23485bc930989"
+  },
+  "private_progress_sha256": "8b29395bba1ea1c0a8c5329b05a7a4bd602965868fd3f4d88b801061f5b7380a",
+  "private_request_log_sha256": "cd9146c6a188e1fdf24dfe6d56037694a98faa0a4d25ae71f65c18967b80d06f",
+  "private_fixture_ledger_sha256": "65522825d75c7bbb6571d81afa410d88bfd265f6c1d7c16da832998fdd1b6ad8",
+  "constraints": {
+    "no_strategy_or_model_research": true,
+    "no_crown_network_requests_during_active_totalcorner_collector": true,
+    "no_crown_sqlite_writes": true,
+    "raw_http_bodies_remain_private": true
+  }
+}
