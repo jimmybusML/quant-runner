@@ -5191,3 +5191,11 @@
 - 对11个完成联赛进行只读FID交叉核对：13,092场中12,087场源状态为full且比分为有效数字；SQLite `capture`全层FID和AH报价FID均为0。该结论只说明当前本地库尚无对应记录，不等于provider无历史报价。未发Crown请求、未写SQLite。
 - 进程启动时目标SHA为旧的35项清单 `9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9`；当前排队清单已扩至38项，SHA `effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778`，增加的10653、702、114三个精确页面映射ID尚需在当前进程结束后续采。
 - 检查点 `research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1754Z.json` SHA256 `c1f1fc695daf97489d67cb4da28f8075a9ab0b0760d308ce048397d52c901ce0`，同时记录私有进度、追加请求日志、比赛ledger和当前目标输入哈希。赛程并表、全源覆盖刷新、Crown historical summary/movement补采和赛果缺口刷新均未完成；本任务继续。
+
+
+### 2026-11-21 18:15 UTC：12个完成联赛的逐年赛程、赛果与 Crown 缓存覆盖快照
+
+- 活动 TotalCorner 赛程补采进程仍为 PID 65966 / session 29157，未重启。核实该时刻累计614次请求；12个目标联赛已完成，England Championship（ID 2）进行到234页中的第70页，失败页0。当前运行批次启动时输入为原35项清单（SHA `9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9`）；新38项清单（SHA `effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778`）中的3个补充ID 10653、702、114待本批退出后续采。
+- 对12个已完成联赛生成可复跑逐联赛×UTC年覆盖矩阵：15,907个唯一赛程FID，14,613场状态为`full`且有数字FT；1,294场为缺失/非full状态，需逐状态复核，不能一概视为失败赛果。535个原始赛程响应页、15,907条逐场源记录SHA均验证通过，身份版本冲突0。覆盖矩阵含96个联赛年桶（2019–2026）；逐年赛程/已核实FT/非full数为：2019 1,454/1,330/124；2020 1,310/1,149/161；2021 1,851/1,642/209；2022 1,929/1,726/203；2023 2,448/2,301/147；2024 2,336/2,192/144；2025 2,413/2,249/164；2026 2,166/2,024/142。
+- SHA核对原始TotalCorner赛程响应中的15,907条比赛记录，均未包含`season`字段；已逐条标记缺失，未用UTC年份伪造赛季。Crown SQLite只读交叉检查对应赛程FID：历史capture 0、AH报价0；这仅表示本地缓存未覆盖，不能推断数据源无报价。全过程未启动Crown请求或研究回测。
+- 复跑脚本 `research/data_recovery_2019_2026/audit_completed_schedule_league_year_coverage.py`；输出 `completed_schedule_league_year_coverage_2019_2026.json`。中间进度快照 `schedule_recovery_checkpoint_20261121T1815Z.json` SHA256 `4d1de4b7bdc536a032542b1781858eab4f9c4a049dad15dee1b16bc2dcd2b2a6`。以上仅覆盖已分页完成子集，不代表全38个目标或完整历史库存完成；赛程继续分页后需重跑合并及覆盖核对。

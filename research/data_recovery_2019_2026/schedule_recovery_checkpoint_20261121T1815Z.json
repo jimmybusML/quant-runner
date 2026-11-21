@@ -1,0 +1,57 @@
+{
+  "checkpoint_utc": "2026-11-21T18:14:59Z",
+  "branch": "data/history-backfill-2019-2026",
+  "git_head": "c207fb098b61c1b79ab1f5371be69a489dfdcd7e",
+  "collector": {
+    "pid": 65966,
+    "unified_exec_session": 29157,
+    "observed_running": true,
+    "network_requests": 614,
+    "completed_target_count": 12,
+    "completed_provider_league_ids": [
+      "90",
+      "119",
+      "227",
+      "417",
+      "571",
+      "877",
+      "911",
+      "9115",
+      "11260",
+      "11559",
+      "26528",
+      "26825"
+    ],
+    "active_targets": [
+      {
+        "provider_league_id": "2",
+        "league_name": "England Championship",
+        "pages_read": 70,
+        "reported_pages": 234,
+        "failed_pages": []
+      }
+    ],
+    "loaded_target_sha256_at_process_start": "9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9",
+    "current_queued_38_target_manifest_sha256": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
+  },
+  "completed_target_snapshot": {
+    "unique_schedule_fids": 15907,
+    "verified_full_ft_fids": 14613,
+    "unverified_or_nonfull_fids": 1294,
+    "source_page_count": 535,
+    "source_rows_sha_verified": 15907,
+    "source_record_errors": {},
+    "season_field_missing_fids": 15907,
+    "crown_sqlite_historical_capture_fids": 0,
+    "crown_sqlite_ah_quote_fids": 0
+  },
+  "input_sha256": {
+    "progress": "c953db0d27b5e299e59cffa576c6bdc6d58f4236482881450a021e97df99e824",
+    "append_only_fixture_ledger": "7e499664537467aa7129c0a058625b28c1b36679777d4935db291ecbe096c058",
+    "append_only_request_log": "2ae71de378b624844601b206d92c797ba98a69639cd5cbd7ffb154c72672dc3c",
+    "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
+  },
+  "auditor_script_sha256": "45dcb43c03a9fe9fa260e3359900a1082d08c6bae431e0978350c6515e43aefd",
+  "coverage_output_sha256": "df0672dade3b17a989ff3b43bc783780c14c580b1eb0f82b82eb478875f92480",
+  "note": "Intermediate snapshot for 12 pagination-complete target leagues only. England Championship is partial; remaining initial and supplemental target IDs are not represented as complete. No Crown requests were issued."
+}
