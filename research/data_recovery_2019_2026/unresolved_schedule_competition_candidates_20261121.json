@@ -1,0 +1,310 @@
+{
+  "audit_at_utc": "2026-11-21T11:59:50+00:00",
+  "purpose": "Data-source scope reconciliation only; no Crown collection and no strategy/model work.",
+  "master_inventory": {
+    "unique_fids": 114111,
+    "provider_league_ids": 65,
+    "source_file": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/fixture_inventory_2019_2026.jsonl.gz",
+    "source_file_sha256": "0e47ef60ea6762d82e62c7a9bdbb8cceab2950f1aa8396f320ef9a64cf09709e"
+  },
+  "scoped_schedule_attempt_source": {
+    "script": "/Users/mac/QuantAsiaDesk/repos/runner/research/shared_history/collect_scoped_history.py",
+    "script_sha256": "959ffe5ce16463cae6557aff680740a028f1e1b684a1d1c7d63c6de62246bc11",
+    "summary": "/Users/mac/QuantAsiaDesk/repos/runner/research/shared_history/totalcorner/latest_collection_summary.json",
+    "summary_sha256": "8157e4fa1c8128295c940d8554cb51e33ca16ca89774aa0b594c83794531ef1f",
+    "generated_utc": "2026-11-02T04:33:39.535163+00:00",
+    "market_history_verified": false
+  },
+  "candidate_competition_count": 15,
+  "candidate_ids_outside_master_inventory": 15,
+  "competitions_with_saved_rows": 1,
+  "competitions_with_request_errors": 15,
+  "total_unique_saved_source_fids": 120,
+  "competitions": [
+    {
+      "provider_league_id": "15",
+      "league_name": "Spain Segunda",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 120,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 5,
+      "last_run_added_rows": 120,
+      "request_errors": [
+        {
+          "league_id": "15",
+          "page": 5,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "partial_schedule_present_page_failure",
+      "source_file": "/Users/mac/QuantAsiaDesk/repos/runner/research/shared_history/totalcorner/league-15.jsonl",
+      "source_file_sha256": "b8f4a121934eaa546bb5f6369ad2162d18c5f1cd3d89f1d7462263db39282f6b"
+    },
+    {
+      "provider_league_id": "57",
+      "league_name": "Portugal Segunda Liga",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "57",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "63",
+      "league_name": "Ukraine Persha Liga",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "63",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "121",
+      "league_name": "Netherlands Eerste Divisie",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "121",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "128",
+      "league_name": "Japan J2-League",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "128",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "210",
+      "league_name": "China Division 1",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "210",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "252",
+      "league_name": "Israel Leumit Liga",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "252",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "270",
+      "league_name": "Scotland Championship",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "270",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "337",
+      "league_name": "Serbia Prva Liga",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "337",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "542",
+      "league_name": "Lithuania 1 Lyga",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "542",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "765",
+      "league_name": "Northern Ireland Championship",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "765",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "10808",
+      "league_name": "Kosovo Division 1",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "10808",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "10989",
+      "league_name": "Republic of Ireland First Division",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "10989",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "11958",
+      "league_name": "Wales Championship North",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "11958",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    },
+    {
+      "provider_league_id": "11959",
+      "league_name": "Wales Championship South",
+      "inside_65_id_master_inventory": false,
+      "stored_source_rows": 0,
+      "fids_overlapping_65_id_master_inventory": 0,
+      "pages_reported_read": 1,
+      "last_run_added_rows": 0,
+      "request_errors": [
+        {
+          "league_id": "11959",
+          "page": 1,
+          "error": "API returned unsuccessful response"
+        }
+      ],
+      "status": "no_rows_saved_request_failed",
+      "source_file": null,
+      "source_file_sha256": null
+    }
+  ]
+}

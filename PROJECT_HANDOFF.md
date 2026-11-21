@@ -4991,3 +4991,20 @@
 - 4个传输失败FID（provider league 1）：2021年`108593130`及2022年`113872870`、`113872883`、`115515191`，均为`IncompleteRead`；待主批次结束后另行重试，不与无报价结果合并。`NO_CROWN_AH_QUOTES`只表示该次保存响应未返回AH movement，不推断其他历史时点无报价。
 - 安全窗口驱动器PID 86436仍在运行；11:46:09 UTC它因生产`unified_settlement.py` PID 92133运行而暂停采集子进程。生产作业未被停止或改动；驱动将在安全窗口恢复后续跑。请求仍由既有collector串行发起，capture标记historical、`prospective_observation=false`。
 - 可复核快照 `research/data_recovery_2019_2026/collection_progress_snapshot_20261121T1148Z.json` 记录候选清单SHA、追加日志快照SHA、逐FID状态及失败项。数据库在此后仍可能增长，以上是11:48 UTC中途快照，不能表述为批次完成。
+
+## 2026-11-21｜补充 TotalCorner 赛程源并扩展联赛清单（12:03 UTC）
+
+- 交叉盘点M1配置、64个TotalCorner赛程缓存目录、64联赛扩展清单和65-ID主库存后，发现一个未合并到主库存的真实历史赛程源：`research/shared_history/totalcorner/league-15.jsonl`（Spain Segunda，provider league 15）。源文件SHA256 `b8f4a121934eaa546bb5f6369ad2162d18c5f1cd3d89f1d7462263db39282f6b`。抽取120个唯一FID，全部2026 UTC年，和114,111-FID主库存交集0；因此当前已发现有赛事行的范围至少为114,231个唯一FID、66个provider league ID。
+- 120行中116行的source status为`full`且有双方比分，可按当前来源证据记完整赛果；另4行status缺失，虽然有比分字段，仍标成未核实FT。来源没有提供赛季字段；开球时间保留原值并按项目既有Asia/Shanghai TotalCorner解析惯例规范化UTC，来源字符串本身没有时区标记。上述120行只来自2026-08-22至2026-11-03的部分页，采集摘要显示league 15第5页请求失败，不能视为完整赛程。
+- 同一 scoped-history脚本还记录14个主库存之外的provider league候选ID（57、63、121、128、210、252、270、337、542、765、10808、10989、11958、11959），首次请求各自第1页均返回unsuccessful、没有保存赛程行。它们是具体待重试赛程范围，不当作零赛事。没有在本轮发起新赛程API请求；league15补充数据尚未联接Crown SQLite报价。
+- 新增`audit_supplemental_totalcorner_schedule_source.py`与`audit_unresolved_scoped_schedule_candidates.py`，产出按FID规范化的120行压缩补充账、状态/重叠摘要以及15个联赛候选的请求错误清单。主`audit_existing_inventory.py`已改为把补充源并入下次联赛/UTC年矩阵、FT核验和movement缺口队列；修改已编译但因数据库写入仍活动尚未运行全库审计。因此114,231和66是两个已核实来源并集的赛程快照，不是完成Crown连接后的最终覆盖数。
+- Crown movement batch 02在12:02:47 UTC的最新稳定追加日志快照为218个唯一FID已处理、11,485个未尝试；51 `REUSED_DB`、48 `SAVED`、115 `NO_CROWN_AH_QUOTES`、4 `FETCH_FAILED/IncompleteRead`，163个FID有本轮实际HTTP接收时刻，最新12:01:43.066333Z。采集请求仍标historical及`prospective_observation=false`。4个失败FID与11:48检查点相同，待主批次完成后重试。
+- 12:01:51 UTC安全驱动器因正式`unified_settlement.py` PID 97451运行而暂停collector；driver PID 86436仍活跃等待，生产任务未被停止或改动。详细逐项结果见`supplemental_totalcorner_league15_schedule_summary_20261121.json`、`unresolved_schedule_competition_candidates_20261121.json`与`collection_progress_snapshot_20261121T1203Z.json`；文件哈希见`SCOPE_EXTENSION_SHA256_20261121T1203Z.txt`。
+
+
+
+## 2026-11-21｜Crown movement batch 02续跑检查点（12:08 UTC）
+
+- 快照时间为`2026-11-21T12:08:52Z`：候选清单11,703个FID（SHA256 `c65717c97de845200dd3503927432ff198a2efd21fcee4b58c217eb1d3aa2025`），已出现250个唯一FID，尚有11453个未尝试；当前状态为51 `REUSED_DB`、54 `SAVED`、141 `NO_CROWN_AH_QUOTES`、4 `FETCH_FAILED`。246个FID的批次行含HTTP接收时刻，最新为`2026-11-21T12:08:51.359361Z`；日志SHA256 `e1c6811dcea9f1d639a7f63ca617e3cab2b6b98798aa6c71157ab61863ade83b`。
+- 4个`IncompleteRead`仍保留为传输失败并待主批次结束后重试，不能归类为无报价。无报价状态仅描述本次成功响应的内容。所有请求均为historical、`prospective_observation=false`。
+- 现场进程核验：safe-window driver PID 86436和collector PID 98675仍运行；本快照时未见`unified_settlement.py`进程。没有停止或修改生产工作。详细快照为`research/data_recovery_2019_2026/collection_progress_snapshot_20261121T1208Z.json`。

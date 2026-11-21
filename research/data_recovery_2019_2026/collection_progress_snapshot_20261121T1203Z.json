@@ -1,0 +1,43 @@
+{
+  "snapshot_at_utc": "2026-11-21T12:02:47Z",
+  "batch": "crown_movement_batch02",
+  "candidate_unique_fids": 11703,
+  "attempted_unique_fids": 218,
+  "remaining_unique_fids": 11485,
+  "latest_status_counts_by_fid": {
+    "REUSED_DB": 51,
+    "SAVED": 48,
+    "FETCH_FAILED": 4,
+    "NO_CROWN_AH_QUOTES": 115
+  },
+  "unique_fids_with_http_receive_timestamp": 163,
+  "latest_http_receive_at_utc": "2026-11-21T12:01:43.066333Z",
+  "candidate_manifest_sha256": "c65717c97de845200dd3503927432ff198a2efd21fcee4b58c217eb1d3aa2025",
+  "append_log_sha256_at_snapshot": "6405a48d35a11f9bc1640afa38ac70bdb556537d52e163db63c9d8d0ecde2e1d",
+  "fetch_failed_fids": [
+    {"fid": "108593130", "provider_league_id": "1", "calendar_year_utc": 2021, "error": "IncompleteRead"},
+    {"fid": "113872870", "provider_league_id": "1", "calendar_year_utc": 2022, "error": "IncompleteRead"},
+    {"fid": "113872883", "provider_league_id": "1", "calendar_year_utc": 2022, "error": "IncompleteRead"},
+    {"fid": "115515191", "provider_league_id": "1", "calendar_year_utc": 2022, "error": "IncompleteRead"}
+  ],
+  "schedule_scope_extension": {
+    "previous_master_inventory_unique_fids": 114111,
+    "previous_master_inventory_provider_leagues": 65,
+    "supplemental_provider_league_id": "15",
+    "supplemental_league_name": "Spain Segunda",
+    "supplemental_unique_fids": 120,
+    "supplemental_fids_overlapping_previous_inventory": 0,
+    "supplemental_fids_in_utc_year_2026": 120,
+    "supplemental_verified_full_status_and_score": 116,
+    "supplemental_status_missing": 4,
+    "provisional_schedule_union_fids": 114231,
+    "provisional_provider_league_count_with_fixture_rows": 66,
+    "additional_scoped_competition_ids_with_request_errors": ["57", "63", "121", "128", "210", "252", "270", "337", "542", "765", "10808", "10989", "11958", "11959"],
+    "additional_competition_rows_saved": 0,
+    "crown_quote_join_for_supplemental_fids": "not performed yet",
+    "source_schedule_page5_for_league15": "request unsuccessful; 120 stored rows are partial, not a complete schedule"
+  },
+  "capture_semantics": "Crown retrievals in this batch are historical, prospective_observation=false. NO_CROWN_AH_QUOTES describes that stored response only.",
+  "driver_state_at_snapshot": "safe-window driver PID 86436 alive; collector paused for scheduled unified_settlement.py PID 97451",
+  "production_jobs_modified_or_stopped": false
+}

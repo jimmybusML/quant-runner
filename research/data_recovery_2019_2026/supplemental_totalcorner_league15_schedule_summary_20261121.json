@@ -1,0 +1,29 @@
+{
+  "audit": "supplemental TotalCorner schedule source only; no strategy/model/backtest and no Crown request",
+  "source_file": "/Users/mac/QuantAsiaDesk/repos/runner/research/shared_history/totalcorner/league-15.jsonl",
+  "source_file_sha256": "b8f4a121934eaa546bb5f6369ad2162d18c5f1cd3d89f1d7462263db39282f6b",
+  "existing_inventory_file": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/fixture_inventory_2019_2026.jsonl.gz",
+  "existing_inventory_file_sha256": "0e47ef60ea6762d82e62c7a9bdbb8cceab2950f1aa8396f320ef9a64cf09709e",
+  "existing_inventory_unique_fids": 114111,
+  "source_unique_fids": 120,
+  "source_rows_duplicate_exact": 0,
+  "source_rows_bad_or_conflicting": [],
+  "overlap_with_existing_inventory": 0,
+  "new_unique_fids": 120,
+  "new_unique_fids_by_utc_calendar_year": {
+    "2026": 120
+  },
+  "new_unique_fids_by_source_status": {
+    "full": 116,
+    "missing": 4
+  },
+  "verified_full_time_scores": 116,
+  "score_fields_with_unverified_or_missing_status": 4,
+  "new_fids_in_existing_inventory": false,
+  "crown_quote_join_performed": false,
+  "page_history_limitations": "The source collection summary records an unsuccessful request for league 15 page 5; these stored 120 rows are not asserted to be a complete league-season schedule.",
+  "unresolved_other_schedule_candidates": "The same source summary records 14 additional competition IDs whose first requested page returned an unsuccessful response; see unresolved_schedule_competition_candidates_20261121.json.",
+  "normalized_rows_file": "supplemental_totalcorner_league15_schedule_20261121.jsonl.gz",
+  "normalized_rows_sha256": "2b328c7afe642ee3aa0cdb0318128acd7436e36768360df41dc78bf8043cc748",
+  "normalized_new_rows": 120
+}

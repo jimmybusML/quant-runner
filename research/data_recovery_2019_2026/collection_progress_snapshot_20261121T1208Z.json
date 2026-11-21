@@ -1,0 +1,65 @@
+{
+  "snapshot_at_utc": "2026-11-21T12:08:52Z",
+  "batch": "crown_movement_batch02",
+  "candidate_manifest_sha256": "c65717c97de845200dd3503927432ff198a2efd21fcee4b58c217eb1d3aa2025",
+  "candidate_unique_fids": 11703,
+  "attempted_unique_fids": 250,
+  "remaining_unique_fids": 11453,
+  "latest_status_counts_by_fid": {
+    "REUSED_DB": 51,
+    "SAVED": 54,
+    "FETCH_FAILED": 4,
+    "NO_CROWN_AH_QUOTES": 141
+  },
+  "unique_fids_with_http_receive_timestamp": 246,
+  "latest_http_receive_at_utc": "2026-11-21T12:08:51.359361Z",
+  "append_log_rows": 328,
+  "append_log_malformed_rows": 0,
+  "append_log_sha256_at_snapshot": "e1c6811dcea9f1d639a7f63ca617e3cab2b6b98798aa6c71157ab61863ade83b",
+  "fetch_failed_fids": [
+    {
+      "fid": "108593130",
+      "error": "IncompleteRead"
+    },
+    {
+      "fid": "113872870",
+      "error": "IncompleteRead"
+    },
+    {
+      "fid": "113872883",
+      "error": "IncompleteRead"
+    },
+    {
+      "fid": "115515191",
+      "error": "IncompleteRead"
+    }
+  ],
+  "safe_window_process_snapshot": [
+    "86436 41753 Ss         48:35 /opt/homebrew/Cellar/python@3.12/3.12.15/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python research/data_recovery_2019_2026/safe_window_collection_driver.py --fixture-file /Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_movement_batch02_candidates.jsonl --output-log /Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_movement_batch02_stdout.jsonl --event-log /Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_safe_window_events.jsonl",
+    "98675 86436 S          02:44 /opt/homebrew/Cellar/python@3.12/3.12.15/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/mac/QuantAsiaDesk/scripts/crown_capture_store.py collect --fixture-file /Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_movement_batch02_candidates.resume.jsonl --layer movement --capture-mode historical"
+  ],
+  "capture_semantics": "historical; prospective_observation=false. NO_CROWN_AH_QUOTES describes only the response captured for that request.",
+  "schedule_scope_extension_as_of_prior_checkpoint": {
+    "previous_master_inventory_unique_fids": 114111,
+    "supplemental_league15_unique_fids": 120,
+    "supplemental_overlap": 0,
+    "provisional_schedule_union_fids": 114231,
+    "resolved_fixture_league_ids": 66,
+    "additional_scoped_competition_ids_still_unresolved": [
+      "57",
+      "63",
+      "121",
+      "128",
+      "210",
+      "252",
+      "270",
+      "337",
+      "542",
+      "765",
+      "10808",
+      "10989",
+      "11958",
+      "11959"
+    ]
+  }
+}
