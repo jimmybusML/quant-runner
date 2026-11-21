@@ -1,0 +1,113 @@
+{
+  "generated_at_utc": "2026-11-21T16:30:29Z",
+  "purpose": "ongoing historical schedule recovery only; not a completion claim",
+  "collector": {
+    "script": "collect_m7_named_competition_schedules_20261122.py",
+    "pid": 65966,
+    "started_at_utc": "2026-11-21T16:28:12.968745Z",
+    "finished_at_utc": null,
+    "target_count": 35,
+    "target_file_sha256": "9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9",
+    "network_requests_this_batch": 7,
+    "new_fids_this_batch": 210,
+    "identity_conflicts_this_batch": 0,
+    "completed_league_entries_in_progress": 1,
+    "per_league_progress": {
+      "877": {
+        "exact_competition_name": "Albania First Division",
+        "pages_read": 7,
+        "pages_reported": 22,
+        "new_fids": 210,
+        "failed_pages": []
+      }
+    },
+    "append_only_request_log_lines_all_batches": 943,
+    "progress_sha256_at_checkpoint": "e52035655cc83be8f4de5d593b7dec0e5bdd4d703829e3be9aa7ce129e4a3fb7",
+    "request_log_sha256_at_checkpoint": "6a585fbc7cbbe16780bbf490bd0bba3d7c255bacda5c2a0827dd3500585be8a9"
+  },
+  "all_source_inventory_snapshot_before_new_batch": {
+    "unique_fids": 141623,
+    "provider_league_ids": 80,
+    "league_year_rows": 640,
+    "new_supplemental_schedule_fids_already_merged": 27503,
+    "verified_ft_fids": 135167,
+    "unverified_ft_fids": 6456,
+    "movement_quote_fids": 52999,
+    "movement_quote_rows": 4429709
+  },
+  "provider_scope": {
+    "known_ids_in_current_inventory": 80,
+    "additional_sha_verified_m7_exact_name_ids_not_yet_in_inventory": [
+      "2",
+      "13",
+      "17",
+      "27",
+      "49",
+      "90",
+      "119",
+      "122",
+      "125",
+      "126",
+      "143",
+      "227",
+      "241",
+      "242",
+      "246",
+      "280",
+      "355",
+      "417",
+      "514",
+      "515",
+      "571",
+      "680",
+      "709",
+      "877",
+      "911",
+      "957",
+      "9115",
+      "10635",
+      "11260",
+      "11559",
+      "14123",
+      "15517",
+      "15795",
+      "26528",
+      "26825"
+    ],
+    "known_union_after_exact_mapping": 115,
+    "exact_m7_names_unresolved": [
+      {
+        "competition_name_exact": "Bulgaria B PFG",
+        "listed_in": [
+          "deprecated_second_tier_totalcorner_exact"
+        ],
+        "provider_league_ids_in_current_id_sources": [],
+        "raw_source_evidence": []
+      },
+      {
+        "competition_name_exact": "Georgia First League",
+        "listed_in": [
+          "deprecated_second_tier_totalcorner_exact"
+        ],
+        "provider_league_ids_in_current_id_sources": [],
+        "raw_source_evidence": []
+      },
+      {
+        "competition_name_exact": "Iceland 1 Deild",
+        "listed_in": [
+          "deprecated_second_tier_totalcorner_exact"
+        ],
+        "provider_league_ids_in_current_id_sources": [],
+        "raw_source_evidence": []
+      }
+    ],
+    "mappings_accepted_only_from_exact_l_l_id_pairs_and_raw_sha_validation": true
+  },
+  "constraints": {
+    "no_strategy_models_or_backtests": true,
+    "no_Crown_network_requests_during_active_TotalCorner_pagination": true,
+    "no_Crown_SQLite_writes": true,
+    "production_Telegram_and_ledger_untouched": true,
+    "raw_HTTP_bodies_remain_private": true
+  }
+}

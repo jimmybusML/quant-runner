@@ -1,6 +1,6 @@
 {
   "audit": "explicit provider league source union for 2019-2026 historical recovery",
-  "generated_at_utc": "2026-11-21T16:05:39.442904Z",
+  "generated_at_utc": "2026-11-21T16:26:41.457915Z",
   "network_requests": 0,
   "scope_is_exhaustive_forever": false,
   "scope_note": "Provider-ID union is limited to explicit ID sources. M7 also contains exact-name research-universe lists; names not mapped by exact existing records remain unresolved and must be investigated. This is not a claim that no additional competition can be discovered.",
@@ -222,6 +222,51 @@
         "11959"
       ]
     },
+    "m7_named_competitions_mapped_from_sha_verified_saved_responses": {
+      "path": "/private/tmp/quant-runner-history-backfill/research/data_recovery_2019_2026/crown_raw_exact_league_name_mapping_2019_2026.json",
+      "sha256": "baa060e60019e5b7fa7cea5d5658d17c26f4b078b1d6781190080631d5a2cae5",
+      "source_crown_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+      "network_requests": 0,
+      "mapped_exact_names": 35,
+      "league_ids": 35,
+      "ids": [
+        "2",
+        "13",
+        "17",
+        "27",
+        "49",
+        "90",
+        "119",
+        "122",
+        "125",
+        "126",
+        "143",
+        "227",
+        "241",
+        "242",
+        "246",
+        "280",
+        "355",
+        "417",
+        "514",
+        "515",
+        "571",
+        "680",
+        "709",
+        "877",
+        "911",
+        "957",
+        "9115",
+        "10635",
+        "11260",
+        "11559",
+        "14123",
+        "15517",
+        "15795",
+        "26528",
+        "26825"
+      ]
+    },
     "m7_research_universe_named_competitions": {
       "path": "/Users/mac/QuantAsiaDesk/repos/mr1/config/mr1-research-universe-v1.json",
       "sha256": "a74bff96200423cd6bccba013694dbbe46722c6440b8607ecb2bc5ef8f06da4d",
@@ -239,7 +284,8 @@
         "scoped schedule candidate records",
         "saved TotalCorner shared-history JSONL",
         "saved M1 and M7 TotalCorner schedule responses",
-        "active supplemental schedule responses with matching SHA sidecars"
+        "active supplemental schedule responses with matching SHA sidecars",
+        "SHA-verified saved TotalCorner match-view responses embedded in Crown raw responses"
       ],
       "cached_mapping_input_files": {
         "/Users/mac/QuantAsiaDesk/research-work/recovered_factors_20261121/report-branch/research/shared_history/totalcorner/league-15.jsonl": "b8f4a121934eaa546bb5f6369ad2162d18c5f1cd3d89f1d7462263db39282f6b",
@@ -316,6 +362,131 @@
       },
       "mapped_exact_names": [
         {
+          "competition_name_exact": "Albania First Division",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "877"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 14,
+              "response_sha256_count": 17,
+              "response_sha256_sample": [
+                "07df36240a77985e4f261aa55d399459eec803e051b7fa829035c7502ca42ba8",
+                "0e9061012a44874314d5b3f6451469dd31a8e99c4a1fdcc3b051c849059aca7b",
+                "1cf6508992265d7f7a5cd895093bf009f3e4b5d9c6ea984db99bb72a3470bbcb",
+                "6f7f5aa680ee11f43701a45a868e57710b9b230bdcc4b9e370409b5a2045e838",
+                "70ea494f193b443b6364a9186456da6858410e76fe12c4b27fa2c6ae8a058cbd",
+                "71edc5eadb0ab28babd19d5ef9499e02f800421c67c765fe9b66bbdfd0f2c8a4",
+                "98038944f7c71cc549d5d1666e31f57879e71a6546c09b5b810a0920243063bd",
+                "9df0f25c65a48be3a6ccfc83ff775cd10dbcbd85f25b549095631ac111118f47",
+                "aaacace7628a6897482d16ae397362757348d85d5b73b780d72fcbf725414a72",
+                "d7f3ef558e0a987be75e514da6d1984ccab0619f50aa0e5c1e2972195b935e96",
+                "dba2d93d996ebfadd2fa61661b6f60dc832cca4a672972bbfd522fea1b00352f",
+                "e1b8f50f77994246d0dff959cc83ddfd90091c33cf2151636a0e7f24dd21c930",
+                "e27a06a29b3dfd325bd52178e996d8db53d4d3049618a126bf2fa74e52a093ed",
+                "e9e391321679b6d0878e198d5baefeeee9250a5ea29ce8741af02c3326e72f4a",
+                "ea6782a63bdb1ec288a22c53f0e2195709a9d83dbfa5ca27f7a26548cc3199b5",
+                "f21c19d2df5e7c14fe6aec7ecb1c074c341db2cb0ab69dd47afd1a4e3343a8cc",
+                "f916d79dee7b483e86cb5d6ead24184cd1ed0811a6d37f112332b767963b5ecd"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-10T13:19:56.007Z",
+              "response_received_max_utc": "2026-11-02T12:59:37.563Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Andorra Second Division",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "11559"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 3,
+              "response_sha256_count": 3,
+              "response_sha256_sample": [
+                "0dd89713c73ccdf635ddc5f42f2c7c3d510061864dced5b94efc2cbf1a7ae97e",
+                "3b05d718ad4628059b17865b9f92b212b7bf59147c24b1019e414b673740781f",
+                "c42b348fdb7f805bc7830a10d693b377b28d868b37ac1298cef462ad871d102d"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-10T20:44:52.299Z",
+              "response_received_max_utc": "2026-10-18T12:08:12.299Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Austria 2. Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "11260"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 21,
+              "response_sha256_count": 26,
+              "response_sha256_sample": [
+                "10662494e798eb123cf29de29d3d4a93e8f86a8931755a7af7195ffde9631d80",
+                "1266ab5211effa6374867c62cc5e01a253fea3e4ea0c2769b0b2064e09b17b5e",
+                "22660927458490444f4b24719fee5930759deb5162248f3a2c78739a17a6806f",
+                "244ba4f8327cf39214c0df3571358f8ce4abef6c817dc670b823678643f65552",
+                "33bbeef19670b1ec1b3b3481f9de8ae55c8f6c18657afb67833186b5613377ed",
+                "373808427a76e194af2dd68cd0730fca0e027858444338abdc5cce1fcbeacb99",
+                "41f757ad35abf91f0afe6e9fcaf141fff2754f0e9f4ee11ab5e1eb5823d56c67",
+                "493100f3db37d99531a147a706ee747b788a387aa6959651cb0c8bd8112976e6",
+                "4ac77f90013656daa007970a812b81efe3a74a6c2392bf40af1901ed1d9c1a78",
+                "53bb8e107be7847bf99e6975987c2a4a4740477f16f018043367e70389f1a233",
+                "54f49ddfd5faa60aa3cc497c33cf655695c71b48cb91ac9206f4d3e491ea7f08",
+                "5a262bf33b6aab3d9a29af4a7b901c0f9be908aff2273b3dc386e158f7f174aa",
+                "86be59a70bec02efa29edf7acffda0e835031c892b972088d4f78b15d66b9104",
+                "8b436afbcb8089caeeb78b37e4d9786e1fc7443c7a8b317c08f775373d002185",
+                "8f777fb74855f7b7b1af85610f4c04f0ff84a0acedcf72008506464823761b0e",
+                "91603535e199c6eeff6fad58fa9883f6c1a69e716180a826493dea5ec60eeebd",
+                "9e048cf62808865c660ad1259c5ec64c78ef20ca15c6b12d940f2c3a63b61ddf",
+                "b5373080fa21ef4b7ed8bbc8a2f3d4670bdfcab5b8eeb6340c9a3710642883ce",
+                "c0bb4e9e8238ab934f253930e52624eecff26b1089f3952b2dbb16150a60b237",
+                "e00d870b8d9dfe2528989bcf7cec1f81b50011e186859cac49dc80611d8097d5"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T18:16:08.858Z",
+              "response_received_max_utc": "2026-10-25T09:42:45.645Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
           "competition_name_exact": "Austria Bundesliga",
           "listed_in": [
             "first_tier_totalcorner_exact",
@@ -344,6 +515,54 @@
           ]
         },
         {
+          "competition_name_exact": "Azerbaijan Division 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "227"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 15,
+              "response_sha256_count": 24,
+              "response_sha256_sample": [
+                "00856da8c40362b21c65b7828ee22c845bcdea717333692d7d3fed57bcad9d70",
+                "06364916c4c3fcba8c0937a096d244bc71830830e072bd1ee74e5ef6a1ad4364",
+                "2459c6e0fcf3a8a177eb0643d5b6d8a751b32c6d1c3a28a5a65665743d121a5a",
+                "2afca544d9926a24cbd49e5b3a028dfe129a3b519fc00bd707c4d18bc0a3c75a",
+                "409f5c63401ba06046acde50c9d6be20cb11d3d745e4eab759aefa365d407857",
+                "4a9fe45c260828b5545537b56e24dd2586943d0cffc500e204540561b73f760a",
+                "5bb17ca2afdef46f0d105bd23c9f2af505cf667f4d4c6ef1f4224f6ba38078b3",
+                "6deab5b3dfe92e1d9b9c440b1740e96f9bc30dd2e1ca83923de6426cea421960",
+                "8f9ea6aba7a47632ef0628e3fcd27090dfdcb6f9a2d5550d76f848e5fb038f54",
+                "9b91754b5af8b97f337a8802410904e48e3c3b121b4efdfffd5c3adf50706ccb",
+                "9c9d560617fc7725a805d169893e30a17ea311ae01f68b92519e7bd1c4ec0961",
+                "a3007d55d750228aabf04ad682dbf9f69dc4e3616b8779cb7ca7d8004bd295d3",
+                "a51188d9476d8a53193784263388cbd43288bc51c2614e6be3bea4ee2ba8c46f",
+                "a9d5aeb163cdcedc2d053bc6be243969966ae7e6eab5583949333527696e80d9",
+                "b1301212e31a2385768fb86638b7e8948b4cf9828b8385f4b4abc91787f10d46",
+                "b4332fff2164f5ba911f3d34f1027be19412cc0dec4cdb34aff0651522e4e2e8",
+                "b72eb27aa6d256de3c0495eebfc1b95d14f8ca58a443742f3ac411f3b1c96906",
+                "c0e045f7318476d8cc08e9baf215c65a805ad9f9d1078f2591e62d786c0cfdf4",
+                "c334a454c3b0b217da5ecf83d7f56d61f13b8c1ab07100466cce1b61f35e2831",
+                "c7fd93e3d01b099d061abfeb1eb23e4a4c60fbe346a758910206c7ca82573b2a"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-07T13:20:34.992Z",
+              "response_received_max_utc": "2026-10-22T13:47:19.124Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
           "competition_name_exact": "Belgium First Division A",
           "listed_in": [
             "first_tier_totalcorner_exact",
@@ -368,6 +587,146 @@
               "sidecar_verified": false,
               "sidecar_path": null,
               "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Belgium First Division B",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "119"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 9,
+              "response_sha256_count": 16,
+              "response_sha256_sample": [
+                "121ceaf5c4146ae312d57df2ceab2540c401c81d78104aed1567793578553709",
+                "1327e5a14bb875b95a136cf1a974e96b733b1777d4664bd4b6adbc59136a791c",
+                "27f6be586b5d9e96fdb082def19b85e49b35bc9ea2b4580772537a641672caa8",
+                "2e29e8a6943f21115dbfc65c11722bfe79a81a581839e33c3dc8f549eb1b5adc",
+                "31a2042f4471d03d7b38aed146867b1bbe6849c7da094b955acd520b76fc73d6",
+                "4862aa14d566129f344ba85c48ef1278497f8e0b01cd20020ee257944bc85cc1",
+                "4e472020f5c1373351608de954a94cf4da099a46fc501a910002fd73abe6da95",
+                "6ba9f3f336b7560918accef13a21d7c22cbf922cc56575147987721e2787b1cd",
+                "70136e7516d78aab0132e0a3e4225b7c5da9e026857f9114de055dbdb525e78b",
+                "8c1077f5b19f5b791b95fe9f859616f47acf61c6874d4a469b08eab7311b474a",
+                "b16a957209c3870e385a1ed48176333cc6e1c5821aa278adb325e340991aa8b3",
+                "bf99abe90b22708148a09a4be956719c1d186ff036fd3d26812226b5cc46c7c6",
+                "c66527bc8ba34dff8bf2c1181682e24b76bc6301ea4e6de51c9fb3d6e48d4a50",
+                "e571a7255dc3a8b018ed55678ee95e389673c23b8bbbecfecebe5ed57b5d00e3",
+                "e9c3e8bf278f8335a0ca7e7cb626355d5627f9e3df60e1ec0426e05df1c4383a",
+                "f645e0b8360bad94df4808a42bc37d05bf6fee3d1a226ad58b279f7b5aa04233"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T19:47:01.113Z",
+              "response_received_max_utc": "2026-11-01T13:14:28.560Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Bosnia & Herzegovina 1st League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "911"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 29,
+              "response_sha256_count": 32,
+              "response_sha256_sample": [
+                "09de2597d773cfea5945c9ed45f5a9bea47adfc0d584377c58628992a5b3919e",
+                "0b5385087a0984542f0b44a23d79922c6a4c0c007666955b1a9f91d261c71cf4",
+                "0f5543dc5e0640ff497f95ef95f453e5b4b80011fb4599e24d3f351688f411ed",
+                "11334040dc042a008e715e16b99b695a8e412c20915a9e64c95d594f9eff57b9",
+                "1b0533d7739addb24a252107555b078d8cd21140fb6288c46374fa5edfc2cea5",
+                "1c2164f8f37ed6983ae862bdeb5cbaa1a86a832f6f65617440ab5ada0e12b468",
+                "2742284f8456522e53bb89c4a98462494e049b2d3f1007838ebc5199906b4649",
+                "276f1481ab69e3ae5454483450b819e0e4b592b81723d12984d2b50a400f5d1d",
+                "2ade52993ad3b565ff6a0b5dc6d993c61a8d63da1a7f6bae6642fe6036a15d3f",
+                "346e61049186b631bfe4a71c1dab6f8d537e71acb51cfb35ffceb6f6ba8a8ced",
+                "3f250dd906ab96daae7ea28e8652f51a3682675dffea4dd583fb577dd96702e1",
+                "4403e5feb9d89be499f17a2b105264687489f87df79e036b90dd2da0ccdc1875",
+                "4831c94de5a6ed455d29fffefbb4feb5da0683a98a12778272d40b58835a0aa8",
+                "4e6190b5efef2feefa2067bb4e1c966950ef0be4b78ce23b78c5e2679061da98",
+                "553634e6c110449c9a8e8a476dc54fe1d6feaece42c0126d5f810c91de0f96fe",
+                "5b3a288fc4316cf8c7738658169c1f1e0041cc3b84832cf3cfa964b409dac353",
+                "6048a2c3761846e152935ff68a2dd2ff310742be8cdc7f8befeb52a329efd360",
+                "609068a90bbcdd0bdb473fc26f5fb6d569e76043bc1c4ed96f851aff54aac83d",
+                "64b005a11c065657d471c38e586509fd908ef2eed75d97f7b0e492a97bdacdac",
+                "7a6242344a1aa18a088fbda4016040c20db0a53be9c6dc319865ebcf43607524"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-03T15:09:22.216Z",
+              "response_received_max_utc": "2026-11-02T13:00:01.018Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Bulgaria Second League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "26528"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 15,
+              "response_sha256_count": 20,
+              "response_sha256_sample": [
+                "15a15763fbe45558d4a4ee8ce94b790a5f0f569d0d5ac3f589c3e9a9e895488e",
+                "1932abcc6bb3a4de72c13f0c335773c005934383ca5e1eab68fcddddd5c417ff",
+                "1d01fd77e0dc41bef6e5141bc872fba078c0847ab0e03f7efedd7d8601c65a7f",
+                "2c9332e06cec34ac3d7b35c592d284c22d4aa1e5526222dcfcd239835f296ff3",
+                "48b2be05b1425ec349ee5e45e75b5138910f48b6bd9d974212540935d348f604",
+                "50f51d80e3d2643f9b389175ac807318db3067f438dd5a81f21fad5d9d061408",
+                "5f310ddcdf2147b809200436af487c2c22f8f907642b7137c1cbb5e9cbe94f12",
+                "62d74c3133ae03a88ad8f82d9cf6c3bf92fa2245aa76fb3f3ab87bf9df21d21f",
+                "6a982acd1e85991db93f992aab658c88c0e2c196a149cb76e24b053798723852",
+                "6bd2c1f5cb55ecac1a8aba9ccc4cfc3cb3f7cd8eeaffff98ac24e1ce379b0d7b",
+                "75cb3e497c7ead8205b866872231e7a57e1bb20f29d7bf4fa4cb4abfdb4df7b6",
+                "98a6b455d1c2eff288ec075ca75e7d3c5a725f67441e1b13bdf403981403568b",
+                "9e8607724ff657cc0ce68e91f1de268fde44b5146fb6cbd15c20493a961cce90",
+                "bc46b5da26de404971f03b5c99db981fa0b175807bfb8b018cf1bb67f893e16f",
+                "bd332908fa6d63d108e219508dc6381eaaad5c59864fb7227e51228438298c7e",
+                "c1c7de7a99c6f6d7991b6c91151f1993afda97667856f6e50ca099c23a437b9b",
+                "c5fcdd42541788b06ded3e7cd852144a59d1e78b6e4fa6a1a90438cf1a518403",
+                "d0e809868620725f3e8218f8cafaaa64baedd046e64d864323757bc1df957945",
+                "f0344d59751f0a032dabb797625bc742252345836b4b46a593e8c796674ebf25",
+                "f2a790f09a8eeae538d82c84bbfa3cbf21e630ea050cc17ef49a44bd3e6c087d"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T16:18:57.473Z",
+              "response_received_max_utc": "2026-10-24T22:16:04.511Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
             }
           ]
         },
@@ -419,6 +778,198 @@
           ]
         },
         {
+          "competition_name_exact": "Croatia 1.NL",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "26825"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 20,
+              "response_sha256_count": 26,
+              "response_sha256_sample": [
+                "00c40e4f1afb31ed96b6e4d2134f06fc68ca5f4d5122ee1492157849fbcd8428",
+                "16b4de7d6299692e8626bfb59c5ea61d583627262a632b8599880915b91ac7d0",
+                "1835256868565baf60bc87c1d447c94c38f76ede721fd77b49b33dbe7476ea07",
+                "2308f01af1a3b4b2d810e6c0e2645c38b9a2f7b56d14db230535c76bb8ad88b1",
+                "3ac0a056ca0083f714a02852029cdcb0b2b4acbdf893f91ca0452ae5d4ca48f3",
+                "3b254c8f75658bc9ff58dd29de94372b100ba39b20e61da4e5eba6c3d5dd6379",
+                "3b8d06004b8b24398c69439dd22d8ae9b9f04cee19caf451af40c78a149c8c9b",
+                "453e4e6ed9854768d94101432ca352d28a2668e6972786b99f8d0462d3bf4bfa",
+                "459339d9d06962e97fe350936e65d396870b479121b3bee0efd62b263043dfbb",
+                "491ca765485d3c0a4c99a5c923926939754eb4b6d5a6db4ad3a1d2b0a334a9f7",
+                "4a26b48acd6ec4ac358d3214c3852da7f150bdca7a363aa6de872cc14ff8bbeb",
+                "56299d10b090f3c274ea83fae2d16f1b36b2d4aadac5616e56dc23c10b1c42f0",
+                "5b05b9a76ea910b8c9f8edb60c4befafccd271b7e6aa5f254007a089a404564b",
+                "5f5dcb240fa37e99beabee175b6f8b35cafd5cf10ac694b489397f24ffbc0672",
+                "7c8bbda4916af91ccd2663f7aa7f9726aa60a36ed311202c632ba4e3b1877d34",
+                "7d0cd1cb1bc1882ca83a80ee088c32d12da0f34c8a8ee9d2c8b17e5309cd0cfb",
+                "a24f46f798effbd98d1befa1fc8800276e294f9fac0ef7a89172fa959a413efa",
+                "a30878dccb5d7ba5812836a5c5481544a4a2e36f51f81b17287093612077e07f",
+                "a97208512ff8893fb9428a0105dead5e80a6de6a7a727be8b6e0bd8315f91061",
+                "afea58006790e36b3df0da401f56c29c9e786c2c295c39a0f88055143ce63ca5"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T14:46:41.115Z",
+              "response_received_max_utc": "2026-10-29T14:30:13.790Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Cyprus Division 2",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "571"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 14,
+              "response_sha256_count": 19,
+              "response_sha256_sample": [
+                "1b6d79aef8e07151c2c0e01d841559b89fdb84e18795c3f11e739d76193bb0ab",
+                "1c092623950d7323a436db9de9b1fd0b873ff402cc8f3044ccf70991d8cf2f7a",
+                "3b3ada7c24bf6682ffb28100f5e3b653e4fc0a3034e8abfdd1a9e2426ea43715",
+                "530164cb05d3bc37db7a461b7925f4cae40e3dc51f769d2e29fa32bd5ef5b965",
+                "58fa0efbfa7d0211e43e011a9f2aa375cb2887312c627057838455a67bc36470",
+                "5d1cca6541c2a3ebacdf88014d42760ec5e9a1a490a5f13ec2203b054fe46299",
+                "5d97aaec6fed98babe377d2293de002b6dc673ee664600d3996ea18eaa8f78e3",
+                "6f8d127a7c3654f7f2da91c1957dcbe1b85c6491387816eaeb55e0885ab46f49",
+                "7f42ce80091d724534507a627c104cf5f9c1cab53613e1d1425ecd7b3338b8da",
+                "7fe025e832c0c6c3217ca3b25a423c4ef5ef6f0155a2ef17f9e6a956d996a7bb",
+                "93f2b05060e7920a5df3d10bc010ecb182fad071fedd33cc87b3392be2fc3d75",
+                "9dd189b486f56f396f2bb56214f9e80962bc913ffee460a447e6e691a12b1a9a",
+                "a33369975427f729236a0533ebfb43c590053c213cb89f648636af3cd931108a",
+                "ad4a6e57c776ddd8bc6f389b15d0bb42b8e5f93a2bee2c322060c553ddb2ec32",
+                "baec92265d9f581dbb21f9523e95d053182e3c0c02b4a192b42f2ad95b75e05e",
+                "beb9b325c9afe2717ef69cf688a377f84486e894496d61649212bd0acd95518f",
+                "f0500117e9d1456d30fac3434ee68e09d2c99df66f6de57f936bcd5d9aac9507",
+                "f172b6377fa5bf58a6ac1172d3ace07e25d3ee73853a6299faf0c9e6e7889fe9",
+                "f780f5777bca19faa10071327bc6f1f1bdefece60c0cfa832dd08d1cb04afdf0"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-10T14:18:35.519Z",
+              "response_received_max_utc": "2026-10-25T09:40:15.953Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Czechia 2. Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "9115"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 21,
+              "response_sha256_count": 31,
+              "response_sha256_sample": [
+                "28cdf447b51a32c141185217040c2724bacb57e579d2dddf4ea13e15d63bbef5",
+                "2ac7e1ad9caa825ff6a8a3e202047e6f0dc10cb8ccfc02c5d7677947c279397d",
+                "2b3c1ec62ec10318e3b1f188223750f67b5fc6c44032fff9bbb27107fd1c2ee6",
+                "2c250bd6f64faec83ed61eba9fb4de638cf9a1e91169041388b10d7278d80f1e",
+                "36e6e6bd1dc8b3b39a147f31fc06984af81750d7c2fd51f06cb03435c0e58c4f",
+                "3ea8e953b76bd867df2dcd9a9117992bde30c27470b1f4f47c4886f80ad44f40",
+                "51058c14f44adc5f3983ec81a4ea4bd83a8711588daebafba6645e28cbffe3b3",
+                "570338830b8847c68c849733f2cb79542dc822bc812fd4bf8603f5d9a89856b8",
+                "5ab525390c9d03dc519e58a206b4e9eeee035904d0ca7514cac3af8ac146afb1",
+                "62330046b67a4045d25cedfe0ca7be9b12049b618cca042665fd81ec743a6211",
+                "6abd62b959b6449bc84aa4adad801826ba567ceb13a48024e8ff6bc794758b2c",
+                "6cf3f1abf1dd53383799f2190177d53e4cf23c633c323b4a70ad8b8c0042287e",
+                "7315036db5c1dcd750da855a73b9ae6f9cc7928633c11eb7a955c0de5297ac84",
+                "86cb47196ba83cee8c8043d4e395a17a22bd25d7040ad6484794d41d5ceb5d3c",
+                "8a19241eb0fc6c3c71fef79858b827f122529665dab2d0983aed26baa41154c9",
+                "8da6f7c73d9d3f8072e325e40f925ff616959007b5ace4ab055297d08f374def",
+                "a3317d04d2d3aa0aec454c11caece3a042fcd5c34f8a323aff1e40622d4d8f99",
+                "a6e7e02ca6582c0fca7736010a1b754c1c9ae092979ad3ad3ac805c85b173388",
+                "ae661bad56caf68368b7b2e40bdc53df7ba7ae6ec3c6e8a9581db395c6e175da",
+                "b34f680d7128ef2700b70db9e7820ecc760c332a334f517cb28e81ef549bf8a6"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T16:45:04.681Z",
+              "response_received_max_utc": "2026-10-24T22:57:54.960Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Denmark Division 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "90"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 14,
+              "response_sha256_count": 20,
+              "response_sha256_sample": [
+                "090b2710d389a6c08345aa3f142d8a9f6caebf64f513bd974b8fd3312c5eb178",
+                "0ea5046c424d01b798e25e590c0d13373644ac49dfdf6c80cba837d9a933d339",
+                "1033b3432085c6d1250c6baf17e13593ea51dc7b5bd5de6691218a73b4c61f6a",
+                "1eb8066d4f9b373e4d258fc1356728bb8b2d576f31fe6bb5c303d5c4db2198dd",
+                "31edbe0761e2fc54b59a23d357c20cf25d233a609e596704a313451e8b1e20fe",
+                "45df9849573fc5669f563abfb03cc4e801437a9f22aa64dac86a6cfc853d3eba",
+                "48c7437421e111b12da4ba393377848ab4703c6af5312b306d62883bb95f884e",
+                "6463d53a10e6b81e1d6f5071b9fe524bf40f039060df030d73ae26cc35dd76d5",
+                "7573fbf7957850a020b1a41ac7a836d15932d9d236099babefc751560bba73a3",
+                "8743cfec3190aaadc260a9fd501860b57b267443c71e209101a7923f3a17914f",
+                "97ee6653baec4ff41a9cbafe28c3aec70b5534a44a6d830be52b957a7c252f4c",
+                "9bd71b966f8d8bc24949e073bd6268e1a643a7a50dcc7578c457fed31e11225d",
+                "a02ac960b3b4d899cb3a09b319380e6bee11c4127bc3329d1a5a9031c79b8b7d",
+                "b6838478da30b776bdfbd9c3724a12888f5040c74b0dbe07bba2b9fdbc3c2650",
+                "c4e82cbcec134c7c662747edfceb5d07aff75aee4b6f9a3ff4148942d066f5c1",
+                "cf1b884b72ee599fcbb40a54500f8f5f816b8c96c25ab1b94858619d6e1c7696",
+                "dff0052cea4f7e084be34d3a0465b738a33c3994bddbb6d4362599ccfc90cf95",
+                "f226197c56ed081716b68b6e6a66a4dce169007b79ee28c0e10829a03a001663",
+                "f8e3cb3f8708c3259d372699d1173da69c06b3184ce10e51452919bf739507b5",
+                "fd9c3c5b3afe8539675e2f28356d2977e52c8d889da56549b93689f882a75144"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T17:50:47.806Z",
+              "response_received_max_utc": "2026-10-25T09:42:53.428Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
           "competition_name_exact": "Denmark Superligaen",
           "listed_in": [
             "first_tier_totalcorner_exact",
@@ -443,6 +994,218 @@
               "sidecar_verified": false,
               "sidecar_path": null,
               "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Egypt Division 2",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "417"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 40,
+              "response_sha256_count": 80,
+              "response_sha256_sample": [
+                "0080b7df3354ce8abe44cd17e0390e01e6becf8fd8ee8295b1cc787414994650",
+                "077729370113472a6887fbde067db315b6acc26b55024a7030ce0fbae6b9ee52",
+                "0adbed3654e46fb4f39564b6bbc64463c488d661c38fdcb736515944aa2929ab",
+                "0c55334b7a09241e80b098c06c7de9ce1aacf16d806075bda8aa51c318faa27b",
+                "0d3e5947a2bc6642123223ca1a915dd21c65c6ee601f79834817d3b9a009aa78",
+                "0dd4666a3f88689ba176652ba149aea33d76c43f3ae1340616369fdd817806ee",
+                "0f69e2e981945aceffd0de4e0ce6c40a04c7a9fe220e9cd163b56fb3afd680c7",
+                "1c9c60e119b51547c5358379945949003a0ca4a342abbbca7abe5b79f9e8be6d",
+                "2345de0cc78ae329daaaa7a3af60c114e2211e5fcef88ac4573e8b9185da371c",
+                "280777aab8bf5079e63270e84f11ffb40033e24c50978f05f469b55054706300",
+                "2896c923a74f8c9eff64ae47e9ec49e4e99eeb2a1f7046636cdc6f0487341e0e",
+                "2c1da9a513efbaf6f731f20c72c66b84e6efee3d1b4472af503dd69e4833388a",
+                "2f927b9525799d69e5165837b777d507af53de8df659a195e09e6bf4f3484f99",
+                "31e7912c18754aa8b4c5e98481bd0b6b530a96672a63fa9ec5ccc21e9098ad97",
+                "32942905de38036faad3bab26a264d149db0617d45964f1572a6c5cc5d564e6a",
+                "34dc3f2212c39b7122fcb090db6c62d32cb8c4c0187918cd1261e96d0dd5c42f",
+                "3d07ae8d970bcbfad9f98e79f5c0a3f4c82f5caf490327e76cbc4d87f16b4fc2",
+                "3eaeefb5476a46bc1964bfe5b74a53032c023a32b57b1e5e7653898c7494821c",
+                "3f4e08d978fe260b6144edb9a7d8dfb44fec6fe51b8ff0b63e9a7d4f62c502ce",
+                "3ffcf7b6524acd91fd4374b97ba01d0700092f471079a1a2023eb3c1dda70254"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-01T14:15:22.219Z",
+              "response_received_max_utc": "2026-11-17T01:09:18.711Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "England Championship",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "2"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 37,
+              "response_sha256_count": 50,
+              "response_sha256_sample": [
+                "08da71d737e7a4359f290c1ba0a62c69d0beec3b606f49ed651b101e928aa795",
+                "11ab0820a4a20ee04259e450437f2ddc0a66e2b8ccc3de3f59dccce0a6c689fe",
+                "151365c5fa77d45bc4d45d06f8c50185167558c56b41d9dee377c464568b9e71",
+                "16ab86b0532d9a82227f3b5b366531ba06fb5e19b42de94b38b1aca9ada20746",
+                "194d0bc27de44c2830bab9dbc4ce1489e53f6803b512dbbf23be592f3ebbb47c",
+                "293ca48218547deeb544c3f009603ebbb4dde4cbc0d1c77fe8056f10b0ae62db",
+                "2e117c5b85437fa52942d811b86fe7764f2b7cfd7166fbbae992f64dcc3e63ba",
+                "3ed5fd5c224de2dbba4d801d1d6da5d5f4761c751c6c9da6c03c9676ea3750cd",
+                "3fc76f5a47dd42a31d3146dee2ddb6a208e1f5c0b8c23518680d0bc7f466e8a0",
+                "41f29ee2b4b91ea4fcea36ccdf38daafba02fc2452f1d147db1f69caffe6169f",
+                "42ff5c725c972d3119563d5b9384c7e17ac42b95ae292c7ececfe51b70b44309",
+                "47e4eb14fdd8162e1823d60d050fd60b1d74bda10261e3eab8851275b65c9148",
+                "53181a118ac328f20f7be5a4ee950ea4fc431c3fe4ad56c73bd945c13e5fdc09",
+                "55b0e11e9b92e6c14d64cb4cfa8e6dd2675989eddacc440b46d7938d2b2c7f00",
+                "5b5d9cfdd015ba9dff37ed39469e31007a73eb3368cedc993f696a7268c864d4",
+                "653c276b2663c96549d606456b089bf4ab68cef6bf24de6bb253fa5aafc88263",
+                "6ae301f9f0bf54dce46eff09a2d462e76eb1537f4294e5faa0365ec81f2f0429",
+                "6c99f3dfebb8a927a1be5f2f51e13022cd65a7f6f58e5fbb53b8f3aabebf9e93",
+                "746dc5ce3519fad271d2af32238c66e306ac4dba4c17718591b28cf8267d6cbb",
+                "74d7596b136eb2dc10bf3741decaea53b2cf4b83b41031d11d803d7a50351214"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T20:55:09.171Z",
+              "response_received_max_utc": "2026-10-20T20:47:34.326Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Estonia Esiliiga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "957"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 9,
+              "response_sha256_count": 14,
+              "response_sha256_sample": [
+                "14dedf8b12bdf8fed0749f1d1d31e1a43eb5a3ae82a0011303babda6c469f4a6",
+                "3f95cff736712611d996dd20cd2ea4b04584b8f95d047ff35f8aae83fb57bd90",
+                "46522f2964c0828e25b72e206907bc365229a2b97784c68a996fc841c9a51dc4",
+                "62372d4a271d3537c925c6183b53d0cdbae14e9f92a96a8a812c3cfc0906333f",
+                "6c8121a88983f49ab8deba9051397a309953245e5dff2accd789776c19447379",
+                "772a9b6e02e7528a1a78178c1b87fdf5a262db9be8a9c1bb3418e2a306679f95",
+                "942ad486fbd6d8c79c34c66e83ccce64a4a9f5506f76691e91b7357c0079f171",
+                "a4b2cd3d45ce6ded63b907fc668331261418fed6a89026b1dbd48cfdac6f1d09",
+                "b06ff420c70add0b36246fcac64a5283e3f1e46b790f25d0eef1f6cc0abf1d43",
+                "c41cb63b94f9183e3d8d5ee8f0c5caf23a61e531259225ddd6fed2bee5b43a39",
+                "c89ac15ad1f2bab4c1d606edd5b098ef4cd653766583cb1d8682d1c467ea248f",
+                "d8580d25c66954c3d2183bd8809c0d5d987f8bed8f49c612b041997fbb68ad60",
+                "e3e6cc5fd0ffedd193449cc5d2ced1f71af2f1600f71851a7fb14248ea9c6feb",
+                "fbad975dd70bbbd99c6cec8cde2f71e1be94f039f135255ae82ea36e86e79ac3"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T16:45:37.619Z",
+              "response_received_max_utc": "2026-10-25T00:20:07.085Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Faroe Islands Div 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "10635"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 4,
+              "response_sha256_count": 4,
+              "response_sha256_sample": [
+                "653e7e418df87a389df4000467a4493fd50f8bc07fbca7fa18554505d7a691d8",
+                "987f24755e14d03b590f6d6fbce680cb097cb3ddc58da2ae1a2a47ec5fbbc9c3",
+                "a8b41c6939e2581decfecc5cbcba0341bd4c6b4a9d12680828ff5d3603956000",
+                "aeeb96c9036f8e0a88cb80618d77dd1330992f274ffc00d14746f448f40939bd"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-10T13:50:27.303Z",
+              "response_received_max_utc": "2026-10-25T13:19:29.484Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Finland Ykkosliiga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "122"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 10,
+              "response_sha256_count": 13,
+              "response_sha256_sample": [
+                "151d9a3689b3756cb5bb9f091ca838ee5a8ae30ef087723a72e44c2cd32c2e4a",
+                "25c99778836d6b3cc7dbc509bfafe2e7616b81aa23abc4f10a03cafac96506b5",
+                "2893bed4eb7eb89101e318ea5fe5881433906df075e219af03949e39a30621ec",
+                "569964fee5e2683ea05b18769339c278b3a303afe2dba6a812149cff9c1d432f",
+                "65583d17ff04124e6ff93a767f71425cb76696d93015ad77555830f3aa3ce669",
+                "65da4b1ab1dad3027f7f2f83ca342bb3647711c220cff967a4dfb437428106d7",
+                "66ea3de3d1b3cdcfc8f8fc20a2a33efff12e16cd23cb7b6367055e0abfdbcf43",
+                "a1cf42bcd1f796b39acb19057fcf66bfb86283b1624e2e5431e92185c3dbe018",
+                "b75697fe788b8f58360f0ac200ec70b41fc1f306cb8eeb2cea25b10c9e191f7a",
+                "ca2d38ee1e6358004637813973a80776dc788bc0d191c42055aa7782bc0e6258",
+                "e3f1ee3a192c72b503e1c7b9f5aba7133e5bddddd8b61be50386c4c8ba9b16eb",
+                "f01f6bd401ceede86fbb14bd60b90ff6e499261ce09d5d7cc6c9fff277df9bde",
+                "fe9a1005c0b63950b407a6073ce89862ff54f0a7543b45e8d41402b72b545533"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T17:50:52.998Z",
+              "response_received_max_utc": "2026-10-17T16:01:00.798Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
             }
           ]
         },
@@ -475,6 +1238,54 @@
           ]
         },
         {
+          "competition_name_exact": "France Ligue 2",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "27"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 23,
+              "response_sha256_count": 37,
+              "response_sha256_sample": [
+                "02923a27703f5786617de18aa78e9b9d40b971faf4526b744363f0202c7985c6",
+                "052dff3e775bf007dfab8882d0644c4f992c5a47ac58ef23bf72473494983ec4",
+                "07e0f49ef5b65c9d2bf07652f1505061fec9dd190554afc0d05f3d19cb49d6a4",
+                "0dd815dd756a22d74ab31752f00d370b278dcd6ddd591cf275fc35833fd50632",
+                "1ca1f0c0a496a8fdcb89dcbdd76f297dd6aa5475f53812a9fd4e43cfb95fb2a1",
+                "215117200304d755893bbf7dd3747ce25dbb017270cf67de8d15f5809145e2ac",
+                "2881e9e257b6bf2aaa2868d6ad521ee43e8949c72fe8908d2d4c3e33b5191fcd",
+                "295dc01398ee301d801e32e5e5055273526706935d6f473b3e680f399c985190",
+                "3f42e02767993b5bd70a22212b02c68f247d50583a89982e0f3f1a635fe7fd46",
+                "4628a4f1a8c6644412892356450635e2a9e523f4b7556b48a58d7ddce5a9e306",
+                "4f539ba15a340dd5b08d6f00f21b6faf43b20da47b33e6c4c2ed97efb2687e79",
+                "556cd467b8f74c83a680e61db49be142d6288bbfc4c1c78e3c24ccc5abcf1beb",
+                "5620e4515327738889fdf73c58c50702aef3d5c06c2bacb0a523de4454aae440",
+                "6deeaa169f1556b94b412326b5ff23048843ed03a0708a12fd127c553070afb8",
+                "72b9bd1190bd568fcdeeb5ba29ff14a01d947ac97c93082413408b1b6b55d90d",
+                "7589efe9d031c29f7abdcaadeafc2a98fc358a64d8ccbeaae90d370165dc8a4b",
+                "824725f35f3dd66cbb008f899a3d59542d8c948d0dcb7f16fe7ebc6be01ae373",
+                "8a886621133d8b4817b9d3d484ec188fa749c1a4aeecc05df0df97faee1de472",
+                "981c908b35a03b1a558b4e12da2e9bbc11c8d4dfe0967ea955860bbb3126fd89",
+                "a034a29e980dfcf465ee1cbaec9566c69162029ea9eeb48604c7f2ba1bab083c"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T19:46:23.061Z",
+              "response_received_max_utc": "2026-10-25T17:40:26.376Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
           "competition_name_exact": "Germany Bundesliga I",
           "listed_in": [
             "first_tier_totalcorner_exact",
@@ -499,6 +1310,151 @@
               "sidecar_verified": false,
               "sidecar_path": null,
               "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Germany Bundesliga II",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "17"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 22,
+              "response_sha256_count": 31,
+              "response_sha256_sample": [
+                "15a10f999359a48d583e3576c3b02437fdd70e0cfb742a7c92924f8f98b185a7",
+                "2115a45569318ff53d15be42a618250de4ac118a64c2848469083c3efbfb9fd1",
+                "268bc1c365b39afb0396b99b089e2b3682cdad1e97c74667a5db5e8e596b75d0",
+                "2bb1eb219c79978d892c785bb8ad9858ca86314b880e9136b80641f324e8cfe7",
+                "2dd33705ec691255850b39b610263745bb8e883abda66b60fe5b934fc7681581",
+                "315bd7dbe60783d0f817213956f919d5485e5df7cbb6eaaef52439ee614ea496",
+                "3d64dcc550cfc257535780c5a19961eacd84e9ad20eabb42676d58bf82c64ac9",
+                "5620605db928b307c693f4276b726f654174f0854379c07d84027f10166df205",
+                "5887d851d43251f8a71f8adda3586bcb9cebe503665b5836865e7d47c3c8ad72",
+                "5f259bb111ef38be03b4909c295b3230b727526188e242df6c7b67cfc82cf1ad",
+                "60084a1d06510b648ba8875ac3bd111e28d6f148fa8d33a54e89fa1370b82e77",
+                "61317127483f90665bd9b9ea73c3f37cd6f626968f8a06d9e53863dc7614f7ce",
+                "7ccefddb0c9e87594517c1f6a9e2bd9b2c4f931fa87599f84358a0fb0e7635c4",
+                "7d6c5244af4cc2a4c3a9ee4eb44cee08bcfa4eb47fde04c34b69b8636509f964",
+                "8653ee503c2a39fd8a423636179a143eeefe52d98003ba2a1c17edd7962380bd",
+                "8758d966d96c6b84643f307bb8399a55ec817dc607e6ae7a750f1fcf27f1c7c7",
+                "9015c593a384892958d015f4a790304603da9c47ce6c2fe9574ff841cd1cc376",
+                "94f1730c127148ee0f3c98d12efbb4228e36a66d65cff51c844789a592f023ad",
+                "9b89e06db8c37cfc9d1beafb12f9759f799db8d0936b98945cf72c23218af27a",
+                "a0ad688f9228cf083830525c66dca4ea30ddd4891d0c3862369d6a40af4fa0d3"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T18:15:52.743Z",
+              "response_received_max_utc": "2026-10-29T14:30:24.177Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Greece Super League 2",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "514"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 25,
+              "response_sha256_count": 36,
+              "response_sha256_sample": [
+                "0d6daef160b644d362600c2fa652bc55a28ddd0ed73952b1f6a0bf5592138954",
+                "0ea67c1e5d7c45555706413ad0f118c900cd426e06d18f03a4d90da148d836e5",
+                "115698551ed0049eed930e6356bac6acc633025fea31a4b3b341aa0df09f93e2",
+                "1762fd2c67f0f9cbcdc7a581de59e8e6632060d4f38b5fa87f004f74edd1f9c3",
+                "23b11542efe0c457ef8716b1e5261c1a39ae64ffa6ecdd12a25fef564fe9eb58",
+                "388603233039d43d5f9235b6d38534d388dfb30fc558bb2cd690a7e49b0166fb",
+                "3b89c0963917b7f9a3449902939f2f27e966f7fc5cfb08f0fcc3ec5bc1b155a8",
+                "40058075f072e5778784dd6b85f66354487af6bc3104f63e6d36199979b7e85c",
+                "425224e77f20cec247f29eaedd4e4c6c8ace93d4b6e8a70ae129019e19b96efd",
+                "5bd68170b90993e9d927e81244d98d539e6a717c8d0ca482ca7bdf2435fec9f0",
+                "5f51a6074040f37c76c78661906fe0931814d33d1abefcde229b38dd12a6884c",
+                "6a977c9e319cf8241da9db4b8bbcc555e9564e4049a650f6a899a1dec75fc442",
+                "6f2ec7d60bf647b6e1dfb421bb8170efef4ca9dc175fcdaacae34e2a4ae0829c",
+                "862a8c42e87b5359a174d828c6d894132a0f905b50b92ed0f8297d21d500f67d",
+                "8d40bda2427fcf4ee153d8ca6d363f6886d6883b3c4c3c6a720c23272406bd1b",
+                "8e054eb2fa0e63d30cc054b576ce35421fcbf91b21a288b8269a9fefbb97379b",
+                "91d4b7f6a9919e6445c8f6c5425264698bad18d9d1ab0cae98620423e2ca675b",
+                "94591966ca2760cb4eefb39bb3c4abbe7afd2bbbcf0885647e8a0d66832be9e3",
+                "95be6bbca0b62d71ceed6d86f0757a1c3d7c4591bfd127674b8ec024a1df4ecf",
+                "9ae2a3d69d7e39cf24ab9025ec6f993b8178651f747f23953eb292ff91a042f7"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-03T13:39:05.258Z",
+              "response_received_max_utc": "2026-11-19T15:58:10.611Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Hungary NB II",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "241"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 20,
+              "response_sha256_count": 23,
+              "response_sha256_sample": [
+                "03441e001d148f5d31f1d047dd938dec76c5ce1ec5c4a9f8a77d6584a7fd899c",
+                "13e3e6c04fa3f8cdab79642249af4f86aa57179cd347b83679e5b7e90b2d8912",
+                "1eb2b74a0d2b9cca0847be1186179d32d9957e0b9a15f0db15f4a4b5dd62bbae",
+                "27e2fb80e99cc4cfb2ae52f7c0bd64f7e48a90b3c732bd0bc8e4e833479a99bc",
+                "29c07283d68018d74d156943e030b72ece63f544a7ed61a8c88bc54e7b5552b1",
+                "3173cea2591b6033eb9704b61f3a49cf8a8a45f46455a448ac4f6f676e530741",
+                "32c80a5f5e8095e9b8c6ce848473c4052a10bb927757e8fec4657c5647e068b6",
+                "3573a7148b5abc84e763e8662dfb9e88bc20628fe0fdab8e220a21b61ee3e532",
+                "35c1f307ffde4fffacecf805bcf60be00ff9e8cd74e1f2a6a26a292c2b011eb5",
+                "523bbed54313a77444afb23f0bcc8fbff898b881e6b164d9ab23baa6253d7076",
+                "53b2e7baf4f61ed7b8a5e2c349a3f47f35af879aca3c55274902683be8996da0",
+                "63d9f37899aaa6282a21eaefc2136f858ded16fdae1bd07d9fa9087088109cc5",
+                "7a2a826e78c9cccba19fc95f5c948b6af14780f853c426fc0723c4be7b4938b7",
+                "8fb457c8cb45c804b3223b1abbcecc660cb3898a11041cf1dd33b4f9574de055",
+                "a45f846886957e09175ece41945e2b8f9ce249675619c96c3b3b92d432390568",
+                "b2b9d9caf7cdb7c80a6a96a49977d915c3fc64590dd7d408429d8c693ed03c1a",
+                "ba57f972e8220b30312943bae98c7fc34658a9f61da6987f0df850e6b1aceac2",
+                "d7fd6556c6b9a8e8dfced2bcf862c5b1924aa8909f71cd55503ce50fd4524b62",
+                "dcefcbba1aade810c3ee3ae55d0214018932d281e05328e7f72c5a537967c54f",
+                "dd7ddc60b2b23005e6565091b4f31b3a3144856b3d46e3c1862696c3f80d5ae6"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-10T12:50:01.903Z",
+              "response_received_max_utc": "2026-11-02T12:59:50.582Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
             }
           ]
         },
@@ -546,6 +1502,55 @@
               "sidecar_verified": false,
               "sidecar_path": null,
               "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Italy Serie B",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "13"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 21,
+              "response_sha256_count": 25,
+              "response_sha256_sample": [
+                "13f81e51fe91a0cf66b3e1631a7f7a1da172557c5e1ff0c0478280de2afb04b8",
+                "2212af6cecaec4adfe16025c134411baedd4514c51f71f3ea9214a6f766da2d0",
+                "301f10a94ba1a3705f710af406803a69e02e635ccecfef2e45e778f5d6a12241",
+                "31bc1f52982f1fcb2263ac74e145fc8e4084f05b00e1d6d80a287c1d8e2311b7",
+                "31f41957cec828f1f1e54eaca36e13d3bf62b1fb0f675e9d879bcc27f0aade23",
+                "32271c3f2e43b85a76084a5085066f2282875e9f317d1521be23669227c26d05",
+                "36eb229bb620e6f0ceeb574a9da1215c4dfab826cf0ae53d3698c18dfff8f74c",
+                "4254253a24889a291972fece6b6f7518dfdc09268bfec8304d7527d7b3dc8ba3",
+                "5046a720577e33bd4f5777b97ae490dd73bd7ee3ca2499073f54c440f559b6a4",
+                "5799cc477b08629a62309abc703ca5e523a21b37fd50f8b0a61c529a6e3b0507",
+                "6bb11ed0ad1a85152693b3422860c0e354efc4fa24c275cdb4a9db37ba9c4812",
+                "6bc3d36200362b92a71faa24e9802bff9d5da4c9b71a893bf409478eba0fa91c",
+                "6cf4ee1ced5496236fd49f768b8ca95ac87462a25acfc7d56afb121e0300203f",
+                "b1850c597897540b7579a0e1aa1b1aaddda182ea5936348dd0ce10982a9411d2",
+                "b873522d57cf70892b38d09675962fbf66fffd30b387fb3ea37aa94a9b2158d8",
+                "b90363e655b8885da63abffefdbcb73b7b173a9025f7757b5197b5e09ae4377d",
+                "beaec3e4c24ae26816564158ee9bac0a839f1f27186e571f589a1e37a5db1162",
+                "c8b06b78cb7b957dc3876082616e8a04359faffcf0464202efcd39e872c5d621",
+                "d48cd05c64892e04a9cc3b6339c1db680952eabd250c1666e99540352a8254e7",
+                "d75344441039a50a944c2ae6b7396a11d0789bfc7ccdf868e3d241d577be0530"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T20:20:22.926Z",
+              "response_received_max_utc": "2026-10-25T20:10:34.733Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
             }
           ]
         },
@@ -617,6 +1622,40 @@
           ]
         },
         {
+          "competition_name_exact": "Latvia 1. Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "242"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 5,
+              "response_sha256_count": 6,
+              "response_sha256_sample": [
+                "1f3909491dad2f032f05c11d8a32bbd5c84a336c4d30c941f1899f8275292332",
+                "2b310ffd8a061cb7061484b58f85ccb6322bdc2ed0a4a9e569e77bd8d2035c87",
+                "4d7b5cfd6d474927b4ebbbb4a137498aeffd0030b5c1f76ac34c2deeec284855",
+                "8b4188a4e85fccc8ed653efe52b428e622d6e5fabeaa8a6f3d5f18a4560feabb",
+                "cfbf04b2a5d36f4429b6ff759d525e4e8afe856fe279a136d277334f23ac3e1c",
+                "d6548af5b550f6f90de7738791f667f231cb26c687e7b91dcb26e146c026af5b"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-10T11:49:52.573Z",
+              "response_received_max_utc": "2026-11-02T12:44:45.336Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
           "competition_name_exact": "Lithuania 1 Lyga",
           "listed_in": [
             "deprecated_second_tier_totalcorner_exact"
@@ -632,6 +1671,102 @@
               "sidecar_verified": true,
               "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-542-page-1-21eedc28376fb017487b8e76ec3097529055731ba5dfc7bd4aa55da3b18baa15.meta.json",
               "sidecar_sha256": "d2ff06a5e64f47d6112aadb11e7f97f8de3ee699fd4fac863c2fb2a2240a6032"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Malta Challenge League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "15795"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 18,
+              "response_sha256_count": 20,
+              "response_sha256_sample": [
+                "012cc4463317b536c84ad4eb0ec4648493156b1fd1a883418829b339b65eb1a4",
+                "0c9f1806ff325060ad35bdd3b1eca7fef19f3d114492cbe3a04f18ba1c920fce",
+                "0cc42060c4e7fa66da25802f42099c31276211f801fceb577dc7ae52cfc6ac8d",
+                "1233376760eb6b880805ff0ce953ce3f8d7e27ad7a5a811e404f745a94ec3bdd",
+                "3c5f32b5e11bd5211e08a8319abb611a906f9339be5d78c91a7149e016d27a5d",
+                "3d5c6d511ec96309eeb1bb927a45696b29527bf7d30e9f704da4fca1087b4e36",
+                "4b354a16cc382ff7f71b4900665447f72031a0f0420fe1b30bac387cff6d9841",
+                "51c6f5f6d703da8e3c2a9313cde42d42b9bfad8a1eea0115af911d0b7c693c2a",
+                "60544549ef7f810af4de1ccef94a91b4e5d5c9e726baf38f6fdb4b3a80e44000",
+                "610f51bb343d92d55b633b9851b99beb71dfe1b459ff0d62d673774c999e06c4",
+                "6b6a49bd0eaf6757362317772cdb16cc0fb22a402ed656b51806ed5dae75db3b",
+                "7a5bbd52682b9ce4d3c121fa088086d7e06aa98fedc98dc7e9bf07415af4751f",
+                "7bb8881ab8a2311c80ede4c63dc34cee29fd07d466e01b408b7e3215b3b38f3e",
+                "7cf0f4e894c855c61c6856cb98aaa22052cc68db91d4495bab03334740add8d0",
+                "a49a2cde7802134a68409269e1aaafb91fa5d50712f7f8898cd018a05ed0a6c2",
+                "b584ea4a940ca1410c6ae9a69f7d21b1e53e76f06a6cb14dd2f4cbbe629de3db",
+                "d5e065197e93e2d9366f3e5f1b410e3ba070517e5ecc13eb68c5ab2bdab2c500",
+                "e1680f58ef54bef9a09f30d53d81bda7aecd7245db84f5edde95c10e741d95ad",
+                "e23468f399b2439d05f754b12072e365d75512bd4887d1cbaa21b793484cfcb2",
+                "e9bc1de4ab7e18dba1bd38f302c0536acc19adf3caf92ec0590cef0c153e0355"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-10T13:50:14.304Z",
+              "response_received_max_utc": "2026-10-26T15:19:25.712Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Montenegro Druga Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "280"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 12,
+              "response_sha256_count": 20,
+              "response_sha256_sample": [
+                "1f9d8fbd900864ecd722db5857a2603dc56ef79d9b5a79dd878907b0b25900bc",
+                "206df7a7b29e108ee8737fe940531b15c08cd13be16ae4ffa1b03d2a47218596",
+                "20e1da5badcc47787fe7f4fee58aeadccf32e4d62acf0aad8422cff3f8bb748d",
+                "2ef3ee82644499e8b1d4917ad45dd0be082d2a97c919cc8c1e7acda4b0285fb9",
+                "47b07773b452da5baf02c9bad566da3cc978d387ce5191ca38c2626b5c069ee0",
+                "5aeb471d131f9289929f41216e8033dcffe08ca80d2ec99ceb65a247d8df37db",
+                "6d1f5f164f88596a9cf685dc3078b73ba22d3e0b2d9fbce5d55ee7a1f97afb29",
+                "7f5ead8f342f1ce7438d447ee717d1a383a70d015db84cae053bd66890847cab",
+                "94a86350b1b88253b45cdced54a3774e7696a48b7715f89c9a6603b7c4ca61f3",
+                "96522e041deecf9257c552b3b920d8a1459849f17854ed933e31ddd12fbbab3e",
+                "97d30f4a1cbf771855b9c8ab9a29e34e0d3e2e420e03b1d51fb0f2341f439326",
+                "a456c1961edfe34a33627c2d7b042a9f39301308b665edf4bb8b659387966ec5",
+                "a559d77b40f12a9a64eeb96c7b13f59a7352ecb6040e32c154084efd31bb718a",
+                "b67c0d7f8406ca4465f843c35feb9d7f4b3149733ea5be9dfbb9d98aa798b1c3",
+                "bb4d3237e105fa15cfe73207e709ecffa48e5062f32baf200e752f6bfad30348",
+                "c1a84711abee6f75c25518fcfcc553eed706cd6cead3d5381754888a41e58959",
+                "ca99bbf78bbac391dec04aed0556e020a42f29e0c00f734db1a6e9b74e7c4bc8",
+                "d50ba91319fba28a98993ea74990507597ebd8575534c61611f73cccd7e482ce",
+                "e92b96d4bbf4a30756e6c5a33eccdeedd80cf54b2a62bde3e9ad950f70444c7c",
+                "fb110d401f76b307805c3bd4630dc36f5a4fcc8eebe46c1fbdd4a725efebf78d"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-09-30T14:45:24.566Z",
+              "response_received_max_utc": "2026-10-17T21:02:06.113Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
             }
           ]
         },
@@ -684,6 +1819,37 @@
           ]
         },
         {
+          "competition_name_exact": "North Macedonia Second League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "15517"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 3,
+              "response_sha256_count": 3,
+              "response_sha256_sample": [
+                "71afe78a56f7c72b77c8138ec6def17b266ca82bf565442a4e061c81fa3545a1",
+                "8f79526b888e2f74f35ae0d694e5979e9f97b6cfeac2dcc2229236e831b99d13",
+                "b4d820df08b43b0e99121eac0384d1efe90bc547c7b83e76b28b3bf81a3fdc0d"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-11T18:21:22.068Z",
+              "response_received_max_utc": "2026-10-17T21:02:03.571Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
           "competition_name_exact": "Northern Ireland Championship",
           "listed_in": [
             "deprecated_second_tier_totalcorner_exact"
@@ -699,6 +1865,55 @@
               "sidecar_verified": true,
               "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-765-page-1-51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12.meta.json",
               "sidecar_sha256": "1953248f48dbd593ad97939088d3f2bbb484d3a450f0946aa839859f89abdab4"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Norway Division 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "143"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 33,
+              "response_sha256_count": 45,
+              "response_sha256_sample": [
+                "00a699dfbc5b6851e8b2dd86db629ee05952f42b13a8de71ce50e96555914c4b",
+                "01a8d62bab601c4e424a299d8db78f62de61b52894e69330fbba7ab472fb7ed6",
+                "14aaa95d855d6735ec0df860ee37526606b9b1836cc62229ee19aad581e0c91e",
+                "220c4da042ea80b7a94aa8e9353623fb3da66e2753dda13b844e12fb1d8ea97e",
+                "2ab79fa8ec9d8ffb6153b4e85a6261830ab31bc4c5bb38ee17a93551380abebd",
+                "3a2fc0f611dc4a6f7f35cde09ed06885f6229754c4974ca54e560fe323c805cf",
+                "3ba0d8d9a9481ad85739ebbb23658d1ba3d6484df3fa88b5e20d46b93173697a",
+                "3c3baf433e2377f7bb747fba677fd47594f66b688b352d5b39a7e2b79a9032c2",
+                "3ee0d2b3e11ac27bf4dc7c1a18b7318689680253989369ca8757b0bb5cde2e7c",
+                "48336f6ed3100aa4e5b3cfb83a4f25d325b7a658fdd42ccd1dcec80ceac37ffc",
+                "4b6481773827189a587a07d10722bc29bebe639a874e20f360267b5cfbe574de",
+                "4ff340eeefb6cfb393f629363e141d80db30925a4762fec10702e0f10a9cce88",
+                "5048bace7043cbc14c2d63024d94f166f58be7269777fa49b6c1973908bbc54a",
+                "546fd2479c8f856c6a10699c6253bf5485dd5c9919caad062e02e5976f5a66c9",
+                "580e0be821ab3c3c8bf046045e122fec7ab6ba8edbdb46e7369d601a09fb3775",
+                "5d6c476a0bea1e1cda91dc4c7573845113a946dc253b0447b82aa9f143eb02aa",
+                "5dea3ffd09ecd0345146ec5a680affdeb45fa74ad0ce9aba3d0f1beb83d70c60",
+                "6299e9048831b675de157492785e3c48a834b76d24873452e86ec294853b00ee",
+                "64ccaa229bc0296c7c18253ab4b5ef9bb38498612ac63a00c516e54b50e33275",
+                "665ceab46dd5127ec69d5b64e4cf37fa63916576aa64535410c7beb13f0b33f9"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-02T18:46:40.580Z",
+              "response_received_max_utc": "2026-11-19T15:57:49.883Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
             }
           ]
         },
@@ -755,6 +1970,54 @@
               "sidecar_verified": false,
               "sidecar_path": null,
               "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Poland I Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "49"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 20,
+              "response_sha256_count": 28,
+              "response_sha256_sample": [
+                "04efad99d3508378d7921ebeea0d8775bca55105499fcd7428531f1f62115784",
+                "1d30948bf5309144b075b49240e550bf314d028e513ddffe77ddfc0fe8483067",
+                "3344fd7facb4fd151762313a6a705327cc4a3728e3b7ee2ae436679a12007de9",
+                "39d7acdeafa5447c576e1f63fff436eb389f9f5f517afa8676ff2758c7154009",
+                "3b89a254c724d636141c4784ba044e589b5a2415a4911a1d06bf0938996c8ed9",
+                "5531efd2e90521360428ee5d0008e7a6641a82a0b06de89cb65d1e1b80e0ed5e",
+                "56fc0c57c917b93004dc8fa8576384a846d81e8fa49190cdf7574cf75419ed1c",
+                "5dd9339e86930c354b5473d72f03c712602a23da3fc43e3c3071a1532f96a795",
+                "62315acafd59eca7195f07be1b22960683f2e086bdbcb71883745e558dda5f17",
+                "64ea4aea3f5ca3bf5bbdfe5a3a2f61d7d1fd050c24436ed51103bb7c19853bf4",
+                "6cd9dd3896369581e9c46aecf01c2a1d72a4f3d461dcee5bdb8ace04b221104a",
+                "6e0c6f70643808d2abd0a9c37f367cfb3d206a37a4981d728a9173e4b10ee3d4",
+                "750e9f6e822a30ee608574c7fcd1cfbdebc5df6681b40a72574bd81638b4cd7a",
+                "7814bcd7a34828f458cc9f1e3be26bd70c2bac40b4d2b0914a5e7666e47a7160",
+                "7c9c296e7c1df7a2b74cc4585a29b9ea790eaef2a1d384a8abd8862bc8bf3042",
+                "818fe5bf8c2b6e666be6dcce4552d807d0e21a628b12114251f5f04999f8bdcc",
+                "8cd04db5b4bdbccd6f3a2e308ff6ef466112a9e95a6b13ff3fbfa7d7c46917d6",
+                "94f2ba9fc78310aa2521a695eea8f7da404384161d14f5e1c58163b72d59e70a",
+                "977f70a34ced939f1f58510e37f165f1dbd12921bc196b906e5ee75ecb956444",
+                "b9b98b4835be97c1ebbc767e0f38b8d91f56d9eaa31a61b6a3fdbebea194ae5d"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T20:20:28.133Z",
+              "response_received_max_utc": "2026-10-25T00:19:06.888Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
             }
           ]
         },
@@ -853,6 +2116,102 @@
           ]
         },
         {
+          "competition_name_exact": "Romania Liga II",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "515"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 29,
+              "response_sha256_count": 38,
+              "response_sha256_sample": [
+                "008b8a8514baff6d0dcac8fa21d95e8cfe591f288720d5f7cdc18404f3b251f6",
+                "01dada4b44b3f285284660827fa8ef7a9f27b9ab5b6d45a6153c8a7d45aaf226",
+                "0c7b2b7d8daf7c6ea04df49a948337bdcb79a22d8e72066a869876a1a2d290b2",
+                "0cf341605715f101cc940e7f866cd458fee0abe775675e5ad5ccc2badc582286",
+                "128f6f4a897da0086aeedf221e009f5d66a8b343793a5a15e3d4fd2fdae353d8",
+                "13b9706eaa0b2c286eb17cf3cdf6d8ad7c869a3f2e89d055dc88278c81880128",
+                "1e60f8fb74cd96be0b53a5a9891079b89d68665c4976729498971cd4164d3119",
+                "1f16551ca488307155a5296fe69fe129e8ec97187df2d8547511ff07f0c4cc3f",
+                "3242ecf1d2c9de97f9b0fcf041486694d31ac3f7293d6696521c2e24779440ca",
+                "364a89ea6171768150146e2d71e1a68d5e12fec2b4d7d0c4f09db0e422f11af2",
+                "3687783d4a2bd52d9f6ace7198de8026a42b8389e72484ebc1469a7ea8f737a6",
+                "437eaf384cbf80d09706ba114ba1d49d04f4f56d18d5e94d00377bb6c224d90a",
+                "43dfbd38a95726027c563cfb85dc3c8c2afcf8c6cc647faf9d2902f80aae9c77",
+                "44246614e7b813e14bc0556c4ad997d0b11b4dafef71cc879ca8ff84fa54c4b3",
+                "4afc6e090e957bfcc0bddeb00010673983248d4b73faed8815442912ad568ebe",
+                "4c060ad4aabe00116a3b0d5d27dd593ef73ec484b1fe699072dc5d9c2e1bccd4",
+                "520c1bb6dd2c4a6a70d5060ccb3e301aa76d1f8830f702df911b2e02bcedfb90",
+                "56a57a9da458e8b0635c2613cd01c6ed9baef9c1087c50ff673bd656549923b6",
+                "5d43045bf2146f8d7bb18cb80a6cb43e94a59562bf1cf2c3173fe877b9414a32",
+                "622ef3efd5d79269a87800332b26060488b9dab1f92c2b0d1a1b593f17f1c1eb"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-08T16:47:41.086Z",
+              "response_received_max_utc": "2026-10-29T02:57:57.650Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Saudi Arabia Division 1",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "246"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 19,
+              "response_sha256_count": 29,
+              "response_sha256_sample": [
+                "08cd6bfd68df5563dc0d1ec82923d677fbd87b963986ef1c04b7f4a134d36dbe",
+                "0e13b0534fe3e30707e3328570fbd3e35fc8cd4a630da1e03d6fe3e6bb3995ec",
+                "0ea9014889c635dc9b9e2a9669b1091627be265eddb4d53b4508623ac3a7574c",
+                "123949c71c04f8952529311c24716a7f6936d2966e3852fd1d2cda953fa5c930",
+                "18859b47aaa3f14f15a68482642d4c9db26b1789af5531034baeb5d5c4cb085a",
+                "203c634661e96fe4388b3dafef48fcc2496f7af69a50210782de4f7d29be0e88",
+                "2093ed512837578b07c9dd9c3c188da7c60328b4346873677cf485b5b19451b1",
+                "2da9cee26d6fc59060baae0ef7747024fb809e80ca7928e264d0985d267a218b",
+                "35ff720310bbc286d72ad0c67618b633dbd5bbc35e177d7d19e45865850a7164",
+                "49f77c57834d4363022cca2027112198aad618c7fc12885d34193c191f0ad8a9",
+                "53d8db34fd3483128df2370f8c1b97df1d0974ca527e8bf067f843e751538902",
+                "583397318e18791cb37b84bf353951bef1e6f7ec419bc9e4db7344b262c32838",
+                "5a9367087693411561d86d390f2044cd19bce41807797afc71949ddf1ce2c8a2",
+                "61997ebf2db2a9c5f37f476365b84d83ed086c64a68b5c045b9e07138ba39d33",
+                "6bcc617da24e46f28f27f8d73f92672095490d5682d18e4683eeca3f5977fd6f",
+                "71f5e7a4384924ea56fa6aa6e672e4e32bf8c78c51602dbe5b036a68d54621a7",
+                "759feca8ad3f3a2fe0f98500a102a5ef4da917b94e1f9cd84c5b5f039a67f56e",
+                "7fea5d3ec3141ff4d6d39ec91f0e8b15bb62bdda714cada0450b37f2e406b7d9",
+                "857b8a153b3f871c86a378b981f48389065aae65aefd0d52096b3becf5814285",
+                "8b200f33d435a88eae1ef435a166468d49579710da5ff20d2340492eec8bd24c"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-08T18:49:12.015Z",
+              "response_received_max_utc": "2026-11-02T13:00:03.608Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
           "competition_name_exact": "Scotland Championship",
           "listed_in": [
             "deprecated_second_tier_totalcorner_exact"
@@ -919,6 +2278,102 @@
           ]
         },
         {
+          "competition_name_exact": "Slovakia 2. Liga",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "355"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 25,
+              "response_sha256_count": 30,
+              "response_sha256_sample": [
+                "02fd72dbcba89078fc435ed0da81dd424daaca261f37daef876b204bde3788d3",
+                "0b670c82d1cb15358919b016dea3e701ed6ff2f55829c839bfcac0e46fe2a948",
+                "0bda1506b045b4d61c86a3a9381b59d245e81916a97b050756e8fc2afad9c1f3",
+                "1d24022cb113f3926f5be40cba382f79689ae2c5db1469273bdbb1482e6a0e76",
+                "2606ad5f3711dff26056698c94a8c61612c22bc6d62f8da84bfc7881c8c969a0",
+                "271f2d85c7b85ebfa842892eb6609035a22d948b19fd581f5994dd7ebb1e7f16",
+                "2a44667c1effeddab86dc5168152877ca18efc4beec4de5ea064ebbed6f53c0a",
+                "3c8da9f64081f555321d57a8ac9910f9b29514a29f83b1536d7fea36e4fcab79",
+                "3d861e99320f5e9090c245a9cc495fbbdc6ad8b5827d9ffc2ef1b495ba0c0f4e",
+                "4ed071816d31bb00380dad9a6739627a168de35f4d2d3959012ae16d3ec9d8f9",
+                "566954e2072a87c69602c1e1e6ebe34bd85b5127f60ae2a664f3f94179ed1502",
+                "5f35510a257a0665ffe665aa2cde8acdaab65bed57981043546276a4f0460c3f",
+                "610281a65aab3207eee63e1b48d1827a2d9edbef3e385eb0c43f8654a8e2a8c1",
+                "62a6544d60e75ffb323f4b8b2f8e6e9db7b9315e3bffd842c1de07ac52d9ad21",
+                "76c7d6870a788f3c4052267f108798535febbe4ab7df87de24d6cbd58c260de3",
+                "7a7248edd840c9a89376e644c5dde4e444ae3cbf6013b6faec6d1c1ab1ea3ca9",
+                "8bb6fe0ef57963aa2865515cb4e0447711a24c8ef61227e357708f5bdc8d60d1",
+                "90355c2693f6e2ff2997bbe217488797ef68890152ee240aa2a98c910cbd4122",
+                "a738e3ebb3cbc3e134aa779778194c590c5b7a29c5738e9b622eb0fabe7af9a7",
+                "b3ca133fcc200a7309fc59faa6b60272bd7969ad2b52543edd479946f05765cd"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-09-29T16:09:28.098Z",
+              "response_received_max_utc": "2026-11-02T12:44:53.130Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Slovenia 2. SNL",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "680"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 26,
+              "response_sha256_count": 35,
+              "response_sha256_sample": [
+                "01b82c97675a5bcddeba1acd7e9b96670ded1deda3c1de2b127cfe9b5bfe4e73",
+                "0ce50b6879384912fcdcb54a430ceec6aa46b63d0d78b4db7d50e07da34f766f",
+                "1034166544c8dfffed4bb69c572b1f93862175eb208e6f91403312edc1bf1fbb",
+                "136f198ee125afe4091de4b4fc396827d974b06519e90242ea4031aaf09136bc",
+                "1f4347270d65544caff1a9f9d9d939fe2688bfb471b6d6206e92a896d800cb5a",
+                "2a97c5d086685350323d77cdb6063b000e3defe53065a15b3818071c86a2c6af",
+                "371f5763faf65faf0d897be7cca6b6ca6e406638a8f357ad3d92ffc84a0fed75",
+                "374b5219c4ab269005ed374b0c8323fa74c0636a5bfb0d9faba8aad1b213c337",
+                "395e22acceceefcda7bf804947d24375cd3bacc932d1c141c05b3b16e835939f",
+                "404bcf0e0f519c8cfce6d0d997de51f09a6b170be7278e06a221693dd4c49658",
+                "44a2859e1b934965f3322d39a6105628724b836fed8097b4d06f99be65a48c2f",
+                "506d94fdb5cf281b0e2e4020497ddfa79b62e3dc57174ff066901accaf258ace",
+                "5c0a7bd6fb5a40e0622ef1be7b79e9f4035f6f970198f9d817f0de4c1a3dafb0",
+                "5f03f17e4773013cc596e372873607c7c37b2700d54d192ce822c776eaf24bb8",
+                "681be87f11535cc7ce6933838f9b9423e5855b5316d7958ca1b060d345d46023",
+                "6a0c75251fb9aaf77c60c20331238c4df3bcff0e801a301f3c025cff9d422a7e",
+                "7a5339aaa05cfdea7596e7cb9b71c4ddbd991d930c10905321f148a19d6cfa53",
+                "7bd5c29c2157a21cf7e1661541779ed2e98a9e1e57bea39a205a22404cae1359",
+                "7c9f847f8201282e8eb87768689fff15779adacbb1530ad0fad6c7051c7a2581",
+                "848841e3ad0726004526083da91fd23a17281605a4912113610a132181e27823"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-09-29T16:09:48.115Z",
+              "response_received_max_utc": "2026-11-02T12:50:12.317Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
           "competition_name_exact": "South Korea K League 1",
           "listed_in": [
             "first_tier_totalcorner_exact",
@@ -943,6 +2398,54 @@
               "sidecar_verified": false,
               "sidecar_path": null,
               "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "South Korea K League 2",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "14123"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 18,
+              "response_sha256_count": 26,
+              "response_sha256_sample": [
+                "03b90ec93c2840f9a0d9a7e9547dbb85c1a219736e51c92197d7423c8533df34",
+                "08db455316bb532743b322d85b356427dea0e2340f2bc6c1da16258786053a05",
+                "1b1d7a78fd6cfc9189c5e947ae5ca4825d0a6f0e968a6bc3675af38208901937",
+                "2352728b061131697531d23fe96f523b02a851113a221689fff9fe7fcc0d8b2e",
+                "253c96d5f47110f94db49f7254512b4544f0f472633adf39a2a29fdd2efeb8e1",
+                "3228e4a21943ccc5be890ade9615aa6ff07bc71607d86682904e300bfa0b97c3",
+                "3426860faf2db216cbad319ee8bb53a2ecf305cc4c9fa8a67722c77bf43b622d",
+                "3d50829567a222f16105f4763aa8afcfc945ec10b10bef514721ac0c78586372",
+                "3e7675184db27ca66af3957a5c50d66b5139114c1afc308a25d3e9595edc4f36",
+                "48b091ca88f5c4652bc806e835002eadeadd4e9d801aa7cb177244d010025d01",
+                "4be157e7a4bb76541d51c5080062a3053eacf91eaee391ff94cacabd4abc2587",
+                "5185a03c3df44a3ec2fff9fbee74a0293c4a604e7c379eb6b75113f1523cc0d2",
+                "5cbda2b2c88eaba427f1b838f888c84a1d7d82206ed9a76d2ba652c8d61f1292",
+                "89765870bc7163b5e86c782242d47f06e10b29709429ef576d1f9e1ab08bbc54",
+                "975f03a9b02b3d14ff5192a8f2d73ee5b8c955b484f4ab31bf038cf835d54e63",
+                "9c758e06bf1a1413a621e55ec2f8cee3f3dff616344e31692fac4d01eee806e5",
+                "a5ccea368c5dbab1a9f21f1061286ac7d4ce30b8925a6bbf9253670a1b2be145",
+                "a6c4787a6728befaa7e723f7b91478efaf08567a8fe65d5dc11ef21bad683148",
+                "acb8f0b21dd6ccacd6e19e32b5245aefdb95fd2c9ba3187569204564370b66d7",
+                "affe2c447946b751ae7a2f287d607820d9a011bb6142798ecfd4bcc9169c9a5e"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T06:48:11.763Z",
+              "response_received_max_utc": "2026-10-28T01:32:17.625Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
             }
           ]
         },
@@ -1029,6 +2532,93 @@
           ]
         },
         {
+          "competition_name_exact": "Sweden Superettan",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "126"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 17,
+              "response_sha256_count": 22,
+              "response_sha256_sample": [
+                "0affd33b2efa1ccac33d2223799b646ac68406c5f42216299d9819cba7e25539",
+                "0caf0e8d28d68bec8546396b6b288fabf60168a517a559b24e411caed22590df",
+                "13cebe770d2124d9d318f1ed8a41e85c4e03dce899749ef38e0d3081daae3fd9",
+                "1a15babf2591eb10a025e5b094984b7c769e76da5ac38fa00c47b8d4915a02c8",
+                "2e8288a5381b70f71dc391a6b535068fd584ff88e7ab6070cecb9fa6af2c8c25",
+                "304858e6d06c351ce573ad539afdf23f3e016c764714e9921659ec39394eae64",
+                "30e05e926c7c773b61b4709318f16793bfa8bdf1323109c112de64b10bbcfaed",
+                "4c975eb65cb6bca98ca5090cc8994faee53add10457c18598f6179c05cedef4c",
+                "50992661fc321d4a8c8291ae2c7628c5b1206d8f698d0719edc81542c40af8cf",
+                "5321257b95792e367b8f61b15e029d725889a3060d8de736b14e83f54b312baa",
+                "728cfd52d478e1e8eb6ea4b5977116231d0b1b74283b89d967f9ce0066038460",
+                "7f5ca33055557b85ec898f0c9f1218ed8df335afdb4fc9d289c9d32e45d104bf",
+                "8733672fd774fbd691212b260b5a93c5f638bcf5eeb27182733aaf13bbfe8b15",
+                "87ea1bef615dd0037bd9ba55c52e6a8c432048dd4d7e4b591edec762c37da7e6",
+                "a49194d020104c519cba55c098390b3fbb2f6045ccd33bbe55720b9c4e3d1bec",
+                "b9fd4de05355ddcc802a338c0db2f91ef6da65f4927993c910063a3fe6a7c5ae",
+                "bdde951f66c2687cdcb2e46bb2f797041a9d3c1345f7c9a45ae746fb4ff1a2f3",
+                "d415ee3c0bcd88f1c57055d6aff02987afb3d20534c220482312b6beb226d497",
+                "e6b109ec26f2d7c6ae8114c04529ea90464343646c5a0b3a24df9d454878e642",
+                "ed33e965f76b6612bccf35ea1c6a38eb4eca4b4372b6420522998d582736aa19"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-10T12:50:04.491Z",
+              "response_received_max_utc": "2026-11-02T12:44:55.730Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Switzerland Challenge League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact",
+            "opponent_observed_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "125"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 7,
+              "response_sha256_count": 9,
+              "response_sha256_sample": [
+                "5629682205ffb4653698c4053e1511bcced7f2feff6a86fec50afbcf3d180673",
+                "6e1885105ed67949719c5b79594de03979618b5b714f0b4d94de7da235127409",
+                "6f2e3dad2c94bacd8cbaeff5100f2ec2d793b14757423affbe2a742da4d99b3c",
+                "6f47e5727fb79ab5d6634bbdf123d9a71558ae143178bd425c2dbe7b5d50ce9d",
+                "9a04a13b64006d99d9f1771127bb983310a8cef2874913874dc820ef1b8f6d4e",
+                "b678eab7e3dc35cb09bbf34afc29935b89c60e5d1445682f4dd6fc52c93b2929",
+                "b8f404416a401b1f62e0e412c05d306e92df3a915cda38d8e7e214db8b16cea8",
+                "c8d26346149d458eddc3799aae8ac02f39638b389d35fdc73f97def1805fbca3",
+                "d67bb0674e0baf2f3b481d74c7e090ec3c1712a27583a12ce1941f7979938b96"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T19:24:13.400Z",
+              "response_received_max_utc": "2026-10-25T17:40:02.980Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
           "competition_name_exact": "Switzerland Super League",
           "listed_in": [
             "first_tier_totalcorner_exact",
@@ -1053,6 +2643,54 @@
               "sidecar_verified": false,
               "sidecar_path": null,
               "sidecar_sha256": null
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Türkiye 1 Lig",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "709"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "sha_verified_saved_TotalCorner_match_view_response",
+              "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+              "distinct_fids": 33,
+              "response_sha256_count": 48,
+              "response_sha256_sample": [
+                "01abc0fabfc30beb6ca6164527fdd38e2fcdf6b0096a7a44fb66f7b57f872d0e",
+                "02468b72ec1a823a24c9bc0090089753cd08f9a36f42bc7e10a2683b0bbe569d",
+                "02db6856e4e787c30b0e760fb4f0548e0ac09d2b77c157fa0df66bcad4f827be",
+                "0fab0c702e9200a952e8d6a76ea74b0257bb65e0439ac915aed61b2dae6be41c",
+                "126be34e5fed2b91a3aca345b9c151c222f43e9defd11972f5d17da3811f18ad",
+                "126e9a9e684ac5bc924264524e4f73fe5d5712764785d32c18e15f4e6ef7c6f5",
+                "14bfe3d01fbcd4c3775d2c6416f4b674dca26b7e6955bc9f9d02ea61ed0aa87d",
+                "16fbf19f704501715e9e077e66d150d3cc4097f5389fd106bed4660c5092df87",
+                "1b96be95b5d8177f35ecbba3d8ff26e2d1b14e56285e4af75cb104bfd87473b6",
+                "1d5d587b3c58aaafbcd66c52d035d72694a5aeb278017901dafe721b535d434f",
+                "201cd315b60bdc5389e978f35ec636fe8f3eb5d44f5bfc69e089c700e4b916b3",
+                "319aa194cbdcb2575ca28889f183ad70453ffaf396d8f9013e5f93ec8a14ea0a",
+                "3219126ad670daeda33b4f4e16e7d091ed765b0b92f786c2ff911b0dd39ba481",
+                "324cd35675c3119e976f8fd22d4bd098d57083b1a35e08658aa6c341cb25dc87",
+                "3b125dfda6fe835f789fa3e67f051c725aba0003627dd5d3b0a435d7df22fc15",
+                "3cf1831a2ac1f347bc98cee943282eab3e676692b98a33d3fd557ecb3eae10f6",
+                "45fe35f1aaf0eaa1a69d64b5a42a933d137fad54df05469e60d0647127149326",
+                "491a655bcc8264b4f90dcbc08030b92be561b0ce355a379ea3a01830c47b9c70",
+                "4ddf0d76955210a75e1b466f4af74d5f9bfdd0262f60e98046767d2c6a5275ab",
+                "552663ca7d9810d65af3f4e96fe5906b435f923a899ec30912efa9ee2b8d77e9"
+              ],
+              "capture_layers": [
+                "TotalCorner_match_view"
+              ],
+              "capture_modes": [
+                "archived_HTTP_response"
+              ],
+              "response_received_min_utc": "2026-10-09T15:50:52.931Z",
+              "response_received_max_utc": "2026-11-02T12:55:28.956Z",
+              "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
             }
           ]
         },
@@ -1172,146 +2810,7 @@
       ],
       "unmapped_exact_names": [
         {
-          "competition_name_exact": "Albania First Division",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Andorra Second Division",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Austria 2. Liga",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact",
-            "opponent_observed_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Azerbaijan Division 1",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Belgium First Division B",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Bosnia & Herzegovina 1st League",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
           "competition_name_exact": "Bulgaria B PFG",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Bulgaria Second League",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Croatia 1.NL",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Cyprus Division 2",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Czechia 2. Liga",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Denmark Division 1",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact",
-            "opponent_observed_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Egypt Division 2",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "England Championship",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact",
-            "opponent_observed_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Estonia Esiliiga",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Faroe Islands Div 1",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Finland Ykkosliiga",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "France Ligue 2",
           "listed_in": [
             "deprecated_second_tier_totalcorner_exact"
           ],
@@ -1327,156 +2826,7 @@
           "raw_source_evidence": []
         },
         {
-          "competition_name_exact": "Germany Bundesliga II",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact",
-            "opponent_observed_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Greece Super League 2",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Hungary NB II",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
           "competition_name_exact": "Iceland 1 Deild",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Italy Serie B",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact",
-            "opponent_observed_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Latvia 1. Liga",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Malta Challenge League",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Montenegro Druga Liga",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "North Macedonia Second League",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Norway Division 1",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact",
-            "opponent_observed_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Poland I Liga",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Romania Liga II",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Saudi Arabia Division 1",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Slovakia 2. Liga",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Slovenia 2. SNL",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "South Korea K League 2",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Sweden Superettan",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact",
-            "opponent_observed_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Switzerland Challenge League",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact",
-            "opponent_observed_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Türkiye 1 Lig",
           "listed_in": [
             "deprecated_second_tier_totalcorner_exact"
           ],
@@ -1488,8 +2838,8 @@
     },
     "current_reconciled_inventory": {
       "path": "/private/tmp/quant-runner-history-backfill/research/data_recovery_2019_2026/inventory_coverage_summary_2019_2026.json",
-      "sha256": "2a6b8a8a9e7c2297fc1f9badb57967f1133f65c18317295ee495c50e50ec9ac3",
-      "league_ids": 74,
+      "sha256": "1ce436e587e91667024149396ed6c9115e13821370692a84e2e7dc1d21a02c9f",
+      "league_ids": 80,
       "ids": [
         "1",
         "10",
@@ -1550,7 +2900,9 @@
         "337",
         "345",
         "378",
+        "542",
         "670",
+        "765",
         "779",
         "979",
         "1439",
@@ -1558,7 +2910,11 @@
         "8293",
         "10480",
         "10714",
+        "10808",
+        "10989",
         "11498",
+        "11958",
+        "11959",
         "19290",
         "26540",
         "27388",
@@ -1585,15 +2941,44 @@
   },
   "set_audit": {
     "formal_union_expanded": 64,
-    "explicit_union_formal_expanded_candidates": 79,
-    "total_union_including_observed_m1_only": 80,
+    "explicit_union_formal_expanded_candidates": 114,
+    "total_union_including_observed_m1_only": 115,
     "inventory_ids_missing_from_union": [
-      "542",
-      "765",
-      "10808",
-      "10989",
-      "11958",
-      "11959"
+      "2",
+      "13",
+      "17",
+      "27",
+      "49",
+      "90",
+      "119",
+      "122",
+      "125",
+      "126",
+      "143",
+      "227",
+      "241",
+      "242",
+      "246",
+      "280",
+      "355",
+      "417",
+      "514",
+      "515",
+      "571",
+      "680",
+      "709",
+      "877",
+      "911",
+      "957",
+      "9115",
+      "10635",
+      "11260",
+      "11559",
+      "14123",
+      "15517",
+      "15795",
+      "26528",
+      "26825"
     ],
     "inventory_ids_outside_union": [],
     "candidate_ids_already_in_inventory": [
@@ -1605,9 +2990,7 @@
       "210",
       "252",
       "270",
-      "337"
-    ],
-    "candidate_ids_not_yet_in_inventory": [
+      "337",
       "542",
       "765",
       "10808",
@@ -1615,7 +2998,45 @@
       "11958",
       "11959"
     ],
-    "m7_exact_names_unmapped_to_provider_id": 38,
+    "candidate_ids_not_yet_in_inventory": [],
+    "raw_response_mapped_ids_not_yet_in_inventory": [
+      "2",
+      "13",
+      "17",
+      "27",
+      "49",
+      "90",
+      "119",
+      "122",
+      "125",
+      "126",
+      "143",
+      "227",
+      "241",
+      "242",
+      "246",
+      "280",
+      "355",
+      "417",
+      "514",
+      "515",
+      "571",
+      "680",
+      "709",
+      "877",
+      "911",
+      "957",
+      "9115",
+      "10635",
+      "11260",
+      "11559",
+      "14123",
+      "15517",
+      "15795",
+      "26528",
+      "26825"
+    ],
+    "m7_exact_names_unmapped_to_provider_id": 3,
     "m7_exact_names_mapped_to_multiple_provider_ids": 0,
     "formal_ids_not_in_inventory": [],
     "expanded_ids_not_in_inventory": []

@@ -1,0 +1,163 @@
+{
+  "checkpointed_at_utc": "2026-11-21T17:02:50Z",
+  "status": "active_incomplete",
+  "worktree_branch": "data/history-backfill-2019-2026",
+  "active_wrapper_pid": 65966,
+  "active_unified_exec_session": 29157,
+  "target_file": "research/data_recovery_2019_2026/m7_named_competition_schedule_targets_20261122.json",
+  "target_file_sha256": "06cf65ae356bee2c82973c82f20d19d3941ac210faf54475b956ce736ee06916",
+  "source_progress_file": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/progress.json",
+  "source_progress_sha256": "af5f99c23e38d7e13753711e40dddc0760b04041d461ae70c0f51bf0b921dfcb",
+  "source_fixture_ledger": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/fixtures_2019_2026.jsonl",
+  "source_fixture_ledger_sha256": "5a327cca1d2d1a1b2fd5794d72471a4de7adbad067fa584e50a279bea194614f",
+  "progress": {
+    "started_at_utc": "2026-11-21T16:28:12.968745Z",
+    "targets": {
+      "877": {
+        "expected_name": "Albania First Division",
+        "api_name": "Albania First Division",
+        "reported_pages": 22,
+        "pages_read": 20,
+        "fixture_rows_in_target_range": 557,
+        "unique_2019_2026_fids": 557,
+        "new_fids": 557,
+        "conflicts": 0,
+        "empty_pages": 0,
+        "kickoff_missing_rows": 0,
+        "failed_pages": [],
+        "page_order_consistent_so_far": true,
+        "latest_page": 20,
+        "final_pages_reported": 22,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "11559": {
+        "expected_name": "Andorra Second Division",
+        "api_name": "Andorra Second Division",
+        "reported_pages": 5,
+        "pages_read": 5,
+        "fixture_rows_in_target_range": 128,
+        "unique_2019_2026_fids": 128,
+        "new_fids": 128,
+        "conflicts": 0,
+        "empty_pages": 0,
+        "kickoff_missing_rows": 0,
+        "failed_pages": [],
+        "page_order_consistent_so_far": true,
+        "latest_page": 5,
+        "final_pages_reported": 5,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "11260": {
+        "expected_name": "Austria 2. Liga",
+        "api_name": "Austria 2. Liga",
+        "reported_pages": 94,
+        "pages_read": 66,
+        "fixture_rows_in_target_range": 1936,
+        "unique_2019_2026_fids": 1936,
+        "new_fids": 1936,
+        "conflicts": 0,
+        "empty_pages": 0,
+        "kickoff_missing_rows": 0,
+        "failed_pages": [],
+        "page_order_consistent_so_far": true,
+        "latest_page": 66,
+        "final_pages_reported": 94,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "227": {
+        "expected_name": "Azerbaijan Division 1",
+        "api_name": "Azerbaijan Division 1",
+        "reported_pages": 36,
+        "pages_read": 22,
+        "fixture_rows_in_target_range": 619,
+        "unique_2019_2026_fids": 619,
+        "new_fids": 619,
+        "conflicts": 0,
+        "empty_pages": 0,
+        "kickoff_missing_rows": 0,
+        "failed_pages": [],
+        "page_order_consistent_so_far": true,
+        "latest_page": 22,
+        "final_pages_reported": 36,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "119": {
+        "expected_name": "Belgium First Division B",
+        "api_name": "Belgium First Division B",
+        "reported_pages": 78,
+        "pages_read": 49,
+        "fixture_rows_in_target_range": 1423,
+        "unique_2019_2026_fids": 1423,
+        "new_fids": 1423,
+        "conflicts": 0,
+        "empty_pages": 0,
+        "kickoff_missing_rows": 0,
+        "failed_pages": [],
+        "page_order_consistent_so_far": true,
+        "latest_page": 49,
+        "final_pages_reported": 78,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "911": {
+        "expected_name": "Bosnia & Herzegovina 1st League",
+        "api_name": "Bosnia & Herzegovina 1st League",
+        "reported_pages": 56,
+        "pages_read": 10,
+        "fixture_rows_in_target_range": 300,
+        "unique_2019_2026_fids": 300,
+        "new_fids": 300,
+        "conflicts": 0,
+        "empty_pages": 0,
+        "kickoff_missing_rows": 0,
+        "failed_pages": [],
+        "page_order_consistent_so_far": true,
+        "latest_page": 10
+      }
+    },
+    "network_requests": 172,
+    "new_unique_fids": 4963,
+    "identity_conflicts": 0
+  },
+  "prior_full_inventory": {
+    "unique_fids": 141623,
+    "provider_league_ids": 80,
+    "league_utc_year_rows": 640,
+    "verified_ft": 135167,
+    "unresolved_ft": 6456
+  },
+  "prior_inventory_rebuilt_before_this_batch": "2026-11-21T16:18:57.134823+00:00",
+  "cross_reference_so_far": {
+    "five_completed_leagues": [
+      "877",
+      "11559",
+      "11260",
+      "227",
+      "119"
+    ],
+    "completed_unique_fids": 4663,
+    "Crown_capture_or_asian_quote_overlap": 0,
+    "note": "Cross-reference is interim and only for these five finished leagues; no Crown rows found for their new FIDs."
+  },
+  "verified_supplemental_provider_page_mappings": [
+    {
+      "name": "Bulgaria B PFG",
+      "provider_league_id": "10653",
+      "url": "https://www.totalcorner.com/league/view/10653"
+    },
+    {
+      "name": "Georgia First League",
+      "provider_league_id": "702",
+      "url": "https://www.totalcorner.com/league/table/702"
+    },
+    {
+      "name": "Iceland 1 Deild",
+      "provider_league_id": "114",
+      "url": "https://www.totalcorner.com/league/view/114"
+    }
+  ],
+  "caution": "Source page ID/name checks are mapping evidence only. No league-specific fixture count is claimed until schedule pagination finishes.",
+  "active_process_target_count": 35,
+  "active_process_target_sha256": "9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9",
+  "active_process_note": "The process loaded the original 35-target input at start. The 38-target file on disk includes 3 page-verified additions and is queued for a follow-on resumable run only after PID 65966 exits.",
+  "queued_followon_target_file_sha256": "06cf65ae356bee2c82973c82f20d19d3941ac210faf54475b956ce736ee06916"
+}

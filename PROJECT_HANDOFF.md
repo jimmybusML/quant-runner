@@ -5132,3 +5132,11 @@
 - Wales Championship North的原始`/v1/league/schedule/11958`响应及sidecar提供了精确ID来源证据；该名称本已映射，故映射数仍为35。完整未映射名单和逐项哈希在`research/data_recovery_2019_2026/league_scope_union_2019_2026.json`。
 - TotalCorner赛程采集器PID 10634仍运行。16:05 UTC权威进度：925次请求、累计发现27,068个目标期新FID；ID 15、57、63、121、128、210、252、270、337、542、765、10808、10989、11958均已到2019 cutoff/provider终点且没有失败页；ID11959 Wales Championship South到第28页，总页数尚未报告。原始响应尚未合并进规范化库存。
 - 合并库存仍是先前74个provider ID；542、765、10808、10989、11958、11959六个候选ID等待合并。该范围审计请求0次网络、SQLite写入0次。TotalCorner进程活动期间不另发TotalCorner请求，不启动Crown批次；待其退出后再整合赛程、FT和Crown覆盖并更新逐联赛/赛季矩阵。
+
+### 2026-11-21 17:02 UTC：补齐竞赛映射并继续全量赛程分页
+
+- 保持 `/private/tmp/quant-runner-history-backfill` 的 `data/history-backfill-2019-2026` 分支及正在运行的 TotalCorner 分页进程 PID 65966 / unified session 29157；没有重启进程、并发发 TotalCorner 请求或启动 Crown 批次。
+- 在原35项 SHA核验 TotalCorner 原始Crown比赛页精确名称映射外，另对三项从历史范围名单未映射的名称核查精确 TotalCorner 联赛页面：Bulgaria B PFG→10653，Georgia First League→702，Iceland 1 Deild→114。页面 URL 和映射来源类型已写入 `research/data_recovery_2019_2026/m7_named_competition_schedule_targets_20261122.json`。这三项不伪装成已有 Crown 原始响应映射，原始响应映射审计仍如实标记3项无匹配。
+- 当前正在运行的进程启动时读取原35项输入；含3个补充联赛ID的38项目标文件仅排队，待本进程退出后续跑。进度中ID 877、11559、11260、227、119已完成，共新增4,663个唯一FID；ID 911正在第10/56页，当前总新增4,963个FID。前六项截至此检查点失败页0、版本冲突0。自动在有效页面时间序严格且页面最晚赛事早于2019截止线时停止，所以部分联赛无需遍历剩余更早分页；其余页面继续按原有分页终点条件读取。
+- 只读Crown SQLite交叉核对前五个已完联赛新FID：4,663场目前均无 capture / asian_quote 记录。此结果仅表示现存本地Crown缓存未覆盖，不能据此断言赛事没有市场报价。没有向 Crown 发请求，也未更改生产采集行为。
+- 最新可复核快照：`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1702Z.json`，SHA256 `e61a098c930f5f16275f9d135628cc6665d358816faaaf7a2797c71e3df0c18a`。采集仍活动中，赛程合并、全源逐年覆盖、FT及完整 Crown 缺口审计尚未完成。

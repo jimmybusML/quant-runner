@@ -28,6 +28,7 @@ M7_SCHEDULE_RAW = QUANT / 'research-work/m7/m7_current_approved_schedule_refresh
 SUPPLEMENTAL_RAW = (QUANT / 'research-work/full_history_backfill_20261121'
                     / 'totalcorner_schedule_recovery/raw')
 OUTPUT = OUT / 'league_scope_union_2019_2026.json'
+RAW_RESPONSE_MAPPING = OUT / 'crown_raw_exact_league_name_mapping_2019_2026.json'
 
 
 def sha256(path: pathlib.Path) -> str:
@@ -75,6 +76,18 @@ def main() -> int:
 
     candidate_doc = json.loads(CANDIDATES.read_text(encoding='utf-8'))
     candidates = {str(x['provider_league_id']) for x in candidate_doc['competitions']}
+
+    # Exact competition labels found in SHA-verified archived TotalCorner
+    # fixture responses. Do not infer IDs from similar competition names.
+    raw_map_doc = json.loads(RAW_RESPONSE_MAPPING.read_text(encoding='utf-8')) if RAW_RESPONSE_MAPPING.exists() else None
+    if raw_map_doc:
+        current_db_sha = inventory_doc['crown_store_snapshot']['main_db_sha256_at_snapshot']
+        if raw_map_doc.get('source_crown_sqlite_sha256') != current_db_sha:
+            raise SystemExit('saved Crown exact-name map references a different SQLite snapshot')
+        raw_mapped_ids = {str(lid) for row in raw_map_doc['mapped_exact_names'] for lid in row['provider_league_ids']}
+        raw_mapped_names = {row['competition_name_exact'] for row in raw_map_doc['mapped_exact_names']}
+    else:
+        raw_mapped_ids=set();raw_mapped_names=set()
 
     # Build an exact-name map from actual saved provider records only. Do not
     # fuzzy-match translations or infer provider IDs from competition names.
@@ -192,6 +205,25 @@ def main() -> int:
             else:
                 add_cached_pair(path, source, require_sidecar=sidecar)
 
+    if raw_map_doc:
+        for row in raw_map_doc['mapped_exact_names']:
+            name = str(row['competition_name_exact'])
+            for evidence_row in row['evidence_by_id']:
+                lid = str(evidence_row['provider_league_id'])
+                name_to_ids[name].add(lid)
+                mapping_evidence[(name,lid)].append({
+                    'source':'sha_verified_saved_TotalCorner_match_view_response',
+                    'source_sqlite_sha256':raw_map_doc['source_crown_sqlite_sha256'],
+                    'distinct_fids':evidence_row['distinct_fids'],
+                    'response_sha256_count':evidence_row['response_sha256_count'],
+                    'response_sha256_sample':evidence_row['response_sha256_sample'],
+                    'capture_layers':evidence_row['capture_layers'],
+                    'capture_modes':evidence_row['capture_modes'],
+                    'response_received_min_utc':evidence_row['response_received_min_utc'],
+                    'response_received_max_utc':evidence_row['response_received_max_utc'],
+                    'verification':'exact response l/l_id pair; raw_response_sha256 matched SQLite capture row',
+                })
+
     mapped_name_rows = []
     unmapped_name_rows = []
     multiply_mapped_name_rows = []
@@ -209,8 +241,8 @@ def main() -> int:
             if len(ids) > 1:
                 multiply_mapped_name_rows.append(row)
 
-    explicit_union = formal | expanded | candidates
-    observed_m1_only = inventory_ids - (formal | expanded | candidates)
+    explicit_union = formal | expanded | candidates | raw_mapped_ids
+    observed_m1_only = inventory_ids - (formal | expanded | candidates | raw_mapped_ids)
     expected_union = explicit_union | observed_m1_only
     missing = expected_union - inventory_ids
     unexpected = inventory_ids - expected_union
@@ -225,6 +257,15 @@ def main() -> int:
             'formal_m1_scope': {'path': str(FORMAL), 'sha256': sha256(FORMAL), 'league_ids': len(formal), 'ids': sorted(formal, key=int)},
             'expanded_62_schedule_universe': {'path': str(EXPANDED), 'sha256': sha256(EXPANDED), 'league_ids': len(expanded), 'ids': sorted(expanded, key=int), 'rows_per_id': dict(sorted(expanded_rows.items(), key=lambda x: int(x[0])))},
             'scoped_schedule_candidates_with_prior_request_errors': {'path': str(CANDIDATES), 'sha256': sha256(CANDIDATES), 'league_ids': len(candidates), 'ids': sorted(candidates, key=int)},
+            'm7_named_competitions_mapped_from_sha_verified_saved_responses': {
+                'path': str(RAW_RESPONSE_MAPPING) if raw_map_doc else None,
+                'sha256': sha256(RAW_RESPONSE_MAPPING) if raw_map_doc else None,
+                'source_crown_sqlite_sha256': raw_map_doc.get('source_crown_sqlite_sha256') if raw_map_doc else None,
+                'network_requests': 0,
+                'mapped_exact_names': len(raw_mapped_names),
+                'league_ids': len(raw_mapped_ids),
+                'ids': sorted(raw_mapped_ids, key=int),
+            },
             'm7_research_universe_named_competitions': {
                 'path': str(M7_UNIVERSE), 'sha256': sha256(M7_UNIVERSE),
                 'production_scope_changed_field': m7_doc.get('production_scope_changed'),
@@ -237,6 +278,7 @@ def main() -> int:
                     'saved TotalCorner shared-history JSONL',
                     'saved M1 and M7 TotalCorner schedule responses',
                     'active supplemental schedule responses with matching SHA sidecars',
+                    'SHA-verified saved TotalCorner match-view responses embedded in Crown raw responses',
                 ],
                 'cached_mapping_input_files': archive_inputs,
                 'mapped_exact_names': mapped_name_rows,
@@ -257,6 +299,7 @@ def main() -> int:
             'inventory_ids_outside_union': sorted(unexpected, key=int),
             'candidate_ids_already_in_inventory': sorted(candidates & inventory_ids, key=int),
             'candidate_ids_not_yet_in_inventory': sorted(candidates - inventory_ids, key=int),
+            'raw_response_mapped_ids_not_yet_in_inventory': sorted(raw_mapped_ids - inventory_ids, key=int),
             'm7_exact_names_unmapped_to_provider_id': len(unmapped_name_rows),
             'm7_exact_names_mapped_to_multiple_provider_ids': len(multiply_mapped_name_rows),
             'formal_ids_not_in_inventory': sorted(formal - inventory_ids, key=int),
