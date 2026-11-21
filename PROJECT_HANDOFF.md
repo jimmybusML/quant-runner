@@ -5279,6 +5279,12 @@
 - 下一步继续现有Italy分页与本批剩余目标；每有整项完成就重跑同一SHA/FT覆盖审计。整个任务仍未完成；完整库存合并、其余外部联赛排查、赛果缺口复核以及停掉TotalCorner collector后继续的Crown历史行情扩采仍待执行。
 
 
+### 2026-11-21 20:19 UTC：Montenegro Druga Liga完成，24个联赛覆盖更新
+
+- 同一TotalCorner collector PID 65966 / session 29157完成Montenegro Druga Liga（ID 280）分页；Provider声报39页，采集器按目标时间范围完成35页/991个FID，失败页0。当前已载入35项完成24项；累计1,351次请求、新增ledger FID 39,570、身份冲突0。下一目标North Macedonia Second League（ID 15517）第11/22页、330个FID、失败页0。排队38项清单中的额外3个精确映射ID待本批结束后采集。
+- 24个已完成目标覆盖审计：39,240个唯一赛程FID，其中36,412场TotalCorner `status=full`且数字FT，2,828场其他/未核实状态；原始页及逐场SHA校验、身份冲突审计均通过。当前覆盖矩阵为部分已完成联赛，不代表全量完成。
+- Crown SQLite只读交集仍为0 movement quote（SQLite SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`）；不将本地交集推断为Provider无盘。采集器继续运行时未发起Crown网络请求或SQLite写入。检查点`schedule_recovery_checkpoint_20261121T2019Z.json`和清单`CHECKPOINT_SHA256_20261121T2019Z.txt`绑定输入哈希。策略/模型/回测未运行。
+
 ### 2026-11-21 20:12 UTC：Malta Challenge League完成，23个联赛覆盖更新
 
 - 同一TotalCorner schedule collector PID 65966 / session 29157继续运行，未重启。Malta Challenge League（ID 15795）完成35页、1,043个目标FID、失败页0；当前载入35项已完成23项，剩余12项；排队清单中的3个精确映射ID待当前35项完成后追加。检查点时累计1,311次请求、fixture ledger新增38,429个FID、身份冲突0，下一目标Montenegro Druga Liga（ID 280）为6/39页。检查点和私有日志SHA见`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T2012Z.json`。
