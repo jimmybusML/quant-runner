@@ -5415,3 +5415,9 @@
 - 恢复清单启动后已追加7个终态FID（6个`SAVED`、1个`NO_CROWN_AH_QUOTES`）。包括之前16个终态在内，日志共23个FID、21个`SAVED`、2个`NO_CROWN_AH_QUOTES`、4,497条AH quote；这只是101,250个待处理FID中的短暂进度。
 - 安全驱动于23:45:49Z检测到`unified_settlement.py`并向collector发SIGTERM；随后检测到`research.m3.totalcorner_shadow_settle`也在运行，因此collector维持暂停。驱动PID 56067仍在等待，后续会继续遵守互斥检查。
 - 这7个新终态均为historical回取结果，不是赛前实收；本检查点没有更新原始缓存、盘口数据库审计汇总或模型数据覆盖表。下次停止采集并确认无其它任务后再生成准确的数据库SHA和覆盖快照。
+
+### 2026-11-21 23:50 UTC：Crown movement续采短批进度
+
+- settlement与M3任务结束后，安全驱动PID 56067于23:49:42Z重建恢复清单（SHA `facac4b3a789e75fa794ec2ec4fe5f661ad810a3d1670feb00647d2be74bc66c`），排除日志内23个终态FID，待处理101,243个并启动collector PID 57199。
+- 至23:50:53Z，累计30个终态FID：28个`SAVED`共5,883条AH quote，2个`NO_CROWN_AH_QUOTES`；其中本次重启后比23:47检查点再新增7个终态。剩余movement清单按原始101,266规模计算尚有101,236个FID未产生终态；未终态不代表报价失败。
+- Collector仍以历史模式运行，下一次调度互斥任务启动时由driver自动暂停；只有全部队列终态且完成SHA/数据库/覆盖核查后，才会报告完整批次结果。
