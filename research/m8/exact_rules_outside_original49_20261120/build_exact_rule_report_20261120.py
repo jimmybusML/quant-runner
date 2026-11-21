@@ -109,8 +109,8 @@ def build_md():
   '## 原始精确方向实现核对', '',
   '复核发现，2026-11-19 边界研究脚本的 `group_side(\'E\')` 与较早的完整路径提取器对 E 组方向处理不同：边界脚本只看 `p1-p0`，当端点概率相等时返回无方向；原完整路径提取器在 E 组中途概率同时上、下变动且端点净变化为零时，使用 `net or p0→p3 or p3→p1 or last_move` 的首个非零方向确定一侧。本研究采用原完整路径提取器方向实现（同原始库存恢复代码），不是新增方向规则。冻结 E 成员中161个可配对路径和 Crown 结算记录的方向全部吻合；另有106个成员缺少可同时核验的路径特征或报价结算记录。', '',
   '此次跨联赛逐场账本中52个优先级归属 E 的候选均为端点概率净变化为零，因此 E 方向依赖上述原提取器的中间路径回退方向。独立 Crown 原始报价/FT 结算审计逐场复核这些订单及其余候选。该说明用于解释历史实现来源差异，不重定义冻结组或生产规则。', '',
-  '## 2026-11-21 复算记录', '',
-  f"2026-11-21按当前数据库复算：赛事库存 {s['schedule_universe']:,} 场、完整路径 {coverage['complete_T6_T3_T1']:,} 条、新增订单 {inc['orders']:,} 笔、{inc['net_u']:+.3f}U。独立校验读取原始 Crown 响应 SHA、独立 TotalCorner FT/身份来源和当前只读 SQLite；验证摘要见 `independent_settlement_verification_20261121.json`，数据库 SHA256 为 `{s['inputs']['sqlite_sha256']}`。复核原八组 10,294 FID 与新增账本交集为0。当前真实赛前收据审计订单仍为 {rec['exact_rule_receipt_orders']}。"]
+  '## 2026-11-22 复算记录', '',
+  f"2026-11-22按当前数据库复算：赛事库存 {s['schedule_universe']:,} 场、完整路径 {coverage['complete_T6_T3_T1']:,} 条、新增订单 {inc['orders']:,} 笔、{inc['net_u']:+.3f}U。独立校验读取原始 Crown 响应 SHA、独立 TotalCorner FT/身份来源和当前只读 SQLite；验证摘要见 `independent_settlement_verification_20261121.json`，数据库 SHA256 为 `{s['inputs']['sqlite_sha256']}`。复核原八组 10,294 FID 与新增账本交集为0。当前真实赛前收据审计订单仍为 {rec['exact_rule_receipt_orders']}。"]
  (HERE/'EXACT_RULE_CROSS_LEAGUE_REPORT.md').write_text('\n'.join(lines)+'\n')
 
 def main():
