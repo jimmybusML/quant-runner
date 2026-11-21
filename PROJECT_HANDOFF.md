@@ -5205,3 +5205,10 @@
 
 - 原 TotalCorner 采集句柄 PID 65966 / session 29157 仍在运行，无重启。最新快照累计676次请求；12个联赛完成，England Championship（ID 2）第132/234页，累计该联赛3,960个新FID，失败页0。当前批次启动时35项输入哈希和排队38项目标哈希分别见检查点。
 - 新增私有进度/fixture ledger/request log SHA锚定快照：`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1827Z.json`，SHA256 `f90a05735c01fd3f487b1f5e0865e2ee7bf69d7b62815af5c2d07e1507de3940`。12个已完成联赛覆盖审计仍为15,907 FID，其中14,613 verified full FT、1,294缺失/非full；赛季字段缺失15,907，Crown本地capture/报价0。England部分页未计入完成覆盖审计。全量任务仍在进行，尚未开始Crown批次或完成全库存合并。
+
+
+### 2026-11-21 18:31 UTC：新增 England 完整分页并复核13联赛覆盖
+
+- England Championship（ID 2）完成150页并纳入覆盖；TotalCorner采集器PID 65966 / session 29157仍在处理既定35项批次，转到Estonia Esiliiga（ID 957）第13/68页；累计707次请求，无失败页。仍待随后处理剩余目标和排队38项清单中的10653、702、114。
+- 重跑SHA绑定覆盖审计后，13个已完成联赛共20,355个唯一FID，其中18,890个`status=full`且FT为数字，1,465个缺失/非full；684个原始响应页和20,355条逐场源记录SHA全部通过，源记录身份冲突0。赛季字段仍为20,355/20,355缺失。只读Crown SQLite对应FID仍为历史capture 0、AH报价0；这不表示源端无报价。按UTC年和联赛拆分见`completed_schedule_league_year_coverage_2019_2026.json`。
+- 新检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1830Z.json` SHA256 `01fc6aba52ba8e61af4f35aaf076f3f597060ab83e3c2fbe5bcaadbf0d1f547b`。这只是已完成13个目标的阶段矩阵，不代表所有联赛、年份、FT或Crown盘口已补齐。
