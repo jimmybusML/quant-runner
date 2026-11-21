@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-11-21T20:18:43.191025Z",
+  "generated_at_utc": "2026-11-21T20:30:22.382113Z",
   "scope_note": "Only targets marked pagination-complete in the live progress file are included; ongoing targets and queued IDs are not represented as complete.",
   "target_count_in_current_file": 38,
-  "completed_target_count": 24,
+  "completed_target_count": 26,
   "completed_target_leagues": [
     {
       "provider_league_id": "2",
@@ -64,6 +64,15 @@
       "unique_2019_2026_fids": 1184,
       "pages_read": 41,
       "reported_pages": 61,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
+      "provider_league_id": "143",
+      "league_name": "Norway Division 1",
+      "unique_2019_2026_fids": 1939,
+      "pages_read": 66,
+      "reported_pages": 102,
       "pagination_status": "complete_to_2019_cutoff_or_provider_end",
       "failed_pages": []
     },
@@ -194,6 +203,15 @@
       "failed_pages": []
     },
     {
+      "provider_league_id": "15517",
+      "league_name": "North Macedonia Second League",
+      "unique_2019_2026_fids": 557,
+      "pages_read": 20,
+      "reported_pages": 22,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
       "provider_league_id": "15795",
       "league_name": "Malta Challenge League",
       "unique_2019_2026_fids": 1043,
@@ -221,18 +239,18 @@
       "failed_pages": []
     }
   ],
-  "unique_schedule_fids": 39240,
-  "league_fid_pairs": 39240,
+  "unique_schedule_fids": 41736,
+  "league_fid_pairs": 41736,
   "cross_league_fid_collision_count": 0,
   "cross_year_same_league_fid_conflict_count": 0,
   "ambiguous_fid_league_year_keys": [],
-  "verified_full_ft_fids": 36412,
-  "unverified_or_nonfull_fids": 2828,
+  "verified_full_ft_fids": 38812,
+  "unverified_or_nonfull_fids": 2924,
   "identity_version_conflict_count": 0,
   "identity_version_conflicts": [],
   "raw_source_page_audit": {
-    "distinct_referenced_pages": 1320,
-    "source_record_rows_sha_verified": 39240,
+    "distinct_referenced_pages": 1404,
+    "source_record_rows_sha_verified": 41736,
     "errors": {},
     "season_field_source": "exact row in SHA-verified TotalCorner schedule page raw response"
   },
@@ -2710,6 +2728,335 @@
         "de8e4007a1ace448935a41f77823dec50e95905807cca2e63dcb0d60aacdc5fb"
       ],
       "source_record_versions": 136,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "143",
+      "provider_league_name": "Norway Division 1",
+      "utc_year": "2019",
+      "unique_schedule_fids": 241,
+      "verified_full_ft_fids": 235,
+      "unverified_or_nonfull_fids": 6,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 235,
+        "MISSING_STATUS": 6
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 241
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "29d056d48470af3e9e41fd92f3fcdb7dc9f698ade52833643c78b40fa3eecb77",
+        "396d7d581ceb0180d08898c5b55b68d45a1123cbc023c70e43dcf8ba920411c9",
+        "84c7b2753105a7489b9c8660091a321cbc8fa7328e7bf918922831423f58ca9b",
+        "98db9844630df570c37bfc7a4c8c9275f27e2fbae87612d943afb19068416750",
+        "cb3860f87687b4e163879d4ff7b63184efc86043c85a0af0f1506ccf75ff8484",
+        "cc82809cd2bd8281815b9838db2edb76a1ce5828c092d39c731ee2eca3b9ecc0",
+        "e28945878f37b9ed50db9aad4b144341b9dc160ccb13e37648439ebc6371d333",
+        "ec53c4a2f9ebeaa1606b52eaaf36c58f13d616975f0c3bfd317a58aa4e80b0e2",
+        "f497df3cb58dc14ac491ac727a016571ca79eeac3f4fd81eb70d2f619e5c5f72"
+      ],
+      "source_record_versions": 241,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "143",
+      "provider_league_name": "Norway Division 1",
+      "utc_year": "2020",
+      "unique_schedule_fids": 249,
+      "verified_full_ft_fids": 240,
+      "unverified_or_nonfull_fids": 9,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 240,
+        "MISSING_STATUS": 9
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 249
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "0d102adadf61b8af24aeb918dcc674e182ec5a71415b7f0b76e64a632ac0bef0",
+        "309febc65dac0f85bfcc86a42ba8b63a0e3fabddb61b8501cfe11088f0c6ab3a",
+        "7ca94623492082eec7c496f1e48217f1f83def1a9e2144a9309dda2dea7bfb40",
+        "98db9844630df570c37bfc7a4c8c9275f27e2fbae87612d943afb19068416750",
+        "aa1af539293f59ec7d76efe90cd2695c7236cc00f32fdd3ee031bf7772f471a9",
+        "bbe1a511030b8067035ea9db8beda638c1cc53a3a16bebf759150b614dc7b33c",
+        "c6ec4416d66af09d625b82af59da422f1f1635f1a005c2342dd6c36285b1d43f",
+        "d2e0469f4a3712729a076b93624d1f3897f128398f3a198fa0173a49d8858964",
+        "ed13d63c20af3f4624adeb9142c7aeafca988838a279a6f6dcfe399c9541f576"
+      ],
+      "source_record_versions": 249,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "143",
+      "provider_league_name": "Norway Division 1",
+      "utc_year": "2021",
+      "unique_schedule_fids": 243,
+      "verified_full_ft_fids": 233,
+      "unverified_or_nonfull_fids": 10,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 233,
+        "12": 1,
+        "MISSING_STATUS": 9
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 243
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "00ef2802219a0e99411c868d9db4745bbcb4d3441fefa54f20b00fe648c230a0",
+        "3bc82e4161897418cee5369788708ce928098fb0cc84540f72f3d35170293570",
+        "5dcfa76ec567fd55a6e22143615d297c7022bfab5746a00c074ee8835b5bae79",
+        "969f610a375137f4ad14931b1800a4b5040381aa3d881ae26193f4983d32bf64",
+        "997ad37785082c97124d376f18f0969d085911cc071775b76df864276f9feee8",
+        "a82a1fe8d7fc7d0dee8d1aedcf601b21fe620ab683d2015b02c01ef77c135c9f",
+        "aa1af539293f59ec7d76efe90cd2695c7236cc00f32fdd3ee031bf7772f471a9",
+        "c8033c898b10892bf0a0ea24f3dd545edcbb373ef6c7ed08eed3ac003a16f76f",
+        "e6c38dca693ed23eda5cd8b1ad32fb26168ebe756a1104781d73aa25cf9a6a17"
+      ],
+      "source_record_versions": 243,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "143",
+      "provider_league_name": "Norway Division 1",
+      "utc_year": "2022",
+      "unique_schedule_fids": 241,
+      "verified_full_ft_fids": 240,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 240,
+        "MISSING_STATUS": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 241
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "3bc82e4161897418cee5369788708ce928098fb0cc84540f72f3d35170293570",
+        "7453b2ab89f2ca9b54812e5db344e0f0f9f90577fbf18b9916161bdcbddfd2ed",
+        "992837de39f2159d49f4b0db3f22f6d6f1e46f3e00a24378f217e38a1e31a2b0",
+        "9ab22f5cd18d48e2b910d0e8a4b88a1ec35fa783e30ebb1e64250e2de3ca7bc2",
+        "c67ddd8938c010a409573724fc40a5acc8eecb71b5892552ebee001747e5304b",
+        "c6ac3485602372901f6747b6a0bddf7645e14cf871caa12e826db5fdebc28497",
+        "ce88a087190473ad5a8e528dcb1e2e7927bbda64c920cb31859691bea055fd27",
+        "d6dd35f896cad7abfde780a69bcd3e8da97a55f304f341ce206264391bf260c8",
+        "e984ef7eeea2a2237ea107528514e05b0dc51f8989b557b31be1413a94bbdd6e"
+      ],
+      "source_record_versions": 241,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "143",
+      "provider_league_name": "Norway Division 1",
+      "utc_year": "2023",
+      "unique_schedule_fids": 242,
+      "verified_full_ft_fids": 240,
+      "unverified_or_nonfull_fids": 2,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 240,
+        "MISSING_STATUS": 2
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 242
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "0315df24c649ab26ded721561589846ed450b4c3fba857d4a027a291041329ee",
+        "195571d000366cea533dfb3f6156658ca5d4f88e801a10bc94ad4ea3c8bc3ff2",
+        "245afe62b26bbc2c08b8a11588b145bbf7394ac56b8e7de5e6db7c330c33f4fc",
+        "66718747b70176c7312ef3f5b7784392fd1e4fbfb415fb9d9b30539043a3f08f",
+        "7b9bbf3c07e9426c5d096825c9d1644058b1e4c4421303003c5d305ceb2ff560",
+        "9ab22f5cd18d48e2b910d0e8a4b88a1ec35fa783e30ebb1e64250e2de3ca7bc2",
+        "ac3d96a7c1e56b3505d055fef141a974471558f1b52ecd40826c6a0a8e21e744",
+        "b048f1cea5d680f80462f3516caa1b089d3b56d25bbf00a8128be325376ea24a",
+        "b0fbe33fef981220973832530df1da01131f0fdce9c6957651eac3b3f6ef828e"
+      ],
+      "source_record_versions": 242,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "143",
+      "provider_league_name": "Norway Division 1",
+      "utc_year": "2024",
+      "unique_schedule_fids": 240,
+      "verified_full_ft_fids": 238,
+      "unverified_or_nonfull_fids": 2,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 238,
+        "half": 1,
+        "30": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 240
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "29247ee6800875dd85d1cebf58bd9b44dc9921723ea42bda185d84cc148cf8e7",
+        "3070a9450fe4d26c677fece3bc2cff986859a24a13ac4330e5dd0e60f7a19865",
+        "45ba321d439a064d43de2d5584bc6c5729827c6dd10c448dca057b6944489505",
+        "58dc298007daa37aedf318bcd2ad0aacb08c58595929d49800f26b873acd6841",
+        "6bd76c05ac71ca9f21ad6af4f7b7cba4c364a2abd0775e6568406eaaf7487928",
+        "a1e7aca667b204256b830d36244e7e92c9af983a038f80ba16a00ad0a14b11f3",
+        "ac3d96a7c1e56b3505d055fef141a974471558f1b52ecd40826c6a0a8e21e744",
+        "d0cdf8ca3cd0725c1bb8914c0543ccb78c8f23fe1a551bcf2a7b3e1221a0aee8",
+        "fe81b0331297c0ff28a1899e51c530e717aa98d80cef733e3173dac6abc55d63"
+      ],
+      "source_record_versions": 240,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "143",
+      "provider_league_name": "Norway Division 1",
+      "utc_year": "2025",
+      "unique_schedule_fids": 241,
+      "verified_full_ft_fids": 241,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 241
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 241
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "1ea4b74cbc06abc6d8d69e9725eec838421586a31bc65710e0c4ad7fee27ddf6",
+        "20335223f999cefbfc0f5eb4ef28305b695ec1afc736e7e33d80622e698ce721",
+        "45ba321d439a064d43de2d5584bc6c5729827c6dd10c448dca057b6944489505",
+        "55b6bf4ac2d82a8678be6b0442c4fa07785f213f0763beaeaa2fb0e1f13264b7",
+        "652c7935202137857ce93adda1bda285dafdba65890cdeaae5ef1e69effa5fc1",
+        "8833ac0688cc1ad28f171f04a703b7d7ed6c2bdfbb62315e03bb58d4604cc28f",
+        "a8988b2c6a2be7df596985f7a22c0bf86b05ebc278876871ad7bf80d1b4b5ea5",
+        "c6bb42ac14f1d63973dd5369b22410d11d3656efe90dfee95b44b3452d133aaa",
+        "fb02b4a5a65b19fd979c3108cfc006d9d672eec4d3147f82ba7298affbe9a9ca"
+      ],
+      "source_record_versions": 241,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "143",
+      "provider_league_name": "Norway Division 1",
+      "utc_year": "2026",
+      "unique_schedule_fids": 242,
+      "verified_full_ft_fids": 240,
+      "unverified_or_nonfull_fids": 2,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 2,
+        "full": 240
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 242
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "378a1abf9e4513c4e91b55ed78e2a88a635bb5385c7f3285d4be50a5a6d840b9",
+        "55b6bf4ac2d82a8678be6b0442c4fa07785f213f0763beaeaa2fb0e1f13264b7",
+        "5616e85eb9b78152cca6bfd98e415e376ca610a5b823b839acdc378291e5b67a",
+        "788ad0da2446340a962c49f5ba76837768130efd0707ff282aad58a37d85d7c6",
+        "8444ee8a136a70514639b3963c117553e2c3f8734a5d57fe962157e836e329b0",
+        "8a7a7d5119140db88699a5ff38c153d2020451e92072f43e0f0b566ab22c7b04",
+        "a828e22da7f4678bb670aff636d8305b628e511d6a8097513dd713ccc45818e5",
+        "d040007e833455b194891d9206aaeb2105a926da83c00b958e548a14d1fde0be",
+        "faf56fe03dc899e141b2b2b29a0e19a589fbfeb7457fbb1c69d237cc7436aa9d"
+      ],
+      "source_record_versions": 242,
       "sqlite_capture_fids_any_layer": 0,
       "sqlite_movement_capture_fids": 0,
       "sqlite_summary_capture_fids": 0,
@@ -7211,6 +7558,291 @@
       "live_capture_fids": 0
     },
     {
+      "provider_league_id": "15517",
+      "provider_league_name": "North Macedonia Second League",
+      "utc_year": "2019",
+      "unique_schedule_fids": 38,
+      "verified_full_ft_fids": 33,
+      "unverified_or_nonfull_fids": 5,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 33,
+        "MISSING_STATUS": 5
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 38
+      },
+      "source_page_count": 2,
+      "source_page_sha256s": [
+        "5adedaaea1c6857d99266511d921394fd483c172a1d3c1e901483339ab7531e0",
+        "70471aed9e9d4085b1872a7b8e749f0172616f3289694c73a243b3aa82ef510a"
+      ],
+      "source_record_versions": 38,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "15517",
+      "provider_league_name": "North Macedonia Second League",
+      "utc_year": "2020",
+      "unique_schedule_fids": 82,
+      "verified_full_ft_fids": 60,
+      "unverified_or_nonfull_fids": 22,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 21,
+        "full": 60,
+        "06": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 82
+      },
+      "source_page_count": 4,
+      "source_page_sha256s": [
+        "1edcb5a67f576c769235fa663fd2b7dcc2c669467f0d3cd44afb8def05965e52",
+        "70471aed9e9d4085b1872a7b8e749f0172616f3289694c73a243b3aa82ef510a",
+        "b1b15ecb72034b5432706dbad3b51f5e48de47df636b64f9190384add0a08ab9",
+        "ca15950ce811299bcb12838eb6ca446cb8078bd560232309c96e2f9beaf44251"
+      ],
+      "source_record_versions": 82,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "15517",
+      "provider_league_name": "North Macedonia Second League",
+      "utc_year": "2021",
+      "unique_schedule_fids": 93,
+      "verified_full_ft_fids": 90,
+      "unverified_or_nonfull_fids": 3,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 3,
+        "full": 90
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 93
+      },
+      "source_page_count": 4,
+      "source_page_sha256s": [
+        "8db4bd4932a7b329393cb9aba7762b8a6b2c66e05c94a832c910a9a071a3a8e9",
+        "a3793daf214913cb8b6ddba9aa85c4dc214a96009f75b02ffa586d0bfc6d0898",
+        "a6e01075cdb6edd3bd31dadcfdd1084deb999455884cdff536abb3ed03336cfc",
+        "b1b15ecb72034b5432706dbad3b51f5e48de47df636b64f9190384add0a08ab9"
+      ],
+      "source_record_versions": 93,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "15517",
+      "provider_league_name": "North Macedonia Second League",
+      "utc_year": "2022",
+      "unique_schedule_fids": 65,
+      "verified_full_ft_fids": 60,
+      "unverified_or_nonfull_fids": 5,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 60,
+        "MISSING_STATUS": 5
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 65
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "5b4c42484fb2e8035f912d5f6780c72a080e0f143b5c53cfee51439bb629eb99",
+        "8db4bd4932a7b329393cb9aba7762b8a6b2c66e05c94a832c910a9a071a3a8e9",
+        "8ebf126f91ce07aa2cf75c67223f8cf3b809d6c69723ba49e561266a7f432b09"
+      ],
+      "source_record_versions": 65,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "15517",
+      "provider_league_name": "North Macedonia Second League",
+      "utc_year": "2023",
+      "unique_schedule_fids": 61,
+      "verified_full_ft_fids": 55,
+      "unverified_or_nonfull_fids": 6,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 55,
+        "MISSING_STATUS": 4,
+        "39": 1,
+        "62": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 61
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "3ee194043c9901e16d4c606719b285cb12b28e64d1e337a63e2ac24381a61a78",
+        "61481d0922e32e75778f6f7417cd3eb826369d2fa0c8a8458eb39a96e4b08883",
+        "8ebf126f91ce07aa2cf75c67223f8cf3b809d6c69723ba49e561266a7f432b09"
+      ],
+      "source_record_versions": 61,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "15517",
+      "provider_league_name": "North Macedonia Second League",
+      "utc_year": "2024",
+      "unique_schedule_fids": 68,
+      "verified_full_ft_fids": 65,
+      "unverified_or_nonfull_fids": 3,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 65,
+        "77": 1,
+        "MISSING_STATUS": 2
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 68
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "61481d0922e32e75778f6f7417cd3eb826369d2fa0c8a8458eb39a96e4b08883",
+        "94a97e7e7951e91a712693989d4c64bd312a45d33bedea669aa9f1b31357318a",
+        "9ac79a395d823d59fe0475b140fe964c0db5f385c9211b4aad0047a347c75a81"
+      ],
+      "source_record_versions": 68,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "15517",
+      "provider_league_name": "North Macedonia Second League",
+      "utc_year": "2025",
+      "unique_schedule_fids": 77,
+      "verified_full_ft_fids": 63,
+      "unverified_or_nonfull_fids": 14,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 63,
+        "MISSING_STATUS": 14
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 77
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "256e19d511c437b402a9583409a657c879e6dabf9646ca17945abc9d41102c85",
+        "86c17da47729368516371db559c2ae0cc8d3fe43b4928de91593d7fa84b3d8b5",
+        "c33f07f6cc873dbb553b635f55952bca781b99a27874df01debbbbb3bb450e0c"
+      ],
+      "source_record_versions": 77,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "15517",
+      "provider_league_name": "North Macedonia Second League",
+      "utc_year": "2026",
+      "unique_schedule_fids": 73,
+      "verified_full_ft_fids": 67,
+      "unverified_or_nonfull_fids": 6,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 6,
+        "full": 67
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 73
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "4b58c7f8fa8ba515a418853dcc13cc7433857873fb35385a587fae4ca76b0a66",
+        "c33f07f6cc873dbb553b635f55952bca781b99a27874df01debbbbb3bb450e0c",
+        "f6df33fab9dc2acde536c7f72da61d0eb00e7997431fd52a5292ad4b0552ebc3"
+      ],
+      "source_record_versions": 73,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
       "provider_league_id": "15795",
       "provider_league_name": "Malta Challenge League",
       "utc_year": "2019",
@@ -8068,9 +8700,9 @@
   ],
   "zero_year_bucket_note": "A zero schedule count means no FID was present in the currently verified source rows for that completed provider pagination; it does not prove no competition season or unindexed source exists.",
   "input_sha256": {
-    "progress": "aa3fe61d94f36b3d42e32eb03cdf659543d80368912d0a4468d1aa43ebe38ac9",
-    "append_only_fixture_ledger": "be4f2e7d789464ca17b256b27df3e125a785209f588a7cccbe0b5763c25575ff",
-    "append_only_request_log": "89d406abfad3e042368155b16c5b09efbe246bbf1f695aff06754e326246bc57",
+    "progress": "553ada366d41fc11df01ac09fd7e9448ba37ef24d2f4dab69304f5df174dbae3",
+    "append_only_fixture_ledger": "ab8c2159bda875fd9e1226f8f0eeb7dbea50e4cdc6b04284d5203b7f6c05e73d",
+    "append_only_request_log": "de64caaf7292fa8fddb5c2982f58bd189ce07501859003aa913e12800dc2a2a7",
     "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
   }
 }

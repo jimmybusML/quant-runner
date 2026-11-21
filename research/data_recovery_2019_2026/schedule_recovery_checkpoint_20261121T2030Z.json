@@ -1,0 +1,52 @@
+{
+  "generated_at_utc": "2026-11-21T20:30:58.293022Z",
+  "purpose": "ongoing 2019-2026 all-league schedule recovery; intermediate completed-target audit, not a completion claim",
+  "collector": {
+    "pid": 65966,
+    "process_alive_at_checkpoint": true,
+    "session_id": 29157,
+    "started_at_utc": "2026-11-21T16:28:12.968745Z",
+    "loaded_target_count": 35,
+    "loaded_target_manifest_sha256": "9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524a62382f4d76d9",
+    "queued_current_target_count": 38,
+    "queued_target_manifest_sha256": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778",
+    "batch_network_requests": 1431,
+    "batch_new_unique_fids_ledger": 41886,
+    "identity_conflicts": 0,
+    "completed_targets": 26,
+    "targets_started": 27,
+    "active_targets": [
+      {
+        "provider_league_id": "49",
+        "name": "Poland I Liga",
+        "pages_read": 5,
+        "pages_reported": 130,
+        "new_fids": 150,
+        "failed_pages": []
+      }
+    ]
+  },
+  "completed_target_audit": {
+    "target_count_in_current_file": 38,
+    "completed_target_count": 26,
+    "unique_schedule_fids": 41736,
+    "verified_full_ft_fids": 38812,
+    "unverified_or_nonfull_fids": 2924,
+    "source_pages_referenced_and_sha_verified": 1404,
+    "source_rows_sha_verified": 41736,
+    "source_audit_errors": {},
+    "identity_version_conflicts": 0,
+    "crown_sqlite_read_only_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+    "crown_quote_fids_in_completed_targets": 0,
+    "coverage_audit_json_sha256": "aa1fbcf92edac73512ebc4e2cd246fd38727381b2c0df071957976e0da7d0b23"
+  },
+  "private_progress_sha256": "553ada366d41fc11df01ac09fd7e9448ba37ef24d2f4dab69304f5df174dbae3",
+  "private_request_log_sha256": "de64caaf7292fa8fddb5c2982f58bd189ce07501859003aa913e12800dc2a2a7",
+  "private_fixture_ledger_sha256": "ab8c2159bda875fd9e1226f8f0eeb7dbea50e4cdc6b04284d5203b7f6c05e73d",
+  "constraints": {
+    "no_strategy_or_model_research": true,
+    "no_crown_network_requests_during_active_totalcorner_collector": true,
+    "no_crown_sqlite_writes": true,
+    "raw_http_bodies_remain_private": true
+  }
+}
