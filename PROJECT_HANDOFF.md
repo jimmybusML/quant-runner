@@ -5226,3 +5226,10 @@
 - Finland Ykkosliiga（ID 122）依据2019截止停止条件完成41页、1,184 FID，失败页0。当前TotalCorner句柄PID 65966 / session 29157处理France Ligue 2（ID 27）第5/151页；本运行35项输入下已有16个联赛完成、800次请求。排队38项清单的补充ID 10653、702、114尚未运行。
 - 16个完成联赛累计23,267个唯一赛程FID，21,606场为`status=full`且FT是数字，1,661场缺失/非full；782个SHA验证原始页、23,267条逐场源记录均通过，身份版本冲突0。所有23,267条源行season字段缺失；本地Crown历史capture/AH quote仍均为0。完整逐联赛×UTC年矩阵在`completed_schedule_league_year_coverage_2019_2026.json`，所有数值仍仅属已完成目标子集。
 - 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1846Z.json` SHA256 `7d3daa36ed0ed26f8566a15a30f68218c7a87b26914535a3c165605653c05f9b`。未将schedule覆盖快照误述为已合并的全项目库存；Crown历史请求仍未启动。
+
+
+### 2026-11-21 18:58 UTC：France Ligue 2 断点推进至第51页
+
+- 沿用TotalCorner分页句柄PID 65966 / session 29157，未重启；累计846次请求。首批35项目标中16个联赛完成；France Ligue 2（ID 27）第51/151页、当前新增1,530个FID、失败页0。此检查点时`unified_settlement.py`仍占用共享流程，collector继续按互斥逻辑等待。
+- 已完成子集覆盖保持23,267个FID，21,606个verified full FT、1,661个非full/缺失状态；782个原始页和23,267条逐场记录SHA通过，无身份冲突。季节字段23,267场均缺失；对应本地Crown capture/AH报价0。当前阶段没有发出Crown请求。
+- 私有进度和日志SHA检查点：`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1858Z.json`，SHA256 `e62c8acc0f3f51666d8073a8d42856d9e43067378e3240e06be912355b8d60d9`。France目标未完成，后续从同一私有进度继续。
