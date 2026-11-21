@@ -5370,3 +5370,12 @@
 - 对这批FID只读检查本地Crown SQLite，数据库SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`；movement quote交集0。这只说明本地当前库存交集，不表示Crown源无价。采集器结束后尚未对这批新FID执行Crown补采。
 - 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T2238Z.json`及SHA清单绑定批次进度、请求日志、FID账本、覆盖矩阵和只读数据库核验。检查点的首批35目标manifest SHA字段发现一个65位转录错误，现据同期交接/较早检查点更正为64位`9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9`；原35项manifest文件未留存，故此值有同期记录佐证、但本次不能从原件重新计算。实际运行的3目标补充manifest SHA为`72ec0be0f5d85b3458ebb360ac3a111f3209e264ebe8efbb9f38bc27032f5f42`；其来源38目标队列SHA为`effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778`。
 - 本检查点仅证明命名精确映射队列的38项，不代表所有项目联赛/赛季/比赛已覆盖。尚待：合并所有历史来源做全局FID去重；调查15个未解决provider联赛候选（既有审计中15/15曾请求失败，仅存120个来源FID）；补齐所有未核实FT；枚举其余现有联赛、赛季与2019–2026赛程；在TotalCorner、MR1与结算互斥任务均空闲时，按已确认方法补齐可取得的Crown AH原始报价序列。未运行模型、策略、回测或盈利筛选。
+
+### 2026-11-22：53个补充联赛赛程重建与 Crown 原始缓存交叉审计
+
+- 从私有保存的15联赛采集进度快照重新审计15项目标：15/15完成，936个成功请求页，27,383个新FID写入追加账本；另含此前已存在的120个FID，因此逐页来源唯一FID为27,503。936页响应SHA全部验证，27,383条账本source-record SHA通过；一条FID在相邻页完全重复且source-record SHA相同，保留两处页引用，不当作身份冲突。该15联赛批次25,702场为`status=full`且比分数字，1,801场尚未核实或非full；27,503场源行均未提供season字段。
+- 采集进度曾报告4条身份版本差异，审计定位为此前Spain Segunda（provider league 15）保存的4条旧记录与本次新页版本（FID `202813188`、`202813185`、`202813183`、`202813180`）不同；旧版页号与开赛时间缺失，新版页2提供了开赛时间。两种source-record SHA均保留于冲突清单，没有静默覆盖或用球队名推断合并。
+- 将15批27,503场与38批62,339场逐FID对接，并对照原141,623场全局清单：15批全部已包含在旧清单，新增为0；38批与旧清单及15批均无交集，新增62,339。合并53批共89,842个唯一FID，含83,990条`status=full`数字FT、5,852条未核实/非full；旧全局清单并入后为203,962个唯一FID。源赛季字段缺失不使用UTC年份补造赛季。
+- 已按FID只读扫描三处现存Crown原始响应缓存：统一历史原始缓存92,236个JSON、M5旧响应目录11,652个、EPL/Laliga旧响应目录584个；这53批与三个缓存目录的FID交集均为0。目录名匹配只是缓存候选检查，不代表报价身份核实。SQLite同样0交集，数据库SHA前后为`292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`。采集器当时状态：historical movement 102,697 captures/4,429,709 quote rows，historical summary 50,825/99,242，live summary 1,469/278（其中1,466条标记为实际前瞻接收），失败尝试951；不将新53批本地缺缓存解释成Crown没有报价。
+- 已执行文件：`audit_supplemental_15_and_38_schedule_batches_20261122.py`、`audit_supplemental_crown_cache_intersection_20261122.py`；输出53联赛去重赛程、未核实FT清单、逐联赛×年矩阵、完整覆盖JSON及raw-cache交集JSON。输出SHA和私有源进度文件SHA记录在随后生成的检查清单中。审计和物化仅读取私有TotalCorner原页/追加账本及Crown SQLite，没有发Crown API请求，也没有SQLite写入；未执行模型、策略或盈利回测。
+- Crown请求本轮未启动：执行检查时存在`unified_settlement.py`和`research.m3.totalcorner_shadow_settle`运行进程，按既有采集互斥约定继续等待；待互斥任务结束后，才可重建缺失清单并按现有采集方式续做。全部项目历史库存、其他联赛与赛季范围、未核实FT修复、Crown AH可恢复报价仍未完成。

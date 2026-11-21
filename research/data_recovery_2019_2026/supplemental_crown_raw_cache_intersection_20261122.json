@@ -1,0 +1,47 @@
+{
+  "batch15_unique_fids": 27503,
+  "batch38_unique_fids": 62339,
+  "interpretation": "A filename/parent FID match establishes a local cache candidate only; response identity, bookmaker, AH content, raw SHA, and receive-time provenance require the corresponding cache index and response audit.",
+  "raw_cache_source_results": {
+    "crown_historical_raw": {
+      "directory": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/raw/historical",
+      "files_without_numeric_fid_name": 0,
+      "json_files_scanned": 92236,
+      "matched_53_batch_fids": 0,
+      "matched_batch15_fids": 0,
+      "matched_batch38_fids": 0,
+      "matched_fid_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "numeric_fids": 92236
+    },
+    "epl_laliga_legacy": {
+      "directory": "/Users/mac/QuantAsiaDesk/data/epl_laliga_crown_5seasons/raw_crown",
+      "files_without_numeric_fid_name": 0,
+      "json_files_scanned": 584,
+      "matched_53_batch_fids": 0,
+      "matched_batch15_fids": 0,
+      "matched_batch38_fids": 0,
+      "matched_fid_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "numeric_fids": 584
+    },
+    "m5_authorized_legacy": {
+      "directory": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/crown-responses",
+      "files_without_numeric_fid_name": 0,
+      "json_files_scanned": 11652,
+      "matched_53_batch_fids": 0,
+      "matched_batch15_fids": 0,
+      "matched_batch38_fids": 0,
+      "matched_fid_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "numeric_fids": 11652
+    }
+  },
+  "schedule_file": "research/data_recovery_2019_2026/supplemental_totalcorner_schedules_53leagues_2019_2026.jsonl.gz",
+  "schedule_sha256": "861e5884f4a97307c0e5fa82366194cfc6a3ccad335c7e11f1a7817a4be7b119",
+  "study": "read-only filename/parent-FID lookup of existing raw Crown response caches; no API calls or writes",
+  "union_of_raw_cache_fid_sets": {
+    "matched_53_batch_fids": 0,
+    "matched_batch15_fids": 0,
+    "matched_batch38_fids": 0,
+    "unique_fids": 103400
+  },
+  "unique_schedule_fids": 89842
+}
