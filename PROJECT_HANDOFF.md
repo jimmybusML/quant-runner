@@ -5431,3 +5431,9 @@
 
 - Collector PID 57199于23:53:17Z因`unified_settlement.py`（PID 57958）启动而被安全driver暂停。当前追加日志总计54个终态FID，其中49个`SAVED`合计11,753条quote、5个`NO_CROWN_AH_QUOTES`；这是整批101,266个FID中的早期进度。
 - 采集驱动PID 56067保持运行，等待settlement退出后重新生成未终态恢复清单。无生产采集参数、模型、Telegram或账本行为改动。
+
+### 2026-11-21 23:57 UTC：补充联赛ID范围与赛程库存完成精确对齐
+
+- 对53批去重赛程中的ID/名称组合重新精确核对：53个provider ID、53个精确名称一一对应，无ID多名称或名称多ID冲突；15个ID已在基线库存，38个ID是此前已知范围中缺少库存行的联赛。合并库存现在覆盖118个provider ID，与既有显式来源并集的118个ID数量一致，之前38个库存范围缺口清零。
+- 该检查只说明已枚举来源之间完成了对齐，不证明所有外部存在的联赛已被穷尽。没有做名称模糊匹配、网络请求或对生产联赛配置的改变。
+- 可复跑代码、结果与哈希见`research/data_recovery_2019_2026/reconcile_league_scope_after_53_batches_20261122.py`、`league_scope_reconciliation_after_53_batches_20261122.json`及`SCOPE_RECONCILIATION_SHA256_20261122.txt`。

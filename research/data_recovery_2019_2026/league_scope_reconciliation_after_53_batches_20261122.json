@@ -1,0 +1,251 @@
+{
+  "method": "exact provider ID/name reconciliation from saved, SHA-audited TotalCorner schedule records; no fuzzy matching or network requests",
+  "inputs": {
+    "league_scope_union_2019_2026.json": {
+      "sha256": "3a544c0cb640c8b450b2dded61b580b7e6bd973d9d9d762727d59e7f91d9b22d",
+      "previous_explicit_union_ids": 118
+    },
+    "inventory_coverage_summary_2019_2026.json": {
+      "sha256": "539d98299abc0aad9c3685e13fdc67881b53c28f3101fde81a08be55733428db",
+      "baseline_inventory_ids": 80
+    },
+    "supplemental_totalcorner_schedules_53leagues_2019_2026.jsonl.gz": {
+      "sha256": "861e5884f4a97307c0e5fa82366194cfc6a3ccad335c7e11f1a7817a4be7b119",
+      "source_rows": 89842,
+      "unique_fids": 89842,
+      "unique_provider_ids": 53
+    },
+    "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz": {
+      "sha256": "4a14fc8556a5e39d0fec4f8eb5a54f1aca45534f92472029517ef1738be5b07c",
+      "unique_fids": 203962,
+      "unique_provider_ids": 118
+    }
+  },
+  "result": {
+    "supplemental_provider_ids_already_in_baseline": 15,
+    "supplemental_provider_ids_new_to_baseline": 38,
+    "previously_known_provider_ids_absent_from_baseline_now_covered": 38,
+    "remaining_previous_provider_id_inventory_gaps": 0,
+    "current_baseline_plus_supplemental_provider_ids": 118,
+    "prior_explicit_union_provider_ids": 118,
+    "merged_inventory_unique_provider_ids": 118,
+    "id_to_exact_name_ambiguities": 0,
+    "exact_name_to_id_ambiguities": 0,
+    "network_requests": 0
+  },
+  "supplemental_exact_provider_id_name_pairs": [
+    {
+      "provider_league_id": "2",
+      "provider_league_name": "England Championship"
+    },
+    {
+      "provider_league_id": "13",
+      "provider_league_name": "Italy Serie B"
+    },
+    {
+      "provider_league_id": "15",
+      "provider_league_name": "Spain Segunda"
+    },
+    {
+      "provider_league_id": "17",
+      "provider_league_name": "Germany Bundesliga II"
+    },
+    {
+      "provider_league_id": "27",
+      "provider_league_name": "France Ligue 2"
+    },
+    {
+      "provider_league_id": "49",
+      "provider_league_name": "Poland I Liga"
+    },
+    {
+      "provider_league_id": "57",
+      "provider_league_name": "Portugal Segunda Liga"
+    },
+    {
+      "provider_league_id": "63",
+      "provider_league_name": "Ukraine Persha Liga"
+    },
+    {
+      "provider_league_id": "90",
+      "provider_league_name": "Denmark Division 1"
+    },
+    {
+      "provider_league_id": "114",
+      "provider_league_name": "Iceland 1 Deild"
+    },
+    {
+      "provider_league_id": "119",
+      "provider_league_name": "Belgium First Division B"
+    },
+    {
+      "provider_league_id": "121",
+      "provider_league_name": "Netherlands Eerste Divisie"
+    },
+    {
+      "provider_league_id": "122",
+      "provider_league_name": "Finland Ykkosliiga"
+    },
+    {
+      "provider_league_id": "125",
+      "provider_league_name": "Switzerland Challenge League"
+    },
+    {
+      "provider_league_id": "126",
+      "provider_league_name": "Sweden Superettan"
+    },
+    {
+      "provider_league_id": "128",
+      "provider_league_name": "Japan J2-League"
+    },
+    {
+      "provider_league_id": "143",
+      "provider_league_name": "Norway Division 1"
+    },
+    {
+      "provider_league_id": "210",
+      "provider_league_name": "China Division 1"
+    },
+    {
+      "provider_league_id": "227",
+      "provider_league_name": "Azerbaijan Division 1"
+    },
+    {
+      "provider_league_id": "241",
+      "provider_league_name": "Hungary NB II"
+    },
+    {
+      "provider_league_id": "242",
+      "provider_league_name": "Latvia 1. Liga"
+    },
+    {
+      "provider_league_id": "246",
+      "provider_league_name": "Saudi Arabia Division 1"
+    },
+    {
+      "provider_league_id": "252",
+      "provider_league_name": "Israel Leumit Liga"
+    },
+    {
+      "provider_league_id": "270",
+      "provider_league_name": "Scotland Championship"
+    },
+    {
+      "provider_league_id": "280",
+      "provider_league_name": "Montenegro Druga Liga"
+    },
+    {
+      "provider_league_id": "337",
+      "provider_league_name": "Serbia Prva Liga"
+    },
+    {
+      "provider_league_id": "355",
+      "provider_league_name": "Slovakia 2. Liga"
+    },
+    {
+      "provider_league_id": "417",
+      "provider_league_name": "Egypt Division 2"
+    },
+    {
+      "provider_league_id": "514",
+      "provider_league_name": "Greece Super League 2"
+    },
+    {
+      "provider_league_id": "515",
+      "provider_league_name": "Romania Liga II"
+    },
+    {
+      "provider_league_id": "542",
+      "provider_league_name": "Lithuania 1 Lyga"
+    },
+    {
+      "provider_league_id": "571",
+      "provider_league_name": "Cyprus Division 2"
+    },
+    {
+      "provider_league_id": "680",
+      "provider_league_name": "Slovenia 2. SNL"
+    },
+    {
+      "provider_league_id": "702",
+      "provider_league_name": "Georgia First League"
+    },
+    {
+      "provider_league_id": "709",
+      "provider_league_name": "Türkiye 1 Lig"
+    },
+    {
+      "provider_league_id": "765",
+      "provider_league_name": "Northern Ireland Championship"
+    },
+    {
+      "provider_league_id": "877",
+      "provider_league_name": "Albania First Division"
+    },
+    {
+      "provider_league_id": "911",
+      "provider_league_name": "Bosnia & Herzegovina 1st League"
+    },
+    {
+      "provider_league_id": "957",
+      "provider_league_name": "Estonia Esiliiga"
+    },
+    {
+      "provider_league_id": "9115",
+      "provider_league_name": "Czechia 2. Liga"
+    },
+    {
+      "provider_league_id": "10635",
+      "provider_league_name": "Faroe Islands Div 1"
+    },
+    {
+      "provider_league_id": "10653",
+      "provider_league_name": "Bulgaria B PFG"
+    },
+    {
+      "provider_league_id": "10808",
+      "provider_league_name": "Kosovo Division 1"
+    },
+    {
+      "provider_league_id": "10989",
+      "provider_league_name": "Republic of Ireland First Division"
+    },
+    {
+      "provider_league_id": "11260",
+      "provider_league_name": "Austria 2. Liga"
+    },
+    {
+      "provider_league_id": "11559",
+      "provider_league_name": "Andorra Second Division"
+    },
+    {
+      "provider_league_id": "11958",
+      "provider_league_name": "Wales Championship North"
+    },
+    {
+      "provider_league_id": "11959",
+      "provider_league_name": "Wales Championship South"
+    },
+    {
+      "provider_league_id": "14123",
+      "provider_league_name": "South Korea K League 2"
+    },
+    {
+      "provider_league_id": "15517",
+      "provider_league_name": "North Macedonia Second League"
+    },
+    {
+      "provider_league_id": "15795",
+      "provider_league_name": "Malta Challenge League"
+    },
+    {
+      "provider_league_id": "26528",
+      "provider_league_name": "Bulgaria Second League"
+    },
+    {
+      "provider_league_id": "26825",
+      "provider_league_name": "Croatia 1.NL"
+    }
+  ],
+  "caveat": "This closes the 38-ID inventory gap found in the prior explicit source-union audit. It does not prove that no other leagues exist outside all currently inventoried/configured sources, nor that every season or match is complete."
+}
