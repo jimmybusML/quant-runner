@@ -1,0 +1,133 @@
+{
+  "study": "Expanded-15 strict Transfermarkt venue linkage coverage audit",
+  "target_years": [
+    2024,
+    2025,
+    2026
+  ],
+  "target_provider_league_ids": [
+    10,
+    33,
+    85,
+    129,
+    314,
+    378,
+    670,
+    779,
+    8293,
+    10714,
+    11498,
+    19290,
+    27388,
+    27389,
+    27390
+  ],
+  "target_complete_path_fids": 4403,
+  "identity_match_status_counts": {
+    "unmatched": 4320,
+    "unique_exact_team_ft_date_match": 83
+  },
+  "unique_exact_identity_ft_date_match": 83,
+  "both_unique_prior_grounds": 78,
+  "both_elevations_available": 17,
+  "by_provider_league": {
+    "10": {
+      "complete_path_targets": 382,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "33": {
+      "complete_path_targets": 136,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "85": {
+      "complete_path_targets": 936,
+      "unique_exact_identity_ft_date_match": 81,
+      "both_unique_prior_grounds": 77,
+      "both_elevations_available": 17
+    },
+    "129": {
+      "complete_path_targets": 737,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "314": {
+      "complete_path_targets": 0,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "378": {
+      "complete_path_targets": 512,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "670": {
+      "complete_path_targets": 14,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "779": {
+      "complete_path_targets": 638,
+      "unique_exact_identity_ft_date_match": 2,
+      "both_unique_prior_grounds": 1,
+      "both_elevations_available": 0
+    },
+    "8293": {
+      "complete_path_targets": 2,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "10714": {
+      "complete_path_targets": 102,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "11498": {
+      "complete_path_targets": 0,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "19290": {
+      "complete_path_targets": 807,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "27388": {
+      "complete_path_targets": 44,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "27389": {
+      "complete_path_targets": 45,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    },
+    "27390": {
+      "complete_path_targets": 48,
+      "unique_exact_identity_ft_date_match": 0,
+      "both_unique_prior_grounds": 0,
+      "both_elevations_available": 0
+    }
+  },
+  "strict_join_definition": "Accent/punctuation-normalized exact home/away names + exact FT + Transfermarkt match date within one day; require one unique row. Prior venue mode uses target date minus 3 days through 365-day lookback; tied mode is missing.",
+  "input_sha256": {
+    "/private/tmp/quant-runner-m8-crossleague/research/m8/exact_rules_outside_original49_20261120/exact_rule_cross_league_all_complete_paths.jsonl.gz": "9b38b24ff6536f6c112455b9c1b55819ba55331cc1648c479009dc268abd75c7",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/games.csv.gz": "142561989017d379bcf9e72bad0b87e0996bae0e7b710ebb3def9255f464c741",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/competitions.csv.gz": "8924ddfbc0e9989f4a42a3c32ebb6faa671614625086d7fa84353f955352ea88",
+    "/private/tmp/quant-runner-m8-crossleague/research/m8/stadium_elevation_20261121/venue_coordinates_20261121.jsonl": "602f46d022f8372d31e07302605f879cf145f8816d910153ca019bd1f208cd67",
+    "/private/tmp/quant-runner-m8-crossleague/research/m8/stadium_elevation_20261121/srtm90m_manifest_20261121.jsonl": "c19cf0e09fb955a153ee990d980a40dec9390ea56727dc1bcbfa7e43488bef69"
+  }
+}

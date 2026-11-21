@@ -1,0 +1,66 @@
+{
+  "created_local": "2026-11-20T17:23:30.956481+08:00",
+  "study": "M8 frozen exact-rule cross-league portability and uncertainty audit",
+  "files": {
+    "exact_rule_cross_league_all_complete_paths.jsonl.gz": {
+      "sha256": "179b4d94ab32c5ae3035a932c9193fcf121f9b7ce742ffcc088ee51aa7e62dc6",
+      "bytes": 1549039
+    },
+    "exact_rule_cross_league_orders.jsonl.gz": {
+      "sha256": "12451bdd1eed63b7044c4dc5e96c748ca6c209318e719319d7b53d6b8c7e04be",
+      "bytes": 320623
+    },
+    "m8_cross_league_transfer_inference_20261120.py": {
+      "sha256": "082317eece574170c6eaa841be86620a0abe1fd95ed2eb61163f9522da16a59e",
+      "bytes": 13486
+    },
+    "verify_cross_league_transfer_inference_20261120.py": {
+      "sha256": "d15db1c4232dffb6063939f7978e9629b5743373c007ca4086ffa9c5e1b23dca",
+      "bytes": 5578
+    },
+    "build_transfer_inference_manifest_20261120.py": {
+      "sha256": "45ee9bb2e3a4fe6bac155a47d0125ae513064a7221708dff78976bbb49f9a40f",
+      "bytes": 1883
+    },
+    "cross_league_transfer_inference_20261120.json": {
+      "sha256": "cb47d0563bd48edf83590f56e0ffd31ea82813bc01cc256111321652f76399ad",
+      "bytes": 32239
+    },
+    "cross_league_transfer_inference_orders_20261120.jsonl.gz": {
+      "sha256": "c1ea95922030fa2d1ae96aec613f472727e05a38bfad3c1d65f2bd2450821b42",
+      "bytes": 38753
+    },
+    "prior_year_group_selector_orders_20261120.jsonl.gz": {
+      "sha256": "451aca3e9603b060ea471533acd598d72b0f5580295837c4c823b292ee803865",
+      "bytes": 2410
+    },
+    "cross_league_transfer_inference_verification_20261120.json": {
+      "sha256": "d7d7aa1784ba6669bd0f1f61d2edcdcea5bf5f446e1a326e1461caa9dab797a4",
+      "bytes": 868
+    },
+    "EXACT_RULE_TRANSFER_INFERENCE_20261120.md": {
+      "sha256": "013ec767e9f722e3bc89ab750d578b44523a0d40ef67b088b44ddceeaf401fb3",
+      "bytes": 9110
+    },
+    "TRANSFER_INFERENCE_EXECUTION_20261120.md": {
+      "sha256": "c1ec93cc1ab22a1598fbae7795ccf15d41f920b02edc76888c18e520914c8c97",
+      "bytes": 1511
+    }
+  },
+  "files_from_repo_root": {
+    "PROJECT_HANDOFF.md": {
+      "sha256": "9fb4ec5381f0a983c6c558d308de02815530febe0eebaa1d1f800e16635c72b1",
+      "bytes": 1387029
+    }
+  },
+  "execution": {
+    "main": "python3 m8_cross_league_transfer_inference_20261120.py",
+    "independent_verifier": "python3 verify_cross_league_transfer_inference_20261120.py",
+    "main_exit": 0,
+    "independent_verifier_pass": true,
+    "bootstrap_replicates": 20000
+  },
+  "production_changes": false,
+  "actual_telegram_orders": 0,
+  "formal_ledger_writes": 0
+}

@@ -1,0 +1,1176 @@
+{
+  "study": "M8 exact frozen base/A-G transfer inference audit; no new gate or production rule",
+  "inputs": {
+    "complete_paths_sha256": "179b4d94ab32c5ae3035a932c9193fcf121f9b7ce742ffcc088ee51aa7e62dc6",
+    "published_order_ledger_sha256": "12451bdd1eed63b7044c4dc5e96c748ca6c209318e719319d7b53d6b8c7e04be",
+    "frozen_membership_sha256": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665"
+  },
+  "scope": {
+    "complete_path_fids": 6967,
+    "incremental_union_orders": 1271,
+    "original_eight_overlap": 0,
+    "historical_replay_only": true,
+    "true_receipt_incremental_orders": 0
+  },
+  "coverage_calendar": {
+    "path_covered_iso_weeks": 280,
+    "calendar_span_iso_weeks": 380,
+    "path_covered_iso_weeks_2024_2026": 121,
+    "calendar_span_iso_weeks_2024_2026": 127,
+    "by_year": {
+      "2019": {
+        "path_covered_iso_weeks": 32,
+        "calendar_span_iso_weeks": 33
+      },
+      "2020": {
+        "path_covered_iso_weeks": 16,
+        "calendar_span_iso_weeks": 38
+      },
+      "2021": {
+        "path_covered_iso_weeks": 34,
+        "calendar_span_iso_weeks": 34
+      },
+      "2022": {
+        "path_covered_iso_weeks": 34,
+        "calendar_span_iso_weeks": 34
+      },
+      "2023": {
+        "path_covered_iso_weeks": 43,
+        "calendar_span_iso_weeks": 45
+      },
+      "2024": {
+        "path_covered_iso_weeks": 53,
+        "calendar_span_iso_weeks": 53
+      },
+      "2025": {
+        "path_covered_iso_weeks": 50,
+        "calendar_span_iso_weeks": 52
+      },
+      "2026": {
+        "path_covered_iso_weeks": 19,
+        "calendar_span_iso_weeks": 21
+      }
+    }
+  },
+  "exact_rule_union": {
+    "all_years": {
+      "orders": 1271,
+      "net_u": 7.185,
+      "roi_pct": 0.565303,
+      "mdd_u": 27.755,
+      "active_iso_weeks": 250,
+      "active_week_avg": 5.084,
+      "observation_iso_weeks": 280,
+      "observation_week_avg": 4.539286
+    },
+    "by_year": {
+      "2019": {
+        "orders": 71,
+        "net_u": 5.935,
+        "roi_pct": 8.359155,
+        "mdd_u": 4.0,
+        "active_iso_weeks": 29,
+        "active_week_avg": 2.448276,
+        "observation_iso_weeks": 32,
+        "observation_week_avg": 2.21875
+      },
+      "2020": {
+        "orders": 54,
+        "net_u": -5.66,
+        "roi_pct": -10.481481,
+        "mdd_u": 10.95,
+        "active_iso_weeks": 15,
+        "active_week_avg": 3.6,
+        "observation_iso_weeks": 16,
+        "observation_week_avg": 3.375
+      },
+      "2021": {
+        "orders": 77,
+        "net_u": -1.88,
+        "roi_pct": -2.441558,
+        "mdd_u": 9.615,
+        "active_iso_weeks": 26,
+        "active_week_avg": 2.961538,
+        "observation_iso_weeks": 34,
+        "observation_week_avg": 2.264706
+      },
+      "2022": {
+        "orders": 90,
+        "net_u": 1.775,
+        "roi_pct": 1.972222,
+        "mdd_u": 4.63,
+        "active_iso_weeks": 29,
+        "active_week_avg": 3.103448,
+        "observation_iso_weeks": 34,
+        "observation_week_avg": 2.647059
+      },
+      "2023": {
+        "orders": 181,
+        "net_u": 9.53,
+        "roi_pct": 5.265193,
+        "mdd_u": 5.725,
+        "active_iso_weeks": 37,
+        "active_week_avg": 4.891892,
+        "observation_iso_weeks": 43,
+        "observation_week_avg": 4.209302
+      },
+      "2024": {
+        "orders": 409,
+        "net_u": 13.31,
+        "roi_pct": 3.254279,
+        "mdd_u": 20.665,
+        "active_iso_weeks": 51,
+        "active_week_avg": 8.019608,
+        "observation_iso_weeks": 53,
+        "observation_week_avg": 7.716981
+      },
+      "2025": {
+        "orders": 359,
+        "net_u": -9.565,
+        "roi_pct": -2.664345,
+        "mdd_u": 20.84,
+        "active_iso_weeks": 49,
+        "active_week_avg": 7.326531,
+        "observation_iso_weeks": 50,
+        "observation_week_avg": 7.18
+      },
+      "2026": {
+        "orders": 30,
+        "net_u": -6.26,
+        "roi_pct": -20.866667,
+        "mdd_u": 8.32,
+        "active_iso_weeks": 14,
+        "active_week_avg": 2.142857,
+        "observation_iso_weeks": 19,
+        "observation_week_avg": 1.578947
+      }
+    },
+    "2024_2026": {
+      "orders": 798,
+      "net_u": -2.515,
+      "roi_pct": -0.315163,
+      "mdd_u": 27.755,
+      "active_iso_weeks": 114,
+      "active_week_avg": 7.0,
+      "observation_iso_weeks": 121,
+      "observation_week_avg": 6.595041
+    },
+    "stratified_week_bootstrap_all_years": {
+      "method": "stratified ISO-week cluster bootstrap within calendar year; descriptive uncertainty, not a guarantee",
+      "replicates": 20000,
+      "net_u_95pct": [
+        -50.695375,
+        65.390375
+      ],
+      "roi_pct_95pct": [
+        -4.020545,
+        5.111112
+      ],
+      "probability_net_positive": 0.58915
+    },
+    "stratified_week_bootstrap_2024_2026": {
+      "method": "stratified ISO-week cluster bootstrap within calendar year; descriptive uncertainty, not a guarantee",
+      "replicates": 20000,
+      "net_u_95pct": [
+        -46.975,
+        42.1205
+      ],
+      "roi_pct_95pct": [
+        -5.953149,
+        5.296105
+      ],
+      "probability_net_positive": 0.45245
+    }
+  },
+  "same_fid_lower_price_side_control": {
+    "all_candidate_fids": {
+      "orders": 1271,
+      "net_u": -43.935,
+      "roi_pct": -3.456727,
+      "mdd_u": 65.97,
+      "active_iso_weeks": 250,
+      "active_week_avg": 5.084,
+      "observation_iso_weeks": 280,
+      "observation_week_avg": 4.539286
+    },
+    "2024_2026": {
+      "orders": 798,
+      "net_u": -10.34,
+      "roi_pct": -1.295739,
+      "mdd_u": 29.35,
+      "active_iso_weeks": 114,
+      "active_week_avg": 7.0,
+      "observation_iso_weeks": 121,
+      "observation_week_avg": 6.595041
+    },
+    "incremental_union_minus_control_u": 51.12
+  },
+  "combined_frozen_eight": {
+    "original_baseline": {
+      "orders": 10294,
+      "net_u": 236.015
+    },
+    "after_increment": {
+      "all_years": {
+        "orders": 11565,
+        "net_u": 243.2,
+        "roi_pct": 2.102897,
+        "mdd_u": 57.565,
+        "active_iso_weeks": 379,
+        "active_week_avg": 30.514512,
+        "observation_iso_weeks": 379,
+        "observation_week_avg": 30.514512
+      },
+      "by_year": {
+        "2019": {
+          "orders": 362,
+          "net_u": 4.605,
+          "roi_pct": 1.272099,
+          "mdd_u": 12.49,
+          "active_iso_weeks": 42,
+          "active_week_avg": 8.619048,
+          "observation_iso_weeks": 42,
+          "observation_week_avg": 8.619048
+        },
+        "2020": {
+          "orders": 602,
+          "net_u": -15.61,
+          "roi_pct": -2.593023,
+          "mdd_u": 27.765,
+          "active_iso_weeks": 46,
+          "active_week_avg": 13.086957,
+          "observation_iso_weeks": 46,
+          "observation_week_avg": 13.086957
+        },
+        "2021": {
+          "orders": 808,
+          "net_u": 21.49,
+          "roi_pct": 2.659653,
+          "mdd_u": 18.67,
+          "active_iso_weeks": 51,
+          "active_week_avg": 15.843137,
+          "observation_iso_weeks": 51,
+          "observation_week_avg": 15.843137
+        },
+        "2022": {
+          "orders": 637,
+          "net_u": 14.605,
+          "roi_pct": 2.292779,
+          "mdd_u": 12.535,
+          "active_iso_weeks": 44,
+          "active_week_avg": 14.477273,
+          "observation_iso_weeks": 44,
+          "observation_week_avg": 14.477273
+        },
+        "2023": {
+          "orders": 1485,
+          "net_u": 22.86,
+          "roi_pct": 1.539394,
+          "mdd_u": 30.81,
+          "active_iso_weeks": 50,
+          "active_week_avg": 29.7,
+          "observation_iso_weeks": 50,
+          "observation_week_avg": 29.7
+        },
+        "2024": {
+          "orders": 2633,
+          "net_u": 44.86,
+          "roi_pct": 1.70376,
+          "mdd_u": 51.515,
+          "active_iso_weeks": 53,
+          "active_week_avg": 49.679245,
+          "observation_iso_weeks": 53,
+          "observation_week_avg": 49.679245
+        },
+        "2025": {
+          "orders": 2790,
+          "net_u": 56.83,
+          "roi_pct": 2.036918,
+          "mdd_u": 20.765,
+          "active_iso_weeks": 53,
+          "active_week_avg": 52.641509,
+          "observation_iso_weeks": 53,
+          "observation_week_avg": 52.641509
+        },
+        "2026": {
+          "orders": 2248,
+          "net_u": 93.56,
+          "roi_pct": 4.161922,
+          "mdd_u": 16.975,
+          "active_iso_weeks": 45,
+          "active_week_avg": 49.955556,
+          "observation_iso_weeks": 45,
+          "observation_week_avg": 49.955556
+        }
+      },
+      "2024_2026": {
+        "orders": 7671,
+        "net_u": 195.25,
+        "roi_pct": 2.5453,
+        "mdd_u": 51.515,
+        "active_iso_weeks": 149,
+        "active_week_avg": 51.483221,
+        "observation_iso_weeks": 149,
+        "observation_week_avg": 51.483221
+      },
+      "incremental_net_u_all_years": 7.185,
+      "incremental_net_u_2024_2026": -2.515
+    }
+  },
+  "prior_year_group_selector": {
+    "selection_basis": "largest cumulative raw group net U in earlier calendar years only; ties use frozen priority",
+    "by_test_year": {
+      "2024": {
+        "training_years": [
+          2019,
+          2023
+        ],
+        "prior_group_net_u": {
+          "base": -6.56,
+          "A": -3.275,
+          "B": 7.135,
+          "C": 2.48,
+          "D": 3.04,
+          "E": 3.71,
+          "F": 0.85,
+          "G": 12.57
+        },
+        "selected_group": "G",
+        "test": {
+          "orders": 61,
+          "net_u": 15.475,
+          "roi_pct": 25.368852,
+          "mdd_u": 3.22,
+          "active_iso_weeks": 31,
+          "active_week_avg": 1.967742,
+          "observation_iso_weeks": 31,
+          "observation_week_avg": 1.967742
+        }
+      },
+      "2025": {
+        "training_years": [
+          2019,
+          2024
+        ],
+        "prior_group_net_u": {
+          "base": 2.35,
+          "A": -12.275,
+          "B": 1.75,
+          "C": 1.28,
+          "D": 7.06,
+          "E": 7.2,
+          "F": 1.61,
+          "G": 28.045
+        },
+        "selected_group": "G",
+        "test": {
+          "orders": 55,
+          "net_u": -13.595,
+          "roi_pct": -24.718182,
+          "mdd_u": 15.005,
+          "active_iso_weeks": 31,
+          "active_week_avg": 1.774194,
+          "observation_iso_weeks": 31,
+          "observation_week_avg": 1.774194
+        }
+      },
+      "2026": {
+        "training_years": [
+          2019,
+          2025
+        ],
+        "prior_group_net_u": {
+          "base": 7.43,
+          "A": -13.16,
+          "B": 0.195,
+          "C": 1.6,
+          "D": 9.83,
+          "E": 2.69,
+          "F": 1.28,
+          "G": 14.45
+        },
+        "selected_group": "G",
+        "test": {
+          "orders": 6,
+          "net_u": 1.92,
+          "roi_pct": 32.0,
+          "mdd_u": 2.0,
+          "active_iso_weeks": 5,
+          "active_week_avg": 1.2,
+          "observation_iso_weeks": 5,
+          "observation_week_avg": 1.2
+        }
+      }
+    },
+    "combined_test": {
+      "orders": 122,
+      "net_u": 3.8,
+      "roi_pct": 3.114754,
+      "mdd_u": 15.355,
+      "active_iso_weeks": 67,
+      "active_week_avg": 1.820896,
+      "observation_iso_weeks": 67,
+      "observation_week_avg": 1.820896
+    }
+  },
+  "raw_group_precedence_diagnostic": {
+    "base": {
+      "all_years": {
+        "orders": 691,
+        "net_u": 8.58,
+        "roi_pct": 1.241679,
+        "mdd_u": 18.71,
+        "active_iso_weeks": 218,
+        "active_week_avg": 3.169725,
+        "observation_iso_weeks": 280,
+        "observation_week_avg": 2.467857
+      },
+      "by_year": {
+        "2019": {
+          "orders": 49,
+          "net_u": 1.285,
+          "roi_pct": 2.622449,
+          "mdd_u": 6.105,
+          "active_iso_weeks": 26,
+          "active_week_avg": 1.884615,
+          "observation_iso_weeks": 32,
+          "observation_week_avg": 1.53125
+        },
+        "2020": {
+          "orders": 24,
+          "net_u": 0.68,
+          "roi_pct": 2.833333,
+          "mdd_u": 5.1,
+          "active_iso_weeks": 12,
+          "active_week_avg": 2.0,
+          "observation_iso_weeks": 16,
+          "observation_week_avg": 1.5
+        },
+        "2021": {
+          "orders": 44,
+          "net_u": -4.53,
+          "roi_pct": -10.295455,
+          "mdd_u": 6.04,
+          "active_iso_weeks": 20,
+          "active_week_avg": 2.2,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 1.294118
+        },
+        "2022": {
+          "orders": 44,
+          "net_u": -3.455,
+          "roi_pct": -7.852273,
+          "mdd_u": 5.29,
+          "active_iso_weeks": 25,
+          "active_week_avg": 1.76,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 1.294118
+        },
+        "2023": {
+          "orders": 103,
+          "net_u": -0.54,
+          "roi_pct": -0.524272,
+          "mdd_u": 6.235,
+          "active_iso_weeks": 30,
+          "active_week_avg": 3.433333,
+          "observation_iso_weeks": 43,
+          "observation_week_avg": 2.395349
+        },
+        "2024": {
+          "orders": 231,
+          "net_u": 8.91,
+          "roi_pct": 3.857143,
+          "mdd_u": 9.135,
+          "active_iso_weeks": 49,
+          "active_week_avg": 4.714286,
+          "observation_iso_weeks": 53,
+          "observation_week_avg": 4.358491
+        },
+        "2025": {
+          "orders": 187,
+          "net_u": 5.08,
+          "roi_pct": 2.716578,
+          "mdd_u": 15.045,
+          "active_iso_weeks": 48,
+          "active_week_avg": 3.895833,
+          "observation_iso_weeks": 50,
+          "observation_week_avg": 3.74
+        },
+        "2026": {
+          "orders": 9,
+          "net_u": 1.15,
+          "roi_pct": 12.777778,
+          "mdd_u": 2.0,
+          "active_iso_weeks": 8,
+          "active_week_avg": 1.125,
+          "observation_iso_weeks": 19,
+          "observation_week_avg": 0.473684
+        }
+      }
+    },
+    "A": {
+      "all_years": {
+        "orders": 55,
+        "net_u": -14.19,
+        "roi_pct": -25.8,
+        "mdd_u": 17.995,
+        "active_iso_weeks": 51,
+        "active_week_avg": 1.078431,
+        "observation_iso_weeks": 280,
+        "observation_week_avg": 0.196429
+      },
+      "by_year": {
+        "2019": {
+          "orders": 3,
+          "net_u": -0.44,
+          "roi_pct": -14.666667,
+          "mdd_u": 1.5,
+          "active_iso_weeks": 3,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 32,
+          "observation_week_avg": 0.09375
+        },
+        "2020": {
+          "orders": 1,
+          "net_u": -1.0,
+          "roi_pct": -100.0,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 1,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 16,
+          "observation_week_avg": 0.0625
+        },
+        "2021": {
+          "orders": 2,
+          "net_u": 1.495,
+          "roi_pct": 74.75,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 2,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.058824
+        },
+        "2022": {
+          "orders": 6,
+          "net_u": 1.22,
+          "roi_pct": 20.333333,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 6,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.176471
+        },
+        "2023": {
+          "orders": 6,
+          "net_u": -4.55,
+          "roi_pct": -75.833333,
+          "mdd_u": 4.55,
+          "active_iso_weeks": 6,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 43,
+          "observation_week_avg": 0.139535
+        },
+        "2024": {
+          "orders": 18,
+          "net_u": -9.0,
+          "roi_pct": -50.0,
+          "mdd_u": 9.0,
+          "active_iso_weeks": 17,
+          "active_week_avg": 1.058824,
+          "observation_iso_weeks": 53,
+          "observation_week_avg": 0.339623
+        },
+        "2025": {
+          "orders": 16,
+          "net_u": -0.885,
+          "roi_pct": -5.53125,
+          "mdd_u": 5.545,
+          "active_iso_weeks": 14,
+          "active_week_avg": 1.142857,
+          "observation_iso_weeks": 50,
+          "observation_week_avg": 0.32
+        },
+        "2026": {
+          "orders": 3,
+          "net_u": -1.03,
+          "roi_pct": -34.333333,
+          "mdd_u": 1.03,
+          "active_iso_weeks": 2,
+          "active_week_avg": 1.5,
+          "observation_iso_weeks": 19,
+          "observation_week_avg": 0.157895
+        }
+      }
+    },
+    "B": {
+      "all_years": {
+        "orders": 217,
+        "net_u": -5.955,
+        "roi_pct": -2.74424,
+        "mdd_u": 15.09,
+        "active_iso_weeks": 137,
+        "active_week_avg": 1.583942,
+        "observation_iso_weeks": 280,
+        "observation_week_avg": 0.775
+      },
+      "by_year": {
+        "2019": {
+          "orders": 9,
+          "net_u": 3.1,
+          "roi_pct": 34.444444,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 7,
+          "active_week_avg": 1.285714,
+          "observation_iso_weeks": 32,
+          "observation_week_avg": 0.28125
+        },
+        "2020": {
+          "orders": 7,
+          "net_u": -1.91,
+          "roi_pct": -27.285714,
+          "mdd_u": 3.0,
+          "active_iso_weeks": 6,
+          "active_week_avg": 1.166667,
+          "observation_iso_weeks": 16,
+          "observation_week_avg": 0.4375
+        },
+        "2021": {
+          "orders": 12,
+          "net_u": 0.32,
+          "roi_pct": 2.666667,
+          "mdd_u": 2.495,
+          "active_iso_weeks": 11,
+          "active_week_avg": 1.090909,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.352941
+        },
+        "2022": {
+          "orders": 18,
+          "net_u": 1.775,
+          "roi_pct": 9.861111,
+          "mdd_u": 2.0,
+          "active_iso_weeks": 13,
+          "active_week_avg": 1.384615,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.529412
+        },
+        "2023": {
+          "orders": 30,
+          "net_u": 3.85,
+          "roi_pct": 12.833333,
+          "mdd_u": 6.0,
+          "active_iso_weeks": 21,
+          "active_week_avg": 1.428571,
+          "observation_iso_weeks": 43,
+          "observation_week_avg": 0.697674
+        },
+        "2024": {
+          "orders": 63,
+          "net_u": -5.385,
+          "roi_pct": -8.547619,
+          "mdd_u": 12.515,
+          "active_iso_weeks": 37,
+          "active_week_avg": 1.702703,
+          "observation_iso_weeks": 53,
+          "observation_week_avg": 1.188679
+        },
+        "2025": {
+          "orders": 68,
+          "net_u": -1.555,
+          "roi_pct": -2.286765,
+          "mdd_u": 6.715,
+          "active_iso_weeks": 35,
+          "active_week_avg": 1.942857,
+          "observation_iso_weeks": 50,
+          "observation_week_avg": 1.36
+        },
+        "2026": {
+          "orders": 10,
+          "net_u": -6.15,
+          "roi_pct": -61.5,
+          "mdd_u": 6.15,
+          "active_iso_weeks": 7,
+          "active_week_avg": 1.428571,
+          "observation_iso_weeks": 19,
+          "observation_week_avg": 0.526316
+        }
+      }
+    },
+    "C": {
+      "all_years": {
+        "orders": 173,
+        "net_u": 2.09,
+        "roi_pct": 1.208092,
+        "mdd_u": 7.455,
+        "active_iso_weeks": 106,
+        "active_week_avg": 1.632075,
+        "observation_iso_weeks": 280,
+        "observation_week_avg": 0.617857
+      },
+      "by_year": {
+        "2019": {
+          "orders": 1,
+          "net_u": -1.0,
+          "roi_pct": -100.0,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 1,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 32,
+          "observation_week_avg": 0.03125
+        },
+        "2020": {
+          "orders": 12,
+          "net_u": 1.195,
+          "roi_pct": 9.958333,
+          "mdd_u": 3.0,
+          "active_iso_weeks": 8,
+          "active_week_avg": 1.5,
+          "observation_iso_weeks": 16,
+          "observation_week_avg": 0.75
+        },
+        "2021": {
+          "orders": 13,
+          "net_u": 1.34,
+          "roi_pct": 10.307692,
+          "mdd_u": 2.95,
+          "active_iso_weeks": 11,
+          "active_week_avg": 1.181818,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.382353
+        },
+        "2022": {
+          "orders": 15,
+          "net_u": 2.57,
+          "roi_pct": 17.133333,
+          "mdd_u": 2.0,
+          "active_iso_weeks": 12,
+          "active_week_avg": 1.25,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.441176
+        },
+        "2023": {
+          "orders": 26,
+          "net_u": -1.625,
+          "roi_pct": -6.25,
+          "mdd_u": 5.71,
+          "active_iso_weeks": 18,
+          "active_week_avg": 1.444444,
+          "observation_iso_weeks": 43,
+          "observation_week_avg": 0.604651
+        },
+        "2024": {
+          "orders": 63,
+          "net_u": -1.2,
+          "roi_pct": -1.904762,
+          "mdd_u": 3.92,
+          "active_iso_weeks": 31,
+          "active_week_avg": 2.032258,
+          "observation_iso_weeks": 53,
+          "observation_week_avg": 1.188679
+        },
+        "2025": {
+          "orders": 38,
+          "net_u": 0.32,
+          "roi_pct": 0.842105,
+          "mdd_u": 5.155,
+          "active_iso_weeks": 21,
+          "active_week_avg": 1.809524,
+          "observation_iso_weeks": 50,
+          "observation_week_avg": 0.76
+        },
+        "2026": {
+          "orders": 5,
+          "net_u": 0.49,
+          "roi_pct": 9.8,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 4,
+          "active_week_avg": 1.25,
+          "observation_iso_weeks": 19,
+          "observation_week_avg": 0.263158
+        }
+      }
+    },
+    "D": {
+      "all_years": {
+        "orders": 29,
+        "net_u": 9.83,
+        "roi_pct": 33.896552,
+        "mdd_u": 1.06,
+        "active_iso_weeks": 29,
+        "active_week_avg": 1.0,
+        "observation_iso_weeks": 280,
+        "observation_week_avg": 0.103571
+      },
+      "by_year": {
+        "2019": {
+          "orders": 1,
+          "net_u": 0.0,
+          "roi_pct": 0.0,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 1,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 32,
+          "observation_week_avg": 0.03125
+        },
+        "2020": {
+          "orders": 5,
+          "net_u": 1.85,
+          "roi_pct": 37.0,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 5,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 16,
+          "observation_week_avg": 0.3125
+        },
+        "2021": {
+          "orders": 2,
+          "net_u": -0.06,
+          "roi_pct": -3.0,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 2,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.058824
+        },
+        "2022": {
+          "orders": 4,
+          "net_u": 1.18,
+          "roi_pct": 29.5,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 4,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.117647
+        },
+        "2023": {
+          "orders": 5,
+          "net_u": 0.07,
+          "roi_pct": 1.4,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 5,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 43,
+          "observation_week_avg": 0.116279
+        },
+        "2024": {
+          "orders": 6,
+          "net_u": 4.02,
+          "roi_pct": 67.0,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 6,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 53,
+          "observation_week_avg": 0.113208
+        },
+        "2025": {
+          "orders": 6,
+          "net_u": 2.77,
+          "roi_pct": 46.166667,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 6,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 50,
+          "observation_week_avg": 0.12
+        },
+        "2026": {
+          "orders": 0,
+          "net_u": 0,
+          "roi_pct": null,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 0,
+          "active_week_avg": 0,
+          "observation_iso_weeks": 19,
+          "observation_week_avg": 0.0
+        }
+      }
+    },
+    "E": {
+      "all_years": {
+        "orders": 52,
+        "net_u": 2.69,
+        "roi_pct": 5.173077,
+        "mdd_u": 5.43,
+        "active_iso_weeks": 43,
+        "active_week_avg": 1.209302,
+        "observation_iso_weeks": 280,
+        "observation_week_avg": 0.185714
+      },
+      "by_year": {
+        "2019": {
+          "orders": 2,
+          "net_u": 1.91,
+          "roi_pct": 95.5,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 2,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 32,
+          "observation_week_avg": 0.0625
+        },
+        "2020": {
+          "orders": 3,
+          "net_u": 1.84,
+          "roi_pct": 61.333333,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 2,
+          "active_week_avg": 1.5,
+          "observation_iso_weeks": 16,
+          "observation_week_avg": 0.1875
+        },
+        "2021": {
+          "orders": 2,
+          "net_u": -1.0,
+          "roi_pct": -50.0,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 2,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.058824
+        },
+        "2022": {
+          "orders": 2,
+          "net_u": 1.99,
+          "roi_pct": 99.5,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 2,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.058824
+        },
+        "2023": {
+          "orders": 8,
+          "net_u": -1.03,
+          "roi_pct": -12.875,
+          "mdd_u": 2.0,
+          "active_iso_weeks": 6,
+          "active_week_avg": 1.333333,
+          "observation_iso_weeks": 43,
+          "observation_week_avg": 0.186047
+        },
+        "2024": {
+          "orders": 19,
+          "net_u": 3.49,
+          "roi_pct": 18.368421,
+          "mdd_u": 2.0,
+          "active_iso_weeks": 15,
+          "active_week_avg": 1.266667,
+          "observation_iso_weeks": 53,
+          "observation_week_avg": 0.358491
+        },
+        "2025": {
+          "orders": 16,
+          "net_u": -4.51,
+          "roi_pct": -28.1875,
+          "mdd_u": 5.43,
+          "active_iso_weeks": 14,
+          "active_week_avg": 1.142857,
+          "observation_iso_weeks": 50,
+          "observation_week_avg": 0.32
+        },
+        "2026": {
+          "orders": 0,
+          "net_u": 0,
+          "roi_pct": null,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 0,
+          "active_week_avg": 0,
+          "observation_iso_weeks": 19,
+          "observation_week_avg": 0.0
+        }
+      }
+    },
+    "F": {
+      "all_years": {
+        "orders": 22,
+        "net_u": 1.12,
+        "roi_pct": 5.090909,
+        "mdd_u": 3.25,
+        "active_iso_weeks": 21,
+        "active_week_avg": 1.047619,
+        "observation_iso_weeks": 280,
+        "observation_week_avg": 0.078571
+      },
+      "by_year": {
+        "2019": {
+          "orders": 0,
+          "net_u": 0,
+          "roi_pct": null,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 0,
+          "active_week_avg": 0,
+          "observation_iso_weeks": 32,
+          "observation_week_avg": 0.0
+        },
+        "2020": {
+          "orders": 0,
+          "net_u": 0,
+          "roi_pct": null,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 0,
+          "active_week_avg": 0,
+          "observation_iso_weeks": 16,
+          "observation_week_avg": 0.0
+        },
+        "2021": {
+          "orders": 0,
+          "net_u": 0,
+          "roi_pct": null,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 0,
+          "active_week_avg": 0,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.0
+        },
+        "2022": {
+          "orders": 0,
+          "net_u": 0,
+          "roi_pct": null,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 0,
+          "active_week_avg": 0,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.0
+        },
+        "2023": {
+          "orders": 1,
+          "net_u": 0.85,
+          "roi_pct": 85.0,
+          "mdd_u": 0.0,
+          "active_iso_weeks": 1,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 43,
+          "observation_week_avg": 0.023256
+        },
+        "2024": {
+          "orders": 5,
+          "net_u": 0.76,
+          "roi_pct": 15.2,
+          "mdd_u": 2.0,
+          "active_iso_weeks": 5,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 53,
+          "observation_week_avg": 0.09434
+        },
+        "2025": {
+          "orders": 14,
+          "net_u": -0.33,
+          "roi_pct": -2.357143,
+          "mdd_u": 3.25,
+          "active_iso_weeks": 13,
+          "active_week_avg": 1.076923,
+          "observation_iso_weeks": 50,
+          "observation_week_avg": 0.28
+        },
+        "2026": {
+          "orders": 2,
+          "net_u": -0.16,
+          "roi_pct": -8.0,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 2,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 19,
+          "observation_week_avg": 0.105263
+        }
+      }
+    },
+    "G": {
+      "all_years": {
+        "orders": 209,
+        "net_u": 16.37,
+        "roi_pct": 7.832536,
+        "mdd_u": 15.355,
+        "active_iso_weeks": 127,
+        "active_week_avg": 1.645669,
+        "observation_iso_weeks": 280,
+        "observation_week_avg": 0.746429
+      },
+      "by_year": {
+        "2019": {
+          "orders": 11,
+          "net_u": 2.6,
+          "roi_pct": 23.636364,
+          "mdd_u": 1.0,
+          "active_iso_weeks": 11,
+          "active_week_avg": 1.0,
+          "observation_iso_weeks": 32,
+          "observation_week_avg": 0.34375
+        },
+        "2020": {
+          "orders": 16,
+          "net_u": -2.27,
+          "roi_pct": -14.1875,
+          "mdd_u": 5.2,
+          "active_iso_weeks": 9,
+          "active_week_avg": 1.777778,
+          "observation_iso_weeks": 16,
+          "observation_week_avg": 1.0
+        },
+        "2021": {
+          "orders": 14,
+          "net_u": 1.095,
+          "roi_pct": 7.821429,
+          "mdd_u": 1.715,
+          "active_iso_weeks": 10,
+          "active_week_avg": 1.4,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.411765
+        },
+        "2022": {
+          "orders": 16,
+          "net_u": -1.875,
+          "roi_pct": -11.71875,
+          "mdd_u": 2.735,
+          "active_iso_weeks": 14,
+          "active_week_avg": 1.142857,
+          "observation_iso_weeks": 34,
+          "observation_week_avg": 0.470588
+        },
+        "2023": {
+          "orders": 30,
+          "net_u": 13.02,
+          "roi_pct": 43.4,
+          "mdd_u": 2.0,
+          "active_iso_weeks": 16,
+          "active_week_avg": 1.875,
+          "observation_iso_weeks": 43,
+          "observation_week_avg": 0.697674
+        },
+        "2024": {
+          "orders": 61,
+          "net_u": 15.475,
+          "roi_pct": 25.368852,
+          "mdd_u": 3.22,
+          "active_iso_weeks": 31,
+          "active_week_avg": 1.967742,
+          "observation_iso_weeks": 53,
+          "observation_week_avg": 1.150943
+        },
+        "2025": {
+          "orders": 55,
+          "net_u": -13.595,
+          "roi_pct": -24.718182,
+          "mdd_u": 15.005,
+          "active_iso_weeks": 31,
+          "active_week_avg": 1.774194,
+          "observation_iso_weeks": 50,
+          "observation_week_avg": 1.1
+        },
+        "2026": {
+          "orders": 6,
+          "net_u": 1.92,
+          "roi_pct": 32.0,
+          "mdd_u": 2.0,
+          "active_iso_weeks": 5,
+          "active_week_avg": 1.2,
+          "observation_iso_weeks": 19,
+          "observation_week_avg": 0.315789
+        }
+      }
+    }
+  },
+  "limitations": [
+    "historical Crown source-event replay, not actual pre-kick receipt or execution",
+    "week bootstrap is descriptive and does not remove repeated model research/selection bias",
+    "2026 path inventory ends 2026-06-01",
+    "the prior-year group selector is a research ablation, not a production gate"
+  ]
+}

@@ -1,0 +1,125 @@
+#!/usr/bin/env python3
+"""Build report and SHA manifests from the exact frozen-rule ledgers."""
+import collections,datetime as dt,gzip,hashlib,json,pathlib,statistics,glob
+HERE=pathlib.Path(__file__).resolve().parent;ROOT=HERE.parents[3]
+WORK=pathlib.Path('/Users/mac/QuantAsiaDesk/research-work');DATA=pathlib.Path('/Users/mac/QuantAsiaDesk/data')
+SUMMARY=json.loads((HERE/'exact_rule_cross_league_summary.json').read_text())
+COVERAGE=json.loads((HERE/'exact_rule_cross_league_coverage.json').read_text())
+ORDERS=[json.loads(x) for x in gzip.open(HERE/'exact_rule_cross_league_orders.jsonl.gz','rt',encoding='utf-8')]
+ALL=[json.loads(x) for x in gzip.open(HERE/'exact_rule_cross_league_all_complete_paths.jsonl.gz','rt',encoding='utf-8')]
+def read(p):return [json.loads(x) for x in open(p) if x.strip()]
+def sha(p):
+ h=hashlib.sha256()
+ with open(p,'rb') as f:
+  for b in iter(lambda:f.read(1<<20),b''):h.update(b)
+ return h.hexdigest()
+def fnum(v,n=3):return '—' if v is None else f'{v:.{n}f}'
+def metric_rows():
+ out=[]
+ for g,d in SUMMARY['by_group'].items():
+  a=d['all'];raw=SUMMARY['raw_group_hits_before_priority'][g]
+  out.append((g,a['orders'],a['net_u'],a['roi_pct'],a['mdd_u'],a['weekly_avg'],a['average_decimal_odds'],raw['orders'],raw['net_u']))
+ return out
+def league_names():
+ names={}
+ for r in read(WORK/'crown-drop-expanded-62/schedule_universe.jsonl'):
+  lid=str(r['league_id'])
+  if r.get('source_league'):names[lid]=r['source_league']
+ for r in ALL:
+  if r.get('league_name'):names[r['league']]=r['league_name']
+ for r in ORDERS:
+  if r.get('league_name'):names[r['league']]=r['league_name']
+ return names
+def build_md():
+ s=SUMMARY;names=league_names();lines=[]
+ lines += ['# M8 原八组精确规则跨联赛回测（原 49 联赛之外）','',
+  '> 历史研究回放，不是 Crown 实际赛前收据，不是正式 Telegram 订单。原八组与生产规则均未改动。全部时间按中国时区统计，底层 Crown source-event 以 UTC 保存。','',
+  '## 样本与覆盖','',
+  f"- 目标：扩展赛程 64 个联赛 ID 中，排除冻结原 49 后的 15 个联赛。原扩展清单有 18,374 个目标 FID；与原始 TotalCorner 赛程页按 FID 对账，交集 18,373、原清单独有 1、赛程页独有 2,722，去重后为 **{s['schedule_universe']:,} 场**。交集 18,373 场的联赛、球队、FT 和开赛时刻均无冲突。", 
+  f"- 原 49 组冻结基准：{s['frozen_baseline']['n']:,} 个 FID，{s['frozen_baseline']['U']:+.3f}U，ROI {s['frozen_baseline']['ROI_pct']:.3f}%。冻结成员 SHA 见 SHA 清单。",
+  f"- 完整 T6/T3/T1 路径：**{s['coverage']['complete_T6_T3_T1']:,} 场**。SQLite 中 7,108 场有保存的 Crown movement 行，其中 7,106 场至少有一条开赛前报价；完整路径外，139 场有赛前报价但缺 T6，2 场无有效赛前报价。实际触发至少一组的完整路径 1,271 场；按优先级去重后仍为 1,271 个新增 FID。",
+  f"- 无法复算原因：{s['missing_reasons'].get('movement_capture_no_quotes',0):,} 场有 movement capture 但未保存 Crown AH 报价；{s['missing_reasons'].get('no_movement_capture',0):,} 场无 movement capture 记录；{s['missing_reasons'].get('missing_T6',0):,} 场缺 T6；{s['missing_reasons'].get('no_valid_pregame_quote',0):,} 场没有有效赛前报价。上述均是数据缺失，不计为策略未命中。",
+  '- 2026 目标赛程截至 11 月 8 日；可完整复算路径只覆盖 1 月 15 日至 6 月 1 日。2026 数字是部分年度，不可视为全年成绩。',
+  '', '### 按年度数据覆盖','',
+  '| 年 | 赛程 FID | 完整 T6/T3/T1 | 完整路径无信号 | 完整路径有信号 | 有赛前报价但缺 T6 | 无赛前报价 | 有采集无报价 | 无采集 | 完整路径日期范围 |',
+  '|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|']
+ covrows=[json.loads(x) for x in gzip.open(HERE/'exact_rule_cross_league_coverage_by_fid.jsonl.gz','rt',encoding='utf-8')]
+ for y in range(2019,2027):
+  z=[x for x in covrows if x['year']==y];c=collections.Counter(x['status'] for x in z);dates=[x['date'] for x in z if x['status'].startswith('complete_path')]
+  lines.append(f"| {y} | {len(z)} | {c['complete_path_no_signal']+c['complete_path_with_signal']} | {c['complete_path_no_signal']} | {c['complete_path_with_signal']} | {c['missing_T6']} | {c['no_valid_pregame_quote']} | {c['movement_capture_no_quotes']} | {c['no_movement_capture']} | {min(dates) if dates else '—'} – {max(dates) if dates else '—'} |")
+ lines += ['', '## 各组逐笔收益（按冻结优先级归属）','',
+  '原规则优先级为 base → A → B → C → D → E → F → G。若多个规则同时触发，仅按该顺序把唯一 FID 归属一组；另保留原始组命中账本与交集。ROI = 净 U / 唯一订单数。回撤按中国日期逐日聚合。','',
+  f"base/A–F 使用原 6/3/1 触发及方向。G 使用原独立比分 Poisson 强度结构（学习率 0.025、同一衰减/更新式）与 AH 期望收益方向：只用该目标新联赛在目标日之前至少两天结束的 FT 逐步训练；6,967 个完整路径均有比分强度值，无缺失替代；没有用 M9 替代，也没有对本次目标年度调参。",'',
+  '| 组 | 新增唯一单 | 净 U | ROI | MDD U | 周均单* | 平均赔率 | 原始触发（未优先去重） | 原始触发净 U |',
+  '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+ for g,n,u,roi,mdd,w,odds,rn,ru in metric_rows():lines.append(f'| {g} | {n} | {u:+.3f} | {roi:+.3f}% | {mdd:.3f} | {w:.3f} | {odds:.3f} | {rn} | {ru:+.3f} |')
+ inc=s['unique_incremental'];lines.append(f"| **合计去重** | **{inc['orders']}** | **{inc['net_u']:+.3f}** | **{inc['roi_pct']:+.3f}%** | **{inc['mdd_u']:.3f}** | **{inc['weekly_avg']:.3f}** | **{inc['average_decimal_odds']:.3f}** | **{s['overlap']['raw_hit_fids']} FID** | — |")
+ lines += ['', '*“周均单”以完整可判定样本从首个到末个 ISO 周（共 380 周）为分母；另有 250 个有新增订单的周，活跃周均 5.084 单。逐年使用该年度完整路径覆盖周数。','',
+  f"原始命中交叉：{s['overlap']['fids_with_multiple_group_hits']} 个 FID 同时触发多组。交叉对数："+', '.join(f'{k} {v}' for k,v in sorted(s['overlap']['overlapping_group_pairs'].items()))+'。优先级去重后组别订单数总和等于 1,271；不将原始重叠收益重复相加。','',
+  '## 逐年新增及合并表现','',
+  '| 年 | 新增唯一单 | 新增净 U | 新增 ROI | 新增 MDD U | 新增周均单 | 原八组单 | 原八组 U | 合并单 | 合并净 U | 合并 ROI | 合并 MDD U |',
+  '|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|']
+ frozen=read(WORK/'m8_foundation_20261115/historical_membership.jsonl')
+ for y in range(2019,2027):
+  a=s['incremental_by_year'][str(y)];c=s['combined_by_year'][str(y)];base=[x for x in frozen if int(x['year'])==y]
+  lines.append(f"| {y} | {a['orders']} | {a['net_u']:+.3f} | {fnum(a['roi_pct'])}% | {a['mdd_u']:.3f} | {a['weekly_avg']:.3f} | {len(base)} | {sum(x['pnl'] for x in base):+.3f} | {c['orders']} | {c['net_u']:+.3f} | {c['roi_pct']:+.3f}% | {c['mdd_u']:.3f} |")
+ c=s['combined_with_frozen_baseline']
+ lines += ['', f"**全期合并：** {c['orders']:,} 单、{c['net_u']:+.3f}U、ROI {c['roi_pct']:.3f}%、MDD {c['mdd_u']:.3f}U；相对冻结八组增加 {c['incremental_orders']:,} 个唯一 FID、净利润 **{c['increment_vs_frozen_u']:+.3f}U**。原八组总数和规则未改。", '',
+  '2024–2026重点：2024 新增 409 单 / +13.310U / +3.254%；2025 新增 359 单 / −9.565U / −2.664%；2026（仅截至 6 月 1 日有完整报价路径）新增 30 单 / −6.260U / −20.867%。组合原八组后分别为 +44.860U、+56.830U、+93.560U；后两年新增订单降低了原组合净利润。','',
+  '## 各组年度成绩（新增唯一订单）','',
+  '| 组 | 2019 n/U/ROI | 2020 n/U/ROI | 2021 n/U/ROI | 2022 n/U/ROI | 2023 n/U/ROI | 2024 n/U/ROI | 2025 n/U/ROI | 2026 n/U/ROI |',
+  '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+ for g,v in s['by_group'].items():
+  vals=[]
+  for y in range(2019,2027):
+   x=v['by_year'][str(y)];vals.append(f"{x['orders']} / {x['net_u']:+.2f} / {fnum(x['roi_pct'])}%")
+  lines.append('| '+g+' | '+' | '.join(vals)+' |')
+ lines += ['', '## 联赛分布','',
+  '| 联赛 ID | 联赛 | 赛程 | 完整路径 | 新增订单 | 净 U | ROI |',
+  '|---:|---|---:|---:|---:|---:|---:|']
+ order_by=collections.defaultdict(list)
+ for x in ORDERS:order_by[x['league']].append(x)
+ for lid in sorted({x['league'] for x in covrows},key=int):
+  cov=[x for x in covrows if x['league']==lid];os=order_by[lid];n=len(os);u=sum(x['net_u'] for x in os);roi=u/n*100 if n else None
+  nm=names.get(lid) or next((x.get('league_name') for x in ALL if x['league']==lid and x.get('league_name')),'unknown')
+  lines.append(f"| {lid} | {nm} | {len(cov)} | {sum(x['status'].startswith('complete_path') for x in cov)} | {n} | {u:+.3f} | {fnum(roi)}% |")
+ league_totals=[]
+ for lid in sorted({x['league'] for x in covrows},key=int):
+  z=order_by[lid];league_totals.append(sum(x['net_u'] for x in z))
+ lines.append('')
+ lines.append(f"15 个目标联赛中，{sum(v>0 for v in league_totals)} 个联赛历史新增净值为正、{sum(v<0 for v in league_totals)} 个为负、{sum(v==0 for v in league_totals)} 个没有新增订单。这里的联赛结果为研究诊断，不作为过滤条件。")
+ # actual HTTP receipt block
+ rec=json.loads((HERE/'actual_receipt_exact_rule_audit_20261120.json').read_text())
+ lines += ['', '## 真实赛前 Crown 收据','',
+  f"复核的 forward-shadow Crown 原始 HTTP 索引、MR1 实收档案、M8 实收档案及 SQLite live capture。15 个目标联赛在这些来源的有效 Crown 实收 FID 为 **{rec['unique_fids']}**，T1 前收到且可还原完整 T6/T3/T1 的为 **{rec['complete_T6_T3_T1_fids']}**，按精确规则得到真实收据订单 **{rec['exact_rule_receipt_orders']}**。因此本次 1,271 单全部是历史 source-event 回放，不能称作实收验证或 Telegram 实战。", '',
+  '## 结论','',
+  '原八组精确触发逻辑在 15 个新联赛完整路径上产生 1,271 个新增唯一 FID，历史 Crown 报价结算净赚 +7.185U（ROI +0.565%），数学上提高冻结八组合并利润到 +243.200U。但年度不稳定：2024 盈利、2025 与 2026（截至 6 月）亏损，且没有新联赛真实赛前收据支持可执行性。A、B、G 的优先级归属组净亏；base、C、D、E、F 为正，其中 C/D/F 样本很小。整体只显示微弱的全期正值，不能证明稳定跨年度扩单盈利。','',
+  '本报告不新增 Gate、过滤、限额或上线规则；所有结果仅供研究。', '',
+  '## 原始精确方向实现核对', '',
+  '复核发现，2026-11-19 边界研究脚本的 `group_side(\'E\')` 与较早的完整路径提取器对 E 组方向处理不同：边界脚本只看 `p1-p0`，当端点概率相等时返回无方向；原完整路径提取器在 E 组中途概率同时上、下变动且端点净变化为零时，使用 `net or p0→p3 or p3→p1 or last_move` 的首个非零方向确定一侧。本研究采用原完整路径提取器方向实现（同原始库存恢复代码），不是新增方向规则。冻结 E 成员中161个可配对路径和 Crown 结算记录的方向全部吻合；另有106个成员缺少可同时核验的路径特征或报价结算记录。', '',
+  '此次跨联赛逐场账本中52个优先级归属 E 的候选均为端点概率净变化为零，因此 E 方向依赖上述原提取器的中间路径回退方向。独立 Crown 原始报价/FT 结算审计逐场复核这些订单及其余候选。该说明用于解释历史实现来源差异，不重定义冻结组或生产规则。', '',
+  '## 2026-11-21 复算记录', '',
+  '再次运行主研究脚本、真实收据审计和独立结算校验。样本仍为 21,096 场赛事库存、6,967 条完整路径、1,271 个新增唯一FID、+7.185U；独立校验重新读取原始 Crown 报价响应SHA与赛程FT，对1,271笔逐场重结算全部通过、差异0。重新核验原八组10,294 FID与新增账本交集0。gzip文件字节SHA会因gzip时间头不同而变动，解压后的逐场JSONL内容相同。目标15联赛真实赛前收据仍为0。']
+ (HERE/'EXACT_RULE_CROSS_LEAGUE_REPORT.md').write_text('\n'.join(lines))
+
+def main():
+ build_md()
+ target_pages=[]
+ for lid in SUMMARY['target_league_ids']:
+  target_pages += glob.glob(f'/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules/{lid}/page-*.raw.json')
+ external_inputs=[WORK/'crown-drop-expanded-62/schedule_universe.jsonl',WORK/'m8_foundation_20261115/historical_membership.jsonl',WORK/'m8_foundation_20261115/manifest.json',WORK/'m8_late_full_path_water_features_20261114.jsonl',WORK/'m8_extra_inventory_frozen_eight_20261115.jsonl',WORK/'m8_raw_capture_unindexed_frozen_replay_20261115.jsonl',WORK/'m8_independent_score_strength_20261114.jsonl',DATA/'crown_quote_store/crown_quotes.sqlite3',DATA/'m5-crown-authorized/forward-shadow/crown-capture-index.jsonl',
+  ROOT/'research/m8/m8_batch_actual_receipt_independently_audited_20261118.jsonl',WORK/'m8_MR1_full_actual_Crown_receipt_archive_20261113.jsonl',ROOT/'research/m8/mr1_m8_receipt_coverage_20261119/verified_receipts.jsonl',
+  ROOT/'research/m8/m8_frozen_eight_earlier_window_replay_20261116.py',ROOT/'research/m8/m8_raw_capture_unindexed_frozen_replay_20261115.py',ROOT/'research/m8/m8_frozen_eight_boundary_expansion_20261119.py']
+ # Hash every cached schedule page actually read from target leagues.
+ inputs={'direct_files':{str(p):{'sha256':sha(p),'bytes':p.stat().st_size} for p in external_inputs if p.exists()},
+  'target_schedule_pages':{str(pathlib.Path(p).relative_to(DATA)):sha(p) for p in sorted(set(target_pages))},
+  'target_schedule_page_count':len(set(target_pages)),
+  'execution_scope':{'expanded_league_ids':64,'original49_ids':49,'outside_original49_ids':len(SUMMARY['target_league_ids']),'outside_ids':SUMMARY['target_league_ids']}}
+ (HERE/'input_sha256_manifest_20261120.json').write_text(json.dumps(inputs,indent=2))
+ outputs={p.name:sha(p) for p in sorted(HERE.iterdir()) if p.is_file() and p.name not in ('output_sha256_manifest_20261120.json','SHA256SUMS_20261120.txt')}
+ (HERE/'output_sha256_manifest_20261120.json').write_text(json.dumps(outputs,indent=2))
+ outputs_for_sums=dict(outputs);outputs_for_sums['output_sha256_manifest_20261120.json']=sha(HERE/'output_sha256_manifest_20261120.json')
+ with open(HERE/'SHA256SUMS_20261120.txt','w') as f:
+  for name,digest in sorted(outputs_for_sums.items()):f.write(f'{digest}  {name}\n')
+ print(json.dumps({'report':str(HERE/'EXACT_RULE_CROSS_LEAGUE_REPORT.md'),'target_page_count':len(set(target_pages)),'outputs':outputs_for_sums},ensure_ascii=False))
+if __name__=='__main__':main()

@@ -1,0 +1,3 @@
+# Superseded source-coverage attempt
+
+The first successful model run included target rows after the latest available mapped appearance-history date (2026-05-24), using a frozen older roster history for later 2026 fixtures. It is retained for audit but is not the primary result. The corrected primary run excludes target fixtures whose appearance-history cutoff date exceeds the source end date. This is a data-availability correction, not a performance-driven rule change. The first run's results and per-fixture ledger are preserved in the two files prefixed `SUPERSEDED_UNGUARDED_APPEARANCE_CUTOFF_`.
