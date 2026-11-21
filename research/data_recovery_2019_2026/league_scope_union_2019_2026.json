@@ -1,6 +1,6 @@
 {
   "audit": "explicit provider league source union for 2019-2026 historical recovery",
-  "generated_at_utc": "2026-11-21T16:26:41.457915Z",
+  "generated_at_utc": "2026-11-21T17:12:47.845421Z",
   "network_requests": 0,
   "scope_is_exhaustive_forever": false,
   "scope_note": "Provider-ID union is limited to explicit ID sources. M7 also contains exact-name research-universe lists; names not mapped by exact existing records remain unresolved and must be investigated. This is not a claim that no additional competition can be discovered.",
@@ -267,6 +267,46 @@
         "26825"
       ]
     },
+    "m7_named_competitions_mapped_from_exact_TotalCorner_provider_pages": {
+      "path": "/private/tmp/quant-runner-history-backfill/research/data_recovery_2019_2026/m7_named_competition_schedule_targets_20261122.json",
+      "sha256": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778",
+      "mapped_exact_names": 3,
+      "league_ids": 3,
+      "ids": [
+        "114",
+        "702",
+        "10653"
+      ],
+      "mappings": [
+        {
+          "provider_league_id": "10653",
+          "league_name": "Bulgaria B PFG",
+          "name_mapping_source": "Exact TotalCorner league page URL /league/view/10653 verified by title; supplement because no matching name in archived Crown match-view responses",
+          "mapping_response_sha256_sample": [],
+          "mapping_distinct_fids": 0,
+          "provider_page_url": "https://www.totalcorner.com/league/view/10653",
+          "provider_page_title_exact": "Bulgaria B PFG"
+        },
+        {
+          "provider_league_id": "702",
+          "league_name": "Georgia First League",
+          "name_mapping_source": "Exact TotalCorner league page URL /league/table/702 listed in existing project competition identity record",
+          "mapping_response_sha256_sample": [],
+          "mapping_distinct_fids": 0,
+          "provider_page_url": "https://www.totalcorner.com/league/table/702",
+          "provider_page_title_exact": "Georgia First League"
+        },
+        {
+          "provider_league_id": "114",
+          "league_name": "Iceland 1 Deild",
+          "name_mapping_source": "Exact TotalCorner league page URL /league/view/114 verified by title; supplement because no matching name in archived Crown match-view responses",
+          "mapping_response_sha256_sample": [],
+          "mapping_distinct_fids": 0,
+          "provider_page_url": "https://www.totalcorner.com/league/view/114",
+          "provider_page_title_exact": "Iceland 1 Deild"
+        }
+      ]
+    },
     "m7_research_universe_named_competitions": {
       "path": "/Users/mac/QuantAsiaDesk/repos/mr1/config/mr1-research-universe-v1.json",
       "sha256": "a74bff96200423cd6bccba013694dbbe46722c6440b8607ecb2bc5ef8f06da4d",
@@ -285,7 +325,8 @@
         "saved TotalCorner shared-history JSONL",
         "saved M1 and M7 TotalCorner schedule responses",
         "active supplemental schedule responses with matching SHA sidecars",
-        "SHA-verified saved TotalCorner match-view responses embedded in Crown raw responses"
+        "SHA-verified saved TotalCorner match-view responses embedded in Crown raw responses",
+        "exact TotalCorner provider pages for the three residual M7 competition names"
       ],
       "cached_mapping_input_files": {
         "/Users/mac/QuantAsiaDesk/research-work/recovered_factors_20261121/report-branch/research/shared_history/totalcorner/league-15.jsonl": "b8f4a121934eaa546bb5f6369ad2162d18c5f1cd3d89f1d7462263db39282f6b",
@@ -333,6 +374,12 @@
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-10808-page-1-b7e9cca55ad79ce22181b59bdb89144d7c3165bce5a4894f2a841dfa09f58141.json": "b7e9cca55ad79ce22181b59bdb89144d7c3165bce5a4894f2a841dfa09f58141",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-10989-page-1-7d4ce5e7ccf1f642797ce92029f1e909f7f22a9b1a28f13f319a1d54cb502568.meta.json": "4fff79e28b23db210a8441f0b8e6bf605e4b961300d61e74ba8e6a8ddcd56e1c",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-10989-page-1-7d4ce5e7ccf1f642797ce92029f1e909f7f22a9b1a28f13f319a1d54cb502568.json": "7d4ce5e7ccf1f642797ce92029f1e909f7f22a9b1a28f13f319a1d54cb502568",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11260-page-1-2e53e658cc8202dc119b86865b00db936868d6ed56831b5243ec7961e4ced13f.meta.json": "502ff8b7a99acf971123429cc2ba5a39cf625edd46ca68590a92ef934e3a0bac",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11260-page-1-2e53e658cc8202dc119b86865b00db936868d6ed56831b5243ec7961e4ced13f.json": "2e53e658cc8202dc119b86865b00db936868d6ed56831b5243ec7961e4ced13f",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11559-page-1-6a6ecd9b0f9465ec2107cd168a0113d0dfa6bb1887641437c329d73faf95c506.meta.json": "e43a582f5245a93d56be9d4f30def0cabfa2a6410aa49eef5bf04594988b1445",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11559-page-1-6a6ecd9b0f9465ec2107cd168a0113d0dfa6bb1887641437c329d73faf95c506.json": "6a6ecd9b0f9465ec2107cd168a0113d0dfa6bb1887641437c329d73faf95c506",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-119-page-1-a280ae7ea2933b8139d7e994b903012a0d1ce7db51711a5adf71d39ef2b95a11.meta.json": "0b8b15a328d5ebaca2c4e418b400606da70e252abdc9d56b58320196643b28ba",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-119-page-1-a280ae7ea2933b8139d7e994b903012a0d1ce7db51711a5adf71d39ef2b95a11.json": "a280ae7ea2933b8139d7e994b903012a0d1ce7db51711a5adf71d39ef2b95a11",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11958-page-1-da890ac72260f1c1cc21f55662e48e9e8dbd8b37c8bc3ca4b0693986958a4ad5.meta.json": "1d8b75853637eb8e5b57d3d01e057eec7f42a085bcc875bbd98dcaab0ea328c0",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11958-page-1-da890ac72260f1c1cc21f55662e48e9e8dbd8b37c8bc3ca4b0693986958a4ad5.json": "da890ac72260f1c1cc21f55662e48e9e8dbd8b37c8bc3ca4b0693986958a4ad5",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11959-page-1-91d904e32c8965482fec72d4337ee4a398aaf532415ac2cfd67736dfc25be38b.meta.json": "8c1e14bf130e9e95f11e8ac277da706ad9a2d31f63afe2c40202780867ffec10",
@@ -345,8 +392,12 @@
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-15-page-1-c4d436d3c02b4eee759cb148354a5c71a5524b2a7f3ef113f408e10981391d4b.json": "c4d436d3c02b4eee759cb148354a5c71a5524b2a7f3ef113f408e10981391d4b",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-210-page-1-0334c5ba3797c3b9a367a124fcb85aedd429dd0ec904cc8f07bfd043186fc911.meta.json": "6b176e7eea0f46ea4050c43f4cfdf74e978cd2375bde72c4f4370c10632102f1",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-210-page-1-0334c5ba3797c3b9a367a124fcb85aedd429dd0ec904cc8f07bfd043186fc911.json": "0334c5ba3797c3b9a367a124fcb85aedd429dd0ec904cc8f07bfd043186fc911",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-227-page-1-b948a3515ad3f2c4dd9af3863e5351e75a8a9788d6883f8e53c5eba269dc6af5.meta.json": "a1837420a42db821b99196f19e9e1956e76f7f10c7e3381aa7a22d560278401b",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-227-page-1-b948a3515ad3f2c4dd9af3863e5351e75a8a9788d6883f8e53c5eba269dc6af5.json": "b948a3515ad3f2c4dd9af3863e5351e75a8a9788d6883f8e53c5eba269dc6af5",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-252-page-1-9076274fb441d54d2cc48349e2584566bc4f9e1f8f153027875df86d0f5c78f9.meta.json": "074786234f53bbbbe51a77a1be05c1e9639ccdccbb242592e3a53174cfa0cea3",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-252-page-1-9076274fb441d54d2cc48349e2584566bc4f9e1f8f153027875df86d0f5c78f9.json": "9076274fb441d54d2cc48349e2584566bc4f9e1f8f153027875df86d0f5c78f9",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-26528-page-1-6df500f20a65b3f89264f7b4f479df8369d0076846aacb84d7992db120a1ab6f.meta.json": "fa4185fa0f141add9413b7447fe771203e95bb7aaa71e76b32ff536a04bc3d4d",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-26528-page-1-6df500f20a65b3f89264f7b4f479df8369d0076846aacb84d7992db120a1ab6f.json": "6df500f20a65b3f89264f7b4f479df8369d0076846aacb84d7992db120a1ab6f",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-270-page-1-e91efeef431d22ea594c7c45308494c1ca457caa98a93ae1eb4e9bc30b6b7522.meta.json": "63e2d41a1c397fd903f5cdfaaea7688663de02acd8397715746c9b23f6de0883",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-270-page-1-e91efeef431d22ea594c7c45308494c1ca457caa98a93ae1eb4e9bc30b6b7522.json": "e91efeef431d22ea594c7c45308494c1ca457caa98a93ae1eb4e9bc30b6b7522",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-337-page-1-b611715e6729cdf310598ec7f9df46cd7bfd036162ce2cb7dae65b9c956945a9.meta.json": "f04e9b15d56ca1bc9367d4955853855ac3d16b015f288bfadad53e8a95dab7a2",
@@ -358,7 +409,11 @@
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-63-page-1-63622e4132bde6024e34b838c867946b6e33bfbc3443d921ef375d8aa33ed67b.meta.json": "57137e420f299377fa7fff801ffe2b7df222936ae000916f314907bd897ff2af",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-63-page-1-63622e4132bde6024e34b838c867946b6e33bfbc3443d921ef375d8aa33ed67b.json": "63622e4132bde6024e34b838c867946b6e33bfbc3443d921ef375d8aa33ed67b",
         "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-765-page-1-51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12.meta.json": "1953248f48dbd593ad97939088d3f2bbb484d3a450f0946aa839859f89abdab4",
-        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-765-page-1-51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12.json": "51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12"
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-765-page-1-51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12.json": "51b8a36558a447b5762a66fa5942c01c47db131ecaf8cf4a8fa2b6c303930b12",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-877-page-1-af23702961e468fa6d90d1cc82e61b44eda16a51dd607f4f12249fc70541fa22.meta.json": "610b5223c7362b827e69cf7c75d38417012c2b5495f967c1368b448287f168e7",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-877-page-1-af23702961e468fa6d90d1cc82e61b44eda16a51dd607f4f12249fc70541fa22.json": "af23702961e468fa6d90d1cc82e61b44eda16a51dd607f4f12249fc70541fa22",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-911-page-1-b81fc5b3247d1c707beeb023820212c76a72a3a9047856892ff08c14ae416415.meta.json": "0358e09f286ad492cc18edb56e4c5ebb7c8a0243bfd19aa3c76377b68abf227e",
+        "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-911-page-1-b81fc5b3247d1c707beeb023820212c76a72a3a9047856892ff08c14ae416415.json": "b81fc5b3247d1c707beeb023820212c76a72a3a9047856892ff08c14ae416415"
       },
       "mapped_exact_names": [
         {
@@ -370,6 +425,14 @@
             "877"
           ],
           "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-877-page-1-af23702961e468fa6d90d1cc82e61b44eda16a51dd607f4f12249fc70541fa22.json",
+              "file_sha256": "af23702961e468fa6d90d1cc82e61b44eda16a51dd607f4f12249fc70541fa22",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-877-page-1-af23702961e468fa6d90d1cc82e61b44eda16a51dd607f4f12249fc70541fa22.meta.json",
+              "sidecar_sha256": "610b5223c7362b827e69cf7c75d38417012c2b5495f967c1368b448287f168e7"
+            },
             {
               "source": "sha_verified_saved_TotalCorner_match_view_response",
               "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
@@ -416,6 +479,14 @@
           ],
           "raw_source_evidence": [
             {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11559-page-1-6a6ecd9b0f9465ec2107cd168a0113d0dfa6bb1887641437c329d73faf95c506.json",
+              "file_sha256": "6a6ecd9b0f9465ec2107cd168a0113d0dfa6bb1887641437c329d73faf95c506",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11559-page-1-6a6ecd9b0f9465ec2107cd168a0113d0dfa6bb1887641437c329d73faf95c506.meta.json",
+              "sidecar_sha256": "e43a582f5245a93d56be9d4f30def0cabfa2a6410aa49eef5bf04594988b1445"
+            },
+            {
               "source": "sha_verified_saved_TotalCorner_match_view_response",
               "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
               "distinct_fids": 3,
@@ -447,6 +518,14 @@
             "11260"
           ],
           "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11260-page-1-2e53e658cc8202dc119b86865b00db936868d6ed56831b5243ec7961e4ced13f.json",
+              "file_sha256": "2e53e658cc8202dc119b86865b00db936868d6ed56831b5243ec7961e4ced13f",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-11260-page-1-2e53e658cc8202dc119b86865b00db936868d6ed56831b5243ec7961e4ced13f.meta.json",
+              "sidecar_sha256": "502ff8b7a99acf971123429cc2ba5a39cf625edd46ca68590a92ef934e3a0bac"
+            },
             {
               "source": "sha_verified_saved_TotalCorner_match_view_response",
               "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
@@ -524,6 +603,14 @@
           ],
           "raw_source_evidence": [
             {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-227-page-1-b948a3515ad3f2c4dd9af3863e5351e75a8a9788d6883f8e53c5eba269dc6af5.json",
+              "file_sha256": "b948a3515ad3f2c4dd9af3863e5351e75a8a9788d6883f8e53c5eba269dc6af5",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-227-page-1-b948a3515ad3f2c4dd9af3863e5351e75a8a9788d6883f8e53c5eba269dc6af5.meta.json",
+              "sidecar_sha256": "a1837420a42db821b99196f19e9e1956e76f7f10c7e3381aa7a22d560278401b"
+            },
+            {
               "source": "sha_verified_saved_TotalCorner_match_view_response",
               "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
               "distinct_fids": 15,
@@ -600,6 +687,14 @@
           ],
           "raw_source_evidence": [
             {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-119-page-1-a280ae7ea2933b8139d7e994b903012a0d1ce7db51711a5adf71d39ef2b95a11.json",
+              "file_sha256": "a280ae7ea2933b8139d7e994b903012a0d1ce7db51711a5adf71d39ef2b95a11",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-119-page-1-a280ae7ea2933b8139d7e994b903012a0d1ce7db51711a5adf71d39ef2b95a11.meta.json",
+              "sidecar_sha256": "0b8b15a328d5ebaca2c4e418b400606da70e252abdc9d56b58320196643b28ba"
+            },
+            {
               "source": "sha_verified_saved_TotalCorner_match_view_response",
               "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
               "distinct_fids": 9,
@@ -644,6 +739,14 @@
           ],
           "raw_source_evidence": [
             {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-911-page-1-b81fc5b3247d1c707beeb023820212c76a72a3a9047856892ff08c14ae416415.json",
+              "file_sha256": "b81fc5b3247d1c707beeb023820212c76a72a3a9047856892ff08c14ae416415",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-911-page-1-b81fc5b3247d1c707beeb023820212c76a72a3a9047856892ff08c14ae416415.meta.json",
+              "sidecar_sha256": "0358e09f286ad492cc18edb56e4c5ebb7c8a0243bfd19aa3c76377b68abf227e"
+            },
+            {
               "source": "sha_verified_saved_TotalCorner_match_view_response",
               "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
               "distinct_fids": 29,
@@ -683,6 +786,24 @@
           ]
         },
         {
+          "competition_name_exact": "Bulgaria B PFG",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "10653"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "exact_TotalCorner_provider_league_page",
+              "provider_page_url": "https://www.totalcorner.com/league/view/10653",
+              "provider_page_name_matches_exact_M7_label": true,
+              "verified_at_utc": "2026-11-21T17:12:32Z",
+              "verification": "provider page path includes league ID and rendered page title exactly matches listed competition name"
+            }
+          ]
+        },
+        {
           "competition_name_exact": "Bulgaria Second League",
           "listed_in": [
             "deprecated_second_tier_totalcorner_exact"
@@ -691,6 +812,14 @@
             "26528"
           ],
           "raw_source_evidence": [
+            {
+              "source": "supplemental_totalcorner_schedule_response",
+              "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-26528-page-1-6df500f20a65b3f89264f7b4f479df8369d0076846aacb84d7992db120a1ab6f.json",
+              "file_sha256": "6df500f20a65b3f89264f7b4f479df8369d0076846aacb84d7992db120a1ab6f",
+              "sidecar_verified": true,
+              "sidecar_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/raw/league-26528-page-1-6df500f20a65b3f89264f7b4f479df8369d0076846aacb84d7992db120a1ab6f.meta.json",
+              "sidecar_sha256": "fa4185fa0f141add9413b7447fe771203e95bb7aaa71e76b32ff536a04bc3d4d"
+            },
             {
               "source": "sha_verified_saved_TotalCorner_match_view_response",
               "source_sqlite_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
@@ -1286,6 +1415,24 @@
           ]
         },
         {
+          "competition_name_exact": "Georgia First League",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "702"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "exact_TotalCorner_provider_league_page",
+              "provider_page_url": "https://www.totalcorner.com/league/table/702",
+              "provider_page_name_matches_exact_M7_label": true,
+              "verified_at_utc": "2026-11-21T17:12:32Z",
+              "verification": "provider page path includes league ID and rendered page title exactly matches listed competition name"
+            }
+          ]
+        },
+        {
           "competition_name_exact": "Germany Bundesliga I",
           "listed_in": [
             "first_tier_totalcorner_exact",
@@ -1455,6 +1602,24 @@
               "response_received_min_utc": "2026-10-10T12:50:01.903Z",
               "response_received_max_utc": "2026-11-02T12:59:50.582Z",
               "verification": "exact response l/l_id pair; raw_response_sha256 matched SQLite capture row"
+            }
+          ]
+        },
+        {
+          "competition_name_exact": "Iceland 1 Deild",
+          "listed_in": [
+            "deprecated_second_tier_totalcorner_exact"
+          ],
+          "provider_league_ids_in_current_id_sources": [
+            "114"
+          ],
+          "raw_source_evidence": [
+            {
+              "source": "exact_TotalCorner_provider_league_page",
+              "provider_page_url": "https://www.totalcorner.com/league/view/114",
+              "provider_page_name_matches_exact_M7_label": true,
+              "verified_at_utc": "2026-11-21T17:12:32Z",
+              "verification": "provider page path includes league ID and rendered page title exactly matches listed competition name"
             }
           ]
         },
@@ -2808,32 +2973,7 @@
           ]
         }
       ],
-      "unmapped_exact_names": [
-        {
-          "competition_name_exact": "Bulgaria B PFG",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Georgia First League",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        },
-        {
-          "competition_name_exact": "Iceland 1 Deild",
-          "listed_in": [
-            "deprecated_second_tier_totalcorner_exact"
-          ],
-          "provider_league_ids_in_current_id_sources": [],
-          "raw_source_evidence": []
-        }
-      ],
+      "unmapped_exact_names": [],
       "multiply_mapped_exact_names": []
     },
     "current_reconciled_inventory": {
@@ -2941,8 +3081,8 @@
   },
   "set_audit": {
     "formal_union_expanded": 64,
-    "explicit_union_formal_expanded_candidates": 114,
-    "total_union_including_observed_m1_only": 115,
+    "explicit_union_formal_expanded_candidates": 117,
+    "total_union_including_observed_m1_only": 118,
     "inventory_ids_missing_from_union": [
       "2",
       "13",
@@ -2950,6 +3090,7 @@
       "27",
       "49",
       "90",
+      "114",
       "119",
       "122",
       "125",
@@ -2966,12 +3107,14 @@
       "515",
       "571",
       "680",
+      "702",
       "709",
       "877",
       "911",
       "957",
       "9115",
       "10635",
+      "10653",
       "11260",
       "11559",
       "14123",
@@ -3036,7 +3179,12 @@
       "26528",
       "26825"
     ],
-    "m7_exact_names_unmapped_to_provider_id": 3,
+    "provider_page_mapped_ids_not_yet_in_inventory": [
+      "114",
+      "702",
+      "10653"
+    ],
+    "m7_exact_names_unmapped_to_provider_id": 0,
     "m7_exact_names_mapped_to_multiple_provider_ids": 0,
     "formal_ids_not_in_inventory": [],
     "expanded_ids_not_in_inventory": []

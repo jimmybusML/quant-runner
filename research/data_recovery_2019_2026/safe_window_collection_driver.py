@@ -48,19 +48,24 @@ def resume_fixture_file(source:Path,output_log:Path,event_log:Path)->Path|None:
             fid=str(row.get('match_id') or row.get('id') or '')
             if not fid.isdigit() or fid in seen:continue
             seen.add(fid);candidates.append((fid,row))
-    attempted=set()
+    latest_status_by_fid={}
     if output_log.exists():
         with output_log.open(encoding='utf-8') as f:
             for line in f:
                 try:row=json.loads(line)
                 except json.JSONDecodeError:continue
-                if isinstance(row,dict) and row.get('fixture_id') is not None and row.get('status'):
-                    attempted.add(str(row['fixture_id']))
+                if not isinstance(row,dict) or row.get('fixture_id') is None or not row.get('status'):
+                    continue
+                latest_status_by_fid[str(row['fixture_id'])]=str(row['status'])
+    retryable_statuses={'FETCH_FAILED','CACHE_INVALID'}
+    attempted={fid for fid,status in latest_status_by_fid.items() if status not in retryable_statuses}
+    retryable_failures={fid for fid,status in latest_status_by_fid.items() if status in retryable_statuses}
     remaining=[row for fid,row in candidates if fid not in attempted]
     resume=source.with_name(source.stem+'.resume.jsonl')
     if not remaining:
         record(event_log,{'event':'collector_input_exhausted','candidate_fids':len(candidates),
-          'attempted_fids':len(attempted),'remaining_fids':0,'retryable_failures':0})
+          'attempted_fids':len(attempted),'remaining_fids':0,
+          'retryable_failures_still_pending':len(retryable_failures)})
         return None
     with resume.open('w',encoding='utf-8') as f:
         for row in remaining:f.write(json.dumps(row,ensure_ascii=False)+'\n')
@@ -69,7 +74,7 @@ def resume_fixture_file(source:Path,output_log:Path,event_log:Path)->Path|None:
       'source_manifest_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
       'resume_manifest':str(resume),'resume_manifest_sha256':hashlib.sha256(resume.read_bytes()).hexdigest(),
       'candidate_fids':len(candidates),'attempted_fids':len(attempted),
-      'remaining_fids':len(remaining)})
+      'remaining_fids':len(remaining),'retryable_failures_seen':len(retryable_failures)})
     return resume
 
 def main():
@@ -77,15 +82,17 @@ def main():
     p.add_argument('--fixture-file',type=Path,required=True)
     p.add_argument('--output-log',type=Path,required=True)
     p.add_argument('--event-log',type=Path,required=True)
+    p.add_argument('--layer',choices=['summary','movement'],default='movement')
     p.add_argument('--quiet-seconds',type=float,default=12)
     p.add_argument('--poll-seconds',type=float,default=2)
     a=p.parse_args();a.output_log.parent.mkdir(parents=True,exist_ok=True);a.event_log.parent.mkdir(parents=True,exist_ok=True)
     cmd=['/Users/mac/QuantAsiaDesk/venv/bin/python','/Users/mac/QuantAsiaDesk/scripts/crown_capture_store.py','collect',
-      '--fixture-file',str(a.fixture_file),'--layer','movement','--capture-mode','historical']
+      '--fixture-file',str(a.fixture_file),'--layer',a.layer,'--capture-mode','historical']
     child=None;interrupted=False;quiet_since=None
     record(a.event_log,{'event':'driver_started','collector_command':cmd,'fixture_file':str(a.fixture_file),
       'fixture_file_sha256':__import__('hashlib').sha256(a.fixture_file.read_bytes()).hexdigest(),
-      'output_log':str(a.output_log),'interval_seconds':'collector default (5.2)'})
+      'output_log':str(a.output_log),'layer':a.layer,'capture_mode':'historical',
+      'interval_seconds':'collector default (5.2)'})
     try:
         while True:
             unsafe=active_unsafe(os.getpid(),child.pid if child else None)

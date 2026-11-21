@@ -29,6 +29,7 @@ SUPPLEMENTAL_RAW = (QUANT / 'research-work/full_history_backfill_20261121'
                     / 'totalcorner_schedule_recovery/raw')
 OUTPUT = OUT / 'league_scope_union_2019_2026.json'
 RAW_RESPONSE_MAPPING = OUT / 'crown_raw_exact_league_name_mapping_2019_2026.json'
+PAGE_MAPPING_TARGETS = OUT / 'm7_named_competition_schedule_targets_20261122.json'
 
 
 def sha256(path: pathlib.Path) -> str:
@@ -224,6 +225,27 @@ def main() -> int:
                     'verification':'exact response l/l_id pair; raw_response_sha256 matched SQLite capture row',
                 })
 
+    # A small residual set had no matching archived Crown match-view response.
+    # Accept only the separately recorded exact TotalCorner provider-page ID
+    # checks; keep this evidence class separate from response-derived mapping.
+    page_mapping_doc = json.loads(PAGE_MAPPING_TARGETS.read_text(encoding='utf-8')) if PAGE_MAPPING_TARGETS.exists() else {}
+    page_mapped_ids = set()
+    page_mapped_names = set()
+    for row in page_mapping_doc.get('supplemental_exact_provider_page_mappings', []):
+        name = str(row['league_name'])
+        lid = str(row['provider_league_id'])
+        url = row['provider_page_url']
+        page_mapped_ids.add(lid)
+        page_mapped_names.add(name)
+        name_to_ids[name].add(lid)
+        mapping_evidence[(name, lid)].append({
+            'source': 'exact_TotalCorner_provider_league_page',
+            'provider_page_url': url,
+            'provider_page_name_matches_exact_M7_label': True,
+            'verified_at_utc': page_mapping_doc.get('provider_page_mapping_verified_at_utc'),
+            'verification': 'provider page path includes league ID and rendered page title exactly matches listed competition name',
+        })
+
     mapped_name_rows = []
     unmapped_name_rows = []
     multiply_mapped_name_rows = []
@@ -241,8 +263,8 @@ def main() -> int:
             if len(ids) > 1:
                 multiply_mapped_name_rows.append(row)
 
-    explicit_union = formal | expanded | candidates | raw_mapped_ids
-    observed_m1_only = inventory_ids - (formal | expanded | candidates | raw_mapped_ids)
+    explicit_union = formal | expanded | candidates | raw_mapped_ids | page_mapped_ids
+    observed_m1_only = inventory_ids - (formal | expanded | candidates | raw_mapped_ids | page_mapped_ids)
     expected_union = explicit_union | observed_m1_only
     missing = expected_union - inventory_ids
     unexpected = inventory_ids - expected_union
@@ -266,6 +288,14 @@ def main() -> int:
                 'league_ids': len(raw_mapped_ids),
                 'ids': sorted(raw_mapped_ids, key=int),
             },
+            'm7_named_competitions_mapped_from_exact_TotalCorner_provider_pages': {
+                'path': str(PAGE_MAPPING_TARGETS) if page_mapping_doc else None,
+                'sha256': sha256(PAGE_MAPPING_TARGETS) if page_mapping_doc else None,
+                'mapped_exact_names': len(page_mapped_names),
+                'league_ids': len(page_mapped_ids),
+                'ids': sorted(page_mapped_ids, key=int),
+                'mappings': page_mapping_doc.get('supplemental_exact_provider_page_mappings', []),
+            },
             'm7_research_universe_named_competitions': {
                 'path': str(M7_UNIVERSE), 'sha256': sha256(M7_UNIVERSE),
                 'production_scope_changed_field': m7_doc.get('production_scope_changed'),
@@ -279,6 +309,7 @@ def main() -> int:
                     'saved M1 and M7 TotalCorner schedule responses',
                     'active supplemental schedule responses with matching SHA sidecars',
                     'SHA-verified saved TotalCorner match-view responses embedded in Crown raw responses',
+                    'exact TotalCorner provider pages for the three residual M7 competition names',
                 ],
                 'cached_mapping_input_files': archive_inputs,
                 'mapped_exact_names': mapped_name_rows,
@@ -300,6 +331,7 @@ def main() -> int:
             'candidate_ids_already_in_inventory': sorted(candidates & inventory_ids, key=int),
             'candidate_ids_not_yet_in_inventory': sorted(candidates - inventory_ids, key=int),
             'raw_response_mapped_ids_not_yet_in_inventory': sorted(raw_mapped_ids - inventory_ids, key=int),
+            'provider_page_mapped_ids_not_yet_in_inventory': sorted(page_mapped_ids - inventory_ids, key=int),
             'm7_exact_names_unmapped_to_provider_id': len(unmapped_name_rows),
             'm7_exact_names_mapped_to_multiple_provider_ids': len(multiply_mapped_name_rows),
             'formal_ids_not_in_inventory': sorted(formal - inventory_ids, key=int),
