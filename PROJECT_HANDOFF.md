@@ -5279,6 +5279,13 @@
 - 下一步继续现有Italy分页与本批剩余目标；每有整项完成就重跑同一SHA/FT覆盖审计。整个任务仍未完成；完整库存合并、其余外部联赛排查、赛果缺口复核以及停掉TotalCorner collector后继续的Crown历史行情扩采仍待执行。
 
 
+### 2026-11-21 21:40 UTC：South Korea K League 2完成，32个联赛覆盖更新
+
+- 同一TotalCorner collector PID 65966 / session 29157继续运行。South Korea K League 2（ID 14123）按2019历史目标范围完成60页、1,742个FID、失败页0；当前38项目标文件已完成32项。检查点时累计1,840次请求、ledger新FID计数53,790、身份冲突0。下一目标Sweden Superettan（ID 126）第6/102页、180个FID、失败页0。
+- 32个完成目标审计：53,610个唯一赛程FID，49,886场TotalCorner `status=full`且FT为数字，3,724场其他/未核实；1,804个源页哈希和53,610条记录哈希均通过，错误0、身份冲突0。无源season字段的行不以年份代填。
+- Crown SQLite只读movement quote交集为0（DB SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`）；不等同于源站无报价。采集进程运行期间未发Crown请求、未写SQLite。
+- 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T2140Z.json` SHA256 `a20ee72995cb2da0d59baf6735ef4e43a829b5b0255189edd9fc8f266906c54f`，清单`CHECKPOINT_SHA256_20261121T2140Z.txt`。任务还剩6个清单目标及全量赛季/其他来源盘点、FT和Crown历史盘口补齐；本轮不涉及策略分析。
+
 ### 2026-11-21 21:24 UTC：Slovakia与Slovenia次级联赛完成，31个联赛覆盖更新
 
 - 同一TotalCorner collector PID 65966 / session 29157继续。Slovakia 2. Liga（ID 355）完成57页、1,659个FID；Slovenia 2. SNL（ID 680）完成54页、1,566个FID；两项失败页均为0。当前38项目标文件已完成31项；累计1,777次请求、ledger新FID计数52,018、身份冲突0。South Korea K League 2（ID 14123）正在第5/86页、150个FID。

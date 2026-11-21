@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-11-21T21:24:12.950447Z",
+  "generated_at_utc": "2026-11-21T21:39:52.227981Z",
   "scope_note": "Only targets marked pagination-complete in the live progress file are included; ongoing targets and queued IDs are not represented as complete.",
   "target_count_in_current_file": 38,
-  "completed_target_count": 31,
+  "completed_target_count": 32,
   "completed_target_leagues": [
     {
       "provider_league_id": "2",
@@ -248,6 +248,15 @@
       "failed_pages": []
     },
     {
+      "provider_league_id": "14123",
+      "league_name": "South Korea K League 2",
+      "unique_2019_2026_fids": 1742,
+      "pages_read": 60,
+      "reported_pages": 86,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
       "provider_league_id": "15517",
       "league_name": "North Macedonia Second League",
       "unique_2019_2026_fids": 557,
@@ -284,18 +293,18 @@
       "failed_pages": []
     }
   ],
-  "unique_schedule_fids": 51868,
-  "league_fid_pairs": 51868,
+  "unique_schedule_fids": 53610,
+  "league_fid_pairs": 53610,
   "cross_league_fid_collision_count": 0,
   "cross_year_same_league_fid_conflict_count": 0,
   "ambiguous_fid_league_year_keys": [],
-  "verified_full_ft_fids": 48175,
-  "unverified_or_nonfull_fids": 3693,
+  "verified_full_ft_fids": 49886,
+  "unverified_or_nonfull_fids": 3724,
   "identity_version_conflict_count": 0,
   "identity_version_conflicts": [],
   "raw_source_page_audit": {
-    "distinct_referenced_pages": 1745,
-    "source_record_rows_sha_verified": 51868,
+    "distinct_referenced_pages": 1804,
+    "source_record_rows_sha_verified": 53610,
     "errors": {},
     "season_field_source": "exact row in SHA-verified TotalCorner schedule page raw response"
   },
@@ -9311,6 +9320,332 @@
       "live_capture_fids": 0
     },
     {
+      "provider_league_id": "14123",
+      "provider_league_name": "South Korea K League 2",
+      "utc_year": "2019",
+      "unique_schedule_fids": 182,
+      "verified_full_ft_fids": 182,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 182
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 182
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "13b2ee6c59264c8492a096af7b79eb428a8752e01aeb702a086c7a4a1c29e6ac",
+        "68bcce29d704a8557ba813c9445776dc1731278510ea8636d085f388775a1fc4",
+        "7f89c47bedda894e4eb83cfbc158b1959b9fbb0a4aba6d07248ed3c59852529d",
+        "99cd79ca8e26375182c4dcb846ea804cf075f462bd826636e528005619d2d338",
+        "b64405755b50d1c11796a8eb88d83aa236678daec0009a08cc2b1d29e3c95354",
+        "e74e5b6ad18ef922e19634c9cfdb19df9ec0d07fe7c89d54803d9cce59dc5402",
+        "f973f429a256a6f6c3adc5c8b54245fc3d0b2529107a0643eeeb017bd0fdc868"
+      ],
+      "source_record_versions": 182,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "14123",
+      "provider_league_name": "South Korea K League 2",
+      "utc_year": "2020",
+      "unique_schedule_fids": 139,
+      "verified_full_ft_fids": 133,
+      "unverified_or_nonfull_fids": 6,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 133,
+        "84": 1,
+        "MISSING_STATUS": 5
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 139
+      },
+      "source_page_count": 5,
+      "source_page_sha256s": [
+        "182d53e2441499a1da1a5c8672404b452ef276b21f928aef357b182839c548f1",
+        "1e5f9b273fecfead21b818d20fe9a51fd0715e4a21072ed8a0e5d4c9138f1ed0",
+        "2f5487f08811de5066c6bd629a0a1f95bc6f363d1b360b05e017d4ad74c88c12",
+        "800234c4fcd02042112671a2175be8d58be166afebbc70e39edbfa18f02ef3c8",
+        "99edff0319e897a9daf81dbe26a41272e29f86e2e8b58a6d2ef89bab6c36cb84"
+      ],
+      "source_record_versions": 139,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "14123",
+      "provider_league_name": "South Korea K League 2",
+      "utc_year": "2021",
+      "unique_schedule_fids": 185,
+      "verified_full_ft_fids": 182,
+      "unverified_or_nonfull_fids": 3,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 182,
+        "MISSING_STATUS": 2,
+        "9": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 185
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "07a38d23b39ea2a5ae2a1a14da3a7e6f6c30bdbcab24979d389bf8fc8a9877a3",
+        "14f2295c6f75c0bc839a2a9ddc7cbc6ee129bab31e2e1cd2167982e256958fd3",
+        "182d53e2441499a1da1a5c8672404b452ef276b21f928aef357b182839c548f1",
+        "4ae042dc75dec11666f4b730b11391ef19310cc328c6edeb6922da0d5a04bb88",
+        "b796a92613d90601be7d71b680609e450b1e5c9cd483f624520964a180c6b514",
+        "d2b0bb3d598fcf0f1ddb517776f2fe75977df3c45d54736ac97b53887d3cd340",
+        "debcb6387e8d2b24e8fe78a9f52fa9f6c026579ca0251d72be42668f0a4d9b91"
+      ],
+      "source_record_versions": 185,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "14123",
+      "provider_league_name": "South Korea K League 2",
+      "utc_year": "2022",
+      "unique_schedule_fids": 224,
+      "verified_full_ft_fids": 210,
+      "unverified_or_nonfull_fids": 14,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 210,
+        "MISSING_STATUS": 11,
+        "85": 1,
+        "84": 1,
+        "20": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 224
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "04703faccca248ee9564e63aa5cb286b1ecc00247e1344adcf5087d012f837a3",
+        "09cad73f5ffd64a722fca9ca12ba0622093834b86b9c1cd62908124395ac53bd",
+        "1145c93e45344766d347031e9082048c223645feecc42c2b49cc0a0d8c0df30a",
+        "26a5619d394c9a3b82fa21bc95488b6692fd5408aee51718e2025e9040194272",
+        "2d54138a97f2c1f0f227a4fc6b15d1b1385331dd2991314d0dab6936e1d4ce66",
+        "3256329faadefafb7a0f0a9e89139d0377be85bcaa88ffe846c99d79198ece62",
+        "c4846e36ba61ee967a7adf030384349c5ec25e6a8346a0c0c4c2da46d6ff8906",
+        "d2b0bb3d598fcf0f1ddb517776f2fe75977df3c45d54736ac97b53887d3cd340",
+        "f5c9822c01cc2ac3fed033e01dba10e28332fab702a46d22c218e290962bad2d"
+      ],
+      "source_record_versions": 224,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "14123",
+      "provider_league_name": "South Korea K League 2",
+      "utc_year": "2023",
+      "unique_schedule_fids": 237,
+      "verified_full_ft_fids": 236,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 236,
+        "MISSING_STATUS": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 237
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "03bf6fd212ac590eb2e73a0964feaf066c6ee68dac90c241a78dd984bee29200",
+        "09cad73f5ffd64a722fca9ca12ba0622093834b86b9c1cd62908124395ac53bd",
+        "0bca6bf87e8dc12562d5dfcb90a31a5c92b8a4d3c55ace2b4aff87f1f06420a9",
+        "448e1df66b866e29b6bb9b723a4c3ce2e5fbf5558b2661f1475a03df475856fe",
+        "5718b52c496efba78e49a676803cd40d2ae6ceff9a9e0d0f1965f1d1d8e3ca59",
+        "5e3d9711527eafc0edec598b33447b02076472fdcfbcfe4c02e3a8d85b6bc848",
+        "77719dba5c07d8e507276a2e9799ca500ca2e5adca3f8711b0f8c13c2d08c973",
+        "7a86ab9af2624aad498597f497c018c650d30fb95b4ebd9bf993438d51220853",
+        "fc6bf4b8498b116a6bf354c0ab186fe917f66e73d2bf16495d815c97fdfc5e91"
+      ],
+      "source_record_versions": 237,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "14123",
+      "provider_league_name": "South Korea K League 2",
+      "utc_year": "2024",
+      "unique_schedule_fids": 236,
+      "verified_full_ft_fids": 234,
+      "unverified_or_nonfull_fids": 2,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 234,
+        "59": 1,
+        "MISSING_STATUS": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 236
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "02e55f34a2ea79b03e47c10fdcdd8521afd2ec4d83ece52b119527e189aac7de",
+        "275e00e6234d6f8a4806ce6845678048e8e6bae526a8b0ea21378dabce77d73b",
+        "448e1df66b866e29b6bb9b723a4c3ce2e5fbf5558b2661f1475a03df475856fe",
+        "4ddbc8dffec040fc64e07cfd1744e8acdd35aa27bea5c757968aa1a0529f86fc",
+        "53812c3fdf1f5c65c3790c33d4d94680b3efa21ecac8b58c6d59319526580330",
+        "7f84dfb88f1e936f9564dcf48a12203f41b525e5ad3c53381bfecc9dbcc5f20c",
+        "a2b782699a459451f2112b85eb4d9b4ffc69b600e1e63040f9ab735cd543d8c5",
+        "d79eaef13d5e75ce720a59d9887decd8efbae9af64ec875160bbadf212315cce",
+        "f5e57a1cfcae90a722d4064bd817f109417b95265ec840f5974336fb2868b91a"
+      ],
+      "source_record_versions": 236,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "14123",
+      "provider_league_name": "South Korea K League 2",
+      "utc_year": "2025",
+      "unique_schedule_fids": 275,
+      "verified_full_ft_fids": 274,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 274,
+        "39": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 275
+      },
+      "source_page_count": 10,
+      "source_page_sha256s": [
+        "03a5bf200f82f48d058f78ab6de2189f35af3b12233a6ec99f401f300feb1b65",
+        "04572fd423df778c298b5c84f19eb819a7010b656a301d38feeb5dea54f91506",
+        "13424a2b7f73faf4b1d0344fed1963d7a936eddaa058db3a66ba8fabc5ca61ff",
+        "151b0a1e3a8cbb1893134daf71c14d5378a118685c0485f16dcc6252ca5169c8",
+        "19a84d7b446c9e321f7d503bd3c4b6828891ddcb7f165c80c0e4256652e706fc",
+        "1deffdbc24b2da9a9f2a577001d256428df3679ce86908a4df3b9e9452b5bfe8",
+        "7096837753fed44f0af8e0dde6bdaed2fb8a751f63712543cfaf9ffee2058d8b",
+        "7f84dfb88f1e936f9564dcf48a12203f41b525e5ad3c53381bfecc9dbcc5f20c",
+        "9fbf5b24db558f669d4787c1246fdc0a542af3ad5e0a6cbbc5ce48037d8df7bd",
+        "f4ff6769c40dc086eab6c73df5ba7c3911f916de9f1b32f9edd519d2eb5ba62b"
+      ],
+      "source_record_versions": 275,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "14123",
+      "provider_league_name": "South Korea K League 2",
+      "utc_year": "2026",
+      "unique_schedule_fids": 264,
+      "verified_full_ft_fids": 260,
+      "unverified_or_nonfull_fids": 4,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 4,
+        "full": 260
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 264
+      },
+      "source_page_count": 9,
+      "source_page_sha256s": [
+        "19a84d7b446c9e321f7d503bd3c4b6828891ddcb7f165c80c0e4256652e706fc",
+        "29c871347b35dc1f80e6ab08181d00baac146c1c2b0c0be0065dca2a85ee41a2",
+        "326a4ce2665b5be6d3f5efc1b4d88f2ee2767871f3fd0ba382cb7a3b2efca176",
+        "7454814501839ff860b67d11fa131311ad187490b4fb606db7a31196c5d007d2",
+        "926ded5f72e78ab64cd1f518b55d638663eb248f297282c48e0bf12c94c873bb",
+        "a2504269f099a1cae85ec358d2f910f8bdfbbf544ac6b1f064edb33ccfaf804c",
+        "d07a8df26d16f41bb01828a2a3c230ad119e0517418ccae2fb36f30ed6314818",
+        "dd4b39abeb6295cec231e04e1cfc530be3e54e4063ce21d83b0c2c22d3865b7b",
+        "f304f08d5df7e77d9ebd4df553c017e6ee0a07f873c348337c3676bde797d256"
+      ],
+      "source_record_versions": 264,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
       "provider_league_id": "15517",
       "provider_league_name": "North Macedonia Second League",
       "utc_year": "2019",
@@ -10453,9 +10788,9 @@
   ],
   "zero_year_bucket_note": "A zero schedule count means no FID was present in the currently verified source rows for that completed provider pagination; it does not prove no competition season or unindexed source exists.",
   "input_sha256": {
-    "progress": "2c54ecee41081ef98af14eb836960127703ff2f8a417f264dd8cadd75b1a0278",
-    "append_only_fixture_ledger": "9615d4f56ef9dfb831dadc88c60940dfa880e27a12403381a06ff504a30b5cb5",
-    "append_only_request_log": "4ceff9423fc73ce865ce7379e2fa1848a83c762685c0a95299aa76262cc4d448",
+    "progress": "686e04a562f6a957ef81eb1643d33a0a63ba9d6cfdaa58ce7f163d1cf4e8b498",
+    "append_only_fixture_ledger": "f03ab7ccb04d1a3f7b8189fb269374c4193a7c2ad04958a953f80a397f794f62",
+    "append_only_request_log": "75b3dbdcb344f597e17d88893327dee4ebe07579f33462dcef0500600ac3bda8",
     "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
   }
 }
