@@ -16,7 +16,7 @@ import pathlib
 import sqlite3
 from collections import Counter, defaultdict
 
-IDENTITY_FIELDS = ("provider_league_id", "home_id", "away_id", "kickoff_utc")
+IDENTITY_FIELDS = ("provider_league_id", "home_id", "away_id")
 
 
 def sha256(path: pathlib.Path) -> str:
@@ -61,7 +61,7 @@ def normalize(fid: str, league_id: str, source: dict, source_kind: str,
     }
 
 
-def add_record(records: dict, conflicts: dict, row: dict) -> None:
+def add_record(records: dict, conflicts: dict, kickoff_conflicts: dict, row: dict) -> None:
     fid = row["match_id"]
     previous = records.get(fid)
     if previous is None:
@@ -73,6 +73,8 @@ def add_record(records: dict, conflicts: dict, row: dict) -> None:
         conflicts.setdefault(fid, []).append({"existing": previous, "conflicting": row,
                                                "mismatched_identity_fields": mismatches})
         return
+    if previous.get("kickoff_utc") and row.get("kickoff_utc") and str(previous["kickoff_utc"]) != str(row["kickoff_utc"]):
+        kickoff_conflicts.setdefault(fid, set()).update((str(previous["kickoff_utc"]), str(row["kickoff_utc"])))
     for key, value in row.items():
         if previous.get(key) in (None, "") and value not in (None, ""):
             previous[key] = value
@@ -94,6 +96,7 @@ def main() -> int:
 
     records: dict[str, dict] = {}
     conflicts: dict[str, list] = {}
+    kickoff_conflicts: dict[str, set[str]] = {}
     for item in read_inventory(args.inventory):
         fid = str(item.get("fid") or "")
         if not fid.isdigit():
@@ -101,7 +104,10 @@ def main() -> int:
         source = first_source(item)
         row = normalize(fid, str(item.get("provider_league_id") or ""), source,
                         "reconciled_inventory", source.get("page_sha256"))
-        add_record(records, conflicts, row)
+        for source_conflict in item.get("identity_conflicts", []):
+            if source_conflict.get("type") == "totalcorner_kickoff_utc_conflict":
+                kickoff_conflicts.setdefault(fid, set()).update(map(str, source_conflict.get("dates", [])))
+        add_record(records, conflicts, kickoff_conflicts, row)
 
     supplemental_rows = 0
     with args.supplemental_ledger.open(encoding="utf-8") as stream:
@@ -113,7 +119,7 @@ def main() -> int:
                 continue
             normalized = normalize(fid, league_id, row, "supplemental_TotalCorner_schedule",
                                    row.get("source_page_response_sha256"))
-            add_record(records, conflicts, normalized)
+            add_record(records, conflicts, kickoff_conflicts, normalized)
             supplemental_rows += 1
 
     uri = f"file:{args.sqlite}?mode=ro"
@@ -126,8 +132,18 @@ def main() -> int:
         cx.close()
 
     conflict_fids = set(conflicts)
-    candidates = [row for fid, row in records.items()
-                  if fid not in historical_captured and fid not in conflict_fids]
+    candidates = []
+    for fid, row in records.items():
+        if fid in historical_captured or fid in conflict_fids:
+            continue
+        row = dict(row)
+        if fid in kickoff_conflicts:
+            # The fixture ID/team identity is consistent but source kickoff
+            # dates conflict. Avoid injecting a guessed time; the collector
+            # will use the start field in the exact response it consumes.
+            row["kickoff_utc_source_conflict_values"] = sorted(kickoff_conflicts[fid])
+            row["kickoff_utc"] = None
+        candidates.append(row)
     candidates.sort(key=lambda row: (row.get("provider_league_id", ""),
                                      row.get("kickoff_utc") or "", int(row["match_id"])))
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -152,6 +168,7 @@ def main() -> int:
         "historical_layer_capture_fids_excluded": len(historical_captured),
         "unique_union_fids": len(records),
         "identity_conflict_fids_excluded": len(conflict_fids),
+        "kickoff_conflict_fids_included_without_hint": len(set(kickoff_conflicts) - conflict_fids),
         "candidate_fids_without_historical_capture_for_layer": len(candidates),
         "candidates_by_provider_league_and_kickoff_year": [
             {"provider_league_id": league, "kickoff_utc_year": year, "fids": n}
@@ -162,6 +179,7 @@ def main() -> int:
         "network_requests": 0,
         "sqlite_writes": 0,
     }
+    args.audit_output.parent.mkdir(parents=True, exist_ok=True)
     args.audit_output.write_text(json.dumps(audit, ensure_ascii=False, indent=2) + "\n",
                                  encoding="utf-8")
     print(json.dumps({key: audit[key] for key in (

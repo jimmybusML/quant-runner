@@ -5177,3 +5177,10 @@
 - 对当前未核验FT库存6,456场，按既有逐FID readiness 分类，291场为尚未到期开赛/不应期待FT，6,165场为过去已开赛但状态未知或provider报非full。离线构造了6,165个refresh候选，私有路径 `/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/ft_refresh_candidates_baseline.jsonl`，SHA256 `b2f185c063e1b9a6f2fc2df3ebe4e9b4c69ade00ed24a76527586a4e23eed0f7`。此清单尚未请求接口，需待赛程分页终止并合并最新库存后重建。
 - `safe_window_collection_driver.py` 已支持分别指定`summary`/`movement`及转发既有collector的`--refresh`参数，以便后续在安全空档复查历史响应。没有改Crown正式collector、频率、生产调度或账本。
 - 分页进度：346次成功请求、10,091新FID；9项完成共9,641场，Czechia 2. Liga（9115）第15/100页已增450场。快照见`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1730Z.json`。
+
+### 2026-11-21 17:37 UTC：生成分层皇冠补采量及赛果复核去重基线
+
+- 在不发网络请求/不写SQLite的情况下，对已提交库存加当前部分TotalCorner ledger生成分层historical输入。临时输入总FID 152,644；缺movement历史capture 49,948场，缺summary历史capture 102,444场。该目标仍包括未完成联赛分页，仅作为预估，完整数据并入后必须重建，不能直接当全量队列执行。
+- 6,165个过期未核验FT中，5,930场缺movement历史capture，将由movement批次一并处理；另235场已有movement历史capture，需独立使用`--refresh`取新历史响应，避免对前述5,930重复请求。剩余291场为future/not-due，不进入FT复查。
+- 已识别9个FID的TotalCorner kickoff日期冲突，FIDs和球队/联赛ID仍一致。分层清单保留这些比赛但将kickoff hint置空、保留所有冲突来源值，让精确比赛ID响应提供实际start；没有挑一个冲突日期。
+- 汇总快照 `research/data_recovery_2019_2026/crown_queue_baseline_20261121T1737Z.json` SHA256 `6156d81e927aa7901eb4430de73783148179f8a8ea9669e7d468b70cf90f3442`。候选文件保存在私有research-work，不提交比赛级的API输入。尚未启动Crown历史请求。

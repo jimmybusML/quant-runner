@@ -1,0 +1,44 @@
+{
+  "generated_at_utc": "2026-11-21T17:37:21Z",
+  "status": "intermediate_queue_build_only_no_Crown_API_requests",
+  "inputs": {
+    "movement": {
+      "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/movement_backfill_baseline.audit.json",
+      "sha256": "e7fcf2d24249ef0d500d063d8e8c42822d0ef61cd7ee2b14d6c5f1f67c1d4e69"
+    },
+    "summary": {
+      "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/summary_backfill_baseline.audit.json",
+      "sha256": "717c94212890434935254957fc9ac7ffeef3f7d7a089b1c1d81f5a42b5630e1a"
+    },
+    "ft_refresh_already_movement_captured": {
+      "path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/ft_refresh_existing_movement_candidates_baseline.audit.json",
+      "sha256": "6b5d58e8cf60cd65ac00f060862c0cc4f8272ef3551a5a8039bad028605644b3"
+    }
+  },
+  "layers": {
+    "movement": {
+      "layer": "movement",
+      "candidate_fids_without_historical_capture_for_layer": 49948,
+      "historical_layer_capture_fids_excluded": 102697,
+      "identity_conflict_fids_excluded": 0,
+      "kickoff_conflict_fids_included_without_hint": 9,
+      "manifest_sha256": "241cf667e6e283372a57cb4f0fd6c531278f440d309a6a9111c45837d8312908"
+    },
+    "summary": {
+      "layer": "summary",
+      "candidate_fids_without_historical_capture_for_layer": 102444,
+      "historical_layer_capture_fids_excluded": 50236,
+      "identity_conflict_fids_excluded": 0,
+      "kickoff_conflict_fids_included_without_hint": 9,
+      "manifest_sha256": "8b0213c625c9573bc7bfcbd30451f1b0c11aacd1c35aa30ea2529b1d1c586610"
+    },
+    "ft_refresh_already_movement_captured": {
+      "candidate_fids": 235,
+      "excluded_to_movement_missing_capture_queue": 5930,
+      "manifest_sha256": "f49bf9baa0510f72ecb031b6b47895056b7fc8161fc299b515f9e319897047bb"
+    }
+  },
+  "network_requests": 0,
+  "sqlite_writes": 0,
+  "caveat": "Movement and summary manifests use the earlier committed schedule inventory plus the then-current partial supplemental ledger; regenerate after full 38-target pagination and inventory reconciliation before collection."
+}
