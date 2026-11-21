@@ -14,6 +14,7 @@ M5_INDEX = BASE/'data/m5-crown-authorized/crown-response-index.jsonl'
 PRICED_T6 = BASE/'research-work/recovered_factors_20261121/full_priced_T6_original_and_expanded.jsonl.gz'
 M1_CACHE = BASE/'repos/m1/data/m1_history_cache'
 SUPPLEMENTAL_SCHEDULE = Path(__file__).resolve().parent/'supplemental_totalcorner_league15_schedule_20261121.jsonl.gz'
+RECOVERED_SCHEDULE = BASE/'research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/fixtures_2019_2026.verified.jsonl.gz'
 TZ_SH = ZoneInfo('Asia/Shanghai')
 
 
@@ -112,6 +113,25 @@ def main():
                   'home_name':x.get('home_name'),'away_name':x.get('away_name'),'status':x.get('status_raw'),
                   'home_goals':x.get('home_goals_raw'),'away_goals':x.get('away_goals_raw'),
                   'season':x.get('season'),'observed_at_utc':x.get('observed_at_utc')})
+    recovered_rows=0
+    if RECOVERED_SCHEDULE.exists():
+        with gzip.open(RECOVERED_SCHEDULE,'rt',encoding='utf-8') as f:
+            for line in f:
+                if not line.strip():continue
+                x=json.loads(line);fid=str(x.get('fid') or '')
+                if not fid:continue
+                recovered_rows+=1
+                source_bytes=json.dumps(x,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()
+                row_for(fid)['supplemental_schedule'].append({'source_file':str(RECOVERED_SCHEDULE),
+                  'source_response_sha256':x.get('source_page_response_sha256'),
+                  'source_line_sha256':hashlib.sha256(source_bytes).hexdigest(),
+                  'source_record_sha256':x.get('source_record_sha256'),
+                  'provider_league_id':str(x.get('provider_league_id') or ''),'league_name':x.get('provider_league_name'),
+                  'kickoff_source':x.get('kickoff_source_raw'),'kickoff_utc':x.get('kickoff_utc'),
+                  'home_id':str(x.get('home_id') or ''),'away_id':str(x.get('away_id') or ''),
+                  'home_name':x.get('home_name'),'away_name':x.get('away_name'),'status':x.get('status_raw'),
+                  'home_goals':x.get('home_goals_raw'),'away_goals':x.get('away_goals_raw'),
+                  'season':x.get('season_raw'),'observed_at_utc':x.get('response_received_at_utc')})
     priced_t6_rows=0
     if PRICED_T6.exists():
         with gzip.open(PRICED_T6,'rt',encoding='utf-8') as f:
@@ -239,7 +259,7 @@ def main():
           'explicit_no_Crown_AH_movement_fids':len(d['no_quote_fids']),'failed_attempts':d['failures'],
           'uncovered_schedule_fids':len(d['fids']-d['movement_quotes_fids'])})
     with (OUT/'league_year_coverage_2019_2026.csv').open('w',newline='',encoding='utf-8') as f:
-        w=csv.DictWriter(f,fieldnames=list(matrix[0]));w.writeheader();w.writerows(matrix)
+        w=csv.DictWriter(f,fieldnames=list(matrix[0]),lineterminator='\n');w.writeheader();w.writerows(matrix)
     # Deterministic compressed row inventory.
     with (OUT/'fixture_inventory_2019_2026.jsonl.gz').open('wb') as raw:
         with gzip.GzipFile(fileobj=raw,mode='wb',mtime=0) as gz:
@@ -260,7 +280,7 @@ def main():
     missing_ft.sort(key=lambda x:(x['provider_league_id'],x['calendar_year_utc'],x['match_id']))
     with (OUT/'unverified_FT_candidates.jsonl').open('w',encoding='utf-8') as f:
         for row in missing_ft:f.write(json.dumps(row,separators=(',',':'))+'\n')
-    files=[UNIVERSE,M5_INDEX,PRICED_T6,SUPPLEMENTAL_SCHEDULE]
+    files=[UNIVERSE,M5_INDEX,PRICED_T6,SUPPLEMENTAL_SCHEDULE,RECOVERED_SCHEDULE]
     inputs=[{'path':str(p),'bytes':p.stat().st_size,'sha256':sha256(p)} for p in files if p.exists()]
     page_manifest=[{'path':str(p),'bytes':p.stat().st_size,'sha256':sha256(p)} for p in page_paths]
     with (OUT/'schedule_page_sha256.jsonl').open('w',encoding='utf-8') as f:
@@ -292,6 +312,7 @@ def main():
       'schedule_page_parse_errors':bad_pages,'expanded_schedule_rows':universe_rows,'schedule_page_rows':page_rows,
       'schedule_page_completeness':page_completeness,
       'supplemental_schedule_rows':supplemental_rows,
+      'new_recovered_schedule_fixture_versions':recovered_rows,
       'M1_history_cache_file_count':len(m1_manifest),'M1_history_cache_rows':m1_cache_rows,
       'M1_history_cache_manifest_sha256':sha256(OUT/'m1_history_cache_sha256.jsonl'),
       'unique_crown_raw_response_files':len(crown_raw_refs),'crown_raw_response_files_missing':raw_missing,

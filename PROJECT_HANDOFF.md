@@ -5021,3 +5021,10 @@
 - 10:23 UTC库存中的M1-only provider ID 27391另有30个赛程FID（2022年6、2024年12、2026年12），不在64个分页目录中；其中当前库存有28个verified FT、2个未核实FT，Crown capture 0。其联赛身份及可用赛程源仍待核对，不能与64联赛合并当作已完整。
 - Crown movement batch 02追加日志截至12:25:48 UTC为289/11,703唯一FID已出现、11,414尚未尝试；状态51 `REUSED_DB`、79 `SAVED`、155 `NO_CROWN_AH_QUOTES`、4 `FETCH_FAILED/IncompleteRead`，285个FID有HTTP收件时刻，最新12:17:42.702714Z。日志SHA256 `b452ccf5b5d98c163edacc9a28cb03fc43273e3f308d86531f5ea4114b4e4d59`。无报价仅说明该次响应。
 - MR1定时shadow任务开始时，安全驱动已在12:17:53 UTC暂停collector PID 2558。为避免后续赛程补采与Crown历史回取共享TotalCorner速率额度，随后停止本研究safe-window driver；当前没有Crown collector进程，immutable候选清单及append-only日志均保留，之后可用现有resumable driver从已尝试FID之后续跑。生产任务未停止或修改。12:25:48 UTC进程状态快照见`collection_progress_snapshot_20261121T1225Z.json`。
+
+## 2026-11-21｜额外TotalCorner赛事源恢复进行中（13:09 UTC快照）
+
+- 为调查原65-ID清单之外的15个TotalCorner赛事ID，对未完成的ID15 Spain Segunda分页恢复使用只读请求与SHA核验。分页采集遵守供应方5次/10秒额度、在定时运行的MR1/结算任务期间自动等待；未修改生产任务、采集配置或数据表。响应原文、请求日志和断点保存在本机`/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/`，原始响应不提交到仓库。
+- 截至13:08:06 UTC，ID15累计成功读取79/196页；目标期规范化2,370个不同FID记录版本（2019–2026筛选按源开赛时间），相对此前库存净增加2,250个FID。当前读取页序保持时间倒序，无失败页。数据暂覆盖2022–2026，未到2019截止，采集仍在运行；另有4个与旧ID15源记录字段哈希不一致的FID保留为冲突版本，未覆盖旧记录。
+- 13:08:14 UTC只读覆盖审计合并了79页规范化快照：全体源合并116,481个唯一FID、66个provider league IDs；其中111,802场有来源状态为`full`且有双方非负整数比分，4,679场仍未核实。Crown movement有价52,999 FID/4,429,709行；movement无报价capture 49,697 FID；尚未覆盖movement报价的赛事63,482 FID。新增ID15的Crown movement尚未开始采集，历史回取quote不等同真实赛前实收。审计文件`inventory_audit_2019_2026.json`及相关大清单为本机生成产物，CSV矩阵有对应SHA；数据库SHA在该快照为`1af6ff08c2111d649903603b7043ca32ca75c1568d1b281b792fc117c84e16a2`。
+- 新增研究脚本`collect_supplemental_totalcorner_schedules.py`与`consolidate_supplemental_totalcorner_schedules.py`，并将`audit_existing_inventory.py`扩展为可并入已验证补充赛程快照。收集、规范化和覆盖审计只用于历史数据恢复；本轮没有策略研究、模型训练/回测、正式TG派单或正式账本回写。未完成：继续处理ID15至2019截止或报告供应方边界；然后依次检查其余14个外部赛事ID、补齐对应Crown movement候选并复核完整年度缺口。
