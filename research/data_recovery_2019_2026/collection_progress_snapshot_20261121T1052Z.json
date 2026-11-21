@@ -1,0 +1,66 @@
+{
+  "snapshot_at_utc": "2026-11-21T10:52:24Z",
+  "scope": "2019-01-01 through 2026-11-21; inventory and Crown movement backfill only",
+  "unified_inventory_prior_audit": {
+    "unique_fixture_fids": 114111,
+    "provider_league_ids": 65,
+    "verified_full_ft_fids": 109464,
+    "non_full_or_unknown_status_fids": 4647,
+    "past_non_full_status_fids": 4307,
+    "movement_quote_fids_prior_audit_1021z": 52894,
+    "movement_quote_rows_prior_audit_1021z": 4417850
+  },
+  "crown_sqlite_readonly_snapshot": {
+    "movement_historical_quotes_saved_fids": 52919,
+    "movement_historical_quote_rows": 4421110,
+    "movement_historical_no_quote_capture_rows": 49543,
+    "summary_historical_quotes_saved_fids": 10956,
+    "summary_historical_quote_rows": 21912,
+    "live_summary_quote_fids": 95,
+    "live_summary_quote_rows": 278,
+    "forward_shadow_receipts_not_yet_imported": {
+      "verified_http_responses": 3751,
+      "unique_fids": 358,
+      "ah_quote_fids": 265,
+      "ah_quote_rows": 13101,
+      "receive_window_utc": "2026-11-05 through 2026-11-08",
+      "raw_sha_mismatches": 0
+    },
+    "capture_rows_processed_since_2026_11_21T10_21_00Z": {
+      "movement_quotes_saved_rows": 29,
+      "movement_quotes_saved_quote_rows": 3748,
+      "movement_no_quote_rows": 28,
+      "failed_attempts_by_code": {
+        "IncompleteRead": 4
+      }
+    }
+  },
+  "batch02_progress": {
+    "candidate_manifest_unique_fids": 11703,
+    "collector_output_rows": 120,
+    "collector_output_unique_fids": 51,
+    "logged_status_rows": {
+      "SAVED": 23,
+      "REUSED_DB": 66,
+      "FETCH_FAILED": 3,
+      "NO_CROWN_AH_QUOTES": 28
+    },
+    "unique_fids_with_http_receive_timestamp": 9,
+    "latest_http_receive_utc": "2026-11-21T10:43:25.876585Z",
+    "note": "Restarts replayed the manifest prefix. Resume-aware research driver was patched; after patch it has not yet spawned a resumed child because the scheduled production settlement task is active."
+  },
+  "processes_at_snapshot": {
+    "safe_window_driver_pid": 79973,
+    "scheduled_production_settlement_pid": 80160,
+    "collector_child_pid": null,
+    "driver_state": "waiting; correctly refraining from API work while scheduled settlement is active"
+  },
+  "data_integrity": {
+    "crown_raw_hashes_previous_complete_audit": 105558,
+    "sha_missing_previous_audit": 0,
+    "sha_mismatch_previous_audit": 0,
+    "page_cache_sha_manifest_present": true,
+    "m1_cache_sha_manifest_present": true,
+    "no_strategy_or_model_work_performed": true
+  }
+}

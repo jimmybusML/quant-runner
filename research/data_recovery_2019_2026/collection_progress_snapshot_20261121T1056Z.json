@@ -1,0 +1,50 @@
+{
+  "snapshot_at_utc": "2026-11-21T10:56:30Z",
+  "crown_store_read_only": {
+    "movement_historical_quote_fids": 52919,
+    "movement_historical_quote_rows": 4421110,
+    "movement_historical_no_quote_fids": 49561,
+    "since_2026_11_21T10_50_00Z": {
+      "new_no_quote_capture_rows": 18,
+      "new_quote_capture_rows": 0,
+      "new_quote_rows": 0,
+      "latest_processed_at_utc": "2026-11-21T10:56:30.615935Z"
+    }
+  },
+  "batch02": {
+    "candidate_fids": 11703,
+    "logged_rows": 150,
+    "logged_unique_fids": 72,
+    "latest_status_by_unique_fid": {
+      "REUSED_DB": 51,
+      "SAVED": 2,
+      "FETCH_FAILED": 1,
+      "NO_CROWN_AH_QUOTES": 18
+    },
+    "unique_fids_with_http_receive_timestamp": 20,
+    "latest_http_receive_at_utc": "2026-11-21T10:56:30.613600Z",
+    "resume_manifest_fids_at_10_54_26Z": 11650,
+    "resume_manifest_sha256": "6d02f8abc082ff90299f38d6cd5e3159a131f2db66c81fad2ab95fe00a82cdd4",
+    "verified_no_quote_response_sample": {
+      "fids": [
+        "110196431",
+        "110881861",
+        "110881881",
+        "110881899",
+        "110881905"
+      ],
+      "success": 1,
+      "crown_bookmaker_present": true,
+      "asian_list_length": 0,
+      "raw_sha_matches_database": true,
+      "interpretation": "For these exact responses, provider returned a valid match response with Crown bookmaker and empty AH movement list; this does not prove no quote ever existed outside this API snapshot."
+    }
+  },
+  "processes": {
+    "safe_window_driver_pid": 79973,
+    "collector_child_pid": 80846,
+    "collector_child_started_at_utc": "2026-11-21T10:54:26.745031Z",
+    "driver_state": "collecting from resume manifest; pauses for known scheduled TotalCorner jobs"
+  },
+  "scope_note": "Historical data collection only; no model, strategy or profit work."
+}

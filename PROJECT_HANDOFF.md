@@ -4946,3 +4946,32 @@
 - 独立验证器从原始保存Crown价格路径、FT/球队FID源及冻结清单复算102,843条（3方法×34,281FID）逐场行，校验双方quarter-line AH五态收益、FID去重、训练年度和真实receipt价格；结果`pass=true`、无差异。实际收据SHA沿用之前的原始审计证明；历史source-event quote与HTTP receipt严格分开。
 - 报告 `research/m8/mainstream_leagues_20261120/M8_MAINSTREAM_LEAGUE_EXPANSION_20261120.md`；主回测、独立校验、覆盖与全量结果、逐场账本、SHA清单和执行记录均在 `research/m8/mainstream_leagues_20261120/`。输出清单对应输入/结果SHA；raw HTTP body没有上传。
 - 主流联赛研究提交 `7ad082d7f38bad6c29cbf864d962749ff483f0bb` 已推送，推送后 `origin/main` 核验相同；本交接段随其后的独立交接提交记录。原八组、M9、M1、MR1、TG、正式账本、Crown采集/调度和生产规则均未改。
+
+
+## 2026-11-21｜2019–2026全联赛数据补采持续交接（10:52 UTC快照）
+
+- 本任务仍在进行，不做策略研究/训练/回测。当前独立分支 `data/history-backfill-2019-2026` 基于公开 `main` `d0d0e161fbbf9de828b8f87b03535d3d88e5805f`；独立研究文件在 `research/data_recovery_2019_2026/`，核心Crown数据库继续保存在本地，未上传原始赔率响应或SQLite。
+- 已有库存盘点仍为114,111个唯一赛事FID、65个provider league IDs；109,464场有明确full及双方整数比分，另4,647场状态不明确/非full，包含4,307场已过开赛的待核实赛事。此前逐个赛程页校验没有2019–2026目标期分页缺口。105,558个Crown raw文件引用先前全量SHA检查均存在且匹配。
+- 10:52 UTC只读SQLite快照：历史Crown movement有价FID 52,919、报价4,421,110行、无AH报价capture 49,543行；本地另有已核实真实实收归档3,751个verified HTTP响应/358 FID/265个AH有价FID/13,101报价行，尚未导入主SQLite。自10:21快照后的capture与网络响应计数见 `research/data_recovery_2019_2026/collection_progress_snapshot_20261121T1052Z.json`。
+- Batch02候选为11,703唯一FID；10:52日志累计120行/51唯一FID（23 SAVED、66 REUSED_DB、3 FETCH_FAILED、28 NO_CROWN_AH_QUOTES），9个FID有新HTTP接收时间。排查发现研究安全驱动器被定时生产作业打断后重复从清单开头续跑。已改研究脚本 `safe_window_collection_driver.py`，从追加日志构造未处理FID resume JSONL；尚待当前生产settlement结束后验证新子进程真实从未处理FID推进。driver PID 79973正在安全等待，生产PID 80160由原调度管理，未停止或修改。
+- 本快照文件：`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261121T1052Z.md` 及对应JSON。下一步继续监控安全续跑、复核失败FIDs及新报价、更新全联赛年度矩阵、在不干扰现有writer的窗口归档已SHA核验的forward-shadow实收、调查过去4,307场未确认结果状态。所有数值为中途快照，不代表覆盖完成；不得把非full状态自带的比分自动当可信FT。
+- 没有策略研究、生产模型修改、正式TG派单、账本回写或Crown正式采集流程配置变更。
+
+
+## 2026-11-21｜历史Crown批次续跑修正已验证（10:56 UTC快照）
+
+- 研究侧安全窗口驱动器已修复重启后反复请求清单前缀的问题。10:54:26 UTC实际写出恢复清单（SHA256 `6d02f8abc082ff90299f38d6cd5e3159a131f2db66c81fad2ab95fe00a82cdd4`），首批剩余11,650 FID；collector从未处理部分恢复，至10:56:30 UTC推进至日志72个唯一FID/20个实际HTTP收件时间，当前子进程PID 80846仍运行。之前重复的输出行保持原样审计。
+- 新增18个成功响应经检查均在Crown bookmaker下返回空`asian_list`；5个抽样原始响应SHA与SQLite一致，FID匹配。此证据只表示该次API响应无移动AH报价，不表示任何时间都不存在Crown报价。当前movement累计52,919个有报价FID/4,421,110报价行、49,561个`NO_CROWN_AH_QUOTES` FID。
+- 新快照及抽样证据口径见 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261121T1056Z.md` 和JSON。批次仍有11,631个FID尚未在日志出现（10:56:30统计），不是完成状态；待该批结束后重试真实请求失败项并重新审计全量联赛/赛季覆盖。
+
+
+## 2026-11-21｜10:56 UTC 数据恢复公开检查点
+
+- 安全续跑修复已验证：11,703个候选在10:54:26 UTC按日志重建剩余11,650 FID清单并启动子进程；到10:56:30 UTC已推进到72个不同FID。18个新响应经raw SHA抽样核对均成功返回但Crown `asian_list`为空，记录为“本次响应未提供AH movement”，没有推断其他时点也无历史报价。
+- 10:56 UTC数据库快照为52,919个movement有价FID/4,421,110行和49,561个movement无报价FID；此为中途本机只读快照。大批剩余请求仍将通过同一安全窗口驱动器继续。
+- 已将脱敏聚合赛程/年度覆盖、审计脚本和两个进度快照提交准备到当前公开研究分支。原始Crown响应/本地SQLite与逐场私有清单仍留在本机授权研究库；上传只包含汇总与SHA，无原始响应正文。
+- 公开文件：`research/data_recovery_2019_2026/README.md`、`inventory_coverage_summary_2019_2026.json`、逐联赛逐UTC年 `league_year_coverage_2019_2026.csv`、进度checkpoint和脚本。该覆盖基线的采集截止为10:23 UTC，10:56的数据变化在后续批次完成后统一重建；目标未完成。
+
+## 2026-11-21｜10:56 UTC安全窗口让出记录
+
+- resume-aware collector已在10:56:33.953623Z收到定时MR1任务信号并停止其研究子进程；安全驱动器仍在运行并等待，未停止生产任务。批次日志快照150行/72唯一FID，剩余11,631个候选尚未出现在日志。下一次空闲窗口将再次按追加日志跳过已尝试FID，并从后续FID继续。
