@@ -54,6 +54,23 @@ def main() -> None:
         if line.strip():
             row = json.loads(line)
             unresolved[str(row['match_id'])] = row
+    # The inventory audit excludes accepted external FT rows from its current
+    # unverified manifest. Seed prior accepted IDs so this audit remains
+    # repeatable instead of dropping its own successful rows on the next run.
+    if DEST.exists():
+        for line in DEST.read_text(encoding='utf-8').splitlines():
+            if not line.strip():
+                continue
+            prior = json.loads(line)
+            unresolved.setdefault(str(prior['match_id']), {
+                'match_id': str(prior['match_id']),
+                'provider_league_id': prior.get('provider_league_id'),
+                'kickoff_utc': prior.get('kickoff_utc'),
+                'home_id': prior.get('home_id'),
+                'away_id': prior.get('away_id'),
+                'home_name': prior.get('home_name'),
+                'away_name': prior.get('away_name'),
+            })
     status_counts = collections.Counter()
     output = []
     rejects = collections.Counter()
@@ -148,7 +165,7 @@ def main() -> None:
     DEST.write_text(''.join(json.dumps(row, ensure_ascii=False, separators=(',', ':')) + '\n' for row in output), encoding='utf-8')
     summary = {
         'generated_at_utc': dt.datetime.now(dt.timezone.utc).isoformat().replace('+00:00', 'Z'),
-        'source_file': str(SOURCE),
+        'source_file': 'm7_remaining_FT_exact_id_20261110/espn/verified_external_espn_results.jsonl',
         'source_file_sha256': sha(SOURCE),
         'unverified_fixture_ids_input_count': len(unresolved),
         'source_status_counts': dict(status_counts),
