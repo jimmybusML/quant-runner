@@ -1,0 +1,248 @@
+{
+  "study": "player-pair cohesion AH test on the existing expanded15 Crown T6/T3/T1 event replay inventory",
+  "inputs_sha256": {
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/games.csv.gz": "142561989017d379bcf9e72bad0b87e0996bae0e7b710ebb3def9255f464c741",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/game_lineups.csv.gz": "5e83d6fad28364aadfea608013700cf09990062eede1ad9ef189189b0af47ba2",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_pregame_info_source_20261117/appearances.csv.gz": "e096c2b158fc3d52c4550526c4d4850dd62f31007652f4bcae112eadb1646802",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_foundation_20261115/historical_membership.jsonl": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_MR1_full_actual_Crown_receipt_archive_20261113.jsonl": "e3e1250b6e9bf8fe1a8cf638f46b276475e55b85d74fb12c7f105d048a67be5b",
+    "/Users/mac/.codex/worktrees/m8-discipline-referee/quant-runner-m8-goalkeeper/research/m8/red_card_adjusted_form_20261120/expanded15_t1_path_input.jsonl.gz": "179b4d94ab32c5ae3035a932c9193fcf121f9b7ce742ffcc088ee51aa7e62dc6",
+    "/Users/mac/.codex/worktrees/m8-discipline-referee/quant-runner-m8-goalkeeper/research/m8/player_pair_expanded15_20261121/identity_coverage_audit.json": "7d9756fbc796ca602caa7d9c50968f4b8fcaff462c0dfaea5b6cb2adaed8c5f6"
+  },
+  "coverage": {
+    "expanded15_complete_T6_T3_T1_FIDs": 6967,
+    "Crown_schedule_full_FIDs": 22312,
+    "mapped_leagues": {
+      "85": "MLS1",
+      "129": "BRA1",
+      "779": "MEX1"
+    },
+    "verified_team_id_mappings": 40,
+    "lineup_history_audit": {
+      "mapped_team_games": 1116,
+      "starter_without_positive_appearance": 1406,
+      "incomplete_starting_eleven": 280
+    },
+    "expanded15_feature_complete_target_FIDs": 0,
+    "feature_complete_by_league": {},
+    "feature_complete_by_league_year": {},
+    "feature_missing_reasons": {
+      "insufficient_complete_prior_XI_history": 2022,
+      "one_or_both_team_ids_unmapped": 4945
+    },
+    "original_frozen_overlap": 0,
+    "true_receipt_archive_intersection_test_fids": 0,
+    "actual_receipt_replay_orders": 0,
+    "historical_quote_capture_mode_counts": {}
+  },
+  "methodology": {
+    "target_contract": "Crown AH T1 line and both decimal odds from expanded15 complete T6/T3/T1 historical event replay; no other bookmaker.",
+    "features": "Same pre-target 365-day player-pair co-start network as prior Original49 study; target date minus 3 days cutoff; only complete XI with 11 distinct starters and positive minutes for all starters; target lineup unused.",
+    "model": "Expanding year Ridge; 2024 trains on 2019-2023, 2025 on 2019-2024, 2026 on 2019-2025; fixed alpha 100; methods market-only, pair-only and market+pair; one side chosen by larger expected Crown AH payout, no EV/no-bet threshold or parameter tuning.",
+    "identity": "Unicode accent/case/punctuation normalization and removal of generic club-form tokens (FC, CF, SC, AFC, AC, Club, Clube, Football, Futbol, Futebol, Soccer); exact remaining whole team-name equality; same home/away order; same FT; TotalCorner local date +/- 1; unique TM game candidate; repeated >=2 independent FIDs per club; one-to-one Crown/TM team-ID mapping. No fuzzy similarity or outcome-derived model feature.",
+    "time_status": "Historical Crown source-event replay. Actual receipt archive intersection measured separately; no historical capture response time is treated as contemporaneous."
+  },
+  "training_folds": {
+    "2024": {
+      "train_n": 0,
+      "test_n": 0,
+      "train_max_year": null,
+      "receipt_fids_removed_from_training": true,
+      "ridge_alpha": 100.0
+    },
+    "2025": {
+      "train_n": 0,
+      "test_n": 0,
+      "train_max_year": null,
+      "receipt_fids_removed_from_training": true,
+      "ridge_alpha": 100.0
+    },
+    "2026": {
+      "train_n": 0,
+      "test_n": 0,
+      "train_max_year": null,
+      "receipt_fids_removed_from_training": true,
+      "ridge_alpha": 100.0
+    }
+  },
+  "models": {
+    "market_only": {
+      "all_test": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      },
+      "incremental_outside_frozen": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      }
+    },
+    "pair_only": {
+      "all_test": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      },
+      "incremental_outside_frozen": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      }
+    },
+    "market_plus_pair": {
+      "all_test": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      },
+      "incremental_outside_frozen": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      }
+    }
+  },
+  "annual_incremental": {
+    "market_only": {
+      "2024": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      },
+      "2025": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      },
+      "2026": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      }
+    },
+    "pair_only": {
+      "2024": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      },
+      "2025": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      },
+      "2026": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      }
+    },
+    "market_plus_pair": {
+      "2024": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      },
+      "2025": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      },
+      "2026": {
+        "n": 0,
+        "net_U": 0.0,
+        "ROI_pct": null,
+        "MDD_U": 0.0,
+        "orders_per_week": 0.0,
+        "five_state": {}
+      }
+    }
+  },
+  "weekly_incremental": {
+    "market_only": {},
+    "pair_only": {},
+    "market_plus_pair": {}
+  },
+  "league_incremental": {
+    "market_only": {},
+    "pair_only": {},
+    "market_plus_pair": {}
+  },
+  "same_period_frozen_eight_union": {
+    "market_only": {
+      "same_period_frozen_n": 0,
+      "incremental_n": 0,
+      "unique_n": 0,
+      "net_U": 0,
+      "ROI_pct": null,
+      "candidate_net_U": 0
+    },
+    "pair_only": {
+      "same_period_frozen_n": 0,
+      "incremental_n": 0,
+      "unique_n": 0,
+      "net_U": 0,
+      "ROI_pct": null,
+      "candidate_net_U": 0
+    },
+    "market_plus_pair": {
+      "same_period_frozen_n": 0,
+      "incremental_n": 0,
+      "unique_n": 0,
+      "net_U": 0,
+      "ROI_pct": null,
+      "candidate_net_U": 0
+    }
+  },
+  "actual_receipt": {
+    "intersection_test_fids": [],
+    "intersection_n": 0,
+    "replay_order_n": 0
+  },
+  "formal_orders": 0,
+  "formal_ledger_writes": 0,
+  "production_changes": false
+}

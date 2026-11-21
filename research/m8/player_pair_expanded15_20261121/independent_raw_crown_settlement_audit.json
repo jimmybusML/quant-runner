@@ -1,0 +1,257 @@
+{
+  "study": "expanded15 player-pair cohesion independent raw Crown and AH settlement audit",
+  "raw_unique_fids_checked": 309,
+  "study_inputs_sha_checked": 787,
+  "schedule_page_sha_checked": 778,
+  "expected_candidate_fids": 309,
+  "prediction_rows_checked": 927,
+  "expected_prediction_rows": 927,
+  "frozen_membership_fids": 10294,
+  "candidate_frozen_overlap_fids": 0,
+  "training_max_year_le_target_year": true,
+  "settlements": {
+    "full_win": 383,
+    "half_loss": 39,
+    "full_loss": 376,
+    "push": 75,
+    "half_win": 54
+  },
+  "models_recomputed": {
+    "market_only": {
+      "n": 309,
+      "unique_fids": 309,
+      "net_u": -10.345,
+      "roi_pct": -3.347896,
+      "mdd_u": 16.905
+    },
+    "pair_only": {
+      "n": 309,
+      "unique_fids": 309,
+      "net_u": -3.125,
+      "roi_pct": -1.011327,
+      "mdd_u": 19.88
+    },
+    "market_plus_pair": {
+      "n": 309,
+      "unique_fids": 309,
+      "net_u": 7.74,
+      "roi_pct": 2.504854,
+      "mdd_u": 11.53
+    }
+  },
+  "market_predictions_evaluation": {
+    "market_only": {
+      "n": 309,
+      "goal_difference_MAE": 1.26086257,
+      "goal_difference_RMSE": 1.6393582,
+      "actual_goal_difference_mean_absolute": 1.31391586
+    },
+    "pair_only": {
+      "n": 309,
+      "goal_difference_MAE": 1.34352781,
+      "goal_difference_RMSE": 1.74839322,
+      "actual_goal_difference_mean_absolute": 1.31391586
+    },
+    "market_plus_pair": {
+      "n": 309,
+      "goal_difference_MAE": 1.26049242,
+      "goal_difference_RMSE": 1.64673109,
+      "actual_goal_difference_mean_absolute": 1.31391586
+    }
+  },
+  "frozen_eight_same_period_and_merged": {
+    "market_only": {
+      "frozen_same_period_n": 2032,
+      "frozen_same_period_net_u": 84.885,
+      "candidate_n": 309,
+      "candidate_net_u": -10.345,
+      "unique_fids": 2341,
+      "net_u": 74.54,
+      "roi_pct": 3.184109,
+      "mdd_u": 21.615,
+      "span_weeks": 40,
+      "frozen_orders_per_week": 50.8,
+      "candidate_orders_per_week": 7.725,
+      "combined_orders_per_week": 58.525
+    },
+    "pair_only": {
+      "frozen_same_period_n": 2032,
+      "frozen_same_period_net_u": 84.885,
+      "candidate_n": 309,
+      "candidate_net_u": -3.125,
+      "unique_fids": 2341,
+      "net_u": 81.76,
+      "roi_pct": 3.492525,
+      "mdd_u": 28.415,
+      "span_weeks": 40,
+      "frozen_orders_per_week": 50.8,
+      "candidate_orders_per_week": 7.725,
+      "combined_orders_per_week": 58.525
+    },
+    "market_plus_pair": {
+      "frozen_same_period_n": 2032,
+      "frozen_same_period_net_u": 84.885,
+      "candidate_n": 309,
+      "candidate_net_u": 7.74,
+      "unique_fids": 2341,
+      "net_u": 92.625,
+      "roi_pct": 3.956642,
+      "mdd_u": 15.025,
+      "span_weeks": 40,
+      "frozen_orders_per_week": 50.8,
+      "candidate_orders_per_week": 7.725,
+      "combined_orders_per_week": 58.525
+    }
+  },
+  "monthly_incremental": {
+    "market_only": {
+      "2025-03": {
+        "n": 27,
+        "net_u": 2.31,
+        "roi_pct": 8.555556
+      },
+      "2025-04": {
+        "n": 57,
+        "net_u": -6.54,
+        "roi_pct": -11.473684
+      },
+      "2025-05": {
+        "n": 55,
+        "net_u": 2.715,
+        "roi_pct": 4.936364
+      },
+      "2025-06": {
+        "n": 26,
+        "net_u": -2.035,
+        "roi_pct": -7.826923
+      },
+      "2025-07": {
+        "n": 35,
+        "net_u": 1.18,
+        "roi_pct": 3.371429
+      },
+      "2025-08": {
+        "n": 32,
+        "net_u": -0.25,
+        "roi_pct": -0.78125
+      },
+      "2025-09": {
+        "n": 33,
+        "net_u": -3.32,
+        "roi_pct": -10.060606
+      },
+      "2025-10": {
+        "n": 25,
+        "net_u": -1.205,
+        "roi_pct": -4.82
+      },
+      "2025-11": {
+        "n": 19,
+        "net_u": -3.2,
+        "roi_pct": -16.842105
+      }
+    },
+    "pair_only": {
+      "2025-03": {
+        "n": 27,
+        "net_u": -3.78,
+        "roi_pct": -14.0
+      },
+      "2025-04": {
+        "n": 57,
+        "net_u": -4.025,
+        "roi_pct": -7.061404
+      },
+      "2025-05": {
+        "n": 55,
+        "net_u": -4.465,
+        "roi_pct": -8.118182
+      },
+      "2025-06": {
+        "n": 26,
+        "net_u": 0.26,
+        "roi_pct": 1.0
+      },
+      "2025-07": {
+        "n": 35,
+        "net_u": -2.67,
+        "roi_pct": -7.628571
+      },
+      "2025-08": {
+        "n": 32,
+        "net_u": 1.8,
+        "roi_pct": 5.625
+      },
+      "2025-09": {
+        "n": 33,
+        "net_u": 5.21,
+        "roi_pct": 15.787879
+      },
+      "2025-10": {
+        "n": 25,
+        "net_u": 2.145,
+        "roi_pct": 8.58
+      },
+      "2025-11": {
+        "n": 19,
+        "net_u": 2.4,
+        "roi_pct": 12.631579
+      }
+    },
+    "market_plus_pair": {
+      "2025-03": {
+        "n": 27,
+        "net_u": 3.06,
+        "roi_pct": 11.333333
+      },
+      "2025-04": {
+        "n": 57,
+        "net_u": -3.165,
+        "roi_pct": -5.552632
+      },
+      "2025-05": {
+        "n": 55,
+        "net_u": 1.625,
+        "roi_pct": 2.954545
+      },
+      "2025-06": {
+        "n": 26,
+        "net_u": 3.705,
+        "roi_pct": 14.25
+      },
+      "2025-07": {
+        "n": 35,
+        "net_u": 4.67,
+        "roi_pct": 13.342857
+      },
+      "2025-08": {
+        "n": 32,
+        "net_u": -3.08,
+        "roi_pct": -9.625
+      },
+      "2025-09": {
+        "n": 33,
+        "net_u": -2.365,
+        "roi_pct": -7.166667
+      },
+      "2025-10": {
+        "n": 25,
+        "net_u": -0.29,
+        "roi_pct": -1.16
+      },
+      "2025-11": {
+        "n": 19,
+        "net_u": 3.58,
+        "roi_pct": 18.842105
+      }
+    }
+  },
+  "errors": {},
+  "verified": true,
+  "input_sha256": {
+    "/Users/mac/.codex/worktrees/m8-discipline-referee/quant-runner-m8-goalkeeper/research/m8/player_pair_expanded15_20261121/pooled_pair_cohesion_summary.json": "8135a5383fb7249a3843267ea0853b1786b2853e1d49c4115a694f6dc7db5edf",
+    "/Users/mac/.codex/worktrees/m8-discipline-referee/quant-runner-m8-goalkeeper/research/m8/player_pair_expanded15_20261121/pooled_pair_cohesion_predictions.jsonl.gz": "dee6c279b29d4f8e57af12ac79d5075d0bafbc04e49280f45954d73b945f176a",
+    "/Users/mac/.codex/worktrees/m8-discipline-referee/quant-runner-m8-goalkeeper/research/m8/player_pair_expanded15_20261121/expanded15_T12_candidate_source_audit.jsonl.gz": "b94a1f79aa1a4efa23ba625fae71932b8032b7b3f172b630a9e5eb55096b862f",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_foundation_20261115/historical_membership.jsonl": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665"
+  }
+}
