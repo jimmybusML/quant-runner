@@ -102,3 +102,12 @@ python3 research/m8_m9_group_independent_20261120/exact_rule_cross_league/build_
 - G still uses the original independent dynamic attack/defence and league-baseline score-rate model with Crown two-sided AH EV comparison; it is not replaced by M9. No future target or same/next Beijing-date results enter G's pre-match model state.
 - The decompressed order ledger is byte-identical to the previously committed ledger; only deterministic gzip metadata and run time/input database SHA changed. All 37 output-file hashes in the regenerated manifest were checked with Python SHA256 and matched. Historical source-event replay only; no receipt execution, Telegram order, ledger write or production change occurred.
 - Existing PR #67 against `main` was confirmed OPEN before this revalidation and remains the publication target; no merge was performed.
+
+
+## User-requested full replay rerun — 2026-11-21 12:41 UTC
+
+- Re-ran the full exact base/A–G T6/T3/T1 replay against the user-specified 18,374-FID outside-49 inventory, then independently re-read Crown raw responses, fixture FT, T1 contracts and quarter-line settlement. Also repeated the frozen E-direction audit, rebuilt report/weekly files and refreshed the SHA256 manifest.
+- Current input SHA256 at run: Crown SQLite `1af6ff08c2111d649903603b7043ca32ca75c1568d1b281b792fc117c84e16a2`; expanded schedule `a9d48b40cba84e5bf49f490b4b25bada9bc12a6266e6da0eed51c063166b8258`; frozen membership `6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665`.
+- Coverage and results reproduced: 11,266 `NO_CROWN_AH_QUOTES`; 7,108 quote-bearing captures (7,106 with a pre-kickoff source-event quote); 6,967 complete paths; 139 missing T6; 2 without a valid pre-kickoff quote. Frozen-priority assignment yields 1,160 unique new FIDs, +10.890U, +0.938793% ROI, MDD 20.460U; no overlap with frozen 10,294 FIDs. Independent raw Crown/FT settlement passed 1,160/1,160; original E direction/PnL matched 267/267. Live receipts remain 0/18,374.
+- All 37 OUTPUT hashes in the regenerated SHA manifest were recomputed and matched. The historical result is unchanged despite the Crown SQLite byte hash update. Historical source-event replay only; no formal orders or production actions.
+- Existing PR #67 remains OPEN against `main`; this rerun is published by updating that PR. No merge, production model, Telegram, formal ledger, collector or schedule change occurred.
