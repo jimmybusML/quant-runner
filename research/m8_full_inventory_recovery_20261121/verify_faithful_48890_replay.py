@@ -20,7 +20,9 @@ def settle_independent(line,side,hg,ag,home_odd,away_odd):
   t=gd+z
   returns.append(odds-1 if t>1e-9 else -1 if t < -1e-9 else 0)
  return sum(returns)/len(returns)
-rows=[json.loads(s) for s in gzip.open(P/'faithful_frozen_full_path_48890_ledger.jsonl.gz','rt')]
+ledger=P/'faithful_frozen_full_path_48890_ledger.jsonl.gz'
+if not ledger.exists():ledger=P/'full_path_corrected_20261121/faithful_frozen_full_path_48890_ledger.jsonl.gz'
+rows=[json.loads(s) for s in gzip.open(ledger,'rt')]
 new=[r for r in rows if r['source']=='expanded15']
 old=[r for r in rows if r['source']=='original49']
 assert len(new)==1271 and len(old)==9482

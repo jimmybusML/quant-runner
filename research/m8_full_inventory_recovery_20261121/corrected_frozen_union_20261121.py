@@ -10,8 +10,10 @@ def rows(p):
   for s in f:yield json.loads(s)
 frozen=[{'fid':r['fid'],'year':r['year'],'league':r['league'],'group':r['cohort'],'net_u':float(r['pnl']),
  'cohort':'original_frozen'} for r in rows(F)]
+correct_ledger=P/'faithful_frozen_full_path_48890_ledger.jsonl.gz'
+if not correct_ledger.exists():correct_ledger=P/'full_path_corrected_20261121/faithful_frozen_full_path_48890_ledger.jsonl.gz'
 correct=[{'fid':r['fid'],'year':r['year'],'league':r['league'],'group':r['group'],'side':r['side'],'net_u':float(r['net_u_T1']),
- 'cohort':'full_path_expansion'} for r in rows(P/'faithful_frozen_full_path_48890_ledger.jsonl.gz') if r['source']=='expanded15']
+ 'cohort':'full_path_expansion'} for r in rows(correct_ledger) if r['source']=='expanded15']
 assert len(frozen)==10294 and len(correct)==1271
 oldpr=P/'source67/research/m8_m9_group_independent_20261120/exact_rule_cross_league/exact_rule_cross_league_orders.jsonl.gz'
 if not oldpr.exists():oldpr=Path('/Users/mac/QuantAsiaDesk/research-work/recovered_factors_20261121/source67/research/m8_m9_group_independent_20261120/exact_rule_cross_league/exact_rule_cross_league_orders.jsonl.gz')
