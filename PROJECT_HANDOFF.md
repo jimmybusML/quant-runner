@@ -5199,3 +5199,9 @@
 - 对12个已完成联赛生成可复跑逐联赛×UTC年覆盖矩阵：15,907个唯一赛程FID，14,613场状态为`full`且有数字FT；1,294场为缺失/非full状态，需逐状态复核，不能一概视为失败赛果。535个原始赛程响应页、15,907条逐场源记录SHA均验证通过，身份版本冲突0。覆盖矩阵含96个联赛年桶（2019–2026）；逐年赛程/已核实FT/非full数为：2019 1,454/1,330/124；2020 1,310/1,149/161；2021 1,851/1,642/209；2022 1,929/1,726/203；2023 2,448/2,301/147；2024 2,336/2,192/144；2025 2,413/2,249/164；2026 2,166/2,024/142。
 - SHA核对原始TotalCorner赛程响应中的15,907条比赛记录，均未包含`season`字段；已逐条标记缺失，未用UTC年份伪造赛季。Crown SQLite只读交叉检查对应赛程FID：历史capture 0、AH报价0；这仅表示本地缓存未覆盖，不能推断数据源无报价。全过程未启动Crown请求或研究回测。
 - 复跑脚本 `research/data_recovery_2019_2026/audit_completed_schedule_league_year_coverage.py`；输出 `completed_schedule_league_year_coverage_2019_2026.json`。中间进度快照 `schedule_recovery_checkpoint_20261121T1815Z.json` SHA256 `4d1de4b7bdc536a032542b1781858eab4f9c4a049dad15dee1b16bc2dcd2b2a6`。以上仅覆盖已分页完成子集，不代表全38个目标或完整历史库存完成；赛程继续分页后需重跑合并及覆盖核对。
+
+
+### 2026-11-21 18:27 UTC：分页断点推进至 England Championship 第132页
+
+- 原 TotalCorner 采集句柄 PID 65966 / session 29157 仍在运行，无重启。最新快照累计676次请求；12个联赛完成，England Championship（ID 2）第132/234页，累计该联赛3,960个新FID，失败页0。当前批次启动时35项输入哈希和排队38项目标哈希分别见检查点。
+- 新增私有进度/fixture ledger/request log SHA锚定快照：`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1827Z.json`，SHA256 `f90a05735c01fd3f487b1f5e0865e2ee7bf69d7b62815af5c2d07e1507de3940`。12个已完成联赛覆盖审计仍为15,907 FID，其中14,613 verified full FT、1,294缺失/非full；赛季字段缺失15,907，Crown本地capture/报价0。England部分页未计入完成覆盖审计。全量任务仍在进行，尚未开始Crown批次或完成全库存合并。
