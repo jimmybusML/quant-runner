@@ -9,6 +9,7 @@ UNSAFE_COMMAND_PARTS=(
     '/Users/mac/QuantAsiaDesk/scripts/local_rescheduled_results.py',
     '/Users/mac/QuantAsiaDesk/scripts/local_result_fallback.py',
     '/Users/mac/QuantAsiaDesk/repos/mr1/src/shadow-v23.js',
+    'research.m3.totalcorner_shadow_settle',
 )
 
 def utc():return dt.datetime.now(dt.timezone.utc).isoformat().replace('+00:00','Z')
