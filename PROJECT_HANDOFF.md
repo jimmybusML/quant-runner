@@ -5426,3 +5426,8 @@
 
 - 追加日志最新快照为41个终态FID：37个`SAVED`共8,383条AH quote，4个`NO_CROWN_AH_QUOTES`。和23:50检查点相比新增11个终态；完整101,266个目标仍有大量未终态比赛，不能据局部响应推断全量覆盖或源端无报价。
 - 安全等待驱动PID 56067及当前历史collector PID 57199仍在运行，现时未看到结算或M3互斥任务。下一次采集间歇继续依赖driver复查全部互斥标记。
+
+### 2026-11-21 23:53 UTC：settlement触发第二次安全暂停
+
+- Collector PID 57199于23:53:17Z因`unified_settlement.py`（PID 57958）启动而被安全driver暂停。当前追加日志总计54个终态FID，其中49个`SAVED`合计11,753条quote、5个`NO_CROWN_AH_QUOTES`；这是整批101,266个FID中的早期进度。
+- 采集驱动PID 56067保持运行，等待settlement退出后重新生成未终态恢复清单。无生产采集参数、模型、Telegram或账本行为改动。
