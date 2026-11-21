@@ -5279,6 +5279,13 @@
 - 下一步继续现有Italy分页与本批剩余目标；每有整项完成就重跑同一SHA/FT覆盖审计。整个任务仍未完成；完整库存合并、其余外部联赛排查、赛果缺口复核以及停掉TotalCorner collector后继续的Crown历史行情扩采仍待执行。
 
 
+### 2026-11-21 20:57 UTC：Poland I Liga与Romania Liga II完成，28个联赛覆盖更新
+
+- 同一TotalCorner schedule collector PID 65966 / session 29157持续运行，未重启。Poland I Liga（ID 49）完成84页、2,473个目标FID、失败页0；Romania Liga II（ID 515）完成72页、2,108个目标FID、失败页0，均按2019历史目标范围结束。当前38项目标文件已完成28项；检查点累计1,594次请求、ledger新FID计数46,677、身份冲突0。Saudi Arabia Division 1（ID 246）正在第12/95页、360个FID，失败页0。
+- 对28个已完成联赛刷新逐联赛×UTC年覆盖：46,317个唯一赛程FID，其中43,204场TotalCorner `status=full`且FT为数字，3,113场其他/未核实状态；1,558个原始页引用全部SHA通过，46,317条源记录SHA核验通过，审计错误与身份版本冲突为0。season字段缺失仍如实记录，不按UTC年份生成伪赛季。
+- 新目标FID与只读Crown SQLite的本地movement quote交集仍为0（DB SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`）；这不等价于源端无报价。TotalCorner采集期间未请求Crown、未写SQLite。
+- 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T2057Z.json` SHA256 `5c137606c403cc1a8bbdec0fdd1ff3064a0ccfd28ff2e7e9ae05f5099a6ef38f`，校验清单`CHECKPOINT_SHA256_20261121T2057Z.txt`。任务继续覆盖其余映射联赛、补充精确ID、其他赛程来源/赛果缺口及后续可取得的Crown历史报价；未运行模型、策略、回测或盈利筛选。
+
 ### 2026-11-21 20:30 UTC：Norway Division 1完成，26个联赛覆盖更新
 
 - 沿用同一TotalCorner schedule collector PID 65966 / session 29157，未重启。North Macedonia Second League（ID 15517）完成20页、557个FID、失败页0；Norway Division 1（ID 143）按2019–2026目标范围完成66页、1,939个FID、失败页0（API声报102页，collector将超出历史截止的尾页排除）。38项目标清单中26项已完成，检查点时累计1,431次请求、ledger新FID计数41,886、身份冲突0。下一目标Poland I Liga（ID 49）第5/130页、150个FID、失败页0。

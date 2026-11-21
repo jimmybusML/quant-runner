@@ -1,0 +1,50 @@
+{
+  "generated_at_utc": "2026-11-21T20:57:38.076766Z",
+  "purpose": "ongoing all-league 2019-2026 schedule recovery; intermediate completed-target audit only, not a completion claim",
+  "collector": {
+    "pid": 65966,
+    "process_alive_at_checkpoint": true,
+    "session_id": 29157,
+    "started_at_utc": "2026-11-21T16:28:12.968745Z",
+    "loaded_target_count": 38,
+    "loaded_target_manifest_sha256": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778",
+    "batch_network_requests": 1594,
+    "batch_new_unique_fids_ledger": 46677,
+    "identity_conflicts": 0,
+    "completed_targets": 28,
+    "targets_started": 29,
+    "active_targets": [
+      {
+        "provider_league_id": "246",
+        "name": "Saudi Arabia Division 1",
+        "pages_read": 12,
+        "pages_reported": 95,
+        "new_fids": 360,
+        "failed_pages": []
+      }
+    ]
+  },
+  "completed_target_audit": {
+    "target_count_in_current_file": 38,
+    "completed_target_count": 28,
+    "unique_schedule_fids": 46317,
+    "verified_full_ft_fids": 43204,
+    "unverified_or_nonfull_fids": 3113,
+    "source_pages_referenced_and_sha_verified": 1558,
+    "source_rows_sha_verified": 46317,
+    "source_audit_errors": {},
+    "identity_version_conflicts": 0,
+    "crown_sqlite_read_only_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+    "crown_quote_fids_in_completed_targets": 0,
+    "coverage_audit_json_sha256": "ddafecbab4fc02c8eb87951afd1b61a0cdadebe79e14d575e69e8689ae2b2edc"
+  },
+  "private_progress_sha256": "ef21de37363efc13f1643c0a738a5cb2937e52843ea0d5eb6514933966a0082f",
+  "private_request_log_sha256": "1236aab2d759c1828d22336a74b924b6c793b91974e3af127f4c9088bf1da9cc",
+  "private_fixture_ledger_sha256": "f1a07d39d1fcdd39429f3ec28a7c8123a69f4a5fa3358d726856d4921057113e",
+  "constraints": {
+    "no_strategy_or_model_research": true,
+    "no_crown_network_requests_during_active_totalcorner_collector": true,
+    "no_crown_sqlite_writes": true,
+    "raw_http_bodies_remain_private": true
+  }
+}
