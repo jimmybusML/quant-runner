@@ -4975,3 +4975,12 @@
 ## 2026-11-21｜10:56 UTC安全窗口让出记录
 
 - resume-aware collector已在10:56:33.953623Z收到定时MR1任务信号并停止其研究子进程；安全驱动器仍在运行并等待，未停止生产任务。批次日志快照150行/72唯一FID，剩余11,631个候选尚未出现在日志。下一次空闲窗口将再次按追加日志跳过已尝试FID，并从后续FID继续。
+
+## 2026-11-21｜全联赛历史恢复：复用缓存Crown报价层并续跑缺失移动报价
+
+- 只做历史数据恢复与审计，没有策略研究、模型训练、回测或盈利筛选。对114,111个本地库存FID只读扫描104,167份既有原始Crown响应文件；103,115个唯一FID通过赛事身份和Crown bookmaker检查。计算原文件SHA后，全部响应均能匹配内容寻址文件名、旧索引或当前SQLite capture SHA锚点；未发现解析/身份错误。审计只提交摘要和FID/SHA摘要行，不提交原始响应或私有SQLite。
+- 发现已有缓存中38,598个FID的Crown开盘/收盘AH摘要尚未规范化到SQLite `summary`层，另有3个FID的移动报价响应未规范化到`movement`层。使用既有`crown_capture_store`解析器离线重用；没有API请求。该次写入38,606条历史capture、77,230条报价行、38,601个唯一FID（summary 38,603条capture/77,206行；movement 3条capture/24行）。原始接收时间仅在旧SHA索引精确匹配时写入，所有记录仍标记historical及`prospective_observation=false`。
+- 独立只读校验器重新读取每个原始响应并逐项核对SHA、FID/Crown身份、盘口线、双方decimal价格、source-event时间、索引接收时间、行数和前瞻标记，38,606/38,606通过。入库后核查时movement层共52,929个FID/4,422,398条报价行，summary层49,011个FID/99,118条报价行；后续批量补采会继续增加movement库存。
+- 原始响应清单复核：104,167个缓存文件对应103,115个有效唯一赛事FID，有1,052个FID存有多个缓存副本，未见解析或身份错误。逐场SHA/盘口摘要审计gzip保存在`research/data_recovery_2019_2026/offline_raw_Crown_response_index_audit_2019_2026.jsonl.gz`，离线入库复核账本为`offline_Crown_layer_import_verified_rows_2019_2026.jsonl.gz`；均不含响应正文。
+- Crown movement batch 02候选11,703个FID。至2026-11-21 11:21 UTC日志覆盖88个唯一FID（尝试166次；最新状态51 REUSED_DB、9 SAVED、27 NO_CROWN_AH_QUOTES、1 FETCH_FAILED/IncompleteRead），11,615个未尝试，36个实际响应记录HTTP接收时间。安全窗口驱动PID 86436已恢复但当时仍等待MR1定时任务PID 86145结束；请求间隔沿用collector默认5.2秒。4次IncompleteRead作为待重试失败保留，绝不记为无盘口。
+- 新增离线审计、幂等归一化和独立核验脚本及脱敏输出哈希清单已提交到`data/history-backfill-2019-2026`；这只是历史库存的结构化补齐，不表示全联赛补采已完成。后续继续从append-only日志排除已尝试FID，收集候选剩余报价并重新按联赛/年份核对全部缺口。

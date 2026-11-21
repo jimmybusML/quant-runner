@@ -1,0 +1,31 @@
+{
+  "study": "Independent read-only verification of offline historical Crown layer normalization",
+  "source_inventory_sha256": "0e47ef60ea6762d82e62c7a9bdbb8cceab2950f1aa8396f320ef9a64cf09709e",
+  "capture_processed_at_utc_cutoff": "2026-11-21T11:08:00Z",
+  "candidate_capture_rows": 38606,
+  "verified_capture_rows": 38606,
+  "verified_quote_rows": 77230,
+  "unique_fids_by_layer": {
+    "summary": 38598,
+    "movement": 3
+  },
+  "capture_rows_by_layer_and_status": {
+    "summary|QUOTES_SAVED": 38603,
+    "movement|QUOTES_SAVED": 3
+  },
+  "errors": {},
+  "pass": true,
+  "checks": [
+    "raw response SHA matches capture",
+    "response FID and Crown bookmaker",
+    "layer-specific parser output and row count",
+    "Asian handicap line and both raw decimal prices",
+    "source event timestamp",
+    "indexed HTTP receive timestamp only when exact legacy SHA mapping exists",
+    "historical capture remains non-prospective",
+    "quote-before-kickoff provenance flag"
+  ],
+  "verified_capture_ledger": "offline_Crown_layer_import_verified_rows_2019_2026.jsonl.gz",
+  "verified_capture_ledger_sha256": "05ef33721c6b81527daeca8dc3d3e6887ff624151513b709e0bca8f862419b0b",
+  "note": "This verifies persisted local normalization of already-existing raw responses; it does not assert a historical HTTP response was received pre-kickoff or that absent quotes never existed."
+}
