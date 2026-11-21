@@ -1,0 +1,97 @@
+{
+  "study": "M8_CROWN_AH_FORMATION_MATCHUP_DIAGNOSTICS",
+  "paired_prediction_metrics": {
+    "all_outside_frozen": {
+      "n_unique_FID": 6960,
+      "market_margin": {
+        "n": 6960,
+        "MAE_home_goals": 1.210848,
+        "RMSE_home_goals": 1.55699,
+        "mean_prediction_error_home_goals": 0.009388
+      },
+      "market_plus_formation_margin": {
+        "n": 6960,
+        "MAE_home_goals": 1.211688,
+        "RMSE_home_goals": 1.558721,
+        "mean_prediction_error_home_goals": 0.000784
+      },
+      "chosen_side_agreement_n": 4866,
+      "chosen_side_switch_n": 2094,
+      "chosen_side_switch_pct": 30.086207,
+      "market_forced_net_U": -299.435,
+      "formation_forced_net_U": -197.22,
+      "paired_pnl_change_U": 102.215
+    },
+    "2024": {
+      "n_unique_FID": 2173,
+      "market_margin": {
+        "n": 2173,
+        "MAE_home_goals": 1.215735,
+        "RMSE_home_goals": 1.556886,
+        "mean_prediction_error_home_goals": 0.011132
+      },
+      "market_plus_formation_margin": {
+        "n": 2173,
+        "MAE_home_goals": 1.220526,
+        "RMSE_home_goals": 1.561693,
+        "mean_prediction_error_home_goals": -0.014472
+      },
+      "chosen_side_agreement_n": 1468,
+      "chosen_side_switch_n": 705,
+      "chosen_side_switch_pct": 32.443626,
+      "market_forced_net_U": -92.24,
+      "formation_forced_net_U": -90.72,
+      "paired_pnl_change_U": 1.52
+    },
+    "2025": {
+      "n_unique_FID": 3635,
+      "market_margin": {
+        "n": 3635,
+        "MAE_home_goals": 1.210878,
+        "RMSE_home_goals": 1.561079,
+        "mean_prediction_error_home_goals": 0.031787
+      },
+      "market_plus_formation_margin": {
+        "n": 3635,
+        "MAE_home_goals": 1.209859,
+        "RMSE_home_goals": 1.561139,
+        "mean_prediction_error_home_goals": 0.032187
+      },
+      "chosen_side_agreement_n": 2573,
+      "chosen_side_switch_n": 1062,
+      "chosen_side_switch_pct": 29.215956,
+      "market_forced_net_U": -147.565,
+      "formation_forced_net_U": -71.45,
+      "paired_pnl_change_U": 76.115
+    },
+    "2026": {
+      "n_unique_FID": 1152,
+      "market_margin": {
+        "n": 1152,
+        "MAE_home_goals": 1.201539,
+        "RMSE_home_goals": 1.544214,
+        "mean_prediction_error_home_goals": -0.064578
+      },
+      "market_plus_formation_margin": {
+        "n": 1152,
+        "MAE_home_goals": 1.200793,
+        "RMSE_home_goals": 1.545415,
+        "mean_prediction_error_home_goals": -0.069525
+      },
+      "chosen_side_agreement_n": 825,
+      "chosen_side_switch_n": 327,
+      "chosen_side_switch_pct": 28.385417,
+      "market_forced_net_U": -59.63,
+      "formation_forced_net_U": -35.05,
+      "paired_pnl_change_U": 24.58
+    }
+  },
+  "target_history_coverage": {
+    "mapped_target_rows": 8675,
+    "both_sides_at_least_one_prior_365d_match": 8522,
+    "either_side_has_no_prior_365d_match": 153,
+    "target_formation_used_as_feature": false,
+    "method_note": "The target fixture formation is recorded only for leakage audit and is never used by model vectors."
+  },
+  "scope_note": "Metrics include the 2024-2026 out-of-frozen sample and are diagnostic; they do not select a production threshold."
+}
