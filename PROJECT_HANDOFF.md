@@ -5240,3 +5240,10 @@
 - France Ligue 2（ID 27）完成94页、2,763 FID、失败页0。当前同一TotalCorner collector PID 65966 / session 29157继续Germany Bundesliga II（ID 17）第2/127页；首批35项目标有17项完成，累计891次请求，Germany当前新增60 FID，无失败页。其余未处理和38项补充清单仍待续跑。
 - 重跑逐联赛×UTC年覆盖后，17个已完成联赛有26,030个唯一FID；24,287场`status=full`且FT为数字，1,743场缺失/非full状态。875个SHA核验原始响应页、26,030条逐场记录均验证通过，源身份冲突0。赛季字段26,030场均缺失；本地Crown历史capture和AH报价FID仍是0。各年/联赛明细见覆盖JSON；此范围只是已完成子集。
 - 当前进度SHA检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1903Z.json` SHA256 `e7839f0a60d1465304d785dd7abb5aea1988ae4c8bf3022aadbd20a1c6e2de76`。完整多源赛程合并、全量FT复查与Crown AH补采仍未完成；未做模型/策略研究。
+
+
+### 2026-11-21 19:11 UTC：Germany Bundesliga II分页断点更新
+
+- 同一TotalCorner进程PID 65966 / session 29157仍在运行；首批35项中17个联赛已完成。Germany Bundesliga II（ID 17）推进到第53/127页，新增1,590 FID，当前失败页0；累计942次请求。当前38项排队清单中的额外ID 10653、702、114仍需后续单独续跑。
+- 已完成17联赛覆盖矩阵维持26,030 FID、24,287 verified full FT、1,743缺失/非full；875个raw页、26,030条源行SHA核验通过；season字段全部缺失，本地Crown对应capture/AH quote为0。Germany部分页尚不计入该完成覆盖矩阵。
+- 进度快照 `research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1911Z.json` SHA256 `e5a0aefd657a706ee297aa12fa18cb606447c7d2815327fd9ffbe198838df296`。历史赛程全量合并和Crown补采仍未开始。
