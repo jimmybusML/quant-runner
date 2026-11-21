@@ -1,0 +1,144 @@
+{
+  "generated_at_utc": "2026-11-21T15:20:05Z",
+  "scope": "Read-only offline Crown raw cache audit against the current reconciled UTC 2019-2026 fixture inventory.",
+  "inventory_unique_fids": 133549,
+  "inventory_sha256": "793133ccbc3f3cd24a4e91ac433cec1ba746803cfefeec64c439758337d7c0e6",
+  "crown_raw_cache": {
+    "raw_cache_response_files": 104365,
+    "raw_cache_fids_with_valid_response": 103293,
+    "raw_cache_files_identity_checked": 104365,
+    "raw_sha_content_addressed_paths": 92235,
+    "raw_sha_matched_legacy_response_index": 11546,
+    "raw_sha_matched_existing_sqlite_index": 104365,
+    "raw_files_without_external_sha_anchor": 0,
+    "schedule_fids_with_multiple_raw_cache_files": 1072,
+    "raw_parse_or_identity_issues": {}
+  },
+  "historical_quote_layers": {
+    "movement": {
+      "response_records": 52999,
+      "unique_fids": 52999,
+      "quote_rows": 4429709,
+      "unindexed_response_records": 0,
+      "unindexed_fids": 0
+    },
+    "summary": {
+      "response_records": 49621,
+      "unique_fids": 49054,
+      "quote_rows": 99242,
+      "unindexed_response_records": 0,
+      "unindexed_fids": 0
+    }
+  },
+  "supplemental_schedule_unique_fids": 19429,
+  "supplemental_fids_with_valid_crown_raw_cache_response": 0,
+  "api_requests": 0,
+  "sqlite_writes": 0,
+  "collector_pid_10634_progress": {
+    "network_requests": 686,
+    "new_unique_fids": 20119,
+    "identity_conflicts": 4,
+    "current_targets": {
+      "15": {
+        "expected_name": "Spain Segunda",
+        "pages_read": 126,
+        "reported_pages": 196,
+        "unique_2019_2026_fids": 3731,
+        "new_fids": 3611,
+        "latest_page": 126,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+        "failed_pages": []
+      },
+      "57": {
+        "expected_name": "Portugal Segunda Liga",
+        "pages_read": 80,
+        "reported_pages": 149,
+        "unique_2019_2026_fids": 2366,
+        "new_fids": 2366,
+        "latest_page": 80,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+        "failed_pages": []
+      },
+      "63": {
+        "expected_name": "Ukraine Persha Liga",
+        "pages_read": 38,
+        "reported_pages": 65,
+        "unique_2019_2026_fids": 1101,
+        "new_fids": 1101,
+        "latest_page": 38,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+        "failed_pages": []
+      },
+      "121": {
+        "expected_name": "Netherlands Eerste Divisie",
+        "pages_read": 102,
+        "reported_pages": 157,
+        "unique_2019_2026_fids": 3017,
+        "new_fids": 3017,
+        "latest_page": 102,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+        "failed_pages": []
+      },
+      "128": {
+        "expected_name": "Japan J2-League",
+        "pages_read": 112,
+        "reported_pages": 184,
+        "unique_2019_2026_fids": 3307,
+        "new_fids": 3307,
+        "latest_page": 112,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+        "failed_pages": []
+      },
+      "210": {
+        "expected_name": "China Division 1",
+        "pages_read": 66,
+        "reported_pages": 98,
+        "unique_2019_2026_fids": 1934,
+        "new_fids": 1934,
+        "latest_page": 66,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+        "failed_pages": []
+      },
+      "252": {
+        "expected_name": "Israel Leumit Liga",
+        "pages_read": 80,
+        "reported_pages": 122,
+        "unique_2019_2026_fids": 2369,
+        "new_fids": 2369,
+        "latest_page": 80,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+        "failed_pages": []
+      },
+      "270": {
+        "expected_name": "Scotland Championship",
+        "pages_read": 49,
+        "reported_pages": 76,
+        "unique_2019_2026_fids": 1424,
+        "new_fids": 1424,
+        "latest_page": 49,
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+        "failed_pages": []
+      },
+      "337": {
+        "expected_name": "Serbia Prva Liga",
+        "pages_read": 33,
+        "reported_pages": 87,
+        "unique_2019_2026_fids": 990,
+        "new_fids": 990,
+        "latest_page": 33,
+        "pagination_status": null,
+        "failed_pages": []
+      }
+    }
+  },
+  "input_sha256": {
+    "audit_script": "a963e1b55eb36ec789d1bc2f38941ce3976ec7b4e609653d999044443da3132c",
+    "inventory": "793133ccbc3f3cd24a4e91ac433cec1ba746803cfefeec64c439758337d7c0e6",
+    "inventory_summary": "1fa87a5eecb65b3fe08a504f2ba5d3a3c4c0ec1d397fe30e94dcd7a0b44edab3",
+    "sqlite_sha_from_inventory_audit": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298"
+  },
+  "output_sha256": {
+    "summary": "4e78ff4ad1dde3a62f14478ee3cd9e83f1281bd6cadc501dfcffa0c8a936e2ce",
+    "per_fixture_digest_ledger": "34dc773c3fe0e0432ddb03eebeff3ffa8cefae0b84edaf1388fffbc72d8367c6"
+  }
+}

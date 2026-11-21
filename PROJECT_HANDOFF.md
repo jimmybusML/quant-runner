@@ -5103,3 +5103,11 @@
 - FT状态只读复核于15:13:33 UTC：5,444个未核实候选中305场开赛时间尚未来到、4,474场开赛后状态缺失/未知、665场为明确非full状态；5,006场保留占位0:0观察，均未推断赛果。
 - TotalCorner补采进程PID 10634仍运行；15:13检查点的请求日志/进度文件分别记录658个成功页响应与659次请求尝试，新发现19,309个目标FID、4个源记录版本冲突。当前进度ID337 Serbia Prva Liga 6/87页；已确认完成到2019边界的联赛仍保留原始证明。其余指定联赛继续排队处理。
 - 交付含完整快照、每项SHA与执行记录；此次规范化/覆盖审计与FT分类没有发TotalCorner/Crown API请求、没有写Crown SQLite。全项目仍只做数据收集和持久化；模型研究、回测、生产派单、TG和账本均未执行或修改。
+
+### 2026-11-21 Crown现存原始缓存复核（15:20 UTC记录）
+
+- 对更新后的133,549 FID库存重跑 `audit_offline_raw_crown_inventory.py`，检查本地全部104,365个既存Crown原始响应文件。104,365/104,365均与SQLite中的原始响应SHA锚点相符；原始响应身份/解析问题0、未锚定SHA0。
+- 历史原始缓存有52,999个FID/4,429,709条movement报价；summary原始缓存的49,054个不同FID / 99,242条价格行。所有带AH盘口的缓存SHA已在相应历史层索引；本轮没有找到可再从raw cache离线补导的movement报价。
+- 当前TotalCorner补充赛程19,429个FID与Crown历史raw报价缓存交集0。不得拿别家报价或插值填充；这些未覆盖FID需待已有分页采集器空闲后，以已确认`crown_capture_store.py` historical movement方法检查目前可取得数据。本轮未并发发Crown请求。
+- 审计报告、逐响应SHA清单及执行清单见 `research/data_recovery_2019_2026/OFFLINE_CROWN_CACHE_AUDIT_20261121T1520Z.md` 和同目录JSON/SHA文件；审计API请求0、SQLite写入0。
+- 同时点TotalCorner补采进程PID 10634仍运行；进度日志记录668次请求尝试、19,579个新FID、4个源记录版本冲突，ID337 Serbia Prva Liga 15/87页，无失败页。后续provider IDs仍需逐一查完，当前全历史恢复未完成。
