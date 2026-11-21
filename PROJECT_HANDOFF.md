@@ -5267,3 +5267,13 @@
 - 三联赛2019–2022共有2,594个赛程FID；2,251个有历史movement capture明确返回`NO_CROWN_AH_QUOTES`，其response SHA、FID/联赛/球队身份与Crown原始响应中的`asian_list=[]`逐条复核2,251/2,251通过。343个FID没有movement capture，仍是未采集缺口而非已证实无盘口。该无盘响应均属历史回取；`response_received_at_utc`不是赛前实收时间。2023–2026三联赛共有1,930个Crown movement quote FID、183,461条报价行（分联赛年度数据见报告）；本地inventory标记的prospective quote行数为0，不能称为实时实收。
 - 专项核查脚本 `audit_priority_league_gaps_2019_2026.py`、机器结果、逐Fid SHA绑定的无盘收据元数据账本（不含原始HTTP body）和报告已生成。SHA清单为 `PRIORITY_LEAGUE_GAP_SHA256_20261121T1936Z.txt`；进度检查点为 `schedule_recovery_checkpoint_20261122T1936Z.json`，其SHA清单为 `CHECKPOINT_SHA256_20261122T1936Z.txt`。以上是点名联赛补充审计，不替代继续检查所有现有联赛和所有可得年份。
 - 全任务仍继续：等当前Hungary分页及载入的其余联赛完成，继续3个增补映射ID；随后重并完整赛事库存，刷新逐联赛×年/来源赛季与FT缺口，再在TotalCorner采集进程结束后扩大核查与补采Crown全序列。没有进行模型、策略、回测或盈利筛选。
+
+
+### 2026-11-21 19:46 UTC：20个已完成联赛矩阵刷新，Italy Serie B分页开始
+
+- Hungary NB II（ID 241）在同一TotalCorner collector中完成84个源页、2,469个目标FID、失败页0。第20个完成目标之后，Italy Serie B（ID 13）开始分页；19:46检查点为9/173页、270个目标FID、失败页0。35项已载入清单完成20项，尚余15项；38项当前清单中的额外3个精确映射ID仍需本批之后续采。采集器PID 65966继续存活，未重启；检查点时累计1,148次请求、fixture ledger新增33,654个FID、身份冲突0。
+- 对20个已完成联赛重跑逐联赛×UTC年矩阵：33,384个唯一FID，其中30,988场有TotalCorner `status=full`及数字FT，2,396场为其他/未核实状态。1,122个原始赛程页SHA和33,384条源记录SHA全部核验通过，页/记录错误0、身份版本冲突0。33,384条原始赛程行都未提供season字段，未按UTC年合成赛季。2019–2026分年明细在`completed_schedule_league_year_coverage_2019_2026.json`。
+- 对这20个新增目标FID只读交叉查当前Crown SQLite（SHA仍为`292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`）：capture 0、Crown AH报价0；这里只表示这组新分页FID当前本地交集无行情，不推断其他全局联赛/来源或provider端无价。没有启动Crown请求或写SQLite。
+- 20联赛覆盖矩阵和当时进度输入哈希保存在`schedule_recovery_checkpoint_20261122T1946Z.json`，检查点SHA `7d17c42bd3cd8c84edccd79e6d16654a5752bca5320b1060931e13304ca9e0e7`；校验清单为`CHECKPOINT_SHA256_20261122T1946Z.txt`。18联赛之后、19联赛时点的中间覆盖文件仍由Git历史保留。
+- 先前针对ID 51/61/10480生成的逐年Crown无盘审计及原始响应SHA绑定证据已随提交`5d3dfbe`推送；只核实了这三个示例，不替代其他联赛的全量覆盖工作。
+- 下一步继续现有Italy分页与本批剩余目标；每有整项完成就重跑同一SHA/FT覆盖审计。整个任务仍未完成；完整库存合并、其余外部联赛排查、赛果缺口复核以及停掉TotalCorner collector后继续的Crown历史行情扩采仍待执行。
