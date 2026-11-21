@@ -15,6 +15,7 @@ PRICED_T6 = BASE/'research-work/recovered_factors_20261121/full_priced_T6_origin
 M1_CACHE = BASE/'repos/m1/data/m1_history_cache'
 SUPPLEMENTAL_SCHEDULE = Path(__file__).resolve().parent/'supplemental_totalcorner_league15_schedule_20261121.jsonl.gz'
 RECOVERED_SCHEDULE = BASE/'research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/fixtures_2019_2026.verified.jsonl.gz'
+EXTERNAL_FT_OVERLAY = Path(__file__).resolve().parent/'external_verified_ft_2019_2026.jsonl'
 TZ_SH = ZoneInfo('Asia/Shanghai')
 
 
@@ -132,6 +133,14 @@ def main():
                   'home_name':x.get('home_name'),'away_name':x.get('away_name'),'status':x.get('status_raw'),
                   'home_goals':x.get('home_goals_raw'),'away_goals':x.get('away_goals_raw'),
                   'season':x.get('season_raw'),'observed_at_utc':x.get('response_received_at_utc')})
+    external_ft_rows=0
+    if EXTERNAL_FT_OVERLAY.exists():
+        for line in EXTERNAL_FT_OVERLAY.read_text(encoding='utf-8').splitlines():
+            if not line.strip():continue
+            x=json.loads(line);fid=str(x.get('match_id') or '')
+            if fid:
+                row_for(fid).setdefault('external_ft_evidence',[]).append(x)
+                external_ft_rows+=1
     priced_t6_rows=0
     if PRICED_T6.exists():
         with gzip.open(PRICED_T6,'rt',encoding='utf-8') as f:
@@ -169,7 +178,7 @@ def main():
     for fid,layer,mode,code,n in c.execute('select fixture_id,data_layer,capture_mode,error_code,count(*) from failed_attempt group by 1,2,3,4'):
         failures[str(fid)][f'{layer}|{mode}|{code}']=n
     # Build a conservative league/year denominator from every schedule source; only exact provider IDs are joined.
-    group=collections.defaultdict(lambda:{'fids':set(),'schedule_page_fids':set(),'supplemental_schedule_fids':set(),'m1_history_cache_fids':set(),'expanded_fids':set(),'priced_t6_fids':set(),
+    group=collections.defaultdict(lambda:{'fids':set(),'schedule_page_fids':set(),'supplemental_schedule_fids':set(),'m1_history_cache_fids':set(),'expanded_fids':set(),'priced_t6_fids':set(),'external_ft_fids':set(),
       'complete_ft_fids':set(),'unverified_ft_fids':set(),'schedule_status':collections.Counter(),'capture_fids':set(),'movement_capture_fids':set(),'movement_quotes_fids':set(),
       'summary_quotes_fids':set(),'live_quote_fids':set(),'movement_quote_rows':0,'summary_quote_rows':0,'live_quote_rows':0,
       'source_event_timestamps':0,'failures':0,'no_quote_fids':set(),'capture_sha_file_missing':0})
@@ -209,7 +218,9 @@ def main():
         if r['priced_t6']:d['priced_t6_fids'].add(fid)
         status_set={str(z.get('status') or 'unknown') for z in page+m1_records+supp}
         for s in status_set:d['schedule_status'][s]+=1
-        verified_ft=any(z.get('status')=='full' and nonnegative_int(z.get('home_goals')) is not None and nonnegative_int(z.get('away_goals')) is not None for z in page+m1_records+supp)
+        external_ft=r.get('external_ft_evidence',[])
+        if external_ft:d['external_ft_fids'].add(fid)
+        verified_ft=bool(external_ft) or any(z.get('status')=='full' and nonnegative_int(z.get('home_goals')) is not None and nonnegative_int(z.get('away_goals')) is not None for z in page+m1_records+supp)
         if verified_ft:d['complete_ft_fids'].add(fid)
         else:d['unverified_ft_fids'].add(fid)
         caps=r.get('crown_captures',[]);qgs=r.get('crown_quote_groups',[])
@@ -235,14 +246,14 @@ def main():
         d['failures']+=sum(failures.get(fid,{}).values())
         inventory.append({'fid':fid,'provider_league_id':league,'year':year,'totalcorner_kickoff_utc':kickoff_utc,
           'totalcorner_page_records':page,'supplemental_schedule_records':supp,'M1_history_cache_records':m1_records,'expanded_universe_records':uni,'priced_t6_records':r['priced_t6'],
-          'crown_captures':caps,'crown_quote_groups':qgs,'failed_attempts':dict(failures.get(fid,{})),
+          'crown_captures':caps,'crown_quote_groups':qgs,'external_ft_evidence':external_ft,'failed_attempts':dict(failures.get(fid,{})),
           'identity_conflicts':[x for x in conflicts if x['fid']==fid]})
     # Output full league/year coverage matrix and source inventories.
     matrix=[]
     all_leagues=sorted({league for league,year in group})
     for league in all_leagues:
       for year in range(2019,2027):
-        d=group.get((league,year),{'fids':set(),'schedule_page_fids':set(),'supplemental_schedule_fids':set(),'m1_history_cache_fids':set(),'expanded_fids':set(),'priced_t6_fids':set(),
+        d=group.get((league,year),{'fids':set(),'schedule_page_fids':set(),'supplemental_schedule_fids':set(),'m1_history_cache_fids':set(),'expanded_fids':set(),'priced_t6_fids':set(),'external_ft_fids':set(),
           'complete_ft_fids':set(),'unverified_ft_fids':set(),'schedule_status':collections.Counter(),'capture_fids':set(),'movement_capture_fids':set(),'movement_quotes_fids':set(),
           'summary_quotes_fids':set(),'live_quote_fids':set(),'movement_quote_rows':0,'summary_quote_rows':0,'live_quote_rows':0,
           'source_event_timestamps':0,'failures':0,'no_quote_fids':set(),'capture_sha_file_missing':0})
@@ -251,6 +262,7 @@ def main():
           'supplemental_schedule_fids':len(d['supplemental_schedule_fids']),
           'M1_history_cache_fids':len(d['m1_history_cache_fids']),'T6_priced_inventory_fids':len(d['priced_t6_fids']),'complete_FT_fids':len(d['complete_ft_fids']),
           'unverified_FT_fids':len(d['unverified_ft_fids']),
+          'external_verified_FT_fids':len(d['external_ft_fids']),
           'any_Crown_capture_fids':len(d['capture_fids']),'movement_with_quotes_fids':len(d['movement_quotes_fids']),
           'movement_capture_fids':len(d['movement_capture_fids']),
           'movement_quote_rows':d['movement_quote_rows'],'distinct_movement_source_event_timestamps':d['source_event_timestamps'],
@@ -271,16 +283,17 @@ def main():
     missing_ft=[]
     for row in inventory:
         sources=row['totalcorner_page_records']+row['supplemental_schedule_records']+row['M1_history_cache_records']
-        if any(z.get('status')=='full' and nonnegative_int(z.get('home_goals')) is not None and nonnegative_int(z.get('away_goals')) is not None for z in sources):continue
+        if row.get('external_ft_evidence') or any(z.get('status')=='full' and nonnegative_int(z.get('home_goals')) is not None and nonnegative_int(z.get('away_goals')) is not None for z in sources):continue
         latest=next((z for z in sources if z.get('kickoff_utc')),sources[0] if sources else {})
         missing_ft.append({'match_id':row['fid'],'kickoff_utc':row['totalcorner_kickoff_utc'],'provider_league_id':row['provider_league_id'],
           'calendar_year_utc':row['year'],'home_name':latest.get('home_name'),'away_name':latest.get('away_name'),
           'home_id':latest.get('home_id'),'away_id':latest.get('away_id'),'observed_statuses':sorted({str(z.get('status')) for z in sources}),
-          'observed_scores':sorted({f"{z.get('home_goals')}:{z.get('away_goals')}" for z in sources if z.get('home_goals') is not None or z.get('away_goals') is not None})})
+          'observed_scores':sorted({f"{z.get('home_goals')}:{z.get('away_goals')}" for z in sources if z.get('home_goals') is not None or z.get('away_goals') is not None}),
+          'external_ft_evidence':row.get('external_ft_evidence',[])})
     missing_ft.sort(key=lambda x:(x['provider_league_id'],x['calendar_year_utc'],x['match_id']))
     with (OUT/'unverified_FT_candidates.jsonl').open('w',encoding='utf-8') as f:
         for row in missing_ft:f.write(json.dumps(row,separators=(',',':'))+'\n')
-    files=[UNIVERSE,M5_INDEX,PRICED_T6,SUPPLEMENTAL_SCHEDULE,RECOVERED_SCHEDULE]
+    files=[UNIVERSE,M5_INDEX,PRICED_T6,SUPPLEMENTAL_SCHEDULE,RECOVERED_SCHEDULE,EXTERNAL_FT_OVERLAY]
     inputs=[{'path':str(p),'bytes':p.stat().st_size,'sha256':sha256(p)} for p in files if p.exists()]
     page_manifest=[{'path':str(p),'bytes':p.stat().st_size,'sha256':sha256(p)} for p in page_paths]
     with (OUT/'schedule_page_sha256.jsonl').open('w',encoding='utf-8') as f:
@@ -313,6 +326,7 @@ def main():
       'schedule_page_completeness':page_completeness,
       'supplemental_schedule_rows':supplemental_rows,
       'new_recovered_schedule_fixture_versions':recovered_rows,
+      'strictly_reconciled_external_FT_rows':external_ft_rows,
       'M1_history_cache_file_count':len(m1_manifest),'M1_history_cache_rows':m1_cache_rows,
       'M1_history_cache_manifest_sha256':sha256(OUT/'m1_history_cache_sha256.jsonl'),
       'unique_crown_raw_response_files':len(crown_raw_refs),'crown_raw_response_files_missing':raw_missing,

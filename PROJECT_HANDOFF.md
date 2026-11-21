@@ -5028,3 +5028,9 @@
 - 截至13:08:06 UTC，ID15累计成功读取79/196页；目标期规范化2,370个不同FID记录版本（2019–2026筛选按源开赛时间），相对此前库存净增加2,250个FID。当前读取页序保持时间倒序，无失败页。数据暂覆盖2022–2026，未到2019截止，采集仍在运行；另有4个与旧ID15源记录字段哈希不一致的FID保留为冲突版本，未覆盖旧记录。
 - 13:08:14 UTC只读覆盖审计合并了79页规范化快照：全体源合并116,481个唯一FID、66个provider league IDs；其中111,802场有来源状态为`full`且有双方非负整数比分，4,679场仍未核实。Crown movement有价52,999 FID/4,429,709行；movement无报价capture 49,697 FID；尚未覆盖movement报价的赛事63,482 FID。新增ID15的Crown movement尚未开始采集，历史回取quote不等同真实赛前实收。审计文件`inventory_audit_2019_2026.json`及相关大清单为本机生成产物，CSV矩阵有对应SHA；数据库SHA在该快照为`1af6ff08c2111d649903603b7043ca32ca75c1568d1b281b792fc117c84e16a2`。
 - 新增研究脚本`collect_supplemental_totalcorner_schedules.py`与`consolidate_supplemental_totalcorner_schedules.py`，并将`audit_existing_inventory.py`扩展为可并入已验证补充赛程快照。收集、规范化和覆盖审计只用于历史数据恢复；本轮没有策略研究、模型训练/回测、正式TG派单或正式账本回写。未完成：继续处理ID15至2019截止或报告供应方边界；然后依次检查其余14个外部赛事ID、补齐对应Crown movement候选并复核完整年度缺口。
+
+## 2026-11-21｜已有外部 FT 证据严格复核（13:17 UTC快照）
+
+- 对本地既有M7 ESPN结果归档作零网络请求审计：65条标记`ESPN_FT_VERIFIED`、157条未匹配/歧义、4条未完赛、1条晚于开赛的Crown价格。65条中仅2个FID与当前TotalCorner未核实FT候选重叠；逐条重读raw日期响应、验证原始SHA、事件ID唯一性、Full Time状态、UTC开赛时刻、主客队与比分后，只有FID `202427796` 通过，补充结果为2:2。
+- FID `202427819` 的TotalCorner主队名为“Zhejiang”，归档赛事为“Zhejiang Professional FC”；虽赛事时间和比分匹配，但没有现成跨源球队ID映射，因此明确拒绝自动合并。另1条通过结果已通过`reconcile_existing_external_ft.py`作为独立证据层加入覆盖审计，不改写原始赛程记录；全局现有已核实FT为111,803，未核实4,678。逐条证据、拒绝原因及raw SHA见`external_verified_ft_2019_2026.jsonl`和对应JSON摘要（运行时产物）。
+- 该复核未请求网络，仅使用已存在本机文件；新增脚本和覆盖审计扩展属于研究数据整理，不涉及生产结算流程、策略或正式账本。
