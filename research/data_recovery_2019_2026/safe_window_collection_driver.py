@@ -80,15 +80,20 @@ def main():
     p.add_argument('--output-log',type=Path,required=True)
     p.add_argument('--event-log',type=Path,required=True)
     p.add_argument('--layer',choices=['summary','movement'],default='movement')
+    p.add_argument('--refresh',action='store_true',
+                   help='Request a new historical response instead of reusing cached raw data')
     p.add_argument('--quiet-seconds',type=float,default=12)
     p.add_argument('--poll-seconds',type=float,default=2)
     a=p.parse_args();a.output_log.parent.mkdir(parents=True,exist_ok=True);a.event_log.parent.mkdir(parents=True,exist_ok=True)
     cmd=['/Users/mac/QuantAsiaDesk/venv/bin/python','/Users/mac/QuantAsiaDesk/scripts/crown_capture_store.py','collect',
       '--fixture-file',str(a.fixture_file),'--layer',a.layer,'--capture-mode','historical']
+    if a.refresh:
+        cmd.append('--refresh')
     child=None;interrupted=False;quiet_since=None
     record(a.event_log,{'event':'driver_started','collector_command':cmd,'fixture_file':str(a.fixture_file),
       'fixture_file_sha256':__import__('hashlib').sha256(a.fixture_file.read_bytes()).hexdigest(),
       'output_log':str(a.output_log),'layer':a.layer,'capture_mode':'historical',
+      'refresh':a.refresh,
       'interval_seconds':'collector default (5.2)'})
     try:
         while True:

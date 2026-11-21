@@ -5170,3 +5170,10 @@
 - TotalCorner原35项分页进程PID 65966累计321次成功分页、9,378个新FID；8项完成8,238场，ID 571 Cyprus Division 2正在38/56页、已增1,140场。当前没有宣布整批完成。
 - 从最新已提交的141,623场库存快照读取到历史层缺口：movement层已有102,696个FID采集，缺历史movement capture 38,927场；summary层已有50,200个历史capture，缺91,423场。这两个数量是旧库存基线，必须在新赛程合并后重建。两种层保持分开，实际抓取尚未启动。
 - 最新进度、ledger和38项续跑目标哈希见 `research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1726Z.json`。完成目标后将把新增赛程并入全源库存，再按层生成和运行历史Crown采集清单。
+
+### 2026-11-21 17:30 UTC：准备未核验赛果的历史响应复查清单
+
+- 已从已有Crown match response原件确认其包含fixture `status`、`hg`、`ag`字段；因此重新抓取历史响应可同时核验来源赛果和保留盘口。响应仍标`historical`，不会充当实时收据。
+- 对当前未核验FT库存6,456场，按既有逐FID readiness 分类，291场为尚未到期开赛/不应期待FT，6,165场为过去已开赛但状态未知或provider报非full。离线构造了6,165个refresh候选，私有路径 `/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/ft_refresh_candidates_baseline.jsonl`，SHA256 `b2f185c063e1b9a6f2fc2df3ebe4e9b4c69ade00ed24a76527586a4e23eed0f7`。此清单尚未请求接口，需待赛程分页终止并合并最新库存后重建。
+- `safe_window_collection_driver.py` 已支持分别指定`summary`/`movement`及转发既有collector的`--refresh`参数，以便后续在安全空档复查历史响应。没有改Crown正式collector、频率、生产调度或账本。
+- 分页进度：346次成功请求、10,091新FID；9项完成共9,641场，Czechia 2. Liga（9115）第15/100页已增450场。快照见`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T1730Z.json`。

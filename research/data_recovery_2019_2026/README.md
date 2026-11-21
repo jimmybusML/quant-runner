@@ -105,6 +105,12 @@ The existing inventory already contains schedules for IDs 51, 61, and 10480 in 2
 
 The active 35-target run has 305 successful page requests and 8,898 newly discovered FIDs: eight leagues are complete (8,238 FIDs), and Cyprus Division 2 (571) is at page 22/56 (660 rows so far). For all eight completed leagues, a read-only cross-reference found no corresponding Crown SQLite capture, quote row, or supported local raw file. Checkpoint provenance is in `schedule_recovery_checkpoint_20261121T1724Z.json`.
 
-## Current schedule and Crown backlog checkpoint — 2026-11-21 17:26 UTC
+## Current schedule and Crown backlog checkpoint — 2026-11-21 17:30 UTC
 
 The live schedule run is at 321 successful page requests / 9,378 new FIDs. Eight of 35 targets are complete (8,238 FIDs); Cyprus Division 2 ID 571 is at page 38/56, with 1,140 partial rows. The previous reconciled 141,623-FID inventory has 38,927 FIDs without a historical movement capture and 91,423 without a historical summary capture; these baselines will be rebuilt after new schedules merge. The 35-target process remains active, and the 3 supplemental exact-page IDs remain queued. Details and hashes: `schedule_recovery_checkpoint_20261121T1726Z.json`.
+
+## FT refresh queue prepared — 2026-11-21 17:30 UTC
+
+- Existing TotalCorner/Crown match responses contain fixture `status`, `hg`, and `ag` fields, so a refreshed historical response can also help verify missing results while preserving the raw response. This is source collection, not score inference.
+- From the current 6,456 unresolved-FT inventory, the offline manifest builder excludes 291 fixtures classified by the existing readiness audit as future/not due and includes the remaining 6,165 past-due unresolved/status-not-full FIDs. The manifest is private at `/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/ft_refresh_candidates_baseline.jsonl`, SHA `b2f185c063e1b9a6f2fc2df3ebe4e9b4c69ade00ed24a76527586a4e23eed0f7`. It has not been sent to the API.
+- `safe_window_collection_driver.py` now forwards the existing collector's `--refresh` flag so an intentional FT-refresh batch can request a new immutable historical response; cache-reuse and data-layer runs remain separate. No Crown request has been started.
