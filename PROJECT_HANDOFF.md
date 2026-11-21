@@ -5381,3 +5381,9 @@
 - Crown请求本轮未启动：执行检查时存在`unified_settlement.py`和`research.m3.totalcorner_shadow_settle`运行进程，按既有采集互斥约定继续等待；待互斥任务结束后，才可重建缺失清单并按现有采集方式续做。全部项目历史库存、其他联赛与赛季范围、未核实FT修复、Crown AH可恢复报价仍未完成。
 - 只读队列构建器将全局203,962个FID与SQLite按data layer对账：缺movement capture 101,266 FID，缺summary capture 153,762 FID，身份冲突排除0；9个开赛时间冲突FID纳入队列但不附带推测时间。manifest均为historical、复用缓存优先；“缺capture”不等于Crown一定有盘口。队列原件和生成审计保存在私有`/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/queues_20261122/`，movement SHA `5e24fc27dba4047f52d4a40bef74b50a0dc13694194ecf150f437bc26147d79a`，summary SHA `e281411212ed5dcdfb4cc7b1b348c5ade72567f1bffe1ad21a1dd932a5dca0d9`。
 - 已启动`safe_window_collection_driver.py`处理movement队列，但截至本检查点仅在互斥等待状态。发现原安全包装器未将`research.m3.totalcorner_shadow_settle`识别为互斥任务，已补入该进程标记；再次启动后同时检测到`unified_settlement.py`和该M3任务，没有生成collector子进程或请求日志，故本轮实际Crown API请求为0、数据库写入为0。保护驱动PID 50722（本机会话仍运行），事件文件在上述私有队列目录；互斥工作结束后由驱动继续。
+
+### 2026-11-22：历史 Crown movement 队列中断检查点
+
+- 后续检查发现安全等待驱动在互斥任务结束后自动启动collector；截至中断时共记录16个有终态的FID：15条`SAVED`，共3,011条AH movement quote；1条`NO_CROWN_AH_QUOTES`。其后第17个请求过程中收到中断，collector日志仅留Python `urlopen`调用栈，未形成终态行；不能据此判断该请求在Crown侧是否已收到，也不能将其当作成功或无报价。驱动及collector已停止。
+- 16个已记录FID中12个属于M8该轮15目标联赛赛事库存：11场已保存报价、1场明确返回无AH报价；另4场为其他联赛。该数据对M8用途属于赛后历史回取，收件时间2026-11-21T23:18:38Z至23:20:41Z，目标比赛源事件最早时间2026年3月；全部`capture_mode=historical`且`prospective_observation=false`。M8研究分支已单独按更新后的只读库重算；新增路径和订单结果见其`EXECUTION_RECORD_20261122.md`，不将历史响应冒充实时赛前收据。
+- Crown SQLite从本轮前的SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`变为`f5ff99470eeba04b9b5b1c63195ca14af3f766e1868ad3b1675ad0dfdbcabf7c`；movement captures由102,697增至102,713，quote rows由4,429,709增至4,432,720，summary和live计数未变。输出和事件日志仅保存在私有队列目录，原始响应未公开。全局恢复目标仍未完成；重启驱动会从日志跳过16个已有终态FID，需先复核未终态的中断请求。
