@@ -5257,3 +5257,13 @@
 - 当前只读Crown SQLite SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`；上述18个新采集目标FID对应capture和AH quote均为0。该本地交集缺失不表示Crown历史报价不存在于其他未核范围；本轮没有发出Crown网络请求，未写SQLite。需待TotalCorner collector停止后按完整唯一FID队列继续Crown及FT补齐。
 - 更新脚本 `research/data_recovery_2019_2026/audit_completed_schedule_league_year_coverage.py` 生成 `completed_schedule_league_year_coverage_2019_2026.json`。可核验进度快照 `schedule_recovery_checkpoint_20261122T1920Z.json` SHA256 `07c2046c4bd6d48ff034ae89bda6f5c504e9f3fb79daf98e10b7eb8ac4318315`，其中记录私有progress/request/fixture ledger哈希。此为18个已完成目标的中间子集，不代表全部现有联赛或数据任务完成。
 - 全任务仍继续：先让同一分页进程完成其已载入35项，再续跑排队清单剩余3项；随后重新对账全项目联赛映射、合并赛程、逐联赛×年/赛季检查、刷新赛果缺口，并在TotalCorner进程结束后继续恢复真实Crown历史AH原始时间序列。没有进行策略、模型、回测或盈利筛选。
+
+
+### 2026-11-21 19:36 UTC：Greece分页完成、Hungary分页开始；点名历史缺口离线核查
+
+- 同一TotalCorner schedule collector PID 65966 / session 29157仍运行，未重启。当前加载的35项清单SHA `9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9`中，19个联赛分页已完成；Greece Super League 2（ID 514）完成84页、2,480个目标FID、失败页0。当前Hungary NB II（ID 241）推进到36/119页、1,080个FID、失败页0。累计1,091次请求、新增fixture ledger FID 31,995、身份冲突0；该ledger计数包含当前Hungary部分页。任务目标清单仍为38项SHA `effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778`，3个增补精确映射ID待当前35项结束后继续。
+- 19个已完成联赛逐年覆盖复核：30,915个唯一赛程FID、28,766个status=full且数字FT、2,149个其他/未核实状态；原始页面SHA核验及逐条源记录SHA均通过，身份版本冲突0。覆盖审计输出 `completed_schedule_league_year_coverage_2019_2026.json`；逐联赛×UTC年明细保存在该JSON。只读Crown SQLite SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`，与这19个增补目标的FID交集仍为0 capture/0 AH quote；不据此推断数据源无报价。采集器运行时MR1及统一结算互斥作业曾触发暂停，当前由同一进程按互斥逻辑等待；本轮无Crown网络请求或SQLite写入。
+- 对全局既有库存中用户点名的ID 51、61、10480进行离线补充盘点，确认分别是Portugal Primeira Liga、Switzerland Super League和Georgia Erovnuli Liga。2019–2026共有5,374个唯一FID，其中5,233个TotalCorner源记录明确`status=full`且有数字FT；年度、来源层、失败/冲突和Crown报价行数见 `PRIORITY_LEAGUE_GAP_REPORT_2019_2026.md` 与JSON。ID 51另有1个源身份/版本冲突，保持单独标记；未按名称强行合并。
+- 三联赛2019–2022共有2,594个赛程FID；2,251个有历史movement capture明确返回`NO_CROWN_AH_QUOTES`，其response SHA、FID/联赛/球队身份与Crown原始响应中的`asian_list=[]`逐条复核2,251/2,251通过。343个FID没有movement capture，仍是未采集缺口而非已证实无盘口。该无盘响应均属历史回取；`response_received_at_utc`不是赛前实收时间。2023–2026三联赛共有1,930个Crown movement quote FID、183,461条报价行（分联赛年度数据见报告）；本地inventory标记的prospective quote行数为0，不能称为实时实收。
+- 专项核查脚本 `audit_priority_league_gaps_2019_2026.py`、机器结果、逐Fid SHA绑定的无盘收据元数据账本（不含原始HTTP body）和报告已生成。SHA清单为 `PRIORITY_LEAGUE_GAP_SHA256_20261121T1936Z.txt`；进度检查点为 `schedule_recovery_checkpoint_20261122T1936Z.json`，其SHA清单为 `CHECKPOINT_SHA256_20261122T1936Z.txt`。以上是点名联赛补充审计，不替代继续检查所有现有联赛和所有可得年份。
+- 全任务仍继续：等当前Hungary分页及载入的其余联赛完成，继续3个增补映射ID；随后重并完整赛事库存，刷新逐联赛×年/来源赛季与FT缺口，再在TotalCorner采集进程结束后扩大核查与补采Crown全序列。没有进行模型、策略、回测或盈利筛选。
