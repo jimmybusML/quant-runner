@@ -1,0 +1,23 @@
+{
+  "study": "M8 frozen exact-rule cross-league per-group concentration audit",
+  "execution_utc": "2026-11-20T18:51:37Z",
+  "commands": [
+    "python3 research/m8_m9_group_independent_20261120/exact_rule_cross_league/group_concentration_20261121/audit_group_concentration.py",
+    "python3 research/m8_m9_group_independent_20261120/exact_rule_cross_league/group_concentration_20261121/build_report.py",
+    "python3 research/m8_m9_group_independent_20261120/exact_rule_cross_league/group_concentration_20261121/verify_group_concentration.py"
+  ],
+  "reconciliation": {
+    "source_unique_fids": 1160,
+    "source_net_U": 10.89,
+    "group_partition_reconciles": true,
+    "frozen_membership_fids": 10294,
+    "frozen_intersection_fids": 0,
+    "annual_and_league_cells_recomputed": 124,
+    "independent_group_summary_verification_pass": true,
+    "source_market_settlement": "Existing parent raw-Crown/FT verifier passed 1160/1160; this audit re-aggregates its settled ledger without altering prices or rules",
+    "actual_live_receipt_orders": 0
+  },
+  "production_changes": false,
+  "telegram_orders": 0,
+  "formal_ledger_writes": 0
+}

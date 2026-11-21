@@ -1,0 +1,1315 @@
+{
+  "study": "Robustness diagnostics for unchanged frozen exact M8 base/A-G rules applied outside original49; retrospective only.",
+  "input": "/Users/mac/Documents/ChatGPT/m8-m9-group-research/research/m8_m9_group_independent_20261120/exact_rule_cross_league/exact_rule_cross_league_orders.jsonl.gz",
+  "input_sha256": "6051a39bee5f99b83b8667af04e65f5bb1d7e5b265703d4bdf69b284511fb852",
+  "coverage_input_sha256": {
+    "/Users/mac/Documents/ChatGPT/m8-m9-group-research/research/m8_m9_group_independent_20261120/exact_rule_cross_league/exact_rule_cross_league_summary.json": "324487e69ae380936c30be40bca770558b5d631ef201fc810626fc986a71b50b",
+    "/Users/mac/QuantAsiaDesk/research-work/crown-drop-expanded-62/schedule_universe.jsonl": "a9d48b40cba84e5bf49f490b4b25bada9bc12a6266e6da0eed51c063166b8258",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_MR1_full_actual_Crown_receipt_archive_20261113.jsonl": "e3e1250b6e9bf8fe1a8cf638f46b276475e55b85d74fb12c7f105d048a67be5b"
+  },
+  "n_orders": 1160,
+  "n_unique_fids": 1160,
+  "net_u": 10.89,
+  "roi_pct": 0.938793,
+  "league_count_with_orders": 13,
+  "positive_leagues": 6,
+  "negative_leagues": 7,
+  "leave_one_league_out": [
+    {
+      "omitted_league": "Albania Championship",
+      "orders_omitted": 38,
+      "net_u_omitted": 1.77,
+      "remaining_orders": 1122,
+      "remaining_net_u": 9.12,
+      "remaining_roi_pct": 0.812834
+    },
+    {
+      "omitted_league": "Argentina Liga Profesional",
+      "orders_omitted": 119,
+      "net_u_omitted": 6.65,
+      "remaining_orders": 1041,
+      "remaining_net_u": 4.24,
+      "remaining_roi_pct": 0.407301
+    },
+    {
+      "omitted_league": "Bosnia & Herzegovina Premier Liga",
+      "orders_omitted": 49,
+      "net_u_omitted": -10.54,
+      "remaining_orders": 1111,
+      "remaining_net_u": 21.43,
+      "remaining_roi_pct": 1.928893
+    },
+    {
+      "omitted_league": "Brazil Serie A",
+      "orders_omitted": 125,
+      "net_u_omitted": -1.995,
+      "remaining_orders": 1035,
+      "remaining_net_u": 12.885,
+      "remaining_roi_pct": 1.244928
+    },
+    {
+      "omitted_league": "Egypt Division 1",
+      "orders_omitted": 128,
+      "net_u_omitted": -8.16,
+      "remaining_orders": 1032,
+      "remaining_net_u": 19.05,
+      "remaining_roi_pct": 1.84593
+    },
+    {
+      "omitted_league": "Gulf Cup",
+      "orders_omitted": 7,
+      "net_u_omitted": 6.25,
+      "remaining_orders": 1153,
+      "remaining_net_u": 4.64,
+      "remaining_roi_pct": 0.402428
+    },
+    {
+      "omitted_league": "International Match",
+      "orders_omitted": 130,
+      "net_u_omitted": 11.4,
+      "remaining_orders": 1030,
+      "remaining_net_u": -0.51,
+      "remaining_roi_pct": -0.049515
+    },
+    {
+      "omitted_league": "Kosovo Superliga",
+      "orders_omitted": 2,
+      "net_u_omitted": -2.0,
+      "remaining_orders": 1158,
+      "remaining_net_u": 12.89,
+      "remaining_roi_pct": 1.113126
+    },
+    {
+      "omitted_league": "Mexico Liga MX",
+      "orders_omitted": 121,
+      "net_u_omitted": 5.895,
+      "remaining_orders": 1039,
+      "remaining_net_u": 4.995,
+      "remaining_roi_pct": 0.480751
+    },
+    {
+      "omitted_league": "UEFA Nations League A",
+      "orders_omitted": 13,
+      "net_u_omitted": -2.215,
+      "remaining_orders": 1147,
+      "remaining_net_u": 13.105,
+      "remaining_roi_pct": 1.142546
+    },
+    {
+      "omitted_league": "UEFA Nations League B",
+      "orders_omitted": 6,
+      "net_u_omitted": -5.0,
+      "remaining_orders": 1154,
+      "remaining_net_u": 15.89,
+      "remaining_roi_pct": 1.37695
+    },
+    {
+      "omitted_league": "UEFA Nations League C",
+      "orders_omitted": 13,
+      "net_u_omitted": -1.74,
+      "remaining_orders": 1147,
+      "remaining_net_u": 12.63,
+      "remaining_roi_pct": 1.101133
+    },
+    {
+      "omitted_league": "USA MLS",
+      "orders_omitted": 409,
+      "net_u_omitted": 10.575,
+      "remaining_orders": 751,
+      "remaining_net_u": 0.315,
+      "remaining_roi_pct": 0.041944
+    }
+  ],
+  "leave_one_year_out": [
+    {
+      "omitted_year": "2019",
+      "orders_omitted": 67,
+      "net_u_omitted": 5.865,
+      "remaining_orders": 1093,
+      "remaining_net_u": 5.025,
+      "remaining_roi_pct": 0.459744
+    },
+    {
+      "omitted_year": "2020",
+      "orders_omitted": 39,
+      "net_u_omitted": -4.31,
+      "remaining_orders": 1121,
+      "remaining_net_u": 15.2,
+      "remaining_roi_pct": 1.355932
+    },
+    {
+      "omitted_year": "2021",
+      "orders_omitted": 65,
+      "net_u_omitted": -0.865,
+      "remaining_orders": 1095,
+      "remaining_net_u": 11.755,
+      "remaining_roi_pct": 1.073516
+    },
+    {
+      "omitted_year": "2022",
+      "orders_omitted": 77,
+      "net_u_omitted": 2.23,
+      "remaining_orders": 1083,
+      "remaining_net_u": 8.66,
+      "remaining_roi_pct": 0.799631
+    },
+    {
+      "omitted_year": "2023",
+      "orders_omitted": 166,
+      "net_u_omitted": 5.63,
+      "remaining_orders": 994,
+      "remaining_net_u": 5.26,
+      "remaining_roi_pct": 0.529175
+    },
+    {
+      "omitted_year": "2024",
+      "orders_omitted": 382,
+      "net_u_omitted": 7.89,
+      "remaining_orders": 778,
+      "remaining_net_u": 3.0,
+      "remaining_roi_pct": 0.385604
+    },
+    {
+      "omitted_year": "2025",
+      "orders_omitted": 337,
+      "net_u_omitted": -0.39,
+      "remaining_orders": 823,
+      "remaining_net_u": 11.28,
+      "remaining_roi_pct": 1.370595
+    },
+    {
+      "omitted_year": "2026",
+      "orders_omitted": 27,
+      "net_u_omitted": -5.16,
+      "remaining_orders": 1133,
+      "remaining_net_u": 16.05,
+      "remaining_roi_pct": 1.416593
+    }
+  ],
+  "week_block_bootstrap": {
+    "method": "circular resampling of consecutive 4-ISO-week blocks; zero-order weeks retained; percentile interval; diagnostics do not correct for prior research selection or multiple comparisons.",
+    "seed": 4862026,
+    "replicates": 20000,
+    "block_weeks": 4,
+    "span_weeks": 379,
+    "weeks_with_orders": 241,
+    "net_u_ci95": [
+      -46.545,
+      68.42
+    ],
+    "roi_pct_ci95": [
+      -4.129243,
+      5.791233
+    ],
+    "bootstrap_fraction_net_positive": 0.65145
+  },
+  "by_league": {
+    "Albania Championship": {
+      "orders": 38,
+      "net_u": 1.77,
+      "roi_pct": 4.657895
+    },
+    "Argentina Liga Profesional": {
+      "orders": 119,
+      "net_u": 6.65,
+      "roi_pct": 5.588235
+    },
+    "Bosnia & Herzegovina Premier Liga": {
+      "orders": 49,
+      "net_u": -10.54,
+      "roi_pct": -21.510204
+    },
+    "Brazil Serie A": {
+      "orders": 125,
+      "net_u": -1.995,
+      "roi_pct": -1.596
+    },
+    "Egypt Division 1": {
+      "orders": 128,
+      "net_u": -8.16,
+      "roi_pct": -6.375
+    },
+    "Gulf Cup": {
+      "orders": 7,
+      "net_u": 6.25,
+      "roi_pct": 89.285714
+    },
+    "International Match": {
+      "orders": 130,
+      "net_u": 11.4,
+      "roi_pct": 8.769231
+    },
+    "Kosovo Superliga": {
+      "orders": 2,
+      "net_u": -2.0,
+      "roi_pct": -100.0
+    },
+    "Mexico Liga MX": {
+      "orders": 121,
+      "net_u": 5.895,
+      "roi_pct": 4.871901
+    },
+    "UEFA Nations League A": {
+      "orders": 13,
+      "net_u": -2.215,
+      "roi_pct": -17.038462
+    },
+    "UEFA Nations League B": {
+      "orders": 6,
+      "net_u": -5.0,
+      "roi_pct": -83.333333
+    },
+    "UEFA Nations League C": {
+      "orders": 13,
+      "net_u": -1.74,
+      "roi_pct": -13.384615
+    },
+    "USA MLS": {
+      "orders": 409,
+      "net_u": 10.575,
+      "roi_pct": 2.585575
+    }
+  },
+  "by_year": {
+    "2019": {
+      "orders": 67,
+      "net_u": 5.865,
+      "roi_pct": 8.753731
+    },
+    "2020": {
+      "orders": 39,
+      "net_u": -4.31,
+      "roi_pct": -11.051282
+    },
+    "2021": {
+      "orders": 65,
+      "net_u": -0.865,
+      "roi_pct": -1.330769
+    },
+    "2022": {
+      "orders": 77,
+      "net_u": 2.23,
+      "roi_pct": 2.896104
+    },
+    "2023": {
+      "orders": 166,
+      "net_u": 5.63,
+      "roi_pct": 3.391566
+    },
+    "2024": {
+      "orders": 382,
+      "net_u": 7.89,
+      "roi_pct": 2.065445
+    },
+    "2025": {
+      "orders": 337,
+      "net_u": -0.39,
+      "roi_pct": -0.115727
+    },
+    "2026": {
+      "orders": 27,
+      "net_u": -5.16,
+      "roi_pct": -19.111111
+    }
+  },
+  "weekly": {
+    "2019-W09": {
+      "orders": 2,
+      "net_u": 0.83
+    },
+    "2019-W11": {
+      "orders": 4,
+      "net_u": -2.16
+    },
+    "2019-W12": {
+      "orders": 1,
+      "net_u": 0.0
+    },
+    "2019-W14": {
+      "orders": 1,
+      "net_u": -0.5
+    },
+    "2019-W15": {
+      "orders": 5,
+      "net_u": 0.3
+    },
+    "2019-W16": {
+      "orders": 2,
+      "net_u": 1.76
+    },
+    "2019-W17": {
+      "orders": 3,
+      "net_u": 0.38
+    },
+    "2019-W18": {
+      "orders": 1,
+      "net_u": 0.85
+    },
+    "2019-W19": {
+      "orders": 3,
+      "net_u": -3.0
+    },
+    "2019-W20": {
+      "orders": 1,
+      "net_u": 0.93
+    },
+    "2019-W21": {
+      "orders": 1,
+      "net_u": 0.0
+    },
+    "2019-W22": {
+      "orders": 2,
+      "net_u": 1.75
+    },
+    "2019-W25": {
+      "orders": 2,
+      "net_u": 0.05
+    },
+    "2019-W26": {
+      "orders": 2,
+      "net_u": -1.0
+    },
+    "2019-W27": {
+      "orders": 3,
+      "net_u": -0.94
+    },
+    "2019-W28": {
+      "orders": 3,
+      "net_u": 1.26
+    },
+    "2019-W29": {
+      "orders": 4,
+      "net_u": 1.65
+    },
+    "2019-W30": {
+      "orders": 5,
+      "net_u": 0.475
+    },
+    "2019-W32": {
+      "orders": 1,
+      "net_u": 1.06
+    },
+    "2019-W33": {
+      "orders": 1,
+      "net_u": 0.89
+    },
+    "2019-W34": {
+      "orders": 4,
+      "net_u": -0.95
+    },
+    "2019-W35": {
+      "orders": 1,
+      "net_u": 0.0
+    },
+    "2019-W36": {
+      "orders": 1,
+      "net_u": -0.5
+    },
+    "2019-W37": {
+      "orders": 3,
+      "net_u": 0.265
+    },
+    "2019-W38": {
+      "orders": 3,
+      "net_u": 0.28
+    },
+    "2019-W39": {
+      "orders": 4,
+      "net_u": 0.92
+    },
+    "2019-W40": {
+      "orders": 2,
+      "net_u": 1.285
+    },
+    "2019-W41": {
+      "orders": 2,
+      "net_u": -0.02
+    },
+    "2020-W09": {
+      "orders": 1,
+      "net_u": 0.99
+    },
+    "2020-W10": {
+      "orders": 2,
+      "net_u": 0.83
+    },
+    "2020-W35": {
+      "orders": 3,
+      "net_u": 0.66
+    },
+    "2020-W36": {
+      "orders": 3,
+      "net_u": 2.78
+    },
+    "2020-W37": {
+      "orders": 3,
+      "net_u": -2.5
+    },
+    "2020-W38": {
+      "orders": 5,
+      "net_u": -1.11
+    },
+    "2020-W39": {
+      "orders": 3,
+      "net_u": -1.17
+    },
+    "2020-W41": {
+      "orders": 3,
+      "net_u": 2.76
+    },
+    "2020-W42": {
+      "orders": 1,
+      "net_u": 0.0
+    },
+    "2020-W43": {
+      "orders": 4,
+      "net_u": 1.55
+    },
+    "2020-W44": {
+      "orders": 7,
+      "net_u": -7.0
+    },
+    "2020-W45": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2020-W46": {
+      "orders": 3,
+      "net_u": -1.1
+    },
+    "2021-W15": {
+      "orders": 3,
+      "net_u": -2.0
+    },
+    "2021-W16": {
+      "orders": 3,
+      "net_u": 2.61
+    },
+    "2021-W17": {
+      "orders": 2,
+      "net_u": -0.15
+    },
+    "2021-W18": {
+      "orders": 2,
+      "net_u": 1.99
+    },
+    "2021-W19": {
+      "orders": 3,
+      "net_u": -1.1
+    },
+    "2021-W21": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2021-W24": {
+      "orders": 2,
+      "net_u": 0.12
+    },
+    "2021-W25": {
+      "orders": 3,
+      "net_u": 1.265
+    },
+    "2021-W29": {
+      "orders": 3,
+      "net_u": -0.97
+    },
+    "2021-W30": {
+      "orders": 2,
+      "net_u": -0.465
+    },
+    "2021-W31": {
+      "orders": 4,
+      "net_u": 2.46
+    },
+    "2021-W32": {
+      "orders": 2,
+      "net_u": -2.0
+    },
+    "2021-W33": {
+      "orders": 4,
+      "net_u": 1.84
+    },
+    "2021-W34": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2021-W37": {
+      "orders": 1,
+      "net_u": 0.425
+    },
+    "2021-W38": {
+      "orders": 5,
+      "net_u": -4.0
+    },
+    "2021-W39": {
+      "orders": 5,
+      "net_u": 2.065
+    },
+    "2021-W40": {
+      "orders": 1,
+      "net_u": 0.405
+    },
+    "2021-W41": {
+      "orders": 4,
+      "net_u": -0.36
+    },
+    "2021-W42": {
+      "orders": 3,
+      "net_u": 0.345
+    },
+    "2021-W43": {
+      "orders": 7,
+      "net_u": -2.79
+    },
+    "2021-W44": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2021-W47": {
+      "orders": 1,
+      "net_u": 0.91
+    },
+    "2021-W48": {
+      "orders": 2,
+      "net_u": 1.535
+    },
+    "2022-W08": {
+      "orders": 3,
+      "net_u": -1.535
+    },
+    "2022-W11": {
+      "orders": 2,
+      "net_u": 1.85
+    },
+    "2022-W12": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2022-W13": {
+      "orders": 2,
+      "net_u": 1.75
+    },
+    "2022-W14": {
+      "orders": 1,
+      "net_u": -0.5
+    },
+    "2022-W15": {
+      "orders": 1,
+      "net_u": 0.425
+    },
+    "2022-W16": {
+      "orders": 2,
+      "net_u": 0.56
+    },
+    "2022-W17": {
+      "orders": 2,
+      "net_u": -0.07
+    },
+    "2022-W18": {
+      "orders": 3,
+      "net_u": -1.12
+    },
+    "2022-W19": {
+      "orders": 3,
+      "net_u": -0.94
+    },
+    "2022-W20": {
+      "orders": 4,
+      "net_u": 2.21
+    },
+    "2022-W21": {
+      "orders": 5,
+      "net_u": -0.09
+    },
+    "2022-W24": {
+      "orders": 3,
+      "net_u": 1.29
+    },
+    "2022-W25": {
+      "orders": 3,
+      "net_u": -3.0
+    },
+    "2022-W27": {
+      "orders": 5,
+      "net_u": -0.69
+    },
+    "2022-W28": {
+      "orders": 5,
+      "net_u": 0.635
+    },
+    "2022-W29": {
+      "orders": 3,
+      "net_u": 1.13
+    },
+    "2022-W30": {
+      "orders": 1,
+      "net_u": 0.93
+    },
+    "2022-W31": {
+      "orders": 2,
+      "net_u": 2.01
+    },
+    "2022-W32": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2022-W33": {
+      "orders": 3,
+      "net_u": 2.66
+    },
+    "2022-W34": {
+      "orders": 3,
+      "net_u": 0.405
+    },
+    "2022-W35": {
+      "orders": 3,
+      "net_u": -1.01
+    },
+    "2022-W36": {
+      "orders": 4,
+      "net_u": -2.16
+    },
+    "2022-W37": {
+      "orders": 4,
+      "net_u": -0.27
+    },
+    "2022-W38": {
+      "orders": 2,
+      "net_u": 1.87
+    },
+    "2022-W39": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2022-W41": {
+      "orders": 5,
+      "net_u": -1.11
+    },
+    "2023-W08": {
+      "orders": 1,
+      "net_u": -0.5
+    },
+    "2023-W09": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2023-W10": {
+      "orders": 3,
+      "net_u": 0.935
+    },
+    "2023-W11": {
+      "orders": 4,
+      "net_u": -1.18
+    },
+    "2023-W15": {
+      "orders": 2,
+      "net_u": 0.865
+    },
+    "2023-W16": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2023-W17": {
+      "orders": 2,
+      "net_u": -0.14
+    },
+    "2023-W18": {
+      "orders": 3,
+      "net_u": -1.15
+    },
+    "2023-W20": {
+      "orders": 4,
+      "net_u": -1.185
+    },
+    "2023-W21": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2023-W22": {
+      "orders": 4,
+      "net_u": 1.61
+    },
+    "2023-W23": {
+      "orders": 2,
+      "net_u": -1.0
+    },
+    "2023-W25": {
+      "orders": 3,
+      "net_u": -0.66
+    },
+    "2023-W26": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2023-W27": {
+      "orders": 3,
+      "net_u": 0.85
+    },
+    "2023-W28": {
+      "orders": 2,
+      "net_u": 0.03
+    },
+    "2023-W32": {
+      "orders": 3,
+      "net_u": 1.84
+    },
+    "2023-W33": {
+      "orders": 4,
+      "net_u": -0.56
+    },
+    "2023-W34": {
+      "orders": 12,
+      "net_u": -1.13
+    },
+    "2023-W35": {
+      "orders": 6,
+      "net_u": 1.58
+    },
+    "2023-W36": {
+      "orders": 8,
+      "net_u": 2.445
+    },
+    "2023-W37": {
+      "orders": 11,
+      "net_u": 2.77
+    },
+    "2023-W38": {
+      "orders": 5,
+      "net_u": -2.625
+    },
+    "2023-W40": {
+      "orders": 7,
+      "net_u": 1.66
+    },
+    "2023-W41": {
+      "orders": 6,
+      "net_u": -1.24
+    },
+    "2023-W42": {
+      "orders": 13,
+      "net_u": -1.63
+    },
+    "2023-W43": {
+      "orders": 7,
+      "net_u": 0.32
+    },
+    "2023-W44": {
+      "orders": 7,
+      "net_u": 0.84
+    },
+    "2023-W45": {
+      "orders": 7,
+      "net_u": 1.85
+    },
+    "2023-W46": {
+      "orders": 1,
+      "net_u": 1.07
+    },
+    "2023-W47": {
+      "orders": 6,
+      "net_u": 0.665
+    },
+    "2023-W48": {
+      "orders": 6,
+      "net_u": 3.74
+    },
+    "2023-W49": {
+      "orders": 12,
+      "net_u": 0.03
+    },
+    "2023-W50": {
+      "orders": 3,
+      "net_u": 0.59
+    },
+    "2023-W51": {
+      "orders": 1,
+      "net_u": 0.86
+    },
+    "2023-W52": {
+      "orders": 4,
+      "net_u": -1.92
+    },
+    "2024-W01": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2024-W02": {
+      "orders": 4,
+      "net_u": -0.16
+    },
+    "2024-W03": {
+      "orders": 2,
+      "net_u": 1.05
+    },
+    "2024-W04": {
+      "orders": 3,
+      "net_u": -1.09
+    },
+    "2024-W06": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2024-W07": {
+      "orders": 5,
+      "net_u": 2.47
+    },
+    "2024-W08": {
+      "orders": 6,
+      "net_u": 0.67
+    },
+    "2024-W09": {
+      "orders": 7,
+      "net_u": 0.745
+    },
+    "2024-W10": {
+      "orders": 5,
+      "net_u": -1.22
+    },
+    "2024-W11": {
+      "orders": 1,
+      "net_u": 0.405
+    },
+    "2024-W12": {
+      "orders": 10,
+      "net_u": 1.7
+    },
+    "2024-W13": {
+      "orders": 15,
+      "net_u": 1.365
+    },
+    "2024-W14": {
+      "orders": 5,
+      "net_u": 2.93
+    },
+    "2024-W15": {
+      "orders": 2,
+      "net_u": 0.06
+    },
+    "2024-W16": {
+      "orders": 10,
+      "net_u": -4.3
+    },
+    "2024-W17": {
+      "orders": 6,
+      "net_u": 0.04
+    },
+    "2024-W18": {
+      "orders": 5,
+      "net_u": -1.23
+    },
+    "2024-W19": {
+      "orders": 6,
+      "net_u": -1.23
+    },
+    "2024-W20": {
+      "orders": 7,
+      "net_u": -2.01
+    },
+    "2024-W21": {
+      "orders": 6,
+      "net_u": 2.585
+    },
+    "2024-W22": {
+      "orders": 8,
+      "net_u": 0.62
+    },
+    "2024-W23": {
+      "orders": 19,
+      "net_u": 6.035
+    },
+    "2024-W24": {
+      "orders": 7,
+      "net_u": 4.2
+    },
+    "2024-W25": {
+      "orders": 7,
+      "net_u": -0.07
+    },
+    "2024-W26": {
+      "orders": 8,
+      "net_u": -0.33
+    },
+    "2024-W27": {
+      "orders": 9,
+      "net_u": -1.69
+    },
+    "2024-W28": {
+      "orders": 6,
+      "net_u": -3.16
+    },
+    "2024-W29": {
+      "orders": 8,
+      "net_u": -5.5
+    },
+    "2024-W30": {
+      "orders": 8,
+      "net_u": 1.745
+    },
+    "2024-W31": {
+      "orders": 12,
+      "net_u": 2.33
+    },
+    "2024-W32": {
+      "orders": 4,
+      "net_u": -0.95
+    },
+    "2024-W33": {
+      "orders": 6,
+      "net_u": 0.77
+    },
+    "2024-W34": {
+      "orders": 8,
+      "net_u": 1.46
+    },
+    "2024-W35": {
+      "orders": 6,
+      "net_u": 3.34
+    },
+    "2024-W36": {
+      "orders": 9,
+      "net_u": 1.14
+    },
+    "2024-W37": {
+      "orders": 13,
+      "net_u": -2.335
+    },
+    "2024-W38": {
+      "orders": 12,
+      "net_u": 2.4
+    },
+    "2024-W39": {
+      "orders": 6,
+      "net_u": -0.05
+    },
+    "2024-W40": {
+      "orders": 10,
+      "net_u": 2.48
+    },
+    "2024-W41": {
+      "orders": 8,
+      "net_u": -2.915
+    },
+    "2024-W42": {
+      "orders": 16,
+      "net_u": -4.86
+    },
+    "2024-W43": {
+      "orders": 11,
+      "net_u": -3.475
+    },
+    "2024-W44": {
+      "orders": 5,
+      "net_u": -3.44
+    },
+    "2024-W45": {
+      "orders": 9,
+      "net_u": -0.5
+    },
+    "2024-W46": {
+      "orders": 10,
+      "net_u": -2.37
+    },
+    "2024-W47": {
+      "orders": 20,
+      "net_u": 2.745
+    },
+    "2024-W48": {
+      "orders": 4,
+      "net_u": 1.7
+    },
+    "2024-W49": {
+      "orders": 7,
+      "net_u": -0.77
+    },
+    "2024-W50": {
+      "orders": 8,
+      "net_u": 1.055
+    },
+    "2024-W51": {
+      "orders": 5,
+      "net_u": 2.065
+    },
+    "2024-W52": {
+      "orders": 6,
+      "net_u": 5.44
+    },
+    "2025-W02": {
+      "orders": 2,
+      "net_u": -0.07
+    },
+    "2025-W03": {
+      "orders": 2,
+      "net_u": 1.92
+    },
+    "2025-W04": {
+      "orders": 2,
+      "net_u": -1.0
+    },
+    "2025-W05": {
+      "orders": 7,
+      "net_u": -2.85
+    },
+    "2025-W06": {
+      "orders": 5,
+      "net_u": -2.21
+    },
+    "2025-W07": {
+      "orders": 5,
+      "net_u": 2.215
+    },
+    "2025-W09": {
+      "orders": 8,
+      "net_u": -2.965
+    },
+    "2025-W10": {
+      "orders": 10,
+      "net_u": -1.32
+    },
+    "2025-W11": {
+      "orders": 5,
+      "net_u": 2.37
+    },
+    "2025-W12": {
+      "orders": 11,
+      "net_u": -0.11
+    },
+    "2025-W13": {
+      "orders": 7,
+      "net_u": 2.94
+    },
+    "2025-W14": {
+      "orders": 6,
+      "net_u": -0.29
+    },
+    "2025-W15": {
+      "orders": 6,
+      "net_u": -4.07
+    },
+    "2025-W16": {
+      "orders": 9,
+      "net_u": 1.94
+    },
+    "2025-W17": {
+      "orders": 9,
+      "net_u": 0.035
+    },
+    "2025-W18": {
+      "orders": 8,
+      "net_u": -1.845
+    },
+    "2025-W19": {
+      "orders": 7,
+      "net_u": -5.0
+    },
+    "2025-W20": {
+      "orders": 10,
+      "net_u": 1.915
+    },
+    "2025-W21": {
+      "orders": 6,
+      "net_u": 0.66
+    },
+    "2025-W22": {
+      "orders": 9,
+      "net_u": 2.055
+    },
+    "2025-W23": {
+      "orders": 7,
+      "net_u": -1.9
+    },
+    "2025-W24": {
+      "orders": 4,
+      "net_u": -0.655
+    },
+    "2025-W26": {
+      "orders": 1,
+      "net_u": 0.87
+    },
+    "2025-W27": {
+      "orders": 2,
+      "net_u": -0.16
+    },
+    "2025-W28": {
+      "orders": 8,
+      "net_u": -1.02
+    },
+    "2025-W29": {
+      "orders": 5,
+      "net_u": 0.72
+    },
+    "2025-W30": {
+      "orders": 5,
+      "net_u": 2.42
+    },
+    "2025-W31": {
+      "orders": 2,
+      "net_u": -0.08
+    },
+    "2025-W32": {
+      "orders": 8,
+      "net_u": 2.225
+    },
+    "2025-W33": {
+      "orders": 7,
+      "net_u": 1.185
+    },
+    "2025-W34": {
+      "orders": 3,
+      "net_u": -3.0
+    },
+    "2025-W35": {
+      "orders": 10,
+      "net_u": -1.48
+    },
+    "2025-W36": {
+      "orders": 10,
+      "net_u": -1.05
+    },
+    "2025-W37": {
+      "orders": 9,
+      "net_u": 2.07
+    },
+    "2025-W38": {
+      "orders": 11,
+      "net_u": -0.48
+    },
+    "2025-W39": {
+      "orders": 9,
+      "net_u": 1.25
+    },
+    "2025-W40": {
+      "orders": 11,
+      "net_u": 1.45
+    },
+    "2025-W41": {
+      "orders": 12,
+      "net_u": -3.115
+    },
+    "2025-W42": {
+      "orders": 7,
+      "net_u": 0.1
+    },
+    "2025-W43": {
+      "orders": 7,
+      "net_u": -0.975
+    },
+    "2025-W44": {
+      "orders": 8,
+      "net_u": -0.58
+    },
+    "2025-W45": {
+      "orders": 11,
+      "net_u": 1.515
+    },
+    "2025-W46": {
+      "orders": 10,
+      "net_u": 1.13
+    },
+    "2025-W47": {
+      "orders": 16,
+      "net_u": 2.445
+    },
+    "2025-W48": {
+      "orders": 4,
+      "net_u": 0.955
+    },
+    "2025-W49": {
+      "orders": 4,
+      "net_u": 1.485
+    },
+    "2025-W50": {
+      "orders": 2,
+      "net_u": -2.0
+    },
+    "2025-W51": {
+      "orders": 8,
+      "net_u": 2.045
+    },
+    "2025-W52": {
+      "orders": 2,
+      "net_u": -0.08
+    },
+    "2026-W03": {
+      "orders": 2,
+      "net_u": 0.05
+    },
+    "2026-W04": {
+      "orders": 2,
+      "net_u": -0.14
+    },
+    "2026-W06": {
+      "orders": 2,
+      "net_u": -0.16
+    },
+    "2026-W07": {
+      "orders": 2,
+      "net_u": 1.67
+    },
+    "2026-W08": {
+      "orders": 3,
+      "net_u": -1.02
+    },
+    "2026-W10": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2026-W15": {
+      "orders": 1,
+      "net_u": 1.0
+    },
+    "2026-W16": {
+      "orders": 2,
+      "net_u": -0.21
+    },
+    "2026-W17": {
+      "orders": 6,
+      "net_u": -2.27
+    },
+    "2026-W18": {
+      "orders": 1,
+      "net_u": -1.0
+    },
+    "2026-W21": {
+      "orders": 2,
+      "net_u": -0.08
+    },
+    "2026-W22": {
+      "orders": 3,
+      "net_u": -2.0
+    }
+  },
+  "additional_15_league_2026_data_availability": {
+    "provider_league_ids": [
+      "10",
+      "10714",
+      "11498",
+      "129",
+      "19290",
+      "27388",
+      "27389",
+      "27390",
+      "314",
+      "33",
+      "378",
+      "670",
+      "779",
+      "8293",
+      "85"
+    ],
+    "schedule_fixtures": 252,
+    "latest_kickoff_local": "2026-06-01 01:00:00",
+    "schedule_leagues_present": [
+      "10714",
+      "11498",
+      "33",
+      "8293"
+    ],
+    "complete_T6_T3_T1_historical_paths_from_expansion_audit": 74,
+    "unique_fids_in_MR1_HTTP_receipt_archive": 0,
+    "receipt_claim": "none; archive overlap only and no full score features/quotes are implied"
+  },
+  "rule_changes": false,
+  "production_changes": false,
+  "formal_orders": 0,
+  "ledger_writes": 0
+}

@@ -1,0 +1,63 @@
+{
+  "study": "Independent verifier for referee-history M8 Crown AH research",
+  "pass": true,
+  "issues": {},
+  "feature_rows": 12744,
+  "unique_feature_fids": 12744,
+  "raw_response_hash_ft_identity_T12_and_AH_settlement_checked": 12744,
+  "unique_raw_files": 12744,
+  "prediction_rows": 30096,
+  "methods": [
+    "Crown + referee",
+    "Crown lower-odds side",
+    "Crown only",
+    "Ref only"
+  ],
+  "test_unique_fids": 7524,
+  "frozen_eight_overlap_fids": 1650,
+  "outside_frozen_eight_unique_fids": 5874,
+  "referee_lookback_features_rebuilt_rows": 12744,
+  "method_totals": {
+    "Crown only|outside_frozen_eight": {
+      "n": 5874,
+      "net_U": -99.54,
+      "ROI_pct": -1.694586
+    },
+    "Crown only|all_matched_test": {
+      "n": 7524,
+      "net_U": -157.035,
+      "ROI_pct": -2.087121
+    },
+    "Ref only|outside_frozen_eight": {
+      "n": 5874,
+      "net_U": -98.82,
+      "ROI_pct": -1.682329
+    },
+    "Ref only|all_matched_test": {
+      "n": 7524,
+      "net_U": -195.64,
+      "ROI_pct": -2.600213
+    },
+    "Crown + referee|outside_frozen_eight": {
+      "n": 5874,
+      "net_U": -83.53,
+      "ROI_pct": -1.422029
+    },
+    "Crown + referee|all_matched_test": {
+      "n": 7524,
+      "net_U": -151.015,
+      "ROI_pct": -2.007111
+    },
+    "Crown lower-odds side|outside_frozen_eight": {
+      "n": 5874,
+      "net_U": -304.17,
+      "ROI_pct": -5.178243
+    },
+    "Crown lower-odds side|all_matched_test": {
+      "n": 7524,
+      "net_U": -360.65,
+      "ROI_pct": -4.793328
+    }
+  },
+  "live_receipt_feature_rows": 0
+}
