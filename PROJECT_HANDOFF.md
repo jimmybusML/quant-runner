@@ -5279,6 +5279,13 @@
 - 下一步继续现有Italy分页与本批剩余目标；每有整项完成就重跑同一SHA/FT覆盖审计。整个任务仍未完成；完整库存合并、其余外部联赛排查、赛果缺口复核以及停掉TotalCorner collector后继续的Crown历史行情扩采仍待执行。
 
 
+### 2026-11-21 20:12 UTC：Malta Challenge League完成，23个联赛覆盖更新
+
+- 同一TotalCorner schedule collector PID 65966 / session 29157继续运行，未重启。Malta Challenge League（ID 15795）完成35页、1,043个目标FID、失败页0；当前载入35项已完成23项，剩余12项；排队清单中的3个精确映射ID待当前35项完成后追加。检查点时累计1,311次请求、fixture ledger新增38,429个FID、身份冲突0，下一目标Montenegro Druga Liga（ID 280）为6/39页。检查点和私有日志SHA见`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T2012Z.json`。
+- 对23个已完成目标重跑覆盖审计：38,249个唯一赛程FID，其中35,559场TotalCorner `status=full`且FT为数字，2,690场其他/未核实状态；源页与逐场SHA核对通过，身份版本冲突0。逐年/逐联赛明细见`completed_schedule_league_year_coverage_2019_2026.json`。
+- 该23目标集合与本地Crown SQLite的只读movement quote交集为0（SQLite SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`）；不将本地交集为0推断为赛事无报价。TotalCorner仍运行期间没有发起Crown请求或写库。
+- 检查点清单为`CHECKPOINT_SHA256_20261121T2012Z.txt`。全项目数据恢复继续进行；完整外部联赛/年份盘点、赛果缺口、统一库存合并、采集结束后的Crown历史AH补齐均未完成。未进行策略/模型/回测或盈利筛选。
+
 ### 2026-11-21 20:07 UTC：Latvia 1. Liga完成，22个联赛覆盖更新
 
 - 沿用同一TotalCorner schedule collector PID 65966 / session 29157，没有重启。Latvia 1. Liga（ID 242）完成27个源页、756个目标期FID、失败页0；当前载入35项中22项完成、13项未完成，38项队列中的3个精确映射补充ID仍待本批完成后采集。检查点时当前目标为Malta Challenge League（ID 15795）第10/35页、300个FID；全批累计1,280次请求、ledger新增37,506个FID、身份冲突0。
