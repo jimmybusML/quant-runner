@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-11-21T14:42:25.671477Z",
+  "generated_at_utc": "2026-11-21T14:49:50.098364Z",
   "scope": "Only currently unresolved FT candidates; Crown response status full is accepted only after exact FID, league, UTC kickoff, exact team names, and nonnegative integer scores match.",
   "inputs": {
-    "unverified_FT_candidates_file_sha256": "ad2a76c265355452317046885d02d9072670a4aac5c17d4dae1ffed010140565",
-    "unverified_FT_candidate_count": 5139,
+    "unverified_FT_candidates_file_sha256": "1de05196420879900d82f1a6f71cbde7e99eba8248e7af644049d275e7bffd18",
+    "unverified_FT_candidate_count": 5180,
     "crown_sqlite_file_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298"
   },
   "crown_raw_responses": {
@@ -996,6 +996,30 @@
     },
     "19290|2026": {
       "candidate_fids": 16,
+      "capture_rows": 0,
+      "raw_responses_checked": 0,
+      "fids_with_full_exact_raw_ft": 0
+    },
+    "210|2019": {
+      "candidate_fids": 18,
+      "capture_rows": 0,
+      "raw_responses_checked": 0,
+      "fids_with_full_exact_raw_ft": 0
+    },
+    "210|2020": {
+      "candidate_fids": 2,
+      "capture_rows": 0,
+      "raw_responses_checked": 0,
+      "fids_with_full_exact_raw_ft": 0
+    },
+    "210|2021": {
+      "candidate_fids": 13,
+      "capture_rows": 0,
+      "raw_responses_checked": 0,
+      "fids_with_full_exact_raw_ft": 0
+    },
+    "210|2022": {
+      "candidate_fids": 8,
       "capture_rows": 0,
       "raw_responses_checked": 0,
       "fids_with_full_exact_raw_ft": 0
@@ -3070,7 +3094,7 @@
     }
   },
   "per_fid_evidence_file": "crown_raw_ft_candidate_audit_rows_2019_2026.jsonl.gz",
-  "per_fid_evidence_sha256": "3f7d55bd8cd63c2f22bc2d57fc01aa07566f4767ba1ea130309d5716916755f4",
+  "per_fid_evidence_sha256": "44101df51405e2603e77d9d3088a803865a301671413e3c5245cafae7dff4322",
   "api_requests": 0,
   "sqlite_writes": 0,
   "interpretation": "Absence of a verified Crown raw full-time record remains unverified; source statuses and placeholder 0:0 values are not treated as final results."

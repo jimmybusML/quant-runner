@@ -5077,3 +5077,10 @@
 - 新增`league_season_coverage_2019_2026.csv`及相应审计代码。该表严格只取赛事源实际提供的season字段：当前494个联赛-赛季桶中71个为`UNKNOWN_SOURCE_SEASON`，9个既有身份/日期冲突保持在单独审计；没有用开赛日推导赛季。逐联赛逐UTC年矩阵仍并行提供。
 - Crown原始响应严格FT复核同步更新至5,139个候选、456个有capture、1,493个去重响应、通过全状态/身份/比分判定的新增FT仍为0；issues、API请求、SQLite写入均为0。精确引用的离线导入批次验证为62/62响应和124/124报价行通过；完整旧核验账未被覆盖，70条时间窗口外movement响应单独排除。
 - 14:43快照为`supplemental_schedule_progress_snapshot_20261121T1443Z.json`；当前覆盖矩阵和season分层仅是活跃续采时点。外部ID清单尚余9个待分页探查，之后还需对新赛程重建movement缺口队列并持续恢复Crown报价和可核实FT，整体目标未完成。
+
+## 2026-11-21｜全库存季赛矩阵纠正并合并至ID210第65页（14:50 UTC快照）
+
+- 新增的赛季覆盖表第一版把2019年前页缓存纳入了赛季分组，造成表内FID合计高于目标期库存。已用仅限2019–2026的规范化逐场库存重算；验证494个联赛-来源赛季桶的FID合计129,567，与129,567个目标期唯一FID相等，每桶complete FT与unverified FT之和等于桶内赛程数。2019年前页面仍保留在原始页审计中，但不计入此赛季表。最终未知源赛季标签FID为33,064；不使用日期推测赛季。
+- 重新合并追加的ID210第23–65页（共43/98页、1,934个目标期FID，无失败页），当前归一化ID15/57/63/121/128均到2019边界。补充源共15,456条记录版本，SHA256 `eba93d676ab97ad4b3cda29ea8b5ffab67ee893a92ebc40ce6c959cb3ae60125`；TotalCorner采集器日志显示523次成功请求、15,336个新FID。
+- 14:49全覆盖复核：129,567唯一FID、71个联赛、568个联赛-UTC年桶；verified FT 124,387、unverified FT 5,180。Crown movement报价52,999FID/4,429,709行，explicit no-quote 49,697FID，失败请求951，缺movement报价库存76,568FID。严格Crown raw FT候选扫描扩到5,180，456个候选有capture、1,493个raw response已检，0个新增严格验证FT，0审计异常。
+- 持久化矩阵为`league_year_coverage_2019_2026.csv`及新增`league_season_coverage_2019_2026.csv`。纠正后覆盖输出、检查点及脚本位于`supplemental_schedule_progress_snapshot_20261121T1450Z.json`和`COLLECTION_CHECKPOINT_20261121T1450Z.md`；ID210仍有33页且其余外部联赛ID仍待检查，全任务未完成。

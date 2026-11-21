@@ -279,35 +279,30 @@ def main():
       'movement_capture_fids':set(),'movement_quotes_fids':set(),'summary_quotes_fids':set(),'live_quote_fids':set(),
       'movement_quote_rows':0,'summary_quote_rows':0,'live_quote_rows':0,'no_quote_fids':set(),'failed_attempts':0,
       'expanded_universe_fids':set(),'season_metadata_records':0,'season_conflict_fids':set()})
-    for fid,r in fixtures.items():
-        page=r['totalcorner_schedule'];supp=r['supplemental_schedule'];uni=r['expanded_universe'];m1_records=r.get('m1_history_cache',[])
-        league_ids={z['provider_league_id'] for z in page if z.get('provider_league_id')}
-        league_ids.update(z['provider_league_id'] for z in supp if z.get('provider_league_id'))
-        league_ids.update(z['league_id'] for z in uni if z.get('league_id'))
-        league_ids.update(z['league_id'] for z in m1_records if z.get('league_id'))
-        if not league_ids:continue
+    for inv in inventory:
+        fid=inv['fid'];league_id=inv['provider_league_id']
+        page=inv['totalcorner_page_records'];supp=inv['supplemental_schedule_records'];uni=inv['expanded_universe_records'];m1_records=inv['M1_history_cache_records']
         seasons=sorted({str(z.get('season')).strip() for z in uni if z.get('season') is not None and str(z.get('season')).strip()})
         season_key=seasons[0] if len(seasons)==1 else ('UNKNOWN_SOURCE_SEASON' if not seasons else 'SEASON_SOURCE_CONFLICT:'+'|'.join(seasons))
         sources=page+m1_records+supp
-        external_ft=r.get('external_ft_evidence',[])
+        external_ft=inv.get('external_ft_evidence',[])
         verified_ft=bool(external_ft) or any(z.get('status')=='full' and nonnegative_int(z.get('home_goals')) is not None and nonnegative_int(z.get('away_goals')) is not None for z in sources)
-        caps=r.get('crown_captures',[]);qgs=r.get('crown_quote_groups',[])
-        for league_id in league_ids:
-            d=season_group[(league_id,season_key)];d['fids'].add(fid)
-            if uni:d['expanded_universe_fids'].add(fid)
-            if seasons:d['season_metadata_records']+=sum(1 for z in uni if z.get('season') is not None and str(z.get('season')).strip())
-            if len(seasons)>1:d['season_conflict_fids'].add(fid)
-            (d['complete_ft_fids'] if verified_ft else d['unverified_ft_fids']).add(fid)
-            if any(x.get('layer')=='movement' for x in caps):d['movement_capture_fids'].add(fid)
-            if any(x.get('layer')=='movement' and x.get('quote_rows',0)>0 for x in qgs):d['movement_quotes_fids'].add(fid)
-            if any(x.get('layer')=='summary' and x.get('quote_rows',0)>0 for x in qgs):d['summary_quotes_fids'].add(fid)
-            if any(x.get('capture_mode')=='live' for x in qgs):d['live_quote_fids'].add(fid)
-            if any(x.get('layer')=='movement' and x.get('status')=='NO_CROWN_AH_QUOTES' for x in caps):d['no_quote_fids'].add(fid)
-            d['failed_attempts']+=sum(failures.get(fid,{}).values())
-            for x in qgs:
-                if x.get('layer')=='movement':d['movement_quote_rows']+=x.get('quote_rows',0)
-                elif x.get('layer')=='summary':d['summary_quote_rows']+=x.get('quote_rows',0)
-                if x.get('capture_mode')=='live':d['live_quote_rows']+=x.get('quote_rows',0)
+        caps=inv.get('crown_captures',[]);qgs=inv.get('crown_quote_groups',[])
+        d=season_group[(league_id,season_key)];d['fids'].add(fid)
+        if uni:d['expanded_universe_fids'].add(fid)
+        if seasons:d['season_metadata_records']+=sum(1 for z in uni if z.get('season') is not None and str(z.get('season')).strip())
+        if len(seasons)>1:d['season_conflict_fids'].add(fid)
+        (d['complete_ft_fids'] if verified_ft else d['unverified_ft_fids']).add(fid)
+        if any(x.get('layer')=='movement' for x in caps):d['movement_capture_fids'].add(fid)
+        if any(x.get('layer')=='movement' and x.get('quote_rows',0)>0 for x in qgs):d['movement_quotes_fids'].add(fid)
+        if any(x.get('layer')=='summary' and x.get('quote_rows',0)>0 for x in qgs):d['summary_quotes_fids'].add(fid)
+        if any(x.get('capture_mode')=='live' for x in qgs):d['live_quote_fids'].add(fid)
+        if any(x.get('layer')=='movement' and x.get('status')=='NO_CROWN_AH_QUOTES' for x in caps):d['no_quote_fids'].add(fid)
+        d['failed_attempts']+=sum(failures.get(fid,{}).values())
+        for x in qgs:
+            if x.get('layer')=='movement':d['movement_quote_rows']+=x.get('quote_rows',0)
+            elif x.get('layer')=='summary':d['summary_quote_rows']+=x.get('quote_rows',0)
+            if x.get('capture_mode')=='live':d['live_quote_rows']+=x.get('quote_rows',0)
     season_matrix=[]
     for (league_id,season),d in sorted(season_group.items()):
         season_matrix.append({'provider_league_id':league_id,'source_season':season,'schedule_fids_union':len(d['fids']),

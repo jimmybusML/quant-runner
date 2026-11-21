@@ -1,0 +1,100 @@
+{
+  "snapshot_at_utc": "2026-11-21T14:50:25Z",
+  "task": "2019-2026 all-current-league historical data recovery; data collection/reconciliation only",
+  "collector": {
+    "pid": 10634,
+    "process_alive": true,
+    "network_requests_logged": 523,
+    "new_unique_fids_logged": 15336,
+    "identity_conflicts_logged": 4,
+    "request_log_sha256": "b583b46f825ffec2fbb25e9c629180888e3b48f703f11ff88477fd6a1b347ef8",
+    "normalized_private_ledger_sha256": "442c1e5ea724803d9fa473d9d707dfc3456638a9b0864b96ec63580d36fd243d",
+    "targets": {
+      "15": {
+        "league_name": "Spain Segunda",
+        "pages_read": 126,
+        "reported_pages": 196,
+        "unique_2019_2026_fids": 3731,
+        "failed_pages": [],
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "57": {
+        "league_name": "Portugal Segunda Liga",
+        "pages_read": 80,
+        "reported_pages": 149,
+        "unique_2019_2026_fids": 2366,
+        "failed_pages": [],
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "63": {
+        "league_name": "Ukraine Persha Liga",
+        "pages_read": 38,
+        "reported_pages": 65,
+        "unique_2019_2026_fids": 1101,
+        "failed_pages": [],
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "121": {
+        "league_name": "Netherlands Eerste Divisie",
+        "pages_read": 102,
+        "reported_pages": 157,
+        "unique_2019_2026_fids": 3017,
+        "failed_pages": [],
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "128": {
+        "league_name": "Japan J2-League",
+        "pages_read": 112,
+        "reported_pages": 184,
+        "unique_2019_2026_fids": 3307,
+        "failed_pages": [],
+        "pagination_status": "complete_to_2019_cutoff_or_provider_end"
+      },
+      "210": {
+        "league_name": "China Division 1",
+        "pages_read": 65,
+        "reported_pages": 98,
+        "unique_2019_2026_fids": 1934,
+        "failed_pages": [],
+        "pagination_status": null
+      }
+    }
+  },
+  "all_inventory_audit": {
+    "unique_schedule_fids": 129567,
+    "provider_league_ids": 71,
+    "league_year_rows": 568,
+    "league_season_coverage_rows": 494,
+    "season_fid_sum": 129567,
+    "unknown_source_season_fids": 33064,
+    "season_conflict_fids": 0,
+    "verified_ft_fids": 124387,
+    "unverified_ft_fids": 5180,
+    "movement_quoted_fids": 52999,
+    "movement_quote_rows": 4429709,
+    "summary_quote_fids": 49144,
+    "summary_quote_rows": 99520,
+    "explicit_no_quote_fids": 49697,
+    "failed_capture_attempts": 951,
+    "uncovered_schedule_fids": 76568,
+    "identity_conflicts": 9,
+    "bad_schedule_pages": 0
+  },
+  "strict_crown_raw_ft_audit": {
+    "candidate_fids": 5180,
+    "candidate_fids_with_capture": 456,
+    "distinct_raw_responses_checked": 1493,
+    "strict_full_ft_fids": 0,
+    "issues": {},
+    "api_requests": 0,
+    "sqlite_writes": 0
+  },
+  "supplemental_normalized_schedule_sha256": "eba93d676ab97ad4b3cda29ea8b5ffab67ee893a92ebc40ce6c959cb3ae60125",
+  "public_artifact_sha256": {
+    "inventory_coverage_summary_2019_2026.json": "65d49396b0385369c74280e26b272e2d6dd4d8b3a456009d49e61d130075e6c2",
+    "league_year_coverage_2019_2026.csv": "4f84d278df1f003c577cfcc295688c7da73915019231f98cdc393ed77040eec5",
+    "league_season_coverage_2019_2026.csv": "b230a79cc9597c8c1db68269bd9d92bcac54ce073c4acee1d06ec2e2a9db9840",
+    "crown_raw_ft_candidate_audit_2019_2026.json": "d2c1a8b97adc03b1e0ccd43546616831281482ede3655cd23b2ebf86661e34f6"
+  },
+  "completion_status": "interim; remaining supplemental schedule sources, score verification and Crown movement recovery are incomplete"
+}
