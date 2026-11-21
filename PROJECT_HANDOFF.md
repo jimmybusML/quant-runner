@@ -5277,3 +5277,12 @@
 - 20联赛覆盖矩阵和当时进度输入哈希保存在`schedule_recovery_checkpoint_20261122T1946Z.json`，检查点SHA `7d17c42bd3cd8c84edccd79e6d16654a5752bca5320b1060931e13304ca9e0e7`；校验清单为`CHECKPOINT_SHA256_20261122T1946Z.txt`。18联赛之后、19联赛时点的中间覆盖文件仍由Git历史保留。
 - 先前针对ID 51/61/10480生成的逐年Crown无盘审计及原始响应SHA绑定证据已随提交`5d3dfbe`推送；只核实了这三个示例，不替代其他联赛的全量覆盖工作。
 - 下一步继续现有Italy分页与本批剩余目标；每有整项完成就重跑同一SHA/FT覆盖审计。整个任务仍未完成；完整库存合并、其余外部联赛排查、赛果缺口复核以及停掉TotalCorner collector后继续的Crown历史行情扩采仍待执行。
+
+
+### 2026-11-21 20:03 UTC：Italy Serie B完成，21个联赛覆盖更新
+
+- Italy Serie B（ID 13）完成至2019截止/Provider分页终点，共104个原始页、3,066个目标期FID，失败页0。第21个完成目标后，Latvia 1. Liga（ID 242）开始分页；20:03检查点为12/39页、360个FID、失败页0。当前加载35项清单已完成21项，剩余14项；排队38项清单的3个补充精确映射ID仍需后续处理。TotalCorner collector PID 65966仍存活、未重启；累计1,255次请求、fixture ledger新增36,810个FID、身份冲突0（包括当前Latvia部分页）。
+- 对21个已完成联赛重新合并并校验：36,450个唯一赛程FID，33,948场有TotalCorner `status=full`且数字FT，2,502场其他/未核实状态。1,225个原始赛程页SHA和36,450条逐场源记录SHA全部通过，错误0，身份版本冲突0；这36,450条源行均未提供season字段，不用开赛年份代填。逐年和逐联赛明细在`completed_schedule_league_year_coverage_2019_2026.json`。
+- 新完成目标FID与本地Crown SQLite只读交集仍为0 capture/0 AH quote（SQLite SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`），只说明该批补充赛程的本地交集现状。Crown补采尚未开始；TotalCorner采集器运行期间仍禁止发Crown批量请求。生产模型、Telegram、正式账本未触及。
+- 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T2003Z.json` SHA256 `429e8beaf88c7c4a4be3126adf5098f7d86d7f5245e5c3f5f23e3edb8797936a`；校验清单`CHECKPOINT_SHA256_20261121T2003Z.txt`。该数据矩阵仅覆盖21个已完成目标，仍不是全项目数据完成声明。
+- 继续推进Latvia及当前35项剩余目标，然后运行当前38项清单中的3个额外精确映射ID。完成后还要合并全部来源、核查全部既有联赛/年份/赛季、刷新未核实赛果队列，再恢复Crown AH缺口收集与完整历史盘口序列。没有做策略/模型/回测。
