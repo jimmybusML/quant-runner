@@ -1,0 +1,60 @@
+{
+  "generated_at_utc": "2026-11-21T22:38:54.513171Z",
+  "purpose": "38 exact-mapped supplemental TotalCorner schedule targets complete; broader all-league recovery remains active and incomplete",
+  "collector_runs": [
+    {
+      "run": "original 35-target batch",
+      "progress_file": "research-work private progress_initial35_20261121T2219Z.json",
+      "targets": 35,
+      "network_requests": 2048,
+      "new_unique_fids": 59684,
+      "finished_at_utc": "2026-11-21T22:19:26.900554Z",
+      "manifest_sha256": "9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9",
+      "manifest_verification_note": "The original 35-target manifest file was not retained. This canonical 64-character SHA256 is corroborated by the contemporaneous handoff and preceding checkpoints; the malformed 65-character transcription in this checkpoint was corrected."
+    },
+    {
+      "run": "three exact-mapped supplemental targets",
+      "progress_file": "research-work private progress_supplemental3_20261121T2237Z.json",
+      "targets": 3,
+      "network_requests": 92,
+      "new_unique_fids": 2655,
+      "finished_at_utc": "2026-11-21T22:37:41.310670Z",
+      "manifest_sha256": "72ec0be0f5d85b3458ebb360ac3a111f3209e264ebe8efbb9f38bc27032f5f42",
+      "source_target_manifest_sha256": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
+    }
+  ],
+  "combined_progress": {
+    "targets": 38,
+    "network_requests": 2140,
+    "new_unique_fids": 62339,
+    "identity_conflicts": 0,
+    "finished_at_utc": "2026-11-21T22:37:41.310670Z",
+    "process_alive": false,
+    "composite_progress_sha256": "09aa36b2a947642bfe74b09183b21f048b22602508c764dc2847d638f0fc56bc",
+    "requests_log_sha256": "ac3504ceb62e01f960baf9256b409e78a2c8f692bbcd33dfb6da2bc2130db9d0",
+    "fixture_ledger_sha256": "5e7b89bef4133cc4c21f515c795ad1ecbde357b9967d0f53103f9a9b2bc757f3"
+  },
+  "completed_target_audit": {
+    "completed_target_count": 38,
+    "target_count_in_current_file": 38,
+    "unique_schedule_fids": 62339,
+    "verified_full_ft_fids": 58288,
+    "unverified_or_nonfull_fids": 4051,
+    "source_pages_referenced_and_sha_verified": 2098,
+    "source_rows_sha_verified": 62339,
+    "source_audit_errors": {},
+    "identity_version_conflicts": 0,
+    "crown_sqlite_read_only_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+    "movement_quote_fids_in_local_db": 0,
+    "coverage_audit_json_sha256": "183699338bece598f51bac34f30bcfaaa8bcc81a5474d551ee92de3d30f8b38f",
+    "coverage_audit_rerun_at_utc": "2026-11-21T22:47:17.860679Z"
+  },
+  "target_manifest_sha256": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778",
+  "remaining_scope_note": "This verifies only the 38 competitions from the exact-name mapping inventory, not every existing league/season or all Crown quote coverage. Continue full-source inventory, unverified FT resolution, and historical Crown AH recovery after scheduled mutual-exclusion jobs finish.",
+  "constraints": {
+    "no_strategy_or_model_research": true,
+    "no_crown_network_requests_while_totalcorner_or_MR1_settlement_active": true,
+    "no_Crown_SQLite_writes": true,
+    "raw_HTTP_bodies_remain_private": true
+  }
+}

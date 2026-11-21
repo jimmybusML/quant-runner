@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-11-21T22:19:45.895097Z",
+  "generated_at_utc": "2026-11-21T22:47:17.860679Z",
   "scope_note": "Only targets marked pagination-complete in the live progress file are included; ongoing targets and queued IDs are not represented as complete.",
   "target_count_in_current_file": 38,
-  "completed_target_count": 35,
+  "completed_target_count": 38,
   "completed_target_leagues": [
     {
       "provider_league_id": "2",
@@ -55,6 +55,15 @@
       "unique_2019_2026_fids": 1545,
       "pages_read": 53,
       "reported_pages": 82,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
+      "provider_league_id": "114",
+      "league_name": "Iceland 1 Deild",
+      "unique_2019_2026_fids": 1063,
+      "pages_read": 37,
+      "reported_pages": 55,
       "pagination_status": "complete_to_2019_cutoff_or_provider_end",
       "failed_pages": []
     },
@@ -203,6 +212,15 @@
       "failed_pages": []
     },
     {
+      "provider_league_id": "702",
+      "league_name": "Georgia First League",
+      "unique_2019_2026_fids": 782,
+      "pages_read": 27,
+      "reported_pages": 28,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
       "provider_league_id": "709",
       "league_name": "Türkiye 1 Lig",
       "unique_2019_2026_fids": 2678,
@@ -253,6 +271,15 @@
       "unique_2019_2026_fids": 420,
       "pages_read": 15,
       "reported_pages": 15,
+      "pagination_status": "complete_to_2019_cutoff_or_provider_end",
+      "failed_pages": []
+    },
+    {
+      "provider_league_id": "10653",
+      "league_name": "Bulgaria B PFG",
+      "unique_2019_2026_fids": 810,
+      "pages_read": 28,
+      "reported_pages": 34,
       "pagination_status": "complete_to_2019_cutoff_or_provider_end",
       "failed_pages": []
     },
@@ -320,18 +347,18 @@
       "failed_pages": []
     }
   ],
-  "unique_schedule_fids": 59684,
-  "league_fid_pairs": 59684,
+  "unique_schedule_fids": 62339,
+  "league_fid_pairs": 62339,
   "cross_league_fid_collision_count": 0,
   "cross_year_same_league_fid_conflict_count": 0,
   "ambiguous_fid_league_year_keys": [],
-  "verified_full_ft_fids": 55794,
-  "unverified_or_nonfull_fids": 3890,
+  "verified_full_ft_fids": 58288,
+  "unverified_or_nonfull_fids": 4051,
   "identity_version_conflict_count": 0,
   "identity_version_conflicts": [],
   "raw_source_page_audit": {
-    "distinct_referenced_pages": 2008,
-    "source_record_rows_sha_verified": 59684,
+    "distinct_referenced_pages": 2098,
+    "source_record_rows_sha_verified": 62339,
     "errors": {},
     "season_field_source": "exact row in SHA-verified TotalCorner schedule page raw response"
   },
@@ -2544,6 +2571,315 @@
         "fd62e39cfaa023ff4dc9800e6f55273d305a2d4ec732ad557a3a36918871399c"
       ],
       "source_record_versions": 174,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "114",
+      "provider_league_name": "Iceland 1 Deild",
+      "utc_year": "2019",
+      "unique_schedule_fids": 133,
+      "verified_full_ft_fids": 117,
+      "unverified_or_nonfull_fids": 16,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 117,
+        "MISSING_STATUS": 16
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 133
+      },
+      "source_page_count": 5,
+      "source_page_sha256s": [
+        "259824b649271eecd5e1fc2ddf8664372dd08ac1bb0b178b7fc902b87189cb59",
+        "2d69e8ce40421a03be4303035b845318a3f726c821a43f32dcbc17b8294ee600",
+        "536ef867b49459d945b8b435a0fde158cbd6f49be9204e7515a6ccb65c69d3dd",
+        "bc48d8822c47429d8ee4b7ce1b9075de71334be4ebc80e66845c01a2158cf08d",
+        "e96ab95d0c5600257a315b1d3b1a11f4855017962363d5a723d3043671967757"
+      ],
+      "source_record_versions": 133,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "114",
+      "provider_league_name": "Iceland 1 Deild",
+      "utc_year": "2020",
+      "unique_schedule_fids": 112,
+      "verified_full_ft_fids": 80,
+      "unverified_or_nonfull_fids": 32,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "MISSING_STATUS": 32,
+        "full": 80
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 112
+      },
+      "source_page_count": 4,
+      "source_page_sha256s": [
+        "79a994947ed26cabbfc87648313543a15b57f3ee7d17e945e91716aff5121f86",
+        "7a03c6eac872c392a30789ecff43ecf976a4b2869205238c460a1fc1d7f29186",
+        "b7a0f4f6489fb62ffe8e206f38c08d395f91d30f5d36719e2e4351dca3a941a4",
+        "cda39297cdd3c595e232bf6bf4c5aec8d9276e42b2d5db1f1d57b673c9691057"
+      ],
+      "source_record_versions": 112,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "114",
+      "provider_league_name": "Iceland 1 Deild",
+      "utc_year": "2021",
+      "unique_schedule_fids": 139,
+      "verified_full_ft_fids": 115,
+      "unverified_or_nonfull_fids": 24,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 115,
+        "MISSING_STATUS": 23,
+        "73": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 139
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "04d474bf8f3678dd66a00525ad51107225d13bc47acdff9fbea2a8f745325be8",
+        "48acd0f53da8dd7eac87fc3e28a4a950fa45fdd284665d01df42144ecc32dd6c",
+        "67f99064b0d17dfb022072f42040b6fd1136e96f4a07432e666853719ffb0aec",
+        "7a03c6eac872c392a30789ecff43ecf976a4b2869205238c460a1fc1d7f29186",
+        "b57ef3bb59588538841e97ede18801955550779df42b0fdd18efa07686cb623c",
+        "becf8be7f111e28a3bcefaf63cfa1f5dbb85e1f0da30517db0fb76ec1b3524da"
+      ],
+      "source_record_versions": 139,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "114",
+      "provider_league_name": "Iceland 1 Deild",
+      "utc_year": "2022",
+      "unique_schedule_fids": 133,
+      "verified_full_ft_fids": 124,
+      "unverified_or_nonfull_fids": 9,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 124,
+        "MISSING_STATUS": 7,
+        "08": 1,
+        "37": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 133
+      },
+      "source_page_count": 5,
+      "source_page_sha256s": [
+        "0529d5c7bdb8bc8bc67f5d6a658d81fc715539af300a62aa0f2edb209d8dde0e",
+        "1929b75afc43825f30728f860dea0fbaf00407a04064fff4d16356eafad4df47",
+        "b57ef3bb59588538841e97ede18801955550779df42b0fdd18efa07686cb623c",
+        "de36d705be5cfa10b79e5966b063b01c23fdd0230a3a3334129d0703b998a82a",
+        "e7c62e38d743f008696a901b129995e4f99c91687f94065e96f3443903d4b87d"
+      ],
+      "source_record_versions": 133,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "114",
+      "provider_league_name": "Iceland 1 Deild",
+      "utc_year": "2023",
+      "unique_schedule_fids": 131,
+      "verified_full_ft_fids": 125,
+      "unverified_or_nonfull_fids": 6,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 125,
+        "half": 1,
+        "20": 1,
+        "MISSING_STATUS": 4
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 131
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "04828eda2369e85da7a5f687372012764ead73e56f1bb30280990293f3c5ea27",
+        "24982f2fafb5879ddd322535343a1e16ca4c5fcc23bfe20e65f2e488f4eac67d",
+        "440517cec4dae0e9b53b56c273d11900c47e1140c38d7113e73669103b8b5764",
+        "b01ebbbae8d88de40bfc8972891856b050faf347384a8a016c88c7622f599bdb",
+        "cbec4861e3e1c18eb1a33ec901b569f354e1e9fde77a13ff8e29bef88b538afe",
+        "e7c62e38d743f008696a901b129995e4f99c91687f94065e96f3443903d4b87d"
+      ],
+      "source_record_versions": 131,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "114",
+      "provider_league_name": "Iceland 1 Deild",
+      "utc_year": "2024",
+      "unique_schedule_fids": 137,
+      "verified_full_ft_fids": 136,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 136,
+        "MISSING_STATUS": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 137
+      },
+      "source_page_count": 5,
+      "source_page_sha256s": [
+        "11141c13e9e481e5a204d0cac947845276cfdf3db64ea7b56ae014c048729a90",
+        "9712880352d6d9a4be1876d40b06f460f1a8566258814633cf15c10de6525fba",
+        "a1a56988805ef4c80c2a29546d68a104608f6e08e782fe30bc8e26804a2b09f3",
+        "ca0ccd156e364dcee8f4f46bcc06dd43de18a6831fbe3abfbd3521b9e1dac0e2",
+        "cbec4861e3e1c18eb1a33ec901b569f354e1e9fde77a13ff8e29bef88b538afe"
+      ],
+      "source_record_versions": 137,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "114",
+      "provider_league_name": "Iceland 1 Deild",
+      "utc_year": "2025",
+      "unique_schedule_fids": 139,
+      "verified_full_ft_fids": 131,
+      "unverified_or_nonfull_fids": 8,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 131,
+        "57": 1,
+        "17": 1,
+        "60": 1,
+        "half": 1,
+        "MISSING_STATUS": 2,
+        "66": 1,
+        "29": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 139
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "0d41eb6a2f76cbbdca3f07e96e100740174cb91270bec4ceb627e6f04c560d70",
+        "0e93a5891bbf8bd10e3d57eeec797bc5adbd559edc8c8f8e03063ba9c42c60c2",
+        "11141c13e9e481e5a204d0cac947845276cfdf3db64ea7b56ae014c048729a90",
+        "5aa3ad3f7e31e7975fcbde84a252fcc8fc6a548320a65c75a190b1cbef8bb405",
+        "9d7202abae1771f6f3697df695ae59049674db6baa2c3a877e39b675020f0147",
+        "fa6c2ae3f4e2800b055b69d7d5c5378e776c4bc00aa6af4aa85db047d1044f2a"
+      ],
+      "source_record_versions": 139,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "114",
+      "provider_league_name": "Iceland 1 Deild",
+      "utc_year": "2026",
+      "unique_schedule_fids": 139,
+      "verified_full_ft_fids": 137,
+      "unverified_or_nonfull_fids": 2,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 137,
+        "MISSING_STATUS": 2
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 139
+      },
+      "source_page_count": 5,
+      "source_page_sha256s": [
+        "076a11be5932a0040ca258547be41d77b56dfe54b06ef08565b0d48be3d72f31",
+        "0e93a5891bbf8bd10e3d57eeec797bc5adbd559edc8c8f8e03063ba9c42c60c2",
+        "aca5f6204a3597973ca88d9a8c8de0d26007ddfe1da25719419076583419a202",
+        "d8a04f2478cc0c751d484e8831d62587062c0c807f66f5617632446ab09708c6",
+        "f2f1171291d2ac7ce36a0d38cd6838586168d96cc77ab9d9137b02453039575f"
+      ],
+      "source_record_versions": 139,
       "sqlite_capture_fids_any_layer": 0,
       "sqlite_movement_capture_fids": 0,
       "sqlite_summary_capture_fids": 0,
@@ -7843,6 +8179,316 @@
       "live_capture_fids": 0
     },
     {
+      "provider_league_id": "702",
+      "provider_league_name": "Georgia First League",
+      "utc_year": "2019",
+      "unique_schedule_fids": 0,
+      "verified_full_ft_fids": 0,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {},
+      "season_counts": {},
+      "source_page_count": 0,
+      "source_page_sha256s": [],
+      "source_record_versions": 0,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "702",
+      "provider_league_name": "Georgia First League",
+      "utc_year": "2020",
+      "unique_schedule_fids": 0,
+      "verified_full_ft_fids": 0,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {},
+      "season_counts": {},
+      "source_page_count": 0,
+      "source_page_sha256s": [],
+      "source_record_versions": 0,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "702",
+      "provider_league_name": "Georgia First League",
+      "utc_year": "2021",
+      "unique_schedule_fids": 41,
+      "verified_full_ft_fids": 41,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 41
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 41
+      },
+      "source_page_count": 3,
+      "source_page_sha256s": [
+        "b63ca656756d5a26af80a8b3472c31f0ef161471e567a8f330c1b4ed29f93630",
+        "d2356a02dda3608d6ed05843883e5af5d735dce0dfb361dfd5b77cb133fdf965",
+        "df120f6f3108e6de3f9dfa535384b61d50d89137cf8216ce931ec4501a4a7550"
+      ],
+      "source_record_versions": 41,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "702",
+      "provider_league_name": "Georgia First League",
+      "utc_year": "2022",
+      "unique_schedule_fids": 105,
+      "verified_full_ft_fids": 105,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 105
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 105
+      },
+      "source_page_count": 4,
+      "source_page_sha256s": [
+        "2fc13683a839faaa3118b71f00a12fd97c76f2130cd443870f50d4df577bac37",
+        "46bb344c20b0226e66bd0ad0a7a6b1790a9b08ef1552e0b1115594ee6ed2434d",
+        "639f0e8a2c0c438609e43c978e2605bdc971435f1b9cb6ae2da6bebe99f43470",
+        "df120f6f3108e6de3f9dfa535384b61d50d89137cf8216ce931ec4501a4a7550"
+      ],
+      "source_record_versions": 105,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "702",
+      "provider_league_name": "Georgia First League",
+      "utc_year": "2023",
+      "unique_schedule_fids": 154,
+      "verified_full_ft_fids": 148,
+      "unverified_or_nonfull_fids": 6,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 148,
+        "MISSING_STATUS": 2,
+        "44": 1,
+        "46": 1,
+        "half": 1,
+        "35": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 154
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "05b3167ce4adbb5ae0a837da379279744c0953aec78723a2942f69c9cc313760",
+        "26c07b94d2679696d4e903360e57baf2f155ca9e5f0c82abf8d50d44ec613d84",
+        "46bb344c20b0226e66bd0ad0a7a6b1790a9b08ef1552e0b1115594ee6ed2434d",
+        "8e86dfb7fb28057f10fd68d38fdd8ad94152a5f6e9cc03f84eab5163c6debbf9",
+        "c7a4ab85a1766e3a72406c6994f9a7c17b8ca0c5ee26da26f3d938a6281ce169",
+        "d06ccaa2b8a9893b02ace67582108badcaa4a8c67b146d328c9b2ca41a6e2f00"
+      ],
+      "source_record_versions": 154,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "702",
+      "provider_league_name": "Georgia First League",
+      "utc_year": "2024",
+      "unique_schedule_fids": 160,
+      "verified_full_ft_fids": 160,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 160
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 160
+      },
+      "source_page_count": 7,
+      "source_page_sha256s": [
+        "49e5229f3131dfa0db90dda5027f583248e65f111284e892689325629f9c07aa",
+        "a050626566fc97c6c056db1bd1335e3783540a5901452baaea93a526be96cd80",
+        "b6d31113d22cc30c37fc33bfd84c478f5de69a29422db3cfb21a1133d41dfea3",
+        "cd5f989ce7d78fc33a992d35f2deb1604c5e6c3d58c4f1566f7852f81ecc7b0f",
+        "d06ccaa2b8a9893b02ace67582108badcaa4a8c67b146d328c9b2ca41a6e2f00",
+        "daac183e1974f013875bbf2dda7e56ad0d3c075dc86ec0ed5541cd752269eb80",
+        "de70e8ff5e34913b12842d00d1bbfa09a10e5792f374c1b4643fad75c1348e9f"
+      ],
+      "source_record_versions": 160,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "702",
+      "provider_league_name": "Georgia First League",
+      "utc_year": "2025",
+      "unique_schedule_fids": 155,
+      "verified_full_ft_fids": 155,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 155
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 155
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "0a4f663f6d5fbbdeda8f7ba2a7cbde22a403fae4257e8a6ccf5e0327ae18e841",
+        "76a2a4441078a9cc75a31865d8a4439c4f7723cb87ee5e63f289f87ebc0b7579",
+        "a359ba270c4b79e41183d484a0c527bcbf0e57c0f39722f285ecbfaab8788706",
+        "d21abb44242c3094c93a4319bff08404bb3d9887c5d84d28a206f09d7c510c29",
+        "d3a614bc1ca9d60ebec21d5d6e0af2b0039f42b864d01c002d341ebb1eeafab9",
+        "de70e8ff5e34913b12842d00d1bbfa09a10e5792f374c1b4643fad75c1348e9f"
+      ],
+      "source_record_versions": 155,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "702",
+      "provider_league_name": "Georgia First League",
+      "utc_year": "2026",
+      "unique_schedule_fids": 143,
+      "verified_full_ft_fids": 135,
+      "unverified_or_nonfull_fids": 8,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 135,
+        "MISSING_STATUS": 6,
+        "0": 1,
+        "80": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 143
+      },
+      "source_page_count": 5,
+      "source_page_sha256s": [
+        "14d15da7dc08f557c793135a2faec2cd9d4250c7accba15ca8a3d5e355f42c0d",
+        "22dac2dec8cc05b7d22c5525039dd1256d50103fadc046e366b868d93f97538e",
+        "c6aab953eae9912d483c7ea1be2e86dc5b0a6e6636cbd465b4a873c101be1d56",
+        "d21abb44242c3094c93a4319bff08404bb3d9887c5d84d28a206f09d7c510c29",
+        "d498df8753b1763fcc9387eaf95b3bac9cb497ee7f9c8778302bd20ef7f438cf"
+      ],
+      "source_record_versions": 143,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "702",
+      "provider_league_name": "Georgia First League",
+      "utc_year": "UNKNOWN_KICKOFF",
+      "unique_schedule_fids": 24,
+      "verified_full_ft_fids": 22,
+      "unverified_or_nonfull_fids": 2,
+      "kickoff_missing_fids": 24,
+      "status_counts": {
+        "full": 22,
+        "MISSING_STATUS": 2
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 24
+      },
+      "source_page_count": 1,
+      "source_page_sha256s": [
+        "8830ec7ad925c2863c305302737e819e015ba4df5443eca0e9db471eeb5e9fd0"
+      ],
+      "source_record_versions": 24,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
       "provider_league_id": "709",
       "provider_league_name": "Türkiye 1 Lig",
       "utc_year": "2019",
@@ -9731,6 +10377,288 @@
         "3906a5041bd1896c08df20e9181ab7407cf62f6e6b599c72e6122e585e99beec"
       ],
       "source_record_versions": 51,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10653",
+      "provider_league_name": "Bulgaria B PFG",
+      "utc_year": "2019",
+      "unique_schedule_fids": 225,
+      "verified_full_ft_fids": 212,
+      "unverified_or_nonfull_fids": 13,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 212,
+        "MISSING_STATUS": 13
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 225
+      },
+      "source_page_count": 8,
+      "source_page_sha256s": [
+        "020be0b2db232acbf4610f163e3f13d637bc4b32c0a5df3d6bd335d672b15d65",
+        "3dad06f4a10b32621a8a642d3bd72d8e4467e44ea2379dd23c0120100fb04d20",
+        "42545c3ffb04ff87902b296c3ca3dd58599c1489ac5ea27a3c5a959044b6b104",
+        "7fe69be8ba082733e3bb70a4ea15df814e373d75608fad94e1de8e32f61a66f5",
+        "81fdfd02d40e5faee58899d8b6c1415f1b8bc6dc257b2f44c23c9843d504c087",
+        "906b49af49a14cd48b6b1eeecf89a06a06aefe3473f2cdf76a856bf92077318a",
+        "9ecf356068bdbbfd1bcaa5df6b772721c1a2ac1009bd5f67325981ffe3e85aea",
+        "f6add3c50552d716774af5c6efcece4220a0434b4e36b5ef307d147cf41b279e"
+      ],
+      "source_record_versions": 225,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10653",
+      "provider_league_name": "Bulgaria B PFG",
+      "utc_year": "2020",
+      "unique_schedule_fids": 153,
+      "verified_full_ft_fids": 143,
+      "unverified_or_nonfull_fids": 10,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 143,
+        "MISSING_STATUS": 10
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 153
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "42545c3ffb04ff87902b296c3ca3dd58599c1489ac5ea27a3c5a959044b6b104",
+        "4d949372857b3ba43df3d5a77b8f3cb6e354c28c6c8ee7ef0ea49b4c547c2081",
+        "72d9ba1b35ffa51c7f05381eeafaeb595b151d66b4dacae6a6dd78939ccf37a5",
+        "8381ac4a116c489270a09106ef35f9a86c045d19abdc656bef8a8a1d5ebe0634",
+        "b133b69bb9c9653e6e7cebd321ae1c61792cc7c8491636549a0d544dd7906c80",
+        "be9164663efaa4be134324b186388de9242be805da6c06c4d33072a477eced13"
+      ],
+      "source_record_versions": 153,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10653",
+      "provider_league_name": "Bulgaria B PFG",
+      "utc_year": "2021",
+      "unique_schedule_fids": 259,
+      "verified_full_ft_fids": 250,
+      "unverified_or_nonfull_fids": 9,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 250,
+        "MISSING_STATUS": 2,
+        "19": 1,
+        "73": 1,
+        "55": 1,
+        "27": 1,
+        "31": 1,
+        "half": 1,
+        "70": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 259
+      },
+      "source_page_count": 10,
+      "source_page_sha256s": [
+        "08f9c2ef06e5966c929dfd17b0ca235c7a12ff9fd012f87b63d4f419290cccb6",
+        "3b2e0a31ef6e87fcd7466518d252fd44674283248513f447e77623a71bfe79bb",
+        "516c7a939ff8518de193057a18a59423ec9600836050cb3a72f75ecf8ec626d9",
+        "609d4d9246204a130ee53aeba8191f80ede7bca9cea460dcc76629aacb8f49b1",
+        "72d9ba1b35ffa51c7f05381eeafaeb595b151d66b4dacae6a6dd78939ccf37a5",
+        "8598a45b47b7e9a0a179f498a23a217974cd48c4a5b7b1b49e902a8ada319692",
+        "88c99e10b638729a7b32a6344f4580fc5e71a5509e02e53850048455c8001da4",
+        "d2742be6a56fc14b4c929503a806f0ccb7ecab7569f3a1552a39decb7fd42f53",
+        "e8e237c8024ba1123ced5e56f8d4b4fd971180eb8fa1ad88dadb67343d236091",
+        "ebf55826a12efa79ddb9ba9a32d91fbb4f579d432e199fee371a83760470413e"
+      ],
+      "source_record_versions": 259,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10653",
+      "provider_league_name": "Bulgaria B PFG",
+      "utc_year": "2022",
+      "unique_schedule_fids": 152,
+      "verified_full_ft_fids": 138,
+      "unverified_or_nonfull_fids": 14,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 138,
+        "MISSING_STATUS": 14
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 152
+      },
+      "source_page_count": 6,
+      "source_page_sha256s": [
+        "101c95947982a35769c265747ddd3329825955ef240d5116cf2a1df173010f3e",
+        "76f8b6220b1e0c537a492203f46a556de30ebc483c169efe503997aa680921be",
+        "8abe87f762f113aadb6a51fe4ae7dd1d6278529aed678f046792c96b962963b7",
+        "b0c9e65e59a9e8b0155714541600321be42177ce796315832691caba845964c7",
+        "ea3b30470493cac52202002faa611270c332b4ef3c66a24013d5f54827233f14",
+        "ebf55826a12efa79ddb9ba9a32d91fbb4f579d432e199fee371a83760470413e"
+      ],
+      "source_record_versions": 152,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10653",
+      "provider_league_name": "Bulgaria B PFG",
+      "utc_year": "2023",
+      "unique_schedule_fids": 16,
+      "verified_full_ft_fids": 16,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 16
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 16
+      },
+      "source_page_count": 1,
+      "source_page_sha256s": [
+        "ea3b30470493cac52202002faa611270c332b4ef3c66a24013d5f54827233f14"
+      ],
+      "source_record_versions": 16,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10653",
+      "provider_league_name": "Bulgaria B PFG",
+      "utc_year": "2024",
+      "unique_schedule_fids": 0,
+      "verified_full_ft_fids": 0,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {},
+      "season_counts": {},
+      "source_page_count": 0,
+      "source_page_sha256s": [],
+      "source_record_versions": 0,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10653",
+      "provider_league_name": "Bulgaria B PFG",
+      "utc_year": "2025",
+      "unique_schedule_fids": 0,
+      "verified_full_ft_fids": 0,
+      "unverified_or_nonfull_fids": 0,
+      "kickoff_missing_fids": 0,
+      "status_counts": {},
+      "season_counts": {},
+      "source_page_count": 0,
+      "source_page_sha256s": [],
+      "source_record_versions": 0,
+      "sqlite_capture_fids_any_layer": 0,
+      "sqlite_movement_capture_fids": 0,
+      "sqlite_summary_capture_fids": 0,
+      "crown_movement_quote_fids": 0,
+      "crown_movement_quote_rows": 0,
+      "crown_movement_distinct_source_events": 0,
+      "crown_movement_valid_pregame_fids": 0,
+      "crown_movement_valid_pregame_rows": 0,
+      "sqlite_summary_quote_fids": 0,
+      "sqlite_summary_quote_rows": 0,
+      "historical_capture_fids": 0,
+      "live_capture_fids": 0
+    },
+    {
+      "provider_league_id": "10653",
+      "provider_league_name": "Bulgaria B PFG",
+      "utc_year": "2026",
+      "unique_schedule_fids": 5,
+      "verified_full_ft_fids": 4,
+      "unverified_or_nonfull_fids": 1,
+      "kickoff_missing_fids": 0,
+      "status_counts": {
+        "full": 4,
+        "MISSING_STATUS": 1
+      },
+      "season_counts": {
+        "MISSING_SEASON_IN_VERIFIED_RAW_ROW": 5
+      },
+      "source_page_count": 1,
+      "source_page_sha256s": [
+        "ea3b30470493cac52202002faa611270c332b4ef3c66a24013d5f54827233f14"
+      ],
+      "source_record_versions": 5,
       "sqlite_capture_fids_any_layer": 0,
       "sqlite_movement_capture_fids": 0,
       "sqlite_summary_capture_fids": 0,
@@ -11825,9 +12753,9 @@
   ],
   "zero_year_bucket_note": "A zero schedule count means no FID was present in the currently verified source rows for that completed provider pagination; it does not prove no competition season or unindexed source exists.",
   "input_sha256": {
-    "progress": "313adab941ebde6e04c316b4c10c8328dedbc0b1793829555960529294b8b97e",
-    "append_only_fixture_ledger": "9b7d222bfdd0dfa813935bfb1c19ed57f74c86eccd7576c3714a5f81734e182d",
-    "append_only_request_log": "50e36759dbf51676d2c984542f3a2aadc3fefcf9712fc7d0666fafbd4c0496fb",
+    "progress": "09aa36b2a947642bfe74b09183b21f048b22602508c764dc2847d638f0fc56bc",
+    "append_only_fixture_ledger": "5e7b89bef4133cc4c21f515c795ad1ecbde357b9967d0f53103f9a9b2bc757f3",
+    "append_only_request_log": "ac3504ceb62e01f960baf9256b409e78a2c8f692bbcd33dfb6da2bc2130db9d0",
     "target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778"
   }
 }

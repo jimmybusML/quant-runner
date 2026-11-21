@@ -5362,3 +5362,11 @@
 - 新完成目标FID与本地Crown SQLite只读交集仍为0 capture/0 AH quote（SQLite SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`），只说明该批补充赛程的本地交集现状。Crown补采尚未开始；TotalCorner采集器运行期间仍禁止发Crown批量请求。生产模型、Telegram、正式账本未触及。
 - 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T2003Z.json` SHA256 `429e8beaf88c7c4a4be3126adf5098f7d86d7f5245e5c3f5f23e3edb8797936a`；校验清单`CHECKPOINT_SHA256_20261121T2003Z.txt`。该数据矩阵仅覆盖21个已完成目标，仍不是全项目数据完成声明。
 - 继续推进Latvia及当前35项剩余目标，然后运行当前38项清单中的3个额外精确映射ID。完成后还要合并全部来源、核查全部既有联赛/年份/赛季、刷新未核实赛果队列，再恢复Crown AH缺口收集与完整历史盘口序列。没有做策略/模型/回测。
+
+### 2026-11-21 22:38 UTC：38个精确映射补充联赛目标完成；全项目历史恢复继续
+
+- 原35目标TotalCorner批次与后续3个精确页面映射目标均已结束：38/38个目标为`complete_to_2019_cutoff_or_provider_end`；累计2,140次请求，私有追加赛程账本记录62,339个批内唯一FID，身份冲突0。3项补充目标为Bulgaria B PFG（10653，810 FID）、Georgia First League（702，782 FID）、Iceland 1 Deild（114，1,063 FID）。实际请求元数据、分页原文及原文SHA留在私有目录`/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/`，未公开原始HTTP响应。
+- 38项目标覆盖审计累计62,339个唯一FID；58,288场源状态为`full`且比分字段为数字，4,051场未核实或非完整赛果。2,098个被引用原始页及62,339条源记录SHA全部通过；审计错误0，身份版本冲突0。 2026-11-21T22:47:17Z按相同输入重跑审计，计数、raw-page/source-row SHA结果不变；只读SQLite核查仍为0报价交集。源响应未提供season字段，未用年份推断或造出赛季标签。逐联赛×UTC年矩阵见`research/data_recovery_2019_2026/completed_schedule_league_year_coverage_2019_2026.json`；这里的“唯一”仅指该38目标集合，尚待与全局来源并集核算。
+- 对这批FID只读检查本地Crown SQLite，数据库SHA `292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298`；movement quote交集0。这只说明本地当前库存交集，不表示Crown源无价。采集器结束后尚未对这批新FID执行Crown补采。
+- 检查点`research/data_recovery_2019_2026/schedule_recovery_checkpoint_20261121T2238Z.json`及SHA清单绑定批次进度、请求日志、FID账本、覆盖矩阵和只读数据库核验。检查点的首批35目标manifest SHA字段发现一个65位转录错误，现据同期交接/较早检查点更正为64位`9c698b6e74cb58a43038be4f9d21eb40832de711a821acb1a524c64748d076d9`；原35项manifest文件未留存，故此值有同期记录佐证、但本次不能从原件重新计算。实际运行的3目标补充manifest SHA为`72ec0be0f5d85b3458ebb360ac3a111f3209e264ebe8efbb9f38bc27032f5f42`；其来源38目标队列SHA为`effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778`。
+- 本检查点仅证明命名精确映射队列的38项，不代表所有项目联赛/赛季/比赛已覆盖。尚待：合并所有历史来源做全局FID去重；调查15个未解决provider联赛候选（既有审计中15/15曾请求失败，仅存120个来源FID）；补齐所有未核实FT；枚举其余现有联赛、赛季与2019–2026赛程；在TotalCorner、MR1与结算互斥任务均空闲时，按已确认方法补齐可取得的Crown AH原始报价序列。未运行模型、策略、回测或盈利筛选。
