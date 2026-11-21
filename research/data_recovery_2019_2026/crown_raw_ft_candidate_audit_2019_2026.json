@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-11-21T14:30:49.250575Z",
+  "generated_at_utc": "2026-11-21T14:42:25.671477Z",
   "scope": "Only currently unresolved FT candidates; Crown response status full is accepted only after exact FID, league, UTC kickoff, exact team names, and nonnegative integer scores match.",
   "inputs": {
-    "unverified_FT_candidates_file_sha256": "609b322734723203350553c649add0d04be6fa6566bb993667b83262bdc50a18",
-    "unverified_FT_candidate_count": 5129,
+    "unverified_FT_candidates_file_sha256": "ad2a76c265355452317046885d02d9072670a4aac5c17d4dae1ffed010140565",
+    "unverified_FT_candidate_count": 5139,
     "crown_sqlite_file_sha256": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298"
   },
   "crown_raw_responses": {
@@ -996,6 +996,24 @@
     },
     "19290|2026": {
       "candidate_fids": 16,
+      "capture_rows": 0,
+      "raw_responses_checked": 0,
+      "fids_with_full_exact_raw_ft": 0
+    },
+    "210|2023": {
+      "candidate_fids": 4,
+      "capture_rows": 0,
+      "raw_responses_checked": 0,
+      "fids_with_full_exact_raw_ft": 0
+    },
+    "210|2025": {
+      "candidate_fids": 3,
+      "capture_rows": 0,
+      "raw_responses_checked": 0,
+      "fids_with_full_exact_raw_ft": 0
+    },
+    "210|2026": {
+      "candidate_fids": 3,
       "capture_rows": 0,
       "raw_responses_checked": 0,
       "fids_with_full_exact_raw_ft": 0
@@ -3052,7 +3070,7 @@
     }
   },
   "per_fid_evidence_file": "crown_raw_ft_candidate_audit_rows_2019_2026.jsonl.gz",
-  "per_fid_evidence_sha256": "b213364a8a0e4f9fa38d4d294eba813bd4956241be874f1f7693420fd208eb90",
+  "per_fid_evidence_sha256": "3f7d55bd8cd63c2f22bc2d57fc01aa07566f4767ba1ea130309d5716916755f4",
   "api_requests": 0,
   "sqlite_writes": 0,
   "interpretation": "Absence of a verified Crown raw full-time record remains unverified; source statuses and placeholder 0:0 values are not treated as final results."

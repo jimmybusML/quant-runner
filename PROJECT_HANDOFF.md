@@ -5069,3 +5069,11 @@
 - 新增`audit_crown_raw_ft_candidates.py`对全部5,129个未核实FT候选逐FID检查本地Crown原始响应：456个候选有capture，共检查1,493个去重原始响应，验证SHA、FID、联赛、开赛时间、精确队名、full状态及非负整数比分；严格可认定的完整FT为0，审计issues为0，API请求与SQLite写入均为0。非full状态、缺status及占位比分继续作为未知，不升级为赛果。逐场审计输出为`crown_raw_ft_candidate_audit_rows_2019_2026.jsonl.gz`，汇总为`crown_raw_ft_candidate_audit_2019_2026.json`。
 - 62个此前未入规范层的历史summary响应已由本地缓存使用现有`crown_capture_store.py`解析并append-only导入，共新增124条summary报价行；没有API请求或触碰live capture。独立验证器按最新导入引用文件中的精确`FID/layer/response SHA`重读SQLite和原始Crown响应，62/62捕获、124/124报价行通过。初次按处理时间范围筛选时额外纳入了70条无关movement捕获；该70条属于同一时段的历史采集批次，不在62条离线导入引用内，旧SHA收件索引没有这些记录的条目，已从导入验证范围排除并保留原收件时间在SQLite。原始38,668条导入核验总账未覆盖，新增批次单独保存在`offline_Crown_layer_import_verified_rows_20261121T1430Z.jsonl.gz`和`offline_Crown_layer_import_batch_audit_20261121T1430Z.json`。当前历史层统计summary 49,054 FID/99,242行、movement 52,999 FID/4,429,709行；不合成前瞻收件时间。
 - 当前覆盖表、机器可读快照及续采阶段记录见`research/data_recovery_2019_2026/inventory_coverage_summary_2019_2026.json`、`league_year_coverage_2019_2026.csv`及`supplemental_schedule_progress_snapshot_20261121T1432Z.json`。审计脚本、逐场未核实FT复核账和离线导入记录随此检查点提交；全任务仍未完成。下一步先让当前15个额外联赛分页检查完成至2019边界，再用更新的唯一赛程清单恢复Crown movement缺口并按联赛/年份复核所有已知来源与失败状态；之后继续补齐可核实赛果与全部可取得盘口历史序列。
+
+## 2026-11-21｜追加ID210并加入来源赛季覆盖（14:43 UTC快照）
+
+- 补充赛程采集在结算作业空闲后继续；日志累计495次成功请求、14,512个新FID。ID15/57/63/121/128分页均已到达2019截止、失败页0；ID210 China Division 1推进至37/98页、1,110个目标期FID、无失败页；PID 10634仍运行，后续ID候选继续按顺序处理。
+- 重新合并分页后形成14,542个补充赛程记录版本，SHA256 `2fbb613478d3ddda211634b8cb1ac3579529551b39039884797e89c4c4d50056`。全库存审计增至128,653唯一FID、71个provider联赛、568个联赛-UTC年单元；FT核实123,514、待核实5,139。Crown movement有价FID/行数维持52,999/4,429,709，summary为49,144/99,520；49,697个FID有明确NO_CROWN_AH_QUOTES响应，失败请求951，当前无movement报价库存75654个FID；这些状态分别保留，不互相推断。
+- 新增`league_season_coverage_2019_2026.csv`及相应审计代码。该表严格只取赛事源实际提供的season字段：当前494个联赛-赛季桶中71个为`UNKNOWN_SOURCE_SEASON`，9个既有身份/日期冲突保持在单独审计；没有用开赛日推导赛季。逐联赛逐UTC年矩阵仍并行提供。
+- Crown原始响应严格FT复核同步更新至5,139个候选、456个有capture、1,493个去重响应、通过全状态/身份/比分判定的新增FT仍为0；issues、API请求、SQLite写入均为0。精确引用的离线导入批次验证为62/62响应和124/124报价行通过；完整旧核验账未被覆盖，70条时间窗口外movement响应单独排除。
+- 14:43快照为`supplemental_schedule_progress_snapshot_20261121T1443Z.json`；当前覆盖矩阵和season分层仅是活跃续采时点。外部ID清单尚余9个待分页探查，之后还需对新赛程重建movement缺口队列并持续恢复Crown报价和可核实FT，整体目标未完成。

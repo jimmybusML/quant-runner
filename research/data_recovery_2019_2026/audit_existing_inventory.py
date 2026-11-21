@@ -272,6 +272,54 @@ def main():
           'uncovered_schedule_fids':len(d['fids']-d['movement_quotes_fids'])})
     with (OUT/'league_year_coverage_2019_2026.csv').open('w',newline='',encoding='utf-8') as f:
         w=csv.DictWriter(f,fieldnames=list(matrix[0]),lineterminator='\n');w.writeheader();w.writerows(matrix)
+    # Preserve season labels where a source actually supplies them. For source
+    # rows without a season field, keep an explicit unknown bucket rather than
+    # inferring a season from kickoff date or later standings.
+    season_group=collections.defaultdict(lambda:{'fids':set(),'complete_ft_fids':set(),'unverified_ft_fids':set(),
+      'movement_capture_fids':set(),'movement_quotes_fids':set(),'summary_quotes_fids':set(),'live_quote_fids':set(),
+      'movement_quote_rows':0,'summary_quote_rows':0,'live_quote_rows':0,'no_quote_fids':set(),'failed_attempts':0,
+      'expanded_universe_fids':set(),'season_metadata_records':0,'season_conflict_fids':set()})
+    for fid,r in fixtures.items():
+        page=r['totalcorner_schedule'];supp=r['supplemental_schedule'];uni=r['expanded_universe'];m1_records=r.get('m1_history_cache',[])
+        league_ids={z['provider_league_id'] for z in page if z.get('provider_league_id')}
+        league_ids.update(z['provider_league_id'] for z in supp if z.get('provider_league_id'))
+        league_ids.update(z['league_id'] for z in uni if z.get('league_id'))
+        league_ids.update(z['league_id'] for z in m1_records if z.get('league_id'))
+        if not league_ids:continue
+        seasons=sorted({str(z.get('season')).strip() for z in uni if z.get('season') is not None and str(z.get('season')).strip()})
+        season_key=seasons[0] if len(seasons)==1 else ('UNKNOWN_SOURCE_SEASON' if not seasons else 'SEASON_SOURCE_CONFLICT:'+'|'.join(seasons))
+        sources=page+m1_records+supp
+        external_ft=r.get('external_ft_evidence',[])
+        verified_ft=bool(external_ft) or any(z.get('status')=='full' and nonnegative_int(z.get('home_goals')) is not None and nonnegative_int(z.get('away_goals')) is not None for z in sources)
+        caps=r.get('crown_captures',[]);qgs=r.get('crown_quote_groups',[])
+        for league_id in league_ids:
+            d=season_group[(league_id,season_key)];d['fids'].add(fid)
+            if uni:d['expanded_universe_fids'].add(fid)
+            if seasons:d['season_metadata_records']+=sum(1 for z in uni if z.get('season') is not None and str(z.get('season')).strip())
+            if len(seasons)>1:d['season_conflict_fids'].add(fid)
+            (d['complete_ft_fids'] if verified_ft else d['unverified_ft_fids']).add(fid)
+            if any(x.get('layer')=='movement' for x in caps):d['movement_capture_fids'].add(fid)
+            if any(x.get('layer')=='movement' and x.get('quote_rows',0)>0 for x in qgs):d['movement_quotes_fids'].add(fid)
+            if any(x.get('layer')=='summary' and x.get('quote_rows',0)>0 for x in qgs):d['summary_quotes_fids'].add(fid)
+            if any(x.get('capture_mode')=='live' for x in qgs):d['live_quote_fids'].add(fid)
+            if any(x.get('layer')=='movement' and x.get('status')=='NO_CROWN_AH_QUOTES' for x in caps):d['no_quote_fids'].add(fid)
+            d['failed_attempts']+=sum(failures.get(fid,{}).values())
+            for x in qgs:
+                if x.get('layer')=='movement':d['movement_quote_rows']+=x.get('quote_rows',0)
+                elif x.get('layer')=='summary':d['summary_quote_rows']+=x.get('quote_rows',0)
+                if x.get('capture_mode')=='live':d['live_quote_rows']+=x.get('quote_rows',0)
+    season_matrix=[]
+    for (league_id,season),d in sorted(season_group.items()):
+        season_matrix.append({'provider_league_id':league_id,'source_season':season,'schedule_fids_union':len(d['fids']),
+          'expanded_universe_fids':len(d['expanded_universe_fids']),'complete_FT_fids':len(d['complete_ft_fids']),
+          'unverified_FT_fids':len(d['unverified_ft_fids']),'movement_capture_fids':len(d['movement_capture_fids']),
+          'movement_with_quotes_fids':len(d['movement_quotes_fids']),'movement_quote_rows':d['movement_quote_rows'],
+          'summary_with_quotes_fids':len(d['summary_quotes_fids']),'summary_quote_rows':d['summary_quote_rows'],
+          'live_quote_receipt_fids':len(d['live_quote_fids']),'live_quote_rows':d['live_quote_rows'],
+          'explicit_no_Crown_AH_movement_fids':len(d['no_quote_fids']),'failed_attempts':d['failed_attempts'],
+          'season_metadata_records':d['season_metadata_records'],'season_source_conflict_fids':len(d['season_conflict_fids'])})
+    with (OUT/'league_season_coverage_2019_2026.csv').open('w',newline='',encoding='utf-8') as f:
+        w=csv.DictWriter(f,fieldnames=list(season_matrix[0]),lineterminator='\n');w.writeheader();w.writerows(season_matrix)
     # Deterministic compressed row inventory.
     with (OUT/'fixture_inventory_2019_2026.jsonl.gz').open('wb') as raw:
         with gzip.GzipFile(fileobj=raw,mode='wb',mtime=0) as gz:
@@ -335,7 +383,7 @@ def main():
       'union_unique_fids':sum(len(d['fids']) for (l,y),d in group.items() if 2019<=y<=2026),'league_year_rows':len(matrix),'league_ids':all_leagues,
       'input_FID_identity_conflicts':conflicts,'totals_2019_2026':{k:sum(x[k] for x in matrix) for k in matrix[0] if k not in ('provider_league_id','calendar_year_utc')},
       'coverage_rows':matrix,'outputs':{}}
-    for name in ('fixture_inventory_2019_2026.jsonl.gz','league_year_coverage_2019_2026.csv','schedule_page_sha256.jsonl','m1_history_cache_sha256.jsonl','crown_raw_response_sha256.jsonl','movement_missing_capture_candidates.jsonl','unverified_FT_candidates.jsonl'):
+    for name in ('fixture_inventory_2019_2026.jsonl.gz','league_year_coverage_2019_2026.csv','league_season_coverage_2019_2026.csv','schedule_page_sha256.jsonl','m1_history_cache_sha256.jsonl','crown_raw_response_sha256.jsonl','movement_missing_capture_candidates.jsonl','unverified_FT_candidates.jsonl'):
         p=OUT/name;out['outputs'][name]={'bytes':p.stat().st_size,'sha256':sha256(p)}
     (OUT/'inventory_audit_2019_2026.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
     conflict_counts=collections.Counter(x.get('type','unknown') for x in conflicts)
@@ -357,6 +405,7 @@ def main():
       'inventory_totals_2019_2026':out['totals_2019_2026'],
       'provider_league_ids':all_leagues,
       'league_year_coverage':matrix,
+        'league_season_coverage':season_matrix,
       'identity_conflict_counts_by_type':dict(conflict_counts),
       'local_unpublished_audit_artifact_hashes':out['outputs'],
       'privacy_note':'Raw Crown response bodies, SQLite, full per-FID inventory and exact private response locations remain in the authorized local data store; this public summary carries aggregate coverage and content digests only.',
