@@ -5008,3 +5008,9 @@
 - 快照时间为`2026-11-21T12:08:52Z`：候选清单11,703个FID（SHA256 `c65717c97de845200dd3503927432ff198a2efd21fcee4b58c217eb1d3aa2025`），已出现250个唯一FID，尚有11453个未尝试；当前状态为51 `REUSED_DB`、54 `SAVED`、141 `NO_CROWN_AH_QUOTES`、4 `FETCH_FAILED`。246个FID的批次行含HTTP接收时刻，最新为`2026-11-21T12:08:51.359361Z`；日志SHA256 `e1c6811dcea9f1d639a7f63ca617e3cab2b6b98798aa6c71157ab61863ade83b`。
 - 4个`IncompleteRead`仍保留为传输失败并待主批次结束后重试，不能归类为无报价。无报价状态仅描述本次成功响应的内容。所有请求均为historical、`prospective_observation=false`。
 - 现场进程核验：safe-window driver PID 86436和collector PID 98675仍运行；本快照时未见`unified_settlement.py`进程。没有停止或修改生产工作。详细快照为`research/data_recovery_2019_2026/collection_progress_snapshot_20261121T1208Z.json`。
+
+## 2026-11-21｜用户点名联赛的2019–2022覆盖核对
+
+- 对`league_year_coverage_2019_2026.csv`（生成于10:23:53 UTC）按年核对ID 51、61、10480，数据见`research/data_recovery_2019_2026/named_early_year_gap_review_20261121.json`。这是batch 02继续写入前的库存基线，不是当前数据库状态。
+- 基线分别为：ID 51有1,245场赛程、1,207场已核实FT；ID 61有730场赛程、702场FT；ID 10480有619场赛程、604场FT。三者在2019–2022的规范化movement及summary层Crown AH报价FID均为0。部分比赛已有movement capture但响应没有报价，不能与未请求或传输失败混为一类。
+- 这三联赛的缺失movement请求已排入不可变batch 02清单，分别在第8,554、9,392和634位；对应排队样例均为2019 UTC年。batch 02仍在运行，后续要以请求响应与独立覆盖重算确认结果。清单SHA256为`c65717c97de845200dd3503927432ff198a2efd21fcee4b58c217eb1d3aa2025`。
