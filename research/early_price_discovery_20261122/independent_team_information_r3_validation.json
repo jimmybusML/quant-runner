@@ -1,0 +1,178 @@
+{
+  "validated": true,
+  "generated_at_utc": "2026-11-22T12:49:22.166882+00:00",
+  "count": {
+    "verified_row": 8860,
+    "validated_variant": 16
+  },
+  "rows_with_at_least_one_team_without_prior_match": 72,
+  "all_2026_holdout_rows": 8860,
+  "research_outcome_source": "historical Crown FT and source-event prices",
+  "model_comparisons": {
+    "team_clv_frozen_2025_vs_market_clv_frozen_2025": {
+      "weeks": 45,
+      "delta_roi_pctpoints": 0.4285,
+      "roi_week_bootstrap95": [
+        -1.7812,
+        2.5573
+      ],
+      "delta_close_model_ev_pctpoints": 0.137,
+      "close_model_ev_week_bootstrap95": [
+        -0.0644,
+        0.326
+      ]
+    },
+    "combined_clv_frozen_2025_vs_market_clv_frozen_2025": {
+      "weeks": 45,
+      "delta_roi_pctpoints": -0.1089,
+      "roi_week_bootstrap95": [
+        -2.3516,
+        2.1353
+      ],
+      "delta_close_model_ev_pctpoints": 0.1296,
+      "close_model_ev_week_bootstrap95": [
+        -0.089,
+        0.3593
+      ]
+    },
+    "team_clv_expanding_monthly_vs_market_clv_expanding_monthly": {
+      "weeks": 45,
+      "delta_roi_pctpoints": 0.0519,
+      "roi_week_bootstrap95": [
+        -1.7254,
+        1.8945
+      ],
+      "delta_close_model_ev_pctpoints": 0.3145,
+      "close_model_ev_week_bootstrap95": [
+        0.1329,
+        0.5039
+      ]
+    },
+    "combined_clv_expanding_monthly_vs_market_clv_expanding_monthly": {
+      "weeks": 45,
+      "delta_roi_pctpoints": -0.4655,
+      "roi_week_bootstrap95": [
+        -2.1791,
+        1.2761
+      ],
+      "delta_close_model_ev_pctpoints": 0.2736,
+      "close_model_ev_week_bootstrap95": [
+        0.1234,
+        0.4248
+      ]
+    },
+    "team_pnl_expanding_monthly_vs_market_pnl_expanding_monthly": {
+      "weeks": 45,
+      "delta_roi_pctpoints": 1.4618,
+      "roi_week_bootstrap95": [
+        -0.6484,
+        3.668
+      ],
+      "delta_close_model_ev_pctpoints": 0.0065,
+      "close_model_ev_week_bootstrap95": [
+        -0.1916,
+        0.2198
+      ]
+    },
+    "combined_pnl_expanding_monthly_vs_market_pnl_expanding_monthly": {
+      "weeks": 45,
+      "delta_roi_pctpoints": 0.2473,
+      "roi_week_bootstrap95": [
+        -1.3491,
+        1.7783
+      ],
+      "delta_close_model_ev_pctpoints": 0.02,
+      "close_model_ev_week_bootstrap95": [
+        -0.1391,
+        0.1897
+      ]
+    }
+  },
+  "ex_post_large_price_value_events": {
+    "0": {
+      "total": 5251,
+      "fraction_all": 0.59266,
+      "chosen_side_captures": {
+        "early_favorite": 2670,
+        "R2_stale_1x2_residual": 2493,
+        "market_clv_frozen_2025": 2632,
+        "team_clv_frozen_2025": 2688,
+        "combined_clv_frozen_2025": 2707,
+        "market_clv_expanding_monthly": 2681,
+        "team_clv_expanding_monthly": 2775,
+        "combined_clv_expanding_monthly": 2772
+      }
+    },
+    "0.05": {
+      "total": 2022,
+      "fraction_all": 0.22822,
+      "chosen_side_captures": {
+        "early_favorite": 993,
+        "R2_stale_1x2_residual": 974,
+        "market_clv_frozen_2025": 1031,
+        "team_clv_frozen_2025": 1031,
+        "combined_clv_frozen_2025": 1040,
+        "market_clv_expanding_monthly": 1026,
+        "team_clv_expanding_monthly": 1093,
+        "combined_clv_expanding_monthly": 1081
+      }
+    },
+    "0.1": {
+      "total": 672,
+      "fraction_all": 0.07585,
+      "chosen_side_captures": {
+        "early_favorite": 315,
+        "R2_stale_1x2_residual": 342,
+        "market_clv_frozen_2025": 370,
+        "team_clv_frozen_2025": 348,
+        "combined_clv_frozen_2025": 348,
+        "market_clv_expanding_monthly": 345,
+        "team_clv_expanding_monthly": 372,
+        "combined_clv_expanding_monthly": 370
+      }
+    },
+    "0.15": {
+      "total": 228,
+      "fraction_all": 0.02573,
+      "chosen_side_captures": {
+        "early_favorite": 102,
+        "R2_stale_1x2_residual": 118,
+        "market_clv_frozen_2025": 136,
+        "team_clv_frozen_2025": 117,
+        "combined_clv_frozen_2025": 117,
+        "market_clv_expanding_monthly": 119,
+        "team_clv_expanding_monthly": 128,
+        "combined_clv_expanding_monthly": 128
+      }
+    },
+    "0.1875": {
+      "total": 98,
+      "fraction_all": 0.01106,
+      "chosen_side_captures": {
+        "early_favorite": 45,
+        "R2_stale_1x2_residual": 51,
+        "market_clv_frozen_2025": 59,
+        "team_clv_frozen_2025": 55,
+        "combined_clv_frozen_2025": 51,
+        "market_clv_expanding_monthly": 49,
+        "team_clv_expanding_monthly": 52,
+        "combined_clv_expanding_monthly": 55
+      }
+    },
+    "0.25": {
+      "total": 25,
+      "fraction_all": 0.00282,
+      "chosen_side_captures": {
+        "early_favorite": 13,
+        "R2_stale_1x2_residual": 10,
+        "market_clv_frozen_2025": 14,
+        "team_clv_frozen_2025": 12,
+        "combined_clv_frozen_2025": 11,
+        "market_clv_expanding_monthly": 14,
+        "team_clv_expanding_monthly": 12,
+        "combined_clv_expanding_monthly": 14
+      }
+    }
+  },
+  "caveat": "Strong positive close-implied-value cases are only identifiable using FUTURE closing odds. Do NOT use these ex post labels as prediction signals or trading thresholds."
+}
