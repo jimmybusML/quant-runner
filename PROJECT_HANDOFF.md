@@ -5969,3 +5969,11 @@
 - 10:59:20—11:02:16共34个FID响应，25个无Crown报价、9个补入OU movement，raw SHA 34/34通过；11:06:55队列核对确认。新collector随后另完成10个响应（7无市场、3个OU movement），SHA 10/10通过；这10项待下一队列重建确认。
 - T1107全日志1,310 attempts（1,188成功、116 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；50个遇错FID全恢复，当前可重试失败0。collector PID13127最近核验时在运行，频率5.2秒/次。
 - 逐场及审计证据、SHA manifest见`research/data_recovery_2019_2026/ou_unification/`；全部仍标注historical回取。
+
+
+### 2026-11-22 11:10 UTC：T1110队列确认
+
+- 11:06:55—11:09:24完成29个唯一FID响应（21无Crown行情、8新增OU movement），raw SHA 29/29通过，越界/重复0。11:10:45重建确认待请求41,980；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,230。
+- MR1于11:09:23安全暂停collector PID13127。父driver PID49373在正式任务结束后重新建队列并启动PID13996，5.2秒请求间隔保持不变。
+- 全日志1,338 attempts（1,215成功、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；51个遇错FID全部恢复，当前可重试失败0。剩余队列约60.6小时纯请求时间，未计后续暂停/重试。
+- T1110逐场增量、coverage、driver、transport及SHA证据已提交；全部是历史回取，不改变正式生产链。

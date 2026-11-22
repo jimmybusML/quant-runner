@@ -488,3 +488,11 @@
 - 新批次在11:07:46前另完成10个FID（7个无Crown市场数据、3个保存OU movement）；raw SHA 10/10通过、无越界/重复。该10场在11:06:55队列重建之后，尚未计入下一次权威coverage。
 - T1107全日志传输审计为1,310 attempts：1,188 success、116 `IncompleteRead`、6 `TOO_MANY_REQUEST`；曾遇错误的50个FID均已恢复，最新可重试失败0。剩余42,009项按5.2秒节奏约60.7小时纯请求时间，安全暂停和重试另计。
 - T1102与T1107的逐场、增量、driver、coverage、transport和SHA证据均在本目录，清单为`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1107Z.txt`；本批历史回取不代表赛前实收。
+
+
+## 2026-11-22 11:10 UTC：T1110队列确认
+
+- 11:06:55—11:09:24 UTC完成29个唯一FID响应：21场无Crown行情、8场保存OU movement。29份raw SHA全部匹配，范围外/重复0。11:10:45权威队列确认待请求由42,009减到41,980，OU movement覆盖由5,222增至5,230；AH和开收盘覆盖不变。
+- 11:09:23 UTC MR1计划作业使collector PID13127安全暂停；父driver PID49373于任务结束后重建队列，并启动collector PID13996，继续5.2秒节奏。
+- T1111全日志1,338 attempts：1,215 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`；51个遇错FID全部恢复，最新可重试失败0。
+- 最近权威队列41,980项折合约60.6小时纯请求时间，安全暂停及重试另计。T1110逐场、增量、driver和coverage证据及T1111 transport审计均已归档；SHA清单为`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1111Z.txt`。
