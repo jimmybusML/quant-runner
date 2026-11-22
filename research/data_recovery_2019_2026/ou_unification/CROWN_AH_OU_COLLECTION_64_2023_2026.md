@@ -848,3 +848,10 @@
 - T1555后50个唯一FID完成回取：41场无Crown AH/OU市场，9场补到OU走势570行。无AH或两市场开收盘增量；50次attempt均成功。raw响应SHA和响应FID/Provider League身份核对50/50通过，重复/越界0。
 - 队列40,558（2023:12,018；2024:14,553；2025:13,520；2026:467）。AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,574；总赛程及可信full FT各48,102。collector PID84037重新运行，安全driver PID49373监管。
 - T1604增量逐场证据、SHA身份审计、覆盖快照和区间传输审计均在本目录T1604Z文件。
+
+
+## 2026-11-22 16:04–16:08 UTC：T1608空报价检查点
+
+- 本段24个唯一FID最终均返回HTTP/API成功，但无Crown AH/OU报价；其中28次网络attempt有4次`IncompleteRead`，均已由同FID重试成功。无盘口行新增。逐场raw SHA、FID和Provider League ID核对24/24通过。
+- 权威待处理队列40,534（2023:11,994；2024:14,553；2025:13,520；2026:467），盘口覆盖不变：AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,574。
+- safe-window driver已启动collector PID85063，5.2秒/FID；T1608完整证据及SHA清单已归档。

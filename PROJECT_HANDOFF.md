@@ -6298,3 +6298,9 @@
 
 - Crown待处理队列40,558场（2023:12,018；2024:14,553；2025:13,520；2026:467）。64联赛目标赛事和可信full FT均48,102。AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,574。
 - T1555后50个唯一FID：41场无Crown盘口、9场新增OU走势570行；50次attempt成功，响应SHA和FID/联赛身份核对50/50通过。safe driver PID49373启动collector PID84037，5.2秒间隔。逐场结果和SHA清单在T1604Z文件。
+
+
+## 2026-11-22 16:08 UTC — T1608检查点
+
+- 权威队列40,534（2023:11,994；2024:14,553；2025:13,520；2026:467）。市场覆盖AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,574。
+- T1604后24个FID均无Crown AH/OU盘口。最终24场成功响应，28次attempt内4次IncompleteRead后恢复；raw SHA与FID/联赛身份核验24/24通过。collector PID85063由safe driver PID49373管理，间隔5.2秒。
