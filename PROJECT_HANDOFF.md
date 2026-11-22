@@ -5461,3 +5461,9 @@
 - 将严格复核的44个ESPN唯一FID写入独立FT证据层；其中43条新证据追加至并集库存，另1条已在基线外部FT证据中，按原始响应SHA识别后去重、不重复追加。完整赛事库存仍为203,962个唯一FID。
 - 重算并集后FT已验证FID为193,014，未核实FT为10,948；与逐场缺口队列完全一致。再次从归档ESPN原始响应重建44行外部FT复核账本，输出内容SHA不变；其中9场为先前缺口的新增FT，其余35场提供已有结果的独立外部来源佐证。
 - 最新代码、合并库存、缺口队列、外部核验账本和汇总SHA见`research/data_recovery_2019_2026/CHECKPOINT_SHA256_20261122T0011Z.txt`。本轮使用本地归档数据，不请求ESPN网络，不改变TotalCorner/Crown盘口来源和正式数据链。
+
+### 2026-11-22 00:13 UTC：10,948个全局未核实FT按来源状态分层
+
+- 对203,962 FID合并库存当前10,948个FT缺口做离线分类，0网络请求。结果按原样状态/来源分层：300场开赛时间在as-of之后；2场缺开赛时间；294场过去开赛但没有可见赛程或比分来源行；9,229场过去开赛且来源状态缺失/未知；1,123场来源记录报告非`full`状态但不解释状态码。另有9,737场记录中观察到占位0:0；该值只标记，不视作已核实比分。分类不将状态码猜为取消、延期、腰斩或完赛。
+- 生成逐FID分类JSONL 10,948行及848条联赛×UTC年矩阵，均与缺口FID逐项去重一致。复跑代码`research/data_recovery_2019_2026/classify_merged_unverified_ft_readiness_20261122.py`，结果`unverified_ft_readiness_203962_inventory_20261122.json`、`unverified_ft_readiness_203962_inventory_20261122.jsonl`和`unverified_ft_readiness_203962_inventory_by_league_year_20261122.csv`；SHA见`FT_READINESS_SHA256_20261122T0013Z.txt`。
+- 全局核实FT仍为193,014/203,962，缺口10,948。此分类不是新的赛果来源，不减少缺口数，也不代替逐场查证。全历史Crown movement driver/collector截至本交接仍运行，继续沿用原缓存复用和互斥保护；此项FT分类未启动其他采集器、未修改Crown SQLite。
