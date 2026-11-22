@@ -5097,3 +5097,4 @@
 - 对既有全路径版本1,271/+7.185U逐FID差异审计：当前3个新增G、1个旧G不再触发，净差+3.565U；四个FID的Crown原始response SHA相同而比分率不同。该比分率来源差异详见 `snapshot_delta_audit.json`，保留两版，未将利润相加；旧的三个检查点版本1,160/+10.890U亦留在父目录。当前直接重建脚本使用指定96,504赛程作训练史，公开列为本次结果，同时明确G旧/新rates尚需按来源逐项对照。
 - 完整脚本、独立复核、逐FID特征/覆盖/订单、全ISO周零单保留CSV、年度/联赛/组别明细、报告、SHA与执行记录位于 `research/m8_m9_group_independent_20261120/exact_rule_cross_league/current_full_path_replay_20261122/raw_replay_20261122/`。Crown回放全部为研究用途；无Telegram派单、正式账本写入、生产模型、M9/M1/MR1、采集链或调度修改。
 - 本次提交更新既有PR #67，不直接合并main。
+- 交付状态补记：本轮产物已提交并推送至公开分支，提交 `f28b132c430987ff2bd3a4538c97dc3e707052e0`；PR #67 (`https://github.com/jimmybusML/quant-runner/pull/67`) 当前 OPEN、base=`main`、未合并，远端 head 与该提交一致。研究运行及独立复核完成；没有生产运行、Telegram派单或账本回写。
