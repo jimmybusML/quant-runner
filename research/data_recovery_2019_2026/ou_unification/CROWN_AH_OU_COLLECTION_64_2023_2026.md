@@ -462,3 +462,11 @@
 - 全采集日志截至T1048累计1,223 attempts：1,102 success、115 `IncompleteRead`、6 `TOO_MANY_REQUEST`。49个曾遇传输/API错误的FID中48个已恢复，另1个是上述安全暂停边界待重试。所有历史回取仍与赛前HTTP实收严格区分。
 - 最近实际短窗口52场/约269.5秒，约11.6场/分钟，与5.2秒单请求间隔上限一致；没有提高并发或绕限流。按最近权威队列42,137项计算，约60.9小时纯请求时间，安全暂停与重试另计。
 - T1048增量、驱动事件、覆盖快照、transport审计和SHA清单：`crown_64_collection_checkpoint_20261122T1048Z.jsonl`、`crown_64_verified_increment_20261122T1048Z.json`、`crown_64_driver_checkpoint_20261122T1048Z.jsonl`、`crown_64_coverage_snapshot_20261122T1048Z.json`、`crown_64_transport_audit_20261122T1048Z.json`、`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1048Z.txt`。
+
+
+## 2026-11-22 10:54 UTC：T1051队列重建与自动续采
+
+- 10:51:35 UTC正式任务结束后，父driver PID49373重新计算队列并自动启动collector PID9666，节奏保持5.2秒。权威队列从42,137减至42,085；AH开收盘32,449、AH变化36,342、OU开收盘32,445，OU变化从5,193增至5,199。
+- 从10:51:35至10:54:02的28个唯一响应均在64联赛/2023—2026范围，28份raw SHA通过、重复/越界0；17场无Crown市场数据，11场保存OU movement。其中一次`IncompleteRead`重试后成功；先前被安全暂停的FID `131899045`也已在本批成功补入OU movement。
+- T1054全日志审计为1,253 attempts：1,131 success、116 `IncompleteRead`、6 `TOO_MANY_REQUEST`；50个遇错FID全部恢复，最新可重试失败0。当前子进程PID9666继续运行，T1054之后的新响应尚未进入下一个权威队列重建。
+- 最近权威队列42,085项折合约60.8小时纯请求时间，安全暂停及后续重试另计。增量、coverage、driver和transport证据分别位于`crown_64_collection_checkpoint_20261122T1054Z.jsonl`、`crown_64_verified_increment_20261122T1054Z.json`、`crown_64_driver_checkpoint_20261122T1054Z.jsonl`、`crown_64_coverage_snapshot_20261122T1054Z.json`、`crown_64_transport_audit_20261122T1054Z.json`，SHA清单位于`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1054Z.txt`。

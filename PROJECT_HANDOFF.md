@@ -5944,3 +5944,11 @@
 - 10:43:28至10:47:58增量52个唯一响应，52/52原始SHA通过，46个无Crown市场数据，6个保存OU movement；AH和开收盘无新增，重复/越界0。全部属于历史回取。
 - 10:48:07统一结算PID8873触发安全暂停，父driver PID49373仍在运行。边界FID `131899045`遇`IncompleteRead`并安全中止，作为可重试项保留；最近审计全日志1,223 attempts、1,102 success、115 `IncompleteRead`、6 `TOO_MANY_REQUEST`，48个错误FID已恢复，1个待重试。
 - T1048结果与SHA清单位于`research/data_recovery_2019_2026/ou_unification/`；采集日志持续追加，不把历史回取当成赛前HTTP收据。
+
+
+### 2026-11-22 10:54 UTC：T1051队列重建并续采
+
+- 2023—2026固定64联赛及48,102个FID不变。10:51:35 UTC队列由42,137降至42,085；权威覆盖AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,199。
+- 10:51:35至10:54:02新增28个唯一响应，raw SHA 28/28通过；17个响应无Crown市场数据、11个保存OU movement，AH及开收盘无新增，范围外/重复0。一次IncompleteRead重试成功；边界FID `131899045`在本批恢复。
+- T1054全日志1,253次请求尝试（1,131 success、116 IncompleteRead、6 TOO_MANY_REQUEST），50个曾遇错FID已全部恢复，最新可重试失败0。safe-window PID49373在正式任务结束后自动重启collector PID9666；最近核验时该collector仍在运行。
+- T1054文件及SHA manifest位于`research/data_recovery_2019_2026/ou_unification/`。以上均为historical回取；正式生产链保持原样。
