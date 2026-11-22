@@ -1,0 +1,37 @@
+{
+  "after_utc": "2026-11-22T11:06:55.369470+00:00",
+  "through_utc": "2026-11-22T11:07:46.047205+00:00",
+  "records": 10,
+  "unique_fids": 10,
+  "status_counts": {
+    "NO_CROWN_MARKET_DATA": 7,
+    "BOTH_MARKETS": 3
+  },
+  "saved_ah_kinds": {},
+  "saved_ou_kinds": {
+    "movement": 3
+  },
+  "attempts": 10,
+  "attempt_outcomes": {
+    "success": 10
+  },
+  "raw_sha_checked": 10,
+  "raw_sha_mismatches": [],
+  "out_of_scope_or_unmatched_fids": [],
+  "duplicate_fids": 0,
+  "latest_authoritative_queue_checkpoint": {
+    "at_utc": "2026-11-22T11:06:55.369470+00:00",
+    "event": "queue_checkpoint",
+    "queue_count": 42009,
+    "missing_requests": 42009,
+    "covered": {
+      "ah_open_close": 32449,
+      "ah_movement": 36342,
+      "ou_open_close": 32445,
+      "ou_movement": 5222
+    },
+    "attempted_nonretryable_fids": 1205
+  },
+  "capture_mode": "historical",
+  "checkpoint": "research/data_recovery_2019_2026/ou_unification/crown_64_collection_checkpoint_20261122T1107Z.jsonl"
+}

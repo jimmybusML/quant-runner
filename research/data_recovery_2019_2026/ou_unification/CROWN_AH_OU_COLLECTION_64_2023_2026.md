@@ -479,3 +479,12 @@
 - 该窗口有一次`IncompleteRead`重试后成功；先前暂停边界FID `131899045`成功重试。T1059全日志审计累计1,266 attempts：1,144 success、116 `IncompleteRead`、6 `TOO_MANY_REQUEST`，50个错误FID全部恢复，最新可重试失败0。
 - 最近权威队列42,043项约需60.7小时纯请求时间，安全暂停和重试另计。collector PID11466已继续按5.2秒节奏运行；T1059之后的响应等待下一次权威队列重建。
 - T1059增量、队列覆盖和driver证据：`crown_64_collection_checkpoint_20261122T1059Z.jsonl`、`crown_64_verified_increment_20261122T1059Z.json`、`crown_64_coverage_snapshot_20261122T1059Z.json`、`crown_64_driver_checkpoint_20261122T1059Z.jsonl`及transport审计`crown_64_transport_audit_20261122T1055Z.json`；SHA清单为`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1059Z.txt`。
+
+
+## 2026-11-22 11:07 UTC：T1107新队列与续采确认
+
+- 10:59:20—11:02:16 UTC期间处理34个唯一FID，25个成功响应无Crown市场数据，9个保存OU movement；raw SHA 34/34匹配，越界/重复0。11:06:55安全窗口队列重建确认该批全部处理完，待请求从42,043降至42,009，OU movement覆盖从5,213升到5,222。AH和开收盘覆盖未变。
+- MR1使collector PID11466于11:02:11安全暂停，父driver PID49373等待作业结束后于11:06:55重建队列，并启动collector PID13127。
+- 新批次在11:07:46前另完成10个FID（7个无Crown市场数据、3个保存OU movement）；raw SHA 10/10通过、无越界/重复。该10场在11:06:55队列重建之后，尚未计入下一次权威coverage。
+- T1107全日志传输审计为1,310 attempts：1,188 success、116 `IncompleteRead`、6 `TOO_MANY_REQUEST`；曾遇错误的50个FID均已恢复，最新可重试失败0。剩余42,009项按5.2秒节奏约60.7小时纯请求时间，安全暂停和重试另计。
+- T1102与T1107的逐场、增量、driver、coverage、transport和SHA证据均在本目录，清单为`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1107Z.txt`；本批历史回取不代表赛前实收。

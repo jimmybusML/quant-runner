@@ -5960,3 +5960,12 @@
 - 权威待请求FID 42,043；覆盖AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,213。比T1051减少42个请求，新增14条OU movement。
 - T1051队列后的42个唯一响应均为2023—2026批准范围内FID，raw SHA 42/42匹配；28个响应无Crown行情，14个保存OU movement，范围外和重复均为0。FID `131899045`已从安全暂停错误恢复；T1055 transport audit中50个错误FID全恢复、最新可重试失败0。
 - 当前剩余队列按5.2秒/场约需60.7小时纯请求时间，不含未来生产安全窗口及重试。T1059逐场增量、覆盖、driver、transport和SHA证据均在`research/data_recovery_2019_2026/ou_unification/`；响应继续标注historical回取。
+
+
+### 2026-11-22 11:07 UTC：T1107安全窗口后续采
+
+- 固定范围仍为64 Provider League IDs、2023—2026年48,102个FID。MR1于11:02:11使collector暂停；正式任务结束后，父driver PID49373在11:06:55重建队列并启动collector PID13127。
+- 权威队列42,009；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,222。相较10:59队列减少34项，新增9条OU movement。
+- 10:59:20—11:02:16共34个FID响应，25个无Crown报价、9个补入OU movement，raw SHA 34/34通过；11:06:55队列核对确认。新collector随后另完成10个响应（7无市场、3个OU movement），SHA 10/10通过；这10项待下一队列重建确认。
+- T1107全日志1,310 attempts（1,188成功、116 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；50个遇错FID全恢复，当前可重试失败0。collector PID13127最近核验时在运行，频率5.2秒/次。
+- 逐场及审计证据、SHA manifest见`research/data_recovery_2019_2026/ou_unification/`；全部仍标注historical回取。
