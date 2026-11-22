@@ -801,3 +801,11 @@
 - 累计传输审计至T1510：2,502请求attempt，其中2,366成功、125 `IncompleteRead`、11 `TOO_MANY_REQUEST`，attempt失败率5.4357%；64个曾遇错误FID均恢复，最新可重试失败0。批次结束标记不计作比赛请求。
 - safe-window driver PID49373于队列重建后启动collector PID70510，仍是5.2秒间隔。剩余40,821项理论纯间隔约59小时；MR1和统一结算安全窗口会减少墙钟吞吐。报告的采集覆盖仍是history/historical，未改正式运行链。
 - T1510逐场、coverage、transport、独立验证及SHA材料见本目录对应文件。
+
+
+## 2026-11-22 15:13 UTC：OU走势新增5场并重建队列
+
+- T1510至15:13:52.238872 UTC收到22个唯一FID：17个无Crown AH/OU盘口，5个补入OU movement共319条；AH与两个市场summary未增加。22次请求均成功，原始SHA及比赛/联赛/球队身份逐场匹配，超范围、重复、请求失败均为0。
+- 权威待请求队列从40,821降至40,799，分年2023:12,259、2024:14,553、2025:13,520、2026:467。OU走势覆盖从5,499升至5,504；其他覆盖保持AH open/close 32,449、AH movement36,342、OU open/close32,445。
+- 累计2,524次attempt：2,388成功、125 IncompleteRead、11 TOO_MANY_REQUEST，失败率5.3883%；64个遇错FID全部恢复，当前可重试失败0。driver PID49373已恢复采集子进程PID71273，5.2秒间隔。
+- T1513逐场、覆盖、传输及SHA材料已归档于本目录；继续historical回取，正式生产调度安全暂停保持原样。
