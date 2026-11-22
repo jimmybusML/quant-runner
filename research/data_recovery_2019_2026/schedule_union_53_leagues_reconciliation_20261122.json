@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-22T02:18:58.760600Z",
+  "generated_at_utc": "2026-11-22T02:53:16.987645Z",
   "method": "baseline inventory plus FID-deduplicated 53-league schedule artifact; append-only provenance; no Crown requests",
   "inputs": {
     "fixture_inventory_2019_2026.jsonl.gz": {
@@ -27,6 +27,16 @@
       "sha256": "3fb13e4c97f06c49a6df33b9c77b734254bccae829c45a1b3d3393472716392a",
       "unique_fids": 18,
       "source": "existing historical Crown raw fixture responses, strictly SHA/FID/identity/FT verified; result only"
+    },
+    "epl_laliga_espn_verified_ft_overlay_20261122.jsonl": {
+      "sha256": "0bcff322584354f22216e38aa007fac3eb84c854723ccacdd57c02d6806ce2a5",
+      "unique_fids": 42,
+      "source": "saved raw ESPN season responses, strictly SHA/event/status/score and exact TotalCorner FID/team-ID identity verified"
+    },
+    "epl_laliga_espn_verified_ft_conflicts_20261122.jsonl": {
+      "sha256": "cdbd81918af4cbdd6f66018a99c7211ac6d44f7619218d9fcf51255571464194",
+      "unique_fids": 12,
+      "source": "saved raw ESPN FT scores that conflict with preserved TotalCorner FT values; conflict evidence only, no score overwrite"
     }
   },
   "results": {
@@ -36,15 +46,19 @@
     "supplemental_overlap_fids": 27503,
     "supplemental_new_unique_fids": 62339,
     "merged_unique_fids": 203962,
-    "merged_verified_FT_fids": 193476,
-    "merged_unverified_FT_fids": 10486,
+    "merged_verified_FT_fids": 193518,
+    "merged_unverified_FT_fids": 10444,
     "strictly_reconciled_archived_external_FT_fids": 44,
     "new_archived_external_FT_evidence_rows_added": 43,
     "strictly_reconciled_M5_FT_fids": 27,
     "new_M5_FT_evidence_rows_added": 27,
     "strictly_reconciled_historical_Crown_FT_fids": 18,
     "new_historical_Crown_FT_evidence_rows_added": 18,
-    "unverified_queue_rows": 10486,
+    "strictly_reconciled_EPL_La_Liga_ESPN_FT_fids": 42,
+    "new_EPL_La_Liga_ESPN_FT_evidence_rows_added": 42,
+    "strictly_reconciled_EPL_La_Liga_ESPN_score_conflicts": 12,
+    "new_EPL_La_Liga_ESPN_conflict_evidence_rows_added": 12,
+    "unverified_queue_rows": 10444,
     "identity_conflicts_overwritten": 0,
     "source_fids_with_multiple_versions_preserved": 0,
     "unknown_kickoff_year_unique_fids": 24,
@@ -3226,12 +3240,12 @@
     {
       "provider_league_id": "1",
       "utc_year": "2021",
-      "unverified_FT_fids": 38
+      "unverified_FT_fids": 34
     },
     {
       "provider_league_id": "1",
       "utc_year": "2022",
-      "unverified_FT_fids": 43
+      "unverified_FT_fids": 19
     },
     {
       "provider_league_id": "1",
@@ -4165,23 +4179,18 @@
     },
     {
       "provider_league_id": "14",
-      "utc_year": "2022",
-      "unverified_FT_fids": 10
-    },
-    {
-      "provider_league_id": "14",
       "utc_year": "2023",
-      "unverified_FT_fids": 4
+      "unverified_FT_fids": 2
     },
     {
       "provider_league_id": "14",
       "utc_year": "2024",
-      "unverified_FT_fids": 5
+      "unverified_FT_fids": 4
     },
     {
       "provider_league_id": "14",
       "utc_year": "2025",
-      "unverified_FT_fids": 10
+      "unverified_FT_fids": 9
     },
     {
       "provider_league_id": "14",
@@ -7452,15 +7461,15 @@
   "source_identity_conflicts": [],
   "output": {
     "file": "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz",
-    "sha256": "bc6f639dbb3b0ae74b1ba839dae5c48bd1c3d735959faa252e68543e32049842",
-    "bytes": 20809185,
+    "sha256": "1c51b890f075efd6fff4f794ee0e3b43ab427e41f78fbe4a95efef24c9a9783d",
+    "bytes": 20820469,
     "unique_fids": 203962
   },
   "unverified_ft_queue": {
     "file": "unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz",
-    "sha256": "b546ad74b816d5f41a0651b56ad5e1eeb6d9084453fbe3759d6de3e898af34d6",
-    "bytes": 698563,
-    "unique_fids": 10486
+    "sha256": "56d661b7a9e40103b45550138f5339528f80db38c0d56e4e4689b160b93d3e94",
+    "bytes": 696958,
+    "unique_fids": 10444
   },
   "scope_caveat": "This reconciles the audited 53-league schedule batch with the committed baseline only; it does not claim all leagues, FT gaps, or Crown history are complete. Missing kickoff dates remain unassigned to a UTC year; season metadata absent at source remains absent."
 }

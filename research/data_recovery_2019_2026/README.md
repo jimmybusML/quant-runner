@@ -4,12 +4,23 @@ This is an active collection and reconciliation task, not a strategy or model st
 
 ## Current evidence
 
-- Latest persisted checkpoint: `COLLECTION_CHECKPOINT_20261122T0227Z.md` and `COLLECTION_STATUS_20261122T0227Z.json`; the 203,962-FID known-source union has 193,476 verified FT records and 10,486 unresolved. The completed 53-league supplemental schedule audit contributes 62,339 new unique FIDs. All 73 M7 competition names map to the known 118 provider IDs; this is not a global completeness claim.
+- Latest persisted checkpoint: `COLLECTION_CHECKPOINT_20261122T0253Z.md` and `COLLECTION_STATUS_20261122T0253Z.json`; the 203,962-FID known-source union has 193,518 verified FT records and 10,444 unresolved. The completed 53-league supplemental schedule audit contributes 62,339 new unique FIDs. All 73 M7 competition names map to the known 118 provider IDs; this is not a global completeness claim.
 - The 12 M1 records whose event kickoff differs from another stored schedule version are retained with both values in `m1_ft_evidence_in_unverified_ledger_20261122.jsonl`; the score evidence is not used to overwrite the conflicting kickoff.
 - Crown movement recovery is still running in historical mode. Its latest checkpoint is a moving snapshot, not a completion claim; raw responses and the SQLite remain local.
 - `inventory_coverage_summary_2019_2026.json` and `league_year_coverage_2019_2026.csv`: moving per-provider-league/per-UTC-year coverage snapshot; current committed checkpoint is described below.
 - `collection_progress_snapshot_*.json` and matching checkpoint Markdown: later live progress snapshots. They explicitly state the run is incomplete.
 - `score_source_disagreements.jsonl`: two exact-FID FT conflicts retained for audit; the source score records are not rewritten.
+
+## Existing EPL/La Liga ESPN FT archive reconciliation — 2026-11-22 02:54 UTC
+
+- An existing local 3,800-row EPL/La Liga Crown dataset had 43 archived ESPN-supplemented results and 12 score corrections. No network calls were made. The public audit script re-reads saved raw ESPN season responses and the exact TotalCorner FID/team identity crosswalk; Crown prices are not used as score evidence.
+- 42 ESPN `STATUS_FULL_TIME` scores are exact-FID verified against the current 203,962 inventory and reduce the unresolved FT queue from 10,486 to **10,444**. One additional ESPN row already had the same verified score. Twelve other raw ESPN FT scores conflict with stored TotalCorner results; the records are retained in a conflict-only file and do not overwrite canonical or prior scores.
+- One fixture has a 152-second source kickoff discrepancy. Both the canonical TotalCorner kickoff and ESPN event kickoff remain separately recorded; the canonical inventory time is not changed. The per-row auditor confirms raw file SHA, unique ESPN event, full-time status, score, raw team names, exact saved mapping, TotalCorner FID and team IDs/names.
+- Refreshed FT readiness (10,444 unique FIDs): 298 fixtures are future-dated, 2 lack kickoff, 9,032 past fixtures have missing/unknown status, and 1,112 retain provider non-full statuses without interpretation. Placeholder `0:0` is observed on 9,722 rows but never accepted as a result. No new result was inferred from readiness labels.
+- The audit uses the SHA-bound pre-overlay 10,486-FID gap snapshot `unverified_FT_candidates_pre_epl_laliga_20261122.jsonl.gz`, so rerunning after merge still reproduces 42 new, 1 already verified and 12 conflicting rows. The current unresolved queue is rebuilt separately at 10,444 FIDs.
+- The prior 02:49 UTC interim status has been superseded by the consistent 02:53 UTC checkpoint after the audit was made idempotent. The earlier short snapshot files are retained only as historical intermediate evidence.
+- Reproduction: `audit_epl_laliga_espn_ft_archive_20261122.py`, followed by `reconcile_53_league_schedule_union_20261122.py`, `classify_merged_unverified_ft_readiness_20261122.py`, and `build_recovery_checkpoint_20261122.py`. See `EXISTING_EPL_LALIGA_ESPN_FT_AUDIT_20261122.md` and `CHECKPOINT_SHA256_20261122T0253Z.txt`.
+- The Crown movement process remains active; the checkpoint is a read-only moving snapshot. No strategy/backtest, Telegram/ledger write or production collector modification was made.
 
 ## Completed supplemental schedule reconciliation — 2026-11-22 02:28 UTC
 

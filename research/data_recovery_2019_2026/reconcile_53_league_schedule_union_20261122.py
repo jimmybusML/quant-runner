@@ -25,6 +25,8 @@ EXTERNAL_FT = ROOT / "archived_espn_verified_ft_reconciled_to_203962_inventory_2
 M5_FT_OVERLAY = ROOT / "m5_verified_ft_overlay_2019_2026_20261122.jsonl"
 M5_RAW_ROOT = Path("/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/forward-shadow")
 CROWN_FT_OVERLAY = ROOT / "crown_capture_verified_ft_overlay_2019_2026_20261122.jsonl"
+EPL_LALIGA_ESPN_FT_OVERLAY = ROOT / "epl_laliga_espn_verified_ft_overlay_20261122.jsonl"
+EPL_LALIGA_ESPN_CONFLICTS = ROOT / "epl_laliga_espn_verified_ft_conflicts_20261122.jsonl"
 CROWN_DATA_ROOT = Path("/Users/mac/QuantAsiaDesk/data")
 UTC = dt.timezone.utc
 
@@ -163,6 +165,161 @@ def verified_external_rows(path):
         if not raw.is_file() or sha256(raw) != row.get("source_raw_sha256"):
             raise SystemExit(f"raw ESPN SHA mismatch for FID {row.get('fid')}")
     return rows
+
+
+def verified_epl_laliga_espn_rows(path, existing):
+    """Revalidate the saved EPL/La Liga ESPN rows against raw season responses.
+
+    The TotalCorner kickoff and ESPN event kickoff are stored separately. A
+    time discrepancy does not rewrite the canonical schedule timestamp; exact
+    FID, league, home/away IDs and names are required for the crosswalk.
+    """
+    rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()] if path.exists() else []
+    if len({str(row.get("fid")) for row in rows}) != len(rows):
+        raise SystemExit("duplicate FID in EPL/La Liga ESPN overlay")
+    accepted = []
+    for row in rows:
+        fid = str(row.get("fid") or "")
+        fixture = existing.get(fid)
+        if fixture is None:
+            raise SystemExit(f"EPL/La Liga ESPN FT FID outside merged inventory: {fid}")
+        if str(row.get("provider_league_id")) != str(fixture.get("provider_league_id")):
+            raise SystemExit(f"EPL/La Liga ESPN provider league mismatch: {fid}")
+        if row.get("kickoff_utc") != fixture.get("totalcorner_kickoff_utc"):
+            raise SystemExit(f"EPL/La Liga ESPN canonical TotalCorner kickoff mismatch: {fid}")
+        raw = CROWN_DATA_ROOT / str(row.get("source_raw_file") or "")
+        raw_sha = str(row.get("source_raw_sha256") or "")
+        if not raw.is_file() or not raw_sha or sha256(raw) != raw_sha:
+            raise SystemExit(f"EPL/La Liga ESPN raw season response missing or SHA mismatch: {fid}")
+        body = json.loads(raw.read_text(encoding="utf-8"))
+        events = [event for event in body.get("events", []) if str(event.get("id")) == str(row.get("source_event_id"))]
+        if len(events) != 1:
+            raise SystemExit(f"EPL/La Liga ESPN event ID is not unique in saved response: {fid}")
+        event = events[0]
+        comps = event.get("competitions") or []
+        if len(comps) != 1:
+            raise SystemExit(f"EPL/La Liga ESPN competition is not unique: {fid}")
+        comp = comps[0]
+        st = (comp.get("status") or {}).get("type") or {}
+        if st.get("name") != "STATUS_FULL_TIME" or not st.get("completed"):
+            raise SystemExit(f"EPL/La Liga ESPN raw event not full time: {fid}")
+        sides = comp.get("competitors") or []
+        home = [x for x in sides if x.get("homeAway") == "home"]
+        away = [x for x in sides if x.get("homeAway") == "away"]
+        if len(home) != 1 or len(away) != 1:
+            raise SystemExit(f"EPL/La Liga ESPN raw home/away ambiguity: {fid}")
+        h, a = home[0], away[0]
+        try:
+            score = f"{int(h['score'])}:{int(a['score'])}"
+        except (KeyError, TypeError, ValueError):
+            raise SystemExit(f"EPL/La Liga ESPN raw score invalid: {fid}")
+        if score != str(row.get("verified_FT")):
+            raise SystemExit(f"EPL/La Liga ESPN raw score differs from overlay: {fid}")
+        event_ko = parse_dt(event.get("date"))
+        if not event_ko or event_ko.isoformat().replace("+00:00", "Z") != row.get("source_event_kickoff_utc"):
+            raise SystemExit(f"EPL/La Liga ESPN raw event kickoff differs from overlay: {fid}")
+        hn = (h.get("team") or {}).get("displayName") or (h.get("team") or {}).get("name")
+        an = (a.get("team") or {}).get("displayName") or (a.get("team") or {}).get("name")
+        if normalized_name(hn) != normalized_name(row.get("espn_home_name_raw")) or normalized_name(an) != normalized_name(row.get("espn_away_name_raw")):
+            raise SystemExit(f"EPL/La Liga ESPN raw team names differ from overlay: {fid}")
+        if (normalized_name(row.get("espn_home_mapped_name")) != normalized_name(row.get("home_name"))
+                or normalized_name(row.get("espn_away_mapped_name")) != normalized_name(row.get("away_name"))):
+            raise SystemExit(f"EPL/La Liga ESPN saved team map differs from canonical fixture: {fid}")
+        if not str(row.get("home_id")) or not str(row.get("away_id")):
+            raise SystemExit(f"EPL/La Liga ESPN overlay missing exact TotalCorner team IDs: {fid}")
+        identity_matches = []
+        for key in ("totalcorner_page_records", "M1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records"):
+            for src in fixture.get(key, []):
+                if (str(src.get("home_id")) == str(row.get("home_id"))
+                        and str(src.get("away_id")) == str(row.get("away_id"))
+                        and normalized_name(src.get("home_name")) == normalized_name(row.get("home_name"))
+                        and normalized_name(src.get("away_name")) == normalized_name(row.get("away_name"))):
+                    identity_matches.append(key)
+        if not identity_matches:
+            raise SystemExit(f"EPL/La Liga ESPN exact TotalCorner team identity not corroborated: {fid}")
+        accepted.append(row)
+    return rows, accepted
+
+
+def verified_epl_laliga_conflicts(path, existing, accepted_ft_rows):
+    rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()] if path.exists() else []
+    if len({str(row.get("fid")) for row in rows}) != len(rows):
+        raise SystemExit("duplicate FID in EPL/La Liga ESPN conflict evidence")
+    accepted_scores = {str(r["fid"]): str(r["verified_FT"]) for r in accepted_ft_rows}
+    verified = []
+    for row in rows:
+        fid = str(row.get("fid") or "")
+        if fid not in existing or fid in accepted_scores:
+            raise SystemExit(f"EPL/La Liga conflict FID absent or also new overlay FID: {fid}")
+        # Reuse the same raw ESPN and TotalCorner identity verification; the
+        # score must conflict with, and preserve, an existing verified source.
+        raw_rows, validated = verified_epl_laliga_espn_rows_from_single(row, existing)
+        del raw_rows
+        if len(validated) != 1:
+            raise SystemExit(f"EPL/La Liga conflict evidence not uniquely verified: {fid}")
+        old_scores = set()
+        fixture = existing[fid]
+        for key in ("totalcorner_page_records", "M1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records"):
+            for src in fixture.get(key, []):
+                if str(src.get("status") or "").lower() == "full" and str(src.get("home_goals", "")).isdigit() and str(src.get("away_goals", "")).isdigit():
+                    old_scores.add(f"{int(src['home_goals'])}:{int(src['away_goals'])}")
+        if not old_scores or not old_scores.intersection(set(row.get("existing_totalcorner_scores") or [])):
+            raise SystemExit(f"EPL/La Liga conflict lacks corroborated old FT evidence: {fid}")
+        if str(row.get("verified_FT")) in old_scores:
+            raise SystemExit(f"EPL/La Liga score marked conflict but matches stored FT: {fid}")
+        verified.append(row)
+    return rows, verified
+
+
+def verified_epl_laliga_espn_rows_from_single(row, existing):
+    """Validate a one-row conflict using the same raw response and identity rules."""
+    # The 12 conflict rows are a strict subset of the accepted source records,
+    # but the standalone overlay uses a different file. Reconstruct a tiny
+    # temporary view through the same verifier without writing files.
+    fid = str(row.get("fid") or "")
+    fixture = existing.get(fid)
+    if (not fixture
+            or str(row.get("provider_league_id")) != str(fixture.get("provider_league_id"))
+            or str(row.get("kickoff_utc")) != fixture.get("totalcorner_kickoff_utc")):
+        raise SystemExit(f"EPL/La Liga conflict canonical identity mismatch: {fid}")
+    raw = CROWN_DATA_ROOT / str(row.get("source_raw_file") or "")
+    raw_sha = str(row.get("source_raw_sha256") or "")
+    if not raw.is_file() or sha256(raw) != raw_sha:
+        raise SystemExit(f"EPL/La Liga conflict raw SHA mismatch: {fid}")
+    body = json.loads(raw.read_text(encoding="utf-8"))
+    events = [e for e in body.get("events", []) if str(e.get("id")) == str(row.get("source_event_id"))]
+    if len(events) != 1:
+        raise SystemExit(f"EPL/La Liga conflict ESPN event ID not unique: {fid}")
+    event = events[0]
+    comps = event.get("competitions") or []
+    if len(comps) != 1:
+        raise SystemExit(f"EPL/La Liga conflict ESPN competition ambiguous: {fid}")
+    comp = comps[0]
+    st = (comp.get("status") or {}).get("type") or {}
+    if st.get("name") != "STATUS_FULL_TIME" or not st.get("completed"):
+        raise SystemExit(f"EPL/La Liga conflict ESPN event not FT: {fid}")
+    sides = comp.get("competitors") or []
+    home = [x for x in sides if x.get("homeAway") == "home"]
+    away = [x for x in sides if x.get("homeAway") == "away"]
+    if len(home) != 1 or len(away) != 1:
+        raise SystemExit(f"EPL/La Liga conflict ESPN sides ambiguous: {fid}")
+    actual = f"{int(home[0]['score'])}:{int(away[0]['score'])}"
+    if actual != row.get("verified_FT"):
+        raise SystemExit(f"EPL/La Liga conflict raw score mismatch: {fid}")
+    if parse_dt(event.get("date")) is None or parse_dt(event.get("date")).isoformat().replace("+00:00", "Z") != row.get("source_event_kickoff_utc"):
+        raise SystemExit(f"EPL/La Liga conflict source event kickoff mismatch: {fid}")
+    hname = (home[0].get("team") or {}).get("displayName") or (home[0].get("team") or {}).get("name")
+    aname = (away[0].get("team") or {}).get("displayName") or (away[0].get("team") or {}).get("name")
+    if normalized_name(hname) != normalized_name(row.get("espn_home_name_raw")) or normalized_name(aname) != normalized_name(row.get("espn_away_name_raw")):
+        raise SystemExit(f"EPL/La Liga conflict raw team identity mismatch: {fid}")
+    if not any(str(src.get("home_id")) == str(row.get("home_id")) and str(src.get("away_id")) == str(row.get("away_id"))
+               and normalized_name(src.get("home_name")) == normalized_name(row.get("home_name")) and normalized_name(src.get("away_name")) == normalized_name(row.get("away_name"))
+               for key in ("totalcorner_page_records", "M1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records")
+               for src in fixture.get(key, [])):
+        raise SystemExit(f"EPL/La Liga conflict TotalCorner identity mismatch: {fid}")
+    if normalized_name(row.get("espn_home_mapped_name")) != normalized_name(row.get("home_name")) or normalized_name(row.get("espn_away_mapped_name")) != normalized_name(row.get("away_name")):
+        raise SystemExit(f"EPL/La Liga conflict saved team map mismatch: {fid}")
+    return [row], [row]
 def main():
     existing = {}
     for row in read_gz(BASE):
@@ -377,6 +534,55 @@ def main():
             fixture["crown_ft_evidence_records"].append(evidence)
             crown_ft_evidence_added += 1
 
+    epl_laliga_rows, epl_laliga_verified = verified_epl_laliga_espn_rows(EPL_LALIGA_ESPN_FT_OVERLAY, existing)
+    epl_laliga_conflict_rows, epl_laliga_conflicts_verified = verified_epl_laliga_conflicts(EPL_LALIGA_ESPN_CONFLICTS, existing, epl_laliga_verified)
+    epl_laliga_evidence_added = 0
+    for row in epl_laliga_verified:
+        fixture = existing[str(row["fid"])]
+        evidence = {
+            "status": "verified_ft",
+            "home_goals": int(str(row["verified_FT"]).split(":")[0]),
+            "away_goals": int(str(row["verified_FT"]).split(":")[1]),
+            "kickoff_utc": row["kickoff_utc"],
+            "source_event_kickoff_utc": row["source_event_kickoff_utc"],
+            "kickoff_difference_seconds_vs_inventory": row["kickoff_difference_seconds_vs_inventory"],
+            "home_id": row["home_id"],
+            "away_id": row["away_id"],
+            "home_name": row["home_name"],
+            "away_name": row["away_name"],
+            "source": row["source"],
+            "source_event_id": row["source_event_id"],
+            "source_raw_sha256": row["source_raw_sha256"],
+            "source_raw_file": row["source_raw_file"],
+            "response_status": row["response_status"],
+            "crosswalk": row["crosswalk"],
+            "crosswalk_totalcorner_identity_source_keys": row["crosswalk_totalcorner_identity_source_keys"],
+        }
+        fixture.setdefault("external_ft_evidence", [])
+        if not any(x.get("source_raw_sha256") == evidence["source_raw_sha256"] and str(x.get("source_event_id")) == str(evidence["source_event_id"]) for x in fixture["external_ft_evidence"]):
+            fixture["external_ft_evidence"].append(evidence)
+            epl_laliga_evidence_added += 1
+
+    epl_laliga_conflict_evidence_added = 0
+    for row in epl_laliga_conflicts_verified:
+        fixture = existing[str(row["fid"])]
+        evidence = {
+            "source": row["source"],
+            "source_event_id": row["source_event_id"],
+            "source_event_kickoff_utc": row["source_event_kickoff_utc"],
+            "source_raw_sha256": row["source_raw_sha256"],
+            "source_raw_file": row["source_raw_file"],
+            "status": row["response_status"],
+            "external_verified_FT": row["verified_FT"],
+            "existing_totalcorner_scores": row["existing_totalcorner_scores"],
+            "conflict_resolution": row["conflict_resolution"],
+            "crosswalk": row["crosswalk"],
+        }
+        fixture.setdefault("external_ft_conflicts", [])
+        if not any(x.get("source_raw_sha256") == evidence["source_raw_sha256"] and str(x.get("source_event_id")) == str(evidence["source_event_id"]) for x in fixture["external_ft_conflicts"]):
+            fixture["external_ft_conflicts"].append(evidence)
+            epl_laliga_conflict_evidence_added += 1
+
     with OUT.open("wb") as raw:
         with gzip.GzipFile(fileobj=raw, mode="wb", mtime=0) as gz:
             for fid in sorted(existing, key=lambda z: (existing[z].get("provider_league_id", ""), existing[z].get("year") or 9999, z)):
@@ -404,7 +610,7 @@ def main():
                     continue
                 unverified_count += 1
                 sources = []
-                for key in ("totalcorner_page_records", "M1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records", "m5_result_evidence_records", "crown_ft_evidence_records"):
+                for key in ("totalcorner_page_records", "M1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records", "m5_result_evidence_records", "crown_ft_evidence_records", "external_ft_conflicts"):
                     for x in row.get(key, []):
                         sources.append({k: x.get(k) for k in ("status", "home_goals", "away_goals", "kickoff_utc", "provider_league_id", "league_name", "home_id", "away_id", "home_name", "away_name", "source_file", "page_file", "source_response_sha256", "source_record_sha256") if k in x})
                 year = row.get("year") if row.get("year") is not None else "UNKNOWN_KICKOFF_YEAR"
@@ -427,6 +633,8 @@ def main():
             str(EXTERNAL_FT.name): {"sha256": sha256(EXTERNAL_FT) if EXTERNAL_FT.exists() else None, "unique_fids": len(external_ft_rows), "source": "archived ESPN raw responses, strictly SHA/identity/FT verified"},
             str(M5_FT_OVERLAY.name): {"sha256": sha256(M5_FT_OVERLAY) if M5_FT_OVERLAY.exists() else None, "unique_fids": len(m5_ft_rows), "source": "authorized M5 TotalCorner result responses, strictly SHA/FID/identity/FT verified; not Crown odds"},
             str(CROWN_FT_OVERLAY.name): {"sha256": sha256(CROWN_FT_OVERLAY) if CROWN_FT_OVERLAY.exists() else None, "unique_fids": len(crown_ft_rows), "source": "existing historical Crown raw fixture responses, strictly SHA/FID/identity/FT verified; result only"},
+            str(EPL_LALIGA_ESPN_FT_OVERLAY.name): {"sha256": sha256(EPL_LALIGA_ESPN_FT_OVERLAY) if EPL_LALIGA_ESPN_FT_OVERLAY.exists() else None, "unique_fids": len(epl_laliga_rows), "source": "saved raw ESPN season responses, strictly SHA/event/status/score and exact TotalCorner FID/team-ID identity verified"},
+            str(EPL_LALIGA_ESPN_CONFLICTS.name): {"sha256": sha256(EPL_LALIGA_ESPN_CONFLICTS) if EPL_LALIGA_ESPN_CONFLICTS.exists() else None, "unique_fids": len(epl_laliga_conflict_rows), "source": "saved raw ESPN FT scores that conflict with preserved TotalCorner FT values; conflict evidence only, no score overwrite"},
         },
         "results": {
             "baseline_unique_fids": len(baseline_ids),
@@ -443,6 +651,10 @@ def main():
             "new_M5_FT_evidence_rows_added": m5_evidence_added,
             "strictly_reconciled_historical_Crown_FT_fids": len(crown_ft_rows),
             "new_historical_Crown_FT_evidence_rows_added": crown_ft_evidence_added,
+            "strictly_reconciled_EPL_La_Liga_ESPN_FT_fids": len(epl_laliga_verified),
+            "new_EPL_La_Liga_ESPN_FT_evidence_rows_added": epl_laliga_evidence_added,
+            "strictly_reconciled_EPL_La_Liga_ESPN_score_conflicts": len(epl_laliga_conflicts_verified),
+            "new_EPL_La_Liga_ESPN_conflict_evidence_rows_added": epl_laliga_conflict_evidence_added,
             "unverified_queue_rows": unverified_count,
             "identity_conflicts_overwritten": 0,
             "source_fids_with_multiple_versions_preserved": len(source_identity_conflicts),

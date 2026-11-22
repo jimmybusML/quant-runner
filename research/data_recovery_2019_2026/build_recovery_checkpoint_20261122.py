@@ -149,8 +149,12 @@ def main() -> None:
                 "M1": 441,
                 "M5": 27,
                 "M5_overlaps_M1": 24,
+                "archived_ESPN": merge["results"]["strictly_reconciled_archived_external_FT_fids"],
                 "Crown_historical": merge["results"]["strictly_reconciled_historical_Crown_FT_fids"],
+                "EPL_La_Liga_ESPN_new_verified_FT": merge["results"]["strictly_reconciled_EPL_La_Liga_ESPN_FT_fids"],
+                "EPL_La_Liga_ESPN_conflicts_preserved": merge["results"]["strictly_reconciled_EPL_La_Liga_ESPN_score_conflicts"],
             },
+            "unverified_readiness_counts": json.loads((ROOT / "unverified_ft_readiness_203962_inventory_20261122.json").read_text())["classifications"],
         },
         "crown_movement_queue": {
             "driver_pids": [pid for kind, pid in proc_rows if kind == "driver"],
@@ -190,7 +194,8 @@ def main() -> None:
         "strategy_or_backtest": 0,
         "telegram_or_ledger_writes": 0,
     }
-    path = ROOT / "COLLECTION_STATUS_20261122T0227Z.json"
+    stamp = dt.datetime.now(UTC).strftime("%Y%m%dT%H%MZ")
+    path = ROOT / f"COLLECTION_STATUS_{stamp}.json"
     path.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps({"output": path.name, "generated_at_utc": as_of,
         "fixtures": out["fixtures"], "schedule": out["supplemental_schedule_recovery"],

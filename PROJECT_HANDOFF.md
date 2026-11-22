@@ -5523,3 +5523,22 @@
 - 53批与Crown本地库的最新只读交叉快照时间为02:27:43Z：38批中173个FID已有historical movement capture，但其中0个含AH报价行；15批交集为0。捕获与无报价/报价是不同状态，这不是“Crown从未有价”的结论。该查询与历史writer并行，主SQLite文件SHA不作为稳定逻辑快照SHA；按as-of时间解释WAL只读视图。
 - Crown全局历史movement driver PID 59381继续运行；02:28:14Z日志快照有601个唯一终态（329 `SAVED`，272 `NO_CROWN_AH_QUOTES`），101,266个候选中100,665个尚未记录终态。日志有30次`IncompleteRead`尝试，但这30个FID均已有后续终态；当前日志中没有仅以`FETCH_FAILED`结束的FID。已保存报价行合计69,588。报价回取全部是`historical`，不代表真实赛前收据。只读WAL计数和源/收件时间缺失量见`COLLECTION_STATUS_20261122T0227Z.json`。
 - 完整复核、快照构建脚本、报告和SHA见`research/data_recovery_2019_2026/audit_supplemental_15_and_38_schedule_batches_20261122.py`、`reconcile_53_league_schedule_union_20261122.py`、`audit_league_scope_union_2019_2026.py`、`build_recovery_checkpoint_20261122.py`、`COLLECTION_CHECKPOINT_20261122T0227Z.md`、`COLLECTION_STATUS_20261122T0227Z.json`及`CHECKPOINT_SHA256_20261122T0227Z.txt`。无策略或模型研究、无Telegram和正式账本写入、无生产采集配置变更。
+
+### 2026-11-22 02:49 UTC：现有EPL/西甲 ESPN存档严格补证与冲突隔离
+
+- 从已有本地3,800行EPL/西甲Crown数据集发现43条ESPN补充结果及12条比分修正；仅读取存档，没有发起网络请求。新增`audit_epl_laliga_espn_ft_archive_20261122.py`，逐行重验12份原始ESPN赛季响应SHA、唯一event ID、`STATUS_FULL_TIME`、比分、源开赛时间、原始队名和已保存赛季映射，并要求与总库存中的精确FID、provider league ID、主客球队ID及名称相符。Crown报价未作为赛果证据。
+- 43行均通过原始赛果核验，其中42个FID此前在全局FT缺口、1个FID已有同比分可信结果；另12条ESPN完场比分与库存比分冲突，写入独立conflict artifact和`external_ft_conflicts`审计字段，未覆盖原成绩，也未把冲突作为可信FT。
+- FID `133320493` 的ESPN事件时间20:00:00Z与TotalCorner库存20:02:32Z差152秒。FID、联赛和双方队伍ID/名称一致；两时间分列保存，未改写库存开赛时间。
+- 重建后仍为203,962个唯一FID；可信FT由193,476增加到193,518，未核FT由10,486降至10,444。FT队列readiness分类：298个未来赛事、2个缺开赛时间、9,032个过去赛事缺少/未知状态、1,112个来源非full状态；9,722条观察到占位0:0但均未采作FT。零网络请求，分类仅描述来源状态。
+- 复核文件：`EXISTING_EPL_LALIGA_ESPN_FT_AUDIT_20261122.md`；脚本`audit_epl_laliga_espn_ft_archive_20261122.py`；42行FT overlay与12行冲突文件；并集清单及readiness重建。其可重复固定基线、最新状态和SHA已在紧接的02:54 UTC条目更新。
+- 02:48:48–02:48:54Z只读SQLite/WAL快照：historical movement有53,328个quote FID、4,499,297条报价；movement source-event缺失0行，HTTP receive缺失1,488行。driver PID 59381仍运行；101,266个候选中719个已有终态（329 SAVED、390 NO_CROWN_AH_QUOTES），100,547个未记录终态；30次IncompleteRead均已有后续终态。活动writer期间未声明SQLite主文件SHA为稳定逻辑快照。
+- 只完成FT来源重核与历史采集状态快照，没有运行模型、策略、盈利回测，没有Telegram或账本写入，也没有改生产采集器行为。全量FT、Crown时间路径与来源枚举仍未完成。
+
+### 2026-11-22 02:54 UTC：固定FT基线后复跑一致性并刷新采集快照
+
+- 发现原审计脚本用可变的“当前FT缺口”判断42场是否为新增。第一次输出后并集合并已经把这42场追加为ESPN证据，因此再次运行会改变新增/重叠分类。为保证跨会话可复现，从并入前已提交输入恢复SHA为`b546ad74b816d5f41a0651b56ad5e1eeb6d9084453fbe3759d6de3e898af34d6`的10,486 FID队列，保存为`unverified_FT_candidates_pre_epl_laliga_20261122.jsonl.gz`；审计改用该固定基线。之后重跑仍得到42新、1已有相同比分、12冲突，失败0。
+- 加强冲突复核：单行冲突验证同样要求原始响应内唯一competition、精确provider league、固定TotalCorner开赛时间、原始event/team map及FID的队伍ID/名称。py_compile及离线实跑完成；无网络请求。
+- 并集合并幂等重跑后203,962 FID，可信FT 193,518，缺口10,444，重复FID为0、身份覆盖为0；readiness重新生成10,444行且分类维持298未来、2开赛缺失、9,032状态未知、1,112非full未解释、9,722占位0:0（不作FT）。
+- 02:53:39–02:53:45Z只读WAL快照中movement有报价53,328 FID/4,499,297行，另50,128个历史NO_QUOTES FID；driver 59381及collector 96227正在运行，日志终态759（329 SAVED、430 NO_QUOTES）、100,507未终态。无只以FETCH_FAILED结束的FID；30次IncompleteRead历史行均有后续终态。活动数据库不宣称稳定主文件SHA。
+- 最新报告/快照为`research/data_recovery_2019_2026/EXISTING_EPL_LALIGA_ESPN_FT_AUDIT_20261122.md`、`COLLECTION_CHECKPOINT_20261122T0253Z.md`、`COLLECTION_STATUS_20261122T0253Z.json`；SHA见`CHECKPOINT_SHA256_20261122T0253Z.txt`，其生成器为`build_ft_audit_sha_manifest_20261122.py`。
+- 策略/模型/盈利研究、TG/正式账本及生产采集配置改动均为0；全局赛程来源发现、FT核实与Crown历史报价路径仍在执行。
