@@ -1,0 +1,146 @@
+{
+  "generated_at_utc": "2026-11-22T13:05:00.086190+00:00",
+  "validated": true,
+  "audit": {
+    "input_and_asof_verified": 9952,
+    "holdout_direction_reconciled": 8860,
+    "variant_results_reconciled": 19,
+    "sha_sample_checked": 32
+  },
+  "event_window_cases": {
+    "2025": {
+      "AH_and_OU_changed_before_T12": {
+        "n": 523,
+        "future_AH_line_changed": 185,
+        "future_AH_line_changed_pct": 35.373,
+        "future_home_handicap_strengthened": 78,
+        "future_home_handicap_weakened": 107,
+        "median_future_model_CLV_home_minus_away": -0.00882
+      },
+      "AH_only_changed_before_T12": {
+        "n": 191,
+        "future_AH_line_changed": 89,
+        "future_AH_line_changed_pct": 46.597,
+        "future_home_handicap_strengthened": 47,
+        "future_home_handicap_weakened": 42,
+        "median_future_model_CLV_home_minus_away": 0.0149
+      },
+      "OU_only_changed_before_T12": {
+        "n": 60,
+        "future_AH_line_changed": 27,
+        "future_AH_line_changed_pct": 45.0,
+        "future_home_handicap_strengthened": 11,
+        "future_home_handicap_weakened": 16,
+        "median_future_model_CLV_home_minus_away": -0.02219
+      },
+      "T24_missing": {
+        "n": 17,
+        "future_AH_line_changed": 6,
+        "future_AH_line_changed_pct": 35.294,
+        "future_home_handicap_strengthened": 5,
+        "future_home_handicap_weakened": 1,
+        "median_future_model_CLV_home_minus_away": -0.0
+      },
+      "neither_net_changed_before_T12": {
+        "n": 301,
+        "future_AH_line_changed": 114,
+        "future_AH_line_changed_pct": 37.874,
+        "future_home_handicap_strengthened": 50,
+        "future_home_handicap_weakened": 64,
+        "median_future_model_CLV_home_minus_away": -0.00806
+      }
+    },
+    "2026": {
+      "AH_and_OU_changed_before_T12": {
+        "n": 4363,
+        "future_AH_line_changed": 1877,
+        "future_AH_line_changed_pct": 43.021,
+        "future_home_handicap_strengthened": 1002,
+        "future_home_handicap_weakened": 875,
+        "median_future_model_CLV_home_minus_away": 0.00073,
+        "market_clv_frozen_2025_roi_pct": -4.36,
+        "event_clv_frozen_2025_roi_pct": -3.714,
+        "market_plus_event_clv_frozen_2025_roi_pct": -4.86,
+        "market_clv_expanding_monthly_roi_pct": -3.411,
+        "event_clv_expanding_monthly_roi_pct": -1.664,
+        "market_plus_event_clv_expanding_monthly_roi_pct": -4.067
+      },
+      "AH_only_changed_before_T12": {
+        "n": 1555,
+        "future_AH_line_changed": 692,
+        "future_AH_line_changed_pct": 44.502,
+        "future_home_handicap_strengthened": 326,
+        "future_home_handicap_weakened": 366,
+        "median_future_model_CLV_home_minus_away": -0.00182,
+        "market_clv_frozen_2025_roi_pct": -2.861,
+        "event_clv_frozen_2025_roi_pct": -3.032,
+        "market_plus_event_clv_frozen_2025_roi_pct": -3.377,
+        "market_clv_expanding_monthly_roi_pct": -3.394,
+        "event_clv_expanding_monthly_roi_pct": -2.118,
+        "market_plus_event_clv_expanding_monthly_roi_pct": -2.255
+      },
+      "OU_only_changed_before_T12": {
+        "n": 528,
+        "future_AH_line_changed": 226,
+        "future_AH_line_changed_pct": 42.803,
+        "future_home_handicap_strengthened": 116,
+        "future_home_handicap_weakened": 110,
+        "median_future_model_CLV_home_minus_away": -0.01076,
+        "market_clv_frozen_2025_roi_pct": -6.472,
+        "event_clv_frozen_2025_roi_pct": -6.614,
+        "market_plus_event_clv_frozen_2025_roi_pct": -2.455,
+        "market_clv_expanding_monthly_roi_pct": -6.296,
+        "event_clv_expanding_monthly_roi_pct": 2.404,
+        "market_plus_event_clv_expanding_monthly_roi_pct": -4.55
+      },
+      "T24_missing": {
+        "n": 586,
+        "future_AH_line_changed": 265,
+        "future_AH_line_changed_pct": 45.222,
+        "future_home_handicap_strengthened": 118,
+        "future_home_handicap_weakened": 147,
+        "median_future_model_CLV_home_minus_away": -0.01143,
+        "market_clv_frozen_2025_roi_pct": -14.204,
+        "event_clv_frozen_2025_roi_pct": -3.73,
+        "market_plus_event_clv_frozen_2025_roi_pct": -3.378,
+        "market_clv_expanding_monthly_roi_pct": -5.985,
+        "event_clv_expanding_monthly_roi_pct": -7.749,
+        "market_plus_event_clv_expanding_monthly_roi_pct": -7.987
+      },
+      "neither_net_changed_before_T12": {
+        "n": 1828,
+        "future_AH_line_changed": 768,
+        "future_AH_line_changed_pct": 42.013,
+        "future_home_handicap_strengthened": 393,
+        "future_home_handicap_weakened": 375,
+        "median_future_model_CLV_home_minus_away": 0.00147,
+        "market_clv_frozen_2025_roi_pct": -1.559,
+        "event_clv_frozen_2025_roi_pct": -2.443,
+        "market_plus_event_clv_frozen_2025_roi_pct": 1.467,
+        "market_clv_expanding_monthly_roi_pct": -5.678,
+        "event_clv_expanding_monthly_roi_pct": -4.266,
+        "market_plus_event_clv_expanding_monthly_roi_pct": -4.111
+      }
+    }
+  },
+  "archived_real_receipt_footprint": {
+    "snapshot_archive_date": "2026-11-13",
+    "fixtures": 89,
+    "real_received_quote_snapshots": 115,
+    "with_multiple_actual_receipts": 13,
+    "received_AH_repriced_fixtures": 10,
+    "received_AH_line_changed_fixtures": 3,
+    "received_at_least_10h_before_kickoff": 5,
+    "received_at_least_12h_before_kickoff": 5,
+    "received_at_least_20h_before_kickoff": 4,
+    "received_at_least_10h_before_kickoff_fixture_count": 2
+  },
+  "result_scope": "2025 sample Nov-Dec only; 2026 historical 8,860 complete; all quotes retrieved after fixture",
+  "notes": [
+    "Event classification is descriptive, not a signal gate; exact price changes may have reversed within T24->T12 and net to zero.",
+    "OU and AH sourced from same bookmaker; observed lead-lag alone does not prove independently early information.",
+    "Changing future AH line is only one of many ways market reprices; it does not establish contract value.",
+    "All live footprint is last archived on 2026-11-13; it is not a current live monitor.",
+    "Multiple models and reporting groups examined; confidence intervals unadjusted for multiple comparisons."
+  ]
+}
