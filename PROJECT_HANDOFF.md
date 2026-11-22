@@ -6010,3 +6010,10 @@
 - T1122至T1138间72个唯一响应：60个HTTP/API成功但无Crown市场报价、12个只新增OU movement；raw SHA 72/72通过，超范围/重复0。累计73 attempts（72 success、1次transport error后恢复）；全日志1,445 attempts，其中1,321 success、118 IncompleteRead、6 TOO_MANY_REQUEST，52个错误FID均恢复、无待重试失败。
 - 统一结算任务期间由safe-window父driver自动暂停，随后自动重建队列并续采；检查点后子进程PID20253运行，频率5.2秒/请求。短活动窗口吞吐约11.5 FID/分钟，余量主要受固定间隔和生产作业安全窗口影响。
 - 证据文件及SHA清单见`research/data_recovery_2019_2026/ou_unification/`的T1138系列。所有回取保持historical标记；未改2019—2022独立采集、正式模型、生产调度、Telegram或账本。采集尚未完成，T1138之后的请求留待下一检查点核验。
+
+
+### 2026-11-22 11:46 UTC：T1146 续采队列确认
+
+- 固定64联赛2023—2026库存及可信full FT各48,102。11:46:12 UTC队列重建41,817；市场覆盖AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,269。相较T1138队列减少49、OU走势增加14。
+- T1138后49个唯一FID响应中35场无Crown报价、14场新增OU走势；原始SHA 49/49通过，越界/重复0；49次HTTP/API请求均成功。全日志1,494 attempts，1,370成功、118 IncompleteRead、6 TOO_MANY_REQUEST，52个错误FID全恢复、当前待重试0。
+- MR1窗口触发安全暂停后，父driver PID49373于11:46自动续采，collector PID22018运行，5.2秒间隔未变。详细证据为T1146检查点文件及SHA manifest。历史回取标注和正式生产隔离不变，采集仍未完成。

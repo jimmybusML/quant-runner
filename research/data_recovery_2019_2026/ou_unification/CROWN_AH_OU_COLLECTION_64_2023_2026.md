@@ -531,3 +531,12 @@
 - 采集子进程PID 18699于11:35 UTC遇统一结算计划作业安全暂停；结算结束后父driver PID49373于11:38:20重建队列并启动新子进程PID20253。接续后42场区间实测约11.5 FID/分钟，接近5.2秒固定间隔上限；未提高频率、并发或绕过限流。
 - T1138逐场增量、权威队列、覆盖快照、transport审计和输入输出SHA见`crown_64_collection_checkpoint_20261122T1138Z.jsonl`、`crown_64_verified_increment_20261122T1138Z.json`、`crown_64_driver_checkpoint_20261122T1138Z.jsonl`、`crown_64_coverage_snapshot_20261122T1138Z.json`、`crown_64_transport_audit_20261122T1138Z.json`及对应SHA清单。
 - T1138后采集仍在运行；本节只陈述11:38:20 UTC队列检查点，后续在途数据不并入该时点覆盖数。
+
+
+## 2026-11-22 11:46 UTC：续采检查点 T1146
+
+- 固定范围仍是64个Provider League ID、2023—2026年48,102个FID及48,102个可信full FT。T1138后处理49个唯一FID，35次成功响应没有Crown市场报价，14场保存OU movement；AH和开收盘无新增。49份原始响应SHA全匹配，重复/越界0，49次请求全部成功。
+- 11:46:12 UTC权威队列为41,817，较T1138减少49。覆盖AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,269（较T1138增加14）。分市场缺口分别15,653、11,760、15,657、42,833。
+- T1146全日志1,494 attempts（1,370 success、118 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；52个遇错FID均恢复，未恢复失败0。活动请求继续采用合并AH+OU接口及5.2秒间隔。
+- safe-window父driver PID49373在MR1任务窗口后于11:46:12 UTC重建队列并启动collector PID22018。T1146之后采集仍在继续；下一个检查点需再次核验实际响应SHA和队列。全部为historical回取。
+- T1146逐场、增量、driver、coverage、transport和SHA清单见同目录对应文件。
