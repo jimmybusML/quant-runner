@@ -5,7 +5,7 @@ This is an offline, read-only source reconciliation. Numeric/unknown TotalCorner
 status values are not interpreted as full-time without a documented mapping.
 """
 from __future__ import annotations
-import collections, datetime as dt, gzip, hashlib, json, pathlib, sqlite3
+import argparse, collections, datetime as dt, gzip, hashlib, json, pathlib, sqlite3
 
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 OUT=ROOT/'research/data_recovery_2019_2026'
@@ -23,6 +23,10 @@ def dt_utc(s:str)->dt.datetime:
     if x.tzinfo is None:x=x.replace(tzinfo=dt.timezone(dt.timedelta(hours=8)))
     return x.astimezone(dt.timezone.utc)
 def main()->None:
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--as-of-utc',default=AS_OF)
+    parser.add_argument('--stamp',default=STAMP)
+    args=parser.parse_args();as_of=args.as_of_utc;stamp=args.stamp
     missing={}
     with gzip.open(FT_QUEUE,'rt',encoding='utf-8') as f:
         for line in f:
@@ -40,7 +44,7 @@ def main()->None:
             except json.JSONDecodeError:continue
             received=r.get('response_received_at_utc') or ''
             if (r.get('fixture_id') and r.get('status') in {'SAVED','NO_CROWN_AH_QUOTES'}
-                    and RUN_START<=received<=AS_OF):
+                    and RUN_START<=received<=as_of):
                 latest[str(r['fixture_id'])]=r
     batch={fid:r for fid,r in latest.items()
            if r.get('response_received_at_utc','')>=RUN_START}
@@ -143,7 +147,7 @@ def main()->None:
     db.close()
     statuses=collections.Counter(str(r['raw_fixture_status']) for r in rows)
     result={'study':'READ_ONLY_CROWN_MOVEMENT_RAW_FT_STATUS_REUSE_AUDIT',
-      'as_of_utc':AS_OF,'run_start_utc':RUN_START,
+      'as_of_utc':as_of,'run_start_utc':RUN_START,
       'unverified_ft_candidate_input_sha256':sha(FT_QUEUE.read_bytes()),
       'schedule_inventory_input_sha256':sha(INVENTORY.read_bytes()),
       'ft_unresolved_input_fids':len(missing),'batch_terminal_unique_fids':len(batch),
@@ -158,8 +162,8 @@ def main()->None:
       'network_requests':0,'database_writes':0,
       'pass':len(rows)==len(candidates) and not any(k.startswith('audit_error_') or k in {'capture_not_found','raw_sha_mismatch','raw_fixture_id_not_unique','identity_mismatch'} for k in issues)}
     result['pass']=result['pass'] and not crosswalk_issues
-    (OUT/f'crown_movement_batch_ft_status_audit_{STAMP}.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
-    with gzip.open(OUT/f'crown_movement_batch_ft_candidates_{STAMP}.jsonl.gz','wt',encoding='utf-8') as f:
+    (OUT/f'crown_movement_batch_ft_status_audit_{stamp}.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+    with gzip.open(OUT/f'crown_movement_batch_ft_candidates_{stamp}.jsonl.gz','wt',encoding='utf-8') as f:
         for r in rows:f.write(json.dumps(r,ensure_ascii=False)+'\n')
     print(json.dumps(result,ensure_ascii=False,indent=2))
 if __name__=='__main__':main()

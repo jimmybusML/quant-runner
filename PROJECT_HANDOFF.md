@@ -5618,3 +5618,11 @@
 - 安全driver PID 59381及movement collector当时持续运行；队列未完成。328个已核 raw summary 候选仍待共享writer空闲后追加并重新构造缺口队列；未并发写库。检查点 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0433Z.md`。未进行策略/模型/回测，无Telegram/账本写入或生产配置修改。
 - 对截至04:33:45Z的movement响应与固定10,444个FT缺口交叉复核：131场匹配FID/联赛/主客球队ID/开赛时间及原始响应SHA；状态115缺失、13个数字状态码未映射、3个`half`，明确`full`为0。比分字段不足以证明已完赛，没有新增可信FT，未合并任何比分。逐场账本、结果和脚本为`research/data_recovery_2019_2026/crown_movement_batch_ft_candidates_20261122T0433Z.jsonl.gz`、`crown_movement_batch_ft_status_audit_20261122T0433Z.json`及`audit_crown_movement_batch_ft_status_20261122.py`。
 - 同批原始响应与TotalCorner赛程身份精确匹配的状态校准336场：328组均为`full|full`，另外8组是同值`half|half`或数字`44/45/55/76/77/80/86`。未发现数字状态映射到full；未核的131场有7场找到精确赛程状态副本，状态仍为相同数字码/half。因此不将未解释状态码下的比分升级为已核FT。
+
+### 2026-11-22 04:46 UTC：movement队列继续回取及FT状态交叉核验
+
+- 固定movement队列截至04:46:39Z有1,413/101,266 FID终态（329 `SAVED`、1,084 `NO_CROWN_AH_QUOTES`），99,853仍待处理。1,443次attempt中的30次`IncompleteRead`均已有终态。只读对账1,413/1,413匹配SQLite与raw SHA、实际HTTP收件时间及报价行数，差异0、pass=true、0 HTTP/DB写入；该队列报价行数仍69,588，带价FID仍329。
+- 本批截至04:46:34Z与10,444个未核FT名单相交135场，135/135原始响应SHA及FID/联赛/主客球队ID/开赛时间身份准确；115状态缺失、17个数字状态码、3个`half`、明确`full`为0，因此不增加可信FT或覆盖未核比分。
+- 336场精确身份状态交叉样本中，328场状态`full|full`，8场状态为同值非full (`half`或数字44/45/55/76/77/80/86)；数字状态码未观察到映射为`full`。结果和逐场证据在 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0446Z.md` 及对应movement/FT audit JSONL/JSON。
+- 全局联赛/FT/summary基线沿用04:26/04:32只读快照，不宣称来源穷尽或总数据完成。328条已核raw summary候选仍待共享writer安全空闲后导入并重建缺口队列；movement driver继续运行。未改模型/策略/Telegram/账本/生产采集配置。
+- 04:42:05Z中间FT复核保留133场交集及逐场原始证据，0条明确`full`；04:46:34Z更新为135场，状态码交叉结论相同。两次快照均作为数据恢复审计证据保存。
