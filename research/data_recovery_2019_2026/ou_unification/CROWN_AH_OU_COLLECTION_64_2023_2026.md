@@ -869,3 +869,10 @@
 - 本段54个唯一FID全部有最终成功响应：37场没有Crown AH/OU报价，17场补到OU走势845行。54次attempt均成功；raw SHA、响应FID及Provider League ID与赛事清单核验54/54通过。
 - 权威待处理40,442（2023:11,902；2024:14,553；2025:13,520；2026:467）。市场覆盖AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,594。
 - 采集已在安全窗口重新运行，collector PID90078、driver PID49373、5.2秒/FID。T1630明细和SHA审计已归档。
+
+
+## 2026-11-22 16:30–16:38 UTC：T1638检查点
+
+- 39个唯一FID最终均成功：30场返回无Crown盘口，9场补到OU走势483行；39次attempt失败0。SHA及响应FID/Provider League身份核验39/39通过。
+- 队列40,403（2023:11,863；2024:14,553；2025:13,520；2026:467）。AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,603。
+- collector PID91980由safe driver PID49373以5.2秒间隔继续运行；T1638证据和清单已归档。
