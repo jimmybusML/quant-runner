@@ -5739,3 +5739,10 @@
 - 07:39:57启动队列42,981。暂停前32个唯一FID获得HTTP/API成功响应：9条返回AH和OU Crown市场数据，23条HTTP200但Crown bookmaker为空；另有1条FID的传输重试在暂停信号处中断，状态`PAUSED_FOR_SCHEDULED_JOB`，会在下一队列重试。
 - 07:43:43 UTC一致只读快照覆盖：AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement4,962；48,102个赛程与可信FT FID。与07:41相比OU movement +2。逐年覆盖、事件日志、transport审计和SHA在`research/data_recovery_2019_2026/ou_unification/`的07:43/07:44检查点中。
 - 当前累积传输尝试311次（238 success、67 IncompleteRead、6 TOO_MANY_REQUEST）；曾遇错误31个FID中30个恢复，余下1个是安全暂停可重试状态。无范围外FID；历史接收模式，不称为实时赛前实收。全量采集未完成，生产系统未改。
+
+### 2026-11-22 07:51 UTC：一轮续采后再次进入MR1安全窗口
+
+- safe-window PID49373仍活跃；collector PID68638在07:50:59检测到MR1 PID69022后暂停。07:49:02的队列为42,949；下一队列将在计划任务结束/空闲12秒后重建。FID130036444的暂停中断保留重试，不计作HTTP200无Crown报价。
+- 07:51:42 UTC一致只读快照：48,102场目标库存/full FT；AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement4,965；与07:43快照相比OU movement +3。三场新OU movement FID（130037365、130036441、130037117）的原始响应SHA逐文件复核匹配；其中暂停前遗留130037365已成功恢复，返回AH movement 130行与OU movement 120行。
+- 07:49队列至MR1暂停共有11个唯一FID成功响应：3个两市场完整、8个无Crown bookmaker响应。累计运输328次尝试（249成功、73 IncompleteRead、6 TOO_MANY_REQUEST），33个经历错误FID中32个恢复，余1为本轮安全暂停可重试。越界FID 0，日志276唯一FID全为2023年目标联赛。
+- 最新覆盖/逐场/driver/运输快照和SHA见`research/data_recovery_2019_2026/ou_unification/`中的07:51检查点。历史回取持续进行，不等同赛前实收；没有生产策略、模型、Telegram、正式账本或采集频率改动。
