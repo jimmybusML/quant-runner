@@ -1,3 +1,8 @@
+## 2026-11-22 | R15 finer handicap and price discovery, 2019-2023
+
+- User directed continue structure discovery; executed new_mechanisms_r15.py on 2019-2023 historical Crown AH with 16 exploratory families, finer handicap depth, bet-side odds, signed home-away odds gap, line movement size and interactions. 17,056 candidate definitions, 159 positive net U in each 2019-2023 year. R7 27 + R9 61 + R11 40 + R12 85 + R13 42 + R14 80 + R15 159 = 494 candidate definitions, not independent strategies. All 159 annual/monthly/drawdown records in NEW_MECHANISMS_R15_2019_2023.md, new_mechanisms_r15_results.json, new_mechanisms_r15_review.csv, new_mechanisms_r15_monthly.csv. Annual counts/net U reconciled with discovery pass.
+- 2019-2023 in-sample selection and evaluation, no independent forward proof. No 2024-2026 used. Retrospectively retrieved Crown event-time odds not proof of historical executable odds. Overlap/duplicate mechanisms not yet reconciled across all batches. No M8, Telegram or production changes; all 159 await user review.
+
 ## 2026-11-22 | R14 new calendar-interaction discovery, 2019-2023
 
 - User agreed to continue searching structures. Executed new_mechanisms_r14.py on 2019-2023 Crown AH history with 17 new exploratory calendar/time families: weekday, UTC kickoff hour bucket, month bucket, interactions with handicap/price/time offset. 10,007 candidate definitions, 80 positive net U in each year 2019-2023. R7 27 + R9 61 + R11 40 + R12 85 + R13 42 + R14 80 = 335 definitions, not independent mechanisms. Annual/monthly/drawdown per candidate: NEW_MECHANISMS_R14_2019_2023.md, new_mechanisms_r14_results.json, new_mechanisms_r14_review.csv, new_mechanisms_r14_monthly.csv. Annual counts and net U reconciled to discovery pass.
