@@ -5608,3 +5608,11 @@
 - 04:26:38Z只读覆盖：库存203,962场/118个known provider IDs/902个联赛×UTC年桶；movement capture 103,987 FID，53,328有4,499,297行AH报价、50,659个NO_CROWN_AH_QUOTES记录，99,975场缺movement capture。FT已核193,518、未核10,444。
 - 联赛×来源season矩阵仍为96,503个精确season标签、107,459来源缺season、冲突0；不以UTC年代填。
 - 最新材料与SHA见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0426Z.md`、状态、两个覆盖矩阵及movement独立核验文件。328个已缓存summary候选尚未落库，等待共享historical writer完成后再追加。生产系统与模型保持未改。
+
+### 2026-11-22 04:33 UTC：movement 持久化核验续进
+
+- 04:33:45Z固定101,266-FID movement队列已有1,342个唯一终态（329 `SAVED`、1,013 `NO_CROWN_AH_QUOTES`），99,924仍待处理。1,372次attempt中的30次`IncompleteRead`均已有终态；没有悬而未决失败。
+- 本轮再次只读匹配全部1,342个终态与SQLite、raw response SHA、实际HTTP收件时间及报价行数，全部通过，差异0、pass=true；审计0个HTTP请求、0次SQLite写入。总队列已存AH movement报价行69,588，当前终态新增部分没有新增带价FID。
+- 约04:32Z SQLite WAL只读视图为104,030个历史movement capture FID，其中53,328个有AH报价/4,499,297行，另50,702条响应状态为NO_CROWN_AH_QUOTES。summary层为50,236 capture FID（49,054有价、1,182响应无价）/99,242报价行。所有“无价”状态仅描述当次响应。
+- 总库存基线沿用04:26快照：203,962个known-source FID、118个provider league IDs、902个联赛×UTC年桶、193,518个可信FT、10,444个FT未核；非全球赛事穷尽证明。来源season仍为96,503已标记、107,459来源缺season、0冲突，不以UTC年推断。
+- 安全driver PID 59381及movement collector当时持续运行；队列未完成。328个已核 raw summary 候选仍待共享writer空闲后追加并重新构造缺口队列；未并发写库。检查点 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0433Z.md`。未进行策略/模型/回测，无Telegram/账本写入或生产配置修改。
