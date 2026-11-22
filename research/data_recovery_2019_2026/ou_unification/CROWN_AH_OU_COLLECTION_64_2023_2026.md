@@ -988,3 +988,12 @@
 
 - T1809后52个唯一FID最终响应全部成功：36场无Crown AH/OU盘口，16场新增OU走势595行；52次attempt失败0。raw SHA、FID及Provider League身份核验52/52通过。
 - 队列39,861（2023:11,321；2024:14,553；2025:13,520；2026:467）。累计OU movement覆盖5,745；AH开收盘32,449、AH走势36,342、OU开收盘32,445。
+
+## 2026-11-22 18:20–18:26 UTC：T1826 接续核验
+
+- 本轮负责人继续使用固定64 Provider League ID、2023–2026年、48,102个既有赛程FID及可信FT；未改2019–2022队列、策略、生产调度或请求间隔。
+- T1820队列39,839后至统一结算安全暂停边界，22个唯一FID取得成功HTTP/API响应：6场响应含已有缺失层所需的Crown OU走势（共299行），16场响应无Crown AH/OU市场数据。22次attempt均成功、失败0；22份raw SHA及响应FID/Provider League/年份身份核验全部匹配，无重复FID。结果均为历史回取。
+- 暂停边界有一份响应在暂停事件日志后约0.8秒返回，已纳入上述22场核验。安全驱动于18:26:14 UTC重建队列，剩余39,817（2023:11,277；2024:14,553；2025:13,520；2026:467），相对T1820减少22。
+- 18:26 UTC一致只读SQLite覆盖快照：AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement5,753；四类完整覆盖缺口的逐年/逐联赛明细见`snapshot_20261122T1822Z`。其中OU走势较T1820增加6个FID、299行；其他三层不变。快照的`missing_requests=42,349`表示48,102个赛程中至少缺少某个报价层的FID，不等同于排除已尝试终态后的采集队列39,817。
+- 最近采集器PID 18462以5.2秒间隔恢复；安全驱动PID 49373仍运行。T1820至T1826这22场在暂停前的实测有效响应速率约11.7场/分钟；该短窗不含之后暂停时段，也不作为全天吞吐承诺。API瓶颈和历史NO_CROWN_MARKET_DATA的判定口径不变。
+- 逐场、覆盖、传输、driver及SHA材料：`crown_64_collection_checkpoint_20261122T1822Z.jsonl`、`crown_64_verified_increment_20261122T1822Z.json`、`crown_64_increment_identity_sha_audit_20261122T1822Z.json`、`crown_64_transport_audit_20261122T1822Z.json`、`crown_64_coverage_snapshot_20261122T1822Z.json`、`crown_64_driver_checkpoint_20261122T1822Z.jsonl`、`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1822Z.txt`。没有使用其他博彩公司数据；历史回取不等于赛前实收报价。

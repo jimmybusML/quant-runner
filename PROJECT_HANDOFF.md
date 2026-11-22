@@ -6427,3 +6427,11 @@
 
 - T1809后52个FID最终成功：16场新增OU走势595行，36场无Crown AH/OU报价；52次请求、raw SHA及FID/Provider League身份核验全部通过。
 - 队列39,861（2023:11,321；2024:14,553；2025:13,520；2026:467）；AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,745。
+
+### 2026-11-22 18:26 UTC：2023–2026 Crown AH+OU 续采 T1826
+
+本轮已继续由当前 Codex 负责2023、2024、2025、2026年固定64联赛队列。T1820（18:20:34 UTC）之后、统一结算暂停边界前，22个唯一FID最终取得成功响应，22次attempt成功、无失败；6个FID增加Crown OU movement序列299行，16个响应无Crown AH/OU市场数据。原始SHA及响应FID/Provider League/年份身份22/22核验通过。所有新增内容标记为历史回取。
+
+safe-window 于18:26:14 UTC完成下一次队列构建：剩余39,817（2023 11,277；2024 14,553；2025 13,520；2026 467）。同一64联赛48,102场只读SQLite覆盖快照为AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,753。逐年细项和身份SHA审计在`research/data_recovery_2019_2026/ou_unification/`的T1822工件及SHA清单中。覆盖JSON的42,349是仍缺少任一报价层的赛程FID；与过滤已尝试终态后的采集队列39,817口径不同。
+
+最新进程检查显示安全驱动PID 49373与combined collector PID 18462仍运行；5.2秒请求间隔未改，采集器依赖safe-window在MR1/统一结算任务运行期间暂停，并于安全窗口恢复后自动重建队列。本轮没有改正式生产链或采集频率。采集尚未完成。
