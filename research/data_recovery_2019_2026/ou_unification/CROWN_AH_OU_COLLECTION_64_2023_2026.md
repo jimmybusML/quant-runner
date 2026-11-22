@@ -558,3 +558,12 @@
 - 全日志1,539 attempts（1,414 success、119 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；53个遇错FID均已恢复，未恢复失败0。
 - MR1计划任务使collector PID23862于11:55安全暂停；11:57父driver PID49373重建队列并启动collector PID24614，最近核查时仍在运行。该短活动窗约11.7场/分钟，使用5.2秒间隔；没有更改请求频率或并发。
 - T1157逐场、coverage、transport和SHA清单留在本目录对应文件中。历史回取及生产隔离不变。
+
+
+## 2026-11-22 12:01 UTC：续采检查点 T1201
+
+- 目标清单仍为固定64联赛、2023—2026年48,102个FID；可信full FT 48,102。T1157后至权威重建前确认13个唯一FID响应：12个HTTP/API成功响应无Crown市场报价，1场保存OU movement；AH及开收盘无新增。raw SHA 13/13通过，FID重复/越界0，13次attempt全部成功。
+- 12:01:55 UTC待请求41,760，较T1157减少13；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,283（+1）。市场项未覆盖FID分别15,653、11,760、15,657、42,819。
+- 全日志1,552次attempt（1,427成功、119 `IncompleteRead`、6 `TOO_MANY_REQUEST`），53个遇错FID均恢复，当前未恢复失败0。
+- 统一结算窗口使collector PID24614暂停；父driver PID49373在12:01:55 UTC重建队列并续采，collector PID25617启动。请求间隔仍为5.2秒，活动请求维持单次合并AH/OU回取。
+- T1201逐场增量、coverage、driver、transport和SHA清单见本目录T1201文件。响应均标为历史回取，正式生产系统未更改。
