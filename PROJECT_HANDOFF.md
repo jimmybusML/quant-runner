@@ -6045,3 +6045,10 @@
 - 64联赛2023—2026库存/可信full FT仍各48,102。12:04:47 UTC权威队列41,753；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,287。较T1201队列减少7，OU走势增加4。
 - T1201后7个唯一FID响应均成功，raw SHA 7/7通过；3个无Crown市场报价、4个新增OU走势；超范围/重复0。全日志1,559 attempts，1,434成功、119 IncompleteRead、6 TOO_MANY_REQUEST；53个遇错FID均恢复、待重试0。
 - safe-window父driver PID49373已启动collector PID26276，5.2秒节奏不变。T1204详细文件和SHA清单在`research/data_recovery_2019_2026/ou_unification/`。历史回取仅标historical，不改变生产模型、Telegram、正式账本或调度。
+
+
+### 2026-11-22 12:11 UTC：T1211队列重建并续采
+
+- 固定64联赛2023—2026库存与可信full FT各48,102。12:11:49 UTC待请求41,730；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,291。较T1204减少23个FID、OU走势增加4。
+- T1204后23个唯一响应SHA 23/23通过：19个无Crown市场报价、4个新增OU movement；越界/重复0、尝试均成功。全日志1,582 attempts（1,457成功、119 IncompleteRead、6 TOO_MANY_REQUEST），53个曾遇错FID均恢复。
+- 父driver PID49373持续运行，安全暂停后启动collector PID27769，5.2秒间隔。完整T1211证据见`research/data_recovery_2019_2026/ou_unification/`。回填仍未完成，生产隔离不变。

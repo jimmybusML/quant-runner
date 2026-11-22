@@ -576,3 +576,12 @@
 - 全日志1,559 attempts（1,434 success、119 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；53个曾遇错FID已全部恢复，当前未恢复失败0。
 - safe-window父driver PID49373于12:04:47 UTC完成队列重建并启动collector PID26276；请求仍按5.2秒间隔使用合并AH/OU接口。T1204后采集继续运行，后续在途响应不计入本次快照。
 - T1204逐场、增量、覆盖、driver、传输审计及SHA清单已保存于本目录，历史回取和生产隔离状态不变。
+
+
+## 2026-11-22 12:11 UTC：续采检查点 T1211
+
+- 固定64联赛2023—2026年48,102场比赛和可信full FT均不变。T1204后至队列重建处理23个唯一FID：19个成功响应无Crown市场报价，4场保存OU movement；AH及开收盘无新增。raw SHA 23/23通过、越界/重复0，23次HTTP/API请求均成功。
+- 12:11:49 UTC权威队列41,730，较T1204减少23；coverage AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,291（+4）。逐市场缺口15,653、11,760、15,657、42,811。
+- 全日志1,582 attempts：1,457 success、119 `IncompleteRead`、6 `TOO_MANY_REQUEST`；53个错误FID均已恢复，当前未恢复失败0。
+- 统一结算计划触发PID26276安全暂停；父driver PID49373在12:11:49 UTC重建队列并启动collector PID27769，间隔仍为5.2秒。
+- T1211逐场、增量、coverage、transport、driver和SHA文件已保存于本目录。所有请求仍为historical，未触碰正式生产行为。
