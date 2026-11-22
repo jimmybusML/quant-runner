@@ -1,0 +1,37 @@
+{
+  "log_records": 750,
+  "unique_fids": 682,
+  "latest_fixture_statuses": {
+    "NO_CROWN_MARKET_DATA": 476,
+    "BOTH_MARKETS": 206
+  },
+  "attempts": 771,
+  "attempt_outcomes": {
+    "transport_error": 109,
+    "success": 656,
+    "api_error": 6
+  },
+  "attempt_errors": {
+    "IncompleteRead": 109,
+    "TOO_MANY_REQUEST": 6
+  },
+  "retry_error_fids": 45,
+  "recovered_after_error_fids": 45,
+  "latest_retryable_failures": [],
+  "successful_payload_sizes_by_latest_status": {
+    "BOTH_MARKETS": {
+      "n_success_attempts": 198,
+      "median_bytes": 6279.0,
+      "mean_bytes": 7425.924,
+      "max_bytes": 18377
+    },
+    "NO_CROWN_MARKET_DATA": {
+      "n_success_attempts": 458,
+      "median_bytes": 393.0,
+      "mean_bytes": 392.688,
+      "max_bytes": 417
+    }
+  },
+  "partial_byte_diagnostics_present": 58,
+  "partial_byte_diagnostics_missing": 57
+}
