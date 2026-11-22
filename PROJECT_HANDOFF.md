@@ -6024,3 +6024,10 @@
 - 固定64联赛、2023—2026年48,102 FID和可信full FT均不变。权威待请求队列41,793；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,279。较T1146少24个请求、OU走势净增10。
 - T1146后24个唯一响应：14无Crown报价、10新增OU走势；SHA 24/24匹配，越界/重复0；25次attempt含1次`IncompleteRead`并已恢复。全日志1,519次attempt（1,394成功、119 IncompleteRead、6 TOO_MANY_REQUEST），53个错误FID全恢复、当前待重试0。
 - MR1与统一结算作业窗口触发两次安全暂停；safe-window父driver PID49373仍运行。最新collector PID23043在正式结算窗口启动后暂停，等待自动续采。请求频率、来源与historical标注均未变，生产链未改。T1150证据在`research/data_recovery_2019_2026/ou_unification/`。
+
+
+### 2026-11-22 11:57 UTC：T1157续采确认
+
+- 固定64联赛2023—2026的48,102场赛程和可信full FT不变。11:57:41 UTC队列41,773；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,282。较T1154减少17个请求，新增3场OU走势。
+- T1154后17个唯一响应SHA 17/17通过，14个无Crown市场、3个补入OU走势，越界/重复0。全日志1,539 attempts：1,414成功、119 IncompleteRead、6 TOO_MANY_REQUEST；53个错误FID已恢复，当前失败0。
+- 父driver PID49373运行；collector PID23862经MR1安全暂停后，于11:57启动PID24614续采，频率仍为5.2秒。T1157证据和SHA manifest在`research/data_recovery_2019_2026/ou_unification/`。回填未完成，数据仍标记historical。

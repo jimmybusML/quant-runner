@@ -549,3 +549,12 @@
 - 全日志累计1,519 attempts：1,394 success、119 `IncompleteRead`、6 `TOO_MANY_REQUEST`；53个曾遇错FID均已恢复，未恢复失败0。T1146批次有效速率约10.1场/分钟（含1次重试），不同窗口受API耗时及重试影响。请求间隔仍为5.2秒，未改并发。
 - 11:48:31 MR1任务使collector安全暂停，父driver于11:50:44重建队列并启动collector PID23043，随后11:50:56遇统一结算任务再次安全暂停；父driver PID49373持续等待。
 - T1150逐场记录、增量、coverage、driver、transport及SHA manifest见本目录对应文件；全部回取为historical。
+
+
+## 2026-11-22 11:57 UTC：续采检查点 T1157
+
+- 固定64联赛2023—2026年库存/可信full FT各48,102。T1154后处理17个唯一FID：14次无Crown市场报价，3场保存OU movement；AH与开收盘无新增。17份raw SHA全部通过、越界/重复0，17次attempt全成功。
+- 11:57:41 UTC权威队列为41,773，较T1154减少17；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,282（+3）。按市场种类的未覆盖FID分别15,653、11,760、15,657、42,820。
+- 全日志1,539 attempts（1,414 success、119 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；53个遇错FID均已恢复，未恢复失败0。
+- MR1计划任务使collector PID23862于11:55安全暂停；11:57父driver PID49373重建队列并启动collector PID24614，最近核查时仍在运行。该短活动窗约11.7场/分钟，使用5.2秒间隔；没有更改请求频率或并发。
+- T1157逐场、coverage、transport和SHA清单留在本目录对应文件中。历史回取及生产隔离不变。
