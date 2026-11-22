@@ -17,7 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 INVENTORY = ROOT / "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz"
-UNVERIFIED = ROOT / "ft_reconciliation_targets_before_Crown_20261122.jsonl.gz"
+UNVERIFIED = ROOT / "ft_reconciliation_targets_before_crown_20261122.jsonl.gz"
 DB = Path("/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3")
 DATA_ROOT = Path("/Users/mac/QuantAsiaDesk/data")
 OUT = ROOT / "crown_capture_verified_ft_overlay_2019_2026_20261122.jsonl"
@@ -54,8 +54,12 @@ def main() -> None:
         "FROM capture") if str(row[1]) in unresolved]
     reject = collections.Counter()
     accepted = {}
+    conflicting_fids: set[str] = set()
     for key, fid_raw, layer, mode, capture_status, received, source_file, digest, kickoff, quote_count in captures:
         fid = str(fid_raw)
+        if fid in conflicting_fids:
+            reject["additional_row_for_conflicting_verified_crown_score"] += 1
+            continue
         if mode != "historical":
             reject["not_historical_capture"] += 1
             continue
@@ -134,6 +138,7 @@ def main() -> None:
         if old is not None and (old["home_goals"], old["away_goals"]) != (hg, ag):
             reject["conflicting_verified_crown_scores"] += 1
             accepted.pop(fid, None)
+            conflicting_fids.add(fid)
             continue
         if old is None:
             accepted[fid] = row
@@ -149,6 +154,7 @@ def main() -> None:
         "verified_ft_unique_fids": len(rows),
         "verified_ft_by_layer": dict(sorted(collections.Counter(row["data_layer"] for row in rows).items())),
         "verified_ft_by_capture_status": dict(sorted(collections.Counter(row["capture_status"] for row in rows).items())),
+        "conflicting_verified_score_fids_excluded": len(conflicting_fids),
         "rejected_capture_rows": dict(sorted(reject.items())),
         "database_sha256_stability": "not asserted while historical collector is writing; retain capture_key, raw SHA and response receive timestamp per row",
         "network_requests": 0,

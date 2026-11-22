@@ -5506,3 +5506,10 @@
 - 这是对已经核对过的正式范围、扩展赛程、M7名称、SHA锚定Crown缓存及精确TotalCorner页面证据的来源并集审计。它不证明全球所有赛事来源已枚举；M7具名赛程分页上次35个目标中20个完成，当前未检测到分页进程，未在本轮新发TotalCorner请求。旧Crown原始名称映射仍锚定当时SQLite SHA `292ccb…d298`；本轮按原记录保存该来源SHA，不把它说成当前数据库快照。
 - 截至本检查点，FT 193,476/203,962，缺口10,486。历史movement driver PID 59381仍运行；101,266个原始候选中483个终态（329`SAVED`、154`NO_CROWN_AH_QUOTES`），30个`IncompleteRead`仍未终结，余100,783个未终结。所有请求保持historical模式。
 - 完整离线来源审计输出`league_scope_union_2019_2026.json`，状态、脚本和覆盖汇总SHA见`CHECKPOINT_SHA256_20261122T0207Z.txt`；当前进度见`COLLECTION_STATUS_20261122T0207Z.json`及同名Markdown检查点。无生产、策略、TG或正式账本改动。
+
+### 2026-11-22 02:11 UTC：历史补齐过程续接快照
+
+- 来源并集和FT结果未变：已发现118个provider league ID，73个M7精确赛事名称已全部映射；203,962个FID中193,476个核实FT，10,486个待核验。全局来源范围仍标记为已发现来源，不作全球完整性宣称。
+- 当前Crown movement日志有494个唯一终态FID（329`SAVED`、165`NO_CROWN_AH_QUOTES`），30次`IncompleteRead`仍待恢复；101,266原始队列中100,772尚未终结。安全驱动PID 59381仍运行historical模式，快照最后接收时间02:09:20Z。只读SQLite状态在JSON中记录，不哈希活动数据库主文件。
+- 固定10,504个Crown FT目标再扫描现有raw响应仍得18个唯一已核实FT；无冲突FT比分FID。其余新终态当前为NO_QUOTES且raw状态非full，未增加FT覆盖。报价路径与FT evidence仍是分层数据。
+- 最新状态与SHA见`COLLECTION_CHECKPOINT_20261122T0211Z.md`、`COLLECTION_STATUS_20261122T0211Z.json`和`CHECKPOINT_SHA256_20261122T0211Z.txt`。历史补采、未核FT、尚未完成的具名赛程分页和全球来源发现继续进行中。

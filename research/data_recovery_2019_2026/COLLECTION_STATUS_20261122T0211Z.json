@@ -1,0 +1,132 @@
+{
+  "generated_at_utc": "2026-11-22T02:11:56.414110Z",
+  "scope": "2019-2026 current known-source union inventory and historical Crown quote backfill only",
+  "fixtures": {
+    "unique_fids": 203962,
+    "provider_league_ids": 118,
+    "m7_exact_names": 73,
+    "m7_exact_names_unmapped": 0,
+    "known_union_missing_from_inventory": [],
+    "inventory_ids_outside_union": [],
+    "global_completeness_claim": false,
+    "inventory_sha256": "bc6f639dbb3b0ae74b1ba839dae5c48bd1c3d735959faa252e68543e32049842"
+  },
+  "ft": {
+    "verified_fids": 193476,
+    "unverified_fids": 10486,
+    "readiness": {
+      "future_fixture_not_due": 298,
+      "kickoff_missing": 2,
+      "past_kickoff_status_missing_or_unknown": 9060,
+      "placeholder_0_0_fids": 9751,
+      "provider_reports_non_full_status_uninterpreted": 1126
+    },
+    "queue_sha256": "b546ad74b816d5f41a0651b56ad5e1eeb6d9084453fbe3759d6de3e898af34d6",
+    "verified_source_overlays": {
+      "M1": 441,
+      "M5": 27,
+      "M5_overlaps_M1": 24,
+      "Crown_historical": 18
+    }
+  },
+  "crown_movement_queue": {
+    "pid": 59381,
+    "alive": true,
+    "candidates": 101266,
+    "terminal_unique_fids": 494,
+    "terminal_statuses": {
+      "SAVED": 329,
+      "NO_CROWN_AH_QUOTES": 165
+    },
+    "failed_attempts": 30,
+    "failure_codes": {
+      "IncompleteRead": 30
+    },
+    "saved_quote_rows_in_queue": 69588,
+    "unterminal_fids": 100772,
+    "last_response_received_at_utc": "2026-11-22T02:09:20.761516Z",
+    "mode": "historical"
+  },
+  "crown_sqlite_read_only_snapshot": {
+    "captures_by_layer_mode_status": [
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 49863,
+        "distinct_fids": 49863,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 53328,
+        "distinct_fids": 53328,
+        "quote_rows_reported": 4499297
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 1204,
+        "distinct_fids": 1182,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 49621,
+        "distinct_fids": 49054,
+        "quote_rows_reported": 99242
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 1330,
+        "distinct_fids": 248,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 139,
+        "distinct_fids": 95,
+        "quote_rows_reported": 278
+      }
+    ],
+    "quote_rows_by_layer_mode": [
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "quote_rows": 4499297,
+        "distinct_fids": 53328
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "quote_rows": 99242,
+        "distinct_fids": 49054
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "quote_rows": 278,
+        "distinct_fids": 95
+      }
+    ],
+    "no_stable_db_file_sha_claim_while_collector_active": true
+  },
+  "prior_named_schedule_pager_checkpoint": {
+    "checkpoint": "schedule_recovery_checkpoint_20261122T1946Z.json",
+    "completed": 20,
+    "total": 35,
+    "current_process_detected": false
+  },
+  "production_changes": 0,
+  "strategy_or_backtest": 0,
+  "telegram_or_ledger_writes": 0
+}
