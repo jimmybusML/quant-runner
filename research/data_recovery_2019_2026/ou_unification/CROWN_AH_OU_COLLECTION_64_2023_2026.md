@@ -657,3 +657,13 @@
 - T1306后55个唯一FID响应SHA 55/55通过、范围/身份一致、重复0；27场无Crown市场报价，28场保存OU movement。所有本段请求均为成功HTTP/API响应。
 - 全日志1,919 attempts：1,789成功、120 `IncompleteRead`、11 `TOO_MANY_REQUEST`；59个遇错/暂停FID中58个恢复。另1个`PAUSED_FOR_SCHEDULED_JOB`是安全暂停时中断的FID，仍作为可重试项保留，不当作永久失败。
 - 13:11:12 UTC统一结算及MR1计划任务触发安全暂停；任务完成后，改用固定FID索引查询的driver于13:14:40 UTC重建队列并启动collector PID42152，间隔5.2秒。41,398项约59.8小时纯请求时间，暂停和重试另计。T1314逐场、coverage、transport和SHA资料已保存。
+
+
+## 2026-11-22 13:22 UTC：T1322检查点；当前责任明确为2023—2026
+
+- 用户将当前采集责任明确为2023、2024、2025、2026年。收集器固定范围与此一致：64个Provider League ID、48,102个FID；该库存中每场均有可信full FT。2023—2026各年目标库存分别14,673、14,553、14,631、4,245。
+- 13:22:42 UTC权威待请求队列41,355，较T1314减少43；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,388（增加12）。队列按年：2023年12,815、2024年14,553、2025年13,520、2026年467。程序核验队列41,355行均为这四个年份，范围外0。
+- T1314后43个唯一FID响应均为HTTP/API成功，SHA 43/43通过、重复/越界/身份不匹配均为0；12场保存OU movement，31场原始响应无Crown AH/OU市场报价，AH及开收盘无新增。
+- 全日志累计2,001条记录、1,858个唯一FID、1,963次attempt：1,832成功、120次`IncompleteRead`、11次`TOO_MANY_REQUEST`；59个遇错FID均已恢复，当前待重试失败0。响应体审计确认大量成功的空市场响应仅约393字节中位数。
+- safe-window父driver PID49373在调度任务结束后于13:22:42 UTC重建队列并启动collector PID43910，固定5.2秒/FID。41,355项约59.8小时纯请求时间，不含生产任务暂停与重试。此轮未提速API节奏或影响正式运行。另有PID59391的既有2019—2022独立采集进程，不属于本轮2023—2026责任范围，本轮未触碰。
+- 本检查点及增量SHA审计文件为`crown_64_collection_checkpoint_20261122T1322Z.jsonl`、`crown_64_verified_increment_20261122T1322Z.json`、`crown_64_coverage_snapshot_20261122T1322Z.json`、`crown_64_transport_audit_20261122T1322Z.json`、`crown_64_driver_checkpoint_20261122T1322Z.jsonl`和对应SHA清单。全部历史回取仍标记为`historical`，不可解释为真实赛前收据。
