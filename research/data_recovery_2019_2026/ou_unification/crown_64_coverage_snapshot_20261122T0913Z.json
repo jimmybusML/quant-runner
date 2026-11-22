@@ -1,0 +1,40 @@
+{
+  "scope": "fixed 64 Provider League IDs, 2023-2026",
+  "snapshot_created_utc": "2026-11-22T09:14:46.759395+00:00",
+  "schedule_fids": 48102,
+  "trusted_full_ft_fids": 48102,
+  "authoritative_queue_rebuild": {
+    "as_of_utc": "2026-11-22T09:10:52.490922+00:00",
+    "missing_queue_fids": 42621,
+    "ah_open_close": 32449,
+    "ah_movement": 36342,
+    "ou_open_close": 32445,
+    "ou_movement": 5074
+  },
+  "increment_after_queue_rebuild": {
+    "unique_response_fids": 33,
+    "both_markets": 7,
+    "no_crown_market_data": 26,
+    "saved_ah_open_close": 0,
+    "saved_ah_movement": 0,
+    "saved_ou_open_close": 0,
+    "saved_ou_movement": 7,
+    "raw_sha_matches": 33,
+    "raw_sha_mismatches": 0,
+    "out_of_scope_fids": 0
+  },
+  "derived_pending_next_queue_rebuild": {
+    "ah_open_close": 32449,
+    "ah_movement": 36342,
+    "ou_open_close": 32445,
+    "ou_movement": 5081,
+    "ah_open_close_missing": 15653,
+    "ah_movement_missing": 11760,
+    "ou_open_close_missing": 15657,
+    "ou_movement_missing": 43021
+  },
+  "notes": [
+    "latest quote coverage is derived from verified missing-kind saves after the authoritative queue rebuild; next safe-window queue rebuild will confirm the SQLite counts",
+    "all latest historical responses are not prospective live receipts"
+  ]
+}
