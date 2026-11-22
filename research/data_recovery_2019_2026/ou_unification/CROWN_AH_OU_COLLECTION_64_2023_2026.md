@@ -470,3 +470,12 @@
 - 从10:51:35至10:54:02的28个唯一响应均在64联赛/2023—2026范围，28份raw SHA通过、重复/越界0；17场无Crown市场数据，11场保存OU movement。其中一次`IncompleteRead`重试后成功；先前被安全暂停的FID `131899045`也已在本批成功补入OU movement。
 - T1054全日志审计为1,253 attempts：1,131 success、116 `IncompleteRead`、6 `TOO_MANY_REQUEST`；50个遇错FID全部恢复，最新可重试失败0。当前子进程PID9666继续运行，T1054之后的新响应尚未进入下一个权威队列重建。
 - 最近权威队列42,085项折合约60.8小时纯请求时间，安全暂停及后续重试另计。增量、coverage、driver和transport证据分别位于`crown_64_collection_checkpoint_20261122T1054Z.jsonl`、`crown_64_verified_increment_20261122T1054Z.json`、`crown_64_driver_checkpoint_20261122T1054Z.jsonl`、`crown_64_coverage_snapshot_20261122T1054Z.json`、`crown_64_transport_audit_20261122T1054Z.json`，SHA清单位于`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1054Z.txt`。
+
+
+## 2026-11-22 10:59 UTC：T1059队列确认与再续采
+
+- 10:55:15 UTC，MR1计划作业PID10456触发collector PID9666安全停止；随后正式统一结算作业运行。父driver PID49373等待安全窗口结束，于10:59:20 UTC重建队列并自动启动collector PID11466。
+- 最新权威队列从42,085降至42,043；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,213。此前10:51:35—10:55:15的42个唯一响应已全部反映在队列重建中：28个无Crown市场数据，14个补入OU movement，raw SHA 42/42通过，范围外/重复0。
+- 该窗口有一次`IncompleteRead`重试后成功；先前暂停边界FID `131899045`成功重试。T1059全日志审计累计1,266 attempts：1,144 success、116 `IncompleteRead`、6 `TOO_MANY_REQUEST`，50个错误FID全部恢复，最新可重试失败0。
+- 最近权威队列42,043项约需60.7小时纯请求时间，安全暂停和重试另计。collector PID11466已继续按5.2秒节奏运行；T1059之后的响应等待下一次权威队列重建。
+- T1059增量、队列覆盖和driver证据：`crown_64_collection_checkpoint_20261122T1059Z.jsonl`、`crown_64_verified_increment_20261122T1059Z.json`、`crown_64_coverage_snapshot_20261122T1059Z.json`、`crown_64_driver_checkpoint_20261122T1059Z.jsonl`及transport审计`crown_64_transport_audit_20261122T1055Z.json`；SHA清单为`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1059Z.txt`。

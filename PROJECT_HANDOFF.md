@@ -5952,3 +5952,11 @@
 - 10:51:35至10:54:02新增28个唯一响应，raw SHA 28/28通过；17个响应无Crown市场数据、11个保存OU movement，AH及开收盘无新增，范围外/重复0。一次IncompleteRead重试成功；边界FID `131899045`在本批恢复。
 - T1054全日志1,253次请求尝试（1,131 success、116 IncompleteRead、6 TOO_MANY_REQUEST），50个曾遇错FID已全部恢复，最新可重试失败0。safe-window PID49373在正式任务结束后自动重启collector PID9666；最近核验时该collector仍在运行。
 - T1054文件及SHA manifest位于`research/data_recovery_2019_2026/ou_unification/`。以上均为historical回取；正式生产链保持原样。
+
+
+### 2026-11-22 10:59 UTC：T1059队列确认并续采
+
+- 10:55:15 UTC MR1 PID10456使collector安全暂停；统一结算完成后，父driver PID49373于10:59:20重建队列并启动collector PID11466。
+- 权威待请求FID 42,043；覆盖AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,213。比T1051减少42个请求，新增14条OU movement。
+- T1051队列后的42个唯一响应均为2023—2026批准范围内FID，raw SHA 42/42匹配；28个响应无Crown行情，14个保存OU movement，范围外和重复均为0。FID `131899045`已从安全暂停错误恢复；T1055 transport audit中50个错误FID全恢复、最新可重试失败0。
+- 当前剩余队列按5.2秒/场约需60.7小时纯请求时间，不含未来生产安全窗口及重试。T1059逐场增量、覆盖、driver、transport和SHA证据均在`research/data_recovery_2019_2026/ou_unification/`；响应继续标注historical回取。
