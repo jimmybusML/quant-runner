@@ -5117,3 +5117,4 @@
 - 按FID合并冻结原八组后11,567单、+246.765U、ROI2.133354%、MDD57.565U，新增段仍单独为+10.750U。独立审计逐笔重读原始Crown响应SHA、赛程身份、FT、T1线及双方赔率并按AH五态/四分之一盘拆腿重算，1,273/1,273通过、issues为空；目标范围真实live-mode Crown收据0/18,374，全部仅为历史source-event回放，不是Telegram实战或正式账本订单。
 - 本次快照与10:55 CST版本逐FID一致：1,273笔、18,374条覆盖状态均无变化。完整报告、可复跑主脚本、独立验证脚本、逐场特征/覆盖/订单、逐周CSV、结果JSON及SHA256清单位于 `research/m8_m9_group_independent_20261120/exact_rule_cross_league/current_full_path_replay_20261122/raw_replay_20261122T1323CST/`；目录SHA清单17项全部匹配。执行记录：`EXECUTION_RECORD_20261122T1323CST.md`。
 - 本次仅更新研究证据及本交接；冻结策略、生产模型、M9/M1/MR1、Telegram、正式账本、采集工作流和调度未修改。现有PR #67（base `main`）继续保持OPEN、不合并；只提交本次运行目录和本交接，保留共享工作区已有formation/referee未提交研究文件。
+- 本轮交付提交 `0f0b37f35db8b568bf02efde99f5df7217075183` 已推送至公开分支 `research/m8-m9-groups`，并更新PR #67（`https://github.com/jimmybusML/quant-runner/pull/67`）；远端 head 已核对一致，PR保持OPEN、未合并。
