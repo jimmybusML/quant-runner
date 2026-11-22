@@ -5710,3 +5710,12 @@
 - 采集日志218条/191个FID，最新134个HTTP200未返回Crown、57个双市场完整、当前未解决FETCH_FAILED为0。217次HTTP attempt含165次成功、51次`IncompleteRead`和1次`TOO_MANY_REQUEST`。19个FID曾失败，全部后来取得成功响应（包括反复失败的127951032）；限流后退避也成功。
 - 成功带市场报价响应中位约10.6KB；未返回Crown bookmaker响应中位约0.39KB。增加只读传输审计脚本`audit_crown_64_transport.py`及JSON输出。历史IncompleteRead异常未保存partial数据，无法回溯字节截断长度；采集脚本已加`partial_bytes`、`expected_remaining_bytes`诊断，但当前采集子进程在代码改动前启动，下一次安全窗口启动才会记录这些字段。
 - 安全driver PID 49373运行，collector PID 61886已于07:22:43 UTC因MR1计划任务暂停。更新报告、逐场/driver快照、传输审计、SHA清单已准备提交。全量任务未完成。
+
+
+### 2026-11-22 07:35 UTC：用户接续负责2023—2026年64联赛采集
+
+- 按用户最新指示继续固定64个Provider League ID、2023—2026共48,102场赛程；时间窗与联赛ID检查通过，当前日志231个唯一FID均在范围内，所有记录均为2023年，本检查点越界FID为0。统一AH/OU请求仍使用实测成功的`asianList,goalList`，频率维持5.2秒，未并发绕过限流。
+- 07:35:13 UTC一致只读数据库快照：AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 4,951；相对07:23快照OU movement净增7场。按字段口径缺15,653、11,760、15,657、43,151场（依次对应上述四类，不可相加为唯一FID）。赛程、full FT库存仍为48,102场。
+- safe-window PID 49373仍活跃，07:31:59 UTC队列43,010、采集子进程PID 64219运行中。生产结算/MR1作业期间已暂停，作业结束后自动恢复。恢复后21个唯一FID在约142秒响应窗完成，约8.9 FID/分钟；5.2秒节奏理论无重试上限11.5 FID/分钟。剩余队列纯请求估时约62.1小时，日历时间还取决于重试及已排定安全窗口。
+- 最新传输日志审计：259条记录、229唯一FID、267次尝试（203 success、59 `IncompleteRead`、5 `TOO_MANY_REQUEST`）；25个曾遇失败的FID均已随后成功，暂无未恢复失败。新增采集代码的partial-byte诊断字段已在8次错误出现，较旧运行记录仍有56次缺此字段。
+- 快照/复现证据见`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_COLLECTION_64_2023_2026.md`及同目录`crown_64_*_20261122T0735Z.*`和SHA manifest。采集持续进行，非实盘收据。未开展模型或策略研究，未修改正式模型、Telegram、账本、采集频率或生产调度。
