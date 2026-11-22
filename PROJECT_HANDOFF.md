@@ -6265,3 +6265,11 @@
 - T1510后22个唯一FID均成功且SHA/身份核验通过：17场无Crown AH/OU报价，5场新增OU走势319行。队列减少22，OU走势覆盖FID +5。
 - 累计2,524次请求attempt，失败率5.3883%（125 IncompleteRead、11 TOO_MANY_REQUEST），64个遇错FID均恢复，当前重试失败0。safe-window driver PID49373续跑collector PID71273，5.2秒/FID，任务继续进行。
 - 完整T1513检查点与SHA清单已提交研究分支。
+
+
+## 2026-11-22 15:28 UTC — 2023–2026 Crown历史采集继续
+
+- 用户将当前采集责任明确为2023、2024、2025、2026年；继续使用固定64 Provider League ID队列和现有safe-window合并采集driver。实际任务由driver PID49373监管，collector PID74724运行，5.2秒/FID；正式结算运行时自动暂停，结束后自动续采。
+- 15:28:07.663357 UTC权威队列40,731场（2023:12,191；2024:14,553；2025:13,520；2026:467）。总库存48,102且可信full FT 48,102。Crown覆盖FID：AH open/close 32,449；AH movement 36,342；OU open/close 32,445；OU movement 5,523。
+- T1513以来新增核验46个唯一FID、46个最终成功响应，含48次attempt（46成功、2次IncompleteRead后恢复）。33场无Crown盘口，13场补入OU movement共667行；逐场raw SHA和响应FID/league ID核对46/46通过。当前未完成，剩余队列约40,731场；按5.2秒纯间隔约58.6小时，不含暂停和重试。
+- 报告与数据证据已记录在`research/data_recovery_2019_2026/ou_unification/`的T1528Z检查点文件。仍只做历史AH/OU采集；不做模型研究，不改变生产流程。
