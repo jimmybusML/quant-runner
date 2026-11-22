@@ -504,3 +504,11 @@
 - T1115全日志1,350 attempts：1,227 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`；51个曾遇错FID已全部恢复，最新可重试失败0。
 - 父driver PID49373于11:14:31重建队列并启动collector PID14895；该collector于11:15:31因MR1计划作业PID15111再次安全暂停。父driver继续运行，暂停后响应留待下一次重建确认。
 - 剩余权威队列41,972项，按5.2秒间隔折合约60.6小时纯请求时间。T1115增量、driver、coverage、transport及SHA清单位于本目录；该批仍为historical回取。
+
+
+## 2026-11-22 11:20 UTC：T1120队列续进
+
+- 11:14:31—11:17:25 UTC完成12个唯一FID响应，10个无Crown市场数据，2个保存OU movement；raw SHA 12/12匹配，越界/重复0，传输尝试均成功。
+- 11:17:25 UTC权威重建确认队列从41,972减至41,960；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,236。OU变化序列较前一快照+2，AH与开收盘无变化。
+- T1120全日志1,360 attempts：1,237 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`；51个遇错FID全部恢复，最新可重试失败0。父driver PID49373启动collector PID15537，仍按5.2秒间隔运行。
+- 剩余41,960项约60.6小时纯请求时间，不含安全暂停和重试。T1120逐场、增量、driver、coverage、transport与SHA manifest已保存，所有记录属于历史回取。

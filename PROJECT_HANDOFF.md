@@ -5985,3 +5985,11 @@
 - T1115全日志1,350 attempts（1,227 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`），51个遇错FID全部恢复，当前可重试失败0。
 - 父driver PID49373启动collector PID14895后，MR1 PID15111于11:15:31触发安全暂停；父driver继续运行。暂停后的响应未计入11:14:31权威coverage，待下次队列重建。
 - T1115逐场增量及SHA证据已存`research/data_recovery_2019_2026/ou_unification/`。采集仍是2023—2026固定64联赛的historical回取。
+
+
+### 2026-11-22 11:20 UTC：T1120队列续进
+
+- 固定64联赛/2023—2026范围不变。11:14:31—11:17:25处理12个唯一FID：10个无Crown报价、2个保存OU movement，raw SHA 12/12通过，范围外/重复0。
+- 11:17:25队列重建为41,960；权威coverage AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,236。较前一检查点OU movement增加2。
+- 全日志1,360 attempts（1,237 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；51个遇错FID全恢复、当前可重试失败0。父driver PID49373与collector PID15537仍运行，节奏5.2秒。
+- T1120报告、逐场响应、coverage、transport和SHA清单已提交。回取数据保持historical标签，不影响生产系统。
