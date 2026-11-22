@@ -5654,3 +5654,12 @@
 - 05:16:12Z 902桶库存覆盖仍是203,962 FID/118 provider ID/193,518 verified FT/10,444 unresolved FT。movement capture 104,280，53,328个有价FID/4,499,297行，50,952个NO-CROWN-AH响应、99,682个未采movement capture。summary historical仍缺153,762 FID；328条已验证raw summary缓存报价等待共享writer空闲后导入。
 - 1,102个已在扩展库存中的Crown capture逐场对账仍为1,008 exact full-score match、94 unresolved、AH quote rows 0；37个扩展库存外解析capture仍全是目标UTC 2019–2026以外，未发现目标期漏入赛事。
 - 检查点及最新逐场证据见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0516Z.md`、`movement_collection_persisted_audit_20261122T0515Z.json`、`crown_movement_batch_ft_status_audit_20261122T0515Z.json`、`league_year_quote_coverage_20261122T0515Z.csv/.json`。历史回取持续进行；未改模型、正式采集规则、Telegram、账本或调度。数据与检查点提交 `27be2c8d` 已推送。
+
+### 2026-11-22 05:19 UTC：计划任务安全窗口间隙中的movement增量
+
+- 安全driver PID 59381继续运行；MR1计划任务启动后于05:19:06Z暂停movement collector，driver等待后续安全窗口，未并行启动请求。
+- 截至05:19:24Z，固定101,266-FID movement队列有1,617个唯一终态（329 `SAVED`、1,288 `NO_CROWN_AH_QUOTES`），99,649个仍待处理；1,647次attempt里的30次`IncompleteRead`均有终态。只读SQLite/raw SHA/HTTP收件时间/quote count核验1,617/1,617通过、差异0、0请求、0 DB写入。累计69,588条AH行、329有价FID，本段无新增带价FID。
+- 固定FT缺口交集扩至151场，身份151/151准确：130状态缺失、18未映射数字码、3 `half`、0明确full；未新增可信FT。
+- 05:19:03Z覆盖快照：203,962 FID、118已知provider联赛ID、902联赛×UTC年/unknown桶；193,518可信FT、10,444未核。movement capture 104,313 FID，53,328有价/4,499,297行、50,985无AH报价响应、99,649未采。历史summary缺capture 153,762 FID；328条已验证缓存summary等待writer空闲。
+- 1,102场已扩展库存Crown capture crosswalk仍为1,008个精确full比分一致、94个FT待核，报价行0；扩展库存外37个可解析capture仍全为2015/2018目标期外数据。
+- 检查点、SHA清单和逐场核验见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0519Z.md`及同时间戳结果。队列、FT及summary缺口仍存在；工作继续。研究提交SHA待本检查点提交后补录。
