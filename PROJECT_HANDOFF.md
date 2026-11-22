@@ -6517,3 +6517,7 @@ T1930后至19:33:03 UTC MR1暂停，26个唯一FID成功响应：5个FID新增OU
 T1934后至19:35:42 UTC，14个唯一FID成功：2个新增OU走势FID共116行，12个响应无Crown AH/OU报价。raw SHA与响应FID/64联赛身份14/14通过。19:38:36 UTC队列39,406（2023 10,866；2024 14,553；2025 13,520；2026 467），较T1934少14；OU走势5,852。第一次只读覆盖审计时SQLite WAL/SHM sidecar暂缺，等待文件恢复后于19:41:04 UTC只读快照成功；没有写库或重新请求。
 
 随后MR1暂停前后10个唯一FID均返回HTTP 200但无AH/OU报价，raw SHA/身份10/10通过，无重复。19:40:15 UTC队列39,396（2023 10,856；2024 14,553；2025 13,520；2026 467），较T1938减少10，四类盘口覆盖不变。T1938、T1940工件/清单均保存在`research/data_recovery_2019_2026/ou_unification/`。19:42检查后combined collector PID36921、safe-window PID49373运行；5.2秒间隔未变，采集继续。
+
+### 2026-11-22 19:46–19:47 UTC：续采 T1946
+
+T1940后至19:43:22 UTC统一结算暂停边界，37个唯一FID全部HTTP 200但无Crown AH/OU市场数据；37次attempt成功，raw SHA及FID/64联赛身份37/37通过，重复0。19:46:14 UTC队列39,359（2023 10,819；2024 14,553；2025 13,520；2026 467），较T1940少37；队列覆盖AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,852。19:47:19 UTC一致只读快照OU movement 5,853（恢复后新加1 FID），其余不变。请求平均耗时1.1936秒、中位数1.1968秒，含暂停约11.7 FID/分钟；5.2秒节奏未变。T1946全套工件与SHA清单位于`research/data_recovery_2019_2026/ou_unification/`；collector PID38349和safe-window PID49373运行，采集继续。
