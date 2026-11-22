@@ -6249,3 +6249,11 @@
 - T1454后46场成功HTTP响应均无Crown报价，增加原始响应记录但不增加报价覆盖；逐场身份及SHA检查通过。累计2,467请求attempt：2,331成功、125 IncompleteRead、11 TOO_MANY_REQUEST，attempt失败率5.5128%；64个遇错FID均恢复，可重试失败0。
 - safe-window driver PID49373已启动collector PID68564，频率5.2秒/FID。纯间隔预计队列耗时约59小时，安全暂停与重试另计。采集继续中，未完成；所有历史请求保持historical标签。
 - T1502覆盖、传输、逐场与SHA文件均已归档在`research/data_recovery_2019_2026/ou_unification/`。
+
+
+## 2026-11-22 15:10 UTC：T1510权威检查点
+
+- 64联赛2023—2026总库存48,102场；可信full FT 48,102。Crown待处理队列40,821（2023 12,281；2024 14,553；2025 13,520；2026 467）。
+- Crown覆盖：AH开收盘32,449；AH走势36,342；OU开收盘32,445；OU走势5,499。T1502后35场新增唯一FID：28场HTTP成功但没有Crown盘口，7场补到OU走势239行。新增raw SHA和赛事身份均通过；请求失败/重复/越界为0。
+- 累计2,502请求attempt：2,366成功，125 IncompleteRead，11 TOO_MANY_REQUEST，失败率5.4357%；64个遇错FID全部恢复，当前可重试失败0。
+- safe-window driver PID49373启动collector PID70510，以5.2秒/请求继续；剩余请求纯间隔约59小时，暂停/重试另计。研究分支新增T1510完整逐场、覆盖、传输及SHA检查点；采集仍未完成。
