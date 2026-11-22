@@ -5513,3 +5513,13 @@
 - 当前Crown movement日志有494个唯一终态FID（329`SAVED`、165`NO_CROWN_AH_QUOTES`），30次`IncompleteRead`仍待恢复；101,266原始队列中100,772尚未终结。安全驱动PID 59381仍运行historical模式，快照最后接收时间02:09:20Z。只读SQLite状态在JSON中记录，不哈希活动数据库主文件。
 - 固定10,504个Crown FT目标再扫描现有raw响应仍得18个唯一已核实FT；无冲突FT比分FID。其余新终态当前为NO_QUOTES且raw状态非full，未增加FT覆盖。报价路径与FT evidence仍是分层数据。
 - 最新状态与SHA见`COLLECTION_CHECKPOINT_20261122T0211Z.md`、`COLLECTION_STATUS_20261122T0211Z.json`和`CHECKPOINT_SHA256_20261122T0211Z.txt`。历史补采、未核FT、尚未完成的具名赛程分页和全球来源发现继续进行中。
+
+### 2026-11-22 02:28 UTC：补充赛程批次最终对账与Crown回收续接
+
+- 后续读取私有 `totalcorner_schedule_recovery/progress.json` 发现具名赛事分页已于2026-11-21 22:37:41Z完成；这更新并取代02:11检查点中“35项目标仅20个完成/分页未完成”的旧状态。实际完成账本为38个目标、2,140次网络请求、62,339个唯一FID、0个报告身份冲突。逐页核验共2,098个已引用原始响应页，62,339行source-record SHA全部验证，raw-source errors为0。没有重启或重复发起分页请求。
+- 与38项之外的15项补充批次独立对账：15项完成、936个已验证响应页、27,503个唯一FID；其中27,503个都在原基线库存内，新增0。15批和38批FID没有交集；38批也与原141,623-FID基线没有交集，净增62,339。53批共有89,842个唯一FID；其中83,990行为数字比分且`status=full`，5,852行仍未核实/非full。来源缺失season字段，不以开赛年份代填。
+- 修复`reconcile_53_league_schedule_union_20261122.py`汇总字段被循环局部变量覆盖的问题：旧summary把`supplemental_source_rows`误输出成一条来源对象；现输出正确计数89,842。脚本重跑后的并集是203,962个FID、FT核验193,476、未核验10,486，FID无重复，未覆盖或静默覆盖身份冲突为0。未改写基线记录。
+- 重跑精确provider来源审计：形式范围51 IDs、扩展范围64 IDs、显式并集含观察到的M1单独ID共118个；M7的73个精确名称全部一对一映射，已审阅来源的ID缺口/额外ID均为空。状态为`known_union_covered`，**仍不代表全球赛事范围穷尽**。
+- 53批与Crown本地库的最新只读交叉快照时间为02:27:43Z：38批中173个FID已有historical movement capture，但其中0个含AH报价行；15批交集为0。捕获与无报价/报价是不同状态，这不是“Crown从未有价”的结论。该查询与历史writer并行，主SQLite文件SHA不作为稳定逻辑快照SHA；按as-of时间解释WAL只读视图。
+- Crown全局历史movement driver PID 59381继续运行；02:28:14Z日志快照有601个唯一终态（329 `SAVED`，272 `NO_CROWN_AH_QUOTES`），101,266个候选中100,665个尚未记录终态。日志有30次`IncompleteRead`尝试，但这30个FID均已有后续终态；当前日志中没有仅以`FETCH_FAILED`结束的FID。已保存报价行合计69,588。报价回取全部是`historical`，不代表真实赛前收据。只读WAL计数和源/收件时间缺失量见`COLLECTION_STATUS_20261122T0227Z.json`。
+- 完整复核、快照构建脚本、报告和SHA见`research/data_recovery_2019_2026/audit_supplemental_15_and_38_schedule_batches_20261122.py`、`reconcile_53_league_schedule_union_20261122.py`、`audit_league_scope_union_2019_2026.py`、`build_recovery_checkpoint_20261122.py`、`COLLECTION_CHECKPOINT_20261122T0227Z.md`、`COLLECTION_STATUS_20261122T0227Z.json`及`CHECKPOINT_SHA256_20261122T0227Z.txt`。无策略或模型研究、无Telegram和正式账本写入、无生产采集配置变更。

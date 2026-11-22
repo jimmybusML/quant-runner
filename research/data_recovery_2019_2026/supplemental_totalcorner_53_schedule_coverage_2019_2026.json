@@ -1,6 +1,6 @@
 {
   "audit": "2019-2026 supplemental TotalCorner schedule recovery, schedule/FT/Crown coverage only; no strategy/model/backtest",
-  "as_of_utc": "2026-11-21T23:12:19.721988Z",
+  "as_of_utc": "2026-11-22T02:27:43.040766Z",
   "batches": {
     "15_competition_run": {
       "progress_path_private": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/totalcorner_schedule_recovery/progress_before_m7_mapped_targets_20261122.json",
@@ -13380,7 +13380,7 @@
   },
   "crown_sqlite_read_only": {
     "path": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3",
-    "sha256_before_and_after": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298",
+    "main_database_file_sha256_before_and_after": "ba7e39dcb78bfc55bc82ec2ce1024a292661ac490e340b3351caf67f9607b559",
     "database_opened_read_only": true,
     "coverage_by_batch_unique_fids": {
       "15": {
@@ -13394,10 +13394,10 @@
         "valid_pregame_movement_fids": 0
       },
       "38": {
-        "capture_fids": 0,
-        "movement_capture_fids": 0,
+        "capture_fids": 173,
+        "movement_capture_fids": 173,
         "summary_capture_fids": 0,
-        "historical_capture_fids": 0,
+        "historical_capture_fids": 173,
         "live_capture_fids": 0,
         "movement_quote_fids": 0,
         "summary_quote_fids": 0,
@@ -13405,7 +13405,8 @@
       }
     },
     "no_network_requests_or_sqlite_writes": true,
-    "quote_source_event_time_and_http_received_time_are_not_conflated": true
+    "quote_source_event_time_and_http_received_time_are_not_conflated": true,
+    "snapshot_caveat": "A historical collector may write to the SQLite WAL while this read-only query runs. The matching main-file SHA only shows that the main file did not change; it is not a stable logical-database snapshot hash. Counts describe the SQLite read snapshot at as_of_utc."
   },
   "summary": {
     "target_leagues": 53,
@@ -13420,11 +13421,11 @@
   "input_sha256": {
     "15_target_scope": "08458f8b516d2bfab1e43af0b41cbb4b1322c088643142dc4a4b292b55a9a5f5",
     "38_target_manifest": "effae3204c03736cb3b27dbfbda4e3b9e27c1b093df17628a532a62382d6f778",
-    "existing_global_inventory": "c0bccf93b87aafd072db9f3237977e65d14002d52393e637082bef5d9c59455a",
+    "existing_global_inventory": "b25d73d97f0dd3ba4be4fa609f2fadcb626bee10d373c873495e3d348f23f83c",
     "private_append_only_fixture_ledger": "5e7b89bef4133cc4c21f515c795ad1ecbde357b9967d0f53103f9a9b2bc757f3",
     "private_append_only_request_log": "ac3504ceb62e01f960baf9256b409e78a2c8f692bbcd33dfb6da2bc2130db9d0",
     "38_raw_page_coverage_audit": "183699338bece598f51bac34f30bcfaaa8bcc81a5474d551ee92de3d30f8b38f",
-    "crown_sqlite": "292ccbde5afe72490e2978599640e8a06a075d8d73c5210f75b002046414d298"
+    "crown_sqlite": "ba7e39dcb78bfc55bc82ec2ce1024a292661ac490e340b3351caf67f9607b559"
   },
   "outputs": {
     "normalized_fixture_jsonl_gz": "supplemental_totalcorner_schedules_53leagues_2019_2026.jsonl.gz",
@@ -13436,6 +13437,7 @@
     "Raw TotalCorner response bodies remain private; public normalized rows include source-page and source-record SHA256 references.",
     "No provider season field is inferred from kickoff year.",
     "No Crown collection was requested during this audit; local SQLite coverage only is reported.",
+    "The Crown SQLite query is read-only but may overlap an active writer; its per-query counts are a moving WAL-aware snapshot, and the main-file SHA is not a stable logical-database hash.",
     "Schedule page fields such as p_asian are not Crown bookmaker quote histories and are not treated as Crown AH."
   ]
 }

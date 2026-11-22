@@ -287,13 +287,13 @@ def main():
             raise SystemExit(f"M5 raw FT status or score mismatch for FID {fid}")
         if str(event.get("l_id")) != str(fixture.get("provider_league_id")) or row.get("kickoff_utc") != fixture.get("totalcorner_kickoff_utc"):
             raise SystemExit(f"M5 league or kickoff mismatch for FID {fid}")
-        source_rows = fixture.get("totalcorner_page_records", []) + fixture.get("M1_history_cache_records", [])
+        identity_source_rows = fixture.get("totalcorner_page_records", []) + fixture.get("M1_history_cache_records", [])
         identity_ok = any(
             str(src.get("home_id")) == str(event.get("h_id"))
             and str(src.get("away_id")) == str(event.get("a_id"))
             and normalized_name(src.get("home_name")) == normalized_name(event.get("h"))
             and normalized_name(src.get("away_name")) == normalized_name(event.get("a"))
-            for src in source_rows
+            for src in identity_source_rows
         )
         if not identity_ok:
             raise SystemExit(f"M5 team identity mismatch for FID {fid}")
@@ -344,13 +344,13 @@ def main():
             raise SystemExit(f"Crown raw FT status or score mismatch for FID {fid}")
         if str(event.get("l_id")) != str(fixture.get("provider_league_id")) or row.get("kickoff_utc") != fixture.get("totalcorner_kickoff_utc"):
             raise SystemExit(f"Crown FT league or kickoff mismatch for FID {fid}")
-        source_rows = fixture.get("totalcorner_page_records", []) + fixture.get("M1_history_cache_records", []) + fixture.get("supplemental_schedule_records", [])
+        identity_source_rows = fixture.get("totalcorner_page_records", []) + fixture.get("M1_history_cache_records", []) + fixture.get("supplemental_schedule_records", [])
         identity_ok = any(
             str(src.get("home_id")) == str(event.get("h_id"))
             and str(src.get("away_id")) == str(event.get("a_id"))
             and normalized_name(src.get("home_name")) == normalized_name(event.get("h"))
             and normalized_name(src.get("away_name")) == normalized_name(event.get("a"))
-            for src in source_rows
+            for src in identity_source_rows
         )
         if not identity_ok:
             raise SystemExit(f"Crown FT team identity mismatch for FID {fid}")
@@ -430,7 +430,7 @@ def main():
         },
         "results": {
             "baseline_unique_fids": len(baseline_ids),
-            "supplemental_source_rows": source_rows,
+            "supplemental_source_rows": sum(len(rows) for rows in source_by_fid.values()),
             "supplemental_unique_fids": len(source_by_fid),
             "supplemental_overlap_fids": len(overlap_ids),
             "supplemental_new_unique_fids": len(new_ids),

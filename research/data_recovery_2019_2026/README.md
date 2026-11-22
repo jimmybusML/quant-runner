@@ -4,12 +4,20 @@ This is an active collection and reconciliation task, not a strategy or model st
 
 ## Current evidence
 
-- Latest persisted checkpoint: `COLLECTION_CHECKPOINT_20261122T0211Z.md` and `COLLECTION_STATUS_20261122T0211Z.json`; the 203,962-FID source union has 193,476 verified FT records and 10,486 unresolved. An offline exact-source audit maps all 73 M7 competition names into the current 118 provider IDs; this is the known source union, not a global completeness claim.
+- Latest persisted checkpoint: `COLLECTION_CHECKPOINT_20261122T0227Z.md` and `COLLECTION_STATUS_20261122T0227Z.json`; the 203,962-FID known-source union has 193,476 verified FT records and 10,486 unresolved. The completed 53-league supplemental schedule audit contributes 62,339 new unique FIDs. All 73 M7 competition names map to the known 118 provider IDs; this is not a global completeness claim.
 - The 12 M1 records whose event kickoff differs from another stored schedule version are retained with both values in `m1_ft_evidence_in_unverified_ledger_20261122.jsonl`; the score evidence is not used to overwrite the conflicting kickoff.
 - Crown movement recovery is still running in historical mode. Its latest checkpoint is a moving snapshot, not a completion claim; raw responses and the SQLite remain local.
 - `inventory_coverage_summary_2019_2026.json` and `league_year_coverage_2019_2026.csv`: moving per-provider-league/per-UTC-year coverage snapshot; current committed checkpoint is described below.
 - `collection_progress_snapshot_*.json` and matching checkpoint Markdown: later live progress snapshots. They explicitly state the run is incomplete.
 - `score_source_disagreements.jsonl`: two exact-FID FT conflicts retained for audit; the source score records are not rewritten.
+
+## Completed supplemental schedule reconciliation — 2026-11-22 02:28 UTC
+
+- The 38-target TotalCorner schedule run completed at 2026-11-21 22:37:41 UTC after 2,140 requests. Its 2,098 referenced response pages and all 62,339 source-record hashes verified with zero raw-source errors. The separate 15-target run verified 936 pages and 27,503 unique FIDs; these 27,503 were already in the baseline inventory. The 38-target FIDs had no baseline or cross-batch overlap, so the audited 53-target source union added 62,339 unique FIDs and brought the inventory to 203,962.
+- The 53-target schedule source carries 83,990 numeric `full` FT rows and 5,852 rows that remain unverified or non-full. The merged global FT ledger remains 193,476 verified / 10,486 unresolved. Missing provider season fields remain missing; UTC kickoff year is not substituted as season.
+- The explicit source audit maps all 73 M7 exact competition names to 118 known provider league IDs, with no IDs missing or outside the reviewed union. This closes the named-source mapping gap only; it does not establish exhaustive global fixture coverage.
+- A read-only Crown SQLite snapshot at 02:27:43 UTC found 173 historical movement captures among the 38-target batch, with zero AH quote FIDs. This is a moving WAL-aware snapshot during an active writer. It is not a stable database hash and does not imply Crown has no market for the other fixtures. The 02:28:14 UTC history queue log records 601 terminal FIDs (329 `SAVED`, 272 `NO_CROWN_AH_QUOTES`) and 100,665 not yet logged out of 101,266 candidates.
+- Reproduction: `audit_supplemental_15_and_38_schedule_batches_20261122.py`, `reconcile_53_league_schedule_union_20261122.py`, `audit_league_scope_union_2019_2026.py`, and `build_recovery_checkpoint_20261122.py`. Exact result and code digests are listed in `CHECKPOINT_SHA256_20261122T0227Z.txt`.
 
 ## Reproduction on the authorized local host
 
