@@ -5563,3 +5563,13 @@
 - Added `audit_verified_ft_overlay_union_20261122.py` and its aggregate plus one-row-per-FID evidence outputs. Existing M1/M5/Crown/ESPN rows total 528 source rows / 504 unique FIDs after 24 overlaps; score conflicts 0, identity errors 0. All 504 are already resolved from the 10,444-FID current gap; this is provenance reconciliation, not new collection. Source raw SHA checks remain in the source-specific audits.
 - Latest global inventory baseline remains 203,962 known-source FIDs / 118 provider IDs, 193,518 verified FT / 10,444 unresolved (inventory snapshot 02:53 UTC). This is not a proof of exhaustive global league discovery. Separate summary-layer candidate queue remains 153,762 FIDs; defer it until the active movement batch is done to avoid overlapping collectors.
 - Checkpoint: `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0329Z.md`; digest list: `CHECKPOINT_SHA256_20261122T0329Z.txt`. Continue the full inventory, FT, summary, and movement gap audit; no strategy, model, backtest, formal trade, Telegram or ledger work.
+
+
+### 2026-11-22 03:55 UTC：扩展历史数据覆盖矩阵与Crown movement续接
+
+- 新增只读覆盖生成器 `research/data_recovery_2019_2026/build_league_year_live_coverage_20261122.py`，输出完整902行provider联赛×UTC年份快照。203,962个库存FID均恰好分入一个桶；118个known-source provider ID，193,518个verified FT、10,444个FT未核。无全球赛事范围穷尽声明。
+- 补齐provider ID 27391的2022/2024/2026联赛名：精确FID、l_id、主客队ID均与本地M1 cache逐项一致，名称为UEFA Nations League D；引用缓存SHA `b474015b933f79b6265e67f8d6c627b298d91bc0295e3526e6d43d819ac0128c`。24个年份未知FID仍留在unknown，不推断年份。
+- 03:55:08Z只读SQLite覆盖快照：movement layer 103,818 FID，53,328有AH报价共4,499,297行，50,490条捕获响应状态为NO_CROWN_AH_QUOTES；完整库存仍有100,144场缺movement capture。历史summary为50,200 FID/99,242报价行，153,762个原始候选仍无历史summary capture。live summary单独分层统计。
+- movement安全驱动PID 59381仍活跃，在计划任务间歇无collector child时保持等待；未并发启动采集。03:55:11Z队列日志1,122/101,266 FID终态（329 SAVED、793 NO_CROWN_AH_QUOTES），100,144未终结；30次IncompleteRead均已后续终结。独立只读核验将1,122条日志终态全部匹配SQLite/raw文件SHA/HTTP接收时间/报价行数，全部差异0，pass=true；核验0请求、0数据库写入。
+- 新快照及文件哈希见 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0355Z.md`、`COLLECTION_STATUS_20261122T0355Z.json`、`movement_collection_persisted_audit_20261122T0355Z.json`、`league_year_quote_coverage_20261122T0354Z.csv/.json` 与 SHA manifest。回取报价仍是historic mode，不称作赛前实时收据。
+- 未做策略、模型或盈利回测；未改生产模型、TG、账本、生产采集代码/配置或调度。完整movement、summary、FT gap及全球来源发现尚未完成。
