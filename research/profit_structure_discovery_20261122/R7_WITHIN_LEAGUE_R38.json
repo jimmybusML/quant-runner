@@ -1,0 +1,205 @@
+{
+  "scope": "Original R7 27, 2023-24 shared45 league within-market and matched team presence",
+  "baseline_shared_leagues": {
+    "2023": {
+      "n": 883,
+      "net_U": 42.78,
+      "roi_pct": 4.8448
+    },
+    "2024": {
+      "n": 1664,
+      "net_U": 23.83,
+      "roi_pct": 1.4321
+    }
+  },
+  "dimensions": {
+    "horizon": {
+      "matched_cells": 150,
+      "matched": {
+        "2023": {
+          "n": 878,
+          "net_U": 46.57,
+          "roi_pct": 5.3041
+        },
+        "2024": {
+          "n": 1587,
+          "net_U": 16.25,
+          "roi_pct": 1.0239
+        }
+      },
+      "excluded_unmatched": {
+        "2023": {
+          "n": 5,
+          "net_U": -3.79,
+          "roi_pct": -75.8
+        },
+        "2024": {
+          "n": 77,
+          "net_U": 7.58,
+          "roi_pct": 9.8442
+        }
+      },
+      "mix_pp": 4.1875,
+      "within_pp": -8.4676,
+      "total_pp": -4.2802
+    },
+    "line": {
+      "matched_cells": 143,
+      "matched": {
+        "2023": {
+          "n": 872,
+          "net_U": 38.58,
+          "roi_pct": 4.4243
+        },
+        "2024": {
+          "n": 1596,
+          "net_U": 22.46,
+          "roi_pct": 1.4073
+        }
+      },
+      "excluded_unmatched": {
+        "2023": {
+          "n": 11,
+          "net_U": 4.2,
+          "roi_pct": 38.1818
+        },
+        "2024": {
+          "n": 68,
+          "net_U": 1.37,
+          "roi_pct": 2.0147
+        }
+      },
+      "mix_pp": 3.1504,
+      "within_pp": -6.1675,
+      "total_pp": -3.017
+    },
+    "ticks": {
+      "matched_cells": 143,
+      "matched": {
+        "2023": {
+          "n": 875,
+          "net_U": 44.12,
+          "roi_pct": 5.0423
+        },
+        "2024": {
+          "n": 1594,
+          "net_U": 33.29,
+          "roi_pct": 2.0885
+        }
+      },
+      "excluded_unmatched": {
+        "2023": {
+          "n": 8,
+          "net_U": -1.34,
+          "roi_pct": -16.75
+        },
+        "2024": {
+          "n": 70,
+          "net_U": -9.46,
+          "roi_pct": -13.5143
+        }
+      },
+      "mix_pp": 2.9675,
+      "within_pp": -5.9214,
+      "total_pp": -2.9538
+    },
+    "odds": {
+      "matched_cells": 178,
+      "matched": {
+        "2023": {
+          "n": 874,
+          "net_U": 42.92,
+          "roi_pct": 4.9108
+        },
+        "2024": {
+          "n": 1550,
+          "net_U": 32.445,
+          "roi_pct": 2.0932
+        }
+      },
+      "excluded_unmatched": {
+        "2023": {
+          "n": 9,
+          "net_U": -0.14,
+          "roi_pct": -1.5556
+        },
+        "2024": {
+          "n": 114,
+          "net_U": -8.615,
+          "roi_pct": -7.557
+        }
+      },
+      "mix_pp": 5.5783,
+      "within_pp": -8.3958,
+      "total_pp": -2.8175
+    },
+    "side": {
+      "matched_cells": 87,
+      "matched": {
+        "2023": {
+          "n": 882,
+          "net_U": 41.94,
+          "roi_pct": 4.7551
+        },
+        "2024": {
+          "n": 1654,
+          "net_U": 29.26,
+          "roi_pct": 1.769
+        }
+      },
+      "excluded_unmatched": {
+        "2023": {
+          "n": 1,
+          "net_U": 0.84,
+          "roi_pct": 84.0
+        },
+        "2024": {
+          "n": 10,
+          "net_U": -5.43,
+          "roi_pct": -54.3
+        }
+      },
+      "mix_pp": 3.0315,
+      "within_pp": -6.0176,
+      "total_pp": -2.9861
+    }
+  },
+  "teams": {
+    "unique_league_team_ids": {
+      "2023": 586,
+      "2024": 682
+    },
+    "shared_league_team_ids": 540,
+    "at_least_one_team_seen_both_years": {
+      "2023": {
+        "n": 876,
+        "net_U": 38.3,
+        "roi_pct": 4.3721
+      },
+      "2024": {
+        "n": 1597,
+        "net_U": 34.945,
+        "roi_pct": 2.1882
+      }
+    },
+    "both_teams_seen_both_years": {
+      "2023": {
+        "n": 784,
+        "net_U": 54.165,
+        "roi_pct": 6.9088
+      },
+      "2024": {
+        "n": 1164,
+        "net_U": 2.875,
+        "roi_pct": 0.247
+      }
+    }
+  },
+  "caveats": [
+    "All 2023-2024 historical Crown receipts are 2026 retrospective; these are not live-executable results.",
+    "League-by-market cell decomposition excludes categories without observations in both years; compare coverage explicitly.",
+    "Team matching means a team appeared in both years within the same league, not identical fixture, roster or strength.",
+    "The 2024 sample has been repeatedly inspected; do not choose gates or filters using its favorable subgroups.",
+    "No 2025-2026 data, no candidate definition or production changes."
+  ]
+}
