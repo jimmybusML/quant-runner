@@ -520,3 +520,14 @@
 - 11:22:11 UTC安全窗口重建确认队列从41,960减至41,938，OU movement覆盖从5,236增至5,243；AH、AH movement及两市场开收盘均不变。
 - T1122全日志1,372 attempts：1,249 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`；51个曾遇错FID均恢复，最新可重试失败0。新collector启动后，MR1作业PID16557触发安全暂停，父driver PID49373继续等待并会自动续采。
 - 剩余41,938请求约60.6小时纯网络时间，安全暂停和重试另计。T1122增量、覆盖、driver、transport与SHA证据已归档，报价均为historical回取。
+
+
+## 2026-11-22 11:38 UTC：续采检查点 T1138
+
+- 本轮继续仅覆盖固定64个 Provider League ID、2023—2026 年48,102个既有FID；比赛清单和可信 full FT 均为48,102。历史请求仍使用`columns=asianList,goalList`，每FID最多一次合并请求，间隔5.2秒。
+- 11:22:11至11:38:20 UTC间，安全窗口驱动处理72个唯一FID，60次成功响应没有Crown市场报价，12场保存了OU movement；AH及开收盘没有覆盖增量。72份HTTP响应SHA全部匹配，FID重复0、范围外/身份不匹配0。请求共73次attempt，其中72成功、1次transport error后恢复；回取全部为`historical`。
+- 11:38:20 UTC权威队列重建：待请求41,866项。覆盖为AH open/close 32,449（缺15,653）、AH movement 36,342（缺11,760）、OU open/close 32,445（缺15,657）、OU movement 5,255（缺42,847）。市场覆盖缺口会重叠，不能相加为待请求数；成功HTTP200但返回空Crown bookmaker的FID单独记作无报价，不冒充已获得市场行。
+- T1138全日志累计1,445 attempts：1,321成功、118 `IncompleteRead`、6 `TOO_MANY_REQUEST`；52个曾遇传输/API错误的FID均已恢复，当前可重试失败0。
+- 采集子进程PID 18699于11:35 UTC遇统一结算计划作业安全暂停；结算结束后父driver PID49373于11:38:20重建队列并启动新子进程PID20253。接续后42场区间实测约11.5 FID/分钟，接近5.2秒固定间隔上限；未提高频率、并发或绕过限流。
+- T1138逐场增量、权威队列、覆盖快照、transport审计和输入输出SHA见`crown_64_collection_checkpoint_20261122T1138Z.jsonl`、`crown_64_verified_increment_20261122T1138Z.json`、`crown_64_driver_checkpoint_20261122T1138Z.jsonl`、`crown_64_coverage_snapshot_20261122T1138Z.json`、`crown_64_transport_audit_20261122T1138Z.json`及对应SHA清单。
+- T1138后采集仍在运行；本节只陈述11:38:20 UTC队列检查点，后续在途数据不并入该时点覆盖数。

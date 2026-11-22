@@ -6001,3 +6001,12 @@
 - 全日志1,372 attempts（1,249 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；51个曾遇错FID全部恢复，最新可重试失败0。
 - 父driver PID49373在结算安全窗口后重建队列；新collector PID16558随即被MR1计划任务PID16557暂停，driver保持运行并自动等待续采。
 - T1122证据与SHA清单位于`research/data_recovery_2019_2026/ou_unification/`。采集范围、5.2秒请求间隔和historical标注未变。
+
+
+### 2026-11-22 11:38 UTC：继续负责2023—2026年 Crown AH+OU 续采
+
+- 当前责任范围固定为64个Provider League ID、2023—2026年48,102个FID；该范围由现有收集器ID清单和schedule核对，比赛/可信full FT仍各48,102。
+- T1138权威队列41,866；coverage AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,255。较T1122的41,938待请求FID减少72，OU movement净增12。
+- T1122至T1138间72个唯一响应：60个HTTP/API成功但无Crown市场报价、12个只新增OU movement；raw SHA 72/72通过，超范围/重复0。累计73 attempts（72 success、1次transport error后恢复）；全日志1,445 attempts，其中1,321 success、118 IncompleteRead、6 TOO_MANY_REQUEST，52个错误FID均恢复、无待重试失败。
+- 统一结算任务期间由safe-window父driver自动暂停，随后自动重建队列并续采；检查点后子进程PID20253运行，频率5.2秒/请求。短活动窗口吞吐约11.5 FID/分钟，余量主要受固定间隔和生产作业安全窗口影响。
+- 证据文件及SHA清单见`research/data_recovery_2019_2026/ou_unification/`的T1138系列。所有回取保持historical标记；未改2019—2022独立采集、正式模型、生产调度、Telegram或账本。采集尚未完成，T1138之后的请求留待下一检查点核验。
