@@ -108,6 +108,9 @@ def combined_request(fid,token):
   except (urllib.error.HTTPError,urllib.error.URLError,http.client.IncompleteRead,TimeoutError,ConnectionError,ValueError,TypeError) as e:
    last=('HTTP_'+str(e.code)) if isinstance(e,urllib.error.HTTPError) else type(e).__name__
    attempt_row={'attempt':attempt+1,'started_at_utc':started_at,'elapsed_seconds':round(time.monotonic()-started,4),'outcome':'transport_error','error':last}
+   if isinstance(e,http.client.IncompleteRead):
+    attempt_row['partial_bytes']=len(e.partial or b'')
+    attempt_row['expected_remaining_bytes']=e.expected
    if isinstance(e,urllib.error.HTTPError):attempt_row['http_status']=e.code
    attempts.append(attempt_row)
    if STOP:raise RequestFailure('PAUSED_FOR_SCHEDULED_JOB',attempts)

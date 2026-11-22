@@ -5703,3 +5703,10 @@
 - 07:04:17 UTC安全窗口恢复后重建缺口队列：43,070待请求FID；共享库覆盖AH开收盘32,449、AH变化36,342、OU开收盘32,445、OU变化4,929。较06:56队列减少31场，OU movement增加4场。
 - 采集记录165条/146个唯一FID，最新41场双市场完整、105场HTTP 200响应不含Crown。150次attempt中120 success、30 `IncompleteRead`，失败记录可追溯；138个HTTP 200响应均值1.183秒，数据库写入均值0.00269秒。全任务时间跨度平均4.84次attempt/分钟、1.32个双市场完整响应/分钟，已包含生产安全窗口等待。
 - 安全driver PID 49373存活，collector PID 57901运行；现阶段只在MR1/结算任务的空闲窗口采集。任务未完成，研究分支继续滚动提交可审计快照。
+
+#### 2026-11-22 07:23 UTC：重试成功与传输诊断检查点
+
+- 07:21:59 UTC驱动重建队列43,031；共享SQLite覆盖AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement4,944。相对07:13队列减少15场，OU movement新增6场。
+- 采集日志218条/191个FID，最新134个HTTP200未返回Crown、57个双市场完整、当前未解决FETCH_FAILED为0。217次HTTP attempt含165次成功、51次`IncompleteRead`和1次`TOO_MANY_REQUEST`。19个FID曾失败，全部后来取得成功响应（包括反复失败的127951032）；限流后退避也成功。
+- 成功带市场报价响应中位约10.6KB；未返回Crown bookmaker响应中位约0.39KB。增加只读传输审计脚本`audit_crown_64_transport.py`及JSON输出。历史IncompleteRead异常未保存partial数据，无法回溯字节截断长度；采集脚本已加`partial_bytes`、`expected_remaining_bytes`诊断，但当前采集子进程在代码改动前启动，下一次安全窗口启动才会记录这些字段。
+- 安全driver PID 49373运行，collector PID 61886已于07:22:43 UTC因MR1计划任务暂停。更新报告、逐场/driver快照、传输审计、SHA清单已准备提交。全量任务未完成。
