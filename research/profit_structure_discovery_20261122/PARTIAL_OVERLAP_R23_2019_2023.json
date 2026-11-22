@@ -1,0 +1,2957 @@
+{
+  "scope": "2019-2023 historical Crown AH; R7-R15 preselected 494",
+  "candidate_definitions": 494,
+  "candidate_pairs_total": 121771,
+  "shared_signal_pairs": 5034,
+  "jaccard_pair_counts": {
+    "0.5": 158,
+    "0.7": 88,
+    "0.8": 71,
+    "0.9": 49,
+    "0.95": 43,
+    "1.0": 42
+  },
+  "connected_components": {
+    "0.5": {
+      "components": 378,
+      "largest": 16,
+      "multi_components": 75,
+      "members_in_multi": 191
+    },
+    "0.7": {
+      "components": 419,
+      "largest": 4,
+      "multi_components": 61,
+      "members_in_multi": 136
+    },
+    "0.8": {
+      "components": 433,
+      "largest": 4,
+      "multi_components": 53,
+      "members_in_multi": 114
+    },
+    "0.9": {
+      "components": 446,
+      "largest": 3,
+      "multi_components": 47,
+      "members_in_multi": 95
+    },
+    "0.95": {
+      "components": 452,
+      "largest": 3,
+      "multi_components": 41,
+      "members_in_multi": 83
+    },
+    "1.0": {
+      "components": 453,
+      "largest": 3,
+      "multi_components": 40,
+      "members_in_multi": 81
+    }
+  },
+  "high_similarity_examples": [
+    [
+      1.0,
+      "T6|signed_line,prob_delta|signed_line=0;prob_delta=2|away",
+      "T6|signed_line,prob_delta|signed_line=0;prob_delta=2|underdog",
+      60
+    ],
+    [
+      1.0,
+      "T6|signed_line,odds_spread|signed_line=6;odds_spread=3|home",
+      "T6|signed_line,odds_spread|signed_line=6;odds_spread=3|underdog",
+      29
+    ],
+    [
+      1.0,
+      "T6|side_price,prob_delta|side_price=0;prob_delta=1|away",
+      "T6|side_prob_change,side_price|side_prob_change=3;side_price=0|away",
+      145
+    ],
+    [
+      1.0,
+      "T6|prob_magnitude,side_price,signed_line|prob_magnitude=2;side_price=2;signed_line=1|favorite",
+      "T6|prob_magnitude,side_price,signed_line|prob_magnitude=2;side_price=2;signed_line=1|home",
+      372
+    ],
+    [
+      1.0,
+      "T6|price_imbalance,signed_line|price_imbalance=0;signed_line=1|away",
+      "T6|price_imbalance,signed_line|price_imbalance=0;signed_line=1|underdog",
+      294
+    ],
+    [
+      1.0,
+      "T6|price,momentum|price=2;momentum=4|home",
+      "T6|side_price,momentum|side_price=2;momentum=4|home",
+      21
+    ],
+    [
+      1.0,
+      "T6|line_delta_sign,side_price|line_delta_sign=0;side_price=0|away",
+      "T6|side_price,momentum|side_price=0;momentum=1|away",
+      69
+    ],
+    [
+      1.0,
+      "T2|signed_line|signed_line=6|home",
+      "T2|signed_line|signed_line=6|underdog",
+      117
+    ],
+    [
+      1.0,
+      "T2|signed_line,prob_sign|signed_line=1;prob_sign=1|away",
+      "T2|signed_line,prob_sign|signed_line=1;prob_sign=1|underdog",
+      82
+    ],
+    [
+      1.0,
+      "T2|signed_line,prob_delta|signed_line=6;prob_delta=1|home",
+      "T2|signed_line,prob_delta|signed_line=6;prob_delta=1|underdog",
+      30
+    ],
+    [
+      1.0,
+      "T2|signed_line,prob_delta|signed_line=0;prob_delta=1|favorite",
+      "T2|signed_line,prob_delta|signed_line=0;prob_delta=1|home",
+      63
+    ],
+    [
+      1.0,
+      "T2|prob_magnitude,side_price,signed_line|prob_magnitude=1;side_price=1;signed_line=4|home",
+      "T2|prob_magnitude,side_price,signed_line|prob_magnitude=1;side_price=1;signed_line=4|underdog",
+      433
+    ],
+    [
+      1.0,
+      "T2|prob_magnitude,side_price,signed_line|prob_magnitude=0;side_price=1;signed_line=1|away",
+      "T2|prob_magnitude,side_price,signed_line|prob_magnitude=0;side_price=1;signed_line=1|underdog",
+      70
+    ],
+    [
+      1.0,
+      "T2|price_imbalance,signed_line|price_imbalance=2;signed_line=2|favorite",
+      "T2|price_imbalance,signed_line|price_imbalance=2;signed_line=2|home",
+      325
+    ],
+    [
+      1.0,
+      "T2|line_quarter,side_price_fine,prob_sign|line_quarter=7;side_price_fine=3;prob_sign=2|favorite",
+      "T2|line_quarter,side_price_fine,prob_sign|line_quarter=7;side_price_fine=3;prob_sign=2|home",
+      16
+    ],
+    [
+      1.0,
+      "T2|line,prob_delta|line=4;prob_delta=1|home",
+      "T2|side_prob_change,line|side_prob_change=1;line=4|home",
+      78
+    ],
+    [
+      1.0,
+      "T24|signed_line,prob_delta|signed_line=1;prob_delta=1|away",
+      "T24|signed_line,prob_delta|signed_line=1;prob_delta=1|underdog",
+      156
+    ],
+    [
+      1.0,
+      "T24|side_implied_prob,line|side_implied_prob=4;line=4|away",
+      "T24|side_implied_prob,line|side_implied_prob=4;line=4|underdog",
+      10
+    ],
+    [
+      1.0,
+      "T24|prob_magnitude,side_price,signed_line|prob_magnitude=2;side_price=1;signed_line=2|away",
+      "T24|prob_magnitude,side_price,signed_line|prob_magnitude=2;side_price=1;signed_line=2|underdog",
+      75
+    ],
+    [
+      1.0,
+      "T24|prob_magnitude,side_price,signed_line|prob_magnitude=2;side_price=1;signed_line=0|favorite",
+      "T24|prob_magnitude,side_price,signed_line|prob_magnitude=2;side_price=1;signed_line=0|home",
+      11
+    ],
+    [
+      1.0,
+      "T24|prob_magnitude,side_price,signed_line|prob_magnitude=1;side_price=4;signed_line=4|away",
+      "T24|prob_magnitude,side_price,signed_line|prob_magnitude=1;side_price=4;signed_line=4|favorite",
+      12
+    ],
+    [
+      1.0,
+      "T24|price_imbalance,signed_line|price_imbalance=0;signed_line=1|away",
+      "T24|price_imbalance,signed_line|price_imbalance=0;signed_line=1|underdog",
+      163
+    ],
+    [
+      1.0,
+      "T24|line_quarter,side_prob_change|line_quarter=0;side_prob_change=0|away",
+      "T24|side_prob_change,line|side_prob_change=0;line=0|away",
+      20
+    ],
+    [
+      1.0,
+      "T24|line,prob_delta|line=3;prob_delta=1|away",
+      "T24|side_prob_change,line|side_prob_change=3;line=3|away",
+      223
+    ],
+    [
+      1.0,
+      "T24|line,prob_delta|line=0;prob_delta=4|away",
+      "T24|side_prob_change,line|side_prob_change=0;line=0|away",
+      20
+    ],
+    [
+      1.0,
+      "T24|line,prob_delta|line=0;prob_delta=4|away",
+      "T24|line_quarter,side_prob_change|line_quarter=0;side_prob_change=0|away",
+      20
+    ],
+    [
+      1.0,
+      "T24|line,line_delta_sign|line=0;line_delta_sign=0|favorite",
+      "T24|line,momentum|line=0;momentum=1|favorite",
+      57
+    ],
+    [
+      1.0,
+      "T24|line,line_delta_sign|line=0;line_delta_sign=0|away",
+      "T24|line,momentum|line=0;momentum=1|away",
+      57
+    ],
+    [
+      1.0,
+      "T24|calendar_month,signed_line|calendar_month=4;signed_line=5|home",
+      "T24|calendar_month,signed_line|calendar_month=4;signed_line=5|underdog",
+      137
+    ],
+    [
+      1.0,
+      "T24|book_overround,signed_line|book_overround=3;signed_line=1|away",
+      "T24|book_overround,signed_line|book_overround=3;signed_line=1|underdog",
+      61
+    ]
+  ],
+  "baseline_stability": [
+    {
+      "timing": "earliest",
+      "policy": "skip",
+      "n": 11678,
+      "net_U": 1049.77,
+      "positive_active_months": 50,
+      "negative_active_months": 8,
+      "zero_active_months": 0,
+      "active_months": 58,
+      "worst_month": [
+        "2023-02",
+        {
+          "n": 219,
+          "net_U": -18.055,
+          "roi_pct": -8.2443
+        }
+      ],
+      "best_month": [
+        "2023-12",
+        {
+          "n": 678,
+          "net_U": 74.075,
+          "roi_pct": 10.9255
+        }
+      ],
+      "years": {
+        "2019": {
+          "n": 1285,
+          "net_U": 160.82
+        },
+        "2020": {
+          "n": 1781,
+          "net_U": 192.975
+        },
+        "2021": {
+          "n": 2297,
+          "net_U": 193.915
+        },
+        "2022": {
+          "n": 1855,
+          "net_U": 185.975
+        },
+        "2023": {
+          "n": 4460,
+          "net_U": 316.085
+        }
+      },
+      "months": {
+        "2019-02": {
+          "n": 4,
+          "net_U": 1.51,
+          "roi_pct": 37.75
+        },
+        "2019-03": {
+          "n": 51,
+          "net_U": 5.125,
+          "roi_pct": 10.049
+        },
+        "2019-04": {
+          "n": 51,
+          "net_U": 12.915,
+          "roi_pct": 25.3235
+        },
+        "2019-05": {
+          "n": 52,
+          "net_U": -1.255,
+          "roi_pct": -2.4135
+        },
+        "2019-06": {
+          "n": 42,
+          "net_U": 7.595,
+          "roi_pct": 18.0833
+        },
+        "2019-07": {
+          "n": 55,
+          "net_U": 10.985,
+          "roi_pct": 19.9727
+        },
+        "2019-08": {
+          "n": 197,
+          "net_U": 44.265,
+          "roi_pct": 22.4695
+        },
+        "2019-09": {
+          "n": 216,
+          "net_U": 12.28,
+          "roi_pct": 5.6852
+        },
+        "2019-10": {
+          "n": 185,
+          "net_U": 4.665,
+          "roi_pct": 2.5216
+        },
+        "2019-11": {
+          "n": 206,
+          "net_U": 32.255,
+          "roi_pct": 15.6578
+        },
+        "2019-12": {
+          "n": 226,
+          "net_U": 30.48,
+          "roi_pct": 13.4867
+        },
+        "2020-01": {
+          "n": 134,
+          "net_U": 15.41,
+          "roi_pct": 11.5
+        },
+        "2020-02": {
+          "n": 215,
+          "net_U": 19.87,
+          "roi_pct": 9.2419
+        },
+        "2020-03": {
+          "n": 67,
+          "net_U": 9.405,
+          "roi_pct": 14.0373
+        },
+        "2020-05": {
+          "n": 41,
+          "net_U": -3.54,
+          "roi_pct": -8.6341
+        },
+        "2020-06": {
+          "n": 141,
+          "net_U": 20.94,
+          "roi_pct": 14.8511
+        },
+        "2020-07": {
+          "n": 222,
+          "net_U": 31.685,
+          "roi_pct": 14.2725
+        },
+        "2020-08": {
+          "n": 81,
+          "net_U": 3.445,
+          "roi_pct": 4.2531
+        },
+        "2020-09": {
+          "n": 197,
+          "net_U": 26.34,
+          "roi_pct": 13.3706
+        },
+        "2020-10": {
+          "n": 221,
+          "net_U": 45.5,
+          "roi_pct": 20.5882
+        },
+        "2020-11": {
+          "n": 211,
+          "net_U": 7.23,
+          "roi_pct": 3.4265
+        },
+        "2020-12": {
+          "n": 251,
+          "net_U": 16.69,
+          "roi_pct": 6.6494
+        },
+        "2021-01": {
+          "n": 251,
+          "net_U": 22.315,
+          "roi_pct": 8.8904
+        },
+        "2021-02": {
+          "n": 208,
+          "net_U": 15.68,
+          "roi_pct": 7.5385
+        },
+        "2021-03": {
+          "n": 210,
+          "net_U": 14.245,
+          "roi_pct": 6.7833
+        },
+        "2021-04": {
+          "n": 272,
+          "net_U": 14.16,
+          "roi_pct": 5.2059
+        },
+        "2021-05": {
+          "n": 276,
+          "net_U": 39.745,
+          "roi_pct": 14.4004
+        },
+        "2021-06": {
+          "n": 19,
+          "net_U": 4.97,
+          "roi_pct": 26.1579
+        },
+        "2021-07": {
+          "n": 27,
+          "net_U": -3.13,
+          "roi_pct": -11.5926
+        },
+        "2021-08": {
+          "n": 196,
+          "net_U": 22.64,
+          "roi_pct": 11.551
+        },
+        "2021-09": {
+          "n": 220,
+          "net_U": 10.51,
+          "roi_pct": 4.7773
+        },
+        "2021-10": {
+          "n": 223,
+          "net_U": 23.925,
+          "roi_pct": 10.7287
+        },
+        "2021-11": {
+          "n": 183,
+          "net_U": -0.16,
+          "roi_pct": -0.0874
+        },
+        "2021-12": {
+          "n": 212,
+          "net_U": 29.015,
+          "roi_pct": 13.6863
+        },
+        "2022-01": {
+          "n": 122,
+          "net_U": 19.055,
+          "roi_pct": 15.6189
+        },
+        "2022-02": {
+          "n": 164,
+          "net_U": 36.355,
+          "roi_pct": 22.1677
+        },
+        "2022-03": {
+          "n": 148,
+          "net_U": 6.01,
+          "roi_pct": 4.0608
+        },
+        "2022-04": {
+          "n": 250,
+          "net_U": -3.31,
+          "roi_pct": -1.324
+        },
+        "2022-05": {
+          "n": 237,
+          "net_U": 11.99,
+          "roi_pct": 5.0591
+        },
+        "2022-06": {
+          "n": 35,
+          "net_U": -0.265,
+          "roi_pct": -0.7571
+        },
+        "2022-07": {
+          "n": 57,
+          "net_U": 9.555,
+          "roi_pct": 16.7632
+        },
+        "2022-08": {
+          "n": 218,
+          "net_U": 37.415,
+          "roi_pct": 17.1628
+        },
+        "2022-09": {
+          "n": 178,
+          "net_U": 23.12,
+          "roi_pct": 12.9888
+        },
+        "2022-10": {
+          "n": 299,
+          "net_U": 29.47,
+          "roi_pct": 9.8562
+        },
+        "2022-11": {
+          "n": 121,
+          "net_U": 13.67,
+          "roi_pct": 11.2975
+        },
+        "2022-12": {
+          "n": 26,
+          "net_U": 2.91,
+          "roi_pct": 11.1923
+        },
+        "2023-01": {
+          "n": 171,
+          "net_U": 16.55,
+          "roi_pct": 9.6784
+        },
+        "2023-02": {
+          "n": 219,
+          "net_U": -18.055,
+          "roi_pct": -8.2443
+        },
+        "2023-03": {
+          "n": 171,
+          "net_U": -0.03,
+          "roi_pct": -0.0175
+        },
+        "2023-04": {
+          "n": 280,
+          "net_U": 43.48,
+          "roi_pct": 15.5286
+        },
+        "2023-05": {
+          "n": 274,
+          "net_U": 18.755,
+          "roi_pct": 6.8449
+        },
+        "2023-06": {
+          "n": 71,
+          "net_U": 7.365,
+          "roi_pct": 10.3732
+        },
+        "2023-07": {
+          "n": 40,
+          "net_U": 1.635,
+          "roi_pct": 4.0875
+        },
+        "2023-08": {
+          "n": 630,
+          "net_U": 30.625,
+          "roi_pct": 4.8611
+        },
+        "2023-09": {
+          "n": 596,
+          "net_U": 21.94,
+          "roi_pct": 3.6812
+        },
+        "2023-10": {
+          "n": 734,
+          "net_U": 65.6,
+          "roi_pct": 8.9373
+        },
+        "2023-11": {
+          "n": 596,
+          "net_U": 54.145,
+          "roi_pct": 9.0847
+        },
+        "2023-12": {
+          "n": 678,
+          "net_U": 74.075,
+          "roi_pct": 10.9255
+        }
+      }
+    },
+    {
+      "timing": "earliest",
+      "policy": "net",
+      "n": 13137,
+      "net_U": 1154.46,
+      "positive_active_months": 53,
+      "negative_active_months": 5,
+      "zero_active_months": 0,
+      "active_months": 58,
+      "worst_month": [
+        "2023-02",
+        {
+          "n": 240,
+          "net_U": -22.61,
+          "roi_pct": -9.4208
+        }
+      ],
+      "best_month": [
+        "2023-12",
+        {
+          "n": 787,
+          "net_U": 82.115,
+          "roi_pct": 10.4339
+        }
+      ],
+      "years": {
+        "2019": {
+          "n": 1418,
+          "net_U": 188.215
+        },
+        "2020": {
+          "n": 1969,
+          "net_U": 213.945
+        },
+        "2021": {
+          "n": 2577,
+          "net_U": 214.805
+        },
+        "2022": {
+          "n": 2073,
+          "net_U": 194.565
+        },
+        "2023": {
+          "n": 5100,
+          "net_U": 342.93
+        }
+      },
+      "months": {
+        "2019-02": {
+          "n": 7,
+          "net_U": -0.02,
+          "roi_pct": -0.2857
+        },
+        "2019-03": {
+          "n": 57,
+          "net_U": 8.105,
+          "roi_pct": 14.2193
+        },
+        "2019-04": {
+          "n": 61,
+          "net_U": 15.815,
+          "roi_pct": 25.9262
+        },
+        "2019-05": {
+          "n": 62,
+          "net_U": 1.29,
+          "roi_pct": 2.0806
+        },
+        "2019-06": {
+          "n": 47,
+          "net_U": 6.455,
+          "roi_pct": 13.734
+        },
+        "2019-07": {
+          "n": 55,
+          "net_U": 10.985,
+          "roi_pct": 19.9727
+        },
+        "2019-08": {
+          "n": 221,
+          "net_U": 43.805,
+          "roi_pct": 19.8213
+        },
+        "2019-09": {
+          "n": 238,
+          "net_U": 15.95,
+          "roi_pct": 6.7017
+        },
+        "2019-10": {
+          "n": 200,
+          "net_U": 8.79,
+          "roi_pct": 4.395
+        },
+        "2019-11": {
+          "n": 226,
+          "net_U": 40.47,
+          "roi_pct": 17.9071
+        },
+        "2019-12": {
+          "n": 244,
+          "net_U": 36.57,
+          "roi_pct": 14.9877
+        },
+        "2020-01": {
+          "n": 147,
+          "net_U": 16.62,
+          "roi_pct": 11.3061
+        },
+        "2020-02": {
+          "n": 235,
+          "net_U": 23.34,
+          "roi_pct": 9.9319
+        },
+        "2020-03": {
+          "n": 69,
+          "net_U": 11.465,
+          "roi_pct": 16.6159
+        },
+        "2020-05": {
+          "n": 48,
+          "net_U": -6.6,
+          "roi_pct": -13.75
+        },
+        "2020-06": {
+          "n": 159,
+          "net_U": 17.05,
+          "roi_pct": 10.7233
+        },
+        "2020-07": {
+          "n": 252,
+          "net_U": 36.535,
+          "roi_pct": 14.498
+        },
+        "2020-08": {
+          "n": 89,
+          "net_U": 5.845,
+          "roi_pct": 6.5674
+        },
+        "2020-09": {
+          "n": 220,
+          "net_U": 35.29,
+          "roi_pct": 16.0409
+        },
+        "2020-10": {
+          "n": 247,
+          "net_U": 47.79,
+          "roi_pct": 19.3482
+        },
+        "2020-11": {
+          "n": 227,
+          "net_U": 7.065,
+          "roi_pct": 3.1123
+        },
+        "2020-12": {
+          "n": 276,
+          "net_U": 19.545,
+          "roi_pct": 7.0815
+        },
+        "2021-01": {
+          "n": 286,
+          "net_U": 23.225,
+          "roi_pct": 8.1206
+        },
+        "2021-02": {
+          "n": 235,
+          "net_U": 20.095,
+          "roi_pct": 8.5511
+        },
+        "2021-03": {
+          "n": 238,
+          "net_U": 12.325,
+          "roi_pct": 5.1786
+        },
+        "2021-04": {
+          "n": 307,
+          "net_U": 16.995,
+          "roi_pct": 5.5358
+        },
+        "2021-05": {
+          "n": 311,
+          "net_U": 42.36,
+          "roi_pct": 13.6206
+        },
+        "2021-06": {
+          "n": 20,
+          "net_U": 5.95,
+          "roi_pct": 29.75
+        },
+        "2021-07": {
+          "n": 28,
+          "net_U": -2.11,
+          "roi_pct": -7.5357
+        },
+        "2021-08": {
+          "n": 218,
+          "net_U": 18.09,
+          "roi_pct": 8.2982
+        },
+        "2021-09": {
+          "n": 238,
+          "net_U": 11.99,
+          "roi_pct": 5.0378
+        },
+        "2021-10": {
+          "n": 248,
+          "net_U": 30.13,
+          "roi_pct": 12.1492
+        },
+        "2021-11": {
+          "n": 210,
+          "net_U": 3.065,
+          "roi_pct": 1.4595
+        },
+        "2021-12": {
+          "n": 238,
+          "net_U": 32.69,
+          "roi_pct": 13.7353
+        },
+        "2022-01": {
+          "n": 142,
+          "net_U": 17.84,
+          "roi_pct": 12.5634
+        },
+        "2022-02": {
+          "n": 187,
+          "net_U": 37.42,
+          "roi_pct": 20.0107
+        },
+        "2022-03": {
+          "n": 179,
+          "net_U": -1.295,
+          "roi_pct": -0.7235
+        },
+        "2022-04": {
+          "n": 286,
+          "net_U": 1.6,
+          "roi_pct": 0.5594
+        },
+        "2022-05": {
+          "n": 263,
+          "net_U": 8.91,
+          "roi_pct": 3.3878
+        },
+        "2022-06": {
+          "n": 36,
+          "net_U": 0.805,
+          "roi_pct": 2.2361
+        },
+        "2022-07": {
+          "n": 61,
+          "net_U": 8.95,
+          "roi_pct": 14.6721
+        },
+        "2022-08": {
+          "n": 239,
+          "net_U": 37.325,
+          "roi_pct": 15.6172
+        },
+        "2022-09": {
+          "n": 190,
+          "net_U": 27.12,
+          "roi_pct": 14.2737
+        },
+        "2022-10": {
+          "n": 326,
+          "net_U": 39.17,
+          "roi_pct": 12.0153
+        },
+        "2022-11": {
+          "n": 131,
+          "net_U": 11.43,
+          "roi_pct": 8.7252
+        },
+        "2022-12": {
+          "n": 33,
+          "net_U": 5.29,
+          "roi_pct": 16.0303
+        },
+        "2023-01": {
+          "n": 199,
+          "net_U": 6.12,
+          "roi_pct": 3.0754
+        },
+        "2023-02": {
+          "n": 240,
+          "net_U": -22.61,
+          "roi_pct": -9.4208
+        },
+        "2023-03": {
+          "n": 192,
+          "net_U": 0.03,
+          "roi_pct": 0.0156
+        },
+        "2023-04": {
+          "n": 329,
+          "net_U": 46.69,
+          "roi_pct": 14.1915
+        },
+        "2023-05": {
+          "n": 304,
+          "net_U": 19.85,
+          "roi_pct": 6.5296
+        },
+        "2023-06": {
+          "n": 80,
+          "net_U": 10.565,
+          "roi_pct": 13.2062
+        },
+        "2023-07": {
+          "n": 43,
+          "net_U": 2.05,
+          "roi_pct": 4.7674
+        },
+        "2023-08": {
+          "n": 727,
+          "net_U": 34.095,
+          "roi_pct": 4.6898
+        },
+        "2023-09": {
+          "n": 667,
+          "net_U": 20.38,
+          "roi_pct": 3.0555
+        },
+        "2023-10": {
+          "n": 845,
+          "net_U": 79.1,
+          "roi_pct": 9.3609
+        },
+        "2023-11": {
+          "n": 687,
+          "net_U": 64.545,
+          "roi_pct": 9.3952
+        },
+        "2023-12": {
+          "n": 787,
+          "net_U": 82.115,
+          "roi_pct": 10.4339
+        }
+      }
+    },
+    {
+      "timing": "earliest",
+      "policy": "margin2",
+      "n": 5250,
+      "net_U": 804.215,
+      "positive_active_months": 55,
+      "negative_active_months": 3,
+      "zero_active_months": 0,
+      "active_months": 58,
+      "worst_month": [
+        "2022-03",
+        {
+          "n": 64,
+          "net_U": -4.895,
+          "roi_pct": -7.6484
+        }
+      ],
+      "best_month": [
+        "2023-12",
+        {
+          "n": 309,
+          "net_U": 64.04,
+          "roi_pct": 20.7249
+        }
+      ],
+      "years": {
+        "2019": {
+          "n": 548,
+          "net_U": 126.85
+        },
+        "2020": {
+          "n": 801,
+          "net_U": 122.97
+        },
+        "2021": {
+          "n": 1015,
+          "net_U": 199.745
+        },
+        "2022": {
+          "n": 806,
+          "net_U": 132.97
+        },
+        "2023": {
+          "n": 2080,
+          "net_U": 221.68
+        }
+      },
+      "months": {
+        "2019-02": {
+          "n": 4,
+          "net_U": 1.51,
+          "roi_pct": 37.75
+        },
+        "2019-03": {
+          "n": 22,
+          "net_U": 2.32,
+          "roi_pct": 10.5455
+        },
+        "2019-04": {
+          "n": 21,
+          "net_U": 9.24,
+          "roi_pct": 44.0
+        },
+        "2019-05": {
+          "n": 19,
+          "net_U": -1.545,
+          "roi_pct": -8.1316
+        },
+        "2019-06": {
+          "n": 14,
+          "net_U": 4.03,
+          "roi_pct": 28.7857
+        },
+        "2019-07": {
+          "n": 23,
+          "net_U": 6.07,
+          "roi_pct": 26.3913
+        },
+        "2019-08": {
+          "n": 84,
+          "net_U": 28.89,
+          "roi_pct": 34.3929
+        },
+        "2019-09": {
+          "n": 99,
+          "net_U": 13.62,
+          "roi_pct": 13.7576
+        },
+        "2019-10": {
+          "n": 84,
+          "net_U": 13.71,
+          "roi_pct": 16.3214
+        },
+        "2019-11": {
+          "n": 91,
+          "net_U": 32.935,
+          "roi_pct": 36.1923
+        },
+        "2019-12": {
+          "n": 87,
+          "net_U": 16.07,
+          "roi_pct": 18.4713
+        },
+        "2020-01": {
+          "n": 59,
+          "net_U": 3.46,
+          "roi_pct": 5.8644
+        },
+        "2020-02": {
+          "n": 98,
+          "net_U": 2.95,
+          "roi_pct": 3.0102
+        },
+        "2020-03": {
+          "n": 22,
+          "net_U": 7.19,
+          "roi_pct": 32.6818
+        },
+        "2020-05": {
+          "n": 21,
+          "net_U": 3.36,
+          "roi_pct": 16.0
+        },
+        "2020-06": {
+          "n": 63,
+          "net_U": 6.03,
+          "roi_pct": 9.5714
+        },
+        "2020-07": {
+          "n": 93,
+          "net_U": 15.955,
+          "roi_pct": 17.1559
+        },
+        "2020-08": {
+          "n": 28,
+          "net_U": 4.685,
+          "roi_pct": 16.7321
+        },
+        "2020-09": {
+          "n": 87,
+          "net_U": 32.72,
+          "roi_pct": 37.6092
+        },
+        "2020-10": {
+          "n": 100,
+          "net_U": 17.785,
+          "roi_pct": 17.785
+        },
+        "2020-11": {
+          "n": 104,
+          "net_U": 7.31,
+          "roi_pct": 7.0288
+        },
+        "2020-12": {
+          "n": 126,
+          "net_U": 21.525,
+          "roi_pct": 17.0833
+        },
+        "2021-01": {
+          "n": 111,
+          "net_U": 20.69,
+          "roi_pct": 18.6396
+        },
+        "2021-02": {
+          "n": 83,
+          "net_U": 13.055,
+          "roi_pct": 15.7289
+        },
+        "2021-03": {
+          "n": 79,
+          "net_U": 11.81,
+          "roi_pct": 14.9494
+        },
+        "2021-04": {
+          "n": 115,
+          "net_U": 26.64,
+          "roi_pct": 23.1652
+        },
+        "2021-05": {
+          "n": 119,
+          "net_U": 29.1,
+          "roi_pct": 24.4538
+        },
+        "2021-06": {
+          "n": 10,
+          "net_U": 4.48,
+          "roi_pct": 44.8
+        },
+        "2021-07": {
+          "n": 7,
+          "net_U": 0.84,
+          "roi_pct": 12.0
+        },
+        "2021-08": {
+          "n": 93,
+          "net_U": 7.245,
+          "roi_pct": 7.7903
+        },
+        "2021-09": {
+          "n": 101,
+          "net_U": 21.355,
+          "roi_pct": 21.1436
+        },
+        "2021-10": {
+          "n": 103,
+          "net_U": 19.4,
+          "roi_pct": 18.835
+        },
+        "2021-11": {
+          "n": 78,
+          "net_U": 7.19,
+          "roi_pct": 9.2179
+        },
+        "2021-12": {
+          "n": 116,
+          "net_U": 37.94,
+          "roi_pct": 32.7069
+        },
+        "2022-01": {
+          "n": 67,
+          "net_U": 8.25,
+          "roi_pct": 12.3134
+        },
+        "2022-02": {
+          "n": 84,
+          "net_U": 25.12,
+          "roi_pct": 29.9048
+        },
+        "2022-03": {
+          "n": 64,
+          "net_U": -4.895,
+          "roi_pct": -7.6484
+        },
+        "2022-04": {
+          "n": 102,
+          "net_U": 12.835,
+          "roi_pct": 12.5833
+        },
+        "2022-05": {
+          "n": 97,
+          "net_U": 17.025,
+          "roi_pct": 17.5515
+        },
+        "2022-06": {
+          "n": 8,
+          "net_U": 0.805,
+          "roi_pct": 10.0625
+        },
+        "2022-07": {
+          "n": 27,
+          "net_U": 0.68,
+          "roi_pct": 2.5185
+        },
+        "2022-08": {
+          "n": 89,
+          "net_U": 19.635,
+          "roi_pct": 22.0618
+        },
+        "2022-09": {
+          "n": 76,
+          "net_U": 16.74,
+          "roi_pct": 22.0263
+        },
+        "2022-10": {
+          "n": 130,
+          "net_U": 24.295,
+          "roi_pct": 18.6885
+        },
+        "2022-11": {
+          "n": 51,
+          "net_U": 9.41,
+          "roi_pct": 18.451
+        },
+        "2022-12": {
+          "n": 11,
+          "net_U": 3.07,
+          "roi_pct": 27.9091
+        },
+        "2023-01": {
+          "n": 72,
+          "net_U": 4.785,
+          "roi_pct": 6.6458
+        },
+        "2023-02": {
+          "n": 100,
+          "net_U": -1.105,
+          "roi_pct": -1.105
+        },
+        "2023-03": {
+          "n": 77,
+          "net_U": 7.595,
+          "roi_pct": 9.8636
+        },
+        "2023-04": {
+          "n": 131,
+          "net_U": 15.085,
+          "roi_pct": 11.5153
+        },
+        "2023-05": {
+          "n": 131,
+          "net_U": 5.185,
+          "roi_pct": 3.958
+        },
+        "2023-06": {
+          "n": 30,
+          "net_U": 5.075,
+          "roi_pct": 16.9167
+        },
+        "2023-07": {
+          "n": 13,
+          "net_U": 3.87,
+          "roi_pct": 29.7692
+        },
+        "2023-08": {
+          "n": 294,
+          "net_U": 12.53,
+          "roi_pct": 4.2619
+        },
+        "2023-09": {
+          "n": 281,
+          "net_U": 11.05,
+          "roi_pct": 3.9324
+        },
+        "2023-10": {
+          "n": 343,
+          "net_U": 49.97,
+          "roi_pct": 14.5685
+        },
+        "2023-11": {
+          "n": 299,
+          "net_U": 43.6,
+          "roi_pct": 14.5819
+        },
+        "2023-12": {
+          "n": 309,
+          "net_U": 64.04,
+          "roi_pct": 20.7249
+        }
+      }
+    },
+    {
+      "timing": "earliest",
+      "policy": "margin3",
+      "n": 2643,
+      "net_U": 467.65,
+      "positive_active_months": 50,
+      "negative_active_months": 8,
+      "zero_active_months": 0,
+      "active_months": 58,
+      "worst_month": [
+        "2023-09",
+        {
+          "n": 154,
+          "net_U": -4.165,
+          "roi_pct": -2.7045
+        }
+      ],
+      "best_month": [
+        "2023-10",
+        {
+          "n": 183,
+          "net_U": 39.485,
+          "roi_pct": 21.5765
+        }
+      ],
+      "years": {
+        "2019": {
+          "n": 290,
+          "net_U": 79.25
+        },
+        "2020": {
+          "n": 393,
+          "net_U": 78.72
+        },
+        "2021": {
+          "n": 528,
+          "net_U": 99.355
+        },
+        "2022": {
+          "n": 390,
+          "net_U": 69.045
+        },
+        "2023": {
+          "n": 1042,
+          "net_U": 141.28
+        }
+      },
+      "months": {
+        "2019-02": {
+          "n": 3,
+          "net_U": 2.51,
+          "roi_pct": 83.6667
+        },
+        "2019-03": {
+          "n": 7,
+          "net_U": 3.48,
+          "roi_pct": 49.7143
+        },
+        "2019-04": {
+          "n": 10,
+          "net_U": 8.67,
+          "roi_pct": 86.7
+        },
+        "2019-05": {
+          "n": 9,
+          "net_U": 1.32,
+          "roi_pct": 14.6667
+        },
+        "2019-06": {
+          "n": 11,
+          "net_U": 1.98,
+          "roi_pct": 18.0
+        },
+        "2019-07": {
+          "n": 6,
+          "net_U": -0.94,
+          "roi_pct": -15.6667
+        },
+        "2019-08": {
+          "n": 43,
+          "net_U": 16.67,
+          "roi_pct": 38.7674
+        },
+        "2019-09": {
+          "n": 59,
+          "net_U": 12.705,
+          "roi_pct": 21.5339
+        },
+        "2019-10": {
+          "n": 39,
+          "net_U": 13.06,
+          "roi_pct": 33.4872
+        },
+        "2019-11": {
+          "n": 52,
+          "net_U": 13.205,
+          "roi_pct": 25.3942
+        },
+        "2019-12": {
+          "n": 51,
+          "net_U": 6.59,
+          "roi_pct": 12.9216
+        },
+        "2020-01": {
+          "n": 29,
+          "net_U": 3.285,
+          "roi_pct": 11.3276
+        },
+        "2020-02": {
+          "n": 50,
+          "net_U": 0.29,
+          "roi_pct": 0.58
+        },
+        "2020-03": {
+          "n": 7,
+          "net_U": 4.36,
+          "roi_pct": 62.2857
+        },
+        "2020-05": {
+          "n": 9,
+          "net_U": 3.97,
+          "roi_pct": 44.1111
+        },
+        "2020-06": {
+          "n": 32,
+          "net_U": 1.775,
+          "roi_pct": 5.5469
+        },
+        "2020-07": {
+          "n": 33,
+          "net_U": 7.245,
+          "roi_pct": 21.9545
+        },
+        "2020-08": {
+          "n": 13,
+          "net_U": 2.355,
+          "roi_pct": 18.1154
+        },
+        "2020-09": {
+          "n": 44,
+          "net_U": 21.25,
+          "roi_pct": 48.2955
+        },
+        "2020-10": {
+          "n": 60,
+          "net_U": 16.355,
+          "roi_pct": 27.2583
+        },
+        "2020-11": {
+          "n": 55,
+          "net_U": 5.315,
+          "roi_pct": 9.6636
+        },
+        "2020-12": {
+          "n": 61,
+          "net_U": 12.52,
+          "roi_pct": 20.5246
+        },
+        "2021-01": {
+          "n": 68,
+          "net_U": 16.895,
+          "roi_pct": 24.8456
+        },
+        "2021-02": {
+          "n": 40,
+          "net_U": -2.665,
+          "roi_pct": -6.6625
+        },
+        "2021-03": {
+          "n": 41,
+          "net_U": 7.68,
+          "roi_pct": 18.7317
+        },
+        "2021-04": {
+          "n": 50,
+          "net_U": 12.235,
+          "roi_pct": 24.47
+        },
+        "2021-05": {
+          "n": 55,
+          "net_U": 13.665,
+          "roi_pct": 24.8455
+        },
+        "2021-06": {
+          "n": 4,
+          "net_U": 2.18,
+          "roi_pct": 54.5
+        },
+        "2021-07": {
+          "n": 3,
+          "net_U": -0.01,
+          "roi_pct": -0.3333
+        },
+        "2021-08": {
+          "n": 46,
+          "net_U": 5.17,
+          "roi_pct": 11.2391
+        },
+        "2021-09": {
+          "n": 59,
+          "net_U": 18.405,
+          "roi_pct": 31.1949
+        },
+        "2021-10": {
+          "n": 50,
+          "net_U": 1.53,
+          "roi_pct": 3.06
+        },
+        "2021-11": {
+          "n": 45,
+          "net_U": -2.285,
+          "roi_pct": -5.0778
+        },
+        "2021-12": {
+          "n": 67,
+          "net_U": 26.555,
+          "roi_pct": 39.6343
+        },
+        "2022-01": {
+          "n": 29,
+          "net_U": 4.72,
+          "roi_pct": 16.2759
+        },
+        "2022-02": {
+          "n": 38,
+          "net_U": 8.465,
+          "roi_pct": 22.2763
+        },
+        "2022-03": {
+          "n": 28,
+          "net_U": -3.645,
+          "roi_pct": -13.0179
+        },
+        "2022-04": {
+          "n": 40,
+          "net_U": 8.22,
+          "roi_pct": 20.55
+        },
+        "2022-05": {
+          "n": 50,
+          "net_U": 14.835,
+          "roi_pct": 29.67
+        },
+        "2022-06": {
+          "n": 2,
+          "net_U": -0.08,
+          "roi_pct": -4.0
+        },
+        "2022-07": {
+          "n": 15,
+          "net_U": 1.56,
+          "roi_pct": 10.4
+        },
+        "2022-08": {
+          "n": 53,
+          "net_U": 10.475,
+          "roi_pct": 19.7642
+        },
+        "2022-09": {
+          "n": 37,
+          "net_U": 12.74,
+          "roi_pct": 34.4324
+        },
+        "2022-10": {
+          "n": 69,
+          "net_U": 8.99,
+          "roi_pct": 13.029
+        },
+        "2022-11": {
+          "n": 25,
+          "net_U": 3.675,
+          "roi_pct": 14.7
+        },
+        "2022-12": {
+          "n": 4,
+          "net_U": -0.91,
+          "roi_pct": -22.75
+        },
+        "2023-01": {
+          "n": 30,
+          "net_U": 3.92,
+          "roi_pct": 13.0667
+        },
+        "2023-02": {
+          "n": 47,
+          "net_U": 1.25,
+          "roi_pct": 2.6596
+        },
+        "2023-03": {
+          "n": 37,
+          "net_U": 2.125,
+          "roi_pct": 5.7432
+        },
+        "2023-04": {
+          "n": 61,
+          "net_U": 12.305,
+          "roi_pct": 20.1721
+        },
+        "2023-05": {
+          "n": 61,
+          "net_U": 0.4,
+          "roi_pct": 0.6557
+        },
+        "2023-06": {
+          "n": 15,
+          "net_U": 8.3,
+          "roi_pct": 55.3333
+        },
+        "2023-07": {
+          "n": 6,
+          "net_U": 4.63,
+          "roi_pct": 77.1667
+        },
+        "2023-08": {
+          "n": 144,
+          "net_U": 6.545,
+          "roi_pct": 4.5451
+        },
+        "2023-09": {
+          "n": 154,
+          "net_U": -4.165,
+          "roi_pct": -2.7045
+        },
+        "2023-10": {
+          "n": 183,
+          "net_U": 39.485,
+          "roi_pct": 21.5765
+        },
+        "2023-11": {
+          "n": 141,
+          "net_U": 35.925,
+          "roi_pct": 25.4787
+        },
+        "2023-12": {
+          "n": 163,
+          "net_U": 30.56,
+          "roi_pct": 18.7485
+        }
+      }
+    },
+    {
+      "timing": "latest",
+      "policy": "skip",
+      "n": 11962,
+      "net_U": 835.565,
+      "positive_active_months": 50,
+      "negative_active_months": 8,
+      "zero_active_months": 0,
+      "active_months": 58,
+      "worst_month": [
+        "2023-02",
+        {
+          "n": 229,
+          "net_U": -10.545,
+          "roi_pct": -4.6048
+        }
+      ],
+      "best_month": [
+        "2021-05",
+        {
+          "n": 278,
+          "net_U": 62.295,
+          "roi_pct": 22.4083
+        }
+      ],
+      "years": {
+        "2019": {
+          "n": 1322,
+          "net_U": 163.725
+        },
+        "2020": {
+          "n": 1807,
+          "net_U": 135.745
+        },
+        "2021": {
+          "n": 2367,
+          "net_U": 211.005
+        },
+        "2022": {
+          "n": 1940,
+          "net_U": 133.86
+        },
+        "2023": {
+          "n": 4526,
+          "net_U": 191.23
+        }
+      },
+      "months": {
+        "2019-02": {
+          "n": 7,
+          "net_U": 2.18,
+          "roi_pct": 31.1429
+        },
+        "2019-03": {
+          "n": 52,
+          "net_U": 11.365,
+          "roi_pct": 21.8558
+        },
+        "2019-04": {
+          "n": 53,
+          "net_U": 1.63,
+          "roi_pct": 3.0755
+        },
+        "2019-05": {
+          "n": 60,
+          "net_U": 4.62,
+          "roi_pct": 7.7
+        },
+        "2019-06": {
+          "n": 46,
+          "net_U": 9.775,
+          "roi_pct": 21.25
+        },
+        "2019-07": {
+          "n": 52,
+          "net_U": 15.185,
+          "roi_pct": 29.2019
+        },
+        "2019-08": {
+          "n": 196,
+          "net_U": 7.5,
+          "roi_pct": 3.8265
+        },
+        "2019-09": {
+          "n": 227,
+          "net_U": 13.67,
+          "roi_pct": 6.022
+        },
+        "2019-10": {
+          "n": 193,
+          "net_U": 24.16,
+          "roi_pct": 12.5181
+        },
+        "2019-11": {
+          "n": 212,
+          "net_U": 50.31,
+          "roi_pct": 23.7311
+        },
+        "2019-12": {
+          "n": 224,
+          "net_U": 23.33,
+          "roi_pct": 10.4152
+        },
+        "2020-01": {
+          "n": 138,
+          "net_U": 11.07,
+          "roi_pct": 8.0217
+        },
+        "2020-02": {
+          "n": 215,
+          "net_U": 25.74,
+          "roi_pct": 11.9721
+        },
+        "2020-03": {
+          "n": 61,
+          "net_U": 13.03,
+          "roi_pct": 21.3607
+        },
+        "2020-05": {
+          "n": 45,
+          "net_U": 1.97,
+          "roi_pct": 4.3778
+        },
+        "2020-06": {
+          "n": 145,
+          "net_U": 12.4,
+          "roi_pct": 8.5517
+        },
+        "2020-07": {
+          "n": 229,
+          "net_U": 23.795,
+          "roi_pct": 10.3908
+        },
+        "2020-08": {
+          "n": 85,
+          "net_U": -0.19,
+          "roi_pct": -0.2235
+        },
+        "2020-09": {
+          "n": 198,
+          "net_U": 15.995,
+          "roi_pct": 8.0783
+        },
+        "2020-10": {
+          "n": 233,
+          "net_U": 24.28,
+          "roi_pct": 10.4206
+        },
+        "2020-11": {
+          "n": 204,
+          "net_U": -0.45,
+          "roi_pct": -0.2206
+        },
+        "2020-12": {
+          "n": 254,
+          "net_U": 8.105,
+          "roi_pct": 3.1909
+        },
+        "2021-01": {
+          "n": 263,
+          "net_U": 37.865,
+          "roi_pct": 14.3973
+        },
+        "2021-02": {
+          "n": 216,
+          "net_U": 2.87,
+          "roi_pct": 1.3287
+        },
+        "2021-03": {
+          "n": 217,
+          "net_U": 12.135,
+          "roi_pct": 5.5922
+        },
+        "2021-04": {
+          "n": 284,
+          "net_U": 24.61,
+          "roi_pct": 8.6655
+        },
+        "2021-05": {
+          "n": 278,
+          "net_U": 62.295,
+          "roi_pct": 22.4083
+        },
+        "2021-06": {
+          "n": 22,
+          "net_U": -1.25,
+          "roi_pct": -5.6818
+        },
+        "2021-07": {
+          "n": 26,
+          "net_U": 7.425,
+          "roi_pct": 28.5577
+        },
+        "2021-08": {
+          "n": 207,
+          "net_U": 7.605,
+          "roi_pct": 3.6739
+        },
+        "2021-09": {
+          "n": 229,
+          "net_U": 9.01,
+          "roi_pct": 3.9345
+        },
+        "2021-10": {
+          "n": 235,
+          "net_U": 33.465,
+          "roi_pct": 14.2404
+        },
+        "2021-11": {
+          "n": 193,
+          "net_U": 9.36,
+          "roi_pct": 4.8497
+        },
+        "2021-12": {
+          "n": 197,
+          "net_U": 5.615,
+          "roi_pct": 2.8503
+        },
+        "2022-01": {
+          "n": 122,
+          "net_U": 8.02,
+          "roi_pct": 6.5738
+        },
+        "2022-02": {
+          "n": 175,
+          "net_U": 30.935,
+          "roi_pct": 17.6771
+        },
+        "2022-03": {
+          "n": 174,
+          "net_U": 4.875,
+          "roi_pct": 2.8017
+        },
+        "2022-04": {
+          "n": 258,
+          "net_U": 7.945,
+          "roi_pct": 3.0795
+        },
+        "2022-05": {
+          "n": 241,
+          "net_U": 17.455,
+          "roi_pct": 7.2427
+        },
+        "2022-06": {
+          "n": 35,
+          "net_U": 1.315,
+          "roi_pct": 3.7571
+        },
+        "2022-07": {
+          "n": 58,
+          "net_U": -0.66,
+          "roi_pct": -1.1379
+        },
+        "2022-08": {
+          "n": 234,
+          "net_U": 22.92,
+          "roi_pct": 9.7949
+        },
+        "2022-09": {
+          "n": 186,
+          "net_U": 9.58,
+          "roi_pct": 5.1505
+        },
+        "2022-10": {
+          "n": 300,
+          "net_U": 12.69,
+          "roi_pct": 4.23
+        },
+        "2022-11": {
+          "n": 124,
+          "net_U": 11.115,
+          "roi_pct": 8.9637
+        },
+        "2022-12": {
+          "n": 33,
+          "net_U": 7.67,
+          "roi_pct": 23.2424
+        },
+        "2023-01": {
+          "n": 188,
+          "net_U": 16.21,
+          "roi_pct": 8.6223
+        },
+        "2023-02": {
+          "n": 229,
+          "net_U": -10.545,
+          "roi_pct": -4.6048
+        },
+        "2023-03": {
+          "n": 177,
+          "net_U": -0.27,
+          "roi_pct": -0.1525
+        },
+        "2023-04": {
+          "n": 286,
+          "net_U": 18.135,
+          "roi_pct": 6.3409
+        },
+        "2023-05": {
+          "n": 277,
+          "net_U": 22.69,
+          "roi_pct": 8.1913
+        },
+        "2023-06": {
+          "n": 71,
+          "net_U": -2.98,
+          "roi_pct": -4.1972
+        },
+        "2023-07": {
+          "n": 49,
+          "net_U": -8.675,
+          "roi_pct": -17.7041
+        },
+        "2023-08": {
+          "n": 635,
+          "net_U": 43.285,
+          "roi_pct": 6.8165
+        },
+        "2023-09": {
+          "n": 598,
+          "net_U": 16.21,
+          "roi_pct": 2.7107
+        },
+        "2023-10": {
+          "n": 751,
+          "net_U": 21.485,
+          "roi_pct": 2.8609
+        },
+        "2023-11": {
+          "n": 588,
+          "net_U": 40.905,
+          "roi_pct": 6.9566
+        },
+        "2023-12": {
+          "n": 677,
+          "net_U": 34.78,
+          "roi_pct": 5.1374
+        }
+      }
+    },
+    {
+      "timing": "latest",
+      "policy": "net",
+      "n": 13410,
+      "net_U": 888.38,
+      "positive_active_months": 53,
+      "negative_active_months": 5,
+      "zero_active_months": 0,
+      "active_months": 58,
+      "worst_month": [
+        "2023-07",
+        {
+          "n": 50,
+          "net_U": -9.175,
+          "roi_pct": -18.35
+        }
+      ],
+      "best_month": [
+        "2021-05",
+        {
+          "n": 316,
+          "net_U": 64.665,
+          "roi_pct": 20.4636
+        }
+      ],
+      "years": {
+        "2019": {
+          "n": 1439,
+          "net_U": 181.49
+        },
+        "2020": {
+          "n": 2024,
+          "net_U": 150.13
+        },
+        "2021": {
+          "n": 2627,
+          "net_U": 219.095
+        },
+        "2022": {
+          "n": 2137,
+          "net_U": 129.51
+        },
+        "2023": {
+          "n": 5183,
+          "net_U": 208.155
+        }
+      },
+      "months": {
+        "2019-02": {
+          "n": 8,
+          "net_U": 2.65,
+          "roi_pct": 33.125
+        },
+        "2019-03": {
+          "n": 60,
+          "net_U": 12.895,
+          "roi_pct": 21.4917
+        },
+        "2019-04": {
+          "n": 59,
+          "net_U": 2.68,
+          "roi_pct": 4.5424
+        },
+        "2019-05": {
+          "n": 64,
+          "net_U": 0.62,
+          "roi_pct": 0.9688
+        },
+        "2019-06": {
+          "n": 48,
+          "net_U": 9.685,
+          "roi_pct": 20.1771
+        },
+        "2019-07": {
+          "n": 53,
+          "net_U": 16.145,
+          "roi_pct": 30.4623
+        },
+        "2019-08": {
+          "n": 219,
+          "net_U": 11.8,
+          "roi_pct": 5.3881
+        },
+        "2019-09": {
+          "n": 248,
+          "net_U": 11.59,
+          "roi_pct": 4.6734
+        },
+        "2019-10": {
+          "n": 207,
+          "net_U": 31.52,
+          "roi_pct": 15.2271
+        },
+        "2019-11": {
+          "n": 231,
+          "net_U": 54.16,
+          "roi_pct": 23.4459
+        },
+        "2019-12": {
+          "n": 242,
+          "net_U": 27.745,
+          "roi_pct": 11.4649
+        },
+        "2020-01": {
+          "n": 145,
+          "net_U": 8.45,
+          "roi_pct": 5.8276
+        },
+        "2020-02": {
+          "n": 236,
+          "net_U": 28.73,
+          "roi_pct": 12.1737
+        },
+        "2020-03": {
+          "n": 70,
+          "net_U": 11.82,
+          "roi_pct": 16.8857
+        },
+        "2020-05": {
+          "n": 51,
+          "net_U": 1.155,
+          "roi_pct": 2.2647
+        },
+        "2020-06": {
+          "n": 169,
+          "net_U": 16.435,
+          "roi_pct": 9.7249
+        },
+        "2020-07": {
+          "n": 265,
+          "net_U": 26.095,
+          "roi_pct": 9.8472
+        },
+        "2020-08": {
+          "n": 96,
+          "net_U": -3.48,
+          "roi_pct": -3.625
+        },
+        "2020-09": {
+          "n": 225,
+          "net_U": 15.835,
+          "roi_pct": 7.0378
+        },
+        "2020-10": {
+          "n": 253,
+          "net_U": 24.1,
+          "roi_pct": 9.5257
+        },
+        "2020-11": {
+          "n": 230,
+          "net_U": 3.605,
+          "roi_pct": 1.5674
+        },
+        "2020-12": {
+          "n": 284,
+          "net_U": 17.385,
+          "roi_pct": 6.1215
+        },
+        "2021-01": {
+          "n": 292,
+          "net_U": 40.955,
+          "roi_pct": 14.0257
+        },
+        "2021-02": {
+          "n": 244,
+          "net_U": 3.12,
+          "roi_pct": 1.2787
+        },
+        "2021-03": {
+          "n": 241,
+          "net_U": 14.865,
+          "roi_pct": 6.168
+        },
+        "2021-04": {
+          "n": 313,
+          "net_U": 24.545,
+          "roi_pct": 7.8419
+        },
+        "2021-05": {
+          "n": 316,
+          "net_U": 64.665,
+          "roi_pct": 20.4636
+        },
+        "2021-06": {
+          "n": 23,
+          "net_U": -0.25,
+          "roi_pct": -1.087
+        },
+        "2021-07": {
+          "n": 28,
+          "net_U": 6.425,
+          "roi_pct": 22.9464
+        },
+        "2021-08": {
+          "n": 228,
+          "net_U": 5.455,
+          "roi_pct": 2.3925
+        },
+        "2021-09": {
+          "n": 242,
+          "net_U": 10.9,
+          "roi_pct": 4.5041
+        },
+        "2021-10": {
+          "n": 254,
+          "net_U": 32.585,
+          "roi_pct": 12.8287
+        },
+        "2021-11": {
+          "n": 214,
+          "net_U": 9.96,
+          "roi_pct": 4.6542
+        },
+        "2021-12": {
+          "n": 232,
+          "net_U": 5.87,
+          "roi_pct": 2.5302
+        },
+        "2022-01": {
+          "n": 141,
+          "net_U": 5.28,
+          "roi_pct": 3.7447
+        },
+        "2022-02": {
+          "n": 195,
+          "net_U": 35.335,
+          "roi_pct": 18.1205
+        },
+        "2022-03": {
+          "n": 188,
+          "net_U": 2.875,
+          "roi_pct": 1.5293
+        },
+        "2022-04": {
+          "n": 296,
+          "net_U": 0.44,
+          "roi_pct": 0.1486
+        },
+        "2022-05": {
+          "n": 269,
+          "net_U": 15.78,
+          "roi_pct": 5.8662
+        },
+        "2022-06": {
+          "n": 36,
+          "net_U": 0.315,
+          "roi_pct": 0.875
+        },
+        "2022-07": {
+          "n": 61,
+          "net_U": 0.11,
+          "roi_pct": 0.1803
+        },
+        "2022-08": {
+          "n": 252,
+          "net_U": 25.85,
+          "roi_pct": 10.2579
+        },
+        "2022-09": {
+          "n": 197,
+          "net_U": 12.7,
+          "roi_pct": 6.4467
+        },
+        "2022-10": {
+          "n": 328,
+          "net_U": 17.59,
+          "roi_pct": 5.3628
+        },
+        "2022-11": {
+          "n": 139,
+          "net_U": 6.565,
+          "roi_pct": 4.723
+        },
+        "2022-12": {
+          "n": 35,
+          "net_U": 6.67,
+          "roi_pct": 19.0571
+        },
+        "2023-01": {
+          "n": 204,
+          "net_U": 12.41,
+          "roi_pct": 6.0833
+        },
+        "2023-02": {
+          "n": 246,
+          "net_U": -5.9,
+          "roi_pct": -2.3984
+        },
+        "2023-03": {
+          "n": 198,
+          "net_U": -3.17,
+          "roi_pct": -1.601
+        },
+        "2023-04": {
+          "n": 338,
+          "net_U": 14.825,
+          "roi_pct": 4.3861
+        },
+        "2023-05": {
+          "n": 300,
+          "net_U": 19.8,
+          "roi_pct": 6.6
+        },
+        "2023-06": {
+          "n": 80,
+          "net_U": 2.74,
+          "roi_pct": 3.425
+        },
+        "2023-07": {
+          "n": 50,
+          "net_U": -9.175,
+          "roi_pct": -18.35
+        },
+        "2023-08": {
+          "n": 739,
+          "net_U": 34.845,
+          "roi_pct": 4.7152
+        },
+        "2023-09": {
+          "n": 673,
+          "net_U": 29.79,
+          "roi_pct": 4.4264
+        },
+        "2023-10": {
+          "n": 871,
+          "net_U": 34.71,
+          "roi_pct": 3.9851
+        },
+        "2023-11": {
+          "n": 697,
+          "net_U": 39.645,
+          "roi_pct": 5.6879
+        },
+        "2023-12": {
+          "n": 787,
+          "net_U": 37.635,
+          "roi_pct": 4.7821
+        }
+      }
+    },
+    {
+      "timing": "latest",
+      "policy": "margin2",
+      "n": 6984,
+      "net_U": 653.79,
+      "positive_active_months": 51,
+      "negative_active_months": 7,
+      "zero_active_months": 0,
+      "active_months": 58,
+      "worst_month": [
+        "2022-03",
+        {
+          "n": 93,
+          "net_U": -5.66,
+          "roi_pct": -6.086
+        }
+      ],
+      "best_month": [
+        "2021-05",
+        {
+          "n": 171,
+          "net_U": 45.655,
+          "roi_pct": 26.6988
+        }
+      ],
+      "years": {
+        "2019": {
+          "n": 750,
+          "net_U": 136.46
+        },
+        "2020": {
+          "n": 1024,
+          "net_U": 112.265
+        },
+        "2021": {
+          "n": 1389,
+          "net_U": 149.795
+        },
+        "2022": {
+          "n": 1064,
+          "net_U": 85.105
+        },
+        "2023": {
+          "n": 2757,
+          "net_U": 170.165
+        }
+      },
+      "months": {
+        "2019-02": {
+          "n": 6,
+          "net_U": 1.37,
+          "roi_pct": 22.8333
+        },
+        "2019-03": {
+          "n": 41,
+          "net_U": 9.895,
+          "roi_pct": 24.1341
+        },
+        "2019-04": {
+          "n": 22,
+          "net_U": 1.425,
+          "roi_pct": 6.4773
+        },
+        "2019-05": {
+          "n": 31,
+          "net_U": -3.725,
+          "roi_pct": -12.0161
+        },
+        "2019-06": {
+          "n": 21,
+          "net_U": 0.75,
+          "roi_pct": 3.5714
+        },
+        "2019-07": {
+          "n": 27,
+          "net_U": 7.6,
+          "roi_pct": 28.1481
+        },
+        "2019-08": {
+          "n": 107,
+          "net_U": 8.49,
+          "roi_pct": 7.9346
+        },
+        "2019-09": {
+          "n": 127,
+          "net_U": 33.31,
+          "roi_pct": 26.2283
+        },
+        "2019-10": {
+          "n": 102,
+          "net_U": 29.105,
+          "roi_pct": 28.5343
+        },
+        "2019-11": {
+          "n": 120,
+          "net_U": 29.3,
+          "roi_pct": 24.4167
+        },
+        "2019-12": {
+          "n": 146,
+          "net_U": 18.94,
+          "roi_pct": 12.9726
+        },
+        "2020-01": {
+          "n": 71,
+          "net_U": 5.005,
+          "roi_pct": 7.0493
+        },
+        "2020-02": {
+          "n": 110,
+          "net_U": 10.255,
+          "roi_pct": 9.3227
+        },
+        "2020-03": {
+          "n": 39,
+          "net_U": 9.045,
+          "roi_pct": 23.1923
+        },
+        "2020-05": {
+          "n": 26,
+          "net_U": 9.9,
+          "roi_pct": 38.0769
+        },
+        "2020-06": {
+          "n": 85,
+          "net_U": 8.745,
+          "roi_pct": 10.2882
+        },
+        "2020-07": {
+          "n": 133,
+          "net_U": 31.575,
+          "roi_pct": 23.7406
+        },
+        "2020-08": {
+          "n": 45,
+          "net_U": -2.81,
+          "roi_pct": -6.2444
+        },
+        "2020-09": {
+          "n": 115,
+          "net_U": 14.055,
+          "roi_pct": 12.2217
+        },
+        "2020-10": {
+          "n": 113,
+          "net_U": 10.27,
+          "roi_pct": 9.0885
+        },
+        "2020-11": {
+          "n": 123,
+          "net_U": 0.96,
+          "roi_pct": 0.7805
+        },
+        "2020-12": {
+          "n": 164,
+          "net_U": 15.265,
+          "roi_pct": 9.3079
+        },
+        "2021-01": {
+          "n": 151,
+          "net_U": 30.67,
+          "roi_pct": 20.3113
+        },
+        "2021-02": {
+          "n": 112,
+          "net_U": 0.915,
+          "roi_pct": 0.817
+        },
+        "2021-03": {
+          "n": 128,
+          "net_U": 1.26,
+          "roi_pct": 0.9844
+        },
+        "2021-04": {
+          "n": 175,
+          "net_U": 4.395,
+          "roi_pct": 2.5114
+        },
+        "2021-05": {
+          "n": 171,
+          "net_U": 45.655,
+          "roi_pct": 26.6988
+        },
+        "2021-06": {
+          "n": 13,
+          "net_U": -0.47,
+          "roi_pct": -3.6154
+        },
+        "2021-07": {
+          "n": 16,
+          "net_U": 3.115,
+          "roi_pct": 19.4688
+        },
+        "2021-08": {
+          "n": 117,
+          "net_U": 2.775,
+          "roi_pct": 2.3718
+        },
+        "2021-09": {
+          "n": 123,
+          "net_U": 16.89,
+          "roi_pct": 13.7317
+        },
+        "2021-10": {
+          "n": 122,
+          "net_U": 22.495,
+          "roi_pct": 18.4385
+        },
+        "2021-11": {
+          "n": 121,
+          "net_U": 7.145,
+          "roi_pct": 5.905
+        },
+        "2021-12": {
+          "n": 140,
+          "net_U": 14.95,
+          "roi_pct": 10.6786
+        },
+        "2022-01": {
+          "n": 78,
+          "net_U": 14.45,
+          "roi_pct": 18.5256
+        },
+        "2022-02": {
+          "n": 97,
+          "net_U": 20.86,
+          "roi_pct": 21.5052
+        },
+        "2022-03": {
+          "n": 93,
+          "net_U": -5.66,
+          "roi_pct": -6.086
+        },
+        "2022-04": {
+          "n": 150,
+          "net_U": 1.565,
+          "roi_pct": 1.0433
+        },
+        "2022-05": {
+          "n": 126,
+          "net_U": 3.25,
+          "roi_pct": 2.5794
+        },
+        "2022-06": {
+          "n": 17,
+          "net_U": -0.425,
+          "roi_pct": -2.5
+        },
+        "2022-07": {
+          "n": 31,
+          "net_U": 3.65,
+          "roi_pct": 11.7742
+        },
+        "2022-08": {
+          "n": 119,
+          "net_U": 13.68,
+          "roi_pct": 11.4958
+        },
+        "2022-09": {
+          "n": 87,
+          "net_U": 12.96,
+          "roi_pct": 14.8966
+        },
+        "2022-10": {
+          "n": 175,
+          "net_U": 13.87,
+          "roi_pct": 7.9257
+        },
+        "2022-11": {
+          "n": 72,
+          "net_U": 4.705,
+          "roi_pct": 6.5347
+        },
+        "2022-12": {
+          "n": 19,
+          "net_U": 2.2,
+          "roi_pct": 11.5789
+        },
+        "2023-01": {
+          "n": 108,
+          "net_U": -0.845,
+          "roi_pct": -0.7824
+        },
+        "2023-02": {
+          "n": 121,
+          "net_U": 6.405,
+          "roi_pct": 5.2934
+        },
+        "2023-03": {
+          "n": 115,
+          "net_U": -0.62,
+          "roi_pct": -0.5391
+        },
+        "2023-04": {
+          "n": 173,
+          "net_U": 9.585,
+          "roi_pct": 5.5405
+        },
+        "2023-05": {
+          "n": 161,
+          "net_U": 7.18,
+          "roi_pct": 4.4596
+        },
+        "2023-06": {
+          "n": 35,
+          "net_U": 1.13,
+          "roi_pct": 3.2286
+        },
+        "2023-07": {
+          "n": 28,
+          "net_U": 1.61,
+          "roi_pct": 5.75
+        },
+        "2023-08": {
+          "n": 373,
+          "net_U": 34.615,
+          "roi_pct": 9.2802
+        },
+        "2023-09": {
+          "n": 357,
+          "net_U": 15.945,
+          "roi_pct": 4.4664
+        },
+        "2023-10": {
+          "n": 455,
+          "net_U": 28.325,
+          "roi_pct": 6.2253
+        },
+        "2023-11": {
+          "n": 407,
+          "net_U": 35.495,
+          "roi_pct": 8.7211
+        },
+        "2023-12": {
+          "n": 424,
+          "net_U": 31.34,
+          "roi_pct": 7.3915
+        }
+      }
+    },
+    {
+      "timing": "latest",
+      "policy": "margin3",
+      "n": 3842,
+      "net_U": 463.62,
+      "positive_active_months": 51,
+      "negative_active_months": 7,
+      "zero_active_months": 0,
+      "active_months": 58,
+      "worst_month": [
+        "2023-05",
+        {
+          "n": 81,
+          "net_U": -3.555,
+          "roi_pct": -4.3889
+        }
+      ],
+      "best_month": [
+        "2023-11",
+        {
+          "n": 249,
+          "net_U": 27.45,
+          "roi_pct": 11.0241
+        }
+      ],
+      "years": {
+        "2019": {
+          "n": 425,
+          "net_U": 79.275
+        },
+        "2020": {
+          "n": 538,
+          "net_U": 81.87
+        },
+        "2021": {
+          "n": 773,
+          "net_U": 100.1
+        },
+        "2022": {
+          "n": 595,
+          "net_U": 72.62
+        },
+        "2023": {
+          "n": 1511,
+          "net_U": 129.755
+        }
+      },
+      "months": {
+        "2019-02": {
+          "n": 5,
+          "net_U": 2.37,
+          "roi_pct": 47.4
+        },
+        "2019-03": {
+          "n": 25,
+          "net_U": 2.71,
+          "roi_pct": 10.84
+        },
+        "2019-04": {
+          "n": 9,
+          "net_U": 1.26,
+          "roi_pct": 14.0
+        },
+        "2019-05": {
+          "n": 16,
+          "net_U": 4.47,
+          "roi_pct": 27.9375
+        },
+        "2019-06": {
+          "n": 13,
+          "net_U": 0.97,
+          "roi_pct": 7.4615
+        },
+        "2019-07": {
+          "n": 10,
+          "net_U": -0.155,
+          "roi_pct": -1.55
+        },
+        "2019-08": {
+          "n": 53,
+          "net_U": 7.865,
+          "roi_pct": 14.8396
+        },
+        "2019-09": {
+          "n": 71,
+          "net_U": 15.78,
+          "roi_pct": 22.2254
+        },
+        "2019-10": {
+          "n": 55,
+          "net_U": 23.41,
+          "roi_pct": 42.5636
+        },
+        "2019-11": {
+          "n": 80,
+          "net_U": 17.105,
+          "roi_pct": 21.3812
+        },
+        "2019-12": {
+          "n": 88,
+          "net_U": 3.49,
+          "roi_pct": 3.9659
+        },
+        "2020-01": {
+          "n": 40,
+          "net_U": 4.965,
+          "roi_pct": 12.4125
+        },
+        "2020-02": {
+          "n": 61,
+          "net_U": 5.83,
+          "roi_pct": 9.5574
+        },
+        "2020-03": {
+          "n": 15,
+          "net_U": 7.9,
+          "roi_pct": 52.6667
+        },
+        "2020-05": {
+          "n": 13,
+          "net_U": 7.735,
+          "roi_pct": 59.5
+        },
+        "2020-06": {
+          "n": 46,
+          "net_U": 8.77,
+          "roi_pct": 19.0652
+        },
+        "2020-07": {
+          "n": 63,
+          "net_U": 11.445,
+          "roi_pct": 18.1667
+        },
+        "2020-08": {
+          "n": 28,
+          "net_U": 1.9,
+          "roi_pct": 6.7857
+        },
+        "2020-09": {
+          "n": 52,
+          "net_U": 12.935,
+          "roi_pct": 24.875
+        },
+        "2020-10": {
+          "n": 58,
+          "net_U": 11.235,
+          "roi_pct": 19.3707
+        },
+        "2020-11": {
+          "n": 60,
+          "net_U": -3.38,
+          "roi_pct": -5.6333
+        },
+        "2020-12": {
+          "n": 102,
+          "net_U": 12.535,
+          "roi_pct": 12.2892
+        },
+        "2021-01": {
+          "n": 88,
+          "net_U": 15.32,
+          "roi_pct": 17.4091
+        },
+        "2021-02": {
+          "n": 59,
+          "net_U": 3.85,
+          "roi_pct": 6.5254
+        },
+        "2021-03": {
+          "n": 68,
+          "net_U": 2.2,
+          "roi_pct": 3.2353
+        },
+        "2021-04": {
+          "n": 77,
+          "net_U": -0.03,
+          "roi_pct": -0.039
+        },
+        "2021-05": {
+          "n": 90,
+          "net_U": 26.88,
+          "roi_pct": 29.8667
+        },
+        "2021-06": {
+          "n": 7,
+          "net_U": -1.22,
+          "roi_pct": -17.4286
+        },
+        "2021-07": {
+          "n": 7,
+          "net_U": -1.25,
+          "roi_pct": -17.8571
+        },
+        "2021-08": {
+          "n": 65,
+          "net_U": 13.65,
+          "roi_pct": 21.0
+        },
+        "2021-09": {
+          "n": 74,
+          "net_U": 13.9,
+          "roi_pct": 18.7838
+        },
+        "2021-10": {
+          "n": 68,
+          "net_U": 10.505,
+          "roi_pct": 15.4485
+        },
+        "2021-11": {
+          "n": 78,
+          "net_U": 1.27,
+          "roi_pct": 1.6282
+        },
+        "2021-12": {
+          "n": 92,
+          "net_U": 15.025,
+          "roi_pct": 16.3315
+        },
+        "2022-01": {
+          "n": 43,
+          "net_U": 14.21,
+          "roi_pct": 33.0465
+        },
+        "2022-02": {
+          "n": 48,
+          "net_U": 15.855,
+          "roi_pct": 33.0312
+        },
+        "2022-03": {
+          "n": 44,
+          "net_U": 1.63,
+          "roi_pct": 3.7045
+        },
+        "2022-04": {
+          "n": 90,
+          "net_U": 5.78,
+          "roi_pct": 6.4222
+        },
+        "2022-05": {
+          "n": 67,
+          "net_U": 5.76,
+          "roi_pct": 8.597
+        },
+        "2022-06": {
+          "n": 4,
+          "net_U": -2.08,
+          "roi_pct": -52.0
+        },
+        "2022-07": {
+          "n": 14,
+          "net_U": 2.0,
+          "roi_pct": 14.2857
+        },
+        "2022-08": {
+          "n": 74,
+          "net_U": 11.53,
+          "roi_pct": 15.5811
+        },
+        "2022-09": {
+          "n": 47,
+          "net_U": 9.675,
+          "roi_pct": 20.5851
+        },
+        "2022-10": {
+          "n": 107,
+          "net_U": 5.135,
+          "roi_pct": 4.7991
+        },
+        "2022-11": {
+          "n": 48,
+          "net_U": 1.415,
+          "roi_pct": 2.9479
+        },
+        "2022-12": {
+          "n": 9,
+          "net_U": 1.71,
+          "roi_pct": 19.0
+        },
+        "2023-01": {
+          "n": 63,
+          "net_U": 1.33,
+          "roi_pct": 2.1111
+        },
+        "2023-02": {
+          "n": 57,
+          "net_U": 11.63,
+          "roi_pct": 20.4035
+        },
+        "2023-03": {
+          "n": 58,
+          "net_U": 4.515,
+          "roi_pct": 7.7845
+        },
+        "2023-04": {
+          "n": 89,
+          "net_U": 10.825,
+          "roi_pct": 12.1629
+        },
+        "2023-05": {
+          "n": 81,
+          "net_U": -3.555,
+          "roi_pct": -4.3889
+        },
+        "2023-06": {
+          "n": 20,
+          "net_U": 1.33,
+          "roi_pct": 6.65
+        },
+        "2023-07": {
+          "n": 11,
+          "net_U": 5.45,
+          "roi_pct": 49.5455
+        },
+        "2023-08": {
+          "n": 204,
+          "net_U": 23.62,
+          "roi_pct": 11.5784
+        },
+        "2023-09": {
+          "n": 196,
+          "net_U": 8.915,
+          "roi_pct": 4.5485
+        },
+        "2023-10": {
+          "n": 236,
+          "net_U": 26.21,
+          "roi_pct": 11.1059
+        },
+        "2023-11": {
+          "n": 249,
+          "net_U": 27.45,
+          "roi_pct": 11.0241
+        },
+        "2023-12": {
+          "n": 247,
+          "net_U": 12.035,
+          "roi_pct": 4.8725
+        }
+      }
+    }
+  ],
+  "limitations": "All 494 definitions were selected on 2019-2023 outcome data; these are descriptive, not out-of-sample. Jaccard counts shared identical fixture+horizon+physical side; graph connected components can chain dissimilar candidates. 1U per fixture is an experimental comparison, not a rule. No 2024-2026 data."
+}
