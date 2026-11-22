@@ -997,3 +997,11 @@
 - 18:26 UTC一致只读SQLite覆盖快照：AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement5,753；四类完整覆盖缺口的逐年/逐联赛明细见`snapshot_20261122T1822Z`。其中OU走势较T1820增加6个FID、299行；其他三层不变。快照的`missing_requests=42,349`表示48,102个赛程中至少缺少某个报价层的FID，不等同于排除已尝试终态后的采集队列39,817。
 - 最近采集器PID 18462以5.2秒间隔恢复；安全驱动PID 49373仍运行。T1820至T1826这22场在暂停前的实测有效响应速率约11.7场/分钟；该短窗不含之后暂停时段，也不作为全天吞吐承诺。API瓶颈和历史NO_CROWN_MARKET_DATA的判定口径不变。
 - 逐场、覆盖、传输、driver及SHA材料：`crown_64_collection_checkpoint_20261122T1822Z.jsonl`、`crown_64_verified_increment_20261122T1822Z.json`、`crown_64_increment_identity_sha_audit_20261122T1822Z.json`、`crown_64_transport_audit_20261122T1822Z.json`、`crown_64_coverage_snapshot_20261122T1822Z.json`、`crown_64_driver_checkpoint_20261122T1822Z.jsonl`、`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1822Z.txt`。没有使用其他博彩公司数据；历史回取不等于赛前实收报价。
+
+## 2026-11-22 18:26–18:34 UTC：T1834 检查点
+
+- T1826队列39,817后至18:30:23 UTC统一结算安全暂停，48个唯一FID取得成功响应：7场新增/补齐OU movement序列共400行，41场响应无Crown AH/OU市场数据。48次attempt全部成功；raw SHA及响应FID/Provider League/赛年身份48/48核验通过，重复FID为0。均为历史回取。
+- 18:34:11 UTC安全驱动重建缺口队列39,769（2023:11,229；2024:14,553；2025:13,520；2026:467），比T1826减少48；当时覆盖AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,760。
+- 发现并修正一项审计一致性问题：采集活动时，旧覆盖审计使用多个SQLite查询批次但未显式开启只读事务，快照期间并发写入会让批次处于不同时间点。`collect_crown_ah_ou_64.py`的覆盖读取现在先设置`query_only`并开启单一只读事务；采集请求、间隔、队列和写入行为均未改变。18:36:51 UTC重跑后覆盖为AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,764，完整覆盖缺口FID 42,338。较18:34:11队列快照，采集器恢复后又新增4个OU movement FID；这4场不归入前述48场暂停前增量。
+- 新快照与逐年明细已用单事务重算：2023 OU movement875、2024 0、2025 1,111、2026 3,778。`missing_requests=42,338`表示至少缺少一个报价层的FID，包含已返回无市场数据的终态赛事；它不是重建后待请求队列39,769。
+- T1834逐场、传输、身份SHA、driver、事务覆盖快照及清单为`crown_64_*_20261122T1834Z.*`和`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1834Z.txt`。审计修改不更改任何生产采集或正式策略。

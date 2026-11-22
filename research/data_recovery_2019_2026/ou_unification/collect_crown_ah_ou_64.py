@@ -45,7 +45,7 @@ def load_schedule():
  return rows
 
 def coverage(db,fixtures):
- cx=sqlite3.connect(f'file:{db}?mode=ro',uri=True,timeout=60);cx.execute('PRAGMA busy_timeout=60000')
+ cx=sqlite3.connect(f'file:{db}?mode=ro',uri=True,timeout=60);cx.execute('PRAGMA busy_timeout=60000');cx.execute('PRAGMA query_only=ON');cx.execute('BEGIN')
  ah=collections.defaultdict(collections.Counter);ou=collections.defaultdict(collections.Counter)
  # Restrict both market scans to the exact approved fixture IDs. The old
  # unfiltered GROUP BY walked 10M+ quote rows even though this task only uses
@@ -68,13 +68,13 @@ def coverage(db,fixtures):
  return state
 
 def audit(db,fixtures):
- state=coverage(db,fixtures);cnt=collections.Counter();by_year=collections.defaultdict(collections.Counter);by_league=collections.defaultdict(collections.Counter);queue=[]
+ snapshot_at=dt.datetime.now(UTC).isoformat();state=coverage(db,fixtures);cnt=collections.Counter();by_year=collections.defaultdict(collections.Counter);by_league=collections.defaultdict(collections.Counter);queue=[]
  for fid,x in fixtures.items():
   s=state(fid);year=int(x['season_year']);league=int(x['league_id'])
   for k in ('ah_open_close','ah_movement','ou_open_close','ou_movement'):cnt[k]+=int(s[k]);by_year[year][k]+=int(s[k]);by_league[league][k]+=int(s[k])
   if not all(s[k] for k in ('ah_open_close','ah_movement','ou_open_close','ou_movement')):
    queue.append({'match_id':fid,'league_id':league,'year':year,'kickoff_source_local':x.get('kickoff_source_local'),'home':x.get('home'),'away':x.get('away'),**s})
- return {'schedule_fids':len(fixtures),'approved_league_ids':sorted(IDS),'covered':dict(cnt),'missing_requests':len(queue),'queue':queue,'by_year':{str(k):dict(v) for k,v in sorted(by_year.items())},'by_league':{str(k):dict(v) for k,v in sorted(by_league.items())}}
+ return {'snapshot_at_utc':snapshot_at,'schedule_fids':len(fixtures),'approved_league_ids':sorted(IDS),'covered':dict(cnt),'missing_requests':len(queue),'queue':queue,'by_year':{str(k):dict(v) for k,v in sorted(by_year.items())},'by_league':{str(k):dict(v) for k,v in sorted(by_league.items())}}
 
 def write_queue(report,path):
  with Path(path).open('w',encoding='utf-8') as f:
