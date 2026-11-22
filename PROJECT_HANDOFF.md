@@ -6507,3 +6507,7 @@ T1914后至19:18:59 UTC结算任务触发安全暂停，48个唯一FID在暂停�
 ### 2026-11-22 19:30–19:32 UTC：续采 T1930
 
 T1922后至19:26:38 UTC MR1安全暂停边界，45个唯一FID成功返回：10个FID新增OU movement共417行，35个HTTP 200响应无Crown AH/OU报价。45次attempt成功、raw SHA与FID/64联赛赛事身份45/45核验通过、重复FID0；最后响应19:26:38.805 UTC在collector退出前完成。T1930队列为39,446（2023 10,906；2024 14,553；2025 13,520；2026 467），较T1922减少45；队列覆盖AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,845。19:32:02 UTC一致只读快照OU movement 5,848（恢复后新增3个FID），其余覆盖层不变。请求平均耗时1.212秒、中位数1.1894秒，含暂停窗口约11.6 FID/分钟；5.2秒间隔未改。工件与SHA清单位于`research/data_recovery_2019_2026/ou_unification/`。检查后采集器PID34629及safe-window PID49373运行中；本任务继续，所有新增均属历史回取。
+
+### 2026-11-22 19:34–19:35 UTC：续采 T1934
+
+T1930后至19:33:03 UTC MR1暂停，26个唯一FID成功响应：5个FID新增OU movement 387行，21个HTTP 200响应无Crown AH/OU盘口。26次attempt成功、raw SHA与响应FID/64联赛赛事身份26/26匹配、重复0；末条19:33:08.894 UTC在collector退出前完成。T1934队列39,420（2023 10,880；2024 14,553；2025 13,520；2026 467），较T1930减少26；覆盖AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,850。19:35:29 UTC一致只读快照OU movement 5,852（恢复后再增2个FID），其余层不变。请求均值1.118秒、中位数1.1664秒，包含暂停约11.3 FID/分钟；5.2秒间隔不变。T1934工件和SHA清单在`research/data_recovery_2019_2026/ou_unification/`；collector PID35509和safe-window PID49373仍运行，采集未完成。
