@@ -1,3 +1,11 @@
+## 2026-11-22｜Profit Structure Discovery R4：联赛交互与逐年滚动实测
+
+- 用户同意继续研究联赛差异、盘口结构和逐年滚动前推。实际执行 research/profit_structure_discovery_20261122/rolling_league_interaction_r4.py；输出 PROFIT_STRUCTURE_ROLLING_LEAGUE_R4_20261122.md、rolling_league_interaction_r4_results.json、独立验证 validate_rolling_league_r4.py/rolling_league_interaction_r4_validation.json；研究提交7ff7249c4955d7abbc8c699b54bcde41610feaf7。
+- 128,842条Crown AH历史盘口窗口事件、11,540条缺失league_id（保留）。分别在2024、2025、2026年只用之前年度训练，比较共用结构与按联赛独立选历史累计净U最高结构；早/晚窗口唯一FID四个研究情景。37,936条逐场情景账本只保留本机，不推公共仓库；独立验证4情景×3年净U/ROI、同FID去重及M8三类收益拆分全部通过。
+- 较早窗口共用结构2024/25/26分别2,150场+3.900U/+0.1814%、1,257场−28.100U/−2.2355%、519场−21.550U/−4.1522%；按联赛独立结构分别6,237场−278.645U/−4.4676%、6,287场−193.600U/−3.0794%、2,518场−52.305U/−2.0772%。2026改善但仍亏，2024/25明显更差。M8之外2024/25/26联赛方案−203.505U/−142.735U/−17.660U。
+- 不能因此否定所有联赛交互，只能否定本轮简单按联赛历史净U排序的方案；两方案赛事覆盖不同，ROI差异不是严格同场配对因果收益。历史Crown为赛后回取源事件时间，非赛前真实收到可成交；2026不完整。研究Top1/早晚窗口仅对照方案，不是用户规则或生产Gate。
+- 未修改M8冻结八组、正式Crown采集、Telegram正式派单及结算。下一轮建议（非规则）：解释盘口深度×价格动量×联赛差异的收益机制，考察候选排名噪声及数据覆盖；不可擅自转化为出单门槛。
+
 ## 2026-11-22｜Profit Structure Discovery R3：发现期固定、未来逐场唯一订单组合
 
 - 用户同意继续R2后续，已实际开发并执行 research/profit_structure_discovery_20261122/forward_unique_portfolio_r3.py、validate_forward_unique_portfolio_r3.py；报告 PROFIT_STRUCTURE_FORWARD_PORTFOLIO_R3_20261122.md；聚合 forward_unique_portfolio_r3_results.json 与独立验证 forward_unique_portfolio_r3_validation.json。研究代码提交62a3b291f5cdd6737c8f6cbd9e7fb951d579676a。54,535行逐场情景账本本机保留且gitignore，不上传公开仓库。
