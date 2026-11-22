@@ -1,3 +1,11 @@
+## 2026-11-22｜Profit Structure Discovery R5：联赛×深度×价格变化机制诊断
+
+- 用户同意继续研究盘口深度、价格变动与联赛差异的收益机制。已实际执行 research/profit_structure_discovery_20261122/league_mechanism_r5.py 和独立审计 validate_league_mechanism_r5.py；生成 PROFIT_STRUCTURE_LEAGUE_MECHANISM_R5_20261122.md、league_mechanism_r5_results.json、league_mechanism_r5_validation.json；研究提交6d0407646fb8da4373ba8bcd7cea7d0213033ef3。
+- 全部AH盘口窗口128,842条，其中T−12 34,713条；本轮研究T−12受让方向，按联赛ID×让球深度×同线价格变化、联赛ID×让球深度×盘口线位变化、联赛ID×深度单变量分年统计。2019—2023发现期有1,227个联赛结构组合；发现期净U前20名中，2024/25/26三个年份均有样本且ROI均正的0个，2026年正ROI的6个。不能把缺失年份当作亏损，也不能把这20个事后排名当作生产候选。
+- 实际反例：league_id=1、深度桶3、受让方向发现期326场+23.260U/+7.135%，2024 83场+0.625U/+0.753%，2025 74场−1.810U/−2.446%，2026 21场−1.575U/−7.500%。league_id=73深度桶0在2024/25正收益但2026无样本。联赛名称元数据字段为null，本轮只报告联赛ID，不猜测名称。
+- 独立验证已对全部年度×联赛×结构格子与总体的场数、净U，以及1,227候选未来年份结果对账，validated=true。11,540条AH窗口缺失league_id，保留为UNKNOWN，不擅自丢弃。历史Crown为2026赛后回取的源事件时间，非历史实际赛前收到的可成交报价。
+- 仅研究诊断，没有新模型正式预测、组合收益或生产规则；M8八组、Crown正式采集、Telegram派单和结算均未改动。下一步建议（非规则）：用连续价格变量解释同联赛同盘口的年际差异，修复联赛名称映射并研究缺失来源，不引入生产Gate。
+
 ## 2026-11-22｜Profit Structure Discovery R4：联赛交互与逐年滚动实测
 
 - 用户同意继续研究联赛差异、盘口结构和逐年滚动前推。实际执行 research/profit_structure_discovery_20261122/rolling_league_interaction_r4.py；输出 PROFIT_STRUCTURE_ROLLING_LEAGUE_R4_20261122.md、rolling_league_interaction_r4_results.json、独立验证 validate_rolling_league_r4.py/rolling_league_interaction_r4_validation.json；研究提交7ff7249c4955d7abbc8c699b54bcde41610feaf7。
