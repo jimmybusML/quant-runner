@@ -47,10 +47,17 @@ def load_schedule():
 def coverage(db,fixtures):
  cx=sqlite3.connect(f'file:{db}?mode=ro',uri=True,timeout=60);cx.execute('PRAGMA busy_timeout=60000')
  ah=collections.defaultdict(collections.Counter);ou=collections.defaultdict(collections.Counter)
- for fid,kind,n in cx.execute('''SELECT fixture_id,quote_kind,COUNT(*) FROM asian_quote GROUP BY fixture_id,quote_kind'''):
-  if str(fid) in fixtures:ah[str(fid)][kind]=n
- for fid,kind,n in cx.execute('''SELECT fixture_id,quote_kind,COUNT(*) FROM crown_ou_quote GROUP BY fixture_id,quote_kind'''):
-  if str(fid) in fixtures:ou[str(fid)][kind]=n
+ # Restrict both market scans to the exact approved fixture IDs. The old
+ # unfiltered GROUP BY walked 10M+ quote rows even though this task only uses
+ # 48K fixtures. idx_quote_fixture and idx_crown_ou_quote_fixture support
+ # these bounded IN lookups; keep chunks below SQLite's variable limit.
+ fids=list(fixtures)
+ for table,target in (('asian_quote',ah),('crown_ou_quote',ou)):
+  for offset in range(0,len(fids),800):
+   chunk=fids[offset:offset+800]
+   marks=','.join('?' for _ in chunk)
+   sql=f'SELECT fixture_id,quote_kind,COUNT(*) FROM {table} WHERE fixture_id IN ({marks}) GROUP BY fixture_id,quote_kind'
+   for fid,kind,n in cx.execute(sql,chunk):target[str(fid)][kind]=n
  cx.close()
  def state(fid):
   a=ah[fid];o=ou[fid]

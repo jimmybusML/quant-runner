@@ -1,0 +1,26 @@
+{
+  "measured_at_utc": "2026-11-22T13:06:56.337881+00:00",
+  "scope_fids": 48102,
+  "same_fixture_kind_counts": true,
+  "old_full_group_seconds": 1.07348,
+  "indexed_scope_seconds": 0.728818,
+  "speedup": 1.473,
+  "quote_rows_by_table": {
+    "asian_quote": 2275747,
+    "crown_ou_quote": 2283047
+  },
+  "fixture_kind_groups_by_table": {
+    "asian_quote": 101240,
+    "crown_ou_quote": 70240
+  },
+  "query_plans": {
+    "asian_quote": [
+      "SEARCH asian_quote USING COVERING INDEX idx_quote_fixture (fixture_id=?)"
+    ],
+    "crown_ou_quote": [
+      "SEARCH crown_ou_quote USING COVERING INDEX idx_crown_ou_quote_fixture (fixture_id=?)"
+    ]
+  },
+  "chunk_fids": 800,
+  "readonly_snapshot": true
+}
