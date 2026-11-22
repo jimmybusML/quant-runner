@@ -5993,3 +5993,11 @@
 - 11:17:25队列重建为41,960；权威coverage AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,236。较前一检查点OU movement增加2。
 - 全日志1,360 attempts（1,237 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；51个遇错FID全恢复、当前可重试失败0。父driver PID49373与collector PID15537仍运行，节奏5.2秒。
 - T1120报告、逐场响应、coverage、transport和SHA清单已提交。回取数据保持historical标签，不影响生产系统。
+
+
+### 2026-11-22 11:22 UTC：T1122续采队列确认
+
+- 11:17:25—11:19:18新增22个唯一FID：15个无Crown行情，7个写入OU movement；raw SHA 22/22通过，范围外/重复0。11:22:11队列重建为41,938，coverage AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,243。
+- 全日志1,372 attempts（1,249 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；51个曾遇错FID全部恢复，最新可重试失败0。
+- 父driver PID49373在结算安全窗口后重建队列；新collector PID16558随即被MR1计划任务PID16557暂停，driver保持运行并自动等待续采。
+- T1122证据与SHA清单位于`research/data_recovery_2019_2026/ou_unification/`。采集范围、5.2秒请求间隔和historical标注未变。

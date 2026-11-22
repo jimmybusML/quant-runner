@@ -512,3 +512,11 @@
 - 11:17:25 UTC权威重建确认队列从41,972减至41,960；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,236。OU变化序列较前一快照+2，AH与开收盘无变化。
 - T1120全日志1,360 attempts：1,237 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`；51个遇错FID全部恢复，最新可重试失败0。父driver PID49373启动collector PID15537，仍按5.2秒间隔运行。
 - 剩余41,960项约60.6小时纯请求时间，不含安全暂停和重试。T1120逐场、增量、driver、coverage、transport与SHA manifest已保存，所有记录属于历史回取。
+
+
+## 2026-11-22 11:22 UTC：T1122续采队列确认
+
+- 11:17:25—11:19:18 UTC间完成22个唯一FID响应：15场无Crown市场，7场保存OU movement。raw SHA 22/22通过、重复/越界0、传输尝试全部成功。
+- 11:22:11 UTC安全窗口重建确认队列从41,960减至41,938，OU movement覆盖从5,236增至5,243；AH、AH movement及两市场开收盘均不变。
+- T1122全日志1,372 attempts：1,249 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`；51个曾遇错FID均恢复，最新可重试失败0。新collector启动后，MR1作业PID16557触发安全暂停，父driver PID49373继续等待并会自动续采。
+- 剩余41,938请求约60.6小时纯网络时间，安全暂停和重试另计。T1122增量、覆盖、driver、transport与SHA证据已归档，报价均为historical回取。
