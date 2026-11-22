@@ -1,0 +1,37 @@
+{
+  "study": "READ_ONLY_CROWN_MOVEMENT_RAW_FT_STATUS_REUSE_AUDIT",
+  "as_of_utc": "2026-11-22T04:33:45.154611Z",
+  "run_start_utc": "2026-11-21T23:18:38.032113Z",
+  "unverified_ft_candidate_input_sha256": "56d661b7a9e40103b45550138f5339528f80db38c0d56e4e4689b160b93d3e94",
+  "ft_unresolved_input_fids": 10444,
+  "batch_terminal_unique_fids": 1342,
+  "batch_fids_intersecting_unresolved_ft_queue": 131,
+  "audited_rows": 131,
+  "exact_identity_rows": 131,
+  "raw_status_counts": {
+    "None": 115,
+    "67": 1,
+    "86": 1,
+    "77": 2,
+    "75": 1,
+    "80": 1,
+    "55": 1,
+    "38": 1,
+    "74": 1,
+    "half": 3,
+    "45": 1,
+    "44": 1,
+    "70": 1,
+    "21": 1
+  },
+  "classifications": {
+    "status_missing_exact_identity": 115,
+    "unmapped_status_exact_identity": 13,
+    "explicit_half_exact_identity": 3
+  },
+  "explicit_full_trusted_new_ft": 0,
+  "note": "Raw numeric status values are preserved and not mapped to full-time; no score was merged into the verified FT inventory.",
+  "network_requests": 0,
+  "database_writes": 0,
+  "pass": true
+}

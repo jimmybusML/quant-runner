@@ -18,6 +18,12 @@
 - 总库存覆盖基线仍引用 04:26 UTC 已核记录：203,962 FID、118 个已发现 provider league IDs、902 个联赛×UTC年桶；可信 FT 193,518，未核 FT 10,444。该全局库存未在本检查点重建，不表示来源范围已穷尽。
 - 各赛事原始 season 字段上一快照为96,503个FID有精确season标签、107,459个来源未提供season、冲突0；不得使用UTC年份填充season。
 
+## 本批原始响应中的完场状态复核
+
+- 截止04:33:45Z的1342个movement终态与固定10,444个未核FT FID相交131场。新建离线审计逐场匹配了原始response SHA、FID、provider league、主客球队ID及开赛时间，131/131身份一致。
+- 这131份响应的状态为115缺失、13个未映射数字状态码、3个`half`；明确`full`为0。尽管其中有比分字段，没有可靠状态码映射证明这些比分是最终比分，故**本批确认新增可信FT为0**，不将比分并入FT库存。
+- 逐场保留在`crown_movement_batch_ft_candidates_20261122T0433Z.jsonl.gz`；复跑脚本和摘要见`audit_crown_movement_batch_ft_status_20261122.py`与`crown_movement_batch_ft_status_audit_20261122T0433Z.json`。数据缺口继续保持未核状态。
+
 ## 运行与缺口边界
 
 - 安全窗口 driver PID 59381 和其 movement collector 子进程在本次检查期间仍活动。未启动第二个 Crown 请求进程，未停止或重启现有 driver。
