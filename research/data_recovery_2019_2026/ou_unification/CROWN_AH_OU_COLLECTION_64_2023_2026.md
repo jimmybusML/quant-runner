@@ -691,3 +691,11 @@
 - 缺口41,311；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,397。分年待请求：2023年12,771、2024年14,553、2025年13,520、2026年467。
 - T1330后14个唯一FID响应SHA 14/14通过；11场无Crown市场报价，3场新增OU movement，越界/重复0。全日志累计2,008次attempt（1,876成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`），60个遇错FID均恢复。
 - T1334检查点、增量、覆盖、传输审计及SHA manifest已归档。历史请求与实时赛前收据身份继续分开；采集未完成。
+
+
+## 2026-11-22 13:38 UTC：T1338续采检查点
+
+- 统一结算窗口后，driver于13:38:46 UTC重建队列并启动collector PID47788；父driver PID49373在运行，请求间隔5.2秒。
+- 待请求41,300；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,398。分年缺口：2023年12,760、2024年14,553、2025年13,520、2026年467。
+- T1334后11个唯一FID响应SHA 11/11匹配；10场响应无Crown市场，1场新增OU movement。全日志2,019次attempt（1,887成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`），60个遇错FID全部恢复。
+- T1338逐场、覆盖、transport、driver和SHA文件已归档；历史回取与赛前收据身份保持区分，任务继续运行。
