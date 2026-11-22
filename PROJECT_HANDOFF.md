@@ -6521,3 +6521,7 @@ T1934后至19:35:42 UTC，14个唯一FID成功：2个新增OU走势FID共116行�
 ### 2026-11-22 19:46–19:47 UTC：续采 T1946
 
 T1940后至19:43:22 UTC统一结算暂停边界，37个唯一FID全部HTTP 200但无Crown AH/OU市场数据；37次attempt成功，raw SHA及FID/64联赛身份37/37通过，重复0。19:46:14 UTC队列39,359（2023 10,819；2024 14,553；2025 13,520；2026 467），较T1940少37；队列覆盖AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,852。19:47:19 UTC一致只读快照OU movement 5,853（恢复后新加1 FID），其余不变。请求平均耗时1.1936秒、中位数1.1968秒，含暂停约11.7 FID/分钟；5.2秒节奏未变。T1946全套工件与SHA清单位于`research/data_recovery_2019_2026/ou_unification/`；collector PID38349和safe-window PID49373运行，采集继续。
+
+### 2026-11-22 19:54 UTC：续采 T1954
+
+T1946后至19:50:56 UTC MR1暂停边界，55个唯一FID成功响应：1个FID增加OU走势60行，54个HTTP 200响应无Crown AH/OU报价；55次attempt均成功，raw SHA与FID/64联赛身份55/55通过，重复0。19:54:08 UTC队列39,304（2023 10,764；2024 14,553；2025 13,520；2026 467），较T1946减少55；AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,853。19:54:58 UTC一致只读快照覆盖数相同。请求均值1.141秒、中位数1.1826秒，含暂停约11.7 FID/分钟；5.2秒间隔及safe-window不变。T1954全套工件及SHA清单位于`research/data_recovery_2019_2026/ou_unification/`。工作继续中。
