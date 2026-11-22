@@ -5573,3 +5573,12 @@
 - movement安全驱动PID 59381仍活跃，在计划任务间歇无collector child时保持等待；未并发启动采集。03:55:11Z队列日志1,122/101,266 FID终态（329 SAVED、793 NO_CROWN_AH_QUOTES），100,144未终结；30次IncompleteRead均已后续终结。独立只读核验将1,122条日志终态全部匹配SQLite/raw文件SHA/HTTP接收时间/报价行数，全部差异0，pass=true；核验0请求、0数据库写入。
 - 新快照及文件哈希见 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0355Z.md`、`COLLECTION_STATUS_20261122T0355Z.json`、`movement_collection_persisted_audit_20261122T0355Z.json`、`league_year_quote_coverage_20261122T0354Z.csv/.json` 与 SHA manifest。回取报价仍是historic mode，不称作赛前实时收据。
 - 未做策略、模型或盈利回测；未改生产模型、TG、账本、生产采集代码/配置或调度。完整movement、summary、FT gap及全球来源发现尚未完成。
+
+
+### 2026-11-22 04:02 UTC：Crown历史movement队列续采快照
+
+- 04:02:20Z状态快照：原101,266个候选中1,177个FID终结（329 SAVED、848 NO_CROWN_AH_QUOTES），100,089未终结；30次IncompleteRead均有后续终态。安全窗口driver PID 59381仍按既有排程暂停/恢复。
+- 04:02:39Z只读落库复核匹配全部1,177个终态FID与SQLite/raw响应SHA/HTTP接收时间/报价行数，缺失和不匹配均为0，pass=true；核验无HTTP请求、无DB写入。
+- 新的902桶覆盖快照：movement capture 103,873 FID，53,328有报价共4,499,297行，50,545捕获记录为无AH报价，100,089场仍缺movement capture。历史summary保持50,200 FID / 99,242报价行；独立summary队列153,762场尚未运行。
+- 更新报告/结果/SHA见 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0402Z.md`、`COLLECTION_STATUS_20261122T0402Z.json`、`movement_collection_persisted_audit_20261122T0402Z.json`、`league_year_quote_coverage_20261122T0402Z.csv/.json` 和manifest。现有M1 cache的精确身份映射使27391三桶标记为UEFA Nations League D；24个year-unknown记录仍未推断。
+- 未改生产采集、调度、模型、TG和正式账本；无策略或盈利回测。历史抓取不是实时赛前收据，所有历史缺口继续保留。

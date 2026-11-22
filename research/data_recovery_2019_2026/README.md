@@ -4,10 +4,10 @@ This is an active collection and reconciliation task, not a strategy or model st
 
 ## Current evidence
 
-- Latest collection checkpoint: `COLLECTION_CHECKPOINT_20261122T0355Z.md`. Latest global coverage baseline is the 03:55Z read-only snapshot: 203,962 known-source FIDs, 118 provider league IDs, 193,518 verified FT, 10,444 unresolved, and 902 provider-league × UTC-year buckets. The 53-league supplemental audit adds 62,339 unique FIDs. All 73 M7 exact competition names map to the known provider IDs; this is not a global completeness claim.
+- Latest collection checkpoint: `COLLECTION_CHECKPOINT_20261122T0402Z.md`. Latest global coverage baseline is the 04:02Z read-only snapshot: 203,962 known-source FIDs, 118 provider league IDs, 193,518 verified FT, 10,444 unresolved, and 902 provider-league × UTC-year buckets. The 53-league supplemental audit adds 62,339 unique FIDs. All 73 M7 exact competition names map to the known provider IDs; this is not a global completeness claim.
 - The 12 M1 records whose event kickoff differs from another stored schedule version are retained with both values in `m1_ft_evidence_in_unverified_ledger_20261122.jsonl`; the score evidence is not used to overwrite the conflicting kickoff.
 - Crown movement recovery is still running in historical mode. Its latest checkpoint is a moving snapshot, not a completion claim; raw responses and the SQLite remain local.
-- `league_year_quote_coverage_20261122T0354Z.json/.csv`: latest detailed per-provider-league/per-UTC-year quote/FT coverage snapshot, with exact live/historical layer separation.
+- `league_year_quote_coverage_20261122T0402Z.json/.csv`: latest detailed per-provider-league/per-UTC-year quote/FT coverage snapshot, with exact live/historical layer separation.
 - `collection_progress_snapshot_*.json` and matching checkpoint Markdown: later live progress snapshots. They explicitly state the run is incomplete.
 - `score_source_disagreements.jsonl`: two exact-FID FT conflicts retained for audit; the source score records are not rewritten.
 
@@ -176,3 +176,11 @@ The live schedule run is at 321 successful page requests / 9,378 new FIDs. Eight
 - Movement queue audit at 03:55:11Z: 1,122/101,266 terminal (329 saved, 793 no-quote), 100,144 without terminal. A separate read-only audit matched all 1,122 to SQLite/raw SHA/receive time/quote count; mismatches 0, pass true. Thirty logged IncompleteRead attempts all later resolved. The safe-window driver PID 59381 remained active, paused between scheduled windows. No second collector or overlapping summary batch was started.
 - Historical source-event time and actual HTTP receipt time remain distinct. None of these retrospective HTTP fetches is represented as a contemporaneous receipt.
 - Artifacts: `COLLECTION_CHECKPOINT_20261122T0355Z.md`, `COLLECTION_STATUS_20261122T0355Z.json`, `movement_collection_persisted_audit_20261122T0355Z.json`, `league_year_quote_coverage_20261122T0354Z.csv/.json`, and `build_league_year_live_coverage_20261122.py`.
+
+
+## 2026-11-22 04:02 UTC — movement queue continued under safe-window driver
+
+- At 04:02:20Z the immutable 101,266-FID movement queue had 1,177 terminal results (329 `SAVED`, 848 `NO_CROWN_AH_QUOTES`) and 100,089 without a terminal result. All 30 earlier `IncompleteRead` attempts later resolved.
+- Read-only persistence audit at 04:02:39Z matched all 1,177 terminal FIDs to SQLite and raw response SHA, HTTP receive time, and quote-row count; mismatches 0, `pass=true`, network requests 0, DB writes 0. The safe-window driver PID 59381 continues to pause around scheduled jobs.
+- The 04:02:39Z coverage snapshot partitions 203,962 FIDs into 902 league×UTC-year buckets: 103,873 movement capture FIDs, 53,328 with 4,499,297 quote rows, 50,545 no-quote captures, 100,089 without a movement capture; summary historical capture remains 50,200 FIDs / 99,242 rows.
+- Latest checkpoint and evidence: `COLLECTION_CHECKPOINT_20261122T0402Z.md`, `COLLECTION_STATUS_20261122T0402Z.json`, `movement_collection_persisted_audit_20261122T0402Z.json`, `league_year_quote_coverage_20261122T0402Z.csv/.json`, and the 0402 SHA manifest.
