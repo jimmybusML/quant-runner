@@ -5617,3 +5617,4 @@
 - 总库存基线沿用04:26快照：203,962个known-source FID、118个provider league IDs、902个联赛×UTC年桶、193,518个可信FT、10,444个FT未核；非全球赛事穷尽证明。来源season仍为96,503已标记、107,459来源缺season、0冲突，不以UTC年推断。
 - 安全driver PID 59381及movement collector当时持续运行；队列未完成。328个已核 raw summary 候选仍待共享writer空闲后追加并重新构造缺口队列；未并发写库。检查点 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0433Z.md`。未进行策略/模型/回测，无Telegram/账本写入或生产配置修改。
 - 对截至04:33:45Z的movement响应与固定10,444个FT缺口交叉复核：131场匹配FID/联赛/主客球队ID/开赛时间及原始响应SHA；状态115缺失、13个数字状态码未映射、3个`half`，明确`full`为0。比分字段不足以证明已完赛，没有新增可信FT，未合并任何比分。逐场账本、结果和脚本为`research/data_recovery_2019_2026/crown_movement_batch_ft_candidates_20261122T0433Z.jsonl.gz`、`crown_movement_batch_ft_status_audit_20261122T0433Z.json`及`audit_crown_movement_batch_ft_status_20261122.py`。
+- 同批原始响应与TotalCorner赛程身份精确匹配的状态校准336场：328组均为`full|full`，另外8组是同值`half|half`或数字`44/45/55/76/77/80/86`。未发现数字状态映射到full；未核的131场有7场找到精确赛程状态副本，状态仍为相同数字码/half。因此不将未解释状态码下的比分升级为已核FT。

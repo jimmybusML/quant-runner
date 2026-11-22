@@ -10,6 +10,7 @@ import collections, datetime as dt, gzip, hashlib, json, pathlib, sqlite3
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 OUT=ROOT/'research/data_recovery_2019_2026'
 FT_QUEUE=OUT/'unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz'
+INVENTORY=OUT/'fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz'
 LOG=pathlib.Path('/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/queues_20261122/movement_collection.log.jsonl')
 DB=pathlib.Path('/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3')
 RUN_START='2026-11-21T23:18:38.032113Z'
@@ -27,6 +28,11 @@ def main()->None:
         for line in f:
             if line.strip():
                 x=json.loads(line);missing[str(x['fid'])]=x
+    inventory={}
+    with gzip.open(INVENTORY,'rt',encoding='utf-8') as f:
+        for line in f:
+            if line.strip():
+                x=json.loads(line);inventory[str(x['fid'])]=x
     latest={}
     with LOG.open(encoding='utf-8') as f:
         for line in f:
@@ -38,11 +44,11 @@ def main()->None:
                 latest[str(r['fixture_id'])]=r
     batch={fid:r for fid,r in latest.items()
            if r.get('response_received_at_utc','')>=RUN_START}
-    candidates=sorted(set(batch)&set(missing))
+    candidates=sorted(set(batch)&set(missing));batch_ids=sorted(batch)
     db=sqlite3.connect(f'file:{DB}?mode=ro',uri=True);db.row_factory=sqlite3.Row
     rows=[];issues=collections.Counter();capture_map={}
-    for start in range(0,len(candidates),600):
-        chunk=candidates[start:start+600];marks=','.join('?' for _ in chunk)
+    for start in range(0,len(batch_ids),600):
+        chunk=batch_ids[start:start+600];marks=','.join('?' for _ in chunk)
         for c in db.execute(f"""SELECT fixture_id,response_sha256,source_file,response_received_at_utc,
                 status,quote_count FROM capture WHERE data_layer='movement'
                 AND capture_mode='historical' AND fixture_id IN ({marks})""",chunk):
@@ -58,6 +64,17 @@ def main()->None:
              'response_received_at_utc':receive,'response_sha256':None,'source_file':None,
              'raw_fixture_status':None,'raw_home_goals':None,'raw_away_goals':None,
              'identity_exact':False,'classification':'capture_not_found'}
+        canonical=inventory.get(fid,{})
+        canonical_statuses=[]
+        for sr in canonical.get('totalcorner_page_records',[]):
+            try:
+                if (str(sr.get('provider_league_id'))==str(inv['provider_league_id'])
+                    and str(sr.get('home_id'))==str((inv.get('evidence_records') or [{}])[0].get('home_id'))
+                    and str(sr.get('away_id'))==str((inv.get('evidence_records') or [{}])[0].get('away_id'))
+                    and dt_utc(sr['kickoff_utc'])==dt_utc(inv['kickoff_utc'])
+                    and sr.get('status') is not None):canonical_statuses.append(str(sr['status']))
+            except Exception:continue
+        row['exact_totalcorner_page_statuses']=sorted(set(canonical_statuses))
         if cap is None:
             issues['capture_not_found']+=1;rows.append(row);continue
         row['response_sha256']=cap['response_sha256'];row['source_file']=cap['source_file']
@@ -97,19 +114,50 @@ def main()->None:
         except Exception as e:
             row['classification']='audit_error_'+type(e).__name__;issues[row['classification']]+=1
         rows.append(row)
+    # Empirical exact-FID/identity status crosswalk for all this batch's raw
+    # responses; this demonstrates whether a raw numeric code means "full".
+    status_pairs=collections.Counter();crosswalk_issues=collections.Counter();crosswalk_n=0
+    for fid in batch_ids:
+        logrow=batch[fid];cap=next((c for c in capture_map.get(fid,[])
+                    if c['response_received_at_utc']==logrow.get('response_received_at_utc')),None)
+        srcrecs=inventory.get(fid,{}).get('totalcorner_page_records',[])
+        if cap is None or not srcrecs:continue
+        try:
+            body_bytes=pathlib.Path(cap['source_file']).read_bytes()
+            if sha(body_bytes)!=cap['response_sha256']:
+                crosswalk_issues['raw_sha_mismatch']+=1;continue
+            fs=[x for x in json.loads(body_bytes).get('data',[]) if str(x.get('id'))==fid]
+            if len(fs)!=1:crosswalk_issues['raw_fid_mismatch']+=1;continue
+            fx=fs[0]; ko=dt_utc(fx['start']); exact_statuses=set()
+            for sr in srcrecs:
+                try:
+                    if (str(sr.get('provider_league_id'))==str(inventory[fid]['provider_league_id'])
+                        and str(sr.get('home_id'))==str(fx.get('h_id'))
+                        and str(sr.get('away_id'))==str(fx.get('a_id'))
+                        and dt_utc(sr['kickoff_utc'])==ko and sr.get('status') is not None):
+                        exact_statuses.add(str(sr['status']))
+                except Exception:continue
+            for st in exact_statuses:status_pairs[(str(fx.get('status')),st)]+=1
+            if exact_statuses:crosswalk_n+=1
+        except Exception as e:crosswalk_issues['error_'+type(e).__name__]+=1
     db.close()
     statuses=collections.Counter(str(r['raw_fixture_status']) for r in rows)
     result={'study':'READ_ONLY_CROWN_MOVEMENT_RAW_FT_STATUS_REUSE_AUDIT',
       'as_of_utc':AS_OF,'run_start_utc':RUN_START,
       'unverified_ft_candidate_input_sha256':sha(FT_QUEUE.read_bytes()),
+      'schedule_inventory_input_sha256':sha(INVENTORY.read_bytes()),
       'ft_unresolved_input_fids':len(missing),'batch_terminal_unique_fids':len(batch),
       'batch_fids_intersecting_unresolved_ft_queue':len(candidates),
       'audited_rows':len(rows),'exact_identity_rows':sum(r['identity_exact'] for r in rows),
       'raw_status_counts':dict(statuses),'classifications':dict(issues),
+      'exact_identity_source_status_crosswalk_rows':crosswalk_n,
+      'raw_crown_status_vs_totalcorner_page_status':{f'{a}|{b}':n for (a,b),n in sorted(status_pairs.items())},
+      'crosswalk_issues':dict(crosswalk_issues),
       'explicit_full_trusted_new_ft':issues['explicit_full_exact_identity'],
       'note':'Raw numeric status values are preserved and not mapped to full-time; no score was merged into the verified FT inventory.',
       'network_requests':0,'database_writes':0,
       'pass':len(rows)==len(candidates) and not any(k.startswith('audit_error_') or k in {'capture_not_found','raw_sha_mismatch','raw_fixture_id_not_unique','identity_mismatch'} for k in issues)}
+    result['pass']=result['pass'] and not crosswalk_issues
     (OUT/f'crown_movement_batch_ft_status_audit_{STAMP}.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     with gzip.open(OUT/f'crown_movement_batch_ft_candidates_{STAMP}.jsonl.gz','wt',encoding='utf-8') as f:
         for r in rows:f.write(json.dumps(r,ensure_ascii=False)+'\n')
