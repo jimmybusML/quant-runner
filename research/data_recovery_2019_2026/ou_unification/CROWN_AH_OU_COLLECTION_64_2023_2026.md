@@ -776,3 +776,10 @@
 - 逐个核查48份原始响应文件SHA及响应内FID/league/team与固定64联赛2023—2026赛事清单：SHA匹配48/48，身份/范围不匹配0，重复FID 0，失败attempt 0。该批全部historical回取。增量逐场行和校验结果见`crown_64_collection_checkpoint_20261122T1450Z.jsonl`及`crown_64_verified_increment_20261122T1450Z.json`。
 - 本段的48条成功响应已产生有效增量，但安全driver仍在同一collector批次中运行；尚未有下一次权威队列/SQLite覆盖重建。因此队列与逐场覆盖的最新**权威**计数仍为T1446（40,950；OU走势5,488）。按本批逐场成功记录推算队列约40,902、OU走势覆盖FID约5,492，仅作为待重建估计，不当作权威结果。
 - AH/OU合并接口和采集程序继续按市场缺口选择列，避免对已有AH summary/path重复请求；生产调度安全暂停仍有效。未改变频率或并发，未改正式模型、TG、账本和生产流程。SHA在`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1450Z.txt`。
+
+
+## 2026-11-22 14:54–14:57 UTC：安全窗口后的继续采集
+
+- 14:54:12 UTC权威重建确认待处理40,902场（2023:12,362；2024:14,553；2025:13,520；2026:467），覆盖AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement5,492。collector PID66475以5.2秒间隔继续。
+- 至14:57:23.448737 UTC新收到37场成功响应，全部为`NO_CROWN_MARKET_DATA`，本批没有AH/OU报价行；37份原始响应SHA、FID/联赛/主客身份均通过，失败、重复、越界均为0。因这些有效HTTP响应为空市场，预计下次重建时队列扣除37场；权威队列仍以14:54检查点为准，等待下一重建。
+- 逐场JSONL、独立核对结果及SHA清单见`crown_64_collection_checkpoint_20261122T1457Z.jsonl`、`crown_64_verified_increment_20261122T1457Z.json`和对应SHA文件。所有响应仍按historical保存。
