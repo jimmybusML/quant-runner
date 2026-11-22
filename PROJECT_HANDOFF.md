@@ -5392,7 +5392,7 @@
 
 - 只读对照基线`fixture_inventory_2019_2026.jsonl.gz`（141,623个唯一FID）与已审计的53联赛TotalCorner文件`supplemental_totalcorner_schedules_53leagues_2019_2026.jsonl.gz`（89,842个唯一FID）：重叠27,503，新增62,339，生成独立并集库存`fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz`，共203,962个唯一FID。基线库存未被覆盖；全部来源版本按FID附加，冲突不以新记录静默替换。并集检查发现193,005个FID至少有一条已核实的完整FT来源，10,957个FID仍无已核实完整FT来源。
 - 新增62,339个FID中，58,288条为TotalCorner `status=full`且数字比分，4,051条为非完整/未核实比分；24场缺少源开赛时间，保留为未知UTC年份（其中22条有数字比分、2条比分不完整），未用ID或其他字段推断日期。新增FID按UTC开赛年分布：2019 7,021、2020 6,173、2021 8,323、2022 8,279、2023 8,604、2024 8,141、2025 8,278、2026 7,496，另24场未知年份；新增覆盖38个provider league ID。补充源未提供season字段的记录仍不生成赛季标签。
-- 可复跑脚本`research/data_recovery_2019_2026/reconcile_53_league_schedule_union_20261122.py`；覆盖/来源/哈希清单及当前脚本、合并库存、FT缺口队列和汇总的权威SHA见`research/data_recovery_2019_2026/CHECKPOINT_SHA256_20261121T2344Z.txt`.
+- 可复跑脚本`research/data_recovery_2019_2026/reconcile_53_league_schedule_union_20261122.py`；覆盖/来源/哈希清单及当前脚本、合并库存、FT缺口队列和汇总的权威SHA见`research/data_recovery_2019_2026/CHECKPOINT_SHA256_20261122T0011Z.txt`.
 - 以只读方式复核Crown SQLite当前SHA `f5ff99470eeba04b9b5b1c63195ca14af3f766e1868ad3b1675ad0dfdbcabf7c`及capture/quote计数，与覆盖汇总文件在23:31 UTC生成的快照一致。期间未发起网络请求、未写SQLite、未跑策略/模型/回测。基础汇总及年度/赛季CSV因先前16个有终态历史movement响应而更新，保留并入本批提交。
 - 全联赛历史恢复仍未完成：该并集只纳入已审计53联赛赛程批次，不代表其余联赛/赛季已经全部发现，也未补齐4,051条新增赛果缺口或全部Crown报价；本次不宣称完整覆盖。
 
@@ -5400,7 +5400,7 @@
 
 - 在53联赛并集库存上按现有覆盖审计口径重算FT状态：193,005个唯一FID至少有一项已核实的完整FT来源，10,957个仍无完整FT来源。新增53批里的4,051条未核实/非full记录已纳入全局缺口队列；另外原库存中原有未核实项也全部保留。
 - 生成`unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz`，共10,957个唯一FID；每行保留可见的赛程/来源状态证据及缺失原因，没有以盘口、比分推测或未来资料填补。按FID与汇总队列数量复核一致，未发现重复FID。
-- 当前可复跑脚本、库存、缺口队列及覆盖汇总的权威哈希见`research/data_recovery_2019_2026/CHECKPOINT_SHA256_20261121T2344Z.txt`。上一检查点`CHECKPOINT_SHA256_20261121T2336Z.txt`记录的是尚未输出全局FT队列的前版脚本与汇总，不再作为当前脚本SHA引用。
+- 当前可复跑脚本、库存、缺口队列及覆盖汇总的权威哈希见`research/data_recovery_2019_2026/CHECKPOINT_SHA256_20261122T0011Z.txt`。上一检查点`CHECKPOINT_SHA256_20261121T2336Z.txt`记录的是尚未输出全局FT队列的前版脚本与汇总，不再作为当前脚本SHA引用。
 - 本轮继续没有发出TotalCorner/Crown网络请求，也没有写SQLite。结算进程需停止后才能按互斥规则恢复Crown历史队列；其余provider联赛/赛季发现、全部FT缺口以及完整Crown时间序列仍未完成。
 
 ### 2026-11-21 23:44 UTC：Crown历史movement安全续采已恢复
@@ -5448,3 +5448,16 @@
 
 - FID `192030794`保留原始`FETCH_FAILED / IncompleteRead`行后，按新断点逻辑重试并取得`SAVED`，共165条AH报价，实际接收时间`2026-11-21T23:59:56.257118Z`。该响应标记为historical，源报价时间与收件时间仍分开。
 - 追加日志现有74个唯一FID有终态，67条`SAVED`行、7条`NO_CROWN_AH_QUOTES`行及1条失败尝试记录；失败FID已有后续成功终态，错误历史未删除。当前`unified_settlement.py`再次运行时安全驱动暂停采集，等待其结束后继续。
+
+### 2026-11-22 00:08 UTC：已保存的ESPN赛果补证用于全局FT缺口
+
+- 对本地M7归档`verified_external_espn_results.jsonl`进行只读复核，没有发出新网络请求。仅当FID存在、源状态为verified、原始响应SHA正确、原始事件为STATUS_FULL_TIME、全场比分与源记录相同、UTC开赛时间吻合且库存所有可用赛程身份记录与主客球队一致时才采纳。
+- 44个FID通过全部核验并以独立ESPN外部FT来源附加到203,962场合并库存；44场中9场此前处于全局FT缺口队列，35场已有其它有效FT来源（作为来源交叉证据，不重复增加唯一场次）。另21条verified ESPN候选因赛程身份字段不一致未采纳；157条未匹配/歧义、4条非完场、1条Crown价格晚于ESPN开球的记录均未采纳。
+- 复算后合并库存193,014个FID有已核实FT，10,948个仍待补齐；缺口队列与逐FID文件复核数量一致、无重复。ESPN仅作为外部赛果证据，未当作TotalCorner/Crown报价或当时实时信息。
+- 可复跑脚本为`reconcile_archived_espn_ft_against_full_inventory_20261122.py`和`reconcile_53_league_schedule_union_20261122.py`；输出、原始响应SHA引用及结果清单见`archived_espn_verified_ft_reconciled_to_203962_inventory_20261122.jsonl`、`archived_espn_ft_reconciliation_203962_inventory_20261122.json`、更新后的`unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz`及`CHECKPOINT_SHA256_20261122T0011Z.txt`。
+
+### 2026-11-22 00:11 UTC：外部FT复核与并集库存重复运行一致
+
+- 将严格复核的44个ESPN唯一FID写入独立FT证据层；其中43条新证据追加至并集库存，另1条已在基线外部FT证据中，按原始响应SHA识别后去重、不重复追加。完整赛事库存仍为203,962个唯一FID。
+- 重算并集后FT已验证FID为193,014，未核实FT为10,948；与逐场缺口队列完全一致。再次从归档ESPN原始响应重建44行外部FT复核账本，输出内容SHA不变；其中9场为先前缺口的新增FT，其余35场提供已有结果的独立外部来源佐证。
+- 最新代码、合并库存、缺口队列、外部核验账本和汇总SHA见`research/data_recovery_2019_2026/CHECKPOINT_SHA256_20261122T0011Z.txt`。本轮使用本地归档数据，不请求ESPN网络，不改变TotalCorner/Crown盘口来源和正式数据链。

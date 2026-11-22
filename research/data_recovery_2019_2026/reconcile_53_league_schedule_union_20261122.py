@@ -11,6 +11,8 @@ import datetime as dt
 import gzip
 import hashlib
 import json
+import re
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -19,6 +21,7 @@ SUPP = ROOT / "supplemental_totalcorner_schedules_53leagues_2019_2026.jsonl.gz"
 OUT = ROOT / "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz"
 SUMMARY = ROOT / "schedule_union_53_leagues_reconciliation_20261122.json"
 UNVERIFIED = ROOT / "unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz"
+EXTERNAL_FT = ROOT / "archived_espn_verified_ft_reconciled_to_203962_inventory_20261122.jsonl"
 UTC = dt.timezone.utc
 
 
@@ -48,6 +51,18 @@ def scope_year(row):
         x = x.astimezone(UTC)
         return x.year if 2019 <= x.year <= 2026 else None
     except (ValueError, TypeError):
+        return None
+
+
+def parse_dt(value):
+    if not value:
+        return None
+    try:
+        x = dt.datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        if x.tzinfo is None:
+            return None
+        return x.astimezone(UTC)
+    except (TypeError, ValueError):
         return None
 
 
@@ -104,6 +119,27 @@ def has_verified_ft(row):
         and str(x.get("away_goals", "")).isdigit()
         for x in sources
     )
+
+
+def normalized_name(value):
+    text = unicodedata.normalize("NFKD", str(value or "").casefold())
+    text = "".join(c for c in text if not unicodedata.combining(c))
+    return "".join(c for c in text if c.isalnum())
+
+
+def verified_external_rows(path):
+    if not path.exists():
+        return []
+    rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    if len({str(row.get("fid")) for row in rows}) != len(rows):
+        raise SystemExit("duplicate FID in archived external FT overlay")
+    for row in rows:
+        if not re.fullmatch(r"\d+:\d+", str(row.get("verified_FT") or "")):
+            raise SystemExit(f"invalid archived external FT for FID {row.get('fid')}")
+        raw = Path(str(row.get("source_raw_file") or ""))
+        if not raw.is_file() or sha256(raw) != row.get("source_raw_sha256"):
+            raise SystemExit(f"raw ESPN SHA mismatch for FID {row.get('fid')}")
+    return rows
 def main():
     existing = {}
     for row in read_gz(BASE):
@@ -164,6 +200,41 @@ def main():
                 source_identity_conflicts.append({"fid": fid, "source_versions": len(versions), "resolution": "all_versions_preserved_no_overwrite"})
             existing[fid] = normalized
 
+    external_ft_rows = verified_external_rows(EXTERNAL_FT)
+    external_evidence_added = 0
+    for row in external_ft_rows:
+        fid = str(row["fid"])
+        if fid not in existing:
+            raise SystemExit(f"external FT FID outside merged schedule inventory: {fid}")
+        fixture = existing[fid]
+        expected_kickoff = parse_dt(fixture.get("totalcorner_kickoff_utc"))
+        observed_kickoff = parse_dt(row.get("kickoff_utc"))
+        identities = []
+        for key in ("totalcorner_page_records", "m1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records"):
+            for src in fixture.get(key, []):
+                ko = parse_dt(src.get("kickoff_utc"))
+                hn, an = src.get("home_name"), src.get("away_name")
+                if ko and hn and an:
+                    identities.append((ko, normalized_name(hn), normalized_name(an)))
+        expected = (observed_kickoff, normalized_name(row.get("Crown_home")), normalized_name(row.get("Crown_away")))
+        if not expected_kickoff or observed_kickoff != expected_kickoff or not identities or any(x != expected for x in identities):
+            raise SystemExit(f"external FT identity not corroborated by saved schedule versions for FID {fid}")
+        evidence = {
+            "source": "archived ESPN raw response; independently verified; not Crown odds",
+            "verified_FT": row["verified_FT"],
+            "source_event_id": row.get("source_event_id"),
+            "source_raw_sha256": row.get("source_raw_sha256"),
+            "source_raw_file": row.get("source_raw_file"),
+            "kickoff_utc": row.get("kickoff_utc"),
+            "home_name": row.get("Crown_home"),
+            "away_name": row.get("Crown_away"),
+            "crosswalk": row.get("crosswalk"),
+        }
+        existing_shas = {x.get("source_raw_sha256") for x in fixture.get("external_ft_evidence", [])}
+        if evidence["source_raw_sha256"] not in existing_shas:
+            fixture.setdefault("external_ft_evidence", []).append(evidence)
+            external_evidence_added += 1
+
     with OUT.open("wb") as raw:
         with gzip.GzipFile(fileobj=raw, mode="wb", mtime=0) as gz:
             for fid in sorted(existing, key=lambda z: (existing[z].get("provider_league_id", ""), existing[z].get("year") or 9999, z)):
@@ -193,7 +264,7 @@ def main():
                 sources = []
                 for key in ("totalcorner_page_records", "m1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records"):
                     for x in row.get(key, []):
-                        sources.append({k: x.get(k) for k in ("status", "home_goals", "away_goals", "kickoff_utc", "provider_league_id", "league_name", "source_file", "page_file", "source_response_sha256", "source_record_sha256") if k in x})
+                        sources.append({k: x.get(k) for k in ("status", "home_goals", "away_goals", "kickoff_utc", "provider_league_id", "league_name", "home_id", "away_id", "home_name", "away_name", "source_file", "page_file", "source_response_sha256", "source_record_sha256") if k in x})
                 year = row.get("year") if row.get("year") is not None else "UNKNOWN_KICKOFF_YEAR"
                 key = (str(row.get("provider_league_id") or ""), str(year))
                 unverified_by_league_year[key]["unverified_FT_fids"] += 1
@@ -211,6 +282,7 @@ def main():
         "inputs": {
             str(BASE.name): {"sha256": sha256(BASE), "bytes": BASE.stat().st_size, "unique_fids": len(baseline_ids)},
             str(SUPP.name): {"sha256": sha256(SUPP), "bytes": SUPP.stat().st_size, "source_rows": source_rows, "unique_fids": len(source_by_fid)},
+            str(EXTERNAL_FT.name): {"sha256": sha256(EXTERNAL_FT) if EXTERNAL_FT.exists() else None, "unique_fids": len(external_ft_rows), "source": "archived ESPN raw responses, strictly SHA/identity/FT verified"},
         },
         "results": {
             "baseline_unique_fids": len(baseline_ids),
@@ -221,6 +293,8 @@ def main():
             "merged_unique_fids": len(existing),
             "merged_verified_FT_fids": merged_verified_ft,
             "merged_unverified_FT_fids": len(existing) - merged_verified_ft,
+            "strictly_reconciled_archived_external_FT_fids": len(external_ft_rows),
+            "new_archived_external_FT_evidence_rows_added": external_evidence_added,
             "unverified_queue_rows": unverified_count,
             "identity_conflicts_overwritten": 0,
             "source_fids_with_multiple_versions_preserved": len(source_identity_conflicts),

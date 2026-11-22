@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-21T23:43:03.875013Z",
+  "generated_at_utc": "2026-11-22T00:10:58.727264Z",
   "method": "baseline inventory plus FID-deduplicated 53-league schedule artifact; append-only provenance; no Crown requests",
   "inputs": {
     "fixture_inventory_2019_2026.jsonl.gz": {
@@ -12,6 +12,11 @@
       "bytes": 10129991,
       "source_rows": 89842,
       "unique_fids": 89842
+    },
+    "archived_espn_verified_ft_reconciled_to_203962_inventory_20261122.jsonl": {
+      "sha256": "6bcc1420a29f49611e554673c572087a50e83136c721d8fd095ca2ec817c5ff9",
+      "unique_fids": 44,
+      "source": "archived ESPN raw responses, strictly SHA/identity/FT verified"
     }
   },
   "results": {
@@ -21,9 +26,11 @@
     "supplemental_overlap_fids": 27503,
     "supplemental_new_unique_fids": 62339,
     "merged_unique_fids": 203962,
-    "merged_verified_FT_fids": 193005,
-    "merged_unverified_FT_fids": 10957,
-    "unverified_queue_rows": 10957,
+    "merged_verified_FT_fids": 193014,
+    "merged_unverified_FT_fids": 10948,
+    "strictly_reconciled_archived_external_FT_fids": 44,
+    "new_archived_external_FT_evidence_rows_added": 43,
+    "unverified_queue_rows": 10948,
     "identity_conflicts_overwritten": 0,
     "source_fids_with_multiple_versions_preserved": 0,
     "unknown_kickoff_year_unique_fids": 24,
@@ -4355,7 +4362,7 @@
     {
       "provider_league_id": "145",
       "utc_year": "2026",
-      "unverified_FT_fids": 65
+      "unverified_FT_fids": 64
     },
     {
       "provider_league_id": "15",
@@ -4540,7 +4547,7 @@
     {
       "provider_league_id": "16",
       "utc_year": "2026",
-      "unverified_FT_fids": 30
+      "unverified_FT_fids": 29
     },
     {
       "provider_league_id": "17",
@@ -5500,7 +5507,7 @@
     {
       "provider_league_id": "31",
       "utc_year": "2026",
-      "unverified_FT_fids": 21
+      "unverified_FT_fids": 18
     },
     {
       "provider_league_id": "314",
@@ -6670,7 +6677,7 @@
     {
       "provider_league_id": "62",
       "utc_year": "2026",
-      "unverified_FT_fids": 18
+      "unverified_FT_fids": 16
     },
     {
       "provider_league_id": "63",
@@ -6745,7 +6752,7 @@
     {
       "provider_league_id": "66",
       "utc_year": "2026",
-      "unverified_FT_fids": 17
+      "unverified_FT_fids": 16
     },
     {
       "provider_league_id": "670",
@@ -7260,7 +7267,7 @@
     {
       "provider_league_id": "88",
       "utc_year": "2026",
-      "unverified_FT_fids": 19
+      "unverified_FT_fids": 18
     },
     {
       "provider_league_id": "90",
@@ -7441,15 +7448,15 @@
   "source_identity_conflicts": [],
   "output": {
     "file": "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz",
-    "sha256": "4a14fc8556a5e39d0fec4f8eb5a54f1aca45534f92472029517ef1738be5b07c",
-    "bytes": 20792934,
+    "sha256": "25dfbeba66b8161a3ea80af49afdcf1eda81b792cffbf2023a1b6986212e881e",
+    "bytes": 20798701,
     "unique_fids": 203962
   },
   "unverified_ft_queue": {
     "file": "unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz",
-    "sha256": "c785228ba6b70a3fd93bc1ad061e5aa2ab2c269495a39047737a449e22c7898d",
-    "bytes": 520219,
-    "unique_fids": 10957
+    "sha256": "3e5bceeced007bdaf3ec2dc31be0b612f4fe34a928434c46700aa84af5c91968",
+    "bytes": 679082,
+    "unique_fids": 10948
   },
   "scope_caveat": "This reconciles the audited 53-league schedule batch with the committed baseline only; it does not claim all leagues, FT gaps, or Crown history are complete. Missing kickoff dates remain unassigned to a UTC year; season metadata absent at source remains absent."
 }

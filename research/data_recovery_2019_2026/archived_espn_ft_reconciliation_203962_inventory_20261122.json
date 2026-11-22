@@ -1,0 +1,54 @@
+{
+  "generated_at_utc": "2026-11-22T00:11:06.828676Z",
+  "input_sha256": {
+    "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz": "25dfbeba66b8161a3ea80af49afdcf1eda81b792cffbf2023a1b6986212e881e",
+    "unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz": "3e5bceeced007bdaf3ec2dc31be0b612f4fe34a928434c46700aa84af5c91968",
+    "verified_external_espn_results.jsonl": "c5d769f56edef55f88509b3cbce81d6e33751b3d59678733d4a834113df86448"
+  },
+  "source_status_counts": {
+    "CROWN_PRICE_LATER_THAN_ESPN_KICKOFF": 1,
+    "ESPN_FT_VERIFIED": 65,
+    "ESPN_NOT_FINAL": 4,
+    "UNMATCHED_OR_AMBIGUOUS": 157
+  },
+  "verified_source_FIDs_in_current_unverified_queue": 10,
+  "verified_source_FIDs_in_reconciled_inventory": 44,
+  "strictly_reconciled_unique_FIDs": 44,
+  "rejected_or_outside_candidate_counts": {
+    "inventory_identity_not_unique_or_mismatched": 21
+  },
+  "rejected_FIDs_by_reason": {
+    "inventory_identity_not_unique_or_mismatched": [
+      "202426793",
+      "201640409",
+      "201662242",
+      "202426816",
+      "202203408",
+      "202816752",
+      "202201685",
+      "202426525",
+      "202201705",
+      "202426869",
+      "202201857",
+      "202801545",
+      "203190465",
+      "202804146",
+      "202816775",
+      "202427819",
+      "202804180",
+      "202802370",
+      "203190506",
+      "203190475",
+      "203190446"
+    ]
+  },
+  "network_requests": 0,
+  "outputs": {
+    "archived_espn_verified_ft_reconciled_to_203962_inventory_20261122.jsonl": {
+      "sha256": "6bcc1420a29f49611e554673c572087a50e83136c721d8fd095ca2ec817c5ff9",
+      "bytes": 28582,
+      "rows": 44
+    }
+  },
+  "caveat": "This is a separately attributed archived ESPN FT overlay. It neither changes the TotalCorner source record nor represents Crown AH availability or a real-time observation."
+}
