@@ -1,0 +1,442 @@
+{
+  "protocol": "EARLY_PRICE_DISCOVERY_T12H_ALL_FIXTURE_MARKET_YEAR_FORWARD_V1",
+  "generated_at_utc": "2026-11-22T12:18:58.471815+00:00",
+  "provenance": "Crown historical movement events, source received after matches in 2026; NOT tradable timestamp receipts",
+  "quote_comparison": "T-12h asof last quote versus prematch close; when line changes, ordinal market direction, NOT same-contract CLV",
+  "audit": {
+    "close_index_fixtures": 36343,
+    "entry_12h_AH": 34713,
+    "paired_AH": 31451,
+    "changed_line_AH": 12957,
+    "missing_close_fixture_AH": 3190,
+    "entry_12h_OU": 5972,
+    "paired_OU": 5743,
+    "changed_line_OU": 2123,
+    "neutral_close_direction_AH": 499,
+    "neutral_close_direction_OU": 153,
+    "invalid_time_order_OU": 182,
+    "invalid_time_order_AH": 72,
+    "missing_close_fixture_OU": 47
+  },
+  "sha_sample": [
+    {
+      "fid": "100114602",
+      "matches": true
+    },
+    {
+      "fid": "100114604",
+      "matches": true
+    },
+    {
+      "fid": "100114606",
+      "matches": true
+    },
+    {
+      "fid": "100114608",
+      "matches": true
+    },
+    {
+      "fid": "100114610",
+      "matches": true
+    },
+    {
+      "fid": "100114620",
+      "matches": true
+    },
+    {
+      "fid": "100114629",
+      "matches": true
+    },
+    {
+      "fid": "100114632",
+      "matches": true
+    },
+    {
+      "fid": "100114663",
+      "matches": true
+    },
+    {
+      "fid": "100114665",
+      "matches": true
+    },
+    {
+      "fid": "100114667",
+      "matches": true
+    },
+    {
+      "fid": "100114678",
+      "matches": true
+    }
+  ],
+  "outputs": {
+    "AH": {
+      "2025": {
+        "training_n": 19641,
+        "training_years": [
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024
+        ],
+        "training_side1_strengthening_frequency": 0.5049,
+        "optimizer_converged": true,
+        "holdout_market_pairs": 8495,
+        "holdout_unique_fixtures": 8495,
+        "market_direction_moving": 8335,
+        "market_direction_flat": 160,
+        "line_changed_n": 3639,
+        "same_line_n": 4856,
+        "actual_lead_hours_median": 13.695,
+        "prediction_side1_pct": 58.376,
+        "direction_accuracy": 0.5049,
+        "majority_baseline_direction_accuracy": 0.492,
+        "momentum_baseline_direction_accuracy": 0.5001,
+        "always_side1": {
+          "n": 8495,
+          "win": 3869,
+          "loss": 4027,
+          "push": 599,
+          "net_U": -391.49,
+          "roi_pct": -4.6085
+        },
+        "always_side2": {
+          "n": 8495,
+          "win": 4027,
+          "loss": 3869,
+          "push": 599,
+          "net_U": -142.88,
+          "roi_pct": -1.6819
+        },
+        "historical_majority_baseline": {
+          "n": 8495,
+          "win": 3869,
+          "loss": 4027,
+          "push": 599,
+          "net_U": -391.49,
+          "roi_pct": -4.6085
+        },
+        "preentry_momentum_baseline": {
+          "n": 8495,
+          "win": 4024,
+          "loss": 3872,
+          "push": 599,
+          "net_U": -189.085,
+          "roi_pct": -2.2258
+        },
+        "year_forward_price_direction_model": {
+          "n": 8495,
+          "win": 4084,
+          "loss": 3812,
+          "push": 599,
+          "net_U": -287.145,
+          "roi_pct": -3.3802
+        },
+        "same_line_contract_price_improvement": {
+          "n": 4856,
+          "mean_entry_over_close_minus_one_pct": -1.9348,
+          "median_entry_over_close_minus_one_pct": -1.6529,
+          "fraction_entry_odds_better_than_close": 0.334
+        },
+        "by_entry_lead": {
+          "12_20h": {
+            "n": 7450,
+            "win": 3596,
+            "loss": 3329,
+            "push": 525,
+            "net_U": -216.475,
+            "roi_pct": -2.9057,
+            "direction_accuracy_on_moved": 0.5027
+          },
+          "over20h": {
+            "n": 1045,
+            "win": 488,
+            "loss": 483,
+            "push": 74,
+            "net_U": -70.67,
+            "roi_pct": -6.7627,
+            "direction_accuracy_on_moved": 0.5205
+          }
+        }
+      },
+      "2026": {
+        "training_n": 27976,
+        "training_years": [
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "training_side1_strengthening_frequency": 0.5011,
+        "optimizer_converged": true,
+        "holdout_market_pairs": 3021,
+        "holdout_unique_fixtures": 3021,
+        "market_direction_moving": 2976,
+        "market_direction_flat": 45,
+        "line_changed_n": 1246,
+        "same_line_n": 1775,
+        "actual_lead_hours_median": 13.124,
+        "prediction_side1_pct": 49.785,
+        "direction_accuracy": 0.5118,
+        "majority_baseline_direction_accuracy": 0.5074,
+        "momentum_baseline_direction_accuracy": 0.5161,
+        "always_side1": {
+          "n": 3021,
+          "win": 1384,
+          "loss": 1427,
+          "push": 210,
+          "net_U": -112.575,
+          "roi_pct": -3.7264
+        },
+        "always_side2": {
+          "n": 3021,
+          "win": 1427,
+          "loss": 1384,
+          "push": 210,
+          "net_U": -92.545,
+          "roi_pct": -3.0634
+        },
+        "historical_majority_baseline": {
+          "n": 3021,
+          "win": 1384,
+          "loss": 1427,
+          "push": 210,
+          "net_U": -112.575,
+          "roi_pct": -3.7264
+        },
+        "preentry_momentum_baseline": {
+          "n": 3021,
+          "win": 1399,
+          "loss": 1412,
+          "push": 210,
+          "net_U": -126.14,
+          "roi_pct": -4.1754
+        },
+        "year_forward_price_direction_model": {
+          "n": 3021,
+          "win": 1452,
+          "loss": 1359,
+          "push": 210,
+          "net_U": -112.17,
+          "roi_pct": -3.713
+        },
+        "same_line_contract_price_improvement": {
+          "n": 1775,
+          "mean_entry_over_close_minus_one_pct": -1.9446,
+          "median_entry_over_close_minus_one_pct": -1.6854,
+          "fraction_entry_odds_better_than_close": 0.3155
+        },
+        "by_entry_lead": {
+          "12_20h": {
+            "n": 2713,
+            "win": 1300,
+            "loss": 1218,
+            "push": 195,
+            "net_U": -100.25,
+            "roi_pct": -3.6952,
+            "direction_accuracy_on_moved": 0.5079
+          },
+          "over20h": {
+            "n": 308,
+            "win": 152,
+            "loss": 141,
+            "push": 15,
+            "net_U": -11.92,
+            "roi_pct": -3.8701,
+            "direction_accuracy_on_moved": 0.5461
+          }
+        }
+      }
+    },
+    "OU": {
+      "2025": {
+        "training_n": 1403,
+        "training_years": [
+          2019,
+          2020,
+          2021,
+          2023,
+          2024
+        ],
+        "training_side1_strengthening_frequency": 0.5488,
+        "optimizer_converged": true,
+        "holdout_market_pairs": 1682,
+        "holdout_unique_fixtures": 1682,
+        "market_direction_moving": 1643,
+        "market_direction_flat": 39,
+        "line_changed_n": 679,
+        "same_line_n": 1003,
+        "actual_lead_hours_median": 19.399,
+        "prediction_side1_pct": 55.648,
+        "direction_accuracy": 0.5149,
+        "majority_baseline_direction_accuracy": 0.4723,
+        "momentum_baseline_direction_accuracy": 0.5088,
+        "always_side1": {
+          "n": 1682,
+          "win": 796,
+          "loss": 805,
+          "push": 81,
+          "net_U": -75.725,
+          "roi_pct": -4.5021
+        },
+        "always_side2": {
+          "n": 1682,
+          "win": 805,
+          "loss": 796,
+          "push": 81,
+          "net_U": -80.475,
+          "roi_pct": -4.7845
+        },
+        "historical_majority_baseline": {
+          "n": 1682,
+          "win": 796,
+          "loss": 805,
+          "push": 81,
+          "net_U": -75.725,
+          "roi_pct": -4.5021
+        },
+        "preentry_momentum_baseline": {
+          "n": 1682,
+          "win": 797,
+          "loss": 804,
+          "push": 81,
+          "net_U": -99.82,
+          "roi_pct": -5.9346
+        },
+        "year_forward_price_direction_model": {
+          "n": 1682,
+          "win": 793,
+          "loss": 808,
+          "push": 81,
+          "net_U": -84.265,
+          "roi_pct": -5.0098
+        },
+        "same_line_contract_price_improvement": {
+          "n": 1003,
+          "mean_entry_over_close_minus_one_pct": 0.1616,
+          "median_entry_over_close_minus_one_pct": 0.0,
+          "fraction_entry_odds_better_than_close": 0.4536
+        },
+        "by_entry_lead": {
+          "12_20h": {
+            "n": 877,
+            "win": 427,
+            "loss": 407,
+            "push": 43,
+            "net_U": -10.885,
+            "roi_pct": -1.2412,
+            "direction_accuracy_on_moved": 0.5433
+          },
+          "over20h": {
+            "n": 805,
+            "win": 366,
+            "loss": 401,
+            "push": 38,
+            "net_U": -73.38,
+            "roi_pct": -9.1155,
+            "direction_accuracy_on_moved": 0.4842
+          }
+        }
+      },
+      "2026": {
+        "training_n": 3046,
+        "training_years": [
+          2019,
+          2020,
+          2021,
+          2023,
+          2024,
+          2025
+        ],
+        "training_side1_strengthening_frequency": 0.5076,
+        "optimizer_converged": true,
+        "holdout_market_pairs": 2632,
+        "holdout_unique_fixtures": 2632,
+        "market_direction_moving": 2544,
+        "market_direction_flat": 88,
+        "line_changed_n": 945,
+        "same_line_n": 1687,
+        "actual_lead_hours_median": 13.215,
+        "prediction_side1_pct": 41.717,
+        "direction_accuracy": 0.5421,
+        "majority_baseline_direction_accuracy": 0.5271,
+        "momentum_baseline_direction_accuracy": 0.4851,
+        "always_side1": {
+          "n": 2632,
+          "win": 1256,
+          "loss": 1267,
+          "push": 109,
+          "net_U": -90.005,
+          "roi_pct": -3.4196
+        },
+        "always_side2": {
+          "n": 2632,
+          "win": 1267,
+          "loss": 1256,
+          "push": 109,
+          "net_U": -106.55,
+          "roi_pct": -4.0483
+        },
+        "historical_majority_baseline": {
+          "n": 2632,
+          "win": 1256,
+          "loss": 1267,
+          "push": 109,
+          "net_U": -90.005,
+          "roi_pct": -3.4196
+        },
+        "preentry_momentum_baseline": {
+          "n": 2632,
+          "win": 1286,
+          "loss": 1237,
+          "push": 109,
+          "net_U": -64.125,
+          "roi_pct": -2.4364
+        },
+        "year_forward_price_direction_model": {
+          "n": 2632,
+          "win": 1297,
+          "loss": 1226,
+          "push": 109,
+          "net_U": -81.27,
+          "roi_pct": -3.0878
+        },
+        "same_line_contract_price_improvement": {
+          "n": 1687,
+          "mean_entry_over_close_minus_one_pct": -0.2069,
+          "median_entry_over_close_minus_one_pct": -0.4926,
+          "fraction_entry_odds_better_than_close": 0.4351
+        },
+        "by_entry_lead": {
+          "12_20h": {
+            "n": 2285,
+            "win": 1135,
+            "loss": 1053,
+            "push": 97,
+            "net_U": -45.02,
+            "roi_pct": -1.9702,
+            "direction_accuracy_on_moved": 0.5362
+          },
+          "over20h": {
+            "n": 347,
+            "win": 162,
+            "loss": 173,
+            "push": 12,
+            "net_U": -36.25,
+            "roi_pct": -10.4467,
+            "direction_accuracy_on_moved": 0.5797
+          }
+        }
+      }
+    }
+  },
+  "source_paths": [
+    "/Users/mac/QuantAsiaDesk/research-work/m7/m7_original49_historical_Crown_entry_horizon_movement_ledger_20261114.jsonl",
+    "/Users/mac/QuantAsiaDesk/research-work/m7/m7_original49_historical_Crown_dual_market_close_expanded_inventory_20261113T1157Z.jsonl"
+  ],
+  "predictions_file": "/Users/mac/Documents/ChatGPT/m8-m9-group-research/research/early_price_discovery_20261122/holdout_research_predictions.jsonl.gz"
+}
