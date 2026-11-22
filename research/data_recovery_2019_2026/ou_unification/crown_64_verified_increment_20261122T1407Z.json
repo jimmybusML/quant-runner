@@ -1,0 +1,51 @@
+{
+  "after_utc": "2026-11-22T14:04:26.388118+00:00",
+  "through_utc": "2026-11-22T14:07:08.280217+00:00",
+  "records": 18,
+  "unique_fids": 18,
+  "status_counts": {
+    "BOTH_MARKETS": 6,
+    "NO_CROWN_MARKET_DATA": 12
+  },
+  "saved_ah_kinds": {},
+  "saved_ou_kinds": {
+    "movement": 6
+  },
+  "saved_ou_movement_fids": 6,
+  "attempts": 18,
+  "attempt_outcomes": {
+    "success": 18
+  },
+  "raw_sha_checked": 18,
+  "raw_sha_mismatches": [],
+  "out_of_scope_or_unmatched_fids": [],
+  "duplicate_fids": 0,
+  "previous_queue_checkpoint": {
+    "at_utc": "2026-11-22T14:04:26.388118+00:00",
+    "event": "queue_checkpoint",
+    "queue_count": 41159,
+    "missing_requests": 41159,
+    "covered": {
+      "ah_open_close": 32449,
+      "ah_movement": 36342,
+      "ou_open_close": 32445,
+      "ou_movement": 5430
+    },
+    "attempted_nonretryable_fids": 2055
+  },
+  "next_authoritative_queue_checkpoint": {
+    "at_utc": "2026-11-22T14:07:08.280217+00:00",
+    "event": "queue_checkpoint",
+    "queue_count": 41141,
+    "missing_requests": 41141,
+    "covered": {
+      "ah_open_close": 32449,
+      "ah_movement": 36342,
+      "ou_open_close": 32445,
+      "ou_movement": 5436
+    },
+    "attempted_nonretryable_fids": 2073
+  },
+  "capture_mode": "historical",
+  "checkpoint": "crown_64_collection_checkpoint_20261122T1407Z.jsonl"
+}
