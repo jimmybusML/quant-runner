@@ -1,3 +1,7 @@
+## 2026-11-22 | R16 exact 494-candidate fixture coverage
+
+- Recomputed 2019-2023 exact fixture-id union of all 494 positive-every-year candidate definitions (R7 27, R9 61, R11 40, R12 85, R13 42, R14 80, R15 159). Total 14,962 unique fixtures, covered 14,213 (94.9940%), uncovered 749. Annual covered/all: 2019 1499/1579, 2020 2132/2223, 2021 2782/2922, 2022 2252/2410, 2023 5548/5828. Batch incremental unique R7 2527, R9 4226, R11 1464, R12 3292, R13 913, R14 919, R15 872. Exact computation in coverage_494_r16.py and coverage_494_r16_results.json; all R9-R15 matched signal counts reconciled to stored candidate reports. Coverage means at least one signal, not non-conflicting executable orders or future profitability. No 2024-2026, M8 or production changes.
+
 ## 2026-11-22 | R15 finer handicap and price discovery, 2019-2023
 
 - User directed continue structure discovery; executed new_mechanisms_r15.py on 2019-2023 historical Crown AH with 16 exploratory families, finer handicap depth, bet-side odds, signed home-away odds gap, line movement size and interactions. 17,056 candidate definitions, 159 positive net U in each 2019-2023 year. R7 27 + R9 61 + R11 40 + R12 85 + R13 42 + R14 80 + R15 159 = 494 candidate definitions, not independent strategies. All 159 annual/monthly/drawdown records in NEW_MECHANISMS_R15_2019_2023.md, new_mechanisms_r15_results.json, new_mechanisms_r15_review.csv, new_mechanisms_r15_monthly.csv. Annual counts/net U reconciled with discovery pass.
