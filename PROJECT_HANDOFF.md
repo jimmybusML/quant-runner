@@ -5098,3 +5098,12 @@
 - 完整脚本、独立复核、逐FID特征/覆盖/订单、全ISO周零单保留CSV、年度/联赛/组别明细、报告、SHA与执行记录位于 `research/m8_m9_group_independent_20261120/exact_rule_cross_league/current_full_path_replay_20261122/raw_replay_20261122/`。Crown回放全部为研究用途；无Telegram派单、正式账本写入、生产模型、M9/M1/MR1、采集链或调度修改。
 - 本次提交更新既有PR #67，不直接合并main。
 - 交付状态补记：本轮产物已提交并推送至公开分支，提交 `f28b132c430987ff2bd3a4538c97dc3e707052e0`；PR #67 (`https://github.com/jimmybusML/quant-runner/pull/67`) 当前 OPEN、base=`main`、未合并，远端 head 与该提交一致。研究运行及独立复核完成；没有生产运行、Telegram派单或账本回写。
+
+## 2026-11-22 10:55 CST｜M8 原八组跨联赛回放按最新 Crown SQLite 快照复核
+
+- 在独立目录 `research/m8_m9_group_independent_20261120/exact_rule_cross_league/current_full_path_replay_20261122/raw_replay_20261122T1055CST/` 对当前 Crown SQLite 创建只读一致性备份，`PRAGMA quick_check=ok`，快照SHA256 `090bb6a8154d41ff8b756ee0e1177f59f61123cd13c9e9d5ea6e296038162e3e`。原数据库仍由既有historical采集driver更新；没有修改、暂停或另发盘口请求。
+- 使用与前一版完全相同的原18,374个49联赛外FID、冻结10,294会员清单、原base/A–G规则与优先级，重新从SHA核验Crown原始路径回放。覆盖仍为11,266条capture无报价、6,967完整T6/T3/T1路径、139缺T6、2条无有效赛前AH行；按优先级新增1,273笔唯一单，+10.750U、ROI+0.844462%、MDD26.645U，实际赛前live receipt为0。
+- 新快照与此前当前全路径账本逐FID比较：均为1,273个FID；组别、方向、净U、T1 Crown线/双边赔率、FT、原始响应SHA和所选报价时间共10个关键字段全部一致，新增/删除/变化FID为0。AH独立拆腿结算1,273/1,273通过，issues为空；新旧两次输入/输出manifest全部哈希通过。
+- 同期按唯一FID与冻结八组合并仍为11,567单、+246.765U、ROI2.133354%、MDD57.565U；按385个有目标赛事ISO周计周均新增3.306单，含无目标赛事周的388周日历跨度均值3.281单。2024 +13.825U、2025 −8.455U、2026截至6月1日 −6.260U；2024–26合计−0.890U，历史正收益不具近期跨年延续。
+- 复跑脚本、完整逐场结果、报告、coverage、周度/年度/联赛汇总及输入输出SHA全部保存在上述新运行目录。原先 `raw_replay_20261122/` 的已提交结果保留不改；本轮也没有纳入共享工作树的 formation/referee 未跟踪研究文件。
+- 变更仅为新增数据研究交付和本交接记录；冻结原八组、M9/M1/MR1、生产、Telegram、正式账本、采集行为均未改。提交推送到同一 `research/m8-m9-groups` 分支并更新PR #67，保持OPEN、base=`main`、未合并。
