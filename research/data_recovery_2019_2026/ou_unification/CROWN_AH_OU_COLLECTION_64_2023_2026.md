@@ -707,3 +707,11 @@
 - 待请求41,292，AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,400。分年待请求为2023年12,752、2024年14,553、2025年13,520、2026年467。
 - T1338后8个唯一FID均成功、SHA 8/8通过；6个响应无Crown盘口，2场新增OU movement。累计2,027 attempts（1,895成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`），60个错误FID全部恢复。
 - T1340逐场记录、覆盖快照、传输审计、driver事件和SHA清单均已归档；任务继续。
+
+
+## 2026-11-22 13:48 UTC：T1348续采与错误重试恢复
+
+- 统一结算触发safe-window暂停后，13:48:02 UTC重建队列并启动collector PID49913；driver PID49373运行，5.2秒请求间隔不变。
+- 待请求41,256；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,405。按年待请求为2023年12,716、2024年14,553、2025年13,520、2026年467。
+- T1340后36个唯一FID raw SHA全部匹配，31个响应无Crown报价，5个新增OU movement；37次attempt含1次`IncompleteRead`且已成功重试。累计2,064次attempt：1,931成功、122 `IncompleteRead`、11 `TOO_MANY_REQUEST`；61个遇错FID均恢复，当前待重试失败0。
+- T1348逐场、覆盖、传输、driver及SHA证据已归档，历史回取标记不变。

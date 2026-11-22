@@ -6168,3 +6168,10 @@
 - 待请求41,292；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,400。按年待请求2023年12,752、2024年14,553、2025年13,520、2026年467。
 - T1338后8个唯一FID HTTP/API全部成功，SHA 8/8通过；6场响应无Crown盘口，2场保存OU movement。全日志2,027 attempts（1,895成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`），60个错误FID均恢复。
 - T1340明细、coverage、transport、driver及SHA文件已归档；采集继续运行。
+
+## 2026-11-22 13:48 UTC：T1348续采与错误重试恢复
+
+- 13:43:31 UTC统一结算触发安全暂停；恢复后driver PID49373于13:48:02 UTC重建队列并启动collector PID49913，5.2秒/请求。
+- 待请求41,256；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,405。分年待请求：2023年12,716、2024年14,553、2025年13,520、2026年467。
+- T1340后36个唯一FID响应SHA 36/36通过；31个无Crown市场数据，5个新增OU movement。37次attempt含1次`IncompleteRead`，该FID已重试恢复。全日志2,064次attempt（1,931成功、122 `IncompleteRead`、11 `TOO_MANY_REQUEST`），61个错误FID全部恢复，最新重试失败0。
+- T1348的增量、coverage、transport、driver和SHA文件已归档；采集继续运行。
