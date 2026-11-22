@@ -1,0 +1,2557 @@
+{
+  "scope": "R7 historical per-year marginal portfolio and coverage stability",
+  "baseline_years": {
+    "2019": {
+      "n": 271,
+      "net_U": 38.025,
+      "roi_pct": 14.0314
+    },
+    "2020": {
+      "n": 497,
+      "net_U": 49.945,
+      "roi_pct": 10.0493
+    },
+    "2021": {
+      "n": 470,
+      "net_U": 64.965,
+      "roi_pct": 13.8223
+    },
+    "2022": {
+      "n": 303,
+      "net_U": 51.605,
+      "roi_pct": 17.0314
+    },
+    "2023": {
+      "n": 884,
+      "net_U": 43.9,
+      "roi_pct": 4.9661
+    }
+  },
+  "baseline_2024": {
+    "2024": {
+      "n": 1680,
+      "net_U": 20.975,
+      "roi_pct": 1.2485
+    }
+  },
+  "historical_only_order": [
+    "T12|line,age|line=0;age=0|favorite",
+    "T6|price|price=4|underdog",
+    "T24|line,price|line=3;price=1|underdog",
+    "T2|momentum,age|momentum=1;age=1|underdog",
+    "T12|line,momentum|line=2;momentum=3|favorite",
+    "T12|momentum,age|momentum=3;age=2|underdog",
+    "T2|line,price,momentum|line=2;price=2;momentum=1|favorite",
+    "T12|price,momentum|price=2;momentum=3|away",
+    "T2|line,price|line=4;price=3|underdog",
+    "T12|line,age|line=2;age=4|underdog",
+    "T24|line,momentum|line=0;momentum=1|away",
+    "T12|line,price,momentum|line=2;price=1;momentum=3|favorite",
+    "T2|line,price,momentum|line=3;price=3;momentum=3|away",
+    "T6|momentum,age|momentum=4;age=0|home",
+    "T2|line,price,momentum|line=2;price=4;momentum=2|favorite",
+    "T12|momentum|momentum=4|favorite",
+    "T6|price,momentum|price=1;momentum=4|favorite",
+    "T12|line,price,momentum|line=0;price=0;momentum=3|underdog",
+    "T12|line,price,momentum|line=0;price=0;momentum=3|away",
+    "T6|price,momentum|price=4;momentum=2|underdog",
+    "T6|price,momentum|price=2;momentum=4|home",
+    "T6|line,price|line=1;price=4|underdog",
+    "T6|line,price|line=1;price=4|away",
+    "T24|line,price,momentum|line=3;price=1;momentum=2|underdog",
+    "T12|price,momentum|price=1;momentum=4|favorite",
+    "T24|line,momentum|line=0;momentum=1|favorite",
+    "T6|price,momentum|price=4;momentum=1|away"
+  ],
+  "prefixes": [
+    {
+      "step": 1,
+      "added": "T12|line,age|line=0;age=0|favorite",
+      "historical_years": {
+        "2019": {
+          "n": 70,
+          "net_U": 3.52,
+          "roi_pct": 5.0286
+        },
+        "2020": {
+          "n": 100,
+          "net_U": 3.82,
+          "roi_pct": 3.82
+        },
+        "2021": {
+          "n": 84,
+          "net_U": 3.15,
+          "roi_pct": 3.75
+        },
+        "2022": {
+          "n": 74,
+          "net_U": 4.26,
+          "roi_pct": 5.7568
+        },
+        "2023": {
+          "n": 148,
+          "net_U": 8.74,
+          "roi_pct": 5.9054
+        }
+      },
+      "year2024": {
+        "n": 236,
+        "net_U": 0.19,
+        "roi_pct": 0.0805
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 84,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2022": {
+          "fixtures_with_signal": 74,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2023": {
+          "fixtures_with_signal": 148,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2019": {
+          "fixtures_with_signal": 70,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2020": {
+          "fixtures_with_signal": 100,
+          "multi_structure": 0,
+          "opposing": 0
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 236,
+        "multi_structure": 0,
+        "opposing": 0
+      }
+    },
+    {
+      "step": 2,
+      "added": "T6|price|price=4|underdog",
+      "historical_years": {
+        "2019": {
+          "n": 119,
+          "net_U": 12.65,
+          "roi_pct": 10.6303
+        },
+        "2020": {
+          "n": 189,
+          "net_U": 9.46,
+          "roi_pct": 5.0053
+        },
+        "2021": {
+          "n": 158,
+          "net_U": 6.01,
+          "roi_pct": 3.8038
+        },
+        "2022": {
+          "n": 118,
+          "net_U": 11.21,
+          "roi_pct": 9.5
+        },
+        "2023": {
+          "n": 285,
+          "net_U": 12.82,
+          "roi_pct": 4.4982
+        }
+      },
+      "year2024": {
+        "n": 555,
+        "net_U": 3.705,
+        "roi_pct": 0.6676
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 158,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2022": {
+          "fixtures_with_signal": 118,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2023": {
+          "fixtures_with_signal": 285,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2019": {
+          "fixtures_with_signal": 119,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2020": {
+          "fixtures_with_signal": 189,
+          "multi_structure": 0,
+          "opposing": 0
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 555,
+        "multi_structure": 0,
+        "opposing": 0
+      }
+    },
+    {
+      "step": 3,
+      "added": "T24|line,price|line=3;price=1|underdog",
+      "historical_years": {
+        "2019": {
+          "n": 165,
+          "net_U": 18.345,
+          "roi_pct": 11.1182
+        },
+        "2020": {
+          "n": 254,
+          "net_U": 13.695,
+          "roi_pct": 5.3917
+        },
+        "2021": {
+          "n": 247,
+          "net_U": 16.18,
+          "roi_pct": 6.5506
+        },
+        "2022": {
+          "n": 167,
+          "net_U": 20.7,
+          "roi_pct": 12.3952
+        },
+        "2023": {
+          "n": 399,
+          "net_U": 16.665,
+          "roi_pct": 4.1767
+        }
+      },
+      "year2024": {
+        "n": 742,
+        "net_U": 11.21,
+        "roi_pct": 1.5108
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 247,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2022": {
+          "fixtures_with_signal": 167,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2023": {
+          "fixtures_with_signal": 399,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2019": {
+          "fixtures_with_signal": 165,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2020": {
+          "fixtures_with_signal": 254,
+          "multi_structure": 0,
+          "opposing": 0
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 742,
+        "multi_structure": 0,
+        "opposing": 0
+      }
+    },
+    {
+      "step": 4,
+      "added": "T2|momentum,age|momentum=1;age=1|underdog",
+      "historical_years": {
+        "2019": {
+          "n": 181,
+          "net_U": 18.98,
+          "roi_pct": 10.4862
+        },
+        "2020": {
+          "n": 297,
+          "net_U": 18.35,
+          "roi_pct": 6.1785
+        },
+        "2021": {
+          "n": 290,
+          "net_U": 22.92,
+          "roi_pct": 7.9034
+        },
+        "2022": {
+          "n": 180,
+          "net_U": 27.045,
+          "roi_pct": 15.025
+        },
+        "2023": {
+          "n": 588,
+          "net_U": 13.12,
+          "roi_pct": 2.2313
+        }
+      },
+      "year2024": {
+        "n": 1152,
+        "net_U": 27.565,
+        "roi_pct": 2.3928
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 290,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2022": {
+          "fixtures_with_signal": 180,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2023": {
+          "fixtures_with_signal": 588,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2019": {
+          "fixtures_with_signal": 181,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2020": {
+          "fixtures_with_signal": 297,
+          "multi_structure": 0,
+          "opposing": 0
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1152,
+        "multi_structure": 0,
+        "opposing": 0
+      }
+    },
+    {
+      "step": 5,
+      "added": "T12|line,momentum|line=2;momentum=3|favorite",
+      "historical_years": {
+        "2019": {
+          "n": 198,
+          "net_U": 23.95,
+          "roi_pct": 12.096
+        },
+        "2020": {
+          "n": 365,
+          "net_U": 27.105,
+          "roi_pct": 7.426
+        },
+        "2021": {
+          "n": 340,
+          "net_U": 29.625,
+          "roi_pct": 8.7132
+        },
+        "2022": {
+          "n": 222,
+          "net_U": 29.225,
+          "roi_pct": 13.1644
+        },
+        "2023": {
+          "n": 661,
+          "net_U": 16.15,
+          "roi_pct": 2.4433
+        }
+      },
+      "year2024": {
+        "n": 1260,
+        "net_U": 25.53,
+        "roi_pct": 2.0262
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 340,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2022": {
+          "fixtures_with_signal": 222,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2023": {
+          "fixtures_with_signal": 661,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2019": {
+          "fixtures_with_signal": 198,
+          "multi_structure": 0,
+          "opposing": 0
+        },
+        "2020": {
+          "fixtures_with_signal": 365,
+          "multi_structure": 0,
+          "opposing": 0
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1260,
+        "multi_structure": 0,
+        "opposing": 0
+      }
+    },
+    {
+      "step": 6,
+      "added": "T12|momentum,age|momentum=3;age=2|underdog",
+      "historical_years": {
+        "2019": {
+          "n": 215,
+          "net_U": 35.265,
+          "roi_pct": 16.4023
+        },
+        "2020": {
+          "n": 399,
+          "net_U": 37.795,
+          "roi_pct": 9.4724
+        },
+        "2021": {
+          "n": 373,
+          "net_U": 28.96,
+          "roi_pct": 7.7641
+        },
+        "2022": {
+          "n": 237,
+          "net_U": 29.47,
+          "roi_pct": 12.4346
+        },
+        "2023": {
+          "n": 705,
+          "net_U": 27.685,
+          "roi_pct": 3.927
+        }
+      },
+      "year2024": {
+        "n": 1320,
+        "net_U": 20.235,
+        "roi_pct": 1.533
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 383,
+          "multi_structure": 10,
+          "opposing": 10,
+          "tied": 10
+        },
+        "2022": {
+          "fixtures_with_signal": 244,
+          "multi_structure": 7,
+          "opposing": 7,
+          "tied": 7
+        },
+        "2023": {
+          "fixtures_with_signal": 725,
+          "multi_structure": 20,
+          "opposing": 20,
+          "tied": 20
+        },
+        "2020": {
+          "fixtures_with_signal": 409,
+          "multi_structure": 10,
+          "opposing": 10,
+          "tied": 10
+        },
+        "2019": {
+          "fixtures_with_signal": 218,
+          "multi_structure": 3,
+          "opposing": 3,
+          "tied": 3
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1348,
+        "multi_structure": 28,
+        "opposing": 28,
+        "tied": 28
+      }
+    },
+    {
+      "step": 7,
+      "added": "T2|line,price,momentum|line=2;price=2;momentum=1|favorite",
+      "historical_years": {
+        "2019": {
+          "n": 233,
+          "net_U": 37.485,
+          "roi_pct": 16.088
+        },
+        "2020": {
+          "n": 420,
+          "net_U": 41.185,
+          "roi_pct": 9.806
+        },
+        "2021": {
+          "n": 404,
+          "net_U": 39.715,
+          "roi_pct": 9.8304
+        },
+        "2022": {
+          "n": 249,
+          "net_U": 30.285,
+          "roi_pct": 12.1627
+        },
+        "2023": {
+          "n": 745,
+          "net_U": 34.68,
+          "roi_pct": 4.655
+        }
+      },
+      "year2024": {
+        "n": 1401,
+        "net_U": 23.36,
+        "roi_pct": 1.6674
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 414,
+          "multi_structure": 10,
+          "opposing": 10,
+          "tied": 10
+        },
+        "2022": {
+          "fixtures_with_signal": 257,
+          "multi_structure": 8,
+          "opposing": 8,
+          "tied": 8
+        },
+        "2023": {
+          "fixtures_with_signal": 780,
+          "multi_structure": 35,
+          "opposing": 35,
+          "tied": 35
+        },
+        "2020": {
+          "fixtures_with_signal": 434,
+          "multi_structure": 14,
+          "opposing": 14,
+          "tied": 14
+        },
+        "2019": {
+          "fixtures_with_signal": 236,
+          "multi_structure": 3,
+          "opposing": 3,
+          "tied": 3
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1463,
+        "multi_structure": 62,
+        "opposing": 62,
+        "tied": 62
+      }
+    },
+    {
+      "step": 8,
+      "added": "T12|price,momentum|price=2;momentum=3|away",
+      "historical_years": {
+        "2019": {
+          "n": 244,
+          "net_U": 40.68,
+          "roi_pct": 16.6721
+        },
+        "2020": {
+          "n": 454,
+          "net_U": 44.675,
+          "roi_pct": 9.8403
+        },
+        "2021": {
+          "n": 415,
+          "net_U": 44.995,
+          "roi_pct": 10.8422
+        },
+        "2022": {
+          "n": 258,
+          "net_U": 36.765,
+          "roi_pct": 14.25
+        },
+        "2023": {
+          "n": 774,
+          "net_U": 38.335,
+          "roi_pct": 4.9528
+        }
+      },
+      "year2024": {
+        "n": 1462,
+        "net_U": 37.93,
+        "roi_pct": 2.5944
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 431,
+          "multi_structure": 25,
+          "opposing": 17,
+          "tied": 16
+        },
+        "2022": {
+          "fixtures_with_signal": 271,
+          "multi_structure": 17,
+          "opposing": 13,
+          "tied": 13
+        },
+        "2023": {
+          "fixtures_with_signal": 815,
+          "multi_structure": 60,
+          "opposing": 47,
+          "tied": 41
+        },
+        "2020": {
+          "fixtures_with_signal": 482,
+          "multi_structure": 55,
+          "opposing": 30,
+          "tied": 28
+        },
+        "2019": {
+          "fixtures_with_signal": 247,
+          "multi_structure": 5,
+          "opposing": 4,
+          "tied": 3
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1544,
+        "multi_structure": 98,
+        "opposing": 84,
+        "tied": 82
+      }
+    },
+    {
+      "step": 9,
+      "added": "T2|line,price|line=4;price=3|underdog",
+      "historical_years": {
+        "2019": {
+          "n": 255,
+          "net_U": 41.41,
+          "roi_pct": 16.2392
+        },
+        "2020": {
+          "n": 466,
+          "net_U": 46.455,
+          "roi_pct": 9.9689
+        },
+        "2021": {
+          "n": 429,
+          "net_U": 47.155,
+          "roi_pct": 10.9918
+        },
+        "2022": {
+          "n": 273,
+          "net_U": 42.485,
+          "roi_pct": 15.5623
+        },
+        "2023": {
+          "n": 805,
+          "net_U": 39.895,
+          "roi_pct": 4.9559
+        }
+      },
+      "year2024": {
+        "n": 1523,
+        "net_U": 42.98,
+        "roi_pct": 2.8221
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 445,
+          "multi_structure": 26,
+          "opposing": 17,
+          "tied": 16
+        },
+        "2022": {
+          "fixtures_with_signal": 286,
+          "multi_structure": 17,
+          "opposing": 13,
+          "tied": 13
+        },
+        "2023": {
+          "fixtures_with_signal": 846,
+          "multi_structure": 63,
+          "opposing": 47,
+          "tied": 41
+        },
+        "2020": {
+          "fixtures_with_signal": 494,
+          "multi_structure": 55,
+          "opposing": 30,
+          "tied": 28
+        },
+        "2019": {
+          "fixtures_with_signal": 258,
+          "multi_structure": 5,
+          "opposing": 4,
+          "tied": 3
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1605,
+        "multi_structure": 105,
+        "opposing": 84,
+        "tied": 82
+      }
+    },
+    {
+      "step": 10,
+      "added": "T12|line,age|line=2;age=4|underdog",
+      "historical_years": {
+        "2019": {
+          "n": 256,
+          "net_U": 42.74,
+          "roi_pct": 16.6953
+        },
+        "2020": {
+          "n": 466,
+          "net_U": 46.455,
+          "roi_pct": 9.9689
+        },
+        "2021": {
+          "n": 440,
+          "net_U": 46.705,
+          "roi_pct": 10.6148
+        },
+        "2022": {
+          "n": 288,
+          "net_U": 44.475,
+          "roi_pct": 15.4427
+        },
+        "2023": {
+          "n": 835,
+          "net_U": 39.045,
+          "roi_pct": 4.676
+        }
+      },
+      "year2024": {
+        "n": 1581,
+        "net_U": 33.785,
+        "roi_pct": 2.1369
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 456,
+          "multi_structure": 26,
+          "opposing": 17,
+          "tied": 16
+        },
+        "2022": {
+          "fixtures_with_signal": 301,
+          "multi_structure": 17,
+          "opposing": 13,
+          "tied": 13
+        },
+        "2023": {
+          "fixtures_with_signal": 877,
+          "multi_structure": 64,
+          "opposing": 48,
+          "tied": 42
+        },
+        "2020": {
+          "fixtures_with_signal": 495,
+          "multi_structure": 56,
+          "opposing": 31,
+          "tied": 29
+        },
+        "2019": {
+          "fixtures_with_signal": 259,
+          "multi_structure": 5,
+          "opposing": 4,
+          "tied": 3
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1662,
+        "multi_structure": 104,
+        "opposing": 83,
+        "tied": 81
+      }
+    },
+    {
+      "step": 11,
+      "added": "T24|line,momentum|line=0;momentum=1|away",
+      "historical_years": {
+        "2019": {
+          "n": 266,
+          "net_U": 37.19,
+          "roi_pct": 13.9812
+        },
+        "2020": {
+          "n": 476,
+          "net_U": 48.885,
+          "roi_pct": 10.27
+        },
+        "2021": {
+          "n": 442,
+          "net_U": 48.555,
+          "roi_pct": 10.9853
+        },
+        "2022": {
+          "n": 293,
+          "net_U": 45.905,
+          "roi_pct": 15.6672
+        },
+        "2023": {
+          "n": 844,
+          "net_U": 42.575,
+          "roi_pct": 5.0444
+        }
+      },
+      "year2024": {
+        "n": 1593,
+        "net_U": 32.145,
+        "roi_pct": 2.0179
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 458,
+          "multi_structure": 26,
+          "opposing": 17,
+          "tied": 16
+        },
+        "2022": {
+          "fixtures_with_signal": 306,
+          "multi_structure": 17,
+          "opposing": 13,
+          "tied": 13
+        },
+        "2023": {
+          "fixtures_with_signal": 886,
+          "multi_structure": 64,
+          "opposing": 48,
+          "tied": 42
+        },
+        "2020": {
+          "fixtures_with_signal": 505,
+          "multi_structure": 56,
+          "opposing": 31,
+          "tied": 29
+        },
+        "2019": {
+          "fixtures_with_signal": 269,
+          "multi_structure": 5,
+          "opposing": 4,
+          "tied": 3
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1674,
+        "multi_structure": 104,
+        "opposing": 83,
+        "tied": 81
+      }
+    },
+    {
+      "step": 12,
+      "added": "T12|line,price,momentum|line=2;price=1;momentum=3|favorite",
+      "historical_years": {
+        "2019": {
+          "n": 267,
+          "net_U": 36.19,
+          "roi_pct": 13.5543
+        },
+        "2020": {
+          "n": 484,
+          "net_U": 44.37,
+          "roi_pct": 9.1674
+        },
+        "2021": {
+          "n": 449,
+          "net_U": 51.335,
+          "roi_pct": 11.4332
+        },
+        "2022": {
+          "n": 300,
+          "net_U": 45.725,
+          "roi_pct": 15.2417
+        },
+        "2023": {
+          "n": 857,
+          "net_U": 40.23,
+          "roi_pct": 4.6943
+        }
+      },
+      "year2024": {
+        "n": 1618,
+        "net_U": 33.095,
+        "roi_pct": 2.0454
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 458,
+          "multi_structure": 59,
+          "opposing": 17,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 306,
+          "multi_structure": 41,
+          "opposing": 13,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 886,
+          "multi_structure": 101,
+          "opposing": 48,
+          "tied": 29
+        },
+        "2020": {
+          "fixtures_with_signal": 505,
+          "multi_structure": 93,
+          "opposing": 31,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 269,
+          "multi_structure": 16,
+          "opposing": 4,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1674,
+        "multi_structure": 156,
+        "opposing": 83,
+        "tied": 56
+      }
+    },
+    {
+      "step": 13,
+      "added": "T2|line,price,momentum|line=3;price=3;momentum=3|away",
+      "historical_years": {
+        "2019": {
+          "n": 271,
+          "net_U": 35.9,
+          "roi_pct": 13.2472
+        },
+        "2020": {
+          "n": 488,
+          "net_U": 45.96,
+          "roi_pct": 9.418
+        },
+        "2021": {
+          "n": 460,
+          "net_U": 51.495,
+          "roi_pct": 11.1946
+        },
+        "2022": {
+          "n": 304,
+          "net_U": 46.895,
+          "roi_pct": 15.426
+        },
+        "2023": {
+          "n": 862,
+          "net_U": 40.28,
+          "roi_pct": 4.6729
+        }
+      },
+      "year2024": {
+        "n": 1645,
+        "net_U": 25.65,
+        "roi_pct": 1.5593
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 469,
+          "multi_structure": 59,
+          "opposing": 17,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 310,
+          "multi_structure": 41,
+          "opposing": 13,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 891,
+          "multi_structure": 101,
+          "opposing": 48,
+          "tied": 29
+        },
+        "2020": {
+          "fixtures_with_signal": 509,
+          "multi_structure": 93,
+          "opposing": 31,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 273,
+          "multi_structure": 16,
+          "opposing": 4,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1701,
+        "multi_structure": 156,
+        "opposing": 83,
+        "tied": 56
+      }
+    },
+    {
+      "step": 14,
+      "added": "T6|momentum,age|momentum=4;age=0|home",
+      "historical_years": {
+        "2019": {
+          "n": 272,
+          "net_U": 36.66,
+          "roi_pct": 13.4779
+        },
+        "2020": {
+          "n": 494,
+          "net_U": 50.02,
+          "roi_pct": 10.1255
+        },
+        "2021": {
+          "n": 465,
+          "net_U": 53.205,
+          "roi_pct": 11.4419
+        },
+        "2022": {
+          "n": 307,
+          "net_U": 49.485,
+          "roi_pct": 16.1189
+        },
+        "2023": {
+          "n": 872,
+          "net_U": 41.05,
+          "roi_pct": 4.7076
+        }
+      },
+      "year2024": {
+        "n": 1665,
+        "net_U": 23.9,
+        "roi_pct": 1.4354
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 474,
+          "multi_structure": 59,
+          "opposing": 17,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 313,
+          "multi_structure": 41,
+          "opposing": 13,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 901,
+          "multi_structure": 101,
+          "opposing": 48,
+          "tied": 29
+        },
+        "2020": {
+          "fixtures_with_signal": 515,
+          "multi_structure": 93,
+          "opposing": 31,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 274,
+          "multi_structure": 16,
+          "opposing": 4,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1721,
+        "multi_structure": 156,
+        "opposing": 83,
+        "tied": 56
+      }
+    },
+    {
+      "step": 15,
+      "added": "T2|line,price,momentum|line=2;price=4;momentum=2|favorite",
+      "historical_years": {
+        "2019": {
+          "n": 276,
+          "net_U": 39.785,
+          "roi_pct": 14.4149
+        },
+        "2020": {
+          "n": 497,
+          "net_U": 50.95,
+          "roi_pct": 10.2515
+        },
+        "2021": {
+          "n": 469,
+          "net_U": 54.095,
+          "roi_pct": 11.5341
+        },
+        "2022": {
+          "n": 308,
+          "net_U": 50.595,
+          "roi_pct": 16.4269
+        },
+        "2023": {
+          "n": 885,
+          "net_U": 42.78,
+          "roi_pct": 4.8339
+        }
+      },
+      "year2024": {
+        "n": 1686,
+        "net_U": 21.63,
+        "roi_pct": 1.2829
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 478,
+          "multi_structure": 59,
+          "opposing": 17,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 314,
+          "multi_structure": 41,
+          "opposing": 13,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 914,
+          "multi_structure": 101,
+          "opposing": 48,
+          "tied": 29
+        },
+        "2020": {
+          "fixtures_with_signal": 518,
+          "multi_structure": 93,
+          "opposing": 31,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 16,
+          "opposing": 4,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1742,
+        "multi_structure": 156,
+        "opposing": 83,
+        "tied": 56
+      }
+    },
+    {
+      "step": 16,
+      "added": "T12|momentum|momentum=4|favorite",
+      "historical_years": {
+        "2019": {
+          "n": 276,
+          "net_U": 39.905,
+          "roi_pct": 14.4583
+        },
+        "2020": {
+          "n": 502,
+          "net_U": 48.935,
+          "roi_pct": 9.748
+        },
+        "2021": {
+          "n": 473,
+          "net_U": 57.705,
+          "roi_pct": 12.1998
+        },
+        "2022": {
+          "n": 308,
+          "net_U": 50.755,
+          "roi_pct": 16.4789
+        },
+        "2023": {
+          "n": 887,
+          "net_U": 42.23,
+          "roi_pct": 4.761
+        }
+      },
+      "year2024": {
+        "n": 1688,
+        "net_U": 21.47,
+        "roi_pct": 1.2719
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 482,
+          "multi_structure": 59,
+          "opposing": 17,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 314,
+          "multi_structure": 41,
+          "opposing": 13,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 916,
+          "multi_structure": 102,
+          "opposing": 48,
+          "tied": 29
+        },
+        "2020": {
+          "fixtures_with_signal": 523,
+          "multi_structure": 94,
+          "opposing": 31,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 16,
+          "opposing": 4,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1744,
+        "multi_structure": 156,
+        "opposing": 83,
+        "tied": 56
+      }
+    },
+    {
+      "step": 17,
+      "added": "T6|price,momentum|price=1;momentum=4|favorite",
+      "historical_years": {
+        "2019": {
+          "n": 276,
+          "net_U": 39.905,
+          "roi_pct": 14.4583
+        },
+        "2020": {
+          "n": 503,
+          "net_U": 49.755,
+          "roi_pct": 9.8917
+        },
+        "2021": {
+          "n": 474,
+          "net_U": 58.535,
+          "roi_pct": 12.3492
+        },
+        "2022": {
+          "n": 308,
+          "net_U": 50.755,
+          "roi_pct": 16.4789
+        },
+        "2023": {
+          "n": 889,
+          "net_U": 43.21,
+          "roi_pct": 4.8605
+        }
+      },
+      "year2024": {
+        "n": 1691,
+        "net_U": 18.74,
+        "roi_pct": 1.1082
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 483,
+          "multi_structure": 60,
+          "opposing": 17,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 314,
+          "multi_structure": 42,
+          "opposing": 13,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 919,
+          "multi_structure": 107,
+          "opposing": 49,
+          "tied": 30
+        },
+        "2020": {
+          "fixtures_with_signal": 524,
+          "multi_structure": 94,
+          "opposing": 31,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 17,
+          "opposing": 4,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1749,
+        "multi_structure": 168,
+        "opposing": 85,
+        "tied": 58
+      }
+    },
+    {
+      "step": 18,
+      "added": "T12|line,price,momentum|line=0;price=0;momentum=3|underdog",
+      "historical_years": {
+        "2019": {
+          "n": 275,
+          "net_U": 39.135,
+          "roi_pct": 14.2309
+        },
+        "2020": {
+          "n": 505,
+          "net_U": 50.215,
+          "roi_pct": 9.9436
+        },
+        "2021": {
+          "n": 468,
+          "net_U": 61.755,
+          "roi_pct": 13.1955
+        },
+        "2022": {
+          "n": 312,
+          "net_U": 49.845,
+          "roi_pct": 15.976
+        },
+        "2023": {
+          "n": 891,
+          "net_U": 42.56,
+          "roi_pct": 4.7767
+        }
+      },
+      "year2024": {
+        "n": 1691,
+        "net_U": 20.465,
+        "roi_pct": 1.2102
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 483,
+          "multi_structure": 68,
+          "opposing": 23,
+          "tied": 15
+        },
+        "2022": {
+          "fixtures_with_signal": 318,
+          "multi_structure": 44,
+          "opposing": 13,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 922,
+          "multi_structure": 110,
+          "opposing": 50,
+          "tied": 31
+        },
+        "2020": {
+          "fixtures_with_signal": 526,
+          "multi_structure": 94,
+          "opposing": 31,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 20,
+          "opposing": 5,
+          "tied": 3
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1756,
+        "multi_structure": 181,
+        "opposing": 92,
+        "tied": 65
+      }
+    },
+    {
+      "step": 19,
+      "added": "T12|line,price,momentum|line=0;price=0;momentum=3|away",
+      "historical_years": {
+        "2019": {
+          "n": 276,
+          "net_U": 38.135,
+          "roi_pct": 13.817
+        },
+        "2020": {
+          "n": 505,
+          "net_U": 50.215,
+          "roi_pct": 9.9436
+        },
+        "2021": {
+          "n": 474,
+          "net_U": 65.225,
+          "roi_pct": 13.7605
+        },
+        "2022": {
+          "n": 312,
+          "net_U": 49.845,
+          "roi_pct": 15.976
+        },
+        "2023": {
+          "n": 892,
+          "net_U": 41.56,
+          "roi_pct": 4.6592
+        }
+      },
+      "year2024": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 483,
+          "multi_structure": 68,
+          "opposing": 23,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 318,
+          "multi_structure": 48,
+          "opposing": 13,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 922,
+          "multi_structure": 113,
+          "opposing": 50,
+          "tied": 30
+        },
+        "2020": {
+          "fixtures_with_signal": 526,
+          "multi_structure": 97,
+          "opposing": 31,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 20,
+          "opposing": 5,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1756,
+        "multi_structure": 191,
+        "opposing": 92,
+        "tied": 58
+      }
+    },
+    {
+      "step": 20,
+      "added": "T6|price,momentum|price=4;momentum=2|underdog",
+      "historical_years": {
+        "2019": {
+          "n": 276,
+          "net_U": 38.135,
+          "roi_pct": 13.817
+        },
+        "2020": {
+          "n": 505,
+          "net_U": 50.215,
+          "roi_pct": 9.9436
+        },
+        "2021": {
+          "n": 474,
+          "net_U": 65.225,
+          "roi_pct": 13.7605
+        },
+        "2022": {
+          "n": 312,
+          "net_U": 49.845,
+          "roi_pct": 15.976
+        },
+        "2023": {
+          "n": 892,
+          "net_U": 41.56,
+          "roi_pct": 4.6592
+        }
+      },
+      "year2024": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 483,
+          "multi_structure": 115,
+          "opposing": 23,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 318,
+          "multi_structure": 75,
+          "opposing": 13,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 922,
+          "multi_structure": 224,
+          "opposing": 50,
+          "tied": 30
+        },
+        "2020": {
+          "fixtures_with_signal": 526,
+          "multi_structure": 153,
+          "opposing": 31,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 57,
+          "opposing": 5,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1756,
+        "multi_structure": 451,
+        "opposing": 92,
+        "tied": 58
+      }
+    },
+    {
+      "step": 21,
+      "added": "T6|price,momentum|price=2;momentum=4|home",
+      "historical_years": {
+        "2019": {
+          "n": 276,
+          "net_U": 38.135,
+          "roi_pct": 13.817
+        },
+        "2020": {
+          "n": 505,
+          "net_U": 50.215,
+          "roi_pct": 9.9436
+        },
+        "2021": {
+          "n": 474,
+          "net_U": 65.225,
+          "roi_pct": 13.7605
+        },
+        "2022": {
+          "n": 312,
+          "net_U": 49.845,
+          "roi_pct": 15.976
+        },
+        "2023": {
+          "n": 892,
+          "net_U": 41.56,
+          "roi_pct": 4.6592
+        }
+      },
+      "year2024": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 483,
+          "multi_structure": 116,
+          "opposing": 23,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 318,
+          "multi_structure": 76,
+          "opposing": 13,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 922,
+          "multi_structure": 226,
+          "opposing": 50,
+          "tied": 30
+        },
+        "2020": {
+          "fixtures_with_signal": 526,
+          "multi_structure": 154,
+          "opposing": 31,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 57,
+          "opposing": 5,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1756,
+        "multi_structure": 455,
+        "opposing": 92,
+        "tied": 58
+      }
+    },
+    {
+      "step": 22,
+      "added": "T6|line,price|line=1;price=4|underdog",
+      "historical_years": {
+        "2019": {
+          "n": 276,
+          "net_U": 38.135,
+          "roi_pct": 13.817
+        },
+        "2020": {
+          "n": 505,
+          "net_U": 50.215,
+          "roi_pct": 9.9436
+        },
+        "2021": {
+          "n": 474,
+          "net_U": 65.225,
+          "roi_pct": 13.7605
+        },
+        "2022": {
+          "n": 312,
+          "net_U": 49.845,
+          "roi_pct": 15.976
+        },
+        "2023": {
+          "n": 892,
+          "net_U": 41.56,
+          "roi_pct": 4.6592
+        }
+      },
+      "year2024": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 483,
+          "multi_structure": 134,
+          "opposing": 23,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 318,
+          "multi_structure": 82,
+          "opposing": 13,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 922,
+          "multi_structure": 239,
+          "opposing": 50,
+          "tied": 30
+        },
+        "2020": {
+          "fixtures_with_signal": 526,
+          "multi_structure": 165,
+          "opposing": 31,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 64,
+          "opposing": 5,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1756,
+        "multi_structure": 474,
+        "opposing": 92,
+        "tied": 58
+      }
+    },
+    {
+      "step": 23,
+      "added": "T6|line,price|line=1;price=4|away",
+      "historical_years": {
+        "2019": {
+          "n": 276,
+          "net_U": 38.135,
+          "roi_pct": 13.817
+        },
+        "2020": {
+          "n": 505,
+          "net_U": 50.215,
+          "roi_pct": 9.9436
+        },
+        "2021": {
+          "n": 474,
+          "net_U": 65.225,
+          "roi_pct": 13.7605
+        },
+        "2022": {
+          "n": 312,
+          "net_U": 49.845,
+          "roi_pct": 15.976
+        },
+        "2023": {
+          "n": 892,
+          "net_U": 41.56,
+          "roi_pct": 4.6592
+        }
+      },
+      "year2024": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 483,
+          "multi_structure": 134,
+          "opposing": 26,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 318,
+          "multi_structure": 82,
+          "opposing": 15,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 922,
+          "multi_structure": 239,
+          "opposing": 63,
+          "tied": 30
+        },
+        "2020": {
+          "fixtures_with_signal": 526,
+          "multi_structure": 165,
+          "opposing": 34,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 64,
+          "opposing": 5,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1756,
+        "multi_structure": 474,
+        "opposing": 114,
+        "tied": 58
+      }
+    },
+    {
+      "step": 24,
+      "added": "T24|line,price,momentum|line=3;price=1;momentum=2|underdog",
+      "historical_years": {
+        "2019": {
+          "n": 276,
+          "net_U": 38.135,
+          "roi_pct": 13.817
+        },
+        "2020": {
+          "n": 505,
+          "net_U": 50.215,
+          "roi_pct": 9.9436
+        },
+        "2021": {
+          "n": 474,
+          "net_U": 65.225,
+          "roi_pct": 13.7605
+        },
+        "2022": {
+          "n": 312,
+          "net_U": 49.845,
+          "roi_pct": 15.976
+        },
+        "2023": {
+          "n": 892,
+          "net_U": 41.56,
+          "roi_pct": 4.6592
+        }
+      },
+      "year2024": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 483,
+          "multi_structure": 209,
+          "opposing": 26,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 318,
+          "multi_structure": 126,
+          "opposing": 15,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 922,
+          "multi_structure": 337,
+          "opposing": 63,
+          "tied": 30
+        },
+        "2020": {
+          "fixtures_with_signal": 526,
+          "multi_structure": 217,
+          "opposing": 34,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 103,
+          "opposing": 5,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1756,
+        "multi_structure": 639,
+        "opposing": 114,
+        "tied": 58
+      }
+    },
+    {
+      "step": 25,
+      "added": "T12|price,momentum|price=1;momentum=4|favorite",
+      "historical_years": {
+        "2019": {
+          "n": 276,
+          "net_U": 38.135,
+          "roi_pct": 13.817
+        },
+        "2020": {
+          "n": 505,
+          "net_U": 50.215,
+          "roi_pct": 9.9436
+        },
+        "2021": {
+          "n": 474,
+          "net_U": 65.225,
+          "roi_pct": 13.7605
+        },
+        "2022": {
+          "n": 312,
+          "net_U": 49.845,
+          "roi_pct": 15.976
+        },
+        "2023": {
+          "n": 892,
+          "net_U": 41.56,
+          "roi_pct": 4.6592
+        }
+      },
+      "year2024": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 483,
+          "multi_structure": 212,
+          "opposing": 26,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 318,
+          "multi_structure": 128,
+          "opposing": 15,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 922,
+          "multi_structure": 339,
+          "opposing": 63,
+          "tied": 30
+        },
+        "2020": {
+          "fixtures_with_signal": 526,
+          "multi_structure": 222,
+          "opposing": 34,
+          "tied": 21
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 105,
+          "opposing": 5,
+          "tied": 2
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1756,
+        "multi_structure": 642,
+        "opposing": 114,
+        "tied": 58
+      }
+    },
+    {
+      "step": 26,
+      "added": "T24|line,momentum|line=0;momentum=1|favorite",
+      "historical_years": {
+        "2019": {
+          "n": 272,
+          "net_U": 39.135,
+          "roi_pct": 14.3879
+        },
+        "2020": {
+          "n": 502,
+          "net_U": 50.175,
+          "roi_pct": 9.995
+        },
+        "2021": {
+          "n": 474,
+          "net_U": 65.225,
+          "roi_pct": 13.7605
+        },
+        "2022": {
+          "n": 312,
+          "net_U": 49.845,
+          "roi_pct": 15.976
+        },
+        "2023": {
+          "n": 891,
+          "net_U": 40.51,
+          "roi_pct": 4.5466
+        }
+      },
+      "year2024": {
+        "n": 1696,
+        "net_U": 21.885,
+        "roi_pct": 1.2904
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 483,
+          "multi_structure": 217,
+          "opposing": 26,
+          "tied": 9
+        },
+        "2022": {
+          "fixtures_with_signal": 318,
+          "multi_structure": 134,
+          "opposing": 15,
+          "tied": 6
+        },
+        "2023": {
+          "fixtures_with_signal": 922,
+          "multi_structure": 350,
+          "opposing": 64,
+          "tied": 31
+        },
+        "2020": {
+          "fixtures_with_signal": 526,
+          "multi_structure": 240,
+          "opposing": 37,
+          "tied": 24
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 122,
+          "opposing": 9,
+          "tied": 6
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1756,
+        "multi_structure": 656,
+        "opposing": 116,
+        "tied": 60
+      }
+    },
+    {
+      "step": 27,
+      "added": "T6|price,momentum|price=4;momentum=1|away",
+      "historical_years": {
+        "2019": {
+          "n": 271,
+          "net_U": 38.025,
+          "roi_pct": 14.0314
+        },
+        "2020": {
+          "n": 497,
+          "net_U": 49.945,
+          "roi_pct": 10.0493
+        },
+        "2021": {
+          "n": 470,
+          "net_U": 64.965,
+          "roi_pct": 13.8223
+        },
+        "2022": {
+          "n": 303,
+          "net_U": 51.605,
+          "roi_pct": 17.0314
+        },
+        "2023": {
+          "n": 884,
+          "net_U": 43.9,
+          "roi_pct": 4.9661
+        }
+      },
+      "year2024": {
+        "n": 1680,
+        "net_U": 20.975,
+        "roi_pct": 1.2485
+      },
+      "historical_overlap": {
+        "2021": {
+          "fixtures_with_signal": 483,
+          "multi_structure": 223,
+          "opposing": 29,
+          "tied": 13
+        },
+        "2022": {
+          "fixtures_with_signal": 318,
+          "multi_structure": 142,
+          "opposing": 23,
+          "tied": 15
+        },
+        "2023": {
+          "fixtures_with_signal": 922,
+          "multi_structure": 359,
+          "opposing": 71,
+          "tied": 38
+        },
+        "2020": {
+          "fixtures_with_signal": 526,
+          "multi_structure": 250,
+          "opposing": 41,
+          "tied": 29
+        },
+        "2019": {
+          "fixtures_with_signal": 278,
+          "multi_structure": 126,
+          "opposing": 10,
+          "tied": 7
+        }
+      },
+      "year2024_overlap": {
+        "fixtures_with_signal": 1756,
+        "multi_structure": 674,
+        "opposing": 132,
+        "tied": 76
+      }
+    }
+  ],
+  "leave_one_out": [
+    {
+      "candidate": "T12|line,age|line=0;age=0|favorite",
+      "annual_net_U_contribution": {
+        "2019": -0.7,
+        "2020": 5.035,
+        "2021": 4.13,
+        "2022": 2.12,
+        "2023": 8.1
+      },
+      "annual_order_contribution": {
+        "2019": 62,
+        "2020": 81,
+        "2021": 67,
+        "2022": 66,
+        "2023": 127
+      },
+      "year2024_net_U_contribution": 4.28,
+      "historical_positive_contribution_years": 4
+    },
+    {
+      "candidate": "T12|line,age|line=2;age=4|underdog",
+      "annual_net_U_contribution": {
+        "2019": 1.33,
+        "2020": -1.0,
+        "2021": -0.45,
+        "2022": 1.99,
+        "2023": 0.15
+      },
+      "annual_order_contribution": {
+        "2019": 1,
+        "2020": 1,
+        "2021": 11,
+        "2022": 15,
+        "2023": 29
+      },
+      "year2024_net_U_contribution": -10.305,
+      "historical_positive_contribution_years": 3
+    },
+    {
+      "candidate": "T12|line,momentum|line=2;momentum=3|favorite",
+      "annual_net_U_contribution": {
+        "2019": 0.505,
+        "2020": -2.615,
+        "2021": 2.91,
+        "2022": -6.03,
+        "2023": -1.635
+      },
+      "annual_order_contribution": {
+        "2019": 2,
+        "2020": 2,
+        "2021": 2,
+        "2022": 4,
+        "2023": 14
+      },
+      "year2024_net_U_contribution": 0.735,
+      "historical_positive_contribution_years": 2
+    },
+    {
+      "candidate": "T12|line,price,momentum|line=0;price=0;momentum=3|away",
+      "annual_net_U_contribution": {
+        "2019": -1.0,
+        "2020": 0.0,
+        "2021": 3.47,
+        "2022": 0.0,
+        "2023": -1.0
+      },
+      "annual_order_contribution": {
+        "2019": 1,
+        "2020": 0,
+        "2021": 6,
+        "2022": 0,
+        "2023": 1
+      },
+      "year2024_net_U_contribution": 2.37,
+      "historical_positive_contribution_years": 1
+    },
+    {
+      "candidate": "T12|line,price,momentum|line=0;price=0;momentum=3|underdog",
+      "annual_net_U_contribution": {
+        "2019": -1.0,
+        "2020": 0.0,
+        "2021": 3.47,
+        "2022": 0.0,
+        "2023": -1.0
+      },
+      "annual_order_contribution": {
+        "2019": 1,
+        "2020": 0,
+        "2021": 6,
+        "2022": 0,
+        "2023": 1
+      },
+      "year2024_net_U_contribution": 2.37,
+      "historical_positive_contribution_years": 1
+    },
+    {
+      "candidate": "T12|line,price,momentum|line=2;price=1;momentum=3|favorite",
+      "annual_net_U_contribution": {
+        "2019": -1.0,
+        "2020": -4.515,
+        "2021": 2.78,
+        "2022": -0.18,
+        "2023": -2.345
+      },
+      "annual_order_contribution": {
+        "2019": 1,
+        "2020": 8,
+        "2021": 7,
+        "2022": 7,
+        "2023": 13
+      },
+      "year2024_net_U_contribution": 0.95,
+      "historical_positive_contribution_years": 1
+    },
+    {
+      "candidate": "T12|momentum,age|momentum=3;age=2|underdog",
+      "annual_net_U_contribution": {
+        "2019": 7.985,
+        "2020": 3.975,
+        "2021": 4.39,
+        "2022": -1.715,
+        "2023": 7.91
+      },
+      "annual_order_contribution": {
+        "2019": 16,
+        "2020": 22,
+        "2021": 30,
+        "2022": 17,
+        "2023": 46
+      },
+      "year2024_net_U_contribution": -6.05,
+      "historical_positive_contribution_years": 4
+    },
+    {
+      "candidate": "T12|momentum|momentum=4|favorite",
+      "annual_net_U_contribution": {
+        "2019": 0.0,
+        "2020": -1.385,
+        "2021": 1.9,
+        "2022": 0.0,
+        "2023": -1.91
+      },
+      "annual_order_contribution": {
+        "2019": 0,
+        "2020": 3,
+        "2021": 2,
+        "2022": 0,
+        "2023": 0
+      },
+      "year2024_net_U_contribution": 0.0,
+      "historical_positive_contribution_years": 1
+    },
+    {
+      "candidate": "T12|price,momentum|price=1;momentum=4|favorite",
+      "annual_net_U_contribution": {
+        "2019": 0.0,
+        "2020": 0.0,
+        "2021": 0.0,
+        "2022": 0.0,
+        "2023": 0.0
+      },
+      "annual_order_contribution": {
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0,
+        "2023": 0
+      },
+      "year2024_net_U_contribution": 0.0,
+      "historical_positive_contribution_years": 0
+    },
+    {
+      "candidate": "T12|price,momentum|price=2;momentum=3|away",
+      "annual_net_U_contribution": {
+        "2019": 4.195,
+        "2020": 5.76,
+        "2021": 7.28,
+        "2022": 4.74,
+        "2023": 3.815
+      },
+      "annual_order_contribution": {
+        "2019": 10,
+        "2020": 28,
+        "2021": 9,
+        "2022": 6,
+        "2023": 25
+      },
+      "year2024_net_U_contribution": 12.62,
+      "historical_positive_contribution_years": 5
+    },
+    {
+      "candidate": "T24|line,momentum|line=0;momentum=1|away",
+      "annual_net_U_contribution": {
+        "2019": -0.92,
+        "2020": 0.12,
+        "2021": 0.0,
+        "2022": 0.0,
+        "2023": 1.0
+      },
+      "annual_order_contribution": {
+        "2019": -4,
+        "2020": -3,
+        "2021": 0,
+        "2022": 0,
+        "2023": -1
+      },
+      "year2024_net_U_contribution": 1.0,
+      "historical_positive_contribution_years": 2
+    },
+    {
+      "candidate": "T24|line,momentum|line=0;momentum=1|favorite",
+      "annual_net_U_contribution": {
+        "2019": 1.0,
+        "2020": -0.04,
+        "2021": 0.0,
+        "2022": 0.0,
+        "2023": -1.05
+      },
+      "annual_order_contribution": {
+        "2019": -4,
+        "2020": -3,
+        "2021": 0,
+        "2022": 0,
+        "2023": -1
+      },
+      "year2024_net_U_contribution": -0.95,
+      "historical_positive_contribution_years": 1
+    },
+    {
+      "candidate": "T24|line,price,momentum|line=3;price=1;momentum=2|underdog",
+      "annual_net_U_contribution": {
+        "2019": 0.0,
+        "2020": 0.0,
+        "2021": 0.0,
+        "2022": 0.0,
+        "2023": 0.0
+      },
+      "annual_order_contribution": {
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0,
+        "2023": 0
+      },
+      "year2024_net_U_contribution": 0.0,
+      "historical_positive_contribution_years": 0
+    },
+    {
+      "candidate": "T24|line,price|line=3;price=1|underdog",
+      "annual_net_U_contribution": {
+        "2019": 4.34,
+        "2020": -1.13,
+        "2021": -0.71,
+        "2022": 4.73,
+        "2023": -4.78
+      },
+      "annual_order_contribution": {
+        "2019": 6,
+        "2020": 7,
+        "2021": 9,
+        "2022": 3,
+        "2023": 9
+      },
+      "year2024_net_U_contribution": -6.77,
+      "historical_positive_contribution_years": 2
+    },
+    {
+      "candidate": "T2|line,price,momentum|line=2;price=2;momentum=1|favorite",
+      "annual_net_U_contribution": {
+        "2019": 3.22,
+        "2020": 3.39,
+        "2021": 10.755,
+        "2022": 0.815,
+        "2023": 6.995
+      },
+      "annual_order_contribution": {
+        "2019": 17,
+        "2020": 21,
+        "2021": 31,
+        "2022": 12,
+        "2023": 40
+      },
+      "year2024_net_U_contribution": 4.005,
+      "historical_positive_contribution_years": 5
+    },
+    {
+      "candidate": "T2|line,price,momentum|line=2;price=4;momentum=2|favorite",
+      "annual_net_U_contribution": {
+        "2019": 3.125,
+        "2020": 0.93,
+        "2021": 0.89,
+        "2022": 1.11,
+        "2023": 1.73
+      },
+      "annual_order_contribution": {
+        "2019": 4,
+        "2020": 3,
+        "2021": 4,
+        "2022": 1,
+        "2023": 13
+      },
+      "year2024_net_U_contribution": -2.27,
+      "historical_positive_contribution_years": 5
+    },
+    {
+      "candidate": "T2|line,price,momentum|line=3;price=3;momentum=3|away",
+      "annual_net_U_contribution": {
+        "2019": 0.71,
+        "2020": 1.59,
+        "2021": 0.16,
+        "2022": 2.17,
+        "2023": 0.05
+      },
+      "annual_order_contribution": {
+        "2019": 3,
+        "2020": 4,
+        "2021": 11,
+        "2022": 3,
+        "2023": 5
+      },
+      "year2024_net_U_contribution": -7.445,
+      "historical_positive_contribution_years": 5
+    },
+    {
+      "candidate": "T2|line,price|line=4;price=3|underdog",
+      "annual_net_U_contribution": {
+        "2019": -0.3,
+        "2020": 2.78,
+        "2021": 2.16,
+        "2022": 5.72,
+        "2023": 1.56
+      },
+      "annual_order_contribution": {
+        "2019": 10,
+        "2020": 11,
+        "2021": 14,
+        "2022": 15,
+        "2023": 31
+      },
+      "year2024_net_U_contribution": 4.19,
+      "historical_positive_contribution_years": 4
+    },
+    {
+      "candidate": "T2|momentum,age|momentum=1;age=1|underdog",
+      "annual_net_U_contribution": {
+        "2019": 0.635,
+        "2020": 4.86,
+        "2021": 5.09,
+        "2022": 6.385,
+        "2023": -6.695
+      },
+      "annual_order_contribution": {
+        "2019": 15,
+        "2020": 34,
+        "2021": 41,
+        "2022": 11,
+        "2023": 154
+      },
+      "year2024_net_U_contribution": 18.875,
+      "historical_positive_contribution_years": 4
+    },
+    {
+      "candidate": "T6|line,price|line=1;price=4|away",
+      "annual_net_U_contribution": {
+        "2019": 0.0,
+        "2020": 1.0,
+        "2021": 1.0,
+        "2022": 1.0,
+        "2023": 0.0
+      },
+      "annual_order_contribution": {
+        "2019": 0,
+        "2020": -1,
+        "2021": -1,
+        "2022": -1,
+        "2023": 0
+      },
+      "year2024_net_U_contribution": 0.0,
+      "historical_positive_contribution_years": 3
+    },
+    {
+      "candidate": "T6|line,price|line=1;price=4|underdog",
+      "annual_net_U_contribution": {
+        "2019": 0.0,
+        "2020": -0.81,
+        "2021": -0.79,
+        "2022": -0.8,
+        "2023": 0.0
+      },
+      "annual_order_contribution": {
+        "2019": 0,
+        "2020": -1,
+        "2021": -1,
+        "2022": -1,
+        "2023": 0
+      },
+      "year2024_net_U_contribution": 0.0,
+      "historical_positive_contribution_years": 0
+    },
+    {
+      "candidate": "T6|momentum,age|momentum=4;age=0|home",
+      "annual_net_U_contribution": {
+        "2019": 0.0,
+        "2020": 0.0,
+        "2021": 0.0,
+        "2022": 0.0,
+        "2023": -1.27
+      },
+      "annual_order_contribution": {
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0,
+        "2023": 1
+      },
+      "year2024_net_U_contribution": -0.02,
+      "historical_positive_contribution_years": 0
+    },
+    {
+      "candidate": "T6|price,momentum|price=1;momentum=4|favorite",
+      "annual_net_U_contribution": {
+        "2019": 0.0,
+        "2020": 0.82,
+        "2021": 0.83,
+        "2022": 0.0,
+        "2023": 0.98
+      },
+      "annual_order_contribution": {
+        "2019": 0,
+        "2020": 1,
+        "2021": 1,
+        "2022": 0,
+        "2023": 2
+      },
+      "year2024_net_U_contribution": -2.73,
+      "historical_positive_contribution_years": 3
+    },
+    {
+      "candidate": "T6|price,momentum|price=2;momentum=4|home",
+      "annual_net_U_contribution": {
+        "2019": 0.0,
+        "2020": 0.0,
+        "2021": 0.0,
+        "2022": 0.0,
+        "2023": 0.0
+      },
+      "annual_order_contribution": {
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0,
+        "2023": 0
+      },
+      "year2024_net_U_contribution": 0.0,
+      "historical_positive_contribution_years": 0
+    },
+    {
+      "candidate": "T6|price,momentum|price=4;momentum=1|away",
+      "annual_net_U_contribution": {
+        "2019": -1.11,
+        "2020": -0.23,
+        "2021": -0.26,
+        "2022": 1.76,
+        "2023": 3.39
+      },
+      "annual_order_contribution": {
+        "2019": -1,
+        "2020": -5,
+        "2021": -4,
+        "2022": -9,
+        "2023": -7
+      },
+      "year2024_net_U_contribution": -0.91,
+      "historical_positive_contribution_years": 2
+    },
+    {
+      "candidate": "T6|price,momentum|price=4;momentum=2|underdog",
+      "annual_net_U_contribution": {
+        "2019": 0.0,
+        "2020": 0.0,
+        "2021": 0.0,
+        "2022": 0.0,
+        "2023": 0.0
+      },
+      "annual_order_contribution": {
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0,
+        "2023": 0
+      },
+      "year2024_net_U_contribution": 0.0,
+      "historical_positive_contribution_years": 0
+    },
+    {
+      "candidate": "T6|price|price=4|underdog",
+      "annual_net_U_contribution": {
+        "2019": 1.0,
+        "2020": -0.62,
+        "2021": 0.41,
+        "2022": -1.13,
+        "2023": -2.58
+      },
+      "annual_order_contribution": {
+        "2019": -1,
+        "2020": -4,
+        "2021": -4,
+        "2022": -9,
+        "2023": -7
+      },
+      "year2024_net_U_contribution": 0.585,
+      "historical_positive_contribution_years": 2
+    }
+  ],
+  "caveats": [
+    "2019-2023 years are in-sample for original R7 structure selection, not independent rolling validation.",
+    "R32 historical-only order fixed without using 2024; prefix selection after inspecting 2024 remains post-hoc.",
+    "Annual leave-one-out differences are portfolio changes, including vote, horizon and tie changes; not standalone candidate profit.",
+    "No new strategy rules, selection gates, or 2025-2026 use. Crown quotes retrospective, not proven real-time executable."
+  ]
+}
