@@ -5582,3 +5582,12 @@
 - 新的902桶覆盖快照：movement capture 103,873 FID，53,328有报价共4,499,297行，50,545捕获记录为无AH报价，100,089场仍缺movement capture。历史summary保持50,200 FID / 99,242报价行；独立summary队列153,762场尚未运行。
 - 更新报告/结果/SHA见 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0402Z.md`、`COLLECTION_STATUS_20261122T0402Z.json`、`movement_collection_persisted_audit_20261122T0402Z.json`、`league_year_quote_coverage_20261122T0402Z.csv/.json` 和manifest。现有M1 cache的精确身份映射使27391三桶标记为UEFA Nations League D；24个year-unknown记录仍未推断。
 - 未改生产采集、调度、模型、TG和正式账本；无策略或盈利回测。历史抓取不是实时赛前收据，所有历史缺口继续保留。
+
+
+### 2026-11-22 04:13 UTC：全库存原始Crown缓存复核与summary可复用数据
+
+- 将只读原始Crown缓存审计扩展到当前203,962-FID全库存：105,559个raw response files全部有SQLite source SHA锚定，FID身份核对及解析错误为0，unanchored为0；104,442个唯一FID有有效raw响应。没有HTTP请求或SQLite写入。
+- raw cache里可用的movement报价行全部已写入movement层；另有328个唯一FID+响应SHA包含656条open/close summary报价，尚未单独规范化到historical summary层。逐条核对FID、响应SHA、Crown bookmaker和summary行后，又从相同FID+SHA的现有historical movement capture读取唯一HTTP收件时间；328/328唯一，无时间推断。
+- 新增只读准备工具 `prepare_unindexed_summary_reuse_20261122.py` 和328条候选账本 `unindexed_summary_layer_reuse_candidates_20261122T0410Z.jsonl.gz`。仅准备，不导入：共享SQLite写入者仍是活跃historical collector，不能并发写。待该writer安全空闲后用既有Crown解析器追加summary层并重建summary缺口队列。raw response文件未改动。
+- 04:13:18Z movement队列终态1,213/101,266（329 SAVED、884 NO_CROWN_AH_QUOTES），100,053未终结；04:13:40Z独立核验全部1,213匹配SQLite/raw SHA/收件时间/报价行数，差异0、pass=true。driver仍按既有安全窗口运行。
+- 覆盖表、全库存raw audit、压缩逐FID SHA账本、summary candidate、最新状态和输入输出哈希见 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0413Z.md` 及 `CHECKPOINT_SHA256_20261122T0413Z.txt`。未改策略、模型、TG、正式账本或生产采集配置。

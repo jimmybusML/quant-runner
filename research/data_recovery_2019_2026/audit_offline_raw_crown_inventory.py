@@ -5,7 +5,9 @@ No API requests and no database writes. Historical source-event evidence and
 real HTTP receipts remain distinct; this audit scans historical caches only.
 """
 from __future__ import annotations
+import argparse
 import collections, gzip, hashlib, json, pathlib, sqlite3
+import datetime as dt
 
 BASE=pathlib.Path('/Users/mac/QuantAsiaDesk')
 OUT=pathlib.Path(__file__).resolve().parent
@@ -22,8 +24,17 @@ def sha(p:pathlib.Path)->str:
  return h.hexdigest()
 
 def main():
+ parser=argparse.ArgumentParser(description=__doc__)
+ parser.add_argument('--inventory',type=pathlib.Path,default=INVENTORY,help='gzip JSONL source inventory')
+ parser.add_argument('--stamp',default=None,help='optional output suffix, e.g. 20261122T0408Z')
+ args=parser.parse_args()
+ inventory_path=args.inventory
+ suffix=f'_{args.stamp}' if args.stamp else ''
+ ledger_path=OUT/f'offline_raw_Crown_response_index_audit_2019_2026{suffix}.jsonl.gz'
+ summary_path=OUT/f'offline_raw_Crown_response_inventory_audit_2019_2026{suffix}.json'
+ audit_started=dt.datetime.now(dt.timezone.utc).isoformat().replace('+00:00','Z')
  rows=[]
- with gzip.open(INVENTORY,'rt',encoding='utf-8') as f:
+ with gzip.open(inventory_path,'rt',encoding='utf-8') as f:
   for line in f:
    r=json.loads(line);rows.append(r)
  byfid={str(r['fid']):r for r in rows}
@@ -35,6 +46,7 @@ def main():
      x=json.loads(line);legacy_sha.add((str(x.get('match_id') or ''),str(x.get('response_sha256') or '')))
     except Exception:pass
  cx=sqlite3.connect(f'file:{DB}?mode=ro',uri=True,timeout=20);cx.row_factory=sqlite3.Row
+ cx.execute('PRAGMA query_only=ON')
  cx.execute('BEGIN')
  indexed=collections.defaultdict(set);quote_fids=collections.defaultdict(set);quote_rows=collections.Counter()
  for r in cx.execute('select fixture_id,data_layer,response_sha256,status,quote_count from capture where capture_mode=\'historical\''):
@@ -93,25 +105,26 @@ def main():
    except Exception as e:parse_errors[type(e).__name__]+=1
   if found:fids_with.append(fid);agg['fids_with_valid_raw_response']+=1
  # deterministic JSONL/GZIP ledger (digests and counts only; no quote bodies or values)
- with (OUT/'offline_raw_Crown_response_index_audit_2019_2026.jsonl.gz').open('wb') as raw:
+ with ledger_path.open('wb') as raw:
   with gzip.GzipFile(fileobj=raw,mode='wb',mtime=0) as gz:
    for x in sorted(ledger,key=lambda z:(z['provider_league_id'],z['year'] or 0,z['fid'],z['response_sha256'])):
     gz.write((json.dumps(x,separators=(',',':'))+'\n').encode())
  summary={'study':'Read-only audit of existing historical raw Crown response caches; no collection requests and no SQLite writes',
-  'source_inventory_sha256':sha(INVENTORY),'inventory_fids':len(byfid),'sqlite_historical_indexed_fids':{k:len(v) for k,v in quote_fids.items()},
+  'audit_started_at_utc':audit_started,'audit_finished_at_utc':dt.datetime.now(dt.timezone.utc).isoformat().replace('+00:00','Z'),
+  'source_inventory_path':str(inventory_path),'source_inventory_sha256':sha(inventory_path),'inventory_fids':len(byfid),'sqlite_historical_indexed_fids':{k:len(v) for k,v in quote_fids.items()},
   'sqlite_historical_quote_rows':dict(quote_rows),'raw_cache_response_files':total_files,'raw_cache_fids_with_valid_response':len(set(fids_with)),
   'raw_cache_files_identity_checked':identity_checked,'raw_sha_content_addressed_paths':content_addressed,
   'raw_sha_matched_legacy_response_index':legacy_index_anchored,'raw_sha_matched_existing_sqlite_index':db_index_anchored,
   'raw_files_without_external_sha_anchor':unanchored,'schedule_fids_with_multiple_raw_cache_files':duplicate_files,
   'raw_parse_or_identity_issues':dict(parse_errors),'by_league_year':{f'{k[0]}|{k[1]}':dict(v) for k,v in sorted(by_year.items(),key=lambda x:(x[0][0],x[0][1]))},
-  'per_fixture_digest_ledger':'offline_raw_Crown_response_index_audit_2019_2026.jsonl.gz',
-  'per_fixture_ledger_sha256':sha(OUT/'offline_raw_Crown_response_index_audit_2019_2026.jsonl.gz'),
+  'per_fixture_digest_ledger':ledger_path.name,
+  'per_fixture_ledger_sha256':sha(ledger_path),
   'interpretation':'A raw response can contain an empty Crown AH list or already be indexed under a different capture layer. Not-indexed means the exact raw SHA was not normalized into the matching historical layer; it is eligible for offline reuse only if the layer-specific parser produces rows.'}
- (OUT/'offline_raw_Crown_response_inventory_audit_2019_2026.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
+ summary_path.write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
  print(json.dumps({'inventory_fids':len(byfid),'raw_files':total_files,'valid_raw_fids':len(set(fids_with)),
    'identity_checked_raw_files':identity_checked,'sha_anchors':{'content_addressed':content_addressed,'legacy_index':legacy_index_anchored,'sqlite_index':db_index_anchored,'none':unanchored},
    'duplicate_file_fids':duplicate_files,'parse_issues':dict(parse_errors),
    'sqlite_quote_fids':summary['sqlite_historical_indexed_fids'],'sqlite_quote_rows':dict(quote_rows),
-   'summary_out':str(OUT/'offline_raw_Crown_response_inventory_audit_2019_2026.json')},ensure_ascii=False),flush=True)
+   'summary_out':str(summary_path)},ensure_ascii=False),flush=True)
 
 if __name__=='__main__':main()

@@ -1,0 +1,21 @@
+{
+  "audit": "read-only exact-SHA preparation of uncatalogued Crown historical summary rows",
+  "started_at_utc": "2026-11-22T04:12:33.696310Z",
+  "finished_at_utc": "2026-11-22T04:12:40.956560Z",
+  "network_requests": 0,
+  "sqlite_database_writes": 0,
+  "inventory_path": "/private/tmp/quant-runner-history-backfill/research/data_recovery_2019_2026/fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz",
+  "inventory_sha256": "1c51b890f075efd6fff4f794ee0e3b43ab427e41f78fbe4a95efef24c9a9783d",
+  "source_raw_audit_ledger": "/private/tmp/quant-runner-history-backfill/research/data_recovery_2019_2026/offline_raw_Crown_response_index_audit_2019_2026_20261122T0410Z.jsonl.gz",
+  "source_raw_audit_ledger_sha256": "0c8daae2bd5627a7abb33f3311d2a96245a1bd2533bea1852b698235d07e44bb",
+  "sqlite_snapshot_max_response_received_at_utc": "2026-11-22T04:11:53.374121Z",
+  "candidate_fid_sha_pairs": 328,
+  "unique_fids": 328,
+  "summary_quote_rows_available": 656,
+  "receipt_timestamp_missing_or_ambiguous": 0,
+  "response_sha_identity_mismatches": 0,
+  "summary_layer_already_indexed": 0,
+  "output_ledger": "unindexed_summary_layer_reuse_candidates_20261122T0410Z.jsonl.gz",
+  "output_ledger_sha256": "3d0901a4994aa49aae02d5eacb7c10619b4be8a8d26ead50c7794a4a10f7b021",
+  "note": "Prepared for later append-only reuse via existing Crown parser after current shared SQLite writer is idle; no values or receive times were inferred."
+}
