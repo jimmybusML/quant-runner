@@ -5662,4 +5662,4 @@
 - 固定FT缺口交集扩至151场，身份151/151准确：130状态缺失、18未映射数字码、3 `half`、0明确full；未新增可信FT。
 - 05:19:03Z覆盖快照：203,962 FID、118已知provider联赛ID、902联赛×UTC年/unknown桶；193,518可信FT、10,444未核。movement capture 104,313 FID，53,328有价/4,499,297行、50,985无AH报价响应、99,649未采。历史summary缺capture 153,762 FID；328条已验证缓存summary等待writer空闲。
 - 1,102场已扩展库存Crown capture crosswalk仍为1,008个精确full比分一致、94个FT待核，报价行0；扩展库存外37个可解析capture仍全为2015/2018目标期外数据。
-- 检查点、SHA清单和逐场核验见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0519Z.md`及同时间戳结果。队列、FT及summary缺口仍存在；工作继续。研究提交SHA待本检查点提交后补录。
+- 检查点、SHA清单和逐场核验见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0519Z.md`及同时间戳结果。队列、FT及summary缺口仍存在；工作继续。检查点提交 `357cf35c` 已推送至历史补采分支。
