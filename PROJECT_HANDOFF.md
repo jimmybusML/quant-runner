@@ -5920,3 +5920,11 @@
 - 当前字段覆盖：赛程及可信full FT 48,102；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,183。字段缺失15,653/11,760/15,657/42,919。
 - T1023后9个FID的Crown响应SHA 9/9匹配，其中4个新增OU movement、5个无Crown市场。累计1,094 attempts（974 success、114 IncompleteRead、6 TOO_MANY_REQUEST），当前可重试失败0。T1024证据SHA manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1024Z.txt`。
 - 当前待请求纯5.2秒时间约61.0小时；该历史回填尚未完成，持续使用safe-window驱动并保持production隔离。
+
+
+### 2026-11-22 10:28 UTC：T1028采集检查点
+
+- 统一结算PID3719结束后，父driver PID49373于10:27:55 UTC重建队列42,210并启动collector PID4403，继续按5.2秒间隔请求。
+- SQLite覆盖：48,102赛程及可信FT全覆盖；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,185。字段缺失分别15,653/11,760/15,657/42,917。
+- T1024末点后10个唯一FID响应，2个新增OU movement、8个无Crown市场；原始SHA 10/10通过，越界/重复/请求失败0。累计1,104 attempts（984 success、114 IncompleteRead、6 TOO_MANY_REQUEST），当前未恢复失败0。
+- T1028 manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1028Z.txt`。待请求纯网络时间约61.0小时，采集仍继续。
