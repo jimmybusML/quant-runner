@@ -6557,3 +6557,7 @@ safe-window父进程PID 49373持续运行；20:41:04 UTC后collector PID 51303�
 ### 2026-11-22 20:48 UTC：T2048续采
 
 T2041后至20:45:37 UTC MR1暂停边界处理53个唯一FID：12个FID新增OU movement 478行，41个成功HTTP 200响应没有Crown AH/OU市场报价。53次attempt全成功，53份raw SHA及响应FID、league、year和固定64联赛赛程身份均通过，无重复。20:48:52 UTC队列38,982（2023 10,442；2024 14,553；2025 13,520；2026 467），较T2041减少53；覆盖AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,928。请求均值1.1681秒、中位数1.1982秒，5.2秒间隔未变。T2048工件及SHA清单位于`research/data_recovery_2019_2026/ou_unification/`。collector PID 53206已启动，父进程PID 49373持续管理计划任务暂停；任务仍在进行，所有数据均为historical回取。
+
+### 2026-11-22 20:52 UTC：T2052续采
+
+T2048后至20:51:32 UTC MR1暂停边界处理31个唯一FID：8个FID增加OU movement 402行，23个成功HTTP 200响应没有Crown AH/OU市场报价。31次attempt全成功，raw SHA、响应FID/league/year身份及固定64联赛范围31/31通过，无重复。20:52:26 UTC队列38,951（2023 10,411；2024 14,553；2025 13,520；2026 467），较T2048减少31；覆盖AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,936。请求耗时均值1.3855秒、中位数1.2156秒，5.2秒间隔未变。T2052检查点工件和SHA清单位于`research/data_recovery_2019_2026/ou_unification/`。collector PID 54045已启动，父进程PID 49373持续运行；任务未完成，回取结果仍标记historical。
