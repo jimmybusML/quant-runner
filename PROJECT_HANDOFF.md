@@ -5666,7 +5666,15 @@
 ### 2026-11-22 M8-外 64 联赛 Crown AH+OU 合并采集（当前范围：2023—2026）
 
 - 用户最新指定仅由 Codex 继续采集原49+扩展15共64个联赛的2023—2026赛事；不得按M8盈利组筛选。恢复 Provider League ID 集合并校验来源清单完整包含64个ID。当前唯一目标赛程48,102个FID（2023 14,673、2024 14,553、2025 14,631、2026 4,245，截至2026-06-30）；本地TotalCorner schedule page均为`status=full`且有双方比分。
-- 共享SQLite按唯一FID现有覆盖：AH开收盘32,449、AH变化序列36,342、OU开收盘32,445、OU变化序列4,901；四项齐全4,901，合并缺口43,201。独立OU日志430条已全部导入`crown_ou_source`/`crown_ou_quote`，SHA与FID核验无差异；旧OU采集进程停止。其他联赛既有库数据未删除。
+- 共享SQLite在06:35 UTC启动快照的唯一FID覆盖：AH开收盘32,449、AH变化序列36,342、OU开收盘32,445、OU变化序列4,901；当时四项齐全4,901、缺口43,201。当前进度见下方06:43 UTC增量检查点。独立OU日志430条已全部导入`crown_ou_source`/`crown_ou_quote`，SHA与FID核验无差异；旧OU采集进程停止。其他联赛既有库数据未删除。
 - 实测TotalCorner Crown `columns=asianList,goalList`有效。2023 FID 128294217同一HTTP 200响应返回AH列表97行、OU列表89行及两市场开收盘，SHA `0c84b0976ad28b6a69c0dc475a8f92e868da0a4b902823e0d5973c5d33c56ac4`，真实接收`2026-11-22T06:21:46.333966Z`，原始响应已存统一raw目录。另两场2023赛事也同次请求完整得到双市场；首批10次中8次HTTP/API成功（3次带双市场、5响应无Crown bookmaker）、2次`IncompleteRead`。
-- 新合并采集脚本使用5.2秒请求启动间隔；截至06:35 UTC有37个唯一FID尝试结果：12个双市场完整、24个HTTP成功但无Crown bookmaker、1个最新请求失败可重试。首轮旧写入端到端单场最长7.61秒；优化后28个HTTP成功的网络平均1.223秒、SQLite平均写入0.00313秒（最大0.0089秒）。安全窗口driver监控MR1/结算计划任务，仅在无生产任务时采集，检测到任务会暂停。当前代码：`research/data_recovery_2019_2026/ou_unification/collect_crown_ah_ou_64.py`、`integrate_crown_ou_history.py`、`safe_window_combined_driver.py`。
-- 进度报告`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_COLLECTION_64_2023_2026.md`；逐场原始响应SHA/状态日志在`crown_64_combined_collection.jsonl`，driver事件在`crown_64_combined_driver_events.jsonl`。约43,177个FID待请求/重试（纯5.2秒节奏约62.4小时，未计生产安全间隔）；任务未完成。2019—2022现存数据与本轮前一范围下已经保存的响应保留，但不进入当前队列。未做模型/回测/盈利研究，未改正式策略、Telegram、账本、生产调度。
+- 新合并采集脚本使用5.2秒请求启动间隔；06:35 UTC启动基线有37个唯一FID尝试结果：12个双市场完整、24个HTTP成功但无Crown bookmaker、1个请求失败可重试。首轮旧写入端到端单场最长7.61秒；优化后28个HTTP成功的网络平均1.223秒、SQLite平均写入0.00313秒（最大0.0089秒）。安全窗口driver监控MR1/结算计划任务，仅在无生产任务时采集，检测到任务会暂停。当前代码：`research/data_recovery_2019_2026/ou_unification/collect_crown_ah_ou_64.py`、`integrate_crown_ou_history.py`、`safe_window_combined_driver.py`。
+- 进度报告`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_COLLECTION_64_2023_2026.md`；逐场原始响应SHA/状态日志在`crown_64_combined_collection.jsonl`，driver事件在`crown_64_combined_driver_events.jsonl`。06:35 UTC启动快照约43,177个FID待请求/重试（纯5.2秒节奏约62.4小时，未计生产安全间隔）；任务未完成。2019—2022现存数据与本轮前一范围下已经保存的响应保留，但不进入当前队列。未做模型/回测/盈利研究，未改正式策略、Telegram、账本、生产调度。
+
+#### 2026-11-22 06:43 UTC：2023—2026 64联赛合并采集续进
+
+- 用户将当前负责采集年份明确改为2023—2026；固定64个Provider League ID及48,102个FID，其他已存数据保留，当前请求不触及2019—2022。
+- 06:43 UTC只读覆盖审计：AH开收盘32,449，AH变化36,342，OU开收盘32,445，OU变化4,913；四项齐全4,913，缺任一项43,189。相较06:35快照OU变化增加12（4,901→4,913），属于报价FID覆盖增加，赛程、FT库存不变。
+- 82条采集日志记录覆盖72个唯一FID，最新状态24场双市场齐全、48场HTTP 200响应未含Crown bookmaker；64个HTTP 200请求平均响应1.211秒，平均SQLite写入0.00293秒。两个此前传输失败均在复试中成功。接口`columns=asianList,goalList`已证实单次返回两市场时同步保存。
+- 安全窗口driver PID 49373持续运行；采集子进程PID 51391于06:41恢复，等待已知MR1/结算任务时会暂停。当前未修改生产任务、模型、Telegram、账本或调度。
+- 更新报告、覆盖JSON、0643执行/driver快照、输入输出SHA清单。完整报告见`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_COLLECTION_64_2023_2026.md`；可复核本次提交后继续采集。该采集尚未完成。
