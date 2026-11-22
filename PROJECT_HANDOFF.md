@@ -5928,3 +5928,10 @@
 - SQLite覆盖：48,102赛程及可信FT全覆盖；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,185。字段缺失分别15,653/11,760/15,657/42,917。
 - T1024末点后10个唯一FID响应，2个新增OU movement、8个无Crown市场；原始SHA 10/10通过，越界/重复/请求失败0。累计1,104 attempts（984 success、114 IncompleteRead、6 TOO_MANY_REQUEST），当前未恢复失败0。
 - T1028 manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1028Z.txt`。待请求纯网络时间约61.0小时，采集仍继续。
+
+
+### 2026-11-22 10:36 UTC：T1036续采状态
+
+- 10:35:37 UTC队列重建42,179，AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,188；覆盖均为48,102目标FID内统计。MR1 PID6198使后续collector自动安全暂停，父driver PID49373等待后续恢复。
+- T1033后新增4个唯一响应，1个保存OU movement、3个无Crown市场，SHA 4/4通过。该一个movement在队列快照之后保存，等待下一次重建确认。
+- 累计1,132尝试（1,012 success、114 IncompleteRead、6 TOO_MANY_REQUEST），未恢复失败0。T1036 SHA manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1036Z.txt`。
