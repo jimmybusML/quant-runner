@@ -1,0 +1,501 @@
+{
+  "generated_at_utc": "2026-11-22T13:37:12.944537+00:00",
+  "protocol": "For 2024/25/26 rank all candidates using only prior years 2019..target-1. Compare pooled and league-specific historical net-U ranking, one top candidate per league/horizon or pooled/horizon; earliest/latest unique-FID conflict scenarios are research parameters, not production rules or gates. No sample minimum or ROI threshold.",
+  "source": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_original49_historical_Crown_entry_horizon_movement_ledger_20261114.jsonl",
+  "m8_sha256": "658d9450f91d1aee26e91da88c3ab5b32cbfcabb21482accc18241c717e5d48e",
+  "metadata_fids": 36343,
+  "m8_fids": 10294,
+  "audit": {
+    "market_rows": 128842,
+    "missing_league": 11540,
+    "scenario_ledger_rows": 37936
+  },
+  "scenarios": {
+    "pooled_earliest": {
+      "years": {
+        "2024": {
+          "all": {
+            "n": 2150,
+            "unique_fids": 2150,
+            "net_U": 3.9,
+            "roi_pct": 0.1814
+          },
+          "outside_M8": {
+            "n": 1596,
+            "unique_fids": 1596,
+            "net_U": 5.42,
+            "roi_pct": 0.3396
+          },
+          "M8_same_side": {
+            "n": 267,
+            "unique_fids": 267,
+            "net_U": 0.965,
+            "roi_pct": 0.3614
+          },
+          "M8_opposite_side": {
+            "n": 287,
+            "unique_fids": 287,
+            "net_U": -2.485,
+            "roi_pct": -0.8659
+          }
+        },
+        "2025": {
+          "all": {
+            "n": 1257,
+            "unique_fids": 1257,
+            "net_U": -28.1,
+            "roi_pct": -2.2355
+          },
+          "outside_M8": {
+            "n": 806,
+            "unique_fids": 806,
+            "net_U": -43.3,
+            "roi_pct": -5.3722
+          },
+          "M8_same_side": {
+            "n": 340,
+            "unique_fids": 340,
+            "net_U": 8.28,
+            "roi_pct": 2.4353
+          },
+          "M8_opposite_side": {
+            "n": 111,
+            "unique_fids": 111,
+            "net_U": 6.92,
+            "roi_pct": 6.2342
+          }
+        },
+        "2026": {
+          "all": {
+            "n": 519,
+            "unique_fids": 519,
+            "net_U": -21.55,
+            "roi_pct": -4.1522
+          },
+          "outside_M8": {
+            "n": 322,
+            "unique_fids": 322,
+            "net_U": -16.32,
+            "roi_pct": -5.0683
+          },
+          "M8_same_side": {
+            "n": 160,
+            "unique_fids": 160,
+            "net_U": -1.065,
+            "roi_pct": -0.6656
+          },
+          "M8_opposite_side": {
+            "n": 37,
+            "unique_fids": 37,
+            "net_U": -4.165,
+            "roi_pct": -11.2568
+          }
+        }
+      },
+      "selected_by_year": {
+        "2024": {
+          "horizons": {
+            "24": "(24, 'line,price', 'line=3;price=1', 'underdog')",
+            "12": "(12, 'line,age', 'line=3;age=0', 'underdog')",
+            "6": "(6, 'price', 'price=4', 'away')",
+            "2": "(2, 'line,price', 'line=1;price=1', 'home')"
+          },
+          "training_end_year": 2023,
+          "eligible_leagues": null,
+          "candidate_count": 193
+        },
+        "2025": {
+          "horizons": {
+            "24": "(24, 'line,price,momentum', 'line=3;price=1;momentum=2', 'underdog')",
+            "12": "(12, 'line,age', 'line=3;age=0', 'underdog')",
+            "6": "(6, 'price', 'price=4', 'away')",
+            "2": "(2, 'momentum,age', 'momentum=1;age=1', 'underdog')"
+          },
+          "training_end_year": 2024,
+          "eligible_leagues": null,
+          "candidate_count": 198
+        },
+        "2026": {
+          "horizons": {
+            "24": "(24, 'line,price', 'line=3;price=1', 'underdog')",
+            "12": "(12, 'line,age', 'line=3;age=0', 'underdog')",
+            "6": "(6, 'price', 'price=4', 'away')",
+            "2": "(2, 'price,momentum', 'price=3;momentum=1', 'underdog')"
+          },
+          "training_end_year": 2025,
+          "eligible_leagues": null,
+          "candidate_count": 198
+        }
+      },
+      "total": {
+        "all": {
+          "n": 3926,
+          "net_U": -45.75,
+          "roi_pct": -1.1653
+        },
+        "outside_M8": {
+          "n": 2724,
+          "net_U": -54.2,
+          "roi_pct": -1.9897
+        }
+      }
+    },
+    "pooled_latest": {
+      "years": {
+        "2024": {
+          "all": {
+            "n": 2150,
+            "unique_fids": 2150,
+            "net_U": 7.42,
+            "roi_pct": 0.3451
+          },
+          "outside_M8": {
+            "n": 1596,
+            "unique_fids": 1596,
+            "net_U": 2.31,
+            "roi_pct": 0.1447
+          },
+          "M8_same_side": {
+            "n": 277,
+            "unique_fids": 277,
+            "net_U": 3.925,
+            "roi_pct": 1.417
+          },
+          "M8_opposite_side": {
+            "n": 277,
+            "unique_fids": 277,
+            "net_U": 1.185,
+            "roi_pct": 0.4278
+          }
+        },
+        "2025": {
+          "all": {
+            "n": 1257,
+            "unique_fids": 1257,
+            "net_U": -22.56,
+            "roi_pct": -1.7947
+          },
+          "outside_M8": {
+            "n": 806,
+            "unique_fids": 806,
+            "net_U": -40.18,
+            "roi_pct": -4.9851
+          },
+          "M8_same_side": {
+            "n": 339,
+            "unique_fids": 339,
+            "net_U": 9.635,
+            "roi_pct": 2.8422
+          },
+          "M8_opposite_side": {
+            "n": 112,
+            "unique_fids": 112,
+            "net_U": 7.985,
+            "roi_pct": 7.1295
+          }
+        },
+        "2026": {
+          "all": {
+            "n": 519,
+            "unique_fids": 519,
+            "net_U": -21.135,
+            "roi_pct": -4.0723
+          },
+          "outside_M8": {
+            "n": 322,
+            "unique_fids": 322,
+            "net_U": -13.735,
+            "roi_pct": -4.2655
+          },
+          "M8_same_side": {
+            "n": 159,
+            "unique_fids": 159,
+            "net_U": -1.825,
+            "roi_pct": -1.1478
+          },
+          "M8_opposite_side": {
+            "n": 38,
+            "unique_fids": 38,
+            "net_U": -5.575,
+            "roi_pct": -14.6711
+          }
+        }
+      },
+      "selected_by_year": {
+        "2024": {
+          "horizons": {
+            "24": "(24, 'line,price', 'line=3;price=1', 'underdog')",
+            "12": "(12, 'line,age', 'line=3;age=0', 'underdog')",
+            "6": "(6, 'price', 'price=4', 'away')",
+            "2": "(2, 'line,price', 'line=1;price=1', 'home')"
+          },
+          "training_end_year": 2023,
+          "eligible_leagues": null,
+          "candidate_count": 193
+        },
+        "2025": {
+          "horizons": {
+            "24": "(24, 'line,price,momentum', 'line=3;price=1;momentum=2', 'underdog')",
+            "12": "(12, 'line,age', 'line=3;age=0', 'underdog')",
+            "6": "(6, 'price', 'price=4', 'away')",
+            "2": "(2, 'momentum,age', 'momentum=1;age=1', 'underdog')"
+          },
+          "training_end_year": 2024,
+          "eligible_leagues": null,
+          "candidate_count": 198
+        },
+        "2026": {
+          "horizons": {
+            "24": "(24, 'line,price', 'line=3;price=1', 'underdog')",
+            "12": "(12, 'line,age', 'line=3;age=0', 'underdog')",
+            "6": "(6, 'price', 'price=4', 'away')",
+            "2": "(2, 'price,momentum', 'price=3;momentum=1', 'underdog')"
+          },
+          "training_end_year": 2025,
+          "eligible_leagues": null,
+          "candidate_count": 198
+        }
+      },
+      "total": {
+        "all": {
+          "n": 3926,
+          "net_U": -36.275,
+          "roi_pct": -0.924
+        },
+        "outside_M8": {
+          "n": 2724,
+          "net_U": -51.605,
+          "roi_pct": -1.8945
+        }
+      }
+    },
+    "league_earliest": {
+      "years": {
+        "2024": {
+          "all": {
+            "n": 6237,
+            "unique_fids": 6237,
+            "net_U": -278.645,
+            "roi_pct": -4.4676
+          },
+          "outside_M8": {
+            "n": 4938,
+            "unique_fids": 4938,
+            "net_U": -203.505,
+            "roi_pct": -4.1212
+          },
+          "M8_same_side": {
+            "n": 644,
+            "unique_fids": 644,
+            "net_U": -22.94,
+            "roi_pct": -3.5621
+          },
+          "M8_opposite_side": {
+            "n": 655,
+            "unique_fids": 655,
+            "net_U": -52.2,
+            "roi_pct": -7.9695
+          }
+        },
+        "2025": {
+          "all": {
+            "n": 6287,
+            "unique_fids": 6287,
+            "net_U": -193.6,
+            "roi_pct": -3.0794
+          },
+          "outside_M8": {
+            "n": 4857,
+            "unique_fids": 4857,
+            "net_U": -142.735,
+            "roi_pct": -2.9387
+          },
+          "M8_same_side": {
+            "n": 726,
+            "unique_fids": 726,
+            "net_U": -16.87,
+            "roi_pct": -2.3237
+          },
+          "M8_opposite_side": {
+            "n": 704,
+            "unique_fids": 704,
+            "net_U": -33.995,
+            "roi_pct": -4.8288
+          }
+        },
+        "2026": {
+          "all": {
+            "n": 2518,
+            "unique_fids": 2518,
+            "net_U": -52.305,
+            "roi_pct": -2.0772
+          },
+          "outside_M8": {
+            "n": 1996,
+            "unique_fids": 1996,
+            "net_U": -17.66,
+            "roi_pct": -0.8848
+          },
+          "M8_same_side": {
+            "n": 289,
+            "unique_fids": 289,
+            "net_U": -2.72,
+            "roi_pct": -0.9412
+          },
+          "M8_opposite_side": {
+            "n": 233,
+            "unique_fids": 233,
+            "net_U": -31.925,
+            "roi_pct": -13.7017
+          }
+        }
+      },
+      "selected_by_year": {
+        "2024": {
+          "horizons": {},
+          "training_end_year": 2023,
+          "eligible_leagues": 49,
+          "candidate_count": 193
+        },
+        "2025": {
+          "horizons": {},
+          "training_end_year": 2024,
+          "eligible_leagues": 49,
+          "candidate_count": 198
+        },
+        "2026": {
+          "horizons": {},
+          "training_end_year": 2025,
+          "eligible_leagues": 49,
+          "candidate_count": 198
+        }
+      },
+      "total": {
+        "all": {
+          "n": 15042,
+          "net_U": -524.55,
+          "roi_pct": -3.4872
+        },
+        "outside_M8": {
+          "n": 11791,
+          "net_U": -363.9,
+          "roi_pct": -3.0863
+        }
+      }
+    },
+    "league_latest": {
+      "years": {
+        "2024": {
+          "all": {
+            "n": 6237,
+            "unique_fids": 6237,
+            "net_U": -264.41,
+            "roi_pct": -4.2394
+          },
+          "outside_M8": {
+            "n": 4938,
+            "unique_fids": 4938,
+            "net_U": -195.795,
+            "roi_pct": -3.9651
+          },
+          "M8_same_side": {
+            "n": 611,
+            "unique_fids": 611,
+            "net_U": -16.79,
+            "roi_pct": -2.748
+          },
+          "M8_opposite_side": {
+            "n": 688,
+            "unique_fids": 688,
+            "net_U": -51.825,
+            "roi_pct": -7.5327
+          }
+        },
+        "2025": {
+          "all": {
+            "n": 6287,
+            "unique_fids": 6287,
+            "net_U": -189.805,
+            "roi_pct": -3.019
+          },
+          "outside_M8": {
+            "n": 4857,
+            "unique_fids": 4857,
+            "net_U": -117.965,
+            "roi_pct": -2.4288
+          },
+          "M8_same_side": {
+            "n": 686,
+            "unique_fids": 686,
+            "net_U": -25.375,
+            "roi_pct": -3.699
+          },
+          "M8_opposite_side": {
+            "n": 744,
+            "unique_fids": 744,
+            "net_U": -46.465,
+            "roi_pct": -6.2453
+          }
+        },
+        "2026": {
+          "all": {
+            "n": 2518,
+            "unique_fids": 2518,
+            "net_U": -111.02,
+            "roi_pct": -4.4091
+          },
+          "outside_M8": {
+            "n": 1996,
+            "unique_fids": 1996,
+            "net_U": -82.155,
+            "roi_pct": -4.116
+          },
+          "M8_same_side": {
+            "n": 263,
+            "unique_fids": 263,
+            "net_U": 4.07,
+            "roi_pct": 1.5475
+          },
+          "M8_opposite_side": {
+            "n": 259,
+            "unique_fids": 259,
+            "net_U": -32.935,
+            "roi_pct": -12.7162
+          }
+        }
+      },
+      "selected_by_year": {
+        "2024": {
+          "horizons": {},
+          "training_end_year": 2023,
+          "eligible_leagues": 49,
+          "candidate_count": 193
+        },
+        "2025": {
+          "horizons": {},
+          "training_end_year": 2024,
+          "eligible_leagues": 49,
+          "candidate_count": 198
+        },
+        "2026": {
+          "horizons": {},
+          "training_end_year": 2025,
+          "eligible_leagues": 49,
+          "candidate_count": 198
+        }
+      },
+      "total": {
+        "all": {
+          "n": 15042,
+          "net_U": -565.235,
+          "roi_pct": -3.7577
+        },
+        "outside_M8": {
+          "n": 11791,
+          "net_U": -395.915,
+          "roi_pct": -3.3578
+        }
+      }
+    }
+  }
+}
