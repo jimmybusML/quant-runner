@@ -5724,3 +5724,11 @@
 
 - 紧接07:35:13 UTC一致覆盖快照，safe-window于07:35:31检测到统一结算PID 65004，已暂停collector PID 64219。安全驱动PID 49373仍存活，等待所有已登记的MR1/结算任务退出并空闲12秒后重建缺口队列自动续采；没有人工停止/重启或绕过生产安全窗口。
 - 07:35:31时采集日志最新成功响应时间07:35:30 UTC。覆盖快照仍以07:35:13 UTC为准：AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement4,951；运行态后续暂停记录在同目录检查点中。全量任务未完成。
+
+
+### 2026-11-22 07:41 UTC：2023—2026 Crown AH+OU安全窗口续采
+
+- safe-window PID 49373在结算/MR1作业退出后于07:39:57 UTC重建队列并启动collector PID 66356，队列42,981个FID。07:41快照时collector仍活跃，实际调度和请求间隔维持5.2秒；未变更服务商频率或生产运行。
+- 07:41:17 UTC共享SQLite一致只读查询快照：48,102场固定赛程/可信full FT；AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement4,960。较07:35覆盖快照OU movement +9（07:39暂停末尾2场 raw SHA复核；恢复后7场新的FID序列增量），其余覆盖计数未变。field-level缺口分别15,653、11,760、15,657、43,142；2023—2026分年及SHA证据见同目录`crown_64_coverage_snapshot_20261122T0741Z.json`。
+- 合并采集日志239个唯一FID，均为2023年、固定64联赛范围内；越界0。最新transport audit为280次尝试，213 success、61 `IncompleteRead`、6 `TOO_MANY_REQUEST`；28个遇过失败的FID全部重试成功，未恢复失败0。合并请求回包统一落AH/OU summary与movement并留raw SHA/HTTP接收时间；历史回取保持`historical`，不标成赛前实收。
+- 暂停边界两场FID `130037617`、`130037627` 的raw SHA复核通过，分别有50、58条OU movement；文件`crown_64_pause_boundary_fids_20261122T0739Z.json`及暂停边界原始日志保存逐场证据。进度报告更新至07:41，完整任务继续运行，尚未完成。
