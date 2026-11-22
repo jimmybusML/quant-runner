@@ -6421,3 +6421,9 @@
 
 - T1801后40个FID最终成功，18场新增OU走势561行，22场响应无Crown AH/OU盘口；41次attempt有1次IncompleteRead后恢复。40份原始响应SHA及FID/Provider League身份核验通过。
 - 队列39,913（2023:11,373；2024:14,553；2025:13,520；2026:467）；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,729。
+
+
+## 2026-11-22 18:17 UTC — T1817
+
+- T1809后52个FID最终成功：16场新增OU走势595行，36场无Crown AH/OU报价；52次请求、raw SHA及FID/Provider League身份核验全部通过。
+- 队列39,861（2023:11,321；2024:14,553；2025:13,520；2026:467）；AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,745。
