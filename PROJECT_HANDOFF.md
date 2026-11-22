@@ -6475,3 +6475,11 @@ T1849队列启动后至18:50:15 UTC MR1暂停前，6个唯一FID取得成功响�
 18:51:29 UTC队列为39,671（2023 11,131；2024 14,553；2025 13,520；2026 467），较T1849减少6。该检查点AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,772。18:54:18 UTC后续只读事务快照显示OU movement5,780（较检查点增加8个FID），为collector恢复后新响应，不计入暂停前6个FID。缺任一层的42,322场包含无报价终态，不是待请求队列。
 
 T1851逐场及身份SHA、transport、driver、覆盖快照和SHA清单已保存。combined collector PID24680及safe-window父进程PID49373在最近检查时运行；采集继续。
+
+### 2026-11-22 18:57 UTC：续采 T1857
+
+T1851后至18:54:31 UTC统一结算暂停前，36个唯一FID取得成功响应：8个FID新增OU走势323行，28个响应无Crown AH/OU盘口数据。36次attempt成功、raw SHA及响应FID/Provider League/赛年身份36/36通过、无重复。末条响应18:54:34.768 UTC比暂停事件晚约3秒但在安全collector退出前完成。
+
+18:57:59 UTC队列为39,635（2023 11,095；2024 14,553；2025 13,520；2026 467），较T1851减少36。检查点覆盖AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,780。18:58:13 UTC事务性只读快照显示OU movement5,781，较检查点多出的1个FID是在collector恢复后新增，不属于暂停前36场；42,321个FID至少缺一报价层，包含终态无报价样本。
+
+T1854逐场与SHA/身份审计、T1857队列事件/覆盖快照和SHA清单已保存。combined collector于18:57:59恢复，最近检查PID26328运行中。只做64联赛2023–2026历史数据采集与审计，不改生产链。
