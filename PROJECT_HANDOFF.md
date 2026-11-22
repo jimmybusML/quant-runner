@@ -1,3 +1,8 @@
+## 2026-11-22 | R9 expanded five-year candidate search
+
+- User requested more structures profitable in each year 2019-2023, with individual review, without changing production. Executed expanded_five_year_r9.py on historical Crown AH, 12 new feature families (signed handicap, bet-side odds, same-line no-vig probability movement, interactions). 6,350 new candidate definitions, 61 profitable each of five years; combined with 27 R7 candidates = 88 candidate definitions, not independent strategies. Annual, monthly and max drawdown review published in EXPANDED_FIVE_YEAR_R9_2019_2023.md, expanded_five_year_r9_review.csv, expanded_five_year_r9_monthly.csv and expanded_five_year_r9_results.json. Each candidate's annual net U and count reconciled with discovery pass.
+- In-sample 2019-2023 selection, NOT independent forward validation. No 2024-2026 use. Overlap and unique-FID combination returns of new 61 NOT YET calculated. Retrospective Crown events not actual contemporaneous receipts. All candidates pending user review, no new production rules; M8 and Telegram untouched.
+
 ## 2026-11-22｜R8：27个结构同场重叠、方向冲突与组合审核
 
 - 用户批准继续仅用2019—2023研究27个五年正盈利结构之间的重叠与组合，逐策略待审核。已执行overlap_portfolio_r8.py及validate_overlap_portfolio_r8.py；27结构共4,465次信号、2,527独立FID、1,207场多结构命中、268场存在相反方向、119场多数票平票。四种研究情景：最早窗口单信号2,527场+253.315U/+10.0243%、MDD23.795U；全信号等权理论收益混合2,527场+238.845U/+9.4517%、MDD26.047U；同方向一致2,259场+242.965U/+10.7554%、MDD24.145U；多数票2,408场+242.870U/+10.0860%、MDD28.320U。完整逐年、逐月、候选对重叠137组和验证见OVERLAP_PORTFOLIO_R8_2019_2023.md及对应JSON/CSV。\n- 这是**同一2019—2023样本内选出候选后又组合的收益**，不能冒充真正前推；反向等权理论混合并非一笔可执行订单。无2024—2026研究；M8和生产未修改，所有策略与权重方案待用户审核，不新增Gate。\n\n## 2026-11-22｜R7：2019—2023五年正收益候选逐月回撤审核
