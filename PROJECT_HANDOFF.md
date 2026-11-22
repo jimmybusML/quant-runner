@@ -5646,3 +5646,11 @@
 - 再以当前plus-53统一库存审计Crown捕获元数据之外的赛事，37个可解析FID均在UTC 2015或2018-12-31，未发现UTC 2019–2026范围内新增capture-only FID。逐场SHA、时间和身份仍保留；3,075页TotalCorner输入SHA索引已生成。
 - 新检查点`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0511Z.md`；覆盖、持久化与FT审计、逐场交叉核对和SHA清单均在同目录。历史movement队列尚有99,710个未终态；summary仍有153,762个库存FID缺historical capture。任务继续，不宣称完成。
 - 本轮仅研究目录内数据审计、覆盖快照脚本和文件有改动；正式模型、生产采集行为/频率、Telegram、正式账本和调度均未改变。未进行模型或策略研究。检查点与交接经研究提交 `e1ba4fc534903dbd0fe918c1111861dacebaf7b4` 推送至公开分支 `data/history-backfill-2019-2026`；该分支继续处理未完成的历史补采。
+
+### 2026-11-22 05:16 UTC：历史movement队列继续推进
+
+- 固定movement队列截至05:16:05Z有1,582/101,266个唯一终态（329 `SAVED`、1,253 `NO_CROWN_AH_QUOTES`），99,684尚未终结。只读持久化审计1,582/1,582与SQLite、raw SHA、实收时间、报价行数吻合，差异0、`pass=true`；本队列当前仍69,588 AH行/329有价FID。30个`IncompleteRead`均已有终态。
+- 05:15:33Z与10,444个未核FT交集147场，147/147精确身份；126状态缺失、18数字码未映射、3 `half`、明确full为0，本批未新增可信FT。
+- 05:16:12Z 902桶库存覆盖仍是203,962 FID/118 provider ID/193,518 verified FT/10,444 unresolved FT。movement capture 104,280，53,328个有价FID/4,499,297行，50,952个NO-CROWN-AH响应、99,682个未采movement capture。summary historical仍缺153,762 FID；328条已验证raw summary缓存报价等待共享writer空闲后导入。
+- 1,102个已在扩展库存中的Crown capture逐场对账仍为1,008 exact full-score match、94 unresolved、AH quote rows 0；37个扩展库存外解析capture仍全是目标UTC 2019–2026以外，未发现目标期漏入赛事。
+- 检查点及最新逐场证据见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0516Z.md`、`movement_collection_persisted_audit_20261122T0515Z.json`、`crown_movement_batch_ft_status_audit_20261122T0515Z.json`、`league_year_quote_coverage_20261122T0515Z.csv/.json`。历史回取持续进行；未改模型、正式采集规则、Telegram、账本或调度。该检查点提交SHA待提交后补录。
