@@ -1,0 +1,511 @@
+{
+  "scope": "Original R7 all27 portfolio 2023 vs 2024 signal identity and quote metadata",
+  "summary": {
+    "2023": {
+      "portfolio": {
+        "n": 884,
+        "net_U": 43.9,
+        "roi_pct": 4.9661
+      },
+      "total_AH_ledger_rows": 18792,
+      "portfolio_quote_time_equals_first_pct": 11.199,
+      "portfolio_reference_quote_available_pct": 100.0,
+      "portfolio_ticks_mean": 13.327,
+      "portfolio_ticks_median": 8.0,
+      "portfolio_actual_hours_mean": 11.504,
+      "portfolio_actual_hours_median": 12.068,
+      "ledger_first_quote_nonmissing_pct": 100.0,
+      "ledger_reference_quote_nonmissing_pct": 100.0
+    },
+    "2024": {
+      "portfolio": {
+        "n": 1680,
+        "net_U": 20.975,
+        "roi_pct": 1.2485
+      },
+      "total_AH_ledger_rows": 33603,
+      "portfolio_quote_time_equals_first_pct": 9.524,
+      "portfolio_reference_quote_available_pct": 100.0,
+      "portfolio_ticks_mean": 14.553,
+      "portfolio_ticks_median": 10.0,
+      "portfolio_actual_hours_mean": 10.669,
+      "portfolio_actual_hours_median": 8.662,
+      "ledger_first_quote_nonmissing_pct": 100.0,
+      "ledger_reference_quote_nonmissing_pct": 100.0
+    }
+  },
+  "candidate_attribution": [
+    {
+      "candidate": "T12|line,age|line=0;age=0|favorite",
+      "years": {
+        "2023": {
+          "exposure": 142.0,
+          "net_U": 5.75,
+          "weighted_roi_pct": 4.0493,
+          "contributing_orders": 143
+        },
+        "2024": {
+          "exposure": 222.5,
+          "net_U": 6.46,
+          "weighted_roi_pct": 2.9034,
+          "contributing_orders": 224
+        }
+      }
+    },
+    {
+      "candidate": "T12|line,age|line=2;age=4|underdog",
+      "years": {
+        "2023": {
+          "exposure": 34.0,
+          "net_U": 1.58,
+          "weighted_roi_pct": 4.6471,
+          "contributing_orders": 34
+        },
+        "2024": {
+          "exposure": 63.0,
+          "net_U": -7.81,
+          "weighted_roi_pct": -12.3968,
+          "contributing_orders": 63
+        }
+      }
+    },
+    {
+      "candidate": "T12|line,momentum|line=2;momentum=3|favorite",
+      "years": {
+        "2023": {
+          "exposure": 34.0,
+          "net_U": -0.825,
+          "weighted_roi_pct": -2.4265,
+          "contributing_orders": 64
+        },
+        "2024": {
+          "exposure": 53.5,
+          "net_U": 2.0275,
+          "weighted_roi_pct": 3.7897,
+          "contributing_orders": 95
+        }
+      }
+    },
+    {
+      "candidate": "T12|line,price,momentum|line=0;price=0;momentum=3|away",
+      "years": {
+        "2023": {
+          "exposure": 2.6667,
+          "net_U": -0.0617,
+          "weighted_roi_pct": -2.3125,
+          "contributing_orders": 6
+        },
+        "2024": {
+          "exposure": 10.5,
+          "net_U": 1.23,
+          "weighted_roi_pct": 11.7143,
+          "contributing_orders": 23
+        }
+      }
+    },
+    {
+      "candidate": "T12|line,price,momentum|line=0;price=0;momentum=3|underdog",
+      "years": {
+        "2023": {
+          "exposure": 2.6667,
+          "net_U": -0.0617,
+          "weighted_roi_pct": -2.3125,
+          "contributing_orders": 6
+        },
+        "2024": {
+          "exposure": 10.5,
+          "net_U": 1.23,
+          "weighted_roi_pct": 11.7143,
+          "contributing_orders": 23
+        }
+      }
+    },
+    {
+      "candidate": "T12|line,price,momentum|line=2;price=1;momentum=3|favorite",
+      "years": {
+        "2023": {
+          "exposure": 25.0,
+          "net_U": 3.005,
+          "weighted_roi_pct": 12.02,
+          "contributing_orders": 50
+        },
+        "2024": {
+          "exposure": 38.5,
+          "net_U": -2.4825,
+          "weighted_roi_pct": -6.4481,
+          "contributing_orders": 77
+        }
+      }
+    },
+    {
+      "candidate": "T12|momentum,age|momentum=3;age=2|underdog",
+      "years": {
+        "2023": {
+          "exposure": 58.6667,
+          "net_U": 9.7933,
+          "weighted_roi_pct": 16.6932,
+          "contributing_orders": 64
+        },
+        "2024": {
+          "exposure": 77.5,
+          "net_U": -2.085,
+          "weighted_roi_pct": -2.6903,
+          "contributing_orders": 85
+        }
+      }
+    },
+    {
+      "candidate": "T12|momentum|momentum=4|favorite",
+      "years": {
+        "2023": {
+          "exposure": 2.5,
+          "net_U": -0.19,
+          "weighted_roi_pct": -7.6,
+          "contributing_orders": 4
+        },
+        "2024": {
+          "exposure": 3.5,
+          "net_U": -2.58,
+          "weighted_roi_pct": -73.7143,
+          "contributing_orders": 5
+        }
+      }
+    },
+    {
+      "candidate": "T12|price,momentum|price=1;momentum=4|favorite",
+      "years": {
+        "2023": {
+          "exposure": 1.0,
+          "net_U": 0.44,
+          "weighted_roi_pct": 44.0,
+          "contributing_orders": 2
+        },
+        "2024": {
+          "exposure": 1.5,
+          "net_U": -0.58,
+          "weighted_roi_pct": -38.6667,
+          "contributing_orders": 3
+        }
+      }
+    },
+    {
+      "candidate": "T12|price,momentum|price=2;momentum=3|away",
+      "years": {
+        "2023": {
+          "exposure": 44.5,
+          "net_U": 4.345,
+          "weighted_roi_pct": 9.764,
+          "contributing_orders": 54
+        },
+        "2024": {
+          "exposure": 90.0,
+          "net_U": 6.425,
+          "weighted_roi_pct": 7.1389,
+          "contributing_orders": 98
+        }
+      }
+    },
+    {
+      "candidate": "T24|line,momentum|line=0;momentum=1|away",
+      "years": {
+        "2023": {
+          "exposure": 5.0,
+          "net_U": 1.24,
+          "weighted_roi_pct": 24.8,
+          "contributing_orders": 10
+        },
+        "2024": {
+          "exposure": 6.0,
+          "net_U": -1.795,
+          "weighted_roi_pct": -29.9167,
+          "contributing_orders": 12
+        }
+      }
+    },
+    {
+      "candidate": "T24|line,momentum|line=0;momentum=1|favorite",
+      "years": {
+        "2023": {
+          "exposure": 5.0,
+          "net_U": 1.24,
+          "weighted_roi_pct": 24.8,
+          "contributing_orders": 10
+        },
+        "2024": {
+          "exposure": 6.0,
+          "net_U": -1.795,
+          "weighted_roi_pct": -29.9167,
+          "contributing_orders": 12
+        }
+      }
+    },
+    {
+      "candidate": "T24|line,price,momentum|line=3;price=1;momentum=2|underdog",
+      "years": {
+        "2023": {
+          "exposure": 49.0,
+          "net_U": 3.1575,
+          "weighted_roi_pct": 6.4439,
+          "contributing_orders": 98
+        },
+        "2024": {
+          "exposure": 82.5,
+          "net_U": 5.915,
+          "weighted_roi_pct": 7.1697,
+          "contributing_orders": 165
+        }
+      }
+    },
+    {
+      "candidate": "T24|line,price|line=3;price=1|underdog",
+      "years": {
+        "2023": {
+          "exposure": 65.0,
+          "net_U": 0.6875,
+          "weighted_roi_pct": 1.0577,
+          "contributing_orders": 114
+        },
+        "2024": {
+          "exposure": 105.5,
+          "net_U": 1.98,
+          "weighted_roi_pct": 1.8768,
+          "contributing_orders": 188
+        }
+      }
+    },
+    {
+      "candidate": "T2|line,price,momentum|line=2;price=2;momentum=1|favorite",
+      "years": {
+        "2023": {
+          "exposure": 55.0,
+          "net_U": 1.335,
+          "weighted_roi_pct": 2.4273,
+          "contributing_orders": 55
+        },
+        "2024": {
+          "exposure": 115.0,
+          "net_U": 1.615,
+          "weighted_roi_pct": 1.4043,
+          "contributing_orders": 115
+        }
+      }
+    },
+    {
+      "candidate": "T2|line,price,momentum|line=2;price=4;momentum=2|favorite",
+      "years": {
+        "2023": {
+          "exposure": 13.0,
+          "net_U": 1.73,
+          "weighted_roi_pct": 13.3077,
+          "contributing_orders": 13
+        },
+        "2024": {
+          "exposure": 21.0,
+          "net_U": -2.27,
+          "weighted_roi_pct": -10.8095,
+          "contributing_orders": 21
+        }
+      }
+    },
+    {
+      "candidate": "T2|line,price,momentum|line=3;price=3;momentum=3|away",
+      "years": {
+        "2023": {
+          "exposure": 5.0,
+          "net_U": 0.05,
+          "weighted_roi_pct": 1.0,
+          "contributing_orders": 5
+        },
+        "2024": {
+          "exposure": 27.0,
+          "net_U": -7.445,
+          "weighted_roi_pct": -27.5741,
+          "contributing_orders": 27
+        }
+      }
+    },
+    {
+      "candidate": "T2|line,price|line=4;price=3|underdog",
+      "years": {
+        "2023": {
+          "exposure": 32.5,
+          "net_U": 2.6,
+          "weighted_roi_pct": 8.0,
+          "contributing_orders": 34
+        },
+        "2024": {
+          "exposure": 63.5,
+          "net_U": 4.125,
+          "weighted_roi_pct": 6.4961,
+          "contributing_orders": 67
+        }
+      }
+    },
+    {
+      "candidate": "T2|momentum,age|momentum=1;age=1|underdog",
+      "years": {
+        "2023": {
+          "exposure": 170.5,
+          "net_U": -0.705,
+          "weighted_roi_pct": -0.4135,
+          "contributing_orders": 172
+        },
+        "2024": {
+          "exposure": 369.5,
+          "net_U": 19.495,
+          "weighted_roi_pct": 5.276,
+          "contributing_orders": 373
+        }
+      }
+    },
+    {
+      "candidate": "T6|line,price|line=1;price=4|away",
+      "years": {
+        "2023": {
+          "exposure": 16.5,
+          "net_U": 1.5663,
+          "weighted_roi_pct": 9.4924,
+          "contributing_orders": 66
+        },
+        "2024": {
+          "exposure": 31.0833,
+          "net_U": -0.5258,
+          "weighted_roi_pct": -1.6917,
+          "contributing_orders": 124
+        }
+      }
+    },
+    {
+      "candidate": "T6|line,price|line=1;price=4|underdog",
+      "years": {
+        "2023": {
+          "exposure": 20.8333,
+          "net_U": 0.4479,
+          "weighted_roi_pct": 2.15,
+          "contributing_orders": 79
+        },
+        "2024": {
+          "exposure": 38.4167,
+          "net_U": 0.1758,
+          "weighted_roi_pct": 0.4577,
+          "contributing_orders": 146
+        }
+      }
+    },
+    {
+      "candidate": "T6|momentum,age|momentum=4;age=0|home",
+      "years": {
+        "2023": {
+          "exposure": 5.0,
+          "net_U": 0.56,
+          "weighted_roi_pct": 11.2,
+          "contributing_orders": 8
+        },
+        "2024": {
+          "exposure": 8.0,
+          "net_U": 0.72,
+          "weighted_roi_pct": 9.0,
+          "contributing_orders": 15
+        }
+      }
+    },
+    {
+      "candidate": "T6|price,momentum|price=1;momentum=4|favorite",
+      "years": {
+        "2023": {
+          "exposure": 5.0,
+          "net_U": 0.775,
+          "weighted_roi_pct": 15.5,
+          "contributing_orders": 7
+        },
+        "2024": {
+          "exposure": 11.0,
+          "net_U": -1.515,
+          "weighted_roi_pct": -13.7727,
+          "contributing_orders": 16
+        }
+      }
+    },
+    {
+      "candidate": "T6|price,momentum|price=2;momentum=4|home",
+      "years": {
+        "2023": {
+          "exposure": 1.0,
+          "net_U": -0.015,
+          "weighted_roi_pct": -1.5,
+          "contributing_orders": 2
+        },
+        "2024": {
+          "exposure": 2.0,
+          "net_U": 0.175,
+          "weighted_roi_pct": 8.75,
+          "contributing_orders": 4
+        }
+      }
+    },
+    {
+      "candidate": "T6|price,momentum|price=4;momentum=1|away",
+      "years": {
+        "2023": {
+          "exposure": 4.25,
+          "net_U": 1.3013,
+          "weighted_roi_pct": 30.6176,
+          "contributing_orders": 15
+        },
+        "2024": {
+          "exposure": 5.5,
+          "net_U": 0.43,
+          "weighted_roi_pct": 7.8182,
+          "contributing_orders": 20
+        }
+      }
+    },
+    {
+      "candidate": "T6|price,momentum|price=4;momentum=2|underdog",
+      "years": {
+        "2023": {
+          "exposure": 40.0833,
+          "net_U": 1.4267,
+          "weighted_roi_pct": 3.5593,
+          "contributing_orders": 111
+        },
+        "2024": {
+          "exposure": 100.0833,
+          "net_U": -0.6858,
+          "weighted_roi_pct": -0.6853,
+          "contributing_orders": 260
+        }
+      }
+    },
+    {
+      "candidate": "T6|price|price=4|underdog",
+      "years": {
+        "2023": {
+          "exposure": 44.3333,
+          "net_U": 2.7279,
+          "weighted_roi_pct": 6.1532,
+          "contributing_orders": 126
+        },
+        "2024": {
+          "exposure": 116.9167,
+          "net_U": 0.5408,
+          "weighted_roi_pct": 0.4626,
+          "contributing_orders": 292
+        }
+      }
+    }
+  ],
+  "candidate_decomposition": {
+    "candidate_mix_pp": -0.5313,
+    "within_candidate_pp": -3.1863,
+    "total_pp": -3.7176
+  },
+  "caveats": [
+    "Equal fractional PnL allocation among winning-side candidate IDs is an accounting attribution, not independent candidate betting PnL or causal influence.",
+    "2023 vs 2024 candidate mix decomposition uses 2023 reference returns; all original candidate identities remain fixed.",
+    "Quote metadata is from retrospectively collected Crown ledger, not proof that these quote histories existed in live 2023/2024 systems.",
+    "Different years may have different league/fixture coverage, not controlled without a fixture-league map.",
+    "2019-2023 original R7 in-sample; 2024 repeatedly inspected; no untouched independent validation.",
+    "No 2025-2026 or production changes, no new strategy filters."
+  ]
+}
