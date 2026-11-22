@@ -1,0 +1,193 @@
+{
+  "study": "CROWN_AH_OU_SHARED_STORE_INTEGRATION",
+  "mode": "import",
+  "generated_at_utc": "2026-11-22T06:04:25.604156+00:00",
+  "scope": "all 2019-2026 Crown captures in shared SQLite, matching legacy Crown caches, and append-only OU network collection records; no network requests",
+  "sources": {
+    "fixture_inventory_path": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/fixture_inventory_2019_2026.jsonl.gz",
+    "fixture_inventory_unique_fids": 114111,
+    "m5_raw_dir": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/crown-responses",
+    "m5_raw_json_count": 11652,
+    "legacy_epl_raw_dir": "/Users/mac/QuantAsiaDesk/data/epl_laliga_crown_5seasons/raw_crown",
+    "network_log": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/ou_2019_2026_network_collection.jsonl",
+    "network_log_records_seen": 409,
+    "sqlite_path": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3",
+    "sqlite_counts_before": {
+      "capture": 156785,
+      "asian_quote": 4600885
+    }
+  },
+  "counts": {
+    "unique_fid_sha_responses": 106922,
+    "responses_with_crown_book": 106671,
+    "responses_with_ou_open_close": 50480,
+    "responses_with_goal_list": 10446,
+    "responses_with_both_summary_and_path": 10396,
+    "source_receipts_with_ou": 110666,
+    "source_receipt_rows": 169266,
+    "responses_without_crown_book": 251,
+    "responses_without_ou_values": 56392,
+    "failed_or_bodyless_request_rows": 2
+  },
+  "quote_rows_by_kind": {
+    "open": 50480,
+    "close": 50480,
+    "movement": 1844554
+  },
+  "by_year_response_bodies": {
+    "2019": {
+      "response_bodies": 10688,
+      "open_close_responses": 2607,
+      "goal_list_responses": 0
+    },
+    "2020": {
+      "response_bodies": 10843,
+      "open_close_responses": 2489,
+      "goal_list_responses": 0
+    },
+    "2021": {
+      "response_bodies": 15169,
+      "open_close_responses": 3561,
+      "goal_list_responses": 0
+    },
+    "2022": {
+      "response_bodies": 14208,
+      "open_close_responses": 3264,
+      "goal_list_responses": 0
+    },
+    "2023": {
+      "response_bodies": 14811,
+      "open_close_responses": 4709,
+      "goal_list_responses": 0
+    },
+    "2024": {
+      "response_bodies": 14652,
+      "open_close_responses": 11484,
+      "goal_list_responses": 0
+    },
+    "2025": {
+      "response_bodies": 14920,
+      "open_close_responses": 12458,
+      "goal_list_responses": 1116
+    },
+    "2026": {
+      "response_bodies": 11631,
+      "open_close_responses": 9908,
+      "goal_list_responses": 9330
+    }
+  },
+  "unique_fids_by_year": {
+    "2019": {
+      "any_crown_response": 10311,
+      "with_crown_book": 10311,
+      "with_ou_open_close": 2230
+    },
+    "2020": {
+      "any_crown_response": 10832,
+      "with_crown_book": 10832,
+      "with_ou_open_close": 2478
+    },
+    "2021": {
+      "any_crown_response": 15000,
+      "with_crown_book": 15000,
+      "with_ou_open_close": 3392
+    },
+    "2022": {
+      "any_crown_response": 13847,
+      "with_crown_book": 13847,
+      "with_ou_open_close": 2903
+    },
+    "2023": {
+      "any_crown_response": 14771,
+      "with_crown_book": 14771,
+      "with_ou_open_close": 4669
+    },
+    "2024": {
+      "any_crown_response": 14652,
+      "with_crown_book": 14652,
+      "with_ou_open_close": 11484
+    },
+    "2025": {
+      "any_crown_response": 14726,
+      "with_crown_book": 14726,
+      "with_ou_open_close": 12458,
+      "with_ou_goal_list": 1116
+    },
+    "2026": {
+      "any_crown_response": 11212,
+      "with_crown_book": 10993,
+      "with_ou_open_close": 9873,
+      "with_ou_goal_list": 9330
+    }
+  },
+  "quote_rows_by_year_and_kind": {
+    "2019": {
+      "open": 2607,
+      "close": 2607
+    },
+    "2020": {
+      "open": 2489,
+      "close": 2489
+    },
+    "2021": {
+      "open": 3561,
+      "close": 3561
+    },
+    "2022": {
+      "open": 3264,
+      "close": 3264
+    },
+    "2023": {
+      "open": 4709,
+      "close": 4709
+    },
+    "2024": {
+      "open": 11484,
+      "close": 11484
+    },
+    "2025": {
+      "open": 12458,
+      "close": 12458,
+      "movement": 149674
+    },
+    "2026": {
+      "open": 9908,
+      "close": 9908,
+      "movement": 1694880
+    }
+  },
+  "by_source_type": {
+    "m5_response_cache,sqlite_capture": {
+      "response_bodies": 11546
+    },
+    "sqlite_capture": {
+      "response_bodies": 94404
+    },
+    "epl_laliga_response_cache,sqlite_capture": {
+      "response_bodies": 584
+    },
+    "ou_network_collection": {
+      "response_bodies": 388
+    }
+  },
+  "sha_mismatches": [],
+  "sha_mismatch_n": 0,
+  "identity_mismatches": [],
+  "identity_mismatch_n": 0,
+  "existing_ou_source_rows_before": 0,
+  "new_source_rows_or_imported_responses": 106922,
+  "database_after": {
+    "capture": 157185,
+    "asian_quote": 4602182,
+    "crown_ou_source": 169268,
+    "crown_ou_quote": 5754694,
+    "unique_ou_fids": 49537,
+    "ou_by_kind": {
+      "close": 110516,
+      "movement": 5533662,
+      "open": 110516
+    },
+    "pregame_actual_receipt_quotes": 272,
+    "target_inventory_ou_fids": 49537
+  }
+}

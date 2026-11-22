@@ -83,8 +83,8 @@ def terminal_attempts(path):
   if r.get('status') not in ('FETCH_FAILED',):done.add(str(r.get('match_id') or ''))
  return done
 
-def combined_request(fid,token):
- query={'token':token,'bookmaker':'crown','columns':'asianList,goalList'}
+def combined_request(fid,token,columns='asianList,goalList'):
+ query={'token':token,'bookmaker':'crown','columns':columns}
  url=crown.API+fid+'?'+urllib.parse.urlencode(query)
  last='UNKNOWN';attempts=[]
  for attempt in range(4):
@@ -120,37 +120,42 @@ def combined_request(fid,token):
      time.sleep(.1)
  raise RequestFailure(last,attempts)
 
-def save_combined(cx,fid,raw,received,match,book):
+def save_combined(cx,fid,raw,received,match,book,requested_columns=('asianList','goalList'),required_ah_kinds=(),required_ou_kinds=()):
+ requested=set(requested_columns);need_ah=set(required_ah_kinds);need_ou=set(required_ou_kinds)
  sha=hashlib.sha256(raw).hexdigest();path=STORE/'raw'/'historical'/fid/(sha+'.json');crown.archive_file(path,raw)
- # Both AH layers and OU rows are written from the same response in one transaction.
- started=time.monotonic()
- sha=hashlib.sha256(raw).hexdigest();kickoff=crown.parse_timestamp(match.get('start'));now=dt.datetime.now(UTC).isoformat()
- ah_counts={}
- for layer in ('summary','movement'):
-  rows=crown.rows_for_layer(book,layer);key=hashlib.sha256(f"{layer}|historical|{fid}|{sha}|".encode()).hexdigest();ah_counts[layer]=len(rows)
-  prev=cx.execute('SELECT quote_count FROM capture WHERE capture_key=?',(key,)).fetchone()
-  if prev is None:
-   cx.execute('''INSERT INTO capture(capture_key,fixture_id,data_layer,capture_mode,response_received_at_utc,processed_at_utc,source_file,response_sha256,kickoff_at_utc,prospective_observation,quote_count,status)
-    VALUES(?,?,?,?,?,?,?,?,?,?,?,?)''',(key,fid,layer,'historical',received,now,str(path),sha,kickoff,0,len(rows),'QUOTES_SAVED' if rows else 'NO_CROWN_AH_QUOTES'))
-  for i,(kind,line,home,away,source_time) in enumerate(rows):
-   source_utc=crown.parse_timestamp(source_time);before=int(source_utc<kickoff) if source_utc and kickoff else None
-   cx.execute('''INSERT OR IGNORE INTO asian_quote(capture_key,sequence_index,fixture_id,quote_kind,handicap_home,home_decimal,away_decimal,quote_source_at_utc,response_received_at_utc,prospective_observation,quote_before_kickoff)
-    VALUES(?,?,?,?,?,?,?,?,?,?,?)''',(key,i,fid,kind,crown.valid_number(line),crown.valid_number(home),crown.valid_number(away),source_utc,received,0,before))
- # Store OU against the same response and linked AH movement capture.
- capkey=hashlib.sha256(f"movement|historical|{fid}|{sha}|".encode()).hexdigest()
- source_key=hashlib.sha256('|'.join(('combined_crown_collection',fid,sha,received,capkey)).encode()).hexdigest()
- qs=ou_rows(book);goal=book.get('goal') or {};has_summary=any(isinstance(goal.get(k),dict) for k in ('open','close'))
- ko=crown.parse_timestamp(match.get('start'));now=dt.datetime.now(UTC).isoformat()
- with cx:
-  cx.execute('''INSERT OR IGNORE INTO crown_ou_source
-   (source_key,fixture_id,capture_key,source_type,capture_mode,response_received_at_utc,kickoff_at_utc,source_file,response_sha256,response_status,raw_sha_verified,has_goal_summary,goal_list_count,imported_at_utc)
-   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',(source_key,fid,capkey,'combined_crown_collection','historical',received,ko,str(path),sha,'HTTP_200_CROWN_RESPONSE',1,int(has_summary),sum(q[0]=='movement' for q in qs),now))
-  for i,(kind,line,over,under,source_time) in enumerate(qs):
-   before=int(source_time<ko) if source_time and ko else None
-   cx.execute('''INSERT OR IGNORE INTO crown_ou_quote
-    (source_key,sequence_index,fixture_id,quote_kind,total_line,over_decimal,under_decimal,quote_source_at_utc,response_received_at_utc,prospective_observation,quote_before_kickoff)
-    VALUES (?,?,?,?,?,?,?,?,?,?,?)''',(source_key,i,fid,kind,line,over,under,source_time,received,0,before))
- return {'sha256':sha,'raw_file':str(path),'ah_summary_n':sum(q[0] in ('open','close') for q in crown.rows_for_layer(book,'summary')),'ah_movement_n':sum(q[0]=='movement' for q in crown.rows_for_layer(book,'movement')),'ou_summary_n':sum(q[0] in ('open','close') for q in qs),'ou_movement_n':sum(q[0]=='movement' for q in qs),'db_write_seconds':round(time.monotonic()-started,4)}
+ started=time.monotonic();kickoff=crown.parse_timestamp(match.get('start'));now=dt.datetime.now(UTC).isoformat()
+ ah_all={'summary':crown.rows_for_layer(book,'summary'),'movement':crown.rows_for_layer(book,'movement')}
+ ah_rows={layer:[row for row in rows if row[0] in need_ah] for layer,rows in ah_all.items()} if 'asianList' in requested else {'summary':[],'movement':[]}
+ ou_all=ou_rows(book) if 'goalList' in requested else []
+ qs=[row for row in ou_all if row[0] in need_ou]
+ if 'asianList' in requested:
+  for layer,rows in ah_rows.items():
+   key=hashlib.sha256(f"{layer}|historical|{fid}|{sha}|".encode()).hexdigest()
+   prev=cx.execute('SELECT quote_count FROM capture WHERE capture_key=?',(key,)).fetchone()
+   if prev is None:
+    cx.execute('''INSERT INTO capture(capture_key,fixture_id,data_layer,capture_mode,response_received_at_utc,processed_at_utc,source_file,response_sha256,kickoff_at_utc,prospective_observation,quote_count,status)
+     VALUES(?,?,?,?,?,?,?,?,?,?,?,?)''',(key,fid,layer,'historical',received,now,str(path),sha,kickoff,0,len(rows),'QUOTES_SAVED' if rows else 'NO_CROWN_AH_QUOTES'))
+   for i,(kind,line,home,away,source_time) in enumerate(rows):
+    source_utc=crown.parse_timestamp(source_time);before=int(source_utc<kickoff) if source_utc and kickoff else None
+    cx.execute('''INSERT OR IGNORE INTO asian_quote(capture_key,sequence_index,fixture_id,quote_kind,handicap_home,home_decimal,away_decimal,quote_source_at_utc,response_received_at_utc,prospective_observation,quote_before_kickoff)
+     VALUES(?,?,?,?,?,?,?,?,?,?,?)''',(key,i,fid,kind,crown.valid_number(line),crown.valid_number(home),crown.valid_number(away),source_utc,received,0,before))
+ if 'goalList' in requested:
+  goal=(book or {}).get('goal') or {};has_summary=any(isinstance(goal.get(k),dict) for k in ('open','close'))
+  capkey=hashlib.sha256(f"movement|historical|{fid}|{sha}|".encode()).hexdigest() if 'asianList' in requested else None
+  source_key=hashlib.sha256('|'.join(('combined_crown_collection',fid,sha,received,capkey or 'goalList_only')).encode()).hexdigest()
+  with cx:
+   cx.execute('''INSERT OR IGNORE INTO crown_ou_source
+    (source_key,fixture_id,capture_key,source_type,capture_mode,response_received_at_utc,kickoff_at_utc,source_file,response_sha256,response_status,raw_sha_verified,has_goal_summary,goal_list_count,imported_at_utc)
+    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',(source_key,fid,capkey,'combined_crown_collection','historical',received,kickoff,str(path),sha,'HTTP_200_CROWN_RESPONSE' if book else 'NO_CROWN_BOOKMAKER',1,int(has_summary),sum(q[0]=='movement' for q in ou_all),dt.datetime.now(UTC).isoformat()))
+   for i,(kind,line,over,under,source_time) in enumerate(qs):
+    before=int(source_time<kickoff) if source_time and kickoff else None
+    cx.execute('''INSERT OR IGNORE INTO crown_ou_quote
+     (source_key,sequence_index,fixture_id,quote_kind,total_line,over_decimal,under_decimal,quote_source_at_utc,response_received_at_utc,prospective_observation,quote_before_kickoff)
+     VALUES(?,?,?,?,?,?,?,?,?,?,?)''',(source_key,i,fid,kind,line,over,under,source_time,received,0,before))
+ cx.commit()
+ saved_ah_kinds=sorted({r[0] for rows in ah_rows.values() for r in rows})
+ saved_ou_kinds=sorted({r[0] for r in qs})
+ return {'sha256':sha,'raw_file':str(path),'requested_columns':','.join(requested_columns),'requested_ah_kinds':sorted(need_ah),'requested_ou_kinds':sorted(need_ou),'saved_ah_kinds':saved_ah_kinds,'saved_ou_kinds':saved_ou_kinds,'ah_summary_n':sum(q[0] in ('open','close') for rows in ah_rows.values() for q in rows),'ah_movement_n':len(ah_rows['movement']),'ou_summary_n':sum(q[0] in ('open','close') for q in qs),'ou_movement_n':sum(q[0]=='movement' for q in qs),'db_write_seconds':round(time.monotonic()-started,4)}
 
 def collect(db,fixtures,queue_path,log_path,interval,limit=0):
  state=coverage(db,fixtures);token=crown.api_token();last_start=None;counts=collections.Counter();log=Path(log_path);already=terminal_attempts(log)
@@ -165,19 +170,25 @@ def collect(db,fixtures,queue_path,log_path,interval,limit=0):
     counts['already_attempted_skipped']+=1;continue
    if all(s[k] for k in ('ah_open_close','ah_movement','ou_open_close','ou_movement')):
     counts['became_complete_before_request']+=1;continue
+   required_ah_kinds=tuple(k for k in ('open','close') if s[f'ah_{k}_n']==0)+(('movement',) if s['ah_movement_n']==0 else ())
+   required_ou_kinds=tuple(k for k in ('open','close') if s[f'ou_{k}_n']==0)+(('movement',) if s['ou_movement_n']==0 else ())
+   requested_columns=tuple(c for c,needed in (('asianList',bool(required_ah_kinds)),('goalList',bool(required_ou_kinds))) if needed)
    if last_start is not None:
     wait=max(0,interval-(time.monotonic()-last_start))
     if wait:time.sleep(wait)
    last_start=time.monotonic();started=time.monotonic()
    try:
-    raw,received,http,obj,match,book,request_seconds,attempts=combined_request(fid,token)
-    saved=save_combined(writer,fid,raw,received,match,book)
-    status='BOTH_MARKETS' if all(saved[k] for k in ('ah_summary_n','ah_movement_n','ou_summary_n','ou_movement_n')) else 'PARTIAL_MARKETS' if any(saved[k] for k in ('ah_summary_n','ah_movement_n','ou_summary_n','ou_movement_n')) else 'NO_CROWN_MARKET_DATA'
+    raw,received,http,obj,match,book,request_seconds,attempts=combined_request(fid,token,','.join(requested_columns))
+    saved=save_combined(writer,fid,raw,received,match,book,requested_columns,required_ah_kinds,required_ou_kinds)
+    saved_ah=set(saved['saved_ah_kinds']);saved_ou=set(saved['saved_ou_kinds'])
+    ah_after=all(s[f'ah_{k}_n']>0 or k in saved_ah for k in ('open','close','movement'))
+    ou_after=all(s[f'ou_{k}_n']>0 or k in saved_ou for k in ('open','close','movement'))
+    status='BOTH_MARKETS' if ah_after and ou_after else 'PARTIAL_MARKETS' if any(saved[k] for k in ('ah_summary_n','ah_movement_n','ou_summary_n','ou_movement_n')) else 'NO_CROWN_MARKET_DATA'
     rec={'match_id':fid,'league_id':row['league_id'],'year':row['year'],'status':status,'http_status':http,'api_success':obj.get('success'),'response_received_at_utc':received,'request_seconds':round(request_seconds,4),'request_attempts':attempts,'attempt_count':len(attempts),'elapsed_seconds':round(time.monotonic()-started,3),**saved}
    except Exception as e:
     writer.rollback()
-    with writer:writer.execute('INSERT INTO failed_attempt VALUES (?,?,?,?,?)',(dt.datetime.now(UTC).isoformat(),fid,'movement+OU','historical',str(e)[:160]))
-    attempts=getattr(e,'attempts',[]);rec={'match_id':fid,'league_id':row['league_id'],'year':row['year'],'status':'FETCH_FAILED','error':str(e)[:160],'request_attempts':attempts,'attempt_count':len(attempts),'elapsed_seconds':round(time.monotonic()-started,3)}
+    with writer:writer.execute('INSERT INTO failed_attempt VALUES (?,?,?,?,?)',(dt.datetime.now(UTC).isoformat(),fid,','.join(requested_columns),'historical',str(e)[:160]))
+    attempts=getattr(e,'attempts',[]);rec={'match_id':fid,'league_id':row['league_id'],'year':row['year'],'status':'FETCH_FAILED','error':str(e)[:160],'requested_columns':','.join(requested_columns),'requested_ah_kinds':list(required_ah_kinds),'requested_ou_kinds':list(required_ou_kinds),'request_attempts':attempts,'attempt_count':len(attempts),'elapsed_seconds':round(time.monotonic()-started,3)}
    f.write(json.dumps(rec,ensure_ascii=False)+'\n');f.flush();counts[rec['status']]+=1
    if i%25==0:print(json.dumps({'processed_from_queue':i,'total_queue':len(rows),'counts':dict(counts),'last':rec},ensure_ascii=False),flush=True)
  writer.close()

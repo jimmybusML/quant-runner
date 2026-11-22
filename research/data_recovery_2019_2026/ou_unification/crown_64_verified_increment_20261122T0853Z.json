@@ -1,0 +1,84 @@
+{
+  "scope": "fixed 64 Provider League IDs, 2023-2026 only",
+  "snapshot_created_utc": "2026-11-22T08:53:17Z",
+  "window_start_utc": "2026-11-22T08:51:43+00:00",
+  "window_end_utc": "2026-11-22T08:52:18.891007+00:00",
+  "records": 7,
+  "unique_fids": 7,
+  "status_counts": {
+    "BOTH_MARKETS": 5,
+    "NO_CROWN_MARKET_DATA": 2
+  },
+  "HTTP_response_sha_checks": 7,
+  "raw_sha_mismatches_or_missing": [],
+  "out_of_scope_fids": [],
+  "coverage_at_window_start": {
+    "ah_open_close": 32449,
+    "ah_movement": 36342,
+    "ou_open_close": 32445,
+    "ou_movement": 5039
+  },
+  "queue_at_window_start": 42716,
+  "coverage_after_responses": "pending next queue rebuild",
+  "responses": [
+    {
+      "fid": "131099354",
+      "status": "BOTH_MARKETS",
+      "response_sha256": "bd1e96a51640e626c1d4bdd90bcf8393321f4debb7eac21060d137687c5a3422",
+      "raw_sha256": "bd1e96a51640e626c1d4bdd90bcf8393321f4debb7eac21060d137687c5a3422",
+      "matches": true,
+      "response_received_at_utc": "2026-11-22T08:51:47.918586+00:00"
+    },
+    {
+      "fid": "131099363",
+      "status": "BOTH_MARKETS",
+      "response_sha256": "4e0bf95f49cc32b9de628ce7927ecd3be865bd4f871898c500f0585a1f65a685",
+      "raw_sha256": "4e0bf95f49cc32b9de628ce7927ecd3be865bd4f871898c500f0585a1f65a685",
+      "matches": true,
+      "response_received_at_utc": "2026-11-22T08:51:53.064298+00:00"
+    },
+    {
+      "fid": "131100308",
+      "status": "NO_CROWN_MARKET_DATA",
+      "response_sha256": "7d627a2b690bdf62d878c3cacd8747014c0de9e03c4332853a07bd9f85a5bfe6",
+      "raw_sha256": "7d627a2b690bdf62d878c3cacd8747014c0de9e03c4332853a07bd9f85a5bfe6",
+      "matches": true,
+      "response_received_at_utc": "2026-11-22T08:51:58.216607+00:00"
+    },
+    {
+      "fid": "129700167",
+      "status": "NO_CROWN_MARKET_DATA",
+      "response_sha256": "da8bc86f4518794a01e2f066741fcd18621c1be3072af9e83daec286fe628af8",
+      "raw_sha256": "da8bc86f4518794a01e2f066741fcd18621c1be3072af9e83daec286fe628af8",
+      "matches": true,
+      "response_received_at_utc": "2026-11-22T08:52:03.396048+00:00"
+    },
+    {
+      "fid": "131095487",
+      "status": "BOTH_MARKETS",
+      "response_sha256": "676655af0a9adec32844478d026e4e678817aa0debd8ccda8f805bf7e7489696",
+      "raw_sha256": "676655af0a9adec32844478d026e4e678817aa0debd8ccda8f805bf7e7489696",
+      "matches": true,
+      "response_received_at_utc": "2026-11-22T08:52:08.940188+00:00"
+    },
+    {
+      "fid": "131095489",
+      "status": "BOTH_MARKETS",
+      "response_sha256": "5899aa127990277badcdb87f6b93c51e17af7324460e19846f119c9c610dfad4",
+      "raw_sha256": "5899aa127990277badcdb87f6b93c51e17af7324460e19846f119c9c610dfad4",
+      "matches": true,
+      "response_received_at_utc": "2026-11-22T08:52:13.679386+00:00"
+    },
+    {
+      "fid": "131097056",
+      "status": "BOTH_MARKETS",
+      "response_sha256": "76858625cf0393a194e1c17a5483033862e63f6b92878d1af3556cee38c17917",
+      "raw_sha256": "76858625cf0393a194e1c17a5483033862e63f6b92878d1af3556cee38c17917",
+      "matches": true,
+      "response_received_at_utc": "2026-11-22T08:52:18.891007+00:00"
+    }
+  ],
+  "collection_checkpoint": "crown_64_collection_checkpoint_20261122T0853Z.jsonl",
+  "driver_checkpoint": "crown_64_driver_checkpoint_20261122T0853Z.jsonl",
+  "coverage_snapshot": "crown_64_coverage_snapshot_20261122T0853Z.json"
+}
