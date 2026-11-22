@@ -1,0 +1,74 @@
+{
+  "scope": "fixed 64 Provider League IDs, 2023-2026",
+  "snapshot_created_utc": "2026-11-22T09:43:45Z",
+  "schedule_fids": 48102,
+  "trusted_full_ft_fids": 48102,
+  "authoritative_queue_rebuild": {
+    "as_of_utc": "2026-11-22T09:42:36.880967+00:00",
+    "queue_count": 42459,
+    "ah_open_close": 32449,
+    "ah_movement": 36342,
+    "ou_open_close": 32445,
+    "ou_movement": 5116
+  },
+  "confirmed_increment_since_0942_queue": {
+    "after_queue_rebuild_utc": "2026-11-22T09:42:36.880967+00:00",
+    "unique_fids": 12,
+    "status_counts": {
+      "NO_CROWN_MARKET_DATA": 9,
+      "BOTH_MARKETS": 3
+    },
+    "saved_ah_kinds": {},
+    "saved_ou_kinds": {
+      "movement": 3
+    },
+    "raw_sha_checked": 12,
+    "raw_sha_mismatches": [],
+    "out_of_scope_or_league_mismatch": [],
+    "duplicate_fids": [],
+    "checkpoint": "research/data_recovery_2019_2026/ou_unification/crown_64_collection_checkpoint_20261122T0943Z.jsonl"
+  },
+  "latest_collector_start": {
+    "at_utc": "2026-11-22T09:42:36.883334+00:00",
+    "pid": 93691,
+    "queue_count": 42459,
+    "interval_seconds": 5.2
+  },
+  "transport_audit": {
+    "log_records": 840,
+    "unique_fids": 766,
+    "latest_fixture_statuses": {
+      "NO_CROWN_MARKET_DATA": 536,
+      "BOTH_MARKETS": 230
+    },
+    "attempts": 856,
+    "attempt_outcomes": {
+      "transport_error": 110,
+      "success": 740,
+      "api_error": 6
+    },
+    "attempt_errors": {
+      "IncompleteRead": 110,
+      "TOO_MANY_REQUEST": 6
+    },
+    "retry_error_fids": 46,
+    "recovered_after_error_fids": 46,
+    "latest_retryable_failures": [],
+    "successful_payload_sizes_by_latest_status": {
+      "BOTH_MARKETS": {
+        "n_success_attempts": 222,
+        "median_bytes": 5621.0,
+        "mean_bytes": 7040.77,
+        "max_bytes": 18377
+      },
+      "NO_CROWN_MARKET_DATA": {
+        "n_success_attempts": 518,
+        "median_bytes": 392.0,
+        "mean_bytes": 392.645,
+        "max_bytes": 417
+      }
+    },
+    "partial_byte_diagnostics_present": 59,
+    "partial_byte_diagnostics_missing": 57
+  }
+}

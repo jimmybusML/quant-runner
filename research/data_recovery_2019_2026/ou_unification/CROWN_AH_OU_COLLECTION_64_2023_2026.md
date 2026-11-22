@@ -278,3 +278,21 @@
 - 至09:39:03 UTC，18个唯一FID收到响应：4个FID在库中已有AH/OU记录且本次只补OU movement，14个HTTP/API成功但没有Crown市场价。18份原始SHA均匹配，越界0、重复0；OU走势推算5,115、队列估算42,464，均待下一次权威重建。AH开收盘、AH走势、OU开收盘新增0。
 - 累计839 attempts：723 success、110 `IncompleteRead`、6 `TOO_MANY_REQUEST`；46个错FID全部恢复，当前retryable失败0。T0938增量/逐场SHA/队列快照与传输审计已保存。采集配置仍为5.2秒间隔，数据均为historical回取。
 - 09:38:19 UTC统一结算PID92747触发安全暂停，collector PID92433完成最后在途响应后停止；父driver PID49373仍运行等待。此时最新已确认队列仍为42,482，刚完成的18个FID预计使下一队列最多降至42,464，实际数待自动重建。
+
+
+## 2026-11-22 09:43 UTC：继续负责2023—2026年64联赛采集
+
+| 数据类型 | 权威已有 / 48,102 | 缺失 | 队列重建后本段新增（待下次权威重建） |
+|---|---:|---:|---:|
+| 64联赛赛程 | 48,102 | 0 | 0 |
+| 可信 full FT | 48,102 | 0 | 0 |
+| Crown AH开收盘 | 32,449 | 15,653 | 0 |
+| Crown AH变化序列 | 36,342 | 11,760 | 0 |
+| Crown OU开收盘 | 32,445 | 15,657 | 0 |
+| Crown OU变化序列 | 5,116 | 42,986 | +3（12个响应中） |
+
+- 工作范围仍为固定64个Provider League ID、2023—2026；不请求其他年份或联赛。原有48,102场赛程和可信full FT均复用。09:42:36.881 UTC队列权威重建为42,459；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,116。safe-window父driver PID49373持续运行，collector PID93691启动，节奏5.2秒。
+- 从本次队列重建后至09:43:38.206 UTC，有12个唯一FID完成响应：3个已有AH/OU报价的FID只新增OU movement，9个HTTP/API成功但返回无Crown AH/OU报价。raw SHA 12/12匹配；联赛ID与64联赛赛程一致，越界0、重复0。AH及开收盘无新增；OU走势推算5,119，属队列重建后的增量，等待下一次权威重建。
+- 本次累计transport audit为856 attempts：740 success、110 `IncompleteRead`、6 `TOO_MANY_REQUEST`；46个遇错FID均已恢复，当前可重试失败0。成功短窗口12个响应/约61秒，约11.8场/分钟；仅代表当前短观察段，未改变5.2秒间隔或服务商限流行为。SQLite写入仍非瓶颈。
+- T0943的响应明细、raw SHA核对、driver事件、覆盖和transport审计见同目录`crown_64_collection_checkpoint_20261122T0943Z.jsonl`、`crown_64_verified_increment_20261122T0943Z.json`、`crown_64_driver_checkpoint_20261122T0943Z.jsonl`、`crown_64_coverage_snapshot_20261122T0943Z.json`及manifest。所有新增响应均为历史回取，不代表赛前实收。
+- 余下权威队列42,459场；按5.2秒间隔的纯请求时间约61.2小时，未计生产作业安全暂停及重试。collector持续自动续采；本轮没有改正式模型、Telegram、账本、采集频率、生产调度或既有规则。

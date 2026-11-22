@@ -5846,3 +5846,12 @@
 
 - 09:36:51权威队列42,482，OU走势5,111；其后18个唯一FID逐场SHA全通过，4个仅新增OU movement、14个无Crown报价。推算走势5,115、队列42,464待重建。
 - 09:38:19 UTC统一结算PID92747触发safe-window暂停，collector PID92433完成在途请求后停止；父driver PID49373仍等待并将自动续采。累计839 attempts：723成功、110 `IncompleteRead`、6 `TOO_MANY_REQUEST`；46个错FID全部恢复。
+
+
+## 2026-11-22：用户接管2023—2026年采集并续跑（T0943Z）
+
+- 用户将当前责任范围明确为2023、2024、2025、2026年采集。固定64联赛清单/Provider League ID、48,102场既有赛程及可信FT不变；不扩大到2019—2022或64联赛外。沿用现有safe-window driver，不重启或另开并发collector。
+- safe-window父driver PID49373保持运行；09:42:36.881 UTC自动重建队列42,459并启动collector PID93691，5.2秒间隔。至09:43:38.206 UTC新增12个唯一FID响应，raw SHA 12/12通过，范围外/重复均0；3个仅补OU movement，9个成功响应没有Crown市场价。AH及开收盘无新增；队列重建基线AH open-close 32,449、AH movement 36,342、OU open-close 32,445、OU movement 5,116。新增走势推算+3，待下次重建确认。
+- Transport累计856 attempts（740成功、110 IncompleteRead、6 TOO_MANY_REQUEST）；46个曾遇错FID全部恢复，最新可重试失败0。12场短窗口约11.8场/分钟，不构成全时吞吐保证；服务商请求间隔仍5.2秒，生产安全作业期间driver自动暂停。
+- 证据和SHA清单：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T0943Z.txt`。完整采集报告追加T0943记录。历史回取与真正赛前HTTP收据严格区分。
+- 当前未完成：权威缺口队列42,459场；按请求间隔估算至少约61.2小时网络时间，实际取决于既有安全暂停和重试。采集仍在运行；未开展模型研究，也未修改生产模型、Telegram、正式账本、采集规则或调度。
