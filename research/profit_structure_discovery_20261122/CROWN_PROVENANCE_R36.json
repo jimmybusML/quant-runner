@@ -1,0 +1,127 @@
+{
+  "source_path": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_original49_historical_Crown_entry_horizon_movement_ledger_20261114.jsonl",
+  "source_sha256": "0a8dc0232f0dfb07f408183dbf799803bb0f7e85a40c0e7243df551d8de64a72",
+  "source_report_protocol": "T30_TO_T2_FIXED_ENTRY_HORIZON_MOVEMENT_V1",
+  "source_report_entry_policy": "for each fixed T-h, latest archived Crown quote available by that cutoff and no earlier than T-30; no quote by cutoff means no order at that cutoff",
+  "years": {
+    "2023": {
+      "AH_rows": 18792,
+      "unique_fixtures": 5828,
+      "unique_fixture_months": 12,
+      "rows_by_month": {
+        "2023-01": 802,
+        "2023-02": 890,
+        "2023-03": 680,
+        "2023-04": 1202,
+        "2023-05": 1123,
+        "2023-06": 303,
+        "2023-07": 173,
+        "2023-08": 2617,
+        "2023-09": 2483,
+        "2023-10": 3057,
+        "2023-11": 2495,
+        "2023-12": 2967
+      },
+      "horizon_rows": {
+        "2": 5828,
+        "12": 5141,
+        "6": 5740,
+        "24": 2083
+      },
+      "horizons_per_fixture": {
+        "1": 88,
+        "3": 3058,
+        "4": 2083,
+        "2": 599
+      },
+      "first_quote_populated_pct": 100.0,
+      "first_quote_received_after_match_year_pct": 100.0,
+      "first_quote_received_years": {
+        "2026": 18792
+      },
+      "first_quote_received_days": {
+        "2026-11-10": 18729,
+        "2026-11-13": 63
+      },
+      "first_quote_layers": {
+        "movement": 18792
+      },
+      "first_quote_ref_prefixes": {
+        "asian_list": 18792
+      },
+      "source_sha_populated_pct": 100.0,
+      "distinct_source_sha": 5828,
+      "first_quote_equals_selected_quote_pct": 13.128,
+      "ticks_mean": 14.649,
+      "ticks_median": 8.0,
+      "actual_hours_mean": 10.292,
+      "actual_hours_median": 6.977778,
+      "selected_quote_hours_before_kickoff_median": 6.978,
+      "league_missing_pct": 100.0
+    },
+    "2024": {
+      "AH_rows": 33603,
+      "unique_fixtures": 10581,
+      "unique_fixture_months": 12,
+      "rows_by_month": {
+        "2024-01": 1786,
+        "2024-02": 2893,
+        "2024-03": 3173,
+        "2024-04": 4208,
+        "2024-05": 3935,
+        "2024-06": 960,
+        "2024-07": 1426,
+        "2024-08": 3324,
+        "2024-09": 3464,
+        "2024-10": 2971,
+        "2024-11": 3011,
+        "2024-12": 2452
+      },
+      "horizon_rows": {
+        "24": 3590,
+        "12": 9121,
+        "6": 10311,
+        "2": 10581
+      },
+      "horizons_per_fixture": {
+        "4": 3590,
+        "3": 5531,
+        "2": 1190,
+        "1": 270
+      },
+      "first_quote_populated_pct": 100.0,
+      "first_quote_received_after_match_year_pct": 100.0,
+      "first_quote_received_years": {
+        "2026": 33603
+      },
+      "first_quote_received_days": {
+        "2026-11-10": 9226,
+        "2026-11-13": 174,
+        "2026-11-11": 24203
+      },
+      "first_quote_layers": {
+        "movement": 33603
+      },
+      "first_quote_ref_prefixes": {
+        "asian_list": 33603
+      },
+      "source_sha_populated_pct": 100.0,
+      "distinct_source_sha": 10581,
+      "first_quote_equals_selected_quote_pct": 12.954,
+      "ticks_mean": 13.207,
+      "ticks_median": 8,
+      "actual_hours_mean": 10.229,
+      "actual_hours_median": 7.155,
+      "selected_quote_hours_before_kickoff_median": 7.155,
+      "league_missing_pct": 100.0
+    }
+  },
+  "caveats": [
+    "The received timestamp is a 2026 retrospective ingestion timestamp, not a historical 2023/2024 pregame receipt.",
+    "Archive event-time quotes are not proof of live historical accessibility or executability.",
+    "The report entry policy is a retrospective quote selection procedure and must not be confused with live reception.",
+    "No fixture-league mapping in this feature ledger, so league mix cannot be compared here.",
+    "Different match/fixture coverage or source availability may confound 2023-2024 ROI; this audit does not estimate causality.",
+    "No new strategy gates, production changes or 2025-2026 outcomes."
+  ]
+}
