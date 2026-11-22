@@ -6225,3 +6225,11 @@
 - T1429→T1437新处理79个唯一FID，均有成功HTTP/API及raw SHA验证（79/79）；57个返回无Crown报价，22个只补了OU movement；无重复、越界或身份不匹配。全量累计2,334 attempts（2,198成功、125 IncompleteRead、11 TOO_MANY_REQUEST），64个曾遇错FID均已恢复，retryable失败0。
 - 已验证Crown接口`columns=asianList,goalList`可以单次返回两个市场summary及movement。FID128294217响应SHA `0c84b0976ad28b6a69c0dc475a8f92e868da0a4b902823e0d5973c5d33c56ac4`，HTTP200/API success，AH movement97行、OU movement89行，AH/OU开收盘值与源事件时间已存接口审计；响应实际收件时间为2026-11-22 14:36:30.627464 UTC，historical模式，未重复写报价行。4次有时间戳的有界重试以成功结束；另记录一条未捕获精确时间的IncompleteRead (7,568 partial / 3,693 expected remaining)。
 - 固定5.2秒/FID节奏与生产安全窗口不变。队列纯请求时间约59.2小时，另加重试/安全暂停；无日历完工承诺。报告、逐场检查点和SHA在`research/data_recovery_2019_2026/ou_unification/`，采集仍未完成。
+
+
+## 2026-11-22 14:50 UTC：T1446后48场逐场增量核验
+
+- 2023—2026责任范围和64联赛集合不变。safe-window driver PID49373保持运行，collector PID64394于14:46:26 UTC从权威队列40,950继续采集，间隔5.2秒。
+- 至14:50:34.599936 UTC新处理48个唯一FID，44个成功响应无Crown AH/OU盘口，4个用`goalList`补入OU走势243行；新增movement覆盖FID 4。AH开收盘、AH movement及AH/OU开收盘未增加。48个原始响应SHA全部匹配，逐场FID/联赛/主客身份与固定赛程匹配，越界/重复/失败0。
+- 14:50时collector仍在批次中，最新权威队列快照仍为14:46的40,950；基于新成功记录的预计队列约40,902、OU movement FID覆盖约5,492，等待下一安全窗口队列重建核实。不要将该推算当最终SQLite覆盖。
+- T1450增量JSONL、验证JSON和SHA文件已归档。进程继续运行，任务未完成。

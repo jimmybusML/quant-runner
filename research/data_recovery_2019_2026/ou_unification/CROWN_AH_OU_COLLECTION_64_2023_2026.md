@@ -767,3 +767,12 @@
 - 测试共记录一条初始未记时IncompleteRead（partial 7,568 bytes，expected remaining 3,693；确切时间未被捕获）以及有时间记录的4次有界重试：先`TOO_MANY_REQUEST`、两次`IncompleteRead`、第4次成功。未记时失败单独留在JSON审计，未隐藏。Cumulative collector transport audit不含这5次接口专测尝试。
 - 硬请求节奏仍为5.2秒/FID，不增加并发；队列40,989按纯间隔约59.2小时，未计计划任务暂停与重试，不是完成时间承诺。原始合并响应说明接口可单次取两市场；collector继续按缺失市场/数据层请求，避免已齐AH重复采集。结果和每个检查点文件SHA见`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1437Z.txt`及接口验证JSON。
 - 本段只做数据采集/传输核查。生产MR1与结算运行期间遵守现行安全暂停。历史报价不冒充真实赛前收据；未改正式模型、TG、账本、采集频率规则或生产调度配置。
+
+
+## 2026-11-22 14:46–14:50 UTC：2023队列增量实收核验
+
+- 14:46:26 UTC安全窗口权威队列40,950，覆盖AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,488。安全driver启动collector PID64394，仍为5.2秒/请求。
+- 截至14:50:34.599936 UTC，增量日志记录48个唯一FID：44条`NO_CROWN_MARKET_DATA`，4条`BOTH_MARKETS`；后者本次只请求缺失的`goalList`并新增OU走势243行（覆盖FID净增4）。AH及OU summary和AH走势本段没有新增。以47个请求间隔计约11.5 FID/min，接近5.2秒间隔理论上限；这是短窗速度，不是长期完成时间。
+- 逐个核查48份原始响应文件SHA及响应内FID/league/team与固定64联赛2023—2026赛事清单：SHA匹配48/48，身份/范围不匹配0，重复FID 0，失败attempt 0。该批全部historical回取。增量逐场行和校验结果见`crown_64_collection_checkpoint_20261122T1450Z.jsonl`及`crown_64_verified_increment_20261122T1450Z.json`。
+- 本段的48条成功响应已产生有效增量，但安全driver仍在同一collector批次中运行；尚未有下一次权威队列/SQLite覆盖重建。因此队列与逐场覆盖的最新**权威**计数仍为T1446（40,950；OU走势5,488）。按本批逐场成功记录推算队列约40,902、OU走势覆盖FID约5,492，仅作为待重建估计，不当作权威结果。
+- AH/OU合并接口和采集程序继续按市场缺口选择列，避免对已有AH summary/path重复请求；生产调度安全暂停仍有效。未改变频率或并发，未改正式模型、TG、账本和生产流程。SHA在`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1450Z.txt`。

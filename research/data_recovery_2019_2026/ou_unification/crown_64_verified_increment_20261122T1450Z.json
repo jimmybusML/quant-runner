@@ -1,0 +1,30 @@
+{
+  "after_authoritative_checkpoint_utc": "2026-11-22T14:46:26.405701+00:00",
+  "through_last_response_received_at_utc": "2026-11-22T14:50:34.599936+00:00",
+  "records": 48,
+  "unique_fids": 48,
+  "status_counts": {
+    "NO_CROWN_MARKET_DATA": 44,
+    "BOTH_MARKETS": 4
+  },
+  "saved_ou_movement_rows": 243,
+  "unique_fids_with_ou_movement": 4,
+  "attempt_count": 48,
+  "failed_attempts": 0,
+  "raw_sha_checked": 48,
+  "raw_sha_mismatches": [],
+  "scope_and_identity_mismatches": [],
+  "duplicate_fids": 0,
+  "capture_mode": "historical",
+  "base_queue_checkpoint": {
+    "at_utc": "2026-11-22T14:46:26.405701+00:00",
+    "queue_count": 40950,
+    "covered": {
+      "ah_open_close": 32449,
+      "ah_movement": 36342,
+      "ou_open_close": 32445,
+      "ou_movement": 5488
+    }
+  },
+  "coverage_note": "This is an increment audit after the last safe-window queue checkpoint. It does not claim a newer authoritative queue count; the collector is still running."
+}
