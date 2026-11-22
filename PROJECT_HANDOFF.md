@@ -5912,3 +5912,11 @@
 - collector PID2585处理完32个唯一FID后，于10:23:05因MR1计划作业PID3263暂停；父driver PID49373保持运行。队列最近权威值42,254（10:20:24重建），安全任务结束后会自动重建并继续。
 - 32个成功响应中11个有待补Crown市场数据、21个无Crown市场报价；T1021后续21场中8个新增OU movement，13个无Crown市场。原始SHA 21/21匹配，范围外/重复0。当前coverage待重建前仍报告T1021的AH 32,449/36,342、OU 32,445/5,171。
 - transport累计1,085 attempts（965 success、114 IncompleteRead、6 TOO_MANY_REQUEST），未恢复错误FID 0。T1023 SHA manifest位于`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1023Z.txt`。
+
+
+### 2026-11-22 10:24 UTC：T1024续采检查点
+
+- 10:24:10 UTC父driver PID49373重建队列42,222并启动collector PID3500（5.2秒间隔）；此前MR1安全窗口结束后已自动续采。
+- 当前字段覆盖：赛程及可信full FT 48,102；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,183。字段缺失15,653/11,760/15,657/42,919。
+- T1023后9个FID的Crown响应SHA 9/9匹配，其中4个新增OU movement、5个无Crown市场。累计1,094 attempts（974 success、114 IncompleteRead、6 TOO_MANY_REQUEST），当前可重试失败0。T1024证据SHA manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1024Z.txt`。
+- 当前待请求纯5.2秒时间约61.0小时；该历史回填尚未完成，持续使用safe-window驱动并保持production隔离。
