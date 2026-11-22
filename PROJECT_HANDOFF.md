@@ -5635,7 +5635,7 @@
 - 对1,102个相对旧base库存新增、已在plus-53统一库存的FID，独立检查Crown raw SHA、3,075份TotalCorner缓存赛程页、当前FT缺口队列和SQLite；1,008场的Crown/TotalCorner full状态及比分、FID/联赛/球队ID/名称/UTC开赛时间完全相同，且均已计入可信FT；另94场仍保持未核FT。该1,102场关联的Crown AH报价行均为0，不增加FID、可信FT或价格覆盖。逐FID证据在`crown_metadata_expanded_inventory_crosschecks_20261122.jsonl.gz`。
 - 按当前plus-53库存复查其外Crown capture身份，共37个可解析FID：36场属于UTC 2015、1场为UTC 2018-12-31中国日期2019边界；没有2019–2026范围内漏出库存的capture-only赛事。分别保留元数据和3,075个本地TotalCorner schedule page SHA索引；未联网请求、未写数据库。
 - 新902桶覆盖刷新、队列核验、只读交叉脚本、逐场账本和SHA见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0507Z.md`及最新检查点清单`CHECKPOINT_SHA256_20261122T0511Z.txt`。来源season仍为96,503个精确标签、107,459个无来源season、冲突0。328条已核raw summary报价仍等待共享SQLite writer安全空闲后导入并重建summary缺口队列；全量movement/summary和FT缺口仍在处理中。
-- 本轮只改研究目录内数据审计/覆盖生成代码和证据文件。未进行策略、模型或盈利研究；未修改正式生产、Telegram、账本、采集配置或调度。公开工作区下一次提交SHA：待本节检查点提交后补录。
+- 本轮只改研究目录内数据审计/覆盖生成代码和证据文件。未进行策略、模型或盈利研究；未修改正式生产、Telegram、账本、采集配置或调度。检查点和逐场证据已提交并推送，研究提交 `e1ba4fc534903dbd0fe918c1111861dacebaf7b4`。
 
 ### 2026-11-22 05:11 UTC：历史movement队列续采与来源交叉核验
 
@@ -5645,4 +5645,4 @@
 - 离线核对扩展库存中的1,102个相较旧base新增且已被Crown采集的FID：1,008场的Crown和TotalCorner原始信息在FID、联赛、队伍、UTC开赛、full状态及比分上完全吻合，均早已计入可信FT；94场非full/不完整，均仍在FT缺口中。1,102场movement AH报价行均为0，不新增赛事、可信FT或价格覆盖。该核对扫描3,075页本地TotalCorner raw缓存。
 - 再以当前plus-53统一库存审计Crown捕获元数据之外的赛事，37个可解析FID均在UTC 2015或2018-12-31，未发现UTC 2019–2026范围内新增capture-only FID。逐场SHA、时间和身份仍保留；3,075页TotalCorner输入SHA索引已生成。
 - 新检查点`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0511Z.md`；覆盖、持久化与FT审计、逐场交叉核对和SHA清单均在同目录。历史movement队列尚有99,710个未终态；summary仍有153,762个库存FID缺historical capture。任务继续，不宣称完成。
-- 本轮仅研究目录内数据审计、覆盖快照脚本和文件有改动；正式模型、生产采集行为/频率、Telegram、正式账本和调度均未改变。未进行模型或策略研究。此更新的Git提交信息将在交付提交后补记。
+- 本轮仅研究目录内数据审计、覆盖快照脚本和文件有改动；正式模型、生产采集行为/频率、Telegram、正式账本和调度均未改变。未进行模型或策略研究。检查点与交接经研究提交 `e1ba4fc534903dbd0fe918c1111861dacebaf7b4` 推送至公开分支 `data/history-backfill-2019-2026`；该分支继续处理未完成的历史补采。
