@@ -5732,3 +5732,10 @@
 - 07:41:17 UTC共享SQLite一致只读查询快照：48,102场固定赛程/可信full FT；AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement4,960。较07:35覆盖快照OU movement +9（07:39暂停末尾2场 raw SHA复核；恢复后7场新的FID序列增量），其余覆盖计数未变。field-level缺口分别15,653、11,760、15,657、43,142；2023—2026分年及SHA证据见同目录`crown_64_coverage_snapshot_20261122T0741Z.json`。
 - 合并采集日志239个唯一FID，均为2023年、固定64联赛范围内；越界0。最新transport audit为280次尝试，213 success、61 `IncompleteRead`、6 `TOO_MANY_REQUEST`；28个遇过失败的FID全部重试成功，未恢复失败0。合并请求回包统一落AH/OU summary与movement并留raw SHA/HTTP接收时间；历史回取保持`historical`，不标成赛前实收。
 - 暂停边界两场FID `130037617`、`130037627` 的raw SHA复核通过，分别有50、58条OU movement；文件`crown_64_pause_boundary_fids_20261122T0739Z.json`及暂停边界原始日志保存逐场证据。进度报告更新至07:41，完整任务继续运行，尚未完成。
+
+### 2026-11-22 07:44 UTC：MR1计划任务触发安全暂停
+
+- 07:43:45 UTC safe-window发现MR1 PID 67291，已暂停历史collector PID 66356；父driver PID 49373仍活跃。等待MR1退出并空闲12秒后会重新构建固定64联赛、2023—2026缺口队列并续采。
+- 07:39:57启动队列42,981。暂停前32个唯一FID获得HTTP/API成功响应：9条返回AH和OU Crown市场数据，23条HTTP200但Crown bookmaker为空；另有1条FID的传输重试在暂停信号处中断，状态`PAUSED_FOR_SCHEDULED_JOB`，会在下一队列重试。
+- 07:43:43 UTC一致只读快照覆盖：AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement4,962；48,102个赛程与可信FT FID。与07:41相比OU movement +2。逐年覆盖、事件日志、transport审计和SHA在`research/data_recovery_2019_2026/ou_unification/`的07:43/07:44检查点中。
+- 当前累积传输尝试311次（238 success、67 IncompleteRead、6 TOO_MANY_REQUEST）；曾遇错误31个FID中30个恢复，余下1个是安全暂停可重试状态。无范围外FID；历史接收模式，不称为实时赛前实收。全量采集未完成，生产系统未改。
