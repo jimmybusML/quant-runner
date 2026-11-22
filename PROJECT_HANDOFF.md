@@ -6133,3 +6133,10 @@
 - safe-window driver PID49373正常运行，collector PID43910已于13:22:42 UTC启动，仍为5.2秒/请求。待请求约59.8小时纯请求时间，不含计划任务暂停和重试。历史回取使用`historical`身份，非真实赛前收据。
 - PID59391为既有2019—2022独立任务；不在本轮责任年份内，本轮未干预。生产调度、采集频率、正式模型、Telegram、账本均未修改。
 - 详细检查点、覆盖、增量、transport和SHA清单见`research/data_recovery_2019_2026/ou_unification/`的T1322文件；完整说明已追加至`CROWN_AH_OU_COLLECTION_64_2023_2026.md`。采集仍在运行，未完成。
+
+## 2026-11-22 13:27 UTC：T1327安全暂停后自动续采
+
+- 统一采集器在13:24:51 UTC因MR1计划任务PID44403自动安全暂停；任务退出后safe-window driver于13:27:08 UTC重新核对队列，并启动collector PID44945。父driver PID49373保持运行，请求间隔仍为5.2秒。
+- 队列从41,355降至41,330；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,393。按年待请求为2023年12,790、2024年14,553、2025年13,520、2026年467。
+- 本区间25个唯一FID全部有响应，raw SHA 25/25匹配；20场无Crown市场数据，5场补入OU movement；26次attempt包含1次`IncompleteRead`后恢复。全日志1,989 attempts（1,857成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`），60个错误FID均已恢复，当前重试失败0。
+- 新检查点及证据已保存于T1327 JSONL/JSON与SHA清单。范围仍限固定64联赛和2023—2026年，历史回取标记不变；采集继续运行。

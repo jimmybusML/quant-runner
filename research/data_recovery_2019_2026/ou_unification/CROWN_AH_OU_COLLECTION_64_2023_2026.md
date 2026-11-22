@@ -667,3 +667,11 @@
 - 全日志累计2,001条记录、1,858个唯一FID、1,963次attempt：1,832成功、120次`IncompleteRead`、11次`TOO_MANY_REQUEST`；59个遇错FID均已恢复，当前待重试失败0。响应体审计确认大量成功的空市场响应仅约393字节中位数。
 - safe-window父driver PID49373在调度任务结束后于13:22:42 UTC重建队列并启动collector PID43910，固定5.2秒/FID。41,355项约59.8小时纯请求时间，不含生产任务暂停与重试。此轮未提速API节奏或影响正式运行。另有PID59391的既有2019—2022独立采集进程，不属于本轮2023—2026责任范围，本轮未触碰。
 - 本检查点及增量SHA审计文件为`crown_64_collection_checkpoint_20261122T1322Z.jsonl`、`crown_64_verified_increment_20261122T1322Z.json`、`crown_64_coverage_snapshot_20261122T1322Z.json`、`crown_64_transport_audit_20261122T1322Z.json`、`crown_64_driver_checkpoint_20261122T1322Z.jsonl`和对应SHA清单。全部历史回取仍标记为`historical`，不可解释为真实赛前收据。
+
+
+## 2026-11-22 13:27 UTC：T1327安全暂停后自动续采
+
+- 统一采集器于13:24:51 UTC因MR1计划作业PID44403自动暂停；计划作业退出后，父driver PID49373于13:27:08 UTC重建队列，并启动collector PID44945。请求节奏维持5.2秒/场。
+- 最新队列41,330，较T1322减少25；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,393。按年待请求为2023年12,790、2024年14,553、2025年13,520、2026年467。
+- T1322之后25个唯一FID响应SHA 25/25通过，范围、身份和唯一性检查均通过；20场响应无Crown市场，5场新增OU movement，AH和开收盘无新增。26次attempt包含1次`IncompleteRead`后恢复。全日志1,989 attempts：1,857成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`；60个曾遇错FID全部恢复。
+- 证据文件为T1327 checkpoint、increment、coverage、transport、driver checkpoint及SHA清单；数据保持`historical`。采集仍在运行。
