@@ -1,3 +1,12 @@
+## 2026-11-22｜Profit Structure Discovery R2：M8重叠与联赛归因完成
+
+- 用户明确同意下一步：实际执行R1全部3,408个Crown AH盈利结构的M8逐场FID重叠审计、按年和联赛的收益拆分。新增 research/profit_structure_discovery_20261122/structure_overlap_r2.py、structure_overlap_r2_results.json 和 PROFIT_STRUCTURE_OVERLAP_R2_20261122.md；研究提交 fb79454b631da0573e3e8597e425403a9380edf0。
+- 冻结M8八组研究文件共10,294个唯一FID，本次读取文件SHA256为658d9450f91d1aee26e91da88c3ab5b32cbfcabb21482accc18241c717e5d48e；与旧机制报告记录的SHA不同，须另行确认版本，不得冒称完全一致。R1全部候选2024—2026逐年净U、ROI和场次逐条复核相同，按M8同场同向、同场反向、M8之外三组分解的数量恒等式均通过。
+- 2026与M8至少有同场重叠的候选数：T−24 456/732、T−12 652/860、T−6 700/888、T−2 660/928。2024/25/26三年总体ROI都正的候选数31/34/32/31；仅M8之外三年都正35/32/27/35。这是**事后扫描结构数量**，不是独立盈利策略或真正前推选择成功率，不能直接转为出单条件。
+- 联赛按M7历史close清单league_id关联；128,842条AH窗口记录中11,540条无league_id，仍保留并标记空联赛，不擅自过滤。候选之间存在大量重叠，当前没有独立候选组合去重后的ROI、订单量或新增收益，不能累计候选盈利。
+- Crown历史盘口为2026赛后回取的事件时间，非当时实际赛前接收。研究未更改M8冻结八组、任何正式模型、Crown生产采集、Telegram正式派单或结算账本，无新增EV、样本数量、筛选或发布Gate。
+- 下一阶段建议（非规则）：检查M8历史SHA版本差异和联赛覆盖；使用只基于发现期的结构排名/规则，在2024—2026逐场做不重复订单组合与M8独立增量评估，保留失败结果。
+
 ## 2026-11-22｜Profit Structure Discovery R1：盈利结构发现引擎首轮实际运行
 
 - 用户明确同意启动新的盈利结构发现研究。实际复用Crown历史AH报价、已有四分之一盘口结算程序，创建并执行研究脚本 research/profit_structure_discovery_20261122/structure_discovery_r1.py，输出全部候选 research/profit_structure_discovery_20261122/structure_discovery_r1_results.json 与报告 PROFIT_STRUCTURE_DISCOVERY_R1_20261122.md。
