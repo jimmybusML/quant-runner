@@ -1,0 +1,133 @@
+{
+  "ledger_rows": 39101,
+  "method_rows": 156404,
+  "settlement_mismatches": 0,
+  "duplicate_fids": 0,
+  "candidate_overlap_frozen_2024_2026": 0,
+  "candidate_unique_fids_2024_2026": 21454,
+  "metrics": {
+    "lower_price": {
+      "orders": 39101,
+      "net_u": -886.44,
+      "roi_pct": -2.267052,
+      "settlements": {
+        "full_win": 16032,
+        "half_loss": 2417,
+        "full_loss": 14835,
+        "half_win": 3199,
+        "push": 2618
+      }
+    },
+    "rate_025": {
+      "orders": 38969,
+      "net_u": -825.76,
+      "roi_pct": -2.119018,
+      "settlements": {
+        "full_win": 15030,
+        "half_win": 3870,
+        "full_loss": 15736,
+        "half_loss": 1746,
+        "push": 2587
+      }
+    },
+    "rate_060": {
+      "orders": 38969,
+      "net_u": -816.89,
+      "roi_pct": -2.096256,
+      "settlements": {
+        "full_win": 15037,
+        "half_win": 3862,
+        "full_loss": 15729,
+        "half_loss": 1754,
+        "push": 2587
+      }
+    },
+    "rate_agreement": {
+      "orders": 38934,
+      "net_u": -820.575,
+      "roi_pct": -2.107605,
+      "settlements": {
+        "full_win": 15022,
+        "half_win": 3860,
+        "full_loss": 15721,
+        "half_loss": 1744,
+        "push": 2587
+      }
+    }
+  },
+  "raw_crown_t1_audit": {
+    "t1_found": 39101,
+    "t1_exact_match": 39097,
+    "t1_price_mismatch": 4
+  },
+  "raw_quote_mismatch_examples": [
+    {
+      "fid": "124870904",
+      "from_path": [
+        -0.75,
+        1.9,
+        1.99
+      ],
+      "raw_t1": [
+        -0.75,
+        1.89,
+        2.0
+      ],
+      "raw_time": "2022-10-04T01:59:19+08:00"
+    },
+    {
+      "fid": "125505507",
+      "from_path": [
+        0.0,
+        2.11,
+        1.8
+      ],
+      "raw_t1": [
+        0.0,
+        2.12,
+        1.79
+      ],
+      "raw_time": "2022-10-09T21:14:38+08:00"
+    },
+    {
+      "fid": "126654204",
+      "from_path": [
+        0.25,
+        1.96,
+        1.92
+      ],
+      "raw_t1": [
+        0.25,
+        1.95,
+        1.93
+      ],
+      "raw_time": "2022-11-05T23:58:14+08:00"
+    },
+    {
+      "fid": "136307330",
+      "from_path": [
+        0.0,
+        1.97,
+        1.92
+      ],
+      "raw_t1": [
+        0.0,
+        1.98,
+        1.91
+      ],
+      "raw_time": "2023-05-08T20:59:37+08:00"
+    }
+  ],
+  "input_sha256": {
+    "/Users/mac/Documents/ChatGPT/m8-m9-group-research/research/m8/score_rate_consensus_20261120/score_rate_consensus_per_fixture.jsonl.gz": "efbeb7b6cdca71366260ef87a691004c4b345c56c1dec7997e85d27b1917ff41",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_late_full_path_water_features_20261114.jsonl": "f21d4d49621df503efdb607b72b08882c1f1365c3178cce13e696d9aad4b697e",
+    "/Users/mac/QuantAsiaDesk/research-work/m7/m7_original49_historical_Crown_dual_market_close_expanded_inventory_20261113T0344Z.jsonl": "39819b7a2b9581965d9a3abbb35bf99127d9127fe5e2cf013a75789aa1de6dfc",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_2026_Jan_Nov_49league_cached_complete_schedule_20261113.jsonl": "10d737b3fdeffda9eed4bf523a2287ab39bb3418c79e2dd3fdf7bab685eae1dc",
+    "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/crown-response-index.jsonl": "112ba4dfc347f6ec98347bbebfd9cd7069cc4a811cda6204b773b11c610bf711",
+    "/Users/mac/QuantAsiaDesk/research-work/m8_foundation_20261115/historical_membership.jsonl": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665"
+  },
+  "crown_sqlite_sha256": "7401078708d56a122987fde6231ae4b8cf296020d7fae54048437e73462c8a3f",
+  "pass_settlement": true,
+  "pass_fid_unique": true,
+  "pass_incremental_disjoint": true
+}

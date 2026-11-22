@@ -1,0 +1,79 @@
+{
+  "study": "M8 frozen F-group cross-league market-mechanism audit",
+  "execution_time_utc": "2026-11-20T19:10:27.576446+00:00",
+  "commands": [
+    "python3 audit_f_market_mechanism.py",
+    "python3 verify_f_market_mechanism.py",
+    "python3 build_f_market_report.py",
+    "python3 -m py_compile audit_f_market_mechanism.py verify_f_market_mechanism.py build_f_market_report.py"
+  ],
+  "inputs": [
+    {
+      "path": "/private/tmp/quant-runner-m8-m9-groups-task/research/m8_m9_group_independent_20261120/exact_rule_cross_league/exact_rule_cross_league_orders.jsonl.gz",
+      "sha256": "c9cadf076514677e9c980521acb66031a674e8a505b7b8431d4f96fedc6af314",
+      "rows": 109,
+      "role": "fixed exact-rule F cross-league orders; includes per-response raw Crown SHA references"
+    },
+    {
+      "path": "/Users/mac/QuantAsiaDesk/research-work/m8_foundation_20261115/historical_membership.jsonl",
+      "sha256": "6cc9c761548ba8b2dae7f4e50d77b0b90152229ea35fd1316161b3f27958f665",
+      "role": "frozen original M8 membership used for FID disjointness check"
+    }
+  ],
+  "raw_response_validation": "Each of 109 original Crown JSON response files was read directly by both audit and independent verifier; response SHA, fixture identity, FT, T6/T3/T1 source-event quote contract, line and odds were checked. Raw response SHA per FID is retained in the row ledger.",
+  "outputs": {
+    "F_GROUP_MARKET_MECHANISM_REPORT.md": {
+      "sha256": "03ac75dee762860055c5dc85b235c8595b528db74be6adfa87af868d11e0841a",
+      "bytes": 7811
+    },
+    "audit_f_market_mechanism.py": {
+      "sha256": "e63a62af4092b34fa6c2231172c66c34be6aa86e50b68885b2f57e76a71ebd0c",
+      "bytes": 15134
+    },
+    "build_f_market_report.py": {
+      "sha256": "df4a5cef63a5c4854bd7368e2fb3f49092e77f4c9a3c9181f6aeef25548326cb",
+      "bytes": 9432
+    },
+    "f_group_comparisons_monthly.csv": {
+      "sha256": "3b42917db5ade7d7b5456b1ccc33bd28eb15fa2df409cb9e4cc130c801a33543",
+      "bytes": 4159
+    },
+    "f_group_comparisons_weekly.csv": {
+      "sha256": "484ff7c0431378e4be3412322c033535aeb842495f0362823170a11ca44ebcea",
+      "bytes": 8554
+    },
+    "f_group_market_mechanism_independent_verification.json": {
+      "sha256": "44d03a6907464dbfd90ac353a8b1c71cf4c3b28113688164cc1e7397e0873f57",
+      "bytes": 520
+    },
+    "f_group_market_mechanism_rows.jsonl.gz": {
+      "sha256": "277122836e4178cfeaddbe7c83d1a09d7286c6a1962e101bad24ccefad84fffc",
+      "bytes": 21000
+    },
+    "f_group_market_mechanism_summary.json": {
+      "sha256": "ade526fabf38613086454198822f9317fb1c25e06ef9a7f9818961645c4a8216",
+      "bytes": 438343
+    },
+    "verify_f_market_mechanism.py": {
+      "sha256": "dc6d0ec6328026fd4eb439d75ed94ab31872037248eb158d3ef2a2bc8542a82e",
+      "bytes": 5906
+    }
+  },
+  "verification": {
+    "study": "M8 F-group independent raw quote and payout check",
+    "pass": true,
+    "issues": {},
+    "F_rows": 109,
+    "unique_FIDs": 109,
+    "raw_SHA_FT_identity_and_T6_T3_T1_contract_checked": 109,
+    "frozen_FID_intersection": 0,
+    "candidate_net_U": 12.18,
+    "T1_favorite_control_net_U": -4.43,
+    "reverse_control_net_U": -16.29,
+    "input_SHA256": {
+      "ledger": "c9cadf076514677e9c980521acb66031a674e8a505b7b8431d4f96fedc6af314",
+      "summary": "ade526fabf38613086454198822f9317fb1c25e06ef9a7f9818961645c4a8216"
+    }
+  },
+  "interpretation": "Fixed retrospective cohort only; not an independent strategy, not an actual pregame HTTP receipt sample, and not production performance."
+}

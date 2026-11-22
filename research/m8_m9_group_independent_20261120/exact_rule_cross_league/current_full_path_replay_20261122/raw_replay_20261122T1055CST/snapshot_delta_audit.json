@@ -1,0 +1,124 @@
+{
+  "prior_current_full_path_snapshot": {
+    "orders": 1271,
+    "net_u": 7.184999999999983,
+    "roi_pct": 0.5653029110936257
+  },
+  "current_direct_raw_snapshot": {
+    "orders": 1273,
+    "net_u": 10.750000000000016,
+    "roi_pct": 0.844462
+  },
+  "new_order_fids": [
+    "144962428",
+    "157423076",
+    "168209118"
+  ],
+  "prior_only_fids": [
+    "94748251"
+  ],
+  "shared_fids": 1270,
+  "shared_group_direction_net_changes": [],
+  "new_net_u_delta": 3.565,
+  "changed_rows": [
+    {
+      "fid": "144962428",
+      "current": {
+        "group": "G",
+        "side": "home",
+        "net_u": 0.94,
+        "response_sha256": "c3bdf7ca6fb9fecc38c237d48ae3e2c80b955afc6f03d5d5efa0fb941cad90c5",
+        "model_rates": [
+          1.9363396513639088,
+          0.9124250335420375
+        ]
+      },
+      "prior": {
+        "group": null,
+        "side": null,
+        "net_u": null,
+        "model_rates": [
+          1.9521167365403846,
+          0.9119331473269205
+        ],
+        "source_sha256": "c3bdf7ca6fb9fecc38c237d48ae3e2c80b955afc6f03d5d5efa0fb941cad90c5"
+      },
+      "same_raw_response_sha": true,
+      "current_model_rates": [
+        1.9363396513639088,
+        0.9124250335420375
+      ]
+    },
+    {
+      "fid": "157423076",
+      "current": {
+        "group": "G",
+        "side": "home",
+        "net_u": 0.515,
+        "response_sha256": "3fb326c933ad8b89e053b1bc39ca19a73ed30e443e0e9f6178b9cd04c98f8a43",
+        "model_rates": [
+          1.839879637554116,
+          1.1445360251079064
+        ]
+      },
+      "prior": {
+        "group": null,
+        "side": null,
+        "net_u": null,
+        "model_rates": [
+          1.8540810288423142,
+          1.147288037674363
+        ],
+        "source_sha256": "3fb326c933ad8b89e053b1bc39ca19a73ed30e443e0e9f6178b9cd04c98f8a43"
+      },
+      "same_raw_response_sha": true,
+      "current_model_rates": [
+        1.839879637554116,
+        1.1445360251079064
+      ]
+    },
+    {
+      "fid": "168209118",
+      "current": {
+        "group": "G",
+        "side": "home",
+        "net_u": 1.11,
+        "response_sha256": "bc8f8f2a4361cb25a55002c0f4ac2dee31930d3ef5e57bf2473c4b11ab533718",
+        "model_rates": [
+          1.7520963447562485,
+          0.8188647144602986
+        ]
+      },
+      "prior": {
+        "group": null,
+        "side": null,
+        "net_u": null,
+        "model_rates": [
+          1.7646193177122207,
+          0.8192979475447791
+        ],
+        "source_sha256": "bc8f8f2a4361cb25a55002c0f4ac2dee31930d3ef5e57bf2473c4b11ab533718"
+      },
+      "same_raw_response_sha": true,
+      "current_model_rates": [
+        1.7520963447562485,
+        0.8188647144602986
+      ]
+    },
+    {
+      "fid": "94748251",
+      "current": null,
+      "prior": {
+        "group": "G",
+        "side": "away",
+        "net_u": -1.0
+      },
+      "same_raw_response_sha": false,
+      "current_model_rates": [
+        1.7578407588442555,
+        0.925354691260042
+      ]
+    }
+  ],
+  "note": "All changed order FIDs have identical SHA-anchored raw Crown response bodies across the two archives. The changed classifications are in G; prior stored score_rates differ from the direct schedule-history reconstruction. This is retained as a model-rate provenance discrepancy; results are not silently merged."
+}
