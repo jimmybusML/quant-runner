@@ -6545,3 +6545,11 @@ T2010后至20:14:41 UTC统一结算暂停边界，49个唯一FID最终均成功�
 ### 2026-11-22 20:25–20:26 UTC：续采 T2025
 
 T2017后至20:21:54 UTC MR1安全暂停边界，47个唯一FID成功响应：8个FID增加OU movement共371行，39个HTTP 200响应无Crown AH/OU报价；47次attempt全部成功、raw SHA及FID/64联赛身份47/47通过，重复0。末条响应20:21:56.557 UTC在collector退出前落盘。20:25:31 UTC队列39,114（2023 10,574；2024 14,553；2025 13,520；2026 467），较T2017减少47；队列覆盖AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,890。20:26:38 UTC一致只读快照OU movement 5,891（恢复后再增1个FID），其他层不变。请求均值1.1765秒、中位数1.2042秒，5.2秒间隔未改。T2025全套工件和SHA清单位于`research/data_recovery_2019_2026/ou_unification/`；采集继续中。
+
+### 2026-11-22 20:41 UTC：T2041续采
+
+用户将当前接管年份明确为2023、2024、2025、2026；固定64联赛范围和已确认采集方式不变。T2025之后至20:38:01 UTC安全暂停边界累计处理79个唯一FID，26场增加OU movement 743行，53次HTTP 200响应无Crown AH/OU报价。80次attempt中FID 135209928曾有1次`RemoteDisconnected`，第2次成功；79份raw SHA、响应FID/league/year身份及固定范围全部通过，无重复。请求均值1.1826秒、中位数1.2047秒。
+
+20:41:04 UTC真实重建队列为39,035（2023 10,495；2024 14,553；2025 13,520；2026 467），较T2025减少79。AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,916。队列文件年计数合计与驱动队列数相符。工件、复核脚本和SHA清单在`research/data_recovery_2019_2026/ou_unification/`，详见T2041研究记录。
+
+safe-window父进程PID 49373持续运行；20:41:04 UTC后collector PID 51303已经启动。遇到统一结算/MR1计划任务仍按原逻辑暂停并恢复。仅进行历史回取；本检查点不改变生产采集频率、并发或模型/Telegram/账本行为，采集任务未完成。
