@@ -1,0 +1,130 @@
+{
+  "generated_at_utc": "2026-11-22T02:08:07.522854Z",
+  "scope": "2019-2026 all discovered provider league IDs; schedule, FT and historical Crown AH quote inventory; no strategy work",
+  "fixture_inventory": {
+    "unique_fids": 203962,
+    "current_provider_league_ids": 118,
+    "scope_union_audit": {
+      "formal_ids": 51,
+      "expanded_ids": 64,
+      "scoped_candidate_ids": 15,
+      "M7_exact_names": 73,
+      "M7_names_unmapped": 0,
+      "union_missing_from_inventory": [],
+      "inventory_ids_outside_union": [],
+      "known_union_is_exhaustive": false
+    },
+    "inventory_sha256": "bc6f639dbb3b0ae74b1ba839dae5c48bd1c3d735959faa252e68543e32049842"
+  },
+  "ft_status": {
+    "verified_ft_fids": 193476,
+    "unverified_fids": 10486,
+    "readiness": {
+      "future_fixture_not_due": 298,
+      "kickoff_missing": 2,
+      "past_kickoff_status_missing_or_unknown": 9060,
+      "placeholder_0_0_fids": 9751,
+      "provider_reports_non_full_status_uninterpreted": 1126
+    },
+    "unverified_queue_sha256": "b546ad74b816d5f41a0651b56ad5e1eeb6d9084453fbe3759d6de3e898af34d6"
+  },
+  "crown_movement_queue": {
+    "process_pid": 59381,
+    "process_alive": true,
+    "queue_candidates": 101266,
+    "terminal_unique_fids": 483,
+    "terminal_statuses": {
+      "SAVED": 329,
+      "NO_CROWN_AH_QUOTES": 154
+    },
+    "failed_attempts": 30,
+    "failure_codes": {
+      "IncompleteRead": 30
+    },
+    "saved_quote_rows_reported": 69588,
+    "remaining_no_terminal_status": 100783,
+    "last_response_received_at_utc": "2026-11-22T02:07:26.232142Z",
+    "capture_mode": "historical"
+  },
+  "crown_sqlite_read_snapshot": {
+    "captures_by_layer_mode_status": [
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 49852,
+        "distinct_fids": 49852,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 53328,
+        "distinct_fids": 53328,
+        "quote_rows_reported": 4499297
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 1204,
+        "distinct_fids": 1182,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 49621,
+        "distinct_fids": 49054,
+        "quote_rows_reported": 99242
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 1330,
+        "distinct_fids": 248,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 139,
+        "distinct_fids": 95,
+        "quote_rows_reported": 278
+      }
+    ],
+    "quotes_by_layer_mode": [
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "quote_rows": 4499297,
+        "distinct_fids": 53328
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "quote_rows": 99242,
+        "distinct_fids": 49054
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "quote_rows": 278,
+        "distinct_fids": 95
+      }
+    ],
+    "note": "read-only WAL-backed counts during active writes; no stable main-file SHA claim"
+  },
+  "prior_schedule_pager_checkpoint": "schedule_recovery_checkpoint_20261122T1946Z.json; 20/35 completed; no pager process detected now",
+  "writes": {
+    "Crown_SQLite": 0,
+    "production": 0,
+    "Telegram": 0,
+    "formal_ledger": 0,
+    "strategy_or_backtest": 0
+  }
+}

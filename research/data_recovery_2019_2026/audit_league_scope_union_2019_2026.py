@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import collections
 import glob
+import gzip
 import hashlib
 import json
 import pathlib
@@ -18,7 +19,8 @@ QUANT = pathlib.Path('/Users/mac/QuantAsiaDesk')
 OUT = REPO / 'research/data_recovery_2019_2026'
 FORMAL = QUANT / 'data/m5-crown-authorized/m1-scope-leagues.json'
 EXPANDED = QUANT / 'research-work/crown-drop-expanded-62/schedule_universe.jsonl'
-INVENTORY = OUT / 'inventory_coverage_summary_2019_2026.json'
+INVENTORY = OUT / 'fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz'
+COVERAGE_SUMMARY = OUT / 'inventory_coverage_summary_2019_2026.json'
 CANDIDATES = OUT / 'unresolved_schedule_competition_candidates_20261121.json'
 M7_UNIVERSE = QUANT / 'repos/mr1/config/mr1-research-universe-v1.json'
 RECOVERED_TOTALCORNER = (QUANT / 'research-work/recovered_factors_20261121/report-branch'
@@ -65,15 +67,25 @@ def main() -> int:
             expanded_rows[str(lid)] += 1
     expanded = set(expanded_rows)
 
-    inventory_doc = json.loads(INVENTORY.read_text(encoding='utf-8'))
-    inventory_ids = {str(x) for x in inventory_doc['provider_league_ids']}
+    # Use the current merged FID inventory, not the older 80-league summary
+    # snapshot, so later supplemental schedules are included in the audit.
+    inventory_ids = set()
     source_counts = collections.defaultdict(collections.Counter)
-    for row in inventory_doc['league_year_coverage']:
-        lid = str(row['provider_league_id'])
-        for col in ('totalcorner_schedule_fids', 'expanded_universe_fids',
-                    'supplemental_schedule_fids', 'crown_fixture_metadata_fids',
-                    'M1_history_cache_fids', 'T6_priced_inventory_fids'):
-            source_counts[lid][col] += int(row.get(col, 0) or 0)
+    with gzip.open(INVENTORY, 'rt', encoding='utf-8') as stream:
+        for line in stream:
+            row = json.loads(line)
+            lid = str(row.get('provider_league_id') or '')
+            if not lid:
+                continue
+            inventory_ids.add(lid)
+            for key, col in (('totalcorner_page_records', 'totalcorner_schedule_fids'),
+                             ('expanded_universe_records', 'expanded_universe_fids'),
+                             ('supplemental_schedule_records', 'supplemental_schedule_fids'),
+                             ('crown_fixture_metadata_records', 'crown_fixture_metadata_fids'),
+                             ('M1_history_cache_records', 'M1_history_cache_fids'),
+                             ('priced_t6_records', 'T6_priced_inventory_fids')):
+                if row.get(key):
+                    source_counts[lid][col] += 1
 
     candidate_doc = json.loads(CANDIDATES.read_text(encoding='utf-8'))
     candidates = {str(x['provider_league_id']) for x in candidate_doc['competitions']}
@@ -82,9 +94,9 @@ def main() -> int:
     # fixture responses. Do not infer IDs from similar competition names.
     raw_map_doc = json.loads(RAW_RESPONSE_MAPPING.read_text(encoding='utf-8')) if RAW_RESPONSE_MAPPING.exists() else None
     if raw_map_doc:
-        current_db_sha = inventory_doc['crown_store_snapshot']['main_db_sha256_at_snapshot']
-        if raw_map_doc.get('source_crown_sqlite_sha256') != current_db_sha:
-            raise SystemExit('saved Crown exact-name map references a different SQLite snapshot')
+        # This map is immutable evidence anchored to its own historical
+        # SQLite snapshot. The current database has since grown, so do not
+        # compare its source SHA to the latest moving coverage snapshot.
         raw_mapped_ids = {str(lid) for row in raw_map_doc['mapped_exact_names'] for lid in row['provider_league_ids']}
         raw_mapped_names = {row['competition_name_exact'] for row in raw_map_doc['mapped_exact_names']}
     else:

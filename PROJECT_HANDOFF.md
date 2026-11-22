@@ -5499,3 +5499,10 @@
 - 修正后的全局重建得到193,476个可信FT、10,486个待核FID；来源并集仍203,962个唯一FID。FT结果与FT缺口两集合经独立逐FID复算无交集、无重复。M1、M5和Crown证据输出使用冻结FID输入SHA，避免以后因缺口文件滚动变化而改变复核范围。
 - 历史movement采集进程仍运行。02:01 UTC日志449个终态：329个`SAVED`、120个`NO_CROWN_AH_QUOTES`；30次`IncompleteRead`仍需恢复，队列余100,817个未终态。报价捕获按历史模式记录；本轮不把其称为赛前实收或正式交易。
 - 当前脚本、冻结目标、库存、FT账本、源证据SHA和本地只读状态在`CHECKPOINT_SHA256_20261122T0201Z.txt`、`COLLECTION_CHECKPOINT_20261122T0201Z.md`、`COLLECTION_STATUS_20261122T0201Z.json`。全联赛来源发现和完整Crown AH时间路径仍在进行中。
+
+### 2026-11-22 02:07 UTC：当前联赛ID并集的离线来源核查
+
+- 用当前203,962-FID完整并集重新运行精确来源审计，替换旧80联赛覆盖汇总作为比对库存。形式范围51 IDs、扩展赛程64 IDs、旧scoped候选15 IDs，精确映射M7的73个联赛名称均有ID；provider ID并集118个，与当前完整库存118个一致，`missing_ids=[]`、`unexpected_ids=[]`。其中M1历史记录独有ID为27391。
+- 这是对已经核对过的正式范围、扩展赛程、M7名称、SHA锚定Crown缓存及精确TotalCorner页面证据的来源并集审计。它不证明全球所有赛事来源已枚举；M7具名赛程分页上次35个目标中20个完成，当前未检测到分页进程，未在本轮新发TotalCorner请求。旧Crown原始名称映射仍锚定当时SQLite SHA `292ccb…d298`；本轮按原记录保存该来源SHA，不把它说成当前数据库快照。
+- 截至本检查点，FT 193,476/203,962，缺口10,486。历史movement driver PID 59381仍运行；101,266个原始候选中483个终态（329`SAVED`、154`NO_CROWN_AH_QUOTES`），30个`IncompleteRead`仍未终结，余100,783个未终结。所有请求保持historical模式。
+- 完整离线来源审计输出`league_scope_union_2019_2026.json`，状态、脚本和覆盖汇总SHA见`CHECKPOINT_SHA256_20261122T0207Z.txt`；当前进度见`COLLECTION_STATUS_20261122T0207Z.json`及同名Markdown检查点。无生产、策略、TG或正式账本改动。
