@@ -6328,3 +6328,9 @@
 
 - 待处理40,373场（2023:11,833；2024:14,553；2025:13,520；2026:467）。AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,609；赛程和可信FT均48,102。
 - T1638后30个唯一FID：24场无盘口、6场补OU走势361行；30次attempt成功，SHA及响应FID/league身份核对30/30通过。driver PID49373管理collector PID92775，5.2秒间隔。T1641逐场审计已归档。
+
+
+## 2026-11-22 16:46 UTC — T1646检查点
+
+- 待处理40,357（2023:11,817；2024:14,553；2025:13,520；2026:467）。AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,611；总赛事48,102、可信full FT48,102。
+- T1641后16个FID：14场无Crown盘口，2场补OU走势171行；16次请求全成功，SHA及响应FID/league身份16/16通过。collector PID93862因MR1启动自动暂停，由driver PID49373监管。
