@@ -338,3 +338,21 @@
 - 10:05:12 UTC父driver PID49373重建队列42,324并启动collector PID98655，节奏5.2秒。10:08:30 UTC因MR1计划任务PID99433自动暂停；暂停前该collector批次记录38个响应（11个`BOTH_MARKETS`、27个无Crown市场数据），无传输失败。10:12 UTC发现后续统一结算PID99738运行，父driver保持等待；该生产作业结束后自动重建队列并续采。暂停后的精确待请求数以自动重建为准。
 - 57个响应分布在含一次约219秒safe-window的514秒墙钟区间；扣除该暂停后约11.6 FID/min，吻合5.2秒请求间隔上限。未改变频率、并发或限流行为；SQLite写入不是吞吐瓶颈。
 - SHA证据：`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1008Z.txt`及同目录`crown_64_collection_checkpoint_20261122T1008Z.jsonl`、`crown_64_verified_increment_20261122T1008Z.json`、`crown_64_driver_checkpoint_20261122T1008Z.jsonl`、`crown_64_coverage_snapshot_20261122T1008Z.json`、`crown_64_transport_audit_20261122T1008Z.json`。全部为historical回取，不是赛前实收。
+
+
+## 2026-11-22 10:14 UTC：安全任务后续采与T1014检查点
+
+| 数据类型 | 当前覆盖 / 48,102 | 字段缺失FID | 最近队列重建 |
+|---|---:|---:|---:|
+| 64联赛赛程 | 48,102 | 0 | — |
+| 可信 full FT | 48,102 | 0 | — |
+| Crown AH开收盘 | 32,449 | 15,653 | — |
+| Crown AH变化序列 | 36,342 | 11,760 | — |
+| Crown OU开收盘 | 32,445 | 15,657 | — |
+| Crown OU变化序列 | 5,165 | 42,937 | — |
+| 待处理请求（排除终态无报价） | — | — | 42,286（10:12:59 UTC） |
+
+- 10:08:30 UTC MR1任务结束后，统一结算PID99738完成，safe-window父driver PID49373于10:12:59重建队列42,286，覆盖AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,159，并自动启动collector PID767，间隔5.2秒。10:14:38 UTC复核collector仍运行。
+- 从T1008上次增量终点10:07:57.978至10:14:21.281 UTC，新增22个唯一FID响应：10个补入OU movement，12个无Crown市场；AH及开收盘无新增。共23次HTTP尝试，其中22成功、一次`IncompleteRead`，该FID已恢复成功。22份最终原始响应SHA全匹配；越界/联赛不匹配0、重复0。
+- 全日志transport累计1,037 attempts（917 success、114 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；48个出现过传输错误的FID均已恢复，latest retryable failures为0。T1014数据库字段覆盖审计与队列重建均在该固定目标范围。
+- T1014响应、增量、driver、coverage、transport和SHA manifest：`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1014Z.txt`及同目录`crown_64_collection_checkpoint_20261122T1014Z.jsonl`、`crown_64_verified_increment_20261122T1014Z.json`、`crown_64_driver_checkpoint_20261122T1014Z.jsonl`、`crown_64_coverage_snapshot_20261122T1014Z.json`、`crown_64_transport_audit_20261122T1014Z.json`。一切仍标为historical回取。

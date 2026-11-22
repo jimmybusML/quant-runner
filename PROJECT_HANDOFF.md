@@ -5882,3 +5882,11 @@
 - 09:59:23.972—10:07:57.978 UTC有57个唯一成功响应：17个新增OU movement，40个无Crown市场；raw SHA 57/57通过，超范围0、重复0、该批失败0。传输累计1,014 attempts（895 success、113 IncompleteRead、6 TOO_MANY_REQUEST）；47个曾错误FID全恢复，最新可重试失败0。
 - 父safe-window driver PID49373仍存活。10:05:12自动启动collector PID98655，5.2秒间隔；10:08:30因MR1 PID99433暂停，暂停前该批记录38场成功响应（11有市场数据、27无Crown报价）。10:12时统一结算PID99738正在运行，driver等待并将在生产作业完成后续采；未中断生产任务。
 - 剔除约219秒生产安全暂停，57个响应约11.6场/分钟，处于当前5.2秒节奏上限附近；未调频或绕限流。T1008完整SHA清单为`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1008Z.txt`。所有报价均为historical回取。
+
+
+### 2026-11-22 10:14 UTC：2023—2026 Crown采集恢复
+
+- MR1计划任务PID99433于10:08:30触发自动安全暂停，统一结算PID99738之后完成；父driver PID49373于10:12:59重建队列42,286并恢复collector PID767，5.2秒间隔。10:14:38 UTC确认collector仍运行。
+- 最新SQLite覆盖：赛程/可信full FT 48,102/48,102；AH开收盘32,449，AH movement 36,342，OU开收盘32,445，OU movement 5,165；字段缺失分别15,653/11,760/15,657/42,937。字段缺失量不同于去重终态响应后的42,286待处理请求。
+- T1008以后至10:14:21的22场增量中，10个新增OU movement、12个无Crown市场；一次`IncompleteRead`后已成功恢复。raw SHA 22/22匹配、超范围/重复0。累计1,037 attempts（917 success、114 IncompleteRead、6 TOO_MANY_REQUEST），48个遇错FID均恢复，当前无retryable failures。
+- T1014 SHA manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1014Z.txt`，包含逐场、增量、driver、coverage、transport证据。范围、来源和historical标注未变；未动生产配置或账本。
