@@ -1,0 +1,35 @@
+{
+  "after_authoritative_checkpoint_utc": "2026-11-22T18:45:27.564012+00:00",
+  "through_last_response_received_at_utc": "2026-11-22T18:46:33.760958+00:00",
+  "records": 13,
+  "unique_fids": 13,
+  "statuses": {
+    "NO_CROWN_MARKET_DATA": 10,
+    "BOTH_MARKETS": 3
+  },
+  "AH_summary_rows": 0,
+  "AH_movement_rows": 0,
+  "OU_summary_rows": 0,
+  "OU_movement_rows": 112,
+  "OU_movement_fids": 3,
+  "request_attempts": 13,
+  "attempt_outcomes": {
+    "success": 13
+  },
+  "failures": 0,
+  "raw_sha_checked": 13,
+  "raw_sha_mismatches": [],
+  "identity_scope_mismatches": [],
+  "duplicate_fids": 0,
+  "capture_mode": "historical",
+  "queue_checkpoint_utc": "2026-11-22T18:49:45.994135+00:00",
+  "queue_after_rebuild": {
+    "2023": 11137,
+    "2024": 14553,
+    "2025": 13520,
+    "2026": 467
+  },
+  "queue_count": 39677,
+  "queue_delta_since_T1845": -13,
+  "queue_year_basis": "derived from T1845 authoritative per-year queue minus the 13 verified terminal response FIDs; a later mutable queue-file read occurred after the collector had already resumed and was not used for this checkpoint."
+}
