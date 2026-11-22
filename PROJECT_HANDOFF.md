@@ -5653,4 +5653,4 @@
 - 05:15:33Z与10,444个未核FT交集147场，147/147精确身份；126状态缺失、18数字码未映射、3 `half`、明确full为0，本批未新增可信FT。
 - 05:16:12Z 902桶库存覆盖仍是203,962 FID/118 provider ID/193,518 verified FT/10,444 unresolved FT。movement capture 104,280，53,328个有价FID/4,499,297行，50,952个NO-CROWN-AH响应、99,682个未采movement capture。summary historical仍缺153,762 FID；328条已验证raw summary缓存报价等待共享writer空闲后导入。
 - 1,102个已在扩展库存中的Crown capture逐场对账仍为1,008 exact full-score match、94 unresolved、AH quote rows 0；37个扩展库存外解析capture仍全是目标UTC 2019–2026以外，未发现目标期漏入赛事。
-- 检查点及最新逐场证据见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0516Z.md`、`movement_collection_persisted_audit_20261122T0515Z.json`、`crown_movement_batch_ft_status_audit_20261122T0515Z.json`、`league_year_quote_coverage_20261122T0515Z.csv/.json`。历史回取持续进行；未改模型、正式采集规则、Telegram、账本或调度。该检查点提交SHA待提交后补录。
+- 检查点及最新逐场证据见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0516Z.md`、`movement_collection_persisted_audit_20261122T0515Z.json`、`crown_movement_batch_ft_status_audit_20261122T0515Z.json`、`league_year_quote_coverage_20261122T0515Z.csv/.json`。历史回取持续进行；未改模型、正式采集规则、Telegram、账本或调度。数据与检查点提交 `27be2c8d` 已推送。
