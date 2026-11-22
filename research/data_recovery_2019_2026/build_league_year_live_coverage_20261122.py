@@ -8,6 +8,7 @@ globally exhaustive.
 """
 from __future__ import annotations
 
+import argparse
 import collections
 import csv
 import datetime as dt
@@ -23,11 +24,6 @@ UNRESOLVED = ROOT / "unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz
 DATABASE = pathlib.Path("/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3")
 MOVEMENT_QUEUE = pathlib.Path("/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/queues_20261122/crown_missing_movement_2019_2026.jsonl")
 SUMMARY_QUEUE = pathlib.Path("/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/queues_20261122/crown_missing_summary_2019_2026.jsonl")
-STAMP = "20261122T0426Z"
-CSV_OUT = ROOT / f"league_year_quote_coverage_{STAMP}.csv"
-JSON_OUT = ROOT / f"league_year_quote_coverage_{STAMP}.json"
-
-
 def sha256(path: pathlib.Path) -> str:
     h = hashlib.sha256()
     with path.open("rb") as f:
@@ -51,6 +47,11 @@ def jsonl_rows(path: pathlib.Path):
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--stamp", default=dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%MZ"))
+    args = parser.parse_args()
+    csv_out = ROOT / f"league_year_quote_coverage_{args.stamp}.csv"
+    json_out = ROOT / f"league_year_quote_coverage_{args.stamp}.json"
     started = dt.datetime.now(dt.timezone.utc)
     inventory = {}
     by_bucket: dict[tuple[str, int | None], dict] = {}
@@ -327,7 +328,7 @@ def main() -> int:
     }
 
     fieldnames = list(bucket_rows[0])
-    with CSV_OUT.open("w", newline="", encoding="utf-8") as f:
+    with csv_out.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader(); writer.writerows(bucket_rows)
     result = {
@@ -353,8 +354,8 @@ def main() -> int:
         "movement_queue_audit": movement_queue_audit,
         "summary_queue_audit": summary_queue_audit,
         "errors": dict(errors),
-        "csv": CSV_OUT.name,
-        "csv_sha256": sha256(CSV_OUT),
+        "csv": csv_out.name,
+        "csv_sha256": sha256(csv_out),
         "rows_by_provider_league_utc_year": bucket_rows,
         "limitations": [
             "This is a read-transaction snapshot while the historical collector may append to SQLite; the main database file SHA is intentionally omitted.",
@@ -363,7 +364,7 @@ def main() -> int:
             "The 118-league inventory is the current reconciled known-source union, not a proof of exhaustive global competition discovery.",
         ],
     }
-    JSON_OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    json_out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({k: result[k] for k in (
         "snapshot_created_at_utc", "inventory_fids", "provider_leagues", "league_year_buckets",
         "unresolved_ft_fids", "database_capture_rows_in_snapshot", "database_max_response_received_at_utc_in_snapshot",
