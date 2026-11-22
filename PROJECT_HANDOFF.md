@@ -5977,3 +5977,11 @@
 - MR1于11:09:23安全暂停collector PID13127。父driver PID49373在正式任务结束后重新建队列并启动PID13996，5.2秒请求间隔保持不变。
 - 全日志1,338 attempts（1,215成功、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；51个遇错FID全部恢复，当前可重试失败0。剩余队列约60.6小时纯请求时间，未计后续暂停/重试。
 - T1110逐场增量、coverage、driver、transport及SHA证据已提交；全部是历史回取，不改变正式生产链。
+
+
+### 2026-11-22 11:15 UTC：T1115队列重建和安全暂停
+
+- 11:10:45—11:11:45响应8个唯一FID：4个无Crown报价、4个新增OU movement，raw SHA 8/8通过、范围外/重复0。11:14:31权威重建队列41,972；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,234。
+- T1115全日志1,350 attempts（1,227 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`），51个遇错FID全部恢复，当前可重试失败0。
+- 父driver PID49373启动collector PID14895后，MR1 PID15111于11:15:31触发安全暂停；父driver继续运行。暂停后的响应未计入11:14:31权威coverage，待下次队列重建。
+- T1115逐场增量及SHA证据已存`research/data_recovery_2019_2026/ou_unification/`。采集仍是2023—2026固定64联赛的historical回取。

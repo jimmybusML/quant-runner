@@ -496,3 +496,11 @@
 - 11:09:23 UTC MR1计划作业使collector PID13127安全暂停；父driver PID49373于任务结束后重建队列，并启动collector PID13996，继续5.2秒节奏。
 - T1111全日志1,338 attempts：1,215 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`；51个遇错FID全部恢复，最新可重试失败0。
 - 最近权威队列41,980项折合约60.6小时纯请求时间，安全暂停及重试另计。T1110逐场、增量、driver和coverage证据及T1111 transport审计均已归档；SHA清单为`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1111Z.txt`。
+
+
+## 2026-11-22 11:15 UTC：T1115队列重建与再次安全暂停
+
+- 11:10:45—11:11:45 UTC间完成8个唯一FID：4个HTTP/API成功但无Crown行情，4个保存OU movement；raw SHA 8/8匹配，重复/越界0。11:14:31队列重建确认该批已完成，待请求从41,980降至41,972；OU movement覆盖从5,230升到5,234。AH和开收盘不变。
+- T1115全日志1,350 attempts：1,227 success、117 `IncompleteRead`、6 `TOO_MANY_REQUEST`；51个曾遇错FID已全部恢复，最新可重试失败0。
+- 父driver PID49373于11:14:31重建队列并启动collector PID14895；该collector于11:15:31因MR1计划作业PID15111再次安全暂停。父driver继续运行，暂停后响应留待下一次重建确认。
+- 剩余权威队列41,972项，按5.2秒间隔折合约60.6小时纯请求时间。T1115增量、driver、coverage、transport及SHA清单位于本目录；该批仍为historical回取。
