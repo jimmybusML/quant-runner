@@ -5542,3 +5542,12 @@
 - 02:53:39–02:53:45Z只读WAL快照中movement有报价53,328 FID/4,499,297行，另50,128个历史NO_QUOTES FID；driver 59381及collector 96227正在运行，日志终态759（329 SAVED、430 NO_QUOTES）、100,507未终态。无只以FETCH_FAILED结束的FID；30次IncompleteRead历史行均有后续终态。活动数据库不宣称稳定主文件SHA。
 - 最新报告/快照为`research/data_recovery_2019_2026/EXISTING_EPL_LALIGA_ESPN_FT_AUDIT_20261122.md`、`COLLECTION_CHECKPOINT_20261122T0253Z.md`、`COLLECTION_STATUS_20261122T0253Z.json`；SHA见`CHECKPOINT_SHA256_20261122T0253Z.txt`，其生成器为`build_ft_audit_sha_manifest_20261122.py`。
 - 策略/模型/盈利研究、TG/正式账本及生产采集配置改动均为0；全局赛程来源发现、FT核实与Crown历史报价路径仍在执行。
+
+
+## 2026-11-22 03:18 UTC｜2019–2026历史补采落库抽核
+
+- The existing safe-window driver (PID 59381 at the snapshot) remains active in historical mode. It is using the immutable 101,266-FID candidate queue; no second collector was started. The moving log showed 932 attempts across 902 unique FIDs: 329 `SAVED`, 573 explicit `NO_CROWN_AH_QUOTES`, and 30 `IncompleteRead` attempts that were subsequently retried to terminal results. The queue therefore had 100,364 unique FIDs without terminal results at this snapshot.
+- The 329 saved captures contain 69,588 Crown AH movement rows. Their source-event times and actual HTTP receive times remain separate; this historical retrieval does not represent a contemporaneous/live receipt.
+- A new read-only verifier independently matched all 902 terminal rows to `capture` entries in Crown SQLite. Raw response files existed and matched their stored SHA for all 902; receive-time and parsed quote-row counts matched the collector log; mismatches: zero. The verifier made zero network requests and zero SQLite writes. Result: `movement_collection_persisted_audit_20261122T0318Z.json` (`pass=true`); reusable verifier: `audit_movement_collection_persistence.py`.
+- The movement queue is still far from complete. The earlier 02:53 inventory checkpoint remains the latest global coverage baseline (203,962 known-source FIDs, 118 provider league IDs, 193,518 verified FT, 10,444 unresolved). Those global totals are not refreshed by this per-batch receipt check. The separate summary and FT-refresh queues have not been declared complete.
+- No strategy, model, backtest, Telegram, formal-ledger or production collector changes were made. Only the existing research collector is writing historical source data.
