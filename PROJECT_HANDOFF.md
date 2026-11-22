@@ -5897,3 +5897,11 @@
 - 父driver PID49373于10:15:41为MR1计划作业PID1365安全暂停collector PID767。10:17核查计划作业仍运行，driver等待后自动续采。暂停前该collector批次共处理32 FID（9个有可保存市场记录，23个无Crown市场）。
 - 10:14:21—10:15:44的最后16个响应全部成功，raw SHA 16/16正确，越界/重复0，其中3场新增OU movement；累计1,053 attempts（933 success、114 IncompleteRead、6 TOO_MANY_REQUEST），错误FID均已恢复。
 - SQLite当前可引用的最后权威覆盖为T1014：AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,165；暂停批次的精确覆盖增量待生产任务退出后数据库/队列重建。T1017证据SHA manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1017Z.txt`。
+
+
+### 2026-11-22 10:21 UTC：续采已从计划任务窗口恢复
+
+- 10:20:24 UTC队列重建42,254（之前队列批次42,286已完成32个响应），当前collector PID2585、父driver PID49373运行，间隔5.2秒。
+- 只读coverage最新：固定48,102个2023—2026 FID/可信full FT全覆盖；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,171。字段缺失数15,653/11,760/15,657/42,931。
+- T1017之后新11 FID已完成响应，其中3个增加OU movement、8个无Crown市场，SHA 11/11通过，越界/重复0。累计1,064 attempts（944 success、114 IncompleteRead、6 TOO_MANY_REQUEST），当前未恢复FID为0。T1021 SHA manifest及逐场证据在`research/data_recovery_2019_2026/ou_unification/`。
+- 待处理请求纯5.2秒时间约61.0小时，不含既有safe-window与重试；采集继续，仍为historical请求，不改变生产行为。

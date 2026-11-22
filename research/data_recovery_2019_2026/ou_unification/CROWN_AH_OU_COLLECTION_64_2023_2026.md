@@ -364,3 +364,21 @@
 - T1014增量结束后至10:15:44.410 UTC的最后16个FID均成功，SHA 16/16匹配，超范围/重复0，新增OU movement 3个FID；AH及开收盘没有新增。最后一批其他已处理记录在10:14:21前的T1014增量中，整体覆盖须等安全任务结束后只读重审确认。
 - 当前累计1,053次传输尝试（933 success、114 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；仍没有尚未恢复的错误FID。T1017逐场/增量/driver/transport及manifest已保存。由于同一时段SQLite被排定任务占用，未并行重建覆盖表；最新权威覆盖仍引用T1014（OU movement 5,165），下一次队列重建时更新。
 - 证据文件：`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1017Z.txt`及`crown_64_collection_checkpoint_20261122T1017Z.jsonl`、`crown_64_verified_increment_20261122T1017Z.json`、`crown_64_driver_checkpoint_20261122T1017Z.jsonl`、`crown_64_transport_audit_20261122T1017Z.json`。所有报价仍为历史回取。
+
+
+## 2026-11-22 10:21 UTC：T1021续采检查点
+
+| 数据类型 | 当前覆盖 / 48,102 | 字段缺失FID | 最近队列重建 |
+|---|---:|---:|---:|
+| 64联赛赛程 | 48,102 | 0 | — |
+| 可信 full FT | 48,102 | 0 | — |
+| Crown AH开收盘 | 32,449 | 15,653 | — |
+| Crown AH变化序列 | 36,342 | 11,760 | — |
+| Crown OU开收盘 | 32,445 | 15,657 | — |
+| Crown OU变化序列 | 5,171 | 42,931 | — |
+| 待请求历史FID | — | — | 42,254（10:20:24 UTC） |
+
+- 10:12:59队列42,286批次完成32个成功响应后，MR1及统一结算安全窗口结束。10:20:24 UTC权威重建队列42,254；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,168；collector PID2585已自动续跑，父driver PID49373持续管理安全窗口，间隔5.2秒。
+- 10:15:44.410—10:21:20.898 UTC新增11个唯一响应：3个保存OU movement、8个无Crown市场；AH及开收盘无新增。SHA 11/11通过，越界/联赛不匹配0、重复0、请求错误0。覆盖审计截至10:21:20更新至OU movement 5,171，队列仍以上次完整重建数42,254为权威。
+- 全日志transport为1,064 attempts：944 success、114 `IncompleteRead`、6 `TOO_MANY_REQUEST`；未恢复错误FID仍为0。T1021逐场、增量、driver、coverage、transport与SHA manifest见对应文件。
+- T1021纯请求剩余时间约61.0小时（42,254×5.2秒），不含生产安全暂停和重试；短期吞吐仍由5.2秒服务商请求间隔限定，未提高频率或并发。
