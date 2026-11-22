@@ -862,3 +862,10 @@
 - T1614后31个唯一FID完成最终响应：30场无Crown盘口，1场补到OU走势80行。35次网络/API attempt中31次成功、4次`TOO_MANY_REQUEST`；四个FID均有最终成功响应。逐场SHA、响应FID及Provider League ID核对31/31通过。
 - 权威队列40,496（2023:11,956；2024:14,553；2025:13,520；2026:467）。AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,577。
 - driver PID49373已恢复collector PID88174，频率5.2秒/FID。T1621逐场明细、覆盖、身份与SHA材料已归档。
+
+
+## 2026-11-22 16:21–16:30 UTC：T1630检查点
+
+- 本段54个唯一FID全部有最终成功响应：37场没有Crown AH/OU报价，17场补到OU走势845行。54次attempt均成功；raw SHA、响应FID及Provider League ID与赛事清单核验54/54通过。
+- 权威待处理40,442（2023:11,902；2024:14,553；2025:13,520；2026:467）。市场覆盖AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,594。
+- 采集已在安全窗口重新运行，collector PID90078、driver PID49373、5.2秒/FID。T1630明细和SHA审计已归档。
