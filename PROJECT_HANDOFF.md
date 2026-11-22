@@ -5935,3 +5935,12 @@
 - 10:35:37 UTC队列重建42,179，AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,188；覆盖均为48,102目标FID内统计。MR1 PID6198使后续collector自动安全暂停，父driver PID49373等待后续恢复。
 - T1033后新增4个唯一响应，1个保存OU movement、3个无Crown市场，SHA 4/4通过。该一个movement在队列快照之后保存，等待下一次重建确认。
 - 累计1,132尝试（1,012 success、114 IncompleteRead、6 TOO_MANY_REQUEST），未恢复失败0。T1036 SHA manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1036Z.txt`。
+
+
+### 2026-11-22 10:48 UTC：T1048继续负责2023—2026年采集
+
+- 固定64 Provider League IDs、2023—2026年48,102个FID和48,102个可信full FT保持不变；仅采集该范围。AH+OU合并接口继续以单FID一次请求运行，未修改正式生产行为。
+- 10:43:28 UTC最近权威队列为42,137；覆盖AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,193。队列按5.2秒节奏的纯请求时间约60.9小时，不含暂停和重试。
+- 10:43:28至10:47:58增量52个唯一响应，52/52原始SHA通过，46个无Crown市场数据，6个保存OU movement；AH和开收盘无新增，重复/越界0。全部属于历史回取。
+- 10:48:07统一结算PID8873触发安全暂停，父driver PID49373仍在运行。边界FID `131899045`遇`IncompleteRead`并安全中止，作为可重试项保留；最近审计全日志1,223 attempts、1,102 success、115 `IncompleteRead`、6 `TOO_MANY_REQUEST`，48个错误FID已恢复，1个待重试。
+- T1048结果与SHA清单位于`research/data_recovery_2019_2026/ou_unification/`；采集日志持续追加，不把历史回取当成赛前HTTP收据。

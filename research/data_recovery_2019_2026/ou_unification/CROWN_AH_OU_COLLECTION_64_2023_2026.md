@@ -442,3 +442,23 @@
 - 10:31:07批次完成19个唯一FID响应后，父driver PID49373在10:35:37重建队列42,179；覆盖AH 32,449/36,342、OU 32,445/5,188。随后启动的短批次被MR1作业PID6198于10:35:53安全暂停。10:36确认父driver仍运行等待该任务。
 - T1033增量终点10:32:45.025至10:35:56.782又有4个成功FID：1个保存OU movement、3个无Crown市场。raw SHA 4/4匹配，范围外0、重复0、传输错误0；AH、开收盘无新增。该1个走势更新晚于10:35:37覆盖重建，记为待下次重建确认，不提前增加权威coverage数字。
 - 全日志累计1,132 attempts（1,012 success、114 `IncompleteRead`、6 `TOO_MANY_REQUEST`），未恢复失败0。T1036逐场/增量/driver/coverage/transport与SHA manifest已保存；报价均标记historical回取。
+
+
+## 2026-11-22 10:48 UTC：T1048采集增量与安全暂停
+
+| 数据类型 | 最近权威覆盖 / 48,102 | 字段缺失FID | 最近权威待请求队列 |
+|---|---:|---:|---:|
+| 64联赛赛程 | 48,102 | 0 | — |
+| 可信full FT | 48,102 | 0 | — |
+| Crown AH开收盘 | 32,449 | 15,653 | — |
+| Crown AH变化序列 | 36,342 | 11,760 | — |
+| Crown OU开收盘 | 32,445 | 15,657 | — |
+| Crown OU变化序列 | 5,193 | 42,909 | — |
+| 去终态响应后的历史请求 | — | — | 42,137（10:43:28 UTC重建） |
+
+- 固定范围仍为原49+扩展15个Provider League ID、2023—2026年；赛程与可信full FT各48,102个FID。没有访问2019—2022或范围外赛事。
+- 从10:43:28 UTC权威队列重建至10:47:58 UTC，完成52个唯一FID响应，全部HTTP/API成功；46个返回无Crown市场数据，6个同时满足覆盖状态并只补入OU movement。AH及AH/OU开收盘无新增。原始响应SHA 52/52匹配，重复和范围外FID均为0。
+- 10:48:07 UTC，采集子进程因正式统一结算任务PID8873安全停止，父safe-window PID49373保持运行。中断中的FID `131899045`遇到`IncompleteRead`后被安全暂停，仍在可重试队列；不是终态失败。下次空闲窗口由父驱动重新建队列并续采。
+- 全采集日志截至T1048累计1,223 attempts：1,102 success、115 `IncompleteRead`、6 `TOO_MANY_REQUEST`。49个曾遇传输/API错误的FID中48个已恢复，另1个是上述安全暂停边界待重试。所有历史回取仍与赛前HTTP实收严格区分。
+- 最近实际短窗口52场/约269.5秒，约11.6场/分钟，与5.2秒单请求间隔上限一致；没有提高并发或绕限流。按最近权威队列42,137项计算，约60.9小时纯请求时间，安全暂停与重试另计。
+- T1048增量、驱动事件、覆盖快照、transport审计和SHA清单：`crown_64_collection_checkpoint_20261122T1048Z.jsonl`、`crown_64_verified_increment_20261122T1048Z.json`、`crown_64_driver_checkpoint_20261122T1048Z.jsonl`、`crown_64_coverage_snapshot_20261122T1048Z.json`、`crown_64_transport_audit_20261122T1048Z.json`、`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1048Z.txt`。
