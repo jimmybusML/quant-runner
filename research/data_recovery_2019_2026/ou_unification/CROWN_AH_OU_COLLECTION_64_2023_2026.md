@@ -382,3 +382,10 @@
 - 10:15:44.410—10:21:20.898 UTC新增11个唯一响应：3个保存OU movement、8个无Crown市场；AH及开收盘无新增。SHA 11/11通过，越界/联赛不匹配0、重复0、请求错误0。覆盖审计截至10:21:20更新至OU movement 5,171，队列仍以上次完整重建数42,254为权威。
 - 全日志transport为1,064 attempts：944 success、114 `IncompleteRead`、6 `TOO_MANY_REQUEST`；未恢复错误FID仍为0。T1021逐场、增量、driver、coverage、transport与SHA manifest见对应文件。
 - T1021纯请求剩余时间约61.0小时（42,254×5.2秒），不含生产安全暂停和重试；短期吞吐仍由5.2秒服务商请求间隔限定，未提高频率或并发。
+
+
+## 2026-11-22 10:23 UTC：T1023响应与暂停审计
+
+- 10:20:24队列42,254启动的collector PID2585在10:23:05因MR1 PID3263安全暂停。该批次从启动至最后一个在途响应完成共有32个唯一FID：11个取得待补Crown市场数据，21个返回无AH/OU市场报价；所有请求均成功。
+- T1021增量终点10:21:20.898至10:23:10.124再收到21个FID：8个新增OU movement，13个无Crown市场；AH和开收盘未新增。SHA 21/21通过，超范围/重复0，错误0。当前SQLite覆盖权威上限仍是T1021的OU movement 5,171；本批新增8个FID待下次数据库队列重建核准。
+- transport累计1,085 attempts：965 success、114 `IncompleteRead`、6 `TOO_MANY_REQUEST`；最新未恢复失败0。证据及manifest：`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1023Z.txt`及同目录逐场、增量、driver、transport文件。安全作业结束后safe-window会自动重建队列续跑。

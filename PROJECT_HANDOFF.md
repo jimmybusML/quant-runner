@@ -5905,3 +5905,10 @@
 - 只读coverage最新：固定48,102个2023—2026 FID/可信full FT全覆盖；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,171。字段缺失数15,653/11,760/15,657/42,931。
 - T1017之后新11 FID已完成响应，其中3个增加OU movement、8个无Crown市场，SHA 11/11通过，越界/重复0。累计1,064 attempts（944 success、114 IncompleteRead、6 TOO_MANY_REQUEST），当前未恢复FID为0。T1021 SHA manifest及逐场证据在`research/data_recovery_2019_2026/ou_unification/`。
 - 待处理请求纯5.2秒时间约61.0小时，不含既有safe-window与重试；采集继续，仍为historical请求，不改变生产行为。
+
+
+### 2026-11-22 10:23 UTC：T1023采集暂停证据
+
+- collector PID2585处理完32个唯一FID后，于10:23:05因MR1计划作业PID3263暂停；父driver PID49373保持运行。队列最近权威值42,254（10:20:24重建），安全任务结束后会自动重建并继续。
+- 32个成功响应中11个有待补Crown市场数据、21个无Crown市场报价；T1021后续21场中8个新增OU movement，13个无Crown市场。原始SHA 21/21匹配，范围外/重复0。当前coverage待重建前仍报告T1021的AH 32,449/36,342、OU 32,445/5,171。
+- transport累计1,085 attempts（965 success、114 IncompleteRead、6 TOO_MANY_REQUEST），未恢复错误FID 0。T1023 SHA manifest位于`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1023Z.txt`。
