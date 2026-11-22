@@ -699,3 +699,11 @@
 - 待请求41,300；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,398。分年缺口：2023年12,760、2024年14,553、2025年13,520、2026年467。
 - T1334后11个唯一FID响应SHA 11/11匹配；10场响应无Crown市场，1场新增OU movement。全日志2,019次attempt（1,887成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`），60个遇错FID全部恢复。
 - T1338逐场、覆盖、transport、driver和SHA文件已归档；历史回取与赛前收据身份保持区分，任务继续运行。
+
+
+## 2026-11-22 13:40 UTC：T1340 MR1窗口后续采
+
+- MR1计划任务于13:39:23 UTC触发safe-window暂停；13:40:23 UTC重建队列后，collector PID48217启动，driver PID49373继续运行。请求间隔仍5.2秒。
+- 待请求41,292，AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,400。分年待请求为2023年12,752、2024年14,553、2025年13,520、2026年467。
+- T1338后8个唯一FID均成功、SHA 8/8通过；6个响应无Crown盘口，2场新增OU movement。累计2,027 attempts（1,895成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`），60个错误FID全部恢复。
+- T1340逐场记录、覆盖快照、传输审计、driver事件和SHA清单均已归档；任务继续。

@@ -6161,3 +6161,10 @@
 - 缺口41,300；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,398。分年缺口2023年12,760、2024年14,553、2025年13,520、2026年467。
 - T1334后11个唯一FID HTTP/API成功且SHA 11/11通过；10个无Crown市场，1个新增OU movement。全日志2,019次attempt：1,887成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`；60个遇错FID均恢复，当前重试失败0。
 - T1338证据及SHA清单已归档，采集继续进行。
+
+## 2026-11-22 13:40 UTC：T1340 MR1窗口后续采
+
+- MR1计划任务于13:39:23 UTC触发暂停；driver PID49373于13:40:23 UTC重建队列并启动collector PID48217。仍按5.2秒/FID运行。
+- 待请求41,292；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,400。按年待请求2023年12,752、2024年14,553、2025年13,520、2026年467。
+- T1338后8个唯一FID HTTP/API全部成功，SHA 8/8通过；6场响应无Crown盘口，2场保存OU movement。全日志2,027 attempts（1,895成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`），60个错误FID均恢复。
+- T1340明细、coverage、transport、driver及SHA文件已归档；采集继续运行。
