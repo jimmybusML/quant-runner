@@ -1,0 +1,187 @@
+{
+  "generated_at_utc": "2026-11-22T04:20:01.738780Z",
+  "scope": "2019-2026 current known-source union inventory and historical Crown quote backfill only",
+  "fixtures": {
+    "unique_fids": 203962,
+    "provider_league_ids": 118,
+    "m7_exact_names": 73,
+    "m7_exact_names_unmapped": 0,
+    "known_union_missing_from_inventory": [],
+    "inventory_ids_outside_union": [],
+    "global_completeness_claim": false,
+    "inventory_sha256": "1c51b890f075efd6fff4f794ee0e3b43ab427e41f78fbe4a95efef24c9a9783d"
+  },
+  "supplemental_schedule_recovery": {
+    "targets_15_completed": 15,
+    "network_requests_15": 936,
+    "unique_fids_15": 27503,
+    "new_global_fids_15": 0,
+    "raw_pages_verified_15": 936,
+    "targets_38_completed": 38,
+    "started_at_38": "2026-11-21T16:28:12.968745Z",
+    "finished_at_38": "2026-11-21T22:37:41.310670Z",
+    "network_requests_38": 2140,
+    "unique_fids_38": 62339,
+    "new_global_fids_38": 62339,
+    "raw_pages_referenced_38": 2098,
+    "source_record_sha_verified_38": 62339,
+    "raw_source_errors_38": {},
+    "all_53_unique_fids": 89842,
+    "all_53_new_global_fids": 62339,
+    "verified_full_ft_in_53": 83990,
+    "unverified_or_nonfull_ft_in_53": 5852,
+    "supplemental_coverage_sha256": "661442bebf00f33ef64e1cc4412ebb0b8033ad5f33ff3518a0a1907b91a951d6",
+    "append_only_merge_summary_sha256": "05c11ab724ecc69521c5735a8de241a9a2cd9894b149c40bcb29a108bd9a6d1b"
+  },
+  "ft": {
+    "verified_fids": 193518,
+    "unverified_fids": 10444,
+    "readiness_snapshot_sha256": "0542c0ca778f2a9e358b31fbe861c41388474ff635b14b16582642750094b6d3",
+    "verified_source_overlays": {
+      "M1": 441,
+      "M5": 27,
+      "M5_overlaps_M1": 24,
+      "archived_ESPN": 44,
+      "Crown_historical": 18,
+      "EPL_La_Liga_ESPN_new_verified_FT": 42,
+      "EPL_La_Liga_ESPN_conflicts_preserved": 12
+    },
+    "unverified_readiness_counts": {
+      "future_fixture_not_due": 298,
+      "kickoff_missing": 2,
+      "past_kickoff_status_missing_or_unknown": 9032,
+      "placeholder_0_0_fids": 9722,
+      "provider_reports_non_full_status_uninterpreted": 1112
+    }
+  },
+  "crown_movement_queue": {
+    "driver_pids": [
+      59381
+    ],
+    "collector_pids": [
+      15974
+    ],
+    "mode": "historical",
+    "candidate_fids": 101266,
+    "terminal_unique_fids": 1249,
+    "terminal_statuses": {
+      "SAVED": 329,
+      "NO_CROWN_AH_QUOTES": 920
+    },
+    "attempt_rows": {
+      "SAVED": 329,
+      "NO_CROWN_AH_QUOTES": 920,
+      "FETCH_FAILED": 30
+    },
+    "failed_attempts": 30,
+    "failure_codes": {
+      "IncompleteRead": 30
+    },
+    "logged_failed_fids_without_later_terminal": 0,
+    "saved_quote_rows_in_attempt_log": 69588,
+    "unlogged_candidates": 100017,
+    "first_http_receive_utc": "2026-11-21T23:18:38.032113Z",
+    "last_http_receive_utc": "2026-11-22T04:20:01.064108Z",
+    "source_event_time_and_receive_time_separate": true,
+    "resume_manifest_sha256": "22797b4b7970ffd0b63eb3afe0107bc1c2fad5b8c201b4c2c1ea83227173c0d1",
+    "source_manifest_sha256": "5e24fc27dba4047f52d4a40bef74b50a0dc13694194ecf150f437bc26147d79a"
+  },
+  "crown_sqlite_read_only_snapshot": {
+    "read_started_utc": "2026-11-22T04:20:01.799919Z",
+    "read_finished_utc": "2026-11-22T04:20:07.925767Z",
+    "captures_by_layer_mode_status": [
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 50618,
+        "distinct_fids": 50618,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 53328,
+        "distinct_fids": 53328,
+        "quote_rows_reported": 4499297
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 1204,
+        "distinct_fids": 1182,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 49621,
+        "distinct_fids": 49054,
+        "quote_rows_reported": 99242
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 1330,
+        "distinct_fids": 248,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 139,
+        "distinct_fids": 95,
+        "quote_rows_reported": 278
+      }
+    ],
+    "quote_rows_by_layer_mode": [
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "quote_rows": 4499297,
+        "distinct_fids": 53328,
+        "source_time_missing": 0,
+        "receive_time_missing": 1488,
+        "source_before_kickoff": 3165248,
+        "prospective_rows": 0
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "quote_rows": 99242,
+        "distinct_fids": 49054,
+        "source_time_missing": 0,
+        "receive_time_missing": 78442,
+        "source_before_kickoff": 96621,
+        "prospective_rows": 0
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "quote_rows": 278,
+        "distinct_fids": 95,
+        "source_time_missing": 0,
+        "receive_time_missing": 0,
+        "source_before_kickoff": 277,
+        "prospective_rows": 272
+      }
+    ],
+    "database_opened_read_only": true,
+    "no_stable_db_file_sha_claim_while_collector_active": true,
+    "wal_snapshot_caveat": "Counts are from a read-only snapshot that may include active WAL writes; they are not a final database state."
+  },
+  "league_scope": {
+    "known_union_provider_ids": 118,
+    "m7_exact_name_mapping_complete": true,
+    "missing_ids_from_known_union": [],
+    "global_completeness_claim": false
+  },
+  "production_changes": 0,
+  "strategy_or_backtest": 0,
+  "telegram_or_ledger_writes": 0
+}

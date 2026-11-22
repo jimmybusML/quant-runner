@@ -5591,3 +5591,12 @@
 - 新增只读准备工具 `prepare_unindexed_summary_reuse_20261122.py` 和328条候选账本 `unindexed_summary_layer_reuse_candidates_20261122T0410Z.jsonl.gz`。仅准备，不导入：共享SQLite写入者仍是活跃historical collector，不能并发写。待该writer安全空闲后用既有Crown解析器追加summary层并重建summary缺口队列。raw response文件未改动。
 - 04:13:18Z movement队列终态1,213/101,266（329 SAVED、884 NO_CROWN_AH_QUOTES），100,053未终结；04:13:40Z独立核验全部1,213匹配SQLite/raw SHA/收件时间/报价行数，差异0、pass=true。driver仍按既有安全窗口运行。
 - 覆盖表、全库存raw audit、压缩逐FID SHA账本、summary candidate、最新状态和输入输出哈希见 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0413Z.md` 及 `CHECKPOINT_SHA256_20261122T0413Z.txt`。未改策略、模型、TG、正式账本或生产采集配置。
+
+
+### 2026-11-22 04:20 UTC：精确来源赛季覆盖矩阵与Crown覆盖刷新
+
+- 新增`build_league_season_inventory_20261122.py`，按精确FID读取expanded-universe来源提供的season字段，并按FID与SQLite报价层做只读覆盖关联。203,962 FID中96,503有唯一原始season标签（14种），107,459来源未提供season，冲突0；不使用UTC年份推断season。生成541个联赛×原始season/unknown桶。
+- 04:20:20Z更新的902行联赛×UTC年Crown矩阵：movement capture 103,947 FID，其中53,328有AH报价/4,499,297报价行，50,619状态为NO_CROWN_AH_QUOTES，100,015无movement capture；历史summary层50,200 FID/99,242行。FT为193,518已核、10,444未核。
+- movement队列在04:20:01Z状态快照为1,249终态，04:20:25Z只读独立落库审计时已推进至1,252；1,252/1,252全部匹配SQLite、raw SHA、HTTP收件时间和quote count，差异0、pass=true。30次IncompleteRead全部已有终态。
+- 先前找到的328个raw历史summary候选（656行）仍未写入，因为共享SQLite历史采集仍运行；每个候选均有精确同FID+SHA的唯一真实收件时间。待共享writer安全空闲后使用既有解析器追加并重建summary缺口队列。
+- 文件、报告及输入输出SHA见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0420Z.md`和`CHECKPOINT_SHA256_20261122T0420Z.txt`。无模型/策略/TG/账本/生产采集配置改动。
