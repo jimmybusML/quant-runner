@@ -1,0 +1,1295 @@
+{
+  "scope": "R7 27 original candidate fixture marginal coverage, 2019-2023 historical-only ordering vs 2024",
+  "baseline": {
+    "train": {
+      "n": 2425,
+      "net_U": 248.44,
+      "roi_pct": 10.2449
+    },
+    "test": {
+      "n": 1680,
+      "net_U": 20.975,
+      "roi_pct": 1.2485
+    }
+  },
+  "leave_one_out": [
+    {
+      "candidate": "T12|line,age|line=0;age=0|favorite",
+      "train_without": {
+        "n": 2022,
+        "net_U": 229.755,
+        "roi_pct": 11.3628
+      },
+      "test_without": {
+        "n": 1475,
+        "net_U": 16.695,
+        "roi_pct": 1.1319
+      },
+      "train_net_delta_U": 18.685,
+      "test_net_delta_U": 4.28,
+      "train_order_delta": 403,
+      "test_order_delta": 205
+    },
+    {
+      "candidate": "T12|line,age|line=2;age=4|underdog",
+      "train_without": {
+        "n": 2368,
+        "net_U": 246.42,
+        "roi_pct": 10.4063
+      },
+      "test_without": {
+        "n": 1623,
+        "net_U": 31.28,
+        "roi_pct": 1.9273
+      },
+      "train_net_delta_U": 2.02,
+      "test_net_delta_U": -10.305,
+      "train_order_delta": 57,
+      "test_order_delta": 57
+    },
+    {
+      "candidate": "T12|line,momentum|line=2;momentum=3|favorite",
+      "train_without": {
+        "n": 2401,
+        "net_U": 255.305,
+        "roi_pct": 10.6333
+      },
+      "test_without": {
+        "n": 1659,
+        "net_U": 20.24,
+        "roi_pct": 1.22
+      },
+      "train_net_delta_U": -6.865,
+      "test_net_delta_U": 0.735,
+      "train_order_delta": 24,
+      "test_order_delta": 21
+    },
+    {
+      "candidate": "T12|line,price,momentum|line=0;price=0;momentum=3|away",
+      "train_without": {
+        "n": 2417,
+        "net_U": 246.97,
+        "roi_pct": 10.218
+      },
+      "test_without": {
+        "n": 1673,
+        "net_U": 18.605,
+        "roi_pct": 1.1121
+      },
+      "train_net_delta_U": 1.47,
+      "test_net_delta_U": 2.37,
+      "train_order_delta": 8,
+      "test_order_delta": 7
+    },
+    {
+      "candidate": "T12|line,price,momentum|line=0;price=0;momentum=3|underdog",
+      "train_without": {
+        "n": 2417,
+        "net_U": 246.97,
+        "roi_pct": 10.218
+      },
+      "test_without": {
+        "n": 1673,
+        "net_U": 18.605,
+        "roi_pct": 1.1121
+      },
+      "train_net_delta_U": 1.47,
+      "test_net_delta_U": 2.37,
+      "train_order_delta": 8,
+      "test_order_delta": 7
+    },
+    {
+      "candidate": "T12|line,price,momentum|line=2;price=1;momentum=3|favorite",
+      "train_without": {
+        "n": 2389,
+        "net_U": 253.7,
+        "roi_pct": 10.6195
+      },
+      "test_without": {
+        "n": 1655,
+        "net_U": 20.025,
+        "roi_pct": 1.21
+      },
+      "train_net_delta_U": -5.26,
+      "test_net_delta_U": 0.95,
+      "train_order_delta": 36,
+      "test_order_delta": 25
+    },
+    {
+      "candidate": "T12|momentum,age|momentum=3;age=2|underdog",
+      "train_without": {
+        "n": 2294,
+        "net_U": 225.895,
+        "roi_pct": 9.8472
+      },
+      "test_without": {
+        "n": 1615,
+        "net_U": 27.025,
+        "roi_pct": 1.6734
+      },
+      "train_net_delta_U": 22.545,
+      "test_net_delta_U": -6.05,
+      "train_order_delta": 131,
+      "test_order_delta": 65
+    },
+    {
+      "candidate": "T12|momentum|momentum=4|favorite",
+      "train_without": {
+        "n": 2420,
+        "net_U": 249.835,
+        "roi_pct": 10.3238
+      },
+      "test_without": {
+        "n": 1680,
+        "net_U": 20.975,
+        "roi_pct": 1.2485
+      },
+      "train_net_delta_U": -1.395,
+      "test_net_delta_U": 0.0,
+      "train_order_delta": 5,
+      "test_order_delta": 0
+    },
+    {
+      "candidate": "T12|price,momentum|price=1;momentum=4|favorite",
+      "train_without": {
+        "n": 2425,
+        "net_U": 248.44,
+        "roi_pct": 10.2449
+      },
+      "test_without": {
+        "n": 1680,
+        "net_U": 20.975,
+        "roi_pct": 1.2485
+      },
+      "train_net_delta_U": 0.0,
+      "test_net_delta_U": 0.0,
+      "train_order_delta": 0,
+      "test_order_delta": 0
+    },
+    {
+      "candidate": "T12|price,momentum|price=2;momentum=3|away",
+      "train_without": {
+        "n": 2347,
+        "net_U": 222.65,
+        "roi_pct": 9.4866
+      },
+      "test_without": {
+        "n": 1625,
+        "net_U": 8.355,
+        "roi_pct": 0.5142
+      },
+      "train_net_delta_U": 25.79,
+      "test_net_delta_U": 12.62,
+      "train_order_delta": 78,
+      "test_order_delta": 55
+    },
+    {
+      "candidate": "T24|line,momentum|line=0;momentum=1|away",
+      "train_without": {
+        "n": 2433,
+        "net_U": 248.24,
+        "roi_pct": 10.203
+      },
+      "test_without": {
+        "n": 1682,
+        "net_U": 19.975,
+        "roi_pct": 1.1876
+      },
+      "train_net_delta_U": 0.2,
+      "test_net_delta_U": 1.0,
+      "train_order_delta": -8,
+      "test_order_delta": -2
+    },
+    {
+      "candidate": "T24|line,momentum|line=0;momentum=1|favorite",
+      "train_without": {
+        "n": 2433,
+        "net_U": 248.53,
+        "roi_pct": 10.215
+      },
+      "test_without": {
+        "n": 1682,
+        "net_U": 21.925,
+        "roi_pct": 1.3035
+      },
+      "train_net_delta_U": -0.09,
+      "test_net_delta_U": -0.95,
+      "train_order_delta": -8,
+      "test_order_delta": -2
+    },
+    {
+      "candidate": "T24|line,price,momentum|line=3;price=1;momentum=2|underdog",
+      "train_without": {
+        "n": 2425,
+        "net_U": 248.44,
+        "roi_pct": 10.2449
+      },
+      "test_without": {
+        "n": 1680,
+        "net_U": 20.975,
+        "roi_pct": 1.2485
+      },
+      "train_net_delta_U": 0.0,
+      "test_net_delta_U": 0.0,
+      "train_order_delta": 0,
+      "test_order_delta": 0
+    },
+    {
+      "candidate": "T24|line,price|line=3;price=1|underdog",
+      "train_without": {
+        "n": 2391,
+        "net_U": 245.99,
+        "roi_pct": 10.2882
+      },
+      "test_without": {
+        "n": 1662,
+        "net_U": 27.745,
+        "roi_pct": 1.6694
+      },
+      "train_net_delta_U": 2.45,
+      "test_net_delta_U": -6.77,
+      "train_order_delta": 34,
+      "test_order_delta": 18
+    },
+    {
+      "candidate": "T2|line,price,momentum|line=2;price=2;momentum=1|favorite",
+      "train_without": {
+        "n": 2304,
+        "net_U": 223.265,
+        "roi_pct": 9.6903
+      },
+      "test_without": {
+        "n": 1598,
+        "net_U": 16.97,
+        "roi_pct": 1.062
+      },
+      "train_net_delta_U": 25.175,
+      "test_net_delta_U": 4.005,
+      "train_order_delta": 121,
+      "test_order_delta": 82
+    },
+    {
+      "candidate": "T2|line,price,momentum|line=2;price=4;momentum=2|favorite",
+      "train_without": {
+        "n": 2400,
+        "net_U": 240.655,
+        "roi_pct": 10.0273
+      },
+      "test_without": {
+        "n": 1659,
+        "net_U": 23.245,
+        "roi_pct": 1.4011
+      },
+      "train_net_delta_U": 7.785,
+      "test_net_delta_U": -2.27,
+      "train_order_delta": 25,
+      "test_order_delta": 21
+    },
+    {
+      "candidate": "T2|line,price,momentum|line=3;price=3;momentum=3|away",
+      "train_without": {
+        "n": 2399,
+        "net_U": 243.76,
+        "roi_pct": 10.1609
+      },
+      "test_without": {
+        "n": 1653,
+        "net_U": 28.42,
+        "roi_pct": 1.7193
+      },
+      "train_net_delta_U": 4.68,
+      "test_net_delta_U": -7.445,
+      "train_order_delta": 26,
+      "test_order_delta": 27
+    },
+    {
+      "candidate": "T2|line,price|line=4;price=3|underdog",
+      "train_without": {
+        "n": 2344,
+        "net_U": 236.52,
+        "roi_pct": 10.0904
+      },
+      "test_without": {
+        "n": 1620,
+        "net_U": 16.785,
+        "roi_pct": 1.0361
+      },
+      "train_net_delta_U": 11.92,
+      "test_net_delta_U": 4.19,
+      "train_order_delta": 81,
+      "test_order_delta": 60
+    },
+    {
+      "candidate": "T2|momentum,age|momentum=1;age=1|underdog",
+      "train_without": {
+        "n": 2170,
+        "net_U": 238.165,
+        "roi_pct": 10.9753
+      },
+      "test_without": {
+        "n": 1347,
+        "net_U": 2.1,
+        "roi_pct": 0.1559
+      },
+      "train_net_delta_U": 10.275,
+      "test_net_delta_U": 18.875,
+      "train_order_delta": 255,
+      "test_order_delta": 333
+    },
+    {
+      "candidate": "T6|line,price|line=1;price=4|away",
+      "train_without": {
+        "n": 2428,
+        "net_U": 245.44,
+        "roi_pct": 10.1087
+      },
+      "test_without": {
+        "n": 1680,
+        "net_U": 20.975,
+        "roi_pct": 1.2485
+      },
+      "train_net_delta_U": 3.0,
+      "test_net_delta_U": 0.0,
+      "train_order_delta": -3,
+      "test_order_delta": 0
+    },
+    {
+      "candidate": "T6|line,price|line=1;price=4|underdog",
+      "train_without": {
+        "n": 2428,
+        "net_U": 250.84,
+        "roi_pct": 10.3311
+      },
+      "test_without": {
+        "n": 1680,
+        "net_U": 20.975,
+        "roi_pct": 1.2485
+      },
+      "train_net_delta_U": -2.4,
+      "test_net_delta_U": 0.0,
+      "train_order_delta": -3,
+      "test_order_delta": 0
+    },
+    {
+      "candidate": "T6|momentum,age|momentum=4;age=0|home",
+      "train_without": {
+        "n": 2424,
+        "net_U": 249.71,
+        "roi_pct": 10.3016
+      },
+      "test_without": {
+        "n": 1681,
+        "net_U": 20.995,
+        "roi_pct": 1.249
+      },
+      "train_net_delta_U": -1.27,
+      "test_net_delta_U": -0.02,
+      "train_order_delta": 1,
+      "test_order_delta": -1
+    },
+    {
+      "candidate": "T6|price,momentum|price=1;momentum=4|favorite",
+      "train_without": {
+        "n": 2421,
+        "net_U": 245.81,
+        "roi_pct": 10.1532
+      },
+      "test_without": {
+        "n": 1677,
+        "net_U": 23.705,
+        "roi_pct": 1.4135
+      },
+      "train_net_delta_U": 2.63,
+      "test_net_delta_U": -2.73,
+      "train_order_delta": 4,
+      "test_order_delta": 3
+    },
+    {
+      "candidate": "T6|price,momentum|price=2;momentum=4|home",
+      "train_without": {
+        "n": 2425,
+        "net_U": 248.44,
+        "roi_pct": 10.2449
+      },
+      "test_without": {
+        "n": 1680,
+        "net_U": 20.975,
+        "roi_pct": 1.2485
+      },
+      "train_net_delta_U": 0.0,
+      "test_net_delta_U": 0.0,
+      "train_order_delta": 0,
+      "test_order_delta": 0
+    },
+    {
+      "candidate": "T6|price,momentum|price=4;momentum=1|away",
+      "train_without": {
+        "n": 2451,
+        "net_U": 244.89,
+        "roi_pct": 9.9914
+      },
+      "test_without": {
+        "n": 1696,
+        "net_U": 21.885,
+        "roi_pct": 1.2904
+      },
+      "train_net_delta_U": 3.55,
+      "test_net_delta_U": -0.91,
+      "train_order_delta": -26,
+      "test_order_delta": -16
+    },
+    {
+      "candidate": "T6|price,momentum|price=4;momentum=2|underdog",
+      "train_without": {
+        "n": 2425,
+        "net_U": 248.44,
+        "roi_pct": 10.2449
+      },
+      "test_without": {
+        "n": 1680,
+        "net_U": 20.975,
+        "roi_pct": 1.2485
+      },
+      "train_net_delta_U": 0.0,
+      "test_net_delta_U": 0.0,
+      "train_order_delta": 0,
+      "test_order_delta": 0
+    },
+    {
+      "candidate": "T6|price|price=4|underdog",
+      "train_without": {
+        "n": 2450,
+        "net_U": 251.36,
+        "roi_pct": 10.2596
+      },
+      "test_without": {
+        "n": 1688,
+        "net_U": 20.39,
+        "roi_pct": 1.2079
+      },
+      "train_net_delta_U": -2.92,
+      "test_net_delta_U": 0.585,
+      "train_order_delta": -25,
+      "test_order_delta": -8
+    }
+  ],
+  "greedy_historical_coverage": [
+    {
+      "step": 1,
+      "added": "T12|line,age|line=0;age=0|favorite",
+      "train": {
+        "n": 476,
+        "net_U": 23.49,
+        "roi_pct": 4.9349
+      },
+      "test": {
+        "n": 236,
+        "net_U": 0.19,
+        "roi_pct": 0.0805
+      },
+      "train_overlap": {
+        "fixtures_any": 476,
+        "fixtures_multiple_candidates": 0,
+        "fixtures_opposed": 0,
+        "fixtures_one_side": 476,
+        "fixtures_tied": 0,
+        "signal_occurrences_at_selected_horizon": 476
+      },
+      "test_overlap": {
+        "fixtures_any": 236,
+        "fixtures_multiple_candidates": 0,
+        "fixtures_opposed": 0,
+        "fixtures_one_side": 236,
+        "fixtures_tied": 0,
+        "signal_occurrences_at_selected_horizon": 236
+      }
+    },
+    {
+      "step": 2,
+      "added": "T6|price|price=4|underdog",
+      "train": {
+        "n": 869,
+        "net_U": 52.15,
+        "roi_pct": 6.0012
+      },
+      "test": {
+        "n": 555,
+        "net_U": 3.705,
+        "roi_pct": 0.6676
+      },
+      "train_overlap": {
+        "fixtures_any": 869,
+        "fixtures_multiple_candidates": 0,
+        "fixtures_opposed": 0,
+        "fixtures_one_side": 869,
+        "fixtures_tied": 0,
+        "signal_occurrences_at_selected_horizon": 869
+      },
+      "test_overlap": {
+        "fixtures_any": 555,
+        "fixtures_multiple_candidates": 0,
+        "fixtures_opposed": 0,
+        "fixtures_one_side": 555,
+        "fixtures_tied": 0,
+        "signal_occurrences_at_selected_horizon": 555
+      }
+    },
+    {
+      "step": 3,
+      "added": "T24|line,price|line=3;price=1|underdog",
+      "train": {
+        "n": 1232,
+        "net_U": 85.585,
+        "roi_pct": 6.9468
+      },
+      "test": {
+        "n": 742,
+        "net_U": 11.21,
+        "roi_pct": 1.5108
+      },
+      "train_overlap": {
+        "fixtures_any": 1232,
+        "fixtures_multiple_candidates": 0,
+        "fixtures_opposed": 0,
+        "fixtures_one_side": 1232,
+        "fixtures_tied": 0,
+        "signal_occurrences_at_selected_horizon": 1232
+      },
+      "test_overlap": {
+        "fixtures_any": 742,
+        "fixtures_multiple_candidates": 0,
+        "fixtures_opposed": 0,
+        "fixtures_one_side": 742,
+        "fixtures_tied": 0,
+        "signal_occurrences_at_selected_horizon": 742
+      }
+    },
+    {
+      "step": 4,
+      "added": "T2|momentum,age|momentum=1;age=1|underdog",
+      "train": {
+        "n": 1536,
+        "net_U": 100.415,
+        "roi_pct": 6.5374
+      },
+      "test": {
+        "n": 1152,
+        "net_U": 27.565,
+        "roi_pct": 2.3928
+      },
+      "train_overlap": {
+        "fixtures_any": 1536,
+        "fixtures_multiple_candidates": 0,
+        "fixtures_opposed": 0,
+        "fixtures_one_side": 1536,
+        "fixtures_tied": 0,
+        "signal_occurrences_at_selected_horizon": 1536
+      },
+      "test_overlap": {
+        "fixtures_any": 1152,
+        "fixtures_multiple_candidates": 0,
+        "fixtures_opposed": 0,
+        "fixtures_one_side": 1152,
+        "fixtures_tied": 0,
+        "signal_occurrences_at_selected_horizon": 1152
+      }
+    },
+    {
+      "step": 5,
+      "added": "T12|line,momentum|line=2;momentum=3|favorite",
+      "train": {
+        "n": 1786,
+        "net_U": 126.055,
+        "roi_pct": 7.058
+      },
+      "test": {
+        "n": 1260,
+        "net_U": 25.53,
+        "roi_pct": 2.0262
+      },
+      "train_overlap": {
+        "fixtures_any": 1786,
+        "fixtures_multiple_candidates": 0,
+        "fixtures_opposed": 0,
+        "fixtures_one_side": 1786,
+        "fixtures_tied": 0,
+        "signal_occurrences_at_selected_horizon": 1786
+      },
+      "test_overlap": {
+        "fixtures_any": 1260,
+        "fixtures_multiple_candidates": 0,
+        "fixtures_opposed": 0,
+        "fixtures_one_side": 1260,
+        "fixtures_tied": 0,
+        "signal_occurrences_at_selected_horizon": 1260
+      }
+    },
+    {
+      "step": 6,
+      "added": "T12|momentum,age|momentum=3;age=2|underdog",
+      "train": {
+        "n": 1929,
+        "net_U": 159.175,
+        "roi_pct": 8.2517
+      },
+      "test": {
+        "n": 1320,
+        "net_U": 20.235,
+        "roi_pct": 1.533
+      },
+      "train_overlap": {
+        "fixtures_any": 1979,
+        "fixtures_multiple_candidates": 50,
+        "fixtures_opposed": 50,
+        "fixtures_one_side": 1929,
+        "fixtures_tied": 50,
+        "signal_occurrences_at_selected_horizon": 2029
+      },
+      "test_overlap": {
+        "fixtures_any": 1348,
+        "fixtures_multiple_candidates": 28,
+        "fixtures_opposed": 28,
+        "fixtures_one_side": 1320,
+        "fixtures_tied": 28,
+        "signal_occurrences_at_selected_horizon": 1376
+      }
+    },
+    {
+      "step": 7,
+      "added": "T2|line,price,momentum|line=2;price=2;momentum=1|favorite",
+      "train": {
+        "n": 2051,
+        "net_U": 183.35,
+        "roi_pct": 8.9395
+      },
+      "test": {
+        "n": 1401,
+        "net_U": 23.36,
+        "roi_pct": 1.6674
+      },
+      "train_overlap": {
+        "fixtures_any": 2121,
+        "fixtures_multiple_candidates": 70,
+        "fixtures_opposed": 70,
+        "fixtures_one_side": 2051,
+        "fixtures_tied": 70,
+        "signal_occurrences_at_selected_horizon": 2191
+      },
+      "test_overlap": {
+        "fixtures_any": 1463,
+        "fixtures_multiple_candidates": 62,
+        "fixtures_opposed": 62,
+        "fixtures_one_side": 1401,
+        "fixtures_tied": 62,
+        "signal_occurrences_at_selected_horizon": 1525
+      }
+    },
+    {
+      "step": 8,
+      "added": "T12|price,momentum|price=2;momentum=3|away",
+      "train": {
+        "n": 2145,
+        "net_U": 205.45,
+        "roi_pct": 9.5781
+      },
+      "test": {
+        "n": 1462,
+        "net_U": 37.93,
+        "roi_pct": 2.5944
+      },
+      "train_overlap": {
+        "fixtures_any": 2246,
+        "fixtures_multiple_candidates": 162,
+        "fixtures_opposed": 111,
+        "fixtures_one_side": 2135,
+        "fixtures_tied": 101,
+        "signal_occurrences_at_selected_horizon": 2418
+      },
+      "test_overlap": {
+        "fixtures_any": 1544,
+        "fixtures_multiple_candidates": 98,
+        "fixtures_opposed": 84,
+        "fixtures_one_side": 1460,
+        "fixtures_tied": 82,
+        "signal_occurrences_at_selected_horizon": 1644
+      }
+    },
+    {
+      "step": 9,
+      "added": "T2|line,price|line=4;price=3|underdog",
+      "train": {
+        "n": 2228,
+        "net_U": 217.4,
+        "roi_pct": 9.7576
+      },
+      "test": {
+        "n": 1523,
+        "net_U": 42.98,
+        "roi_pct": 2.8221
+      },
+      "train_overlap": {
+        "fixtures_any": 2329,
+        "fixtures_multiple_candidates": 166,
+        "fixtures_opposed": 111,
+        "fixtures_one_side": 2218,
+        "fixtures_tied": 101,
+        "signal_occurrences_at_selected_horizon": 2505
+      },
+      "test_overlap": {
+        "fixtures_any": 1605,
+        "fixtures_multiple_candidates": 105,
+        "fixtures_opposed": 84,
+        "fixtures_one_side": 1521,
+        "fixtures_tied": 82,
+        "signal_occurrences_at_selected_horizon": 1712
+      }
+    },
+    {
+      "step": 10,
+      "added": "T12|line,age|line=2;age=4|underdog",
+      "train": {
+        "n": 2285,
+        "net_U": 219.42,
+        "roi_pct": 9.6026
+      },
+      "test": {
+        "n": 1581,
+        "net_U": 33.785,
+        "roi_pct": 2.1369
+      },
+      "train_overlap": {
+        "fixtures_any": 2388,
+        "fixtures_multiple_candidates": 168,
+        "fixtures_opposed": 113,
+        "fixtures_one_side": 2275,
+        "fixtures_tied": 103,
+        "signal_occurrences_at_selected_horizon": 2566
+      },
+      "test_overlap": {
+        "fixtures_any": 1662,
+        "fixtures_multiple_candidates": 104,
+        "fixtures_opposed": 83,
+        "fixtures_one_side": 1579,
+        "fixtures_tied": 81,
+        "signal_occurrences_at_selected_horizon": 1768
+      }
+    },
+    {
+      "step": 11,
+      "added": "T24|line,momentum|line=0;momentum=1|away",
+      "train": {
+        "n": 2321,
+        "net_U": 223.11,
+        "roi_pct": 9.6127
+      },
+      "test": {
+        "n": 1593,
+        "net_U": 32.145,
+        "roi_pct": 2.0179
+      },
+      "train_overlap": {
+        "fixtures_any": 2424,
+        "fixtures_multiple_candidates": 168,
+        "fixtures_opposed": 113,
+        "fixtures_one_side": 2311,
+        "fixtures_tied": 103,
+        "signal_occurrences_at_selected_horizon": 2602
+      },
+      "test_overlap": {
+        "fixtures_any": 1674,
+        "fixtures_multiple_candidates": 104,
+        "fixtures_opposed": 83,
+        "fixtures_one_side": 1591,
+        "fixtures_tied": 81,
+        "signal_occurrences_at_selected_horizon": 1780
+      }
+    },
+    {
+      "step": 12,
+      "added": "T12|line,price,momentum|line=2;price=1;momentum=3|favorite",
+      "train": {
+        "n": 2357,
+        "net_U": 217.85,
+        "roi_pct": 9.2427
+      },
+      "test": {
+        "n": 1618,
+        "net_U": 33.095,
+        "roi_pct": 2.0454
+      },
+      "train_overlap": {
+        "fixtures_any": 2424,
+        "fixtures_multiple_candidates": 310,
+        "fixtures_opposed": 113,
+        "fixtures_one_side": 2311,
+        "fixtures_tied": 67,
+        "signal_occurrences_at_selected_horizon": 2780
+      },
+      "test_overlap": {
+        "fixtures_any": 1674,
+        "fixtures_multiple_candidates": 156,
+        "fixtures_opposed": 83,
+        "fixtures_one_side": 1591,
+        "fixtures_tied": 56,
+        "signal_occurrences_at_selected_horizon": 1857
+      }
+    },
+    {
+      "step": 13,
+      "added": "T2|line,price,momentum|line=3;price=3;momentum=3|away",
+      "train": {
+        "n": 2385,
+        "net_U": 220.53,
+        "roi_pct": 9.2465
+      },
+      "test": {
+        "n": 1645,
+        "net_U": 25.65,
+        "roi_pct": 1.5593
+      },
+      "train_overlap": {
+        "fixtures_any": 2452,
+        "fixtures_multiple_candidates": 310,
+        "fixtures_opposed": 113,
+        "fixtures_one_side": 2339,
+        "fixtures_tied": 67,
+        "signal_occurrences_at_selected_horizon": 2808
+      },
+      "test_overlap": {
+        "fixtures_any": 1701,
+        "fixtures_multiple_candidates": 156,
+        "fixtures_opposed": 83,
+        "fixtures_one_side": 1618,
+        "fixtures_tied": 56,
+        "signal_occurrences_at_selected_horizon": 1884
+      }
+    },
+    {
+      "step": 14,
+      "added": "T6|momentum,age|momentum=4;age=0|home",
+      "train": {
+        "n": 2410,
+        "net_U": 230.42,
+        "roi_pct": 9.561
+      },
+      "test": {
+        "n": 1665,
+        "net_U": 23.9,
+        "roi_pct": 1.4354
+      },
+      "train_overlap": {
+        "fixtures_any": 2477,
+        "fixtures_multiple_candidates": 310,
+        "fixtures_opposed": 113,
+        "fixtures_one_side": 2364,
+        "fixtures_tied": 67,
+        "signal_occurrences_at_selected_horizon": 2833
+      },
+      "test_overlap": {
+        "fixtures_any": 1721,
+        "fixtures_multiple_candidates": 156,
+        "fixtures_opposed": 83,
+        "fixtures_one_side": 1638,
+        "fixtures_tied": 56,
+        "signal_occurrences_at_selected_horizon": 1904
+      }
+    },
+    {
+      "step": 15,
+      "added": "T2|line,price,momentum|line=2;price=4;momentum=2|favorite",
+      "train": {
+        "n": 2435,
+        "net_U": 238.205,
+        "roi_pct": 9.7825
+      },
+      "test": {
+        "n": 1686,
+        "net_U": 21.63,
+        "roi_pct": 1.2829
+      },
+      "train_overlap": {
+        "fixtures_any": 2502,
+        "fixtures_multiple_candidates": 310,
+        "fixtures_opposed": 113,
+        "fixtures_one_side": 2389,
+        "fixtures_tied": 67,
+        "signal_occurrences_at_selected_horizon": 2858
+      },
+      "test_overlap": {
+        "fixtures_any": 1742,
+        "fixtures_multiple_candidates": 156,
+        "fixtures_opposed": 83,
+        "fixtures_one_side": 1659,
+        "fixtures_tied": 56,
+        "signal_occurrences_at_selected_horizon": 1925
+      }
+    },
+    {
+      "step": 16,
+      "added": "T12|momentum|momentum=4|favorite",
+      "train": {
+        "n": 2446,
+        "net_U": 239.53,
+        "roi_pct": 9.7927
+      },
+      "test": {
+        "n": 1688,
+        "net_U": 21.47,
+        "roi_pct": 1.2719
+      },
+      "train_overlap": {
+        "fixtures_any": 2513,
+        "fixtures_multiple_candidates": 312,
+        "fixtures_opposed": 113,
+        "fixtures_one_side": 2400,
+        "fixtures_tied": 67,
+        "signal_occurrences_at_selected_horizon": 2871
+      },
+      "test_overlap": {
+        "fixtures_any": 1744,
+        "fixtures_multiple_candidates": 156,
+        "fixtures_opposed": 83,
+        "fixtures_one_side": 1661,
+        "fixtures_tied": 56,
+        "signal_occurrences_at_selected_horizon": 1927
+      }
+    },
+    {
+      "step": 17,
+      "added": "T6|price,momentum|price=1;momentum=4|favorite",
+      "train": {
+        "n": 2450,
+        "net_U": 242.16,
+        "roi_pct": 9.8841
+      },
+      "test": {
+        "n": 1691,
+        "net_U": 18.74,
+        "roi_pct": 1.1082
+      },
+      "train_overlap": {
+        "fixtures_any": 2518,
+        "fixtures_multiple_candidates": 320,
+        "fixtures_opposed": 114,
+        "fixtures_one_side": 2404,
+        "fixtures_tied": 68,
+        "signal_occurrences_at_selected_horizon": 2884
+      },
+      "test_overlap": {
+        "fixtures_any": 1749,
+        "fixtures_multiple_candidates": 168,
+        "fixtures_opposed": 85,
+        "fixtures_one_side": 1664,
+        "fixtures_tied": 58,
+        "signal_occurrences_at_selected_horizon": 1944
+      }
+    },
+    {
+      "step": 18,
+      "added": "T12|line,price,momentum|line=0;price=0;momentum=3|underdog",
+      "train": {
+        "n": 2451,
+        "net_U": 243.51,
+        "roi_pct": 9.9351
+      },
+      "test": {
+        "n": 1691,
+        "net_U": 20.465,
+        "roi_pct": 1.2102
+      },
+      "train_overlap": {
+        "fixtures_any": 2527,
+        "fixtures_multiple_candidates": 336,
+        "fixtures_opposed": 122,
+        "fixtures_one_side": 2405,
+        "fixtures_tied": 76,
+        "signal_occurrences_at_selected_horizon": 2909
+      },
+      "test_overlap": {
+        "fixtures_any": 1756,
+        "fixtures_multiple_candidates": 181,
+        "fixtures_opposed": 92,
+        "fixtures_one_side": 1664,
+        "fixtures_tied": 65,
+        "signal_occurrences_at_selected_horizon": 1964
+      }
+    },
+    {
+      "step": 19,
+      "added": "T12|line,price,momentum|line=0;price=0;momentum=3|away",
+      "train": {
+        "n": 2459,
+        "net_U": 244.98,
+        "roi_pct": 9.9626
+      },
+      "test": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "train_overlap": {
+        "fixtures_any": 2527,
+        "fixtures_multiple_candidates": 346,
+        "fixtures_opposed": 122,
+        "fixtures_one_side": 2405,
+        "fixtures_tied": 68,
+        "signal_occurrences_at_selected_horizon": 2935
+      },
+      "test_overlap": {
+        "fixtures_any": 1756,
+        "fixtures_multiple_candidates": 191,
+        "fixtures_opposed": 92,
+        "fixtures_one_side": 1664,
+        "fixtures_tied": 58,
+        "signal_occurrences_at_selected_horizon": 1987
+      }
+    },
+    {
+      "step": 20,
+      "added": "T6|price,momentum|price=4;momentum=2|underdog",
+      "train": {
+        "n": 2459,
+        "net_U": 244.98,
+        "roi_pct": 9.9626
+      },
+      "test": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "train_overlap": {
+        "fixtures_any": 2527,
+        "fixtures_multiple_candidates": 624,
+        "fixtures_opposed": 122,
+        "fixtures_one_side": 2405,
+        "fixtures_tied": 68,
+        "signal_occurrences_at_selected_horizon": 3213
+      },
+      "test_overlap": {
+        "fixtures_any": 1756,
+        "fixtures_multiple_candidates": 451,
+        "fixtures_opposed": 92,
+        "fixtures_one_side": 1664,
+        "fixtures_tied": 58,
+        "signal_occurrences_at_selected_horizon": 2247
+      }
+    },
+    {
+      "step": 21,
+      "added": "T6|price,momentum|price=2;momentum=4|home",
+      "train": {
+        "n": 2459,
+        "net_U": 244.98,
+        "roi_pct": 9.9626
+      },
+      "test": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "train_overlap": {
+        "fixtures_any": 2527,
+        "fixtures_multiple_candidates": 629,
+        "fixtures_opposed": 122,
+        "fixtures_one_side": 2405,
+        "fixtures_tied": 68,
+        "signal_occurrences_at_selected_horizon": 3218
+      },
+      "test_overlap": {
+        "fixtures_any": 1756,
+        "fixtures_multiple_candidates": 455,
+        "fixtures_opposed": 92,
+        "fixtures_one_side": 1664,
+        "fixtures_tied": 58,
+        "signal_occurrences_at_selected_horizon": 2251
+      }
+    },
+    {
+      "step": 22,
+      "added": "T6|line,price|line=1;price=4|underdog",
+      "train": {
+        "n": 2459,
+        "net_U": 244.98,
+        "roi_pct": 9.9626
+      },
+      "test": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "train_overlap": {
+        "fixtures_any": 2527,
+        "fixtures_multiple_candidates": 684,
+        "fixtures_opposed": 122,
+        "fixtures_one_side": 2405,
+        "fixtures_tied": 68,
+        "signal_occurrences_at_selected_horizon": 3437
+      },
+      "test_overlap": {
+        "fixtures_any": 1756,
+        "fixtures_multiple_candidates": 474,
+        "fixtures_opposed": 92,
+        "fixtures_one_side": 1664,
+        "fixtures_tied": 58,
+        "signal_occurrences_at_selected_horizon": 2397
+      }
+    },
+    {
+      "step": 23,
+      "added": "T6|line,price|line=1;price=4|away",
+      "train": {
+        "n": 2459,
+        "net_U": 244.98,
+        "roi_pct": 9.9626
+      },
+      "test": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "train_overlap": {
+        "fixtures_any": 2527,
+        "fixtures_multiple_candidates": 684,
+        "fixtures_opposed": 143,
+        "fixtures_one_side": 2384,
+        "fixtures_tied": 68,
+        "signal_occurrences_at_selected_horizon": 3656
+      },
+      "test_overlap": {
+        "fixtures_any": 1756,
+        "fixtures_multiple_candidates": 474,
+        "fixtures_opposed": 114,
+        "fixtures_one_side": 1642,
+        "fixtures_tied": 58,
+        "signal_occurrences_at_selected_horizon": 2543
+      }
+    },
+    {
+      "step": 24,
+      "added": "T24|line,price,momentum|line=3;price=1;momentum=2|underdog",
+      "train": {
+        "n": 2459,
+        "net_U": 244.98,
+        "roi_pct": 9.9626
+      },
+      "test": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "train_overlap": {
+        "fixtures_any": 2527,
+        "fixtures_multiple_candidates": 992,
+        "fixtures_opposed": 143,
+        "fixtures_one_side": 2384,
+        "fixtures_tied": 68,
+        "signal_occurrences_at_selected_horizon": 3964
+      },
+      "test_overlap": {
+        "fixtures_any": 1756,
+        "fixtures_multiple_candidates": 639,
+        "fixtures_opposed": 114,
+        "fixtures_one_side": 1642,
+        "fixtures_tied": 58,
+        "signal_occurrences_at_selected_horizon": 2708
+      }
+    },
+    {
+      "step": 25,
+      "added": "T12|price,momentum|price=1;momentum=4|favorite",
+      "train": {
+        "n": 2459,
+        "net_U": 244.98,
+        "roi_pct": 9.9626
+      },
+      "test": {
+        "n": 1698,
+        "net_U": 22.835,
+        "roi_pct": 1.3448
+      },
+      "train_overlap": {
+        "fixtures_any": 2527,
+        "fixtures_multiple_candidates": 1006,
+        "fixtures_opposed": 143,
+        "fixtures_one_side": 2384,
+        "fixtures_tied": 68,
+        "signal_occurrences_at_selected_horizon": 3979
+      },
+      "test_overlap": {
+        "fixtures_any": 1756,
+        "fixtures_multiple_candidates": 642,
+        "fixtures_opposed": 114,
+        "fixtures_one_side": 1642,
+        "fixtures_tied": 58,
+        "signal_occurrences_at_selected_horizon": 2711
+      }
+    },
+    {
+      "step": 26,
+      "added": "T24|line,momentum|line=0;momentum=1|favorite",
+      "train": {
+        "n": 2451,
+        "net_U": 244.89,
+        "roi_pct": 9.9914
+      },
+      "test": {
+        "n": 1696,
+        "net_U": 21.885,
+        "roi_pct": 1.2904
+      },
+      "train_overlap": {
+        "fixtures_any": 2527,
+        "fixtures_multiple_candidates": 1063,
+        "fixtures_opposed": 151,
+        "fixtures_one_side": 2376,
+        "fixtures_tied": 76,
+        "signal_occurrences_at_selected_horizon": 4036
+      },
+      "test_overlap": {
+        "fixtures_any": 1756,
+        "fixtures_multiple_candidates": 656,
+        "fixtures_opposed": 116,
+        "fixtures_one_side": 1640,
+        "fixtures_tied": 60,
+        "signal_occurrences_at_selected_horizon": 2725
+      }
+    },
+    {
+      "step": 27,
+      "added": "T6|price,momentum|price=4;momentum=1|away",
+      "train": {
+        "n": 2425,
+        "net_U": 248.44,
+        "roi_pct": 10.2449
+      },
+      "test": {
+        "n": 1680,
+        "net_U": 20.975,
+        "roi_pct": 1.2485
+      },
+      "train_overlap": {
+        "fixtures_any": 2527,
+        "fixtures_multiple_candidates": 1100,
+        "fixtures_opposed": 174,
+        "fixtures_one_side": 2353,
+        "fixtures_tied": 102,
+        "signal_occurrences_at_selected_horizon": 4127
+      },
+      "test_overlap": {
+        "fixtures_any": 1756,
+        "fixtures_multiple_candidates": 674,
+        "fixtures_opposed": 132,
+        "fixtures_one_side": 1624,
+        "fixtures_tied": 76,
+        "signal_occurrences_at_selected_horizon": 2761
+      }
+    }
+  ],
+  "caveats": [
+    "Greedy ordering is a research diagnostic of historical incremental fixture coverage, not a new strategy rule or selection gate.",
+    "Training ranking uses only 2019-2023, but the original R7 candidates were selected on those years and 2024 has been repeatedly inspected.",
+    "Removing or adding a candidate can change earliest eligible horizon and majority direction; net-U differences are portfolio-level and not causal contribution.",
+    "The 27 step counts are descriptive; do not interpret any step as an approved portfolio size.",
+    "2025-2026 not used; no production or Telegram changes; retrospective Crown prices are not proven executable."
+  ]
+}
