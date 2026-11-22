@@ -5600,3 +5600,11 @@
 - movement队列在04:20:01Z状态快照为1,249终态，04:20:25Z只读独立落库审计时已推进至1,252；1,252/1,252全部匹配SQLite、raw SHA、HTTP收件时间和quote count，差异0、pass=true。30次IncompleteRead全部已有终态。
 - 先前找到的328个raw历史summary候选（656行）仍未写入，因为共享SQLite历史采集仍运行；每个候选均有精确同FID+SHA的唯一真实收件时间。待共享writer安全空闲后使用既有解析器追加并重建summary缺口队列。
 - 文件、报告及输入输出SHA见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0420Z.md`和`CHECKPOINT_SHA256_20261122T0420Z.txt`。无模型/策略/TG/账本/生产采集配置改动。
+
+
+### 2026-11-22 04:26 UTC：历史movement采集进展与覆盖快照
+
+- 04:26:19Z movement队列快照：1,289/101,266终态（329 SAVED、960 NO_CROWN_AH_QUOTES），99,977尚未终结。04:26:43Z只读落库审计时已推进至1,293（329 SAVED、964无AH响应）；全部FID匹配SQLite、raw SHA、HTTP接收时间和quote count，差异0、pass=true。30次IncompleteRead均已有终态。
+- 04:26:38Z只读覆盖：库存203,962场/118个known provider IDs/902个联赛×UTC年桶；movement capture 103,987 FID，53,328有4,499,297行AH报价、50,659个NO_CROWN_AH_QUOTES记录，99,975场缺movement capture。FT已核193,518、未核10,444。
+- 联赛×来源season矩阵仍为96,503个精确season标签、107,459来源缺season、冲突0；不以UTC年代填。
+- 最新材料与SHA见`research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0426Z.md`、状态、两个覆盖矩阵及movement独立核验文件。328个已缓存summary候选尚未落库，等待共享historical writer完成后再追加。生产系统与模型保持未改。

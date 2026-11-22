@@ -23,7 +23,7 @@ UNRESOLVED = ROOT / "unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz
 DATABASE = pathlib.Path("/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3")
 MOVEMENT_QUEUE = pathlib.Path("/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/queues_20261122/crown_missing_movement_2019_2026.jsonl")
 SUMMARY_QUEUE = pathlib.Path("/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/crown_quote_recovery/queues_20261122/crown_missing_summary_2019_2026.jsonl")
-STAMP = "20261122T0420Z"
+STAMP = "20261122T0426Z"
 CSV_OUT = ROOT / f"league_year_quote_coverage_{STAMP}.csv"
 JSON_OUT = ROOT / f"league_year_quote_coverage_{STAMP}.json"
 

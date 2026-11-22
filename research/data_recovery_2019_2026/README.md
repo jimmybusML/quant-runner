@@ -4,10 +4,10 @@ This is an active collection and reconciliation task, not a strategy or model st
 
 ## Current evidence
 
-- Latest collection checkpoint: `COLLECTION_CHECKPOINT_20261122T0420Z.md`. Latest global coverage baseline is the 04:20Z read-only snapshot: 203,962 known-source FIDs, 118 provider league IDs, 193,518 verified FT, 10,444 unresolved, and 902 provider-league × UTC-year buckets. The 53-league supplemental audit adds 62,339 unique FIDs. All 73 M7 exact competition names map to the known provider IDs; this is not a global completeness claim.
+- Latest collection checkpoint: `COLLECTION_CHECKPOINT_20261122T0426Z.md`. Latest global coverage baseline is the 04:26Z read-only snapshot: 203,962 known-source FIDs, 118 provider league IDs, 193,518 verified FT, 10,444 unresolved, and 902 provider-league × UTC-year buckets. The 53-league supplemental audit adds 62,339 unique FIDs. All 73 M7 exact competition names map to the known provider IDs; this is not a global completeness claim.
 - The 12 M1 records whose event kickoff differs from another stored schedule version are retained with both values in `m1_ft_evidence_in_unverified_ledger_20261122.jsonl`; the score evidence is not used to overwrite the conflicting kickoff.
 - Crown movement recovery is still running in historical mode. Its latest checkpoint is a moving snapshot, not a completion claim; raw responses and the SQLite remain local.
-- `league_year_quote_coverage_20261122T0420Z.json/.csv`: latest detailed per-provider-league/per-UTC-year quote/FT coverage snapshot, with exact live/historical layer separation.
+- `league_year_quote_coverage_20261122T0426Z.json/.csv`: latest detailed per-provider-league/per-UTC-year quote/FT coverage snapshot, with exact live/historical layer separation.
 - `collection_progress_snapshot_*.json` and matching checkpoint Markdown: later live progress snapshots. They explicitly state the run is incomplete.
 - `score_source_disagreements.jsonl`: two exact-FID FT conflicts retained for audit; the source score records are not rewritten.
 
@@ -201,3 +201,11 @@ The live schedule run is at 321 successful page requests / 9,378 new FIDs. Eight
 - The movement queue advanced from 1,213 terminal FIDs at the 04:13Z checkpoint to 1,249 at 04:20:01Z. By the 04:20:25Z read-only persistence audit it had 1,252; all 1,252 matched exact SQLite/raw SHA/receipt-time/quote-count evidence, mismatch 0, pass true.
 - The previously prepared 328 summary-layer raw-cache rows remain pending append-only import while the shared writer is active; all have exact receipt timestamps from same-FID/same-SHA historical movement captures.
 - See `COLLECTION_CHECKPOINT_20261122T0420Z.md`, `league_season_inventory_coverage_20261122T0420Z.csv/.json`, and matching SHA manifest. No production, model, TG, or ledger changes.
+
+
+## 2026-11-22 04:26 UTC — ongoing movement recovery
+
+- The immutable movement queue reached 1,289 terminal FIDs in the 04:26:19Z snapshot (329 saved with Crown AH rows, 960 explicit no-AH responses; 99,977 without terminal). The 04:26:43Z independent read-only verifier caught the queue at 1,293 terminal (329 saved, 964 no-AH), all matched to SQLite/raw response SHA/receipt time/row count; mismatch 0, `pass=true`.
+- Inventory remains 203,962 FIDs / 118 known provider IDs / 902 league-year buckets; full-time scores 193,518 verified and 10,444 unresolved. Current movement capture gap is 99,975 in the 04:26:38Z SQLite snapshot. Summary history remains 50,200 FIDs / 99,242 rows; its separate 153,762-FID gap queue is not being run concurrently.
+- Season coverage still has 96,503 exact source labels, 107,459 no source season, 0 conflicts; no UTC-year substitution.
+- Latest evidence: `COLLECTION_CHECKPOINT_20261122T0426Z.md`, 0426 status, coverage matrices, persistence audit and SHA manifest. Background historical collection remains active under the existing driver.

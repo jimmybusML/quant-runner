@@ -20,7 +20,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 INVENTORY = ROOT / 'fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz'
 UNRESOLVED = ROOT / 'unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz'
 DB = pathlib.Path('/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3')
-STAMP = '20261122T0420Z'
+STAMP = '20261122T0426Z'
 CSV_OUT = ROOT / f'league_season_inventory_coverage_{STAMP}.csv'
 JSON_OUT = ROOT / f'league_season_inventory_coverage_{STAMP}.json'
 
