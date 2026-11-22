@@ -1,3 +1,12 @@
+## 2026-11-22｜Profit Structure Discovery R3：发现期固定、未来逐场唯一订单组合
+
+- 用户同意继续R2后续，已实际开发并执行 research/profit_structure_discovery_20261122/forward_unique_portfolio_r3.py、validate_forward_unique_portfolio_r3.py；报告 PROFIT_STRUCTURE_FORWARD_PORTFOLIO_R3_20261122.md；聚合 forward_unique_portfolio_r3_results.json 与独立验证 forward_unique_portfolio_r3_validation.json。研究代码提交62a3b291f5cdd6737c8f6cbd9e7fb951d579676a。54,535行逐场情景账本本机保留且gitignore，不上传公开仓库。
+- 仅用2019—2023发现期的净U或ROI排序冻结R1候选，2024/2025/2026不参与选择。研究情景比较发现期Top1/Top3、每个窗口单独/跨窗口最早或最晚唯一FID（这些只是研究对照参数，不是用户确认的生产数量或优先级规则）；24个情景，77,643条未来盘口窗口记录，覆盖24,731个不同FID，逐情景同FID仅一笔。
+- 净U排序Top1、跨窗口最早唯一FID：2024年2,150场+3.900U/+0.1814%；2025年2,172场−95.140U/−4.3803%；2026年806场−11.330U/−1.4057%。M8之外：2024年1,596场+5.420U/+0.3396%；2025年1,576场−92.325U/−5.8582%；2026年613场−0.370U/−0.0604%。最晚窗口对应2024/25/26 ROI+0.3451%/−4.5237%/−1.4752%，没有稳定优势。
+- 净U排序Top3、跨窗口最早唯一FID：2024年5,195场−83.830U/−1.6137%；2025年5,097场−234.285U/−4.5965%；2026年1,868场−28.735U/−1.5383%。发现期ROI排序Top1在2024年2场+119.5%，2025年8场−48.625%，2026年3场−83.333%，说明极少样本ROI排名不可直接使用。
+- 独立验证脚本已从54,535条逐场记录核对24情景的年度净U/ROI、FID唯一性及M8同场同向/反向/之外拆分，validated=true。R2的“2024—2026都正”只是事后分类，不能冒充R3事前冻结候选成功。历史Crown事件时间来自赛后回取，非当年实收可成交盘口；2026非完整年度。
+- 没有改动M8八组、Crown正式采集、正式Telegram派单或结算账本，没有新增EV/数量/出单Gate。下一研究建议（非规则）：研究跨联赛结构形成机制与真正逐年滚动发现，不再单凭发现期历史利润排序。
+
 ## 2026-11-22｜Profit Structure Discovery R2：M8重叠与联赛归因完成
 
 - 用户明确同意下一步：实际执行R1全部3,408个Crown AH盈利结构的M8逐场FID重叠审计、按年和联赛的收益拆分。新增 research/profit_structure_discovery_20261122/structure_overlap_r2.py、structure_overlap_r2_results.json 和 PROFIT_STRUCTURE_OVERLAP_R2_20261122.md；研究提交 fb79454b631da0573e3e8597e425403a9380edf0。
