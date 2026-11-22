@@ -5863,3 +5863,22 @@
 - 暂停前该批处理40个唯一FID（全为2023年）：5个只新增OU movement、35个HTTP/API成功但无Crown AH/OU盘口；raw SHA 40/40通过，越界/重复0。AH和两市场开收盘无新增；OU走势推算5,121，待重建核准。最新累计884 attempts：768成功、110 IncompleteRead、6 TOO_MANY_REQUEST，46个曾失败FID均恢复。
 - 已只读评估用户点名的OddsHarvester、oddsportal_scraper（两个项目）和soccerdata上游README：它们不提供可验证的本地TotalCorner/Crown统一市场数据和Crown HTTP原响应证据；有些可抓取其他书商/赔率聚合站的AH或OU，来源不可替代。足球赛程/可信FT本来已完整，不部署这些项目，也不将其报价导入Crown库。详细项目能力与来源链接见采集报告T0946节。
 - 证据文件及manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T0946Z.txt`及配套逐场、增量、driver、coverage、transport文件。当前数据采集尚未完成；driver自动等待安全窗口，不改正式生产。
+
+
+## 2026-11-22：T0958Z续采与64联赛/OU存档审计
+
+- `audit_crown_64_scope.py`核验collector固定64个Provider League ID与全时期schedule文件的64个ID精确一致；文件总计96,504行，2023—2026目标48,102个FID（2023 14,673、2024 14,553、2025 14,631、2026 4,245）。目标期在63个ID中有赛事；ID 314（Belarus Premier League/白俄罗斯超级联赛）只在该文件有2019—2021 675场，2023—2026为0。它仍留在固定64集合，没有增加或替换league ID。完整清单和SHA见`research/data_recovery_2019_2026/ou_unification/crown_64_scope_reconciliation_20261122.json`。
+- 只读验证旧OU独立回填已整合进共享SQLite：430条旧采集记录在统一表中，428份响应raw SHA全部匹配，保留open/close各428行；日志状态424摘要成功、4无OU报价、2请求失败。均为2019/2020赛事，当前2023—2026交集0；没有重复OU采集进程。可复核`crown_64_ou_network_import_audit_20261122.json`。
+- 09:54 UTC统一结算安全暂停前，09:49:48队列42,419；本批45个HTTP响应raw SHA 45/45通过（33无Crown盘口、12只新增OU movement），另FID 131467401发生两次`IncompleteRead`，安全暂停时保持可重试。父driver PID49373等待计划任务；未并行发请求。
+- 09:56:54 UTC自动重建队列42,374，AH open-close 32,449、AH movement 36,342、OU open-close 32,445、OU movement 5,133，确认+12 OU movement入库。FID 131467401随后重试成功并保留raw SHA。至09:59:23又处理25场（5只补OU movement、20无Crown盘口，raw SHA 25/25通过）。T0958覆盖估算后走势5,138待下次权威重建；采集仍运行，collector PID96932/driver PID49373。
+- 累计957 attempts（838成功、113 IncompleteRead、6 TOO_MANY_REQUEST）；47个遇错FID全部恢复。短窗口25场/149秒约10.1场/分钟；之前45场/252秒约10.7场/分钟，理论请求节奏上限11.54/分钟。合并接口将AH+OU分开两次请求降为每FID一次；没有更快并发或调高间隔以绕过服务商限流。
+- 最新权威字段覆盖/缺口：AH开收盘32,449/15,653、AH走势36,342/11,760、OU开收盘32,445/15,657、OU走势5,133/42,969；队列42,374不等于所有字段缺失FID，成功但无Crown盘口的记录不进入重试队列。余队列纯5.2秒请求时间约61.2小时，不含安全窗口与重试。所有来源均保留历史回取身份。
+
+
+### 2026-11-22 10:08 UTC：2023—2026 Crown AH+OU续采检查点
+
+- 当前固定范围为64 Provider League IDs、2023—2026的48,102个FID；赛程及可信full FT复用覆盖48,102。目标期ID314无赛事，但仍属于原64-ID清单。未请求其他年份/联赛，未做模型或策略研究。
+- T1008只读SQLite覆盖：AH open/close 32,449 FID、AH movement 36,342、OU open/close 32,445、OU movement 5,155；字段缺失分别15,653、11,760、15,657、42,947。10:05:12 UTC最近重建的待处理队列为42,324；它排除已有终态无报价响应，不能等同字段缺失数。
+- 09:59:23.972—10:07:57.978 UTC有57个唯一成功响应：17个新增OU movement，40个无Crown市场；raw SHA 57/57通过，超范围0、重复0、该批失败0。传输累计1,014 attempts（895 success、113 IncompleteRead、6 TOO_MANY_REQUEST）；47个曾错误FID全恢复，最新可重试失败0。
+- 父safe-window driver PID49373仍存活。10:05:12自动启动collector PID98655，5.2秒间隔；10:08:30因MR1 PID99433暂停，暂停前该批记录38场成功响应（11有市场数据、27无Crown报价）。10:12时统一结算PID99738正在运行，driver等待并将在生产作业完成后续采；未中断生产任务。
+- 剔除约219秒生产安全暂停，57个响应约11.6场/分钟，处于当前5.2秒节奏上限附近；未调频或绕限流。T1008完整SHA清单为`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1008Z.txt`。所有报价均为historical回取。

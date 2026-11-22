@@ -1,6 +1,6 @@
 # Crown AH+OU 64 联赛采集进度（2023—2026）
 
-更新时间：2026-11-22 07:23 UTC
+更新时间：2026-11-22 09:59 UTC（初始覆盖表为07:23 UTC基线，后续状态见逐时检查点）
 性质：历史采集与采集效率工程；不是模型研究、回测或正式实战。
 
 ## 范围
@@ -307,3 +307,34 @@
 - 同名`oddsportal_scraper`复核了两个公开仓库：[djibril-marega版本](https://github.com/djibril-marega/oddsportal_scraper)README输出比赛结果及1X2开/收盘赔率；[Bedbin17版本](https://github.com/Bedbin17/oddsportal_scraper)列出O/U与若干1X2衍生市场，未列足球AH。两者均不能满足本任务AH+OU且可追溯Crown原始响应/收件时间的要求。
 - [soccerdata](https://github.com/probberechts/soccerdata)对外列出的来源包括Club Elo、ESPN、FBref、Football-Data.co.uk、Sofascore等，未提供Crown报价接口；现有64联赛赛程和可信full FT已完整覆盖，所以不会减少当前Crown盘口队列。以上工具均未部署，避免引入其他博彩公司数据冒充Crown。
 - T0946逐场记录、queue/driver事件、覆盖、transport审计和SHA manifest见`crown_64_collection_checkpoint_20261122T0946Z.jsonl`等配套文件。仍是纯历史回取，不构成真实赛前HTTP收据。
+
+
+## 2026-11-22 09:59 UTC：固定范围核对、OU旧任务整合复核与续采
+
+- 可重复范围审计`audit_crown_64_scope.py`直接复用collector的64个ID，与赛程文件全时期64个Provider ID集合精确相等；96,504条全时期schedule行、48,102个2023—2026唯一FID，年份分布2023 14,673、2024 14,553、2025 14,631、2026 4,245。目标期赛程涉及63个ID：ID 314（赛程身份Belarus Premier League/白俄罗斯超级联赛）在该文件只有2019—2021共675场，2023—2026为0。ID314仍保留在固定64集合中；没有替换或添加联赛。JSON审计及脚本：`crown_64_scope_reconciliation_20261122.json`、`audit_crown_64_scope.py`。
+- 只读复核之前OU独立网络回填与统一库：网络日志430行、SQLite `crown_ou_source` 430行；状态为424 `OU_SUMMARY_SAVED`、4 `NO_CROWN_OU`、2 `FETCH_FAILED`。428份原始响应SHA全部匹配；数据库中保留428个open及428个close报价行。全部来源开球年为2019（377）和2020（51），与当前2023—2026目标FID交集0；现有数据已留在统一库，独立OU采集进程不运行。明细审计：`crown_64_ou_network_import_audit_20261122.json`。
+- 09:49:48.537 UTC权威队列42,419、AH open-close 32,449、AH movement 36,342、OU open-close 32,445、OU movement 5,121。该批到09:54安全暂停前有45个成功响应FID（33无Crown盘口、12只新增OU movement，raw SHA 45/45通过）以及1个重试中FID `131467401`，该FID遇两次`IncompleteRead`后由安全暂停保留重试。统一结算PID96306期间safe-window父driver PID49373等待，未并发采集。
+- 09:56:54.784 UTC安全窗口恢复后确认队列42,374，OU movement 5,133，核实暂停前+12走势落库且45个FID已出请求队列；随后FID `131467401`也自动重试成功（Crown原始SHA保留）。至09:59:23.972 UTC恢复批次另处理25个唯一FID：5个只补OU movement、20个无Crown盘口；SHA 25/25匹配、超范围/重复0。后一批走势估算5,138，仍待下次权威重建。当前collector PID96932、safe-window PID49373运行，5.2秒间隔。
+- 截至09:59 transport audit共957 attempts：838 success、113 `IncompleteRead`、6 `TOO_MANY_REQUEST`；曾遇错误的47个FID现已全部恢复，当前retryable失败0。重试错误率按attempt计12.43%，该分母含全部重试尝试；不能解读为12.43%的赛事永久失败。恢复批次25场/约149秒约10.1场/分钟；此前45场/约252秒约10.7场/分钟，均低于5.2秒间隔的理论11.54场/分钟上限。效率提升已通过AH/OU合并将两次请求减少为每FID一次实现；此阶段没有证据显示单次响应、API额度或SQLite写入可继续提高网络请求上限。安全暂停和重试会减少日历速度。
+- 最新权威field-level覆盖基线（09:56:54 UTC）与缺口：AH开收盘32,449/15,653、AH走势36,342/11,760、OU开收盘32,445/15,657、OU走势5,133/42,969。待请求队列42,374是排除已终态响应后的重试工作量，不等于仍缺quote字段FID数；HTTP/API成功但无Crown市场数据的FID保留原始证据并继续显示为市场覆盖缺口。纯5.2秒间隔下42,374请求约61.2小时；这不含定时安全暂停、重试及无报价状态。
+- 检查点文件分别为T0955（暂停前段）及T0958（恢复后段），不把同一FID的失败尝试与后续成功响应重复当成两场。SHA清单列出每条完整原始响应；部分响应未保存完整raw时仅保留传输失败日志。所有新报价是历史回取，非赛前实收。
+
+
+## 2026-11-22 10:08 UTC：安全窗口续采与T1008检查点
+
+| 数据类型 | 当前覆盖 / 48,102 | 字段缺失FID | 最近确认待请求队列 |
+|---|---:|---:|---:|
+| 64联赛赛程 | 48,102 | 0 | — |
+| 可信 full FT | 48,102 | 0 | — |
+| Crown AH开收盘 | 32,449 | 15,653 | — |
+| Crown AH变化序列 | 36,342 | 11,760 | — |
+| Crown OU开收盘 | 32,445 | 15,657 | — |
+| Crown OU变化序列 | 5,155 | 42,947 | — |
+| 待处理历史请求（排除已有终态无报价响应） | — | — | 42,324（10:05:12 UTC重建） |
+
+- T1008只读SQLite审计确认范围仍是固定64 Provider League IDs、2023—2026共48,102个FID；赛程和可信full FT均完整复用。字段缺失FID与待处理请求数口径不同；已成功取得响应但无Crown报价的FID保留原始响应并从重复请求队列剔除。
+- 09:59:23.972至10:07:57.978 UTC增量含57个唯一FID：17个保存了OU movement，40个Crown响应没有AH/OU市场数据；AH与AH/OU开收盘无增量。原始响应SHA 57/57匹配，超范围/league mismatch 0、FID重复0、该增量请求错误0。
+- T1008全日志传输审计为1,014 attempts：895 success、113 `IncompleteRead`、6 `TOO_MANY_REQUEST`；47个曾失败FID后来全部恢复，最新可重试失败0。T1008覆盖、增量、逐场、driver、transport及SHA manifest均已生成。
+- 10:05:12 UTC父driver PID49373重建队列42,324并启动collector PID98655，节奏5.2秒。10:08:30 UTC因MR1计划任务PID99433自动暂停；暂停前该collector批次记录38个响应（11个`BOTH_MARKETS`、27个无Crown市场数据），无传输失败。10:12 UTC发现后续统一结算PID99738运行，父driver保持等待；该生产作业结束后自动重建队列并续采。暂停后的精确待请求数以自动重建为准。
+- 57个响应分布在含一次约219秒safe-window的514秒墙钟区间；扣除该暂停后约11.6 FID/min，吻合5.2秒请求间隔上限。未改变频率、并发或限流行为；SQLite写入不是吞吐瓶颈。
+- SHA证据：`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1008Z.txt`及同目录`crown_64_collection_checkpoint_20261122T1008Z.jsonl`、`crown_64_verified_increment_20261122T1008Z.json`、`crown_64_driver_checkpoint_20261122T1008Z.jsonl`、`crown_64_coverage_snapshot_20261122T1008Z.json`、`crown_64_transport_audit_20261122T1008Z.json`。全部为historical回取，不是赛前实收。

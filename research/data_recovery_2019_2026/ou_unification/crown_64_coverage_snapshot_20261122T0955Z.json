@@ -1,0 +1,96 @@
+{
+  "scope": "fixed 64 Provider League IDs, 2023-2026",
+  "snapshot_created_utc": "2026-11-22T09:59:24.920662+00:00",
+  "state_as_of_utc": "2026-11-22T09:54:00.186530+00:00",
+  "schedule_fids": 48102,
+  "trusted_full_ft_fids": 48102,
+  "authoritative_queue_rebuild": {
+    "at_utc": "2026-11-22T09:49:48.537420+00:00",
+    "event": "queue_checkpoint",
+    "queue_count": 42419,
+    "missing_requests": 42419,
+    "covered": {
+      "ah_open_close": 32449,
+      "ah_movement": 36342,
+      "ou_open_close": 32445,
+      "ou_movement": 5121
+    },
+    "attempted_nonretryable_fids": 795
+  },
+  "increment_until_pause": {
+    "after_queue_rebuild_utc": "2026-11-22T09:49:48.537420+00:00",
+    "through_utc": "2026-11-22T09:54:00.186530+00:00",
+    "records": 46,
+    "unique_fids": 46,
+    "status_counts": {
+      "NO_CROWN_MARKET_DATA": 33,
+      "BOTH_MARKETS": 12,
+      "FETCH_FAILED": 1
+    },
+    "total_attempts_in_batch": 47,
+    "saved_ah_kinds": {},
+    "saved_ou_kinds": {
+      "movement": 12
+    },
+    "raw_sha_checked": 45,
+    "raw_sha_mismatches": [],
+    "out_of_scope_or_league_mismatch": [],
+    "duplicate_fids": [],
+    "retryable_failed_fids": [
+      {
+        "fid": "131467401",
+        "attempt_count": 2,
+        "error_types": [
+          "IncompleteRead",
+          "IncompleteRead"
+        ]
+      }
+    ],
+    "checkpoint": "research/data_recovery_2019_2026/ou_unification/crown_64_collection_checkpoint_20261122T0955Z.jsonl"
+  },
+  "transport_audit": {
+    "log_records": 918,
+    "unique_fids": 840,
+    "latest_fixture_statuses": {
+      "NO_CROWN_MARKET_DATA": 595,
+      "BOTH_MARKETS": 244,
+      "FETCH_FAILED": 1
+    },
+    "attempts": 931,
+    "attempt_outcomes": {
+      "transport_error": 112,
+      "success": 813,
+      "api_error": 6
+    },
+    "attempt_errors": {
+      "IncompleteRead": 112,
+      "TOO_MANY_REQUEST": 6
+    },
+    "retry_error_fids": 47,
+    "recovered_after_error_fids": 46,
+    "latest_retryable_failures": [
+      {
+        "fid": "131467401",
+        "error": "PAUSED_FOR_SCHEDULED_JOB",
+        "attempt_count": 2
+      }
+    ],
+    "successful_payload_sizes_by_latest_status": {
+      "BOTH_MARKETS": {
+        "n_success_attempts": 236,
+        "median_bytes": 5397.0,
+        "mean_bytes": 6851.106,
+        "max_bytes": 18377
+      },
+      "NO_CROWN_MARKET_DATA": {
+        "n_success_attempts": 577,
+        "median_bytes": 393,
+        "mean_bytes": 392.745,
+        "max_bytes": 417
+      }
+    },
+    "partial_byte_diagnostics_present": 61,
+    "partial_byte_diagnostics_missing": 57
+  },
+  "state": "driver PID 49373 waiting; collector paused for unified settlement PID 96306"
+}

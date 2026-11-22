@@ -1,0 +1,82 @@
+{
+  "scope": "fixed 64 Provider League IDs, 2023-2026",
+  "snapshot_created_utc": "2026-11-22T09:59:25.276065+00:00",
+  "authoritative_queue_rebuild": {
+    "at_utc": "2026-11-22T09:56:54.784191+00:00",
+    "event": "queue_checkpoint",
+    "queue_count": 42374,
+    "missing_requests": 42374,
+    "covered": {
+      "ah_open_close": 32449,
+      "ah_movement": 36342,
+      "ou_open_close": 32445,
+      "ou_movement": 5133
+    },
+    "attempted_nonretryable_fids": 840
+  },
+  "post_rebuild_increment": {
+    "after_queue_rebuild_utc": "2026-11-22T09:56:54.784191+00:00",
+    "through_utc": "2026-11-22T09:59:23.972215+00:00",
+    "records": 25,
+    "unique_fids": 25,
+    "status_counts": {
+      "BOTH_MARKETS": 5,
+      "NO_CROWN_MARKET_DATA": 20
+    },
+    "total_attempts_in_batch": 26,
+    "saved_ah_kinds": {},
+    "saved_ou_kinds": {
+      "movement": 5
+    },
+    "raw_sha_checked": 25,
+    "raw_sha_mismatches": [],
+    "out_of_scope_or_league_mismatch": [],
+    "duplicate_fids": [],
+    "retryable_failed_fids": [],
+    "checkpoint": "research/data_recovery_2019_2026/ou_unification/crown_64_collection_checkpoint_20261122T0958Z.jsonl"
+  },
+  "transport_audit": {
+    "log_records": 944,
+    "unique_fids": 864,
+    "latest_fixture_statuses": {
+      "NO_CROWN_MARKET_DATA": 615,
+      "BOTH_MARKETS": 249
+    },
+    "attempts": 957,
+    "attempt_outcomes": {
+      "transport_error": 113,
+      "success": 838,
+      "api_error": 6
+    },
+    "attempt_errors": {
+      "IncompleteRead": 113,
+      "TOO_MANY_REQUEST": 6
+    },
+    "retry_error_fids": 47,
+    "recovered_after_error_fids": 47,
+    "latest_retryable_failures": [],
+    "successful_payload_sizes_by_latest_status": {
+      "BOTH_MARKETS": {
+        "n_success_attempts": 241,
+        "median_bytes": 5384,
+        "mean_bytes": 6816.784,
+        "max_bytes": 18377
+      },
+      "NO_CROWN_MARKET_DATA": {
+        "n_success_attempts": 597,
+        "median_bytes": 393,
+        "mean_bytes": 392.789,
+        "max_bytes": 417
+      }
+    },
+    "partial_byte_diagnostics_present": 62,
+    "partial_byte_diagnostics_missing": 57
+  },
+  "collector_start": {
+    "at_utc": "2026-11-22T09:56:54.786768+00:00",
+    "event": "combined_collector_started",
+    "collector_pid": 96932,
+    "queue_count": 42374,
+    "interval_seconds": 5.2
+  }
+}

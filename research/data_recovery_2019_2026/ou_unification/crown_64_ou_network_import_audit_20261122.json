@@ -1,0 +1,36 @@
+{
+  "audited_at_utc": "2026-11-22T09:59:28.146565+00:00",
+  "database": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3",
+  "source_type": "ou_network_collection",
+  "input_network_log": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/ou_2019_2026_network_collection.jsonl",
+  "input_network_log_sha256": "0708f3d6ff61b0ae27e4cc9362ca3178021eb38da11d0790271991b1893b673a",
+  "independent_collector_script": "/Users/mac/QuantAsiaDesk/research-work/full_history_backfill_20261121/collect_crown_ou_history.py",
+  "independent_collector_sha256": "4c7d9f624c8b3818db3aa76dd7173d64a10ccbc2494d25919e809861c7529bb9",
+  "network_log_records": 430,
+  "sqlite_source_rows": 430,
+  "quote_rows_by_kind": [
+    {
+      "kind": "close",
+      "rows": 428,
+      "unique_fids": 428
+    },
+    {
+      "kind": "open",
+      "rows": 428,
+      "unique_fids": 428
+    }
+  ],
+  "raw_responses_sha_checked": 428,
+  "raw_sha_mismatches": [],
+  "status_counts": {
+    "NO_CROWN_OU": 4,
+    "OU_SUMMARY_SAVED": 424,
+    "FETCH_FAILED": 2
+  },
+  "kickoff_year_counts": {
+    "2019": 377,
+    "2020": 51
+  },
+  "target_2023_2026_fid_overlap": 0,
+  "interpretation": "All existing OU network records are retained in the shared database; they belong to 2019-2020 and contribute no FIDs to the current 2023-2026 target. Two FETCH_FAILED log rows have no quote rows; no independent OU collector process is used."
+}
