@@ -723,3 +723,11 @@
 - 待请求41,202；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,420。按年待请求：2023年12,662、2024年14,553、2025年13,520、2026年467。
 - T1348后54个唯一FID全部成功，raw SHA 54/54匹配；39场无Crown市场响应，15场保存OU movement。全日志2,118次attempt：1,985成功、122 `IncompleteRead`、11 `TOO_MANY_REQUEST`；61个错误FID均恢复。
 - T1356逐场、coverage、transport、driver和SHA文件已保存，historical身份保持明确，任务未完成。
+
+
+## 2026-11-22 14:04 UTC：T1404续采与调度中断重试项
+
+- 安全driver于14:04:26 UTC在计划任务结束后重建队列并启动collector PID53423；节奏5.2秒/场。
+- 待请求41,159；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,430。按年缺口：2023年12,619、2024年14,553、2025年13,520、2026年467。
+- T1356后43个唯一FID响应raw SHA全部通过，33场无Crown报价，10场新增OU movement。44次attempt有43次成功，1个FID 132951807在调度暂停时中断并保留重试。全日志2,163 attempts：2,028成功、124 `IncompleteRead`、11 `TOO_MANY_REQUEST`；63个遇错FID中62个已恢复。
+- T1404证据及SHA清单已归档；该调度中断不是永久失败，历史/实时身份区分不变。
