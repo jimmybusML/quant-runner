@@ -11,6 +11,7 @@ UNSAFE_COMMAND_PARTS=(
     '/Users/mac/QuantAsiaDesk/repos/mr1/src/shadow-v23.js',
     'research.m3.totalcorner_shadow_settle',
 )
+TERMINAL_STATUSES={'SAVED','NO_CROWN_AH_QUOTES'}
 
 def utc():return dt.datetime.now(dt.timezone.utc).isoformat().replace('+00:00','Z')
 
@@ -30,13 +31,15 @@ def record(path:Path,event:dict):
     print(json.dumps(event,ensure_ascii=False),flush=True)
 
 def resume_fixture_file(source:Path,output_log:Path,event_log:Path)->Path|None:
-    """Build the next pass from FIDs not yet attempted in this batch.
+    """Build the next pass from FIDs without a terminal collection result.
 
     The underlying collector can be interrupted by scheduled production jobs.
     Restarting it against the original manifest would replay every earlier FID;
     notably, empty Crown responses have no reusable movement rows and can be
     requested again. Keep the source manifest immutable and checkpoint progress
-    from the append-only collector log instead.
+    from the append-only collector log instead. Only SAVED and explicit
+    NO_CROWN_AH_QUOTES responses are terminal; FETCH_FAILED and other errors
+    remain retryable on the next resume.
     """
     if source.suffix.lower()!='.jsonl':
         raise ValueError('resumable collection currently requires a JSONL fixture file')
@@ -49,21 +52,25 @@ def resume_fixture_file(source:Path,output_log:Path,event_log:Path)->Path|None:
             fid=str(row.get('match_id') or row.get('id') or '')
             if not fid.isdigit() or fid in seen:continue
             seen.add(fid);candidates.append((fid,row))
-    attempted=set()
+    terminal=set();retryable=set()
     if output_log.exists():
         with output_log.open(encoding='utf-8') as f:
             for line in f:
                 try:row=json.loads(line)
                 except json.JSONDecodeError:continue
-                if not isinstance(row,dict) or row.get('fixture_id') is None or not row.get('status'):
+                if not isinstance(row,dict) or row.get('fixture_id') is None:
                     continue
-                attempted.add(str(row['fixture_id']))
-    remaining=[row for fid,row in candidates if fid not in attempted]
+                fid=str(row['fixture_id']);status=str(row.get('status') or '')
+                if status in TERMINAL_STATUSES:
+                    terminal.add(fid);retryable.discard(fid)
+                elif status:
+                    if fid not in terminal:retryable.add(fid)
+    remaining=[row for fid,row in candidates if fid not in terminal]
     resume=source.with_name(source.stem+'.resume.jsonl')
     if not remaining:
         record(event_log,{'event':'collector_input_exhausted','candidate_fids':len(candidates),
-          'attempted_fids':len(attempted),'remaining_fids':0,
-          'retryable_failures_still_pending':0})
+          'terminal_fids':len(terminal),'remaining_fids':0,
+          'retryable_failures_seen':len(retryable)})
         return None
     with resume.open('w',encoding='utf-8') as f:
         for row in remaining:f.write(json.dumps(row,ensure_ascii=False)+'\n')
@@ -71,8 +78,9 @@ def resume_fixture_file(source:Path,output_log:Path,event_log:Path)->Path|None:
     record(event_log,{'event':'resume_manifest_written','source_manifest':str(source),
       'source_manifest_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
       'resume_manifest':str(resume),'resume_manifest_sha256':hashlib.sha256(resume.read_bytes()).hexdigest(),
-      'candidate_fids':len(candidates),'attempted_fids':len(attempted),
-      'remaining_fids':len(remaining),'retryable_failures_seen':0})
+      'candidate_fids':len(candidates),'terminal_fids':len(terminal),
+      'remaining_fids':len(remaining),'retryable_failures_seen':len(retryable),
+      'retryable_failure_fids':sorted(retryable),'terminal_statuses':sorted(TERMINAL_STATUSES)})
     return resume
 
 def main():

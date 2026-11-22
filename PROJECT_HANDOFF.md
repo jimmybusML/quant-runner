@@ -5437,3 +5437,9 @@
 - 对53批去重赛程中的ID/名称组合重新精确核对：53个provider ID、53个精确名称一一对应，无ID多名称或名称多ID冲突；15个ID已在基线库存，38个ID是此前已知范围中缺少库存行的联赛。合并库存现在覆盖118个provider ID，与既有显式来源并集的118个ID数量一致，之前38个库存范围缺口清零。
 - 该检查只说明已枚举来源之间完成了对齐，不证明所有外部存在的联赛已被穷尽。没有做名称模糊匹配、网络请求或对生产联赛配置的改变。
 - 可复跑代码、结果与哈希见`research/data_recovery_2019_2026/reconcile_league_scope_after_53_batches_20261122.py`、`league_scope_reconciliation_after_53_batches_20261122.json`及`SCOPE_RECONCILIATION_SHA256_20261122.txt`。
+
+### 2026-11-22 00:00 UTC：修复Crown恢复清单跳过FETCH_FAILED的问题
+
+- 审计发现`safe_window_collection_driver.py`把任意带状态的FID都当成完成，导致`FETCH_FAILED`不能进入下一轮。按数据恢复任务的失败可重试要求，已将跳过状态限定为`SAVED`和明确的`NO_CROWN_AH_QUOTES`；`FETCH_FAILED`及其他错误保留在下一次恢复清单。底层Crown采集器参数、默认5.2秒请求间隔、缓存复用与响应保存行为未修改。
+- 当前日志中的FID `192030794`（Dominican Republic–Cuba）曾返回`FETCH_FAILED / IncompleteRead`。安全中断旧driver后，新恢复清单SHA `0adfb386ac6f9e3a14db7a7ea0c60c0a95b5d8565a8b3d17e6ec7da8497512b2`已包含该FID；该清单保留101,197个未完成FID（101,266目标中69个有终态，1个失败重试）。随后已重启安全等待driver/历史collector，collector运行中的实际请求将按原流程执行。
+- `py_compile`语法检查通过。代码、源manifest及本次恢复manifest SHA见`research/data_recovery_2019_2026/CROWN_RESUME_RETRY_SHA256_20261122T0000Z.txt`。此修复只影响数据采集的断点续跑，不改变任何策略或生产链。
