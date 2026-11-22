@@ -1,0 +1,972 @@
+{
+  "protocol": "CROWN_T12_CROSSMARKET_JOINT_POISSON_CROSSCONTRACT_CLV_R2",
+  "generated_at_utc": "2026-11-22T12:36:43.158027+00:00",
+  "source_quote_status": "Crown historical event timestamps, source responses retrieved after games; not actual received entry prices",
+  "asof_information": "Only early same-event-hour Crown AH/OU, historical 1x2 open/close <= T12 used for residual direction; future closing AH/OU used solely for post-hoc CLV",
+  "caveats": [
+    "Independent-Poisson is a market-implied pricing approximation, not a guaranteed true score distribution.",
+    "Historical 1x2 snapshots often stale; benchmark reports quote ages, no fresh data invented.",
+    "Cross-line CLV uses closing AH+OU fitted probabilities to price original early AH contract; it is NOT same-line price ratio and not observed cashout.",
+    "All early/late Crown price responses were fetched in 2026 after matches; no live tradable proof.",
+    "Age subgroups are descriptive diagnostics only, not a new gating or filtering rule.",
+    "Oracle chooses side using future close and is explicitly NOT a tradable result."
+  ],
+  "inputs": {
+    "early": "/Users/mac/QuantAsiaDesk/research-work/m8_early_joint_market_inventory_20261115.jsonl",
+    "close": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_original49_historical_Crown_dual_market_close_expanded_inventory_20261113T1157Z.jsonl"
+  },
+  "counts": {
+    "close_fixture_ah_ou": 36343,
+    "supplement_added": 5397,
+    "supplement_replaced": 3654,
+    "early_joint_12h_2025": 9955,
+    "early_not_two_movement_paths_2025": 8852,
+    "paired_2025": 1092,
+    "close_not_after_entry_cutoff": 116,
+    "early_joint_12h_2026": 9052,
+    "paired_2026": 8860,
+    "missing_or_invalid_1x2": 83,
+    "early_not_two_movement_paths_2026": 1,
+    "missing_close": 3,
+    "latent_both_fit_ok": 9952,
+    "latent_early_invalid": 0,
+    "latent_close_invalid": 0
+  },
+  "fit_details": {
+    "early_error_p99": 0.0,
+    "close_error_p99": 0.0
+  },
+  "groups": {
+    "2025": {
+      "residual_side": {
+        "n": 1092,
+        "wins": 497,
+        "losses": 517,
+        "pushes": 78,
+        "net_U": -61.895,
+        "roi_pct": -5.668,
+        "cross_line_clv_mean_ev_u": -0.03677,
+        "cross_line_clv_positive_fraction": 0.2848
+      },
+      "opposite_side": {
+        "n": 1092,
+        "wins": 517,
+        "losses": 497,
+        "pushes": 78,
+        "net_U": -17.805,
+        "roi_pct": -1.63,
+        "cross_line_clv_mean_ev_u": -0.03959,
+        "cross_line_clv_positive_fraction": 0.2848
+      },
+      "always_home": {
+        "n": 1092,
+        "wins": 482,
+        "losses": 532,
+        "pushes": 78,
+        "net_U": -82.35,
+        "roi_pct": -7.541,
+        "cross_line_clv_mean_ev_u": -0.04093,
+        "cross_line_clv_positive_fraction": 0.28114
+      },
+      "always_away": {
+        "n": 1092,
+        "wins": 532,
+        "losses": 482,
+        "pushes": 78,
+        "net_U": 2.65,
+        "roi_pct": 0.243,
+        "cross_line_clv_mean_ev_u": -0.03542,
+        "cross_line_clv_positive_fraction": 0.28846
+      },
+      "early_market_favorite": {
+        "n": 1092,
+        "wins": 479,
+        "losses": 535,
+        "pushes": 78,
+        "net_U": -61.905,
+        "roi_pct": -5.669,
+        "cross_line_clv_mean_ev_u": -0.04065,
+        "cross_line_clv_positive_fraction": 0.27564
+      },
+      "closing_oracle_nontradable": {
+        "n": 1092,
+        "wins": 526,
+        "losses": 488,
+        "pushes": 78,
+        "net_U": 0.655,
+        "roi_pct": 0.06,
+        "cross_line_clv_mean_ev_u": 0.01686,
+        "cross_line_clv_positive_fraction": 0.5696
+      }
+    },
+    "2025|1x2_age<=6h": {
+      "residual_side": {
+        "n": 4,
+        "wins": 3,
+        "losses": 1,
+        "pushes": 0,
+        "net_U": 1.55,
+        "roi_pct": 38.75,
+        "cross_line_clv_mean_ev_u": 0.02484,
+        "cross_line_clv_positive_fraction": 0.5
+      },
+      "opposite_side": {
+        "n": 4,
+        "wins": 1,
+        "losses": 3,
+        "pushes": 0,
+        "net_U": -2.01,
+        "roi_pct": -50.25,
+        "cross_line_clv_mean_ev_u": -0.12131,
+        "cross_line_clv_positive_fraction": 0.0
+      },
+      "always_home": {
+        "n": 4,
+        "wins": 1,
+        "losses": 3,
+        "pushes": 0,
+        "net_U": -2.01,
+        "roi_pct": -50.25,
+        "cross_line_clv_mean_ev_u": -0.12131,
+        "cross_line_clv_positive_fraction": 0.0
+      },
+      "always_away": {
+        "n": 4,
+        "wins": 3,
+        "losses": 1,
+        "pushes": 0,
+        "net_U": 1.55,
+        "roi_pct": 38.75,
+        "cross_line_clv_mean_ev_u": 0.02484,
+        "cross_line_clv_positive_fraction": 0.5
+      },
+      "early_market_favorite": {
+        "n": 4,
+        "wins": 1,
+        "losses": 3,
+        "pushes": 0,
+        "net_U": -2.01,
+        "roi_pct": -50.25,
+        "cross_line_clv_mean_ev_u": -0.12131,
+        "cross_line_clv_positive_fraction": 0.0
+      },
+      "closing_oracle_nontradable": {
+        "n": 4,
+        "wins": 3,
+        "losses": 1,
+        "pushes": 0,
+        "net_U": 1.55,
+        "roi_pct": 38.75,
+        "cross_line_clv_mean_ev_u": 0.02484,
+        "cross_line_clv_positive_fraction": 0.5
+      }
+    },
+    "2025|1x2_age>6h": {
+      "residual_side": {
+        "n": 1088,
+        "wins": 494,
+        "losses": 516,
+        "pushes": 78,
+        "net_U": -63.445,
+        "roi_pct": -5.831,
+        "cross_line_clv_mean_ev_u": -0.03699,
+        "cross_line_clv_positive_fraction": 0.28401
+      },
+      "opposite_side": {
+        "n": 1088,
+        "wins": 516,
+        "losses": 494,
+        "pushes": 78,
+        "net_U": -15.795,
+        "roi_pct": -1.452,
+        "cross_line_clv_mean_ev_u": -0.03929,
+        "cross_line_clv_positive_fraction": 0.28585
+      },
+      "always_home": {
+        "n": 1088,
+        "wins": 481,
+        "losses": 529,
+        "pushes": 78,
+        "net_U": -80.34,
+        "roi_pct": -7.384,
+        "cross_line_clv_mean_ev_u": -0.04064,
+        "cross_line_clv_positive_fraction": 0.28217
+      },
+      "always_away": {
+        "n": 1088,
+        "wins": 529,
+        "losses": 481,
+        "pushes": 78,
+        "net_U": 1.1,
+        "roi_pct": 0.101,
+        "cross_line_clv_mean_ev_u": -0.03564,
+        "cross_line_clv_positive_fraction": 0.28768
+      },
+      "early_market_favorite": {
+        "n": 1088,
+        "wins": 478,
+        "losses": 532,
+        "pushes": 78,
+        "net_U": -59.895,
+        "roi_pct": -5.505,
+        "cross_line_clv_mean_ev_u": -0.04036,
+        "cross_line_clv_positive_fraction": 0.27665
+      },
+      "closing_oracle_nontradable": {
+        "n": 1088,
+        "wins": 523,
+        "losses": 487,
+        "pushes": 78,
+        "net_U": -0.895,
+        "roi_pct": -0.082,
+        "cross_line_clv_mean_ev_u": 0.01683,
+        "cross_line_clv_positive_fraction": 0.56985
+      }
+    },
+    "2025|AH_OU_ages<=6h": {
+      "residual_side": {
+        "n": 506,
+        "wins": 218,
+        "losses": 248,
+        "pushes": 40,
+        "net_U": -40.435,
+        "roi_pct": -7.991,
+        "cross_line_clv_mean_ev_u": -0.0288,
+        "cross_line_clv_positive_fraction": 0.3004
+      },
+      "opposite_side": {
+        "n": 506,
+        "wins": 248,
+        "losses": 218,
+        "pushes": 40,
+        "net_U": 12.445,
+        "roi_pct": 2.459,
+        "cross_line_clv_mean_ev_u": -0.03453,
+        "cross_line_clv_positive_fraction": 0.3004
+      },
+      "always_home": {
+        "n": 506,
+        "wins": 219,
+        "losses": 247,
+        "pushes": 40,
+        "net_U": -40.495,
+        "roi_pct": -8.003,
+        "cross_line_clv_mean_ev_u": -0.03288,
+        "cross_line_clv_positive_fraction": 0.30435
+      },
+      "always_away": {
+        "n": 506,
+        "wins": 247,
+        "losses": 219,
+        "pushes": 40,
+        "net_U": 12.505,
+        "roi_pct": 2.471,
+        "cross_line_clv_mean_ev_u": -0.03045,
+        "cross_line_clv_positive_fraction": 0.29644
+      },
+      "early_market_favorite": {
+        "n": 506,
+        "wins": 224,
+        "losses": 242,
+        "pushes": 40,
+        "net_U": -19.525,
+        "roi_pct": -3.859,
+        "cross_line_clv_mean_ev_u": -0.02959,
+        "cross_line_clv_positive_fraction": 0.31423
+      },
+      "closing_oracle_nontradable": {
+        "n": 506,
+        "wins": 241,
+        "losses": 225,
+        "pushes": 40,
+        "net_U": 0.46,
+        "roi_pct": 0.091,
+        "cross_line_clv_mean_ev_u": 0.02087,
+        "cross_line_clv_positive_fraction": 0.60079
+      }
+    },
+    "2025|AH_OU_ages>6h": {
+      "residual_side": {
+        "n": 586,
+        "wins": 279,
+        "losses": 269,
+        "pushes": 38,
+        "net_U": -21.46,
+        "roi_pct": -3.662,
+        "cross_line_clv_mean_ev_u": -0.04364,
+        "cross_line_clv_positive_fraction": 0.27133
+      },
+      "opposite_side": {
+        "n": 586,
+        "wins": 269,
+        "losses": 279,
+        "pushes": 38,
+        "net_U": -30.25,
+        "roi_pct": -5.162,
+        "cross_line_clv_mean_ev_u": -0.04396,
+        "cross_line_clv_positive_fraction": 0.27133
+      },
+      "always_home": {
+        "n": 586,
+        "wins": 263,
+        "losses": 285,
+        "pushes": 38,
+        "net_U": -41.855,
+        "roi_pct": -7.142,
+        "cross_line_clv_mean_ev_u": -0.04789,
+        "cross_line_clv_positive_fraction": 0.26109
+      },
+      "always_away": {
+        "n": 586,
+        "wins": 285,
+        "losses": 263,
+        "pushes": 38,
+        "net_U": -9.855,
+        "roi_pct": -1.682,
+        "cross_line_clv_mean_ev_u": -0.03972,
+        "cross_line_clv_positive_fraction": 0.28157
+      },
+      "early_market_favorite": {
+        "n": 586,
+        "wins": 255,
+        "losses": 293,
+        "pushes": 38,
+        "net_U": -42.38,
+        "roi_pct": -7.232,
+        "cross_line_clv_mean_ev_u": -0.05021,
+        "cross_line_clv_positive_fraction": 0.24232
+      },
+      "closing_oracle_nontradable": {
+        "n": 586,
+        "wins": 285,
+        "losses": 263,
+        "pushes": 38,
+        "net_U": 0.195,
+        "roi_pct": 0.033,
+        "cross_line_clv_mean_ev_u": 0.01339,
+        "cross_line_clv_positive_fraction": 0.54266
+      }
+    },
+    "2025|line_changed": {
+      "residual_side": {
+        "n": 421,
+        "wins": 197,
+        "losses": 195,
+        "pushes": 29,
+        "net_U": -10.815,
+        "roi_pct": -2.569,
+        "cross_line_clv_mean_ev_u": -0.0422,
+        "cross_line_clv_positive_fraction": 0.38717
+      },
+      "opposite_side": {
+        "n": 421,
+        "wins": 195,
+        "losses": 197,
+        "pushes": 29,
+        "net_U": -22.435,
+        "roi_pct": -5.329,
+        "cross_line_clv_mean_ev_u": -0.03997,
+        "cross_line_clv_positive_fraction": 0.39667
+      },
+      "always_home": {
+        "n": 421,
+        "wins": 183,
+        "losses": 209,
+        "pushes": 29,
+        "net_U": -34.505,
+        "roi_pct": -8.196,
+        "cross_line_clv_mean_ev_u": -0.04784,
+        "cross_line_clv_positive_fraction": 0.37292
+      },
+      "always_away": {
+        "n": 421,
+        "wins": 209,
+        "losses": 183,
+        "pushes": 29,
+        "net_U": 1.255,
+        "roi_pct": 0.298,
+        "cross_line_clv_mean_ev_u": -0.03433,
+        "cross_line_clv_positive_fraction": 0.41093
+      },
+      "early_market_favorite": {
+        "n": 421,
+        "wins": 177,
+        "losses": 215,
+        "pushes": 29,
+        "net_U": -42.29,
+        "roi_pct": -10.045,
+        "cross_line_clv_mean_ev_u": -0.04204,
+        "cross_line_clv_positive_fraction": 0.3943
+      },
+      "closing_oracle_nontradable": {
+        "n": 421,
+        "wins": 197,
+        "losses": 195,
+        "pushes": 29,
+        "net_U": -21.645,
+        "roi_pct": -5.141,
+        "cross_line_clv_mean_ev_u": 0.04616,
+        "cross_line_clv_positive_fraction": 0.78385
+      }
+    },
+    "2025|same_line": {
+      "residual_side": {
+        "n": 671,
+        "wins": 300,
+        "losses": 322,
+        "pushes": 49,
+        "net_U": -51.08,
+        "roi_pct": -7.613,
+        "cross_line_clv_mean_ev_u": -0.03336,
+        "cross_line_clv_positive_fraction": 0.22057
+      },
+      "opposite_side": {
+        "n": 671,
+        "wins": 322,
+        "losses": 300,
+        "pushes": 49,
+        "net_U": 4.63,
+        "roi_pct": 0.69,
+        "cross_line_clv_mean_ev_u": -0.03934,
+        "cross_line_clv_positive_fraction": 0.21461
+      },
+      "always_home": {
+        "n": 671,
+        "wins": 299,
+        "losses": 323,
+        "pushes": 49,
+        "net_U": -47.845,
+        "roi_pct": -7.13,
+        "cross_line_clv_mean_ev_u": -0.0366,
+        "cross_line_clv_positive_fraction": 0.22355
+      },
+      "always_away": {
+        "n": 671,
+        "wins": 323,
+        "losses": 299,
+        "pushes": 49,
+        "net_U": 1.395,
+        "roi_pct": 0.208,
+        "cross_line_clv_mean_ev_u": -0.0361,
+        "cross_line_clv_positive_fraction": 0.21162
+      },
+      "early_market_favorite": {
+        "n": 671,
+        "wins": 302,
+        "losses": 320,
+        "pushes": 49,
+        "net_U": -19.615,
+        "roi_pct": -2.923,
+        "cross_line_clv_mean_ev_u": -0.03978,
+        "cross_line_clv_positive_fraction": 0.20119
+      },
+      "closing_oracle_nontradable": {
+        "n": 671,
+        "wins": 329,
+        "losses": 293,
+        "pushes": 49,
+        "net_U": 22.3,
+        "roi_pct": 3.323,
+        "cross_line_clv_mean_ev_u": -0.00153,
+        "cross_line_clv_positive_fraction": 0.43517
+      }
+    },
+    "2026": {
+      "residual_side": {
+        "n": 8860,
+        "wins": 4220,
+        "losses": 4058,
+        "pushes": 582,
+        "net_U": -218.29,
+        "roi_pct": -2.464,
+        "cross_line_clv_mean_ev_u": -0.04094,
+        "cross_line_clv_positive_fraction": 0.28138
+      },
+      "opposite_side": {
+        "n": 8860,
+        "wins": 4058,
+        "losses": 4220,
+        "pushes": 582,
+        "net_U": -459.705,
+        "roi_pct": -5.189,
+        "cross_line_clv_mean_ev_u": -0.0366,
+        "cross_line_clv_positive_fraction": 0.31129
+      },
+      "always_home": {
+        "n": 8860,
+        "wins": 4147,
+        "losses": 4131,
+        "pushes": 582,
+        "net_U": -294.76,
+        "roi_pct": -3.327,
+        "cross_line_clv_mean_ev_u": -0.03856,
+        "cross_line_clv_positive_fraction": 0.2974
+      },
+      "always_away": {
+        "n": 8860,
+        "wins": 4131,
+        "losses": 4147,
+        "pushes": 582,
+        "net_U": -383.235,
+        "roi_pct": -4.325,
+        "cross_line_clv_mean_ev_u": -0.03898,
+        "cross_line_clv_positive_fraction": 0.29526
+      },
+      "early_market_favorite": {
+        "n": 8860,
+        "wins": 4010,
+        "losses": 4268,
+        "pushes": 582,
+        "net_U": -382.23,
+        "roi_pct": -4.314,
+        "cross_line_clv_mean_ev_u": -0.03871,
+        "cross_line_clv_positive_fraction": 0.30135
+      },
+      "closing_oracle_nontradable": {
+        "n": 8860,
+        "wins": 4358,
+        "losses": 3920,
+        "pushes": 582,
+        "net_U": 45.075,
+        "roi_pct": 0.509,
+        "cross_line_clv_mean_ev_u": 0.02082,
+        "cross_line_clv_positive_fraction": 0.59266
+      }
+    },
+    "2026|1x2_age<=6h": {
+      "residual_side": {
+        "n": 306,
+        "wins": 151,
+        "losses": 131,
+        "pushes": 24,
+        "net_U": -1.2,
+        "roi_pct": -0.392,
+        "cross_line_clv_mean_ev_u": -0.04277,
+        "cross_line_clv_positive_fraction": 0.29085
+      },
+      "opposite_side": {
+        "n": 306,
+        "wins": 131,
+        "losses": 151,
+        "pushes": 24,
+        "net_U": -30.62,
+        "roi_pct": -10.007,
+        "cross_line_clv_mean_ev_u": -0.0579,
+        "cross_line_clv_positive_fraction": 0.23856
+      },
+      "always_home": {
+        "n": 306,
+        "wins": 138,
+        "losses": 144,
+        "pushes": 24,
+        "net_U": -17.535,
+        "roi_pct": -5.73,
+        "cross_line_clv_mean_ev_u": -0.04832,
+        "cross_line_clv_positive_fraction": 0.27451
+      },
+      "always_away": {
+        "n": 306,
+        "wins": 144,
+        "losses": 138,
+        "pushes": 24,
+        "net_U": -14.285,
+        "roi_pct": -4.668,
+        "cross_line_clv_mean_ev_u": -0.05235,
+        "cross_line_clv_positive_fraction": 0.2549
+      },
+      "early_market_favorite": {
+        "n": 306,
+        "wins": 132,
+        "losses": 150,
+        "pushes": 24,
+        "net_U": -23.32,
+        "roi_pct": -7.621,
+        "cross_line_clv_mean_ev_u": -0.05828,
+        "cross_line_clv_positive_fraction": 0.2451
+      },
+      "closing_oracle_nontradable": {
+        "n": 306,
+        "wins": 148,
+        "losses": 134,
+        "pushes": 24,
+        "net_U": -6.875,
+        "roi_pct": -2.247,
+        "cross_line_clv_mean_ev_u": 0.02095,
+        "cross_line_clv_positive_fraction": 0.52941
+      }
+    },
+    "2026|1x2_age>6h": {
+      "residual_side": {
+        "n": 8554,
+        "wins": 4069,
+        "losses": 3927,
+        "pushes": 558,
+        "net_U": -217.09,
+        "roi_pct": -2.538,
+        "cross_line_clv_mean_ev_u": -0.04087,
+        "cross_line_clv_positive_fraction": 0.28104
+      },
+      "opposite_side": {
+        "n": 8554,
+        "wins": 3927,
+        "losses": 4069,
+        "pushes": 558,
+        "net_U": -429.085,
+        "roi_pct": -5.016,
+        "cross_line_clv_mean_ev_u": -0.03584,
+        "cross_line_clv_positive_fraction": 0.31389
+      },
+      "always_home": {
+        "n": 8554,
+        "wins": 4009,
+        "losses": 3987,
+        "pushes": 558,
+        "net_U": -277.225,
+        "roi_pct": -3.241,
+        "cross_line_clv_mean_ev_u": -0.03821,
+        "cross_line_clv_positive_fraction": 0.29822
+      },
+      "always_away": {
+        "n": 8554,
+        "wins": 3987,
+        "losses": 4009,
+        "pushes": 558,
+        "net_U": -368.95,
+        "roi_pct": -4.313,
+        "cross_line_clv_mean_ev_u": -0.03851,
+        "cross_line_clv_positive_fraction": 0.2967
+      },
+      "early_market_favorite": {
+        "n": 8554,
+        "wins": 3878,
+        "losses": 4118,
+        "pushes": 558,
+        "net_U": -358.91,
+        "roi_pct": -4.196,
+        "cross_line_clv_mean_ev_u": -0.03801,
+        "cross_line_clv_positive_fraction": 0.30337
+      },
+      "closing_oracle_nontradable": {
+        "n": 8554,
+        "wins": 4210,
+        "losses": 3786,
+        "pushes": 558,
+        "net_U": 51.95,
+        "roi_pct": 0.607,
+        "cross_line_clv_mean_ev_u": 0.02081,
+        "cross_line_clv_positive_fraction": 0.59493
+      }
+    },
+    "2026|AH_OU_ages<=6h": {
+      "residual_side": {
+        "n": 4414,
+        "wins": 2098,
+        "losses": 2001,
+        "pushes": 315,
+        "net_U": -82.05,
+        "roi_pct": -1.859,
+        "cross_line_clv_mean_ev_u": -0.03734,
+        "cross_line_clv_positive_fraction": 0.29271
+      },
+      "opposite_side": {
+        "n": 4414,
+        "wins": 2001,
+        "losses": 2098,
+        "pushes": 315,
+        "net_U": -230.16,
+        "roi_pct": -5.214,
+        "cross_line_clv_mean_ev_u": -0.03331,
+        "cross_line_clv_positive_fraction": 0.3217
+      },
+      "always_home": {
+        "n": 4414,
+        "wins": 2081,
+        "losses": 2018,
+        "pushes": 315,
+        "net_U": -100.045,
+        "roi_pct": -2.267,
+        "cross_line_clv_mean_ev_u": -0.03433,
+        "cross_line_clv_positive_fraction": 0.31128
+      },
+      "always_away": {
+        "n": 4414,
+        "wins": 2018,
+        "losses": 2081,
+        "pushes": 315,
+        "net_U": -212.165,
+        "roi_pct": -4.807,
+        "cross_line_clv_mean_ev_u": -0.03632,
+        "cross_line_clv_positive_fraction": 0.30313
+      },
+      "early_market_favorite": {
+        "n": 4414,
+        "wins": 2033,
+        "losses": 2066,
+        "pushes": 315,
+        "net_U": -98.22,
+        "roi_pct": -2.225,
+        "cross_line_clv_mean_ev_u": -0.03448,
+        "cross_line_clv_positive_fraction": 0.31695
+      },
+      "closing_oracle_nontradable": {
+        "n": 4414,
+        "wins": 2151,
+        "losses": 1948,
+        "pushes": 315,
+        "net_U": 30.125,
+        "roi_pct": 0.682,
+        "cross_line_clv_mean_ev_u": 0.02324,
+        "cross_line_clv_positive_fraction": 0.61441
+      }
+    },
+    "2026|AH_OU_ages>6h": {
+      "residual_side": {
+        "n": 4446,
+        "wins": 2122,
+        "losses": 2057,
+        "pushes": 267,
+        "net_U": -136.24,
+        "roi_pct": -3.064,
+        "cross_line_clv_mean_ev_u": -0.04451,
+        "cross_line_clv_positive_fraction": 0.27013
+      },
+      "opposite_side": {
+        "n": 4446,
+        "wins": 2057,
+        "losses": 2122,
+        "pushes": 267,
+        "net_U": -229.545,
+        "roi_pct": -5.163,
+        "cross_line_clv_mean_ev_u": -0.03987,
+        "cross_line_clv_positive_fraction": 0.30094
+      },
+      "always_home": {
+        "n": 4446,
+        "wins": 2066,
+        "losses": 2113,
+        "pushes": 267,
+        "net_U": -194.715,
+        "roi_pct": -4.38,
+        "cross_line_clv_mean_ev_u": -0.04275,
+        "cross_line_clv_positive_fraction": 0.28363
+      },
+      "always_away": {
+        "n": 4446,
+        "wins": 2113,
+        "losses": 2066,
+        "pushes": 267,
+        "net_U": -171.07,
+        "roi_pct": -3.848,
+        "cross_line_clv_mean_ev_u": -0.04163,
+        "cross_line_clv_positive_fraction": 0.28745
+      },
+      "early_market_favorite": {
+        "n": 4446,
+        "wins": 1977,
+        "losses": 2202,
+        "pushes": 267,
+        "net_U": -284.01,
+        "roi_pct": -6.388,
+        "cross_line_clv_mean_ev_u": -0.04291,
+        "cross_line_clv_positive_fraction": 0.28587
+      },
+      "closing_oracle_nontradable": {
+        "n": 4446,
+        "wins": 2207,
+        "losses": 1972,
+        "pushes": 267,
+        "net_U": 14.95,
+        "roi_pct": 0.336,
+        "cross_line_clv_mean_ev_u": 0.01841,
+        "cross_line_clv_positive_fraction": 0.57108
+      }
+    },
+    "2026|line_changed": {
+      "residual_side": {
+        "n": 3828,
+        "wins": 1821,
+        "losses": 1774,
+        "pushes": 233,
+        "net_U": -106.155,
+        "roi_pct": -2.773,
+        "cross_line_clv_mean_ev_u": -0.04687,
+        "cross_line_clv_positive_fraction": 0.36573
+      },
+      "opposite_side": {
+        "n": 3828,
+        "wins": 1774,
+        "losses": 1821,
+        "pushes": 233,
+        "net_U": -205.185,
+        "roi_pct": -5.36,
+        "cross_line_clv_mean_ev_u": -0.0357,
+        "cross_line_clv_positive_fraction": 0.42764
+      },
+      "always_home": {
+        "n": 3828,
+        "wins": 1862,
+        "losses": 1733,
+        "pushes": 233,
+        "net_U": -47.115,
+        "roi_pct": -1.231,
+        "cross_line_clv_mean_ev_u": -0.03991,
+        "cross_line_clv_positive_fraction": 0.40308
+      },
+      "always_away": {
+        "n": 3828,
+        "wins": 1733,
+        "losses": 1862,
+        "pushes": 233,
+        "net_U": -264.225,
+        "roi_pct": -6.902,
+        "cross_line_clv_mean_ev_u": -0.04266,
+        "cross_line_clv_positive_fraction": 0.39028
+      },
+      "early_market_favorite": {
+        "n": 3828,
+        "wins": 1746,
+        "losses": 1849,
+        "pushes": 233,
+        "net_U": -179.78,
+        "roi_pct": -4.696,
+        "cross_line_clv_mean_ev_u": -0.03975,
+        "cross_line_clv_positive_fraction": 0.41562
+      },
+      "closing_oracle_nontradable": {
+        "n": 3828,
+        "wins": 1970,
+        "losses": 1625,
+        "pushes": 233,
+        "net_U": 80.43,
+        "roi_pct": 2.101,
+        "cross_line_clv_mean_ev_u": 0.04916,
+        "cross_line_clv_positive_fraction": 0.79336
+      }
+    },
+    "2026|same_line": {
+      "residual_side": {
+        "n": 5032,
+        "wins": 2399,
+        "losses": 2284,
+        "pushes": 349,
+        "net_U": -112.135,
+        "roi_pct": -2.228,
+        "cross_line_clv_mean_ev_u": -0.03642,
+        "cross_line_clv_positive_fraction": 0.21721
+      },
+      "opposite_side": {
+        "n": 5032,
+        "wins": 2284,
+        "losses": 2399,
+        "pushes": 349,
+        "net_U": -254.52,
+        "roi_pct": -5.058,
+        "cross_line_clv_mean_ev_u": -0.03729,
+        "cross_line_clv_positive_fraction": 0.22277
+      },
+      "always_home": {
+        "n": 5032,
+        "wins": 2285,
+        "losses": 2398,
+        "pushes": 349,
+        "net_U": -247.645,
+        "roi_pct": -4.921,
+        "cross_line_clv_mean_ev_u": -0.03753,
+        "cross_line_clv_positive_fraction": 0.21701
+      },
+      "always_away": {
+        "n": 5032,
+        "wins": 2398,
+        "losses": 2285,
+        "pushes": 349,
+        "net_U": -119.01,
+        "roi_pct": -2.365,
+        "cross_line_clv_mean_ev_u": -0.03619,
+        "cross_line_clv_positive_fraction": 0.22297
+      },
+      "early_market_favorite": {
+        "n": 5032,
+        "wins": 2264,
+        "losses": 2419,
+        "pushes": 349,
+        "net_U": -202.45,
+        "roi_pct": -4.023,
+        "cross_line_clv_mean_ev_u": -0.03792,
+        "cross_line_clv_positive_fraction": 0.21443
+      },
+      "closing_oracle_nontradable": {
+        "n": 5032,
+        "wins": 2388,
+        "losses": 2295,
+        "pushes": 349,
+        "net_U": -35.355,
+        "roi_pct": -0.703,
+        "cross_line_clv_mean_ev_u": -0.00074,
+        "cross_line_clv_positive_fraction": 0.43998
+      }
+    },
+    "all": {
+      "residual_side": {
+        "n": 9952,
+        "wins": 4717,
+        "losses": 4575,
+        "pushes": 660,
+        "net_U": -280.185,
+        "roi_pct": -2.815,
+        "cross_line_clv_mean_ev_u": -0.04048,
+        "cross_line_clv_positive_fraction": 0.28175
+      },
+      "opposite_side": {
+        "n": 9952,
+        "wins": 4575,
+        "losses": 4717,
+        "pushes": 660,
+        "net_U": -477.51,
+        "roi_pct": -4.798,
+        "cross_line_clv_mean_ev_u": -0.03693,
+        "cross_line_clv_positive_fraction": 0.30838
+      },
+      "always_home": {
+        "n": 9952,
+        "wins": 4629,
+        "losses": 4663,
+        "pushes": 660,
+        "net_U": -377.11,
+        "roi_pct": -3.789,
+        "cross_line_clv_mean_ev_u": -0.03882,
+        "cross_line_clv_positive_fraction": 0.29562
+      },
+      "always_away": {
+        "n": 9952,
+        "wins": 4663,
+        "losses": 4629,
+        "pushes": 660,
+        "net_U": -380.585,
+        "roi_pct": -3.824,
+        "cross_line_clv_mean_ev_u": -0.03859,
+        "cross_line_clv_positive_fraction": 0.29451
+      },
+      "early_market_favorite": {
+        "n": 9952,
+        "wins": 4489,
+        "losses": 4803,
+        "pushes": 660,
+        "net_U": -444.135,
+        "roi_pct": -4.463,
+        "cross_line_clv_mean_ev_u": -0.03892,
+        "cross_line_clv_positive_fraction": 0.29853
+      },
+      "closing_oracle_nontradable": {
+        "n": 9952,
+        "wins": 4884,
+        "losses": 4408,
+        "pushes": 660,
+        "net_U": 45.73,
+        "roi_pct": 0.46,
+        "cross_line_clv_mean_ev_u": 0.02038,
+        "cross_line_clv_positive_fraction": 0.59013
+      }
+    }
+  },
+  "output_rows": "/Users/mac/QuantAsiaDesk/research-work/epd_publish_20261122/research/early_price_discovery_20261122/joint_fair_value_r2_research_rows.jsonl.gz"
+}
