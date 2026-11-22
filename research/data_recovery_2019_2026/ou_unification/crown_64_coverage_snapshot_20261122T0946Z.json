@@ -1,0 +1,85 @@
+{
+  "scope": "fixed 64 Provider League IDs, 2023-2026",
+  "snapshot_created_utc": "2026-11-22T09:46:10Z",
+  "schedule_fids": 48102,
+  "trusted_full_ft_fids": 48102,
+  "authoritative_queue_rebuild": {
+    "as_of_utc": "2026-11-22T09:42:36.880967+00:00",
+    "queue_count": 42459,
+    "ah_open_close": 32449,
+    "ah_movement": 36342,
+    "ou_open_close": 32445,
+    "ou_movement": 5116
+  },
+  "confirmed_increment_since_0942_queue": {
+    "after_queue_rebuild_utc": "2026-11-22T09:42:36.880967+00:00",
+    "through_last_response_utc": "2026-11-22T09:46:04.201034+00:00",
+    "unique_fids": 40,
+    "status_counts": {
+      "NO_CROWN_MARKET_DATA": 35,
+      "BOTH_MARKETS": 5
+    },
+    "year_counts": {
+      "2023": 40
+    },
+    "saved_ah_kinds": {},
+    "saved_ou_kinds": {
+      "movement": 5
+    },
+    "raw_sha_checked": 40,
+    "raw_sha_mismatches": [],
+    "out_of_scope_or_league_mismatch": [],
+    "duplicate_fids": [],
+    "checkpoint": "research/data_recovery_2019_2026/ou_unification/crown_64_collection_checkpoint_20261122T0946Z.jsonl"
+  },
+  "latest_collector_start": {
+    "at_utc": "2026-11-22T09:42:36.883334+00:00",
+    "pid": 93691,
+    "queue_count": 42459,
+    "interval_seconds": 5.2
+  },
+  "transport_audit": {
+    "log_records": 870,
+    "unique_fids": 794,
+    "latest_fixture_statuses": {
+      "NO_CROWN_MARKET_DATA": 562,
+      "BOTH_MARKETS": 232
+    },
+    "attempts": 884,
+    "attempt_outcomes": {
+      "transport_error": 110,
+      "success": 768,
+      "api_error": 6
+    },
+    "attempt_errors": {
+      "IncompleteRead": 110,
+      "TOO_MANY_REQUEST": 6
+    },
+    "retry_error_fids": 46,
+    "recovered_after_error_fids": 46,
+    "latest_retryable_failures": [],
+    "successful_payload_sizes_by_latest_status": {
+      "BOTH_MARKETS": {
+        "n_success_attempts": 224,
+        "median_bytes": 5570.0,
+        "mean_bytes": 7019.268,
+        "max_bytes": 18377
+      },
+      "NO_CROWN_MARKET_DATA": {
+        "n_success_attempts": 544,
+        "median_bytes": 393.0,
+        "mean_bytes": 392.794,
+        "max_bytes": 417
+      }
+    },
+    "partial_byte_diagnostics_present": 59,
+    "partial_byte_diagnostics_missing": 57
+  },
+  "latest_pause": {
+    "at_utc": "2026-11-22T09:46:00.687510+00:00",
+    "reason": "scheduled unified settlement",
+    "scheduled_pid": 94502,
+    "driver_pid": 49373,
+    "auto_resume_expected": true
+  }
+}

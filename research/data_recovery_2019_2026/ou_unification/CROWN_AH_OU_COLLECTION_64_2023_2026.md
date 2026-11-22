@@ -296,3 +296,14 @@
 - 本次累计transport audit为856 attempts：740 success、110 `IncompleteRead`、6 `TOO_MANY_REQUEST`；46个遇错FID均已恢复，当前可重试失败0。成功短窗口12个响应/约61秒，约11.8场/分钟；仅代表当前短观察段，未改变5.2秒间隔或服务商限流行为。SQLite写入仍非瓶颈。
 - T0943的响应明细、raw SHA核对、driver事件、覆盖和transport审计见同目录`crown_64_collection_checkpoint_20261122T0943Z.jsonl`、`crown_64_verified_increment_20261122T0943Z.json`、`crown_64_driver_checkpoint_20261122T0943Z.jsonl`、`crown_64_coverage_snapshot_20261122T0943Z.json`及manifest。所有新增响应均为历史回取，不代表赛前实收。
 - 余下权威队列42,459场；按5.2秒间隔的纯请求时间约61.2小时，未计生产作业安全暂停及重试。collector持续自动续采；本轮没有改正式模型、Telegram、账本、采集频率、生产调度或既有规则。
+
+
+## 2026-11-22 09:46 UTC：结算安全暂停与当前开源工具复核
+
+- safe-window driver PID49373于09:42:36.881 UTC恢复，权威队列42,459，collector PID93691按5.2秒间隔运行；09:46:00.688 UTC因统一结算PID94502再次自动暂停，子进程完成请求后退出，父driver继续等待并会在既有安全窗口后重建队列。
+- 本队列批次截至09:46:04.201 UTC实际处理40个唯一FID（均属2023年）：5个请求响应补入OU movement，35个HTTP/API成功响应没有Crown盘口。原始响应SHA 40/40通过，联赛ID/范围错误0，FID重复0；AH、AH走势、AH/OU开收盘均无新增。OU movement从本次权威基线5,116推算增加5至5,121，等待下一次队列重建确认。权威基线队列仍42,459，暂停后精确剩余数尚待自动重建。
+- 截至该批传输审计累计884 attempts：768 success、110 `IncompleteRead`、6 `TOO_MANY_REQUEST`；46个发生错误的FID全部已恢复，当前可重试失败0。该批40个响应在约207秒窗口内完成，约11.6 FID/分钟；请求节奏未高于5.2秒间隔上限，SQLite写入毫秒级不是瓶颈。安全暂停降低日历吞吐；没有提高频率或绕过限流。
+- 开源项目检查（2026-11-22，阅读上游README/功能说明，没有安装或运行它们）：[OddsHarvester](https://github.com/jordantete/OddsHarvester)声明支持OddsPortal历史、足球AH/OU、指定bookmaker及赔率历史；但不能证明每个目标FID均有Crown市场/双边价格，且报价来源是OddsPortal页面，不是本地Crown HTTP原响应，不能并入本库Crown记录或减少对Crown接口的请求。
+- 同名`oddsportal_scraper`复核了两个公开仓库：[djibril-marega版本](https://github.com/djibril-marega/oddsportal_scraper)README输出比赛结果及1X2开/收盘赔率；[Bedbin17版本](https://github.com/Bedbin17/oddsportal_scraper)列出O/U与若干1X2衍生市场，未列足球AH。两者均不能满足本任务AH+OU且可追溯Crown原始响应/收件时间的要求。
+- [soccerdata](https://github.com/probberechts/soccerdata)对外列出的来源包括Club Elo、ESPN、FBref、Football-Data.co.uk、Sofascore等，未提供Crown报价接口；现有64联赛赛程和可信full FT已完整覆盖，所以不会减少当前Crown盘口队列。以上工具均未部署，避免引入其他博彩公司数据冒充Crown。
+- T0946逐场记录、queue/driver事件、覆盖、transport审计和SHA manifest见`crown_64_collection_checkpoint_20261122T0946Z.jsonl`等配套文件。仍是纯历史回取，不构成真实赛前HTTP收据。

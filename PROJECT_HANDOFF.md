@@ -5855,3 +5855,11 @@
 - Transport累计856 attempts（740成功、110 IncompleteRead、6 TOO_MANY_REQUEST）；46个曾遇错FID全部恢复，最新可重试失败0。12场短窗口约11.8场/分钟，不构成全时吞吐保证；服务商请求间隔仍5.2秒，生产安全作业期间driver自动暂停。
 - 证据和SHA清单：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T0943Z.txt`。完整采集报告追加T0943记录。历史回取与真正赛前HTTP收据严格区分。
 - 当前未完成：权威缺口队列42,459场；按请求间隔估算至少约61.2小时网络时间，实际取决于既有安全暂停和重试。采集仍在运行；未开展模型研究，也未修改生产模型、Telegram、正式账本、采集规则或调度。
+
+
+## 2026-11-22：T0946Z安全暂停批次与开源工具复核
+
+- 09:42:36.881 UTC权威队列42,459，collector PID93691开始按5.2秒间隔处理；09:46:00.688 UTC统一结算PID94502触发既有safe-window暂停。父driver PID49373仍运行，等待任务结束后自动重建并续采。
+- 暂停前该批处理40个唯一FID（全为2023年）：5个只新增OU movement、35个HTTP/API成功但无Crown AH/OU盘口；raw SHA 40/40通过，越界/重复0。AH和两市场开收盘无新增；OU走势推算5,121，待重建核准。最新累计884 attempts：768成功、110 IncompleteRead、6 TOO_MANY_REQUEST，46个曾失败FID均恢复。
+- 已只读评估用户点名的OddsHarvester、oddsportal_scraper（两个项目）和soccerdata上游README：它们不提供可验证的本地TotalCorner/Crown统一市场数据和Crown HTTP原响应证据；有些可抓取其他书商/赔率聚合站的AH或OU，来源不可替代。足球赛程/可信FT本来已完整，不部署这些项目，也不将其报价导入Crown库。详细项目能力与来源链接见采集报告T0946节。
+- 证据文件及manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T0946Z.txt`及配套逐场、增量、driver、coverage、transport文件。当前数据采集尚未完成；driver自动等待安全窗口，不改正式生产。
