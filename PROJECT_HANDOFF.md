@@ -1,3 +1,7 @@
+## 2026-11-22｜R6：3,408候选逐策略审核清单（待用户审核）
+
+- 用户要求从2019年开始研究多盈利结构组合，并对每个策略进行审核。已读取R1/R3原始脚本及R1结果，生成research/profit_structure_discovery_20261122/candidate_strategy_review_r6.csv（3,408行，每行完整2019—2023发现期和2024/25/26前推成绩）及CANDIDATE_STRATEGY_REVIEW_R6_20261122.md。未来3年正ROI的候选128个，但可能互相重叠，2026不完整，未做相关性/动态加权实测；全部候选待用户逐项审核，未批准任何新生产策略、Gate或权重。
+
 ## 2026-11-22｜Profit Structure Discovery R5：联赛×深度×价格变化机制诊断
 
 - 用户同意继续研究盘口深度、价格变动与联赛差异的收益机制。已实际执行 research/profit_structure_discovery_20261122/league_mechanism_r5.py 和独立审计 validate_league_mechanism_r5.py；生成 PROFIT_STRUCTURE_LEAGUE_MECHANISM_R5_20261122.md、league_mechanism_r5_results.json、league_mechanism_r5_validation.json；研究提交6d0407646fb8da4373ba8bcd7cea7d0213033ef3。
