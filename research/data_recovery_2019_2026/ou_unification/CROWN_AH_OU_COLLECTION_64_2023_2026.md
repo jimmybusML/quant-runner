@@ -755,3 +755,15 @@
 - TotalCorner官方API上限为30请求/min、每10秒5次；当前Crown进程5.2秒/FID，与2019—2022历史任务共享配额，近期窗口达到5次/10秒。因此没有安全余量在此时进一步提速。安全窗口driver PID49373运行，collector PID57807接续中；剩余41,068个FID，理论纯间隔约59.3小时，计划任务暂停与重试另计。
 - 评估OddsHarvester、oddsportal_scraper、soccerdata后均未部署：前两者数据源为OddsPortal且AH/Crown可用性不足以确认Crown补数，soccerdata无Crown/TotalCorner数据源。其结果不能替代Crown。
 - T1420逐场、覆盖、transport、driver与SHA文件已归档。历史回取与真实赛前HTTP接收继续分开标记。
+
+
+## 2026-11-22 14:29–14:39 UTC：2023—2026责任区间续采及合并接口实测
+
+- 当前责任继续为64个固定Provider League ID、2023—2026年48,102个FID；未访问2019—2022或范围外赛事。48,102场均已有可信`full`比分。队列按2023→2026顺序推进，不把年份库存误称为均匀并行完成。
+- T1429权威队列41,022（2023:12,482；2024:14,553；2025:13,520；2026:467）。覆盖为AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,469。14:20:54至14:29:14的46个唯一FID均取得成功响应、raw SHA 46/46匹配；32个响应不含Crown盘口，14个同时有AH/OU记录并补得OU走势。重复、越界、身份不符均为0。
+- T1429至T1437：33个唯一FID均成功、SHA 33/33匹配；25个无Crown AH/OU报价，8个补入OU走势。T1437权威队列40,989（2023:12,449；2024:14,553；2025:13,520；2026:467）；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,477。T1420至T1437共减少79个待请求FID，OU走势净增22。
+- 全量运输审计至T1437：2,334次attempt，2,198 success、125 `IncompleteRead`、11 `TOO_MANY_REQUEST`；64个经历错误的FID均已恢复，当前retryable失败0。T1437后14:39:05 UTC又因MR1计划任务暂停collector PID62004；safe-window父driver PID49373仍运行并会等待任务完成、安静期后重建队列。该时点尚无新collector子进程，未另起重复采集器。
+- 实际验证`columns=asianList,goalList`：对已有范围内FID128294217（2023，Brighton—Arsenal）的Crown历史接口单请求同时取得AH和OU summary及movement：asian_list 97行、goal_list 89行；AH开盘+0.5/1.83/2.05（源事件2022-12-20 21:06:18），收盘+0.5/2.02/1.88（2023-01-01 01:26:19）；OU开盘2.75/1.98/1.88（2022-12-20 21:06:18），收盘2.5/1.89/2.00（2023-01-01 01:24:13）。HTTP 200、API success=1，响应11,261字节，SHA `0c84b0976ad28b6a69c0dc475a8f92e868da0a4b902823e0d5973c5d33c56ac4`，实际收件时间2026-11-22 14:36:30.627464 UTC；磁盘原始响应SHA及长度复核通过。该次是historical回取，数据库未重复写入报价行。
+- 测试共记录一条初始未记时IncompleteRead（partial 7,568 bytes，expected remaining 3,693；确切时间未被捕获）以及有时间记录的4次有界重试：先`TOO_MANY_REQUEST`、两次`IncompleteRead`、第4次成功。未记时失败单独留在JSON审计，未隐藏。Cumulative collector transport audit不含这5次接口专测尝试。
+- 硬请求节奏仍为5.2秒/FID，不增加并发；队列40,989按纯间隔约59.2小时，未计计划任务暂停与重试，不是完成时间承诺。原始合并响应说明接口可单次取两市场；collector继续按缺失市场/数据层请求，避免已齐AH重复采集。结果和每个检查点文件SHA见`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1437Z.txt`及接口验证JSON。
+- 本段只做数据采集/传输核查。生产MR1与结算运行期间遵守现行安全暂停。历史报价不冒充真实赛前收据；未改正式模型、TG、账本、采集频率规则或生产调度配置。

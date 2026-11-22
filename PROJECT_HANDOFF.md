@@ -6216,3 +6216,12 @@
 - unified OU import在本轮前已复核：仅本地导入，无新网络请求；97,798个SHA唯一响应已对接并导入、SHA不匹配0、身份不匹配0，含OU open/close响应43,958、goal_list响应4,889、导入的OU movement行705,320。独立OU采集进程不在运行；已由统一SQLite/collector接续。
 - safe-window driver PID49373继续运行，T1420重建队列后collector PID57807已启动，频率仍5.2秒/FID。采集未完成；41,068缺口按理论最小间隔约59.3小时（不含暂停、重试）。数据均为historical回取，不是赛前实收。未改正式生产链路。
 - T1420逐场增量、覆盖、传输、driver和SHA证据已归档于`research/data_recovery_2019_2026/ou_unification/`。
+
+
+## 2026-11-22 14:39 UTC：用户接管2023—2026采集；合并接口核验
+
+- 当前明确负责年份为2023、2024、2025、2026，范围仍是固定64联赛。最新完整固定赛事库存48,102个FID、可信full FT 48,102；Crown缺口队列40,989（2023 12,449；2024 14,553；2025 13,520；2026 467）。覆盖：AH开收盘32,449；AH走势36,342；OU开收盘32,445；OU走势5,477。该覆盖为T1437队列重建时权威值。
+- safe-window driver PID49373持续运行；它于14:39:05 UTC因MR1 `shadow-v23.js --scheduled`安全暂停采集子进程PID62004，待生产任务退出及12秒空闲后自动重建队列续采。没有另起并行采集器。另一个既有2019—2022 fallback PID59391不属于本轮年份，未干预。
+- T1429→T1437新处理79个唯一FID，均有成功HTTP/API及raw SHA验证（79/79）；57个返回无Crown报价，22个只补了OU movement；无重复、越界或身份不匹配。全量累计2,334 attempts（2,198成功、125 IncompleteRead、11 TOO_MANY_REQUEST），64个曾遇错FID均已恢复，retryable失败0。
+- 已验证Crown接口`columns=asianList,goalList`可以单次返回两个市场summary及movement。FID128294217响应SHA `0c84b0976ad28b6a69c0dc475a8f92e868da0a4b902823e0d5973c5d33c56ac4`，HTTP200/API success，AH movement97行、OU movement89行，AH/OU开收盘值与源事件时间已存接口审计；响应实际收件时间为2026-11-22 14:36:30.627464 UTC，historical模式，未重复写报价行。4次有时间戳的有界重试以成功结束；另记录一条未捕获精确时间的IncompleteRead (7,568 partial / 3,693 expected remaining)。
+- 固定5.2秒/FID节奏与生产安全窗口不变。队列纯请求时间约59.2小时，另加重试/安全暂停；无日历完工承诺。报告、逐场检查点和SHA在`research/data_recovery_2019_2026/ou_unification/`，采集仍未完成。
