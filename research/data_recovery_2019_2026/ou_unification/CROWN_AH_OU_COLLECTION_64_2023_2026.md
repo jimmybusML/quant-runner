@@ -783,3 +783,12 @@
 - 14:54:12 UTC权威重建确认待处理40,902场（2023:12,362；2024:14,553；2025:13,520；2026:467），覆盖AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement5,492。collector PID66475以5.2秒间隔继续。
 - 至14:57:23.448737 UTC新收到37场成功响应，全部为`NO_CROWN_MARKET_DATA`，本批没有AH/OU报价行；37份原始响应SHA、FID/联赛/主客身份均通过，失败、重复、越界均为0。因这些有效HTTP响应为空市场，预计下次重建时队列扣除37场；权威队列仍以14:54检查点为准，等待下一重建。
 - 逐场JSONL、独立核对结果及SHA清单见`crown_64_collection_checkpoint_20261122T1457Z.jsonl`、`crown_64_verified_increment_20261122T1457Z.json`和对应SHA文件。所有响应仍按historical保存。
+
+
+## 2026-11-22 15:02 UTC：安全窗口权威重建及累计传输审计
+
+- 15:02:36.910166 UTC，safe-window重建队列确认待处理40,856个FID，分年2023:12,316、2024:14,553、2025:13,520、2026:467。目标总库存48,102；TotalCorner可信full FT 48,102。
+- 市场覆盖（FID）为AH open/close 32,449（缺15,653）、AH movement 36,342（缺11,760）、OU open/close 32,445（缺15,657）、OU movement 5,492（缺42,610）。T1454之后到T1502共有46个新唯一FID终态HTTP响应：全部无Crown AH/OU报价，所以队列减少46而各市场覆盖不变；新增原始响应SHA均核验，未用空字段伪造盘口。逐场增量T1457为37场，其后9场在本次T1502增量内。
+- 采集恢复为collector PID68564，父driver PID49373，仍按5.2秒请求间隔。最近活跃窗约11.5场/分钟；40,856队列按5.2秒纯间隔约59.0小时，不含生产安全暂停和重试。窗口墙钟速度会因MR1/统一结算间隔而下降。
+- 累计审计截至T1502：2,467次实际请求attempt，2,331成功、125 `IncompleteRead`、11 `TOO_MANY_REQUEST`；失败attempt占5.5128%。64个曾遇失败的不同FID均已恢复，最新可重试错误0。这里只把有FID的fixture请求计入attempt与成功/失败率；采集批次`STOPPED`日志行不算比赛或请求。
+- 当前市场覆盖及缺口来自安全driver权威队列重建，逐场、年度队列和传输审计SHA见`crown_64_coverage_snapshot_20261122T1502Z.json`、`crown_64_transport_audit_20261122T1502Z.json`、增量文件及SHA manifest。本轮未调整限速、并发或生产任务。
