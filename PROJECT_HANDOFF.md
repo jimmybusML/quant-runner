@@ -6467,3 +6467,11 @@ T1845后至18:46:31 UTC统一结算暂停前，13个唯一FID取得最终成功�
 18:49:45 UTC安全驱动重建队列39,677。分年余量依据T1845已记录的分年队列减去这13个经核验的终态FID：2023 11,137、2024 14,553、2025 13,520、2026 467。盘口覆盖为AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,772。18:51:07 UTC一致只读事务快照与队列事件覆盖相符；42,330场至少缺一盘口层，包含终态无报价样本。
 
 一次只读快照尝试遇到短暂SQLite WAL sidecar不可用，待采集服务恢复WAL共享文件后重跑成功；数据库未被研究审计写入，未重复发送请求。逐场、覆盖、transport、身份SHA、driver和清单见T1849工件。队列collector已在18:49:45恢复；采集继续中。
+
+### 2026-11-22 18:51 UTC：续采 T1851
+
+T1849队列启动后至18:50:15 UTC MR1暂停前，6个唯一FID取得成功响应，均为NO_CROWN_MARKET_DATA；6次attempt成功，raw SHA与赛事FID/Provider League/赛年身份6/6通过，无重复FID。本批未增加盘口层。
+
+18:51:29 UTC队列为39,671（2023 11,131；2024 14,553；2025 13,520；2026 467），较T1849减少6。该检查点AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,772。18:54:18 UTC后续只读事务快照显示OU movement5,780（较检查点增加8个FID），为collector恢复后新响应，不计入暂停前6个FID。缺任一层的42,322场包含无报价终态，不是待请求队列。
+
+T1851逐场及身份SHA、transport、driver、覆盖快照和SHA清单已保存。combined collector PID24680及safe-window父进程PID49373在最近检查时运行；采集继续。
