@@ -540,3 +540,12 @@
 - T1146全日志1,494 attempts（1,370 success、118 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；52个遇错FID均恢复，未恢复失败0。活动请求继续采用合并AH+OU接口及5.2秒间隔。
 - safe-window父driver PID49373在MR1任务窗口后于11:46:12 UTC重建队列并启动collector PID22018。T1146之后采集仍在继续；下一个检查点需再次核验实际响应SHA和队列。全部为historical回取。
 - T1146逐场、增量、driver、coverage、transport和SHA清单见同目录对应文件。
+
+
+## 2026-11-22 11:50 UTC：续采检查点 T1150
+
+- 固定范围仍为64个Provider League ID、2023—2026年48,102场，可信full FT 48,102。T1146后完成24个唯一FID响应：14个成功响应无Crown市场报价，10场只保存OU movement；AH、AH movement及开收盘均无新增。SHA 24/24匹配，越界/重复0；25次attempt中24成功、1次`IncompleteRead`后恢复。
+- 11:50:44 UTC权威队列41,793，较T1146减少24；coverage AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,279，后者净增10。逐市场缺口15,653、11,760、15,657、42,823。
+- 全日志累计1,519 attempts：1,394 success、119 `IncompleteRead`、6 `TOO_MANY_REQUEST`；53个曾遇错FID均已恢复，未恢复失败0。T1146批次有效速率约10.1场/分钟（含1次重试），不同窗口受API耗时及重试影响。请求间隔仍为5.2秒，未改并发。
+- 11:48:31 MR1任务使collector安全暂停，父driver于11:50:44重建队列并启动collector PID23043，随后11:50:56遇统一结算任务再次安全暂停；父driver PID49373持续等待。
+- T1150逐场记录、增量、coverage、driver、transport及SHA manifest见本目录对应文件；全部回取为historical。

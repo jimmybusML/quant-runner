@@ -6017,3 +6017,10 @@
 - 固定64联赛2023—2026库存及可信full FT各48,102。11:46:12 UTC队列重建41,817；市场覆盖AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,269。相较T1138队列减少49、OU走势增加14。
 - T1138后49个唯一FID响应中35场无Crown报价、14场新增OU走势；原始SHA 49/49通过，越界/重复0；49次HTTP/API请求均成功。全日志1,494 attempts，1,370成功、118 IncompleteRead、6 TOO_MANY_REQUEST，52个错误FID全恢复、当前待重试0。
 - MR1窗口触发安全暂停后，父driver PID49373于11:46自动续采，collector PID22018运行，5.2秒间隔未变。详细证据为T1146检查点文件及SHA manifest。历史回取标注和正式生产隔离不变，采集仍未完成。
+
+
+### 2026-11-22 11:50 UTC：T1150队列续采检查点
+
+- 固定64联赛、2023—2026年48,102 FID和可信full FT均不变。权威待请求队列41,793；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,279。较T1146少24个请求、OU走势净增10。
+- T1146后24个唯一响应：14无Crown报价、10新增OU走势；SHA 24/24匹配，越界/重复0；25次attempt含1次`IncompleteRead`并已恢复。全日志1,519次attempt（1,394成功、119 IncompleteRead、6 TOO_MANY_REQUEST），53个错误FID全恢复、当前待重试0。
+- MR1与统一结算作业窗口触发两次安全暂停；safe-window父driver PID49373仍运行。最新collector PID23043在正式结算窗口启动后暂停，等待自动续采。请求频率、来源与historical标注均未变，生产链未改。T1150证据在`research/data_recovery_2019_2026/ou_unification/`。
