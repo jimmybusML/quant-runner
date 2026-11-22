@@ -158,3 +158,11 @@ The live schedule run is at 321 successful page requests / 9,378 new FIDs. Eight
 - A new read-only verifier independently matched all 902 terminal rows to `capture` entries in Crown SQLite. Raw response files existed and matched their stored SHA for all 902; receive-time and parsed quote-row counts matched the collector log; mismatches: zero. The verifier made zero network requests and zero SQLite writes. Result: `movement_collection_persisted_audit_20261122T0318Z.json` (`pass=true`); reusable verifier: `audit_movement_collection_persistence.py`.
 - The movement queue is still far from complete. The earlier 02:53 inventory checkpoint remains the latest global coverage baseline (203,962 known-source FIDs, 118 provider league IDs, 193,518 verified FT, 10,444 unresolved). Those global totals are not refreshed by this per-batch receipt check. The separate summary and FT-refresh queues have not been declared complete.
 - No strategy, model, backtest, Telegram, formal-ledger or production collector changes were made. Only the existing research collector is writing historical source data.
+
+
+## 2026-11-22 03:29 UTC — active movement persistence and verified FT overlay audit
+
+- The historical movement safe-window driver (PID 59381) remained active. At the fixed 03:29:34Z snapshot, 975/101,266 candidate FIDs had terminal results (329 saved with 69,588 AH rows; 646 explicit no-Crown-AH responses), leaving 100,291 without terminal status. 30 `IncompleteRead` attempts were later resolved.
+- A read-only verifier (`movement_collection_persisted_audit_20261122T0329Z.json`) matched all 975 terminal log rows to SQLite, raw-file SHA, receive timestamp and quote-row count; every mismatch count was zero. No request or DB write was made by the verifier.
+- A new provenance-preserving union audit reconciled 441 M1, 27 M5, 18 Crown raw-result, and 42 ESPN FT rows: 504 unique FIDs, 24 overlaps, no score conflict, no identity error; all 504 were already absent from the current 10,444-row FT gap. This adds an auditable unified overlay, not new FT collection.
+- The separate summary queue still contains 153,762 candidate FIDs and was not started while movement collection is active. Snapshot and hashes are in `COLLECTION_CHECKPOINT_20261122T0329Z.md` and `CHECKPOINT_SHA256_20261122T0329Z.txt`.

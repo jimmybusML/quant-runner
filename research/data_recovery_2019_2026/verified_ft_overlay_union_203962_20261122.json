@@ -1,0 +1,56 @@
+{
+  "scope": "Existing verified FT evidence overlays reconciled against the 203,962-FID inventory and current unresolved queue",
+  "read_only": true,
+  "network_requests": 0,
+  "database_writes": 0,
+  "inventory_unique_fids": 203962,
+  "current_unresolved_unique_fids": 10444,
+  "current_resolved_fids_by_inventory_minus_gap": 193518,
+  "overlay_source_rows": {
+    "M1_history_cache": 441,
+    "M5_verified_result": 27,
+    "Crown_historical_raw_result": 18,
+    "ESPN_full_time_archive": 42
+  },
+  "verified_overlay_source_unique_fids": {
+    "M1_history_cache": 441,
+    "M5_verified_result": 27,
+    "Crown_historical_raw_result": 18,
+    "ESPN_full_time_archive": 42
+  },
+  "overlay_union_unique_fids": 504,
+  "overlay_union_fids_already_absent_from_current_gap": 504,
+  "overlay_union_fids_still_in_current_gap": 0,
+  "source_overlap_rows_removed_by_fid_dedup": 24,
+  "cross_source_score_conflicts": [],
+  "identity_errors": [],
+  "result_file": "verified_ft_overlay_union_203962_20261122.jsonl.gz",
+  "result_sha256": "386fbb85b307f85711d4bd0a91f7b9804d434cebfd00bc25c9ae90ec205a682f",
+  "input_manifest": {
+    "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz": {
+      "sha256": "1c51b890f075efd6fff4f794ee0e3b43ab427e41f78fbe4a95efef24c9a9783d",
+      "bytes": 20820469
+    },
+    "unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz": {
+      "sha256": "56d661b7a9e40103b45550138f5339528f80db38c0d56e4e4689b160b93d3e94",
+      "bytes": 696958
+    },
+    "m1_ft_evidence_in_unverified_ledger_20261122.jsonl": {
+      "sha256": "7f1394ac9176b792a29c3e73ea227bb64f46769af4334720b4337fe8a0106786",
+      "bytes": 264675
+    },
+    "m5_verified_ft_overlay_2019_2026_20261122.jsonl": {
+      "sha256": "46e59ef1978b949248877db69bdf91e95419bcf9918f1a4ac261b3f4170ffc59",
+      "bytes": 20344
+    },
+    "crown_capture_verified_ft_overlay_2019_2026_20261122.jsonl": {
+      "sha256": "3fb13e4c97f06c49a6df33b9c77b734254bccae829c45a1b3d3393472716392a",
+      "bytes": 14188
+    },
+    "epl_laliga_espn_verified_ft_overlay_20261122.jsonl": {
+      "sha256": "0bcff322584354f22216e38aa007fac3eb84c854723ccacdd57c02d6806ce2a5",
+      "bytes": 44368
+    }
+  },
+  "interpretation": "This is a provenance-preserving union of existing source audits, not a new network collection. Source-level raw SHA and result validation remain documented in each source audit. Historical Crown raw results are FT evidence only and do not substitute for Crown AH quotes."
+}

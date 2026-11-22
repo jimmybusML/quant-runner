@@ -5553,3 +5553,13 @@
 - No strategy, model, backtest, Telegram, formal-ledger or production collector changes were made. Only the existing research collector is writing historical source data.
 
 - 本次收据/SQLite落库抽核代码、聚合结果、检查点和SHA已推送到公开研究分支 `data/history-backfill-2019-2026`，交付提交 `bc69cf3dde7b16efad746ae3d304b2cdd5349bf9`；推送后本地HEAD与远端分支SHA一致。采集仍运行，当前尚未创建PR，也未合并main。
+
+
+### 2026-11-22 03:29 UTC — continued Crown movement recovery and FT overlay reconciliation
+
+- Re-verified the existing safe-window driver PID 59381 and active collector child PID 4927; no competing collector was started. The immutable 101,266-FID movement queue remains the active work.
+- At `2026-11-22T03:29:34Z`, the log had 1,005 attempts and 975 unique terminal FIDs: 329 `SAVED` (69,588 Crown AH movement rows) and 646 `NO_CROWN_AH_QUOTES`. Thirty `IncompleteRead` attempts had later resolved. 100,291 candidates lacked a terminal result.
+- Re-ran read-only log→SQLite/raw persistence audit: 975/975 terminal rows matched; raw missing 0, SHA mismatch 0, response-receive-time mismatch 0, quote-count mismatch 0; `pass=true`. The verifier issued zero network requests and zero database writes. All collector responses remain historical retrieval, not prospective receipts.
+- Added `audit_verified_ft_overlay_union_20261122.py` and its aggregate plus one-row-per-FID evidence outputs. Existing M1/M5/Crown/ESPN rows total 528 source rows / 504 unique FIDs after 24 overlaps; score conflicts 0, identity errors 0. All 504 are already resolved from the 10,444-FID current gap; this is provenance reconciliation, not new collection. Source raw SHA checks remain in the source-specific audits.
+- Latest global inventory baseline remains 203,962 known-source FIDs / 118 provider IDs, 193,518 verified FT / 10,444 unresolved (inventory snapshot 02:53 UTC). This is not a proof of exhaustive global league discovery. Separate summary-layer candidate queue remains 153,762 FIDs; defer it until the active movement batch is done to avoid overlapping collectors.
+- Checkpoint: `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0329Z.md`; digest list: `CHECKPOINT_SHA256_20261122T0329Z.txt`. Continue the full inventory, FT, summary, and movement gap audit; no strategy, model, backtest, formal trade, Telegram or ledger work.
