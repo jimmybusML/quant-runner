@@ -22,6 +22,10 @@ OUT = ROOT / "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz"
 SUMMARY = ROOT / "schedule_union_53_leagues_reconciliation_20261122.json"
 UNVERIFIED = ROOT / "unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz"
 EXTERNAL_FT = ROOT / "archived_espn_verified_ft_reconciled_to_203962_inventory_20261122.jsonl"
+M5_FT_OVERLAY = ROOT / "m5_verified_ft_overlay_2019_2026_20261122.jsonl"
+M5_RAW_ROOT = Path("/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/forward-shadow")
+CROWN_FT_OVERLAY = ROOT / "crown_capture_verified_ft_overlay_2019_2026_20261122.jsonl"
+CROWN_DATA_ROOT = Path("/Users/mac/QuantAsiaDesk/data")
 UTC = dt.timezone.utc
 
 
@@ -97,6 +101,7 @@ def normalize(row):
         "supplemental_schedule_records": [supplemental],
         "crown_fixture_metadata_records": [],
         "M1_history_cache_records": [],
+        "m5_result_evidence_records": [],
         "expanded_universe_records": [],
         "priced_t6_records": [],
         "crown_captures": [],
@@ -111,14 +116,32 @@ def has_verified_ft(row):
     if row.get("external_ft_evidence"):
         return True
     sources = []
-    for key in ("totalcorner_page_records", "m1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records"):
+    # The merged inventory's actual field is case-sensitive and named
+    # ``M1_history_cache_records``. The old lowercase spelling silently
+    # excluded all verified M1 FT rows from the reconciled count.
+    for key in ("totalcorner_page_records", "M1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records"):
         sources.extend(row.get(key, []))
-    return any(
+    has_schedule_ft = any(
         x.get("status") == "full"
         and str(x.get("home_goals", "")).isdigit()
         and str(x.get("away_goals", "")).isdigit()
         for x in sources
     )
+    has_m5_ft = any(
+        x.get("status") == "verified_ft"
+        and str(x.get("home_goals", "")).isdigit()
+        and str(x.get("away_goals", "")).isdigit()
+        and bool(x.get("raw_response_sha256"))
+        for x in row.get("m5_result_evidence_records", [])
+    )
+    has_crown_capture_ft = any(
+        x.get("status") == "full"
+        and str(x.get("home_goals", "")).isdigit()
+        and str(x.get("away_goals", "")).isdigit()
+        and bool(x.get("raw_response_sha256"))
+        for x in row.get("crown_ft_evidence_records", [])
+    )
+    return has_schedule_ft or has_m5_ft or has_crown_capture_ft
 
 
 def normalized_name(value):
@@ -210,14 +233,18 @@ def main():
         expected_kickoff = parse_dt(fixture.get("totalcorner_kickoff_utc"))
         observed_kickoff = parse_dt(row.get("kickoff_utc"))
         identities = []
-        for key in ("totalcorner_page_records", "m1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records"):
+        for key in ("totalcorner_page_records", "M1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records"):
             for src in fixture.get(key, []):
                 ko = parse_dt(src.get("kickoff_utc"))
                 hn, an = src.get("home_name"), src.get("away_name")
                 if ko and hn and an:
                     identities.append((ko, normalized_name(hn), normalized_name(an)))
         expected = (observed_kickoff, normalized_name(row.get("Crown_home")), normalized_name(row.get("Crown_away")))
-        if not expected_kickoff or observed_kickoff != expected_kickoff or not identities or any(x != expected for x in identities):
+        # Different saved TotalCorner versions can carry a revised kickoff.
+        # Require one exact source-version match and preserve the other
+        # versions as evidence; a conflicting secondary version must not
+        # silently erase a valid exact match.
+        if not expected_kickoff or observed_kickoff != expected_kickoff or expected not in identities:
             raise SystemExit(f"external FT identity not corroborated by saved schedule versions for FID {fid}")
         evidence = {
             "source": "archived ESPN raw response; independently verified; not Crown odds",
@@ -234,6 +261,121 @@ def main():
         if evidence["source_raw_sha256"] not in existing_shas:
             fixture.setdefault("external_ft_evidence", []).append(evidence)
             external_evidence_added += 1
+
+    m5_ft_rows = [json.loads(line) for line in M5_FT_OVERLAY.read_text(encoding="utf-8").splitlines() if line.strip()] if M5_FT_OVERLAY.exists() else []
+    m5_evidence_added = 0
+    for row in m5_ft_rows:
+        fid = str(row.get("fid") or "")
+        if fid not in existing:
+            raise SystemExit(f"M5 FT FID outside merged schedule inventory: {fid}")
+        fixture = existing[fid]
+        raw_rel = str(row.get("raw_response_relative_path") or "")
+        raw = M5_RAW_ROOT / raw_rel
+        if not raw.is_file() or sha256(raw) != row.get("raw_response_sha256"):
+            raise SystemExit(f"M5 raw response SHA mismatch for FID {fid}")
+        response = json.loads(raw.read_text(encoding="utf-8"))
+        raw_events = [x for x in response.get("data", []) if str(x.get("id")) == fid]
+        if response.get("success") not in (1, "1", True) or len(raw_events) != 1:
+            raise SystemExit(f"M5 raw response does not contain one successful exact FID: {fid}")
+        event = raw_events[0]
+        try:
+            raw_score = (int(event["hg"]), int(event["ag"]))
+            indexed_score = (int(row["home_goals"]), int(row["away_goals"]))
+        except (KeyError, TypeError, ValueError):
+            raise SystemExit(f"M5 raw score is invalid for FID {fid}")
+        if event.get("status") != "full" or raw_score != indexed_score:
+            raise SystemExit(f"M5 raw FT status or score mismatch for FID {fid}")
+        if str(event.get("l_id")) != str(fixture.get("provider_league_id")) or row.get("kickoff_utc") != fixture.get("totalcorner_kickoff_utc"):
+            raise SystemExit(f"M5 league or kickoff mismatch for FID {fid}")
+        source_rows = fixture.get("totalcorner_page_records", []) + fixture.get("M1_history_cache_records", [])
+        identity_ok = any(
+            str(src.get("home_id")) == str(event.get("h_id"))
+            and str(src.get("away_id")) == str(event.get("a_id"))
+            and normalized_name(src.get("home_name")) == normalized_name(event.get("h"))
+            and normalized_name(src.get("away_name")) == normalized_name(event.get("a"))
+            for src in source_rows
+        )
+        if not identity_ok:
+            raise SystemExit(f"M5 team identity mismatch for FID {fid}")
+        evidence = {
+            "status": "verified_ft",
+            "home_goals": raw_score[0],
+            "away_goals": raw_score[1],
+            "kickoff_utc": row.get("kickoff_utc"),
+            "home_id": row.get("home_id"),
+            "away_id": row.get("away_id"),
+            "home_name": row.get("home_name"),
+            "away_name": row.get("away_name"),
+            "source": row.get("source"),
+            "response_received_at_utc": row.get("response_received_at_utc"),
+            "raw_response_sha256": row.get("raw_response_sha256"),
+            "raw_response_relative_path": raw_rel,
+            "index_file_sha256": row.get("index_file_sha256"),
+        }
+        fixture.setdefault("m5_result_evidence_records", [])
+        if not any(x.get("raw_response_sha256") == evidence["raw_response_sha256"] for x in fixture["m5_result_evidence_records"]):
+            fixture["m5_result_evidence_records"].append(evidence)
+            m5_evidence_added += 1
+
+    crown_ft_rows = [json.loads(line) for line in CROWN_FT_OVERLAY.read_text(encoding="utf-8").splitlines() if line.strip()] if CROWN_FT_OVERLAY.exists() else []
+    crown_ft_evidence_added = 0
+    for row in crown_ft_rows:
+        fid = str(row.get("fid") or "")
+        if fid not in existing:
+            raise SystemExit(f"Crown FT FID outside merged schedule inventory: {fid}")
+        fixture = existing[fid]
+        if row.get("capture_mode") != "historical":
+            raise SystemExit(f"Crown FT overlay contains non-historical row: {fid}")
+        raw_rel = str(row.get("raw_response_relative_path") or "")
+        raw = CROWN_DATA_ROOT / raw_rel
+        if not raw.is_file() or sha256(raw) != row.get("raw_response_sha256"):
+            raise SystemExit(f"Crown raw response SHA mismatch for FID {fid}")
+        response = json.loads(raw.read_text(encoding="utf-8"))
+        raw_events = [x for x in response.get("data", []) if str(x.get("id")) == fid]
+        if response.get("success") not in (1, "1", True) or len(raw_events) != 1:
+            raise SystemExit(f"Crown raw response does not contain one successful exact FID: {fid}")
+        event = raw_events[0]
+        try:
+            raw_score = (int(event["hg"]), int(event["ag"]))
+            indexed_score = (int(row["home_goals"]), int(row["away_goals"]))
+        except (KeyError, TypeError, ValueError):
+            raise SystemExit(f"Crown raw score invalid for FID {fid}")
+        if event.get("status") != "full" or raw_score != indexed_score:
+            raise SystemExit(f"Crown raw FT status or score mismatch for FID {fid}")
+        if str(event.get("l_id")) != str(fixture.get("provider_league_id")) or row.get("kickoff_utc") != fixture.get("totalcorner_kickoff_utc"):
+            raise SystemExit(f"Crown FT league or kickoff mismatch for FID {fid}")
+        source_rows = fixture.get("totalcorner_page_records", []) + fixture.get("M1_history_cache_records", []) + fixture.get("supplemental_schedule_records", [])
+        identity_ok = any(
+            str(src.get("home_id")) == str(event.get("h_id"))
+            and str(src.get("away_id")) == str(event.get("a_id"))
+            and normalized_name(src.get("home_name")) == normalized_name(event.get("h"))
+            and normalized_name(src.get("away_name")) == normalized_name(event.get("a"))
+            for src in source_rows
+        )
+        if not identity_ok:
+            raise SystemExit(f"Crown FT team identity mismatch for FID {fid}")
+        evidence = {
+            "status": "full",
+            "home_goals": raw_score[0],
+            "away_goals": raw_score[1],
+            "kickoff_utc": row.get("kickoff_utc"),
+            "home_id": row.get("home_id"),
+            "away_id": row.get("away_id"),
+            "home_name": row.get("home_name"),
+            "away_name": row.get("away_name"),
+            "source": row.get("source"),
+            "capture_key": row.get("capture_key"),
+            "data_layer": row.get("data_layer"),
+            "capture_status": row.get("capture_status"),
+            "quote_count": row.get("quote_count"),
+            "response_received_at_utc": row.get("response_received_at_utc"),
+            "raw_response_sha256": row.get("raw_response_sha256"),
+            "raw_response_relative_path": raw_rel,
+        }
+        fixture.setdefault("crown_ft_evidence_records", [])
+        if not any(x.get("raw_response_sha256") == evidence["raw_response_sha256"] for x in fixture["crown_ft_evidence_records"]):
+            fixture["crown_ft_evidence_records"].append(evidence)
+            crown_ft_evidence_added += 1
 
     with OUT.open("wb") as raw:
         with gzip.GzipFile(fileobj=raw, mode="wb", mtime=0) as gz:
@@ -262,7 +404,7 @@ def main():
                     continue
                 unverified_count += 1
                 sources = []
-                for key in ("totalcorner_page_records", "m1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records"):
+                for key in ("totalcorner_page_records", "M1_history_cache_records", "supplemental_schedule_records", "crown_fixture_metadata_records", "m5_result_evidence_records", "crown_ft_evidence_records"):
                     for x in row.get(key, []):
                         sources.append({k: x.get(k) for k in ("status", "home_goals", "away_goals", "kickoff_utc", "provider_league_id", "league_name", "home_id", "away_id", "home_name", "away_name", "source_file", "page_file", "source_response_sha256", "source_record_sha256") if k in x})
                 year = row.get("year") if row.get("year") is not None else "UNKNOWN_KICKOFF_YEAR"
@@ -283,6 +425,8 @@ def main():
             str(BASE.name): {"sha256": sha256(BASE), "bytes": BASE.stat().st_size, "unique_fids": len(baseline_ids)},
             str(SUPP.name): {"sha256": sha256(SUPP), "bytes": SUPP.stat().st_size, "source_rows": source_rows, "unique_fids": len(source_by_fid)},
             str(EXTERNAL_FT.name): {"sha256": sha256(EXTERNAL_FT) if EXTERNAL_FT.exists() else None, "unique_fids": len(external_ft_rows), "source": "archived ESPN raw responses, strictly SHA/identity/FT verified"},
+            str(M5_FT_OVERLAY.name): {"sha256": sha256(M5_FT_OVERLAY) if M5_FT_OVERLAY.exists() else None, "unique_fids": len(m5_ft_rows), "source": "authorized M5 TotalCorner result responses, strictly SHA/FID/identity/FT verified; not Crown odds"},
+            str(CROWN_FT_OVERLAY.name): {"sha256": sha256(CROWN_FT_OVERLAY) if CROWN_FT_OVERLAY.exists() else None, "unique_fids": len(crown_ft_rows), "source": "existing historical Crown raw fixture responses, strictly SHA/FID/identity/FT verified; result only"},
         },
         "results": {
             "baseline_unique_fids": len(baseline_ids),
@@ -295,6 +439,10 @@ def main():
             "merged_unverified_FT_fids": len(existing) - merged_verified_ft,
             "strictly_reconciled_archived_external_FT_fids": len(external_ft_rows),
             "new_archived_external_FT_evidence_rows_added": external_evidence_added,
+            "strictly_reconciled_M5_FT_fids": len(m5_ft_rows),
+            "new_M5_FT_evidence_rows_added": m5_evidence_added,
+            "strictly_reconciled_historical_Crown_FT_fids": len(crown_ft_rows),
+            "new_historical_Crown_FT_evidence_rows_added": crown_ft_evidence_added,
             "unverified_queue_rows": unverified_count,
             "identity_conflicts_overwritten": 0,
             "source_fids_with_multiple_versions_preserved": len(source_identity_conflicts),

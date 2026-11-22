@@ -4,6 +4,9 @@ This is an active collection and reconciliation task, not a strategy or model st
 
 ## Current evidence
 
+- Latest persisted checkpoint: `COLLECTION_CHECKPOINT_20261122T0201Z.md` and `COLLECTION_STATUS_20261122T0201Z.json`; the 203,962-FID source union now has 193,476 verified FT records and 10,486 unresolved after correcting an M1 field-name omission and validating 27 M5 plus 18 historical Crown raw FT responses.
+- The 12 M1 records whose event kickoff differs from another stored schedule version are retained with both values in `m1_ft_evidence_in_unverified_ledger_20261122.jsonl`; the score evidence is not used to overwrite the conflicting kickoff.
+- Crown movement recovery is still running in historical mode. Its latest checkpoint is a moving snapshot, not a completion claim; raw responses and the SQLite remain local.
 - `inventory_coverage_summary_2019_2026.json` and `league_year_coverage_2019_2026.csv`: moving per-provider-league/per-UTC-year coverage snapshot; current committed checkpoint is described below.
 - `collection_progress_snapshot_*.json` and matching checkpoint Markdown: later live progress snapshots. They explicitly state the run is incomplete.
 - `score_source_disagreements.jsonl`: two exact-FID FT conflicts retained for audit; the source score records are not rewritten.

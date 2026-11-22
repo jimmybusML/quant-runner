@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-22T00:10:58.727264Z",
+  "generated_at_utc": "2026-11-22T02:01:50.101390Z",
   "method": "baseline inventory plus FID-deduplicated 53-league schedule artifact; append-only provenance; no Crown requests",
   "inputs": {
     "fixture_inventory_2019_2026.jsonl.gz": {
@@ -10,27 +10,69 @@
     "supplemental_totalcorner_schedules_53leagues_2019_2026.jsonl.gz": {
       "sha256": "861e5884f4a97307c0e5fa82366194cfc6a3ccad335c7e11f1a7817a4be7b119",
       "bytes": 10129991,
-      "source_rows": 89842,
+      "source_rows": [
+        {
+          "source_file": "/Users/mac/QuantAsiaDesk/repos/m1/data/m1_history_cache/10.json",
+          "league_id": "10",
+          "kickoff_source": "2026-11-17 21:00:00",
+          "kickoff_utc": "2026-11-17T13:00:00Z",
+          "home_id": "5408",
+          "away_id": "1673",
+          "home_name": "Lebanon",
+          "away_name": "Palestine",
+          "status": null,
+          "home_goals": "0",
+          "away_goals": "0"
+        }
+      ],
       "unique_fids": 89842
     },
     "archived_espn_verified_ft_reconciled_to_203962_inventory_20261122.jsonl": {
       "sha256": "6bcc1420a29f49611e554673c572087a50e83136c721d8fd095ca2ec817c5ff9",
       "unique_fids": 44,
       "source": "archived ESPN raw responses, strictly SHA/identity/FT verified"
+    },
+    "m5_verified_ft_overlay_2019_2026_20261122.jsonl": {
+      "sha256": "46e59ef1978b949248877db69bdf91e95419bcf9918f1a4ac261b3f4170ffc59",
+      "unique_fids": 27,
+      "source": "authorized M5 TotalCorner result responses, strictly SHA/FID/identity/FT verified; not Crown odds"
+    },
+    "crown_capture_verified_ft_overlay_2019_2026_20261122.jsonl": {
+      "sha256": "3fb13e4c97f06c49a6df33b9c77b734254bccae829c45a1b3d3393472716392a",
+      "unique_fids": 18,
+      "source": "existing historical Crown raw fixture responses, strictly SHA/FID/identity/FT verified; result only"
     }
   },
   "results": {
     "baseline_unique_fids": 141623,
-    "supplemental_source_rows": 89842,
+    "supplemental_source_rows": [
+      {
+        "source_file": "/Users/mac/QuantAsiaDesk/repos/m1/data/m1_history_cache/10.json",
+        "league_id": "10",
+        "kickoff_source": "2026-11-17 21:00:00",
+        "kickoff_utc": "2026-11-17T13:00:00Z",
+        "home_id": "5408",
+        "away_id": "1673",
+        "home_name": "Lebanon",
+        "away_name": "Palestine",
+        "status": null,
+        "home_goals": "0",
+        "away_goals": "0"
+      }
+    ],
     "supplemental_unique_fids": 89842,
     "supplemental_overlap_fids": 27503,
     "supplemental_new_unique_fids": 62339,
     "merged_unique_fids": 203962,
-    "merged_verified_FT_fids": 193014,
-    "merged_unverified_FT_fids": 10948,
+    "merged_verified_FT_fids": 193476,
+    "merged_unverified_FT_fids": 10486,
     "strictly_reconciled_archived_external_FT_fids": 44,
     "new_archived_external_FT_evidence_rows_added": 43,
-    "unverified_queue_rows": 10948,
+    "strictly_reconciled_M5_FT_fids": 27,
+    "new_M5_FT_evidence_rows_added": 27,
+    "strictly_reconciled_historical_Crown_FT_fids": 18,
+    "new_historical_Crown_FT_evidence_rows_added": 18,
+    "unverified_queue_rows": 10486,
     "identity_conflicts_overwritten": 0,
     "source_fids_with_multiple_versions_preserved": 0,
     "unknown_kickoff_year_unique_fids": 24,
@@ -3232,7 +3274,7 @@
     {
       "provider_league_id": "1",
       "utc_year": "2026",
-      "unverified_FT_fids": 31
+      "unverified_FT_fids": 21
     },
     {
       "provider_league_id": "10",
@@ -3272,7 +3314,7 @@
     {
       "provider_league_id": "10",
       "utc_year": "2026",
-      "unverified_FT_fids": 57
+      "unverified_FT_fids": 18
     },
     {
       "provider_league_id": "10480",
@@ -3312,7 +3354,7 @@
     {
       "provider_league_id": "10480",
       "utc_year": "2026",
-      "unverified_FT_fids": 7
+      "unverified_FT_fids": 2
     },
     {
       "provider_league_id": "10635",
@@ -3652,7 +3694,7 @@
     {
       "provider_league_id": "11498",
       "utc_year": "2026",
-      "unverified_FT_fids": 11
+      "unverified_FT_fids": 6
     },
     {
       "provider_league_id": "11559",
@@ -3877,7 +3919,7 @@
     {
       "provider_league_id": "12",
       "utc_year": "2026",
-      "unverified_FT_fids": 40
+      "unverified_FT_fids": 20
     },
     {
       "provider_league_id": "121",
@@ -4097,7 +4139,7 @@
     {
       "provider_league_id": "129",
       "utc_year": "2026",
-      "unverified_FT_fids": 30
+      "unverified_FT_fids": 19
     },
     {
       "provider_league_id": "13",
@@ -4172,7 +4214,7 @@
     {
       "provider_league_id": "14",
       "utc_year": "2026",
-      "unverified_FT_fids": 39
+      "unverified_FT_fids": 28
     },
     {
       "provider_league_id": "141",
@@ -4212,7 +4254,7 @@
     {
       "provider_league_id": "141",
       "utc_year": "2026",
-      "unverified_FT_fids": 26
+      "unverified_FT_fids": 19
     },
     {
       "provider_league_id": "14123",
@@ -4362,7 +4404,7 @@
     {
       "provider_league_id": "145",
       "utc_year": "2026",
-      "unverified_FT_fids": 64
+      "unverified_FT_fids": 40
     },
     {
       "provider_league_id": "15",
@@ -4442,7 +4484,7 @@
     {
       "provider_league_id": "152",
       "utc_year": "2026",
-      "unverified_FT_fids": 46
+      "unverified_FT_fids": 33
     },
     {
       "provider_league_id": "15517",
@@ -4547,7 +4589,7 @@
     {
       "provider_league_id": "16",
       "utc_year": "2026",
-      "unverified_FT_fids": 29
+      "unverified_FT_fids": 20
     },
     {
       "provider_league_id": "17",
@@ -4617,7 +4659,7 @@
     {
       "provider_league_id": "177",
       "utc_year": "2026",
-      "unverified_FT_fids": 27
+      "unverified_FT_fids": 19
     },
     {
       "provider_league_id": "19290",
@@ -4657,7 +4699,7 @@
     {
       "provider_league_id": "19290",
       "utc_year": "2026",
-      "unverified_FT_fids": 18
+      "unverified_FT_fids": 16
     },
     {
       "provider_league_id": "2",
@@ -4927,7 +4969,7 @@
     {
       "provider_league_id": "25",
       "utc_year": "2026",
-      "unverified_FT_fids": 35
+      "unverified_FT_fids": 25
     },
     {
       "provider_league_id": "252",
@@ -5007,7 +5049,7 @@
     {
       "provider_league_id": "262",
       "utc_year": "2026",
-      "unverified_FT_fids": 30
+      "unverified_FT_fids": 24
     },
     {
       "provider_league_id": "26528",
@@ -5052,7 +5094,7 @@
     {
       "provider_league_id": "26540",
       "utc_year": "2026",
-      "unverified_FT_fids": 12
+      "unverified_FT_fids": 7
     },
     {
       "provider_league_id": "26825",
@@ -5167,7 +5209,7 @@
     {
       "provider_league_id": "27388",
       "utc_year": "2026",
-      "unverified_FT_fids": 16
+      "unverified_FT_fids": 2
     },
     {
       "provider_league_id": "27389",
@@ -5177,32 +5219,22 @@
     {
       "provider_league_id": "27389",
       "utc_year": "2026",
-      "unverified_FT_fids": 16
-    },
-    {
-      "provider_league_id": "27390",
-      "utc_year": "2022",
-      "unverified_FT_fids": 1
-    },
-    {
-      "provider_league_id": "27390",
-      "utc_year": "2026",
-      "unverified_FT_fids": 16
-    },
-    {
-      "provider_league_id": "27391",
-      "utc_year": "2022",
       "unverified_FT_fids": 6
     },
     {
-      "provider_league_id": "27391",
-      "utc_year": "2024",
-      "unverified_FT_fids": 12
+      "provider_league_id": "27390",
+      "utc_year": "2022",
+      "unverified_FT_fids": 1
+    },
+    {
+      "provider_league_id": "27390",
+      "utc_year": "2026",
+      "unverified_FT_fids": 4
     },
     {
       "provider_league_id": "27391",
       "utc_year": "2026",
-      "unverified_FT_fids": 12
+      "unverified_FT_fids": 2
     },
     {
       "provider_league_id": "280",
@@ -5277,7 +5309,7 @@
     {
       "provider_league_id": "29",
       "utc_year": "2026",
-      "unverified_FT_fids": 22
+      "unverified_FT_fids": 16
     },
     {
       "provider_league_id": "290",
@@ -5357,7 +5389,7 @@
     {
       "provider_league_id": "297",
       "utc_year": "2026",
-      "unverified_FT_fids": 15
+      "unverified_FT_fids": 9
     },
     {
       "provider_league_id": "298",
@@ -5397,7 +5429,7 @@
     {
       "provider_league_id": "298",
       "utc_year": "2026",
-      "unverified_FT_fids": 9
+      "unverified_FT_fids": 6
     },
     {
       "provider_league_id": "299",
@@ -5432,7 +5464,7 @@
     {
       "provider_league_id": "299",
       "utc_year": "2026",
-      "unverified_FT_fids": 15
+      "unverified_FT_fids": 7
     },
     {
       "provider_league_id": "303",
@@ -5472,7 +5504,7 @@
     {
       "provider_league_id": "303",
       "utc_year": "2026",
-      "unverified_FT_fids": 20
+      "unverified_FT_fids": 13
     },
     {
       "provider_league_id": "31",
@@ -5507,7 +5539,7 @@
     {
       "provider_league_id": "31",
       "utc_year": "2026",
-      "unverified_FT_fids": 18
+      "unverified_FT_fids": 10
     },
     {
       "provider_league_id": "314",
@@ -5562,7 +5594,7 @@
     {
       "provider_league_id": "319",
       "utc_year": "2026",
-      "unverified_FT_fids": 32
+      "unverified_FT_fids": 23
     },
     {
       "provider_league_id": "328",
@@ -5597,7 +5629,7 @@
     {
       "provider_league_id": "328",
       "utc_year": "2026",
-      "unverified_FT_fids": 15
+      "unverified_FT_fids": 9
     },
     {
       "provider_league_id": "33",
@@ -5712,7 +5744,7 @@
     {
       "provider_league_id": "332",
       "utc_year": "2026",
-      "unverified_FT_fids": 16
+      "unverified_FT_fids": 9
     },
     {
       "provider_league_id": "337",
@@ -5827,7 +5859,7 @@
     {
       "provider_league_id": "35",
       "utc_year": "2026",
-      "unverified_FT_fids": 23
+      "unverified_FT_fids": 15
     },
     {
       "provider_league_id": "355",
@@ -5902,7 +5934,7 @@
     {
       "provider_league_id": "37",
       "utc_year": "2026",
-      "unverified_FT_fids": 34
+      "unverified_FT_fids": 25
     },
     {
       "provider_league_id": "378",
@@ -5977,7 +6009,7 @@
     {
       "provider_league_id": "40",
       "utc_year": "2026",
-      "unverified_FT_fids": 13
+      "unverified_FT_fids": 7
     },
     {
       "provider_league_id": "417",
@@ -6087,7 +6119,7 @@
     {
       "provider_league_id": "45",
       "utc_year": "2026",
-      "unverified_FT_fids": 21
+      "unverified_FT_fids": 16
     },
     {
       "provider_league_id": "46",
@@ -6127,7 +6159,7 @@
     {
       "provider_league_id": "46",
       "utc_year": "2026",
-      "unverified_FT_fids": 18
+      "unverified_FT_fids": 10
     },
     {
       "provider_league_id": "47",
@@ -6167,7 +6199,7 @@
     {
       "provider_league_id": "47",
       "utc_year": "2026",
-      "unverified_FT_fids": 17
+      "unverified_FT_fids": 10
     },
     {
       "provider_league_id": "48",
@@ -6207,7 +6239,7 @@
     {
       "provider_league_id": "48",
       "utc_year": "2026",
-      "unverified_FT_fids": 20
+      "unverified_FT_fids": 9
     },
     {
       "provider_league_id": "49",
@@ -6287,7 +6319,7 @@
     {
       "provider_league_id": "51",
       "utc_year": "2026",
-      "unverified_FT_fids": 22
+      "unverified_FT_fids": 19
     },
     {
       "provider_league_id": "514",
@@ -6407,7 +6439,7 @@
     {
       "provider_league_id": "52",
       "utc_year": "2026",
-      "unverified_FT_fids": 18
+      "unverified_FT_fids": 8
     },
     {
       "provider_league_id": "542",
@@ -6487,7 +6519,7 @@
     {
       "provider_league_id": "55",
       "utc_year": "2026",
-      "unverified_FT_fids": 20
+      "unverified_FT_fids": 13
     },
     {
       "provider_league_id": "57",
@@ -6602,7 +6634,7 @@
     {
       "provider_league_id": "60",
       "utc_year": "2026",
-      "unverified_FT_fids": 15
+      "unverified_FT_fids": 10
     },
     {
       "provider_league_id": "61",
@@ -6637,7 +6669,7 @@
     {
       "provider_league_id": "61",
       "utc_year": "2026",
-      "unverified_FT_fids": 18
+      "unverified_FT_fids": 12
     },
     {
       "provider_league_id": "62",
@@ -6677,7 +6709,7 @@
     {
       "provider_league_id": "62",
       "utc_year": "2026",
-      "unverified_FT_fids": 16
+      "unverified_FT_fids": 9
     },
     {
       "provider_league_id": "63",
@@ -6752,7 +6784,7 @@
     {
       "provider_league_id": "66",
       "utc_year": "2026",
-      "unverified_FT_fids": 16
+      "unverified_FT_fids": 9
     },
     {
       "provider_league_id": "670",
@@ -6867,7 +6899,7 @@
     {
       "provider_league_id": "70",
       "utc_year": "2026",
-      "unverified_FT_fids": 12
+      "unverified_FT_fids": 5
     },
     {
       "provider_league_id": "702",
@@ -6957,7 +6989,7 @@
     {
       "provider_league_id": "73",
       "utc_year": "2026",
-      "unverified_FT_fids": 20
+      "unverified_FT_fids": 7
     },
     {
       "provider_league_id": "75",
@@ -6992,7 +7024,7 @@
     {
       "provider_league_id": "75",
       "utc_year": "2026",
-      "unverified_FT_fids": 13
+      "unverified_FT_fids": 7
     },
     {
       "provider_league_id": "765",
@@ -7072,7 +7104,7 @@
     {
       "provider_league_id": "779",
       "utc_year": "2026",
-      "unverified_FT_fids": 18
+      "unverified_FT_fids": 14
     },
     {
       "provider_league_id": "8172",
@@ -7112,7 +7144,7 @@
     {
       "provider_league_id": "8172",
       "utc_year": "2026",
-      "unverified_FT_fids": 20
+      "unverified_FT_fids": 12
     },
     {
       "provider_league_id": "8293",
@@ -7152,7 +7184,7 @@
     {
       "provider_league_id": "8293",
       "utc_year": "2026",
-      "unverified_FT_fids": 19
+      "unverified_FT_fids": 13
     },
     {
       "provider_league_id": "85",
@@ -7192,7 +7224,7 @@
     {
       "provider_league_id": "85",
       "utc_year": "2026",
-      "unverified_FT_fids": 14
+      "unverified_FT_fids": 12
     },
     {
       "provider_league_id": "877",
@@ -7267,7 +7299,7 @@
     {
       "provider_league_id": "88",
       "utc_year": "2026",
-      "unverified_FT_fids": 18
+      "unverified_FT_fids": 10
     },
     {
       "provider_league_id": "90",
@@ -7448,15 +7480,15 @@
   "source_identity_conflicts": [],
   "output": {
     "file": "fixture_inventory_2019_2026_plus_53_leagues.jsonl.gz",
-    "sha256": "25dfbeba66b8161a3ea80af49afdcf1eda81b792cffbf2023a1b6986212e881e",
-    "bytes": 20798701,
+    "sha256": "bc6f639dbb3b0ae74b1ba839dae5c48bd1c3d735959faa252e68543e32049842",
+    "bytes": 20809185,
     "unique_fids": 203962
   },
   "unverified_ft_queue": {
     "file": "unverified_FT_candidates_plus_53_leagues_2019_2026.jsonl.gz",
-    "sha256": "3e5bceeced007bdaf3ec2dc31be0b612f4fe34a928434c46700aa84af5c91968",
-    "bytes": 679082,
-    "unique_fids": 10948
+    "sha256": "b546ad74b816d5f41a0651b56ad5e1eeb6d9084453fbe3759d6de3e898af34d6",
+    "bytes": 698563,
+    "unique_fids": 10486
   },
   "scope_caveat": "This reconciles the audited 53-league schedule batch with the committed baseline only; it does not claim all leagues, FT gaps, or Crown history are complete. Missing kickoff dates remain unassigned to a UTC year; season metadata absent at source remains absent."
 }

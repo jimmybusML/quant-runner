@@ -1,0 +1,136 @@
+{
+  "generated_at_utc": "2026-11-22T02:02:26.064522Z",
+  "task_scope": "2019-2026 discovered-league schedule, FT and Crown AH history recovery only; no strategy research/backtests",
+  "fixture_inventory": {
+    "unique_fids": 203962,
+    "known_provider_league_ids": 118,
+    "scope_note": "current source union, not proof all leagues globally enumerated"
+  },
+  "ft_status": {
+    "verified_ft_fids": 193476,
+    "unverified_fids": 10486,
+    "m1_cache_verified_fids": 441,
+    "m1_kickoff_source_version_differences": 12,
+    "m5_raw_verified_fids": 27,
+    "m5_overlap_m1": 24,
+    "m5_unique_incremental_fids": 3,
+    "historical_crown_raw_verified_fids": 18,
+    "crown_ft_by_utc_year": {
+      "2026": 18
+    },
+    "readiness": {
+      "future_fixture_not_due": 298,
+      "kickoff_missing": 2,
+      "past_kickoff_status_missing_or_unknown": 9060,
+      "placeholder_0_0_fids": 9751,
+      "provider_reports_non_full_status_uninterpreted": 1126
+    },
+    "inventory_sha256": "bc6f639dbb3b0ae74b1ba839dae5c48bd1c3d735959faa252e68543e32049842",
+    "unverified_queue_sha256": "b546ad74b816d5f41a0651b56ad5e1eeb6d9084453fbe3759d6de3e898af34d6"
+  },
+  "crown_movement_queue": {
+    "process_pid": 59381,
+    "process_alive": true,
+    "queue_candidates": 101266,
+    "terminal_unique_fids": 449,
+    "terminal_statuses": {
+      "SAVED": 329,
+      "NO_CROWN_AH_QUOTES": 120
+    },
+    "failed_attempts": 30,
+    "failure_codes": {
+      "IncompleteRead": 30
+    },
+    "saved_quote_rows_reported": 69588,
+    "remaining_no_terminal_status": 100817,
+    "first_response_received_at_utc": "2026-11-21T23:18:38.032113Z",
+    "last_response_received_at_utc": "2026-11-22T02:01:25.572002Z",
+    "capture_mode": "historical"
+  },
+  "crown_sqlite_read_snapshot": {
+    "captures_by_layer_mode_status": [
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 49818,
+        "distinct_fids": 49818,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 53328,
+        "distinct_fids": 53328,
+        "quote_rows_reported": 4499297
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 1204,
+        "distinct_fids": 1182,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 49621,
+        "distinct_fids": 49054,
+        "quote_rows_reported": 99242
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "status": "NO_CROWN_AH_QUOTES",
+        "capture_rows": 1330,
+        "distinct_fids": 248,
+        "quote_rows_reported": 0
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "status": "QUOTES_SAVED",
+        "capture_rows": 139,
+        "distinct_fids": 95,
+        "quote_rows_reported": 278
+      }
+    ],
+    "quote_rows_by_layer_mode": [
+      {
+        "data_layer": "movement",
+        "capture_mode": "historical",
+        "quote_rows": 4499297,
+        "distinct_fids": 53328
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "historical",
+        "quote_rows": 99242,
+        "distinct_fids": 49054
+      },
+      {
+        "data_layer": "summary",
+        "capture_mode": "live",
+        "quote_rows": 278,
+        "distinct_fids": 95
+      }
+    ],
+    "note": "read-only WAL-backed counts during active writes; no stable main-file SHA claim"
+  },
+  "schedule_source_expansion": {
+    "known_union_leagues": 118,
+    "last_schedule_checkpoint": "schedule_recovery_checkpoint_20261122T1946Z.json",
+    "completed_targets_at_last_checkpoint": 20,
+    "targets": 35,
+    "current_schedule_process_detected": false
+  },
+  "writes": {
+    "crown_sqlite": 0,
+    "production": 0,
+    "telegram_or_ledger": 0,
+    "strategy_or_backtest": 0
+  }
+}
