@@ -5443,3 +5443,8 @@
 - 审计发现`safe_window_collection_driver.py`把任意带状态的FID都当成完成，导致`FETCH_FAILED`不能进入下一轮。按数据恢复任务的失败可重试要求，已将跳过状态限定为`SAVED`和明确的`NO_CROWN_AH_QUOTES`；`FETCH_FAILED`及其他错误保留在下一次恢复清单。底层Crown采集器参数、默认5.2秒请求间隔、缓存复用与响应保存行为未修改。
 - 当前日志中的FID `192030794`（Dominican Republic–Cuba）曾返回`FETCH_FAILED / IncompleteRead`。安全中断旧driver后，新恢复清单SHA `0adfb386ac6f9e3a14db7a7ea0c60c0a95b5d8565a8b3d17e6ec7da8497512b2`已包含该FID；该清单保留101,197个未完成FID（101,266目标中69个有终态，1个失败重试）。随后已重启安全等待driver/历史collector，collector运行中的实际请求将按原流程执行。
 - `py_compile`语法检查通过。代码、源manifest及本次恢复manifest SHA见`research/data_recovery_2019_2026/CROWN_RESUME_RETRY_SHA256_20261122T0000Z.txt`。此修复只影响数据采集的断点续跑，不改变任何策略或生产链。
+
+### 2026-11-22 00:01 UTC：首个IncompleteRead重试成功
+
+- FID `192030794`保留原始`FETCH_FAILED / IncompleteRead`行后，按新断点逻辑重试并取得`SAVED`，共165条AH报价，实际接收时间`2026-11-21T23:59:56.257118Z`。该响应标记为historical，源报价时间与收件时间仍分开。
+- 追加日志现有74个唯一FID有终态，67条`SAVED`行、7条`NO_CROWN_AH_QUOTES`行及1条失败尝试记录；失败FID已有后续成功终态，错误历史未删除。当前`unified_settlement.py`再次运行时安全驱动暂停采集，等待其结束后继续。
