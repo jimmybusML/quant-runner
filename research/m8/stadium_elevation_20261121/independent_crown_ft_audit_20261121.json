@@ -1,0 +1,379 @@
+{
+  "sample": "2024-2026 forward-test FIDs outside frozen original eight",
+  "candidate_fids": 1981,
+  "raw_verified_fids": 1981,
+  "method_settlement_comparisons": 5943,
+  "method_fids": {
+    "market_only": 1981,
+    "market_team": 1981,
+    "market_team_elevation": 1981
+  },
+  "frozen_overlap": 0,
+  "capture_timing": {
+    "historical_capture": 1981,
+    "after_kickoff": 1981,
+    "raw_summary_capture_quote_fallback": 28
+  },
+  "failures": {},
+  "all_candidates_independently_verified": true,
+  "verified_subset_performance": {
+    "market_only": {
+      "all": {
+        "orders": 1981,
+        "net_u": 7.97,
+        "roi_pct": 0.402322,
+        "mdd_u": 41.345,
+        "settlements": {
+          "half_loss": 138,
+          "half_win": 145,
+          "full_win": 810,
+          "push": 139,
+          "full_loss": 749
+        }
+      },
+      "2024": {
+        "orders": 680,
+        "net_u": 25.26,
+        "roi_pct": 3.714706,
+        "mdd_u": 16.365,
+        "settlements": {
+          "half_loss": 51,
+          "half_win": 52,
+          "full_win": 291,
+          "push": 42,
+          "full_loss": 244
+        }
+      },
+      "2025": {
+        "orders": 915,
+        "net_u": 7.665,
+        "roi_pct": 0.837705,
+        "mdd_u": 29.56,
+        "settlements": {
+          "full_loss": 347,
+          "full_win": 383,
+          "half_loss": 63,
+          "half_win": 59,
+          "push": 63
+        }
+      },
+      "2026": {
+        "orders": 386,
+        "net_u": -24.955,
+        "roi_pct": -6.465026,
+        "mdd_u": 28.445,
+        "settlements": {
+          "full_loss": 158,
+          "half_loss": 24,
+          "half_win": 34,
+          "full_win": 136,
+          "push": 34
+        }
+      }
+    },
+    "market_team": {
+      "all": {
+        "orders": 1981,
+        "net_u": -97.97,
+        "roi_pct": -4.945482,
+        "mdd_u": 113.94,
+        "settlements": {
+          "half_loss": 142,
+          "half_win": 141,
+          "full_win": 758,
+          "push": 139,
+          "full_loss": 801
+        }
+      },
+      "2024": {
+        "orders": 680,
+        "net_u": -0.905,
+        "roi_pct": -0.133088,
+        "mdd_u": 17.82,
+        "settlements": {
+          "half_loss": 51,
+          "half_win": 52,
+          "full_win": 278,
+          "push": 42,
+          "full_loss": 257
+        }
+      },
+      "2025": {
+        "orders": 915,
+        "net_u": -56.65,
+        "roi_pct": -6.191257,
+        "mdd_u": 58.54,
+        "settlements": {
+          "full_loss": 379,
+          "full_win": 351,
+          "half_loss": 66,
+          "half_win": 56,
+          "push": 63
+        }
+      },
+      "2026": {
+        "orders": 386,
+        "net_u": -40.415,
+        "roi_pct": -10.470207,
+        "mdd_u": 44.77,
+        "settlements": {
+          "full_loss": 165,
+          "half_loss": 25,
+          "full_win": 129,
+          "half_win": 33,
+          "push": 34
+        }
+      }
+    },
+    "market_team_elevation": {
+      "all": {
+        "orders": 1981,
+        "net_u": -98.19,
+        "roi_pct": -4.956588,
+        "mdd_u": 124.13,
+        "settlements": {
+          "half_loss": 139,
+          "half_win": 144,
+          "full_win": 756,
+          "push": 139,
+          "full_loss": 803
+        }
+      },
+      "2024": {
+        "orders": 680,
+        "net_u": -6.515,
+        "roi_pct": -0.958088,
+        "mdd_u": 34.965,
+        "settlements": {
+          "half_loss": 48,
+          "half_win": 55,
+          "full_win": 273,
+          "push": 42,
+          "full_loss": 262
+        }
+      },
+      "2025": {
+        "orders": 915,
+        "net_u": -47.17,
+        "roi_pct": -5.155191,
+        "mdd_u": 54.745,
+        "settlements": {
+          "full_loss": 374,
+          "full_win": 356,
+          "half_win": 56,
+          "half_loss": 66,
+          "push": 63
+        }
+      },
+      "2026": {
+        "orders": 386,
+        "net_u": -44.505,
+        "roi_pct": -11.529793,
+        "mdd_u": 44.79,
+        "settlements": {
+          "full_loss": 167,
+          "half_loss": 25,
+          "half_win": 33,
+          "full_win": 127,
+          "push": 34
+        }
+      }
+    }
+  },
+  "verified_subset_EV_positive_no_bet_diagnostic": {
+    "market_only": {
+      "all": {
+        "orders": 1309,
+        "net_u": -38.1,
+        "roi_pct": -2.910619,
+        "mdd_u": 48.085,
+        "settlements": {
+          "half_loss": 94,
+          "half_win": 65,
+          "full_win": 536,
+          "full_loss": 520,
+          "push": 94
+        }
+      },
+      "2024": {
+        "orders": 413,
+        "net_u": -3.04,
+        "roi_pct": -0.736077,
+        "mdd_u": 14.23,
+        "settlements": {
+          "half_loss": 21,
+          "half_win": 27,
+          "full_win": 176,
+          "full_loss": 166,
+          "push": 23
+        }
+      },
+      "2025": {
+        "orders": 655,
+        "net_u": -10.7,
+        "roi_pct": -1.633588,
+        "mdd_u": 29.305,
+        "settlements": {
+          "full_loss": 251,
+          "full_win": 277,
+          "half_loss": 58,
+          "half_win": 22,
+          "push": 47
+        }
+      },
+      "2026": {
+        "orders": 241,
+        "net_u": -24.36,
+        "roi_pct": -10.107884,
+        "mdd_u": 27.85,
+        "settlements": {
+          "full_loss": 103,
+          "half_win": 16,
+          "full_win": 83,
+          "half_loss": 15,
+          "push": 24
+        }
+      }
+    },
+    "market_team": {
+      "all": {
+        "orders": 1339,
+        "net_u": -57.81,
+        "roi_pct": -4.317401,
+        "mdd_u": 73.085,
+        "settlements": {
+          "half_loss": 85,
+          "half_win": 86,
+          "push": 104,
+          "full_loss": 542,
+          "full_win": 522
+        }
+      },
+      "2024": {
+        "orders": 478,
+        "net_u": 3.69,
+        "roi_pct": 0.771967,
+        "mdd_u": 14.465,
+        "settlements": {
+          "half_loss": 29,
+          "half_win": 31,
+          "push": 37,
+          "full_loss": 181,
+          "full_win": 200
+        }
+      },
+      "2025": {
+        "orders": 650,
+        "net_u": -33.625,
+        "roi_pct": -5.173077,
+        "mdd_u": 39.405,
+        "settlements": {
+          "full_win": 255,
+          "full_loss": 267,
+          "half_loss": 45,
+          "push": 45,
+          "half_win": 38
+        }
+      },
+      "2026": {
+        "orders": 211,
+        "net_u": -27.875,
+        "roi_pct": -13.2109,
+        "mdd_u": 32.34,
+        "settlements": {
+          "full_loss": 94,
+          "half_win": 17,
+          "full_win": 67,
+          "half_loss": 11,
+          "push": 22
+        }
+      }
+    },
+    "market_team_elevation": {
+      "all": {
+        "orders": 1353,
+        "net_u": -46.845,
+        "roi_pct": -3.462306,
+        "mdd_u": 75.61,
+        "settlements": {
+          "half_loss": 86,
+          "half_win": 86,
+          "push": 100,
+          "full_win": 536,
+          "full_loss": 545
+        }
+      },
+      "2024": {
+        "orders": 509,
+        "net_u": 4.92,
+        "roi_pct": 0.966601,
+        "mdd_u": 23.46,
+        "settlements": {
+          "half_loss": 30,
+          "half_win": 33,
+          "push": 34,
+          "full_win": 216,
+          "full_loss": 196
+        }
+      },
+      "2025": {
+        "orders": 620,
+        "net_u": -28.415,
+        "roi_pct": -4.583065,
+        "mdd_u": 37.04,
+        "settlements": {
+          "full_win": 248,
+          "full_loss": 255,
+          "push": 42,
+          "half_loss": 42,
+          "half_win": 33
+        }
+      },
+      "2026": {
+        "orders": 224,
+        "net_u": -23.35,
+        "roi_pct": -10.424107,
+        "mdd_u": 31.49,
+        "settlements": {
+          "full_loss": 94,
+          "half_win": 20,
+          "full_win": 72,
+          "half_loss": 14,
+          "push": 24
+        }
+      }
+    }
+  },
+  "same_window_frozen_original_eight": {
+    "orders": 5955,
+    "net_u": 164.085
+  },
+  "verified_subset_combined_with_frozen_baseline": {
+    "market_only": {
+      "orders": 7936,
+      "net_u": 172.055,
+      "roi_pct": 2.168032,
+      "mdd_u": 60.23,
+      "incremental_orders": 1981,
+      "incremental_net_u": 7.97
+    },
+    "market_team": {
+      "orders": 7936,
+      "net_u": 66.115,
+      "roi_pct": 0.833102,
+      "mdd_u": 59.555,
+      "incremental_orders": 1981,
+      "incremental_net_u": -97.97
+    },
+    "market_team_elevation": {
+      "orders": 7936,
+      "net_u": 65.895,
+      "roi_pct": 0.83033,
+      "mdd_u": 48.495,
+      "incremental_orders": 1981,
+      "incremental_net_u": -98.19
+    }
+  },
+  "quote_definition": "latest Crown movement source-event no later than kickoff minus 60 minutes",
+  "settlement": "raw response SHA, fixture identity, kickoff, Crown AH line/odds and FT re-read; quarter-lines split into equal legs"
+}

@@ -1,0 +1,12 @@
+{
+  "frozen_e_members": 267,
+  "members_with_settlement_ledger": 192,
+  "members_with_both_path_and_settlement_evidence": 161,
+  "historical_extractor_direction_matches": 161,
+  "historical_extractor_direction_mismatches": 0,
+  "members_without_paired_evidence": 106,
+  "cross_league_priority_assigned_E_orders": 52,
+  "cross_league_E_orders_with_zero_endpoint_move": 52,
+  "direction_rule": "first nonzero of p1-p0, p3-p0, p1-p3, last_move; positive selects away, negative selects home",
+  "boundary_helper_difference": "The later boundary group_side(E) returns no side when p1-p0 is zero. The historical full-path extractor and settled-member direction evidence support the fallback used in this study."
+}
