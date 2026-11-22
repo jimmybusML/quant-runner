@@ -5467,3 +5467,10 @@
 - 对203,962 FID合并库存当前10,948个FT缺口做离线分类，0网络请求。结果按原样状态/来源分层：300场开赛时间在as-of之后；2场缺开赛时间；294场过去开赛但没有可见赛程或比分来源行；9,229场过去开赛且来源状态缺失/未知；1,123场来源记录报告非`full`状态但不解释状态码。另有9,737场记录中观察到占位0:0；该值只标记，不视作已核实比分。分类不将状态码猜为取消、延期、腰斩或完赛。
 - 生成逐FID分类JSONL 10,948行及848条联赛×UTC年矩阵，均与缺口FID逐项去重一致。复跑代码`research/data_recovery_2019_2026/classify_merged_unverified_ft_readiness_20261122.py`，结果`unverified_ft_readiness_203962_inventory_20261122.json`、`unverified_ft_readiness_203962_inventory_20261122.jsonl`和`unverified_ft_readiness_203962_inventory_by_league_year_20261122.csv`；SHA见`FT_READINESS_SHA256_20261122T0013Z.txt`。
 - 全局核实FT仍为193,014/203,962，缺口10,948。此分类不是新的赛果来源，不减少缺口数，也不代替逐场查证。全历史Crown movement driver/collector截至本交接仍运行，继续沿用原缓存复用和互斥保护；此项FT分类未启动其他采集器、未修改Crown SQLite。
+
+### 2026-11-22 01:11 UTC：历史补齐任务续接与Crown movement进度盘点
+
+- 重新读取公开main最新交接、Mac本地采集说明、118联赛映射和现有全局库存。历史来源并集现有203,962唯一FID/118个已发现provider联赛ID；本范围合并的TotalCorner补充赛程53批89,842FID，与原库存重叠27,503、净增62,339。当前已核实FT 193,014，缺可信FT 10,948，按逐FID状态保留缺口；未把占位0:0或非full代码猜作赛果。该范围是当前已发现来源并集，继续检查未枚举联赛。
+- SQLite只读观测时点2026-11-22 01:08:57Z：历史movement 53,257个有报价FID/4,487,330报价行；历史summary 49,054个有报价FID/99,242行；真实live receipt独立为95FID/278行。movement源事件时间缺失0行，1,488行HTTP实际接收时间缺失，保持未知不补造。
+- 现存安全窗口movement collector/driver PID 74018/59381继续按正式结算任务互斥规则运行。原101,266个缺movement capture FID中，SQLite当前280个已有终态（257有AH报价、57,380报价行；23返回NO_CROWN_AH_QUOTES），尚有100,986个未形成终态。另有18条FETCH_FAILED尝试进入错误/重试核查；无报价不等同市场从未有价。独立summary队列153,762 FID尚未本轮采集。安全包装器保留默认5.2秒间隔与原有请求参数。
+- 新检查点 `research/data_recovery_2019_2026/COLLECTION_CHECKPOINT_20261122T0111Z.md` 和SHA清单保存上述口径；私有逐FID记录、SQLite和raw Crown响应仍在Mac数据目录。任务持续进行，未运行策略、模型、回测或盈利筛选，也未修改正式交易链。
