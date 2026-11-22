@@ -675,3 +675,11 @@
 - 最新队列41,330，较T1322减少25；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,393。按年待请求为2023年12,790、2024年14,553、2025年13,520、2026年467。
 - T1322之后25个唯一FID响应SHA 25/25通过，范围、身份和唯一性检查均通过；20场响应无Crown市场，5场新增OU movement，AH和开收盘无新增。26次attempt包含1次`IncompleteRead`后恢复。全日志1,989 attempts：1,857成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`；60个曾遇错FID全部恢复。
 - 证据文件为T1327 checkpoint、increment、coverage、transport、driver checkpoint及SHA清单；数据保持`historical`。采集仍在运行。
+
+
+## 2026-11-22 13:30 UTC：T1330统一结算后恢复
+
+- 统一结算于13:27:29 UTC触发安全暂停；13:30:45 UTC队列重建后，driver PID49373启动collector PID45779。间隔仍为5.2秒/场。
+- 权威缺口41,325，OU movement覆盖5,394；AH开收盘32,449、AH走势36,342、OU开收盘32,445。按年缺口：2023年12,785、2024年14,553、2025年13,520、2026年467。
+- T1327后5个唯一FID响应SHA 5/5通过，4个响应无Crown市场报价，1场新增OU movement；范围和唯一性核查通过。全日志1,994次attempt，1,862成功、121 `IncompleteRead`、11 `TOO_MANY_REQUEST`，60个遇错FID均恢复。
+- T1330逐场、汇总及SHA清单已归档；采集继续进行，报价身份为历史回取。
