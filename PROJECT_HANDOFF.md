@@ -6409,3 +6409,9 @@
 
 - T1753后33个FID完成回取，4场新增OU走势163行，29场无Crown AH/OU报价；raw SHA及响应FID/Provider League身份33/33通过。
 - 队列39,968（2023:11,428；2024:14,553；2025:13,520；2026:467）；AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,707。
+
+
+## 2026-11-22 18:01 UTC — T1801
+
+- T1756后12个FID完成回取，4场新增OU走势136行，8场无Crown AH/OU报价；raw SHA、FID及Provider League身份12/12通过。
+- 队列39,956（2023:11,416；2024:14,553；2025:13,520；2026:467）；AH open/close32,449、AH movement36,342、OU open/close32,445、OU movement5,711。
