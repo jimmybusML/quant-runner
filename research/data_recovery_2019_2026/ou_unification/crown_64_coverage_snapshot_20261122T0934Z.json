@@ -1,0 +1,35 @@
+{
+  "scope": "fixed 64 Provider League IDs, 2023-2026",
+  "snapshot_created_utc": "2026-11-22T09:34:23.369422+00:00",
+  "schedule_fids": 48102,
+  "trusted_full_ft_fids": 48102,
+  "authoritative_queue_rebuild": {
+    "as_of_utc": "2026-11-22T09:33:34.215595+00:00",
+    "queue_count": 42507,
+    "ah_open_close": 32449,
+    "ah_movement": 36342,
+    "ou_open_close": 32445,
+    "ou_movement": 5101
+  },
+  "increment_after_rebuild": {
+    "unique_response_fids": 8,
+    "status_counts": {
+      "BOTH_MARKETS": 3,
+      "NO_CROWN_MARKET_DATA": 5
+    },
+    "saved_quote_kinds": {
+      "saved_ou_kinds:movement": 3
+    },
+    "raw_sha_checked": 8,
+    "raw_sha_mismatches": [],
+    "out_of_scope": [],
+    "duplicates": []
+  },
+  "derived_coverage_pending_next_queue_rebuild": {
+    "ou_movement": 5104
+  },
+  "notes": [
+    "09:33:34 UTC queue rebuild confirmed prior 09:30 estimates: 42,507 queue FIDs and 5,101 OU movement FIDs",
+    "current data are historical Crown retrieval"
+  ]
+}

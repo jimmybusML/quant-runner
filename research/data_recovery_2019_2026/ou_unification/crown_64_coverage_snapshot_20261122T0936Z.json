@@ -1,0 +1,52 @@
+{
+  "scope": "fixed 64 Provider League IDs, 2023-2026",
+  "snapshot_created_utc": "2026-11-22T09:36:26.251746+00:00",
+  "schedule_fids": 48102,
+  "trusted_full_ft_fids": 48102,
+  "authoritative_queue_rebuild": {
+    "as_of_utc": "2026-11-22T09:33:34.215595+00:00",
+    "queue_count": 42507,
+    "ah_open_close": 32449,
+    "ah_movement": 36342,
+    "ou_open_close": 32445,
+    "ou_movement": 5101
+  },
+  "from_queue_rebuild_to_last_response": {
+    "processed_from_queue": 25,
+    "status_counts": {
+      "BOTH_MARKETS": 10,
+      "NO_CROWN_MARKET_DATA": 15
+    },
+    "new_ou_movement": 10,
+    "new_ah_or_summary_quotes": 0,
+    "sha_verified": 25
+  },
+  "after_T0934_snapshot": {
+    "unique_fids": 17,
+    "status_counts": {
+      "NO_CROWN_MARKET_DATA": 10,
+      "BOTH_MARKETS": 7
+    },
+    "saved_quote_kinds": {
+      "saved_ou_kinds:movement": 7
+    },
+    "sha_verified": 17,
+    "sha_mismatches": [],
+    "out_of_scope": []
+  },
+  "derived_coverage_pending_next_rebuild": {
+    "ou_movement": 5111,
+    "queue_count": 42482
+  },
+  "latest_driver_event": {
+    "at_utc": "2026-11-22T09:35:45.344112+00:00",
+    "event": "collection_paused_for_scheduled_job",
+    "collector_pid": 91750,
+    "scheduled_jobs": [
+      {
+        "pid": 92187,
+        "command": "/usr/local/bin/node /Users/mac/QuantAsiaDesk/repos/mr1/src/shadow-v23.js --scheduled"
+      }
+    ]
+  }
+}
