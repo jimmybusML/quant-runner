@@ -6537,3 +6537,7 @@ T2002后至20:03:52 UTC MR1安全暂停前，22个唯一FID成功响应：4个FI
 ### 2026-11-22 20:10–20:11 UTC：续采 T2010
 
 T2004后至20:06:48 UTC统一结算暂停边界，24个唯一FID成功响应：12个FID新增OU movement共307行，12个HTTP 200响应无Crown AH/OU报价；24次attempt成功，raw SHA及FID/64联赛身份24/24通过，无重复。末条响应20:06:49.522 UTC在退出前落盘。20:10:26 UTC队列39,210（2023 10,670；2024 14,553；2025 13,520；2026 467），较T2004减少24；覆盖AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,871。20:11:27 UTC一致快照OU movement 5,873（采集恢复后再增2 FID），其他层不变。请求均值1.2229秒、中位数1.225秒；5.2秒间隔不变。T2010全套工件及SHA清单保存在`research/data_recovery_2019_2026/ou_unification/`；任务继续。
+
+### 2026-11-22 20:17–20:18 UTC：续采 T2017
+
+T2010后至20:14:41 UTC统一结算暂停边界，49个唯一FID最终均成功响应：11个FID新增OU movement 458行，38个HTTP 200响应无Crown AH/OU报价。50次attempt中1次`IncompleteRead`（FID 135149792）后重试成功；49份raw SHA及响应FID/64联赛赛事身份通过，重复0。20:17:53 UTC队列39,161（2023 10,621；2024 14,553；2025 13,520；2026 467），较T2010减少49；覆盖AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,882。20:18:50 UTC一致只读快照相同。最终响应耗时均值1.1742秒、中位数1.2167秒，含暂停约11.2 FID/分钟；可恢复传输错误已记录，5.2秒请求间隔未变。T2017工件及SHA清单位于`research/data_recovery_2019_2026/ou_unification/`；任务继续。
