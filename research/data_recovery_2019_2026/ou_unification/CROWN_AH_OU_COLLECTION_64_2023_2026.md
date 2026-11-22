@@ -107,3 +107,13 @@
 - 07:49—07:53本批在结算再次暂停前完成11个唯一FID的成功响应，3个双市场完整、8个无Crown报价。两条新覆盖报价是FID `130036444`（league 1，AH summary2/AH movement61/OU summary2/OU movement74）和FID `130037120`（league14，AH summary2/AH movement73/OU summary2/OU movement33）；两条raw文件SHA均经独立哈希核实。被暂停边界的FID `130036444` 前次失败已实际恢复。
 - safe-window父进程PID49373仍活跃；统一结算PID69648及其M3 settlement子进程PID69884运行，采集子进程已安全暂停。最近一次队列重建为07:53:15 UTC、42,938个待请求；下一队列待窗口退出后重建，暂停中断不认作无盘口。
 - 截至07:55传输审计累计334次尝试（255成功、73 `IncompleteRead`、6 `TOO_MANY_REQUEST`），33个遇错FID全部恢复，未恢复失败为0。原始日志281唯一FID全在批准范围、年份2023，越界0。完整证据在同目录07:54/07:55检查点及SHA manifest。
+
+
+## 2026-11-22 08:03 UTC：结算窗口后自动续采及覆盖增量
+
+- 08:00:12 UTC safe-window PID 49373 在上一轮统一结算结束后自动重建固定范围缺口队列并恢复collector PID 71205，队列42,932个FID；单场仍为一次`columns=asianList,goalList`请求、启动间隔5.2秒。
+- 08:03 UTC复核覆盖：48,102场目标赛程及可信full FT；AH开收盘32,449（缺15,653）、AH变化36,342（缺11,760）、OU开收盘32,445（缺15,657）、OU变化4,972（缺43,130）。相较07:54一致快照，OU变化序列净增5场，其他字段计数不变。逐年覆盖见`crown_64_coverage_snapshot_20261122T0803Z.json`。字段缺口是逐市场覆盖缺口；队列会跳过已尝试且HTTP/API成功但未返回Crown市场的终态FID，因此与待请求队列数不相等。
+- 08:00:21—08:02:16 UTC的16个成功响应覆盖16个不同FID，其中5个为AH+OU双市场报价、11个HTTP/API成功但回包无Crown市场。5个双市场逐场AH/OU summary和movement数量及原始响应SHA已独立核验，见`crown_64_verified_increment_20261122T0803Z.json`。
+- 另有FID `130037122`在08:02:20—08:02:42遇3次`IncompleteRead`，08:02:53因统一结算PID 71744触发安全暂停；该FID标记`PAUSED_FOR_SCHEDULED_JOB`并保留重试，不记成无报价。暂停时safe-window PID 49373仍在运行。恢复窗口成功回包速度为16场/约115秒，即约7.81场/分钟；此前独立实测21场/约141秒为8.9场/分钟。两段波动没有证明吞吐提升；硬请求间隔上限约11.54场/分钟，双市场合并仍把原本AH、OU分开请求的每FID网络请求数减半。当前耗时仍主要来自5.2秒请求间隔、连接响应和重试/安全窗口；单场SQLite写入约0.001—0.016秒，非当前瓶颈。未提升频率或并发。
+- 截至08:03传输审计累计357次attempt：271 success、80 `IncompleteRead`、6 `TOO_MANY_REQUEST`；36个遇过错误的FID中35个已成功恢复，剩余1个为上述安全暂停可重试FID。报告及全量审计见`crown_64_transport_audit_20261122T0803Z.json`。
+- independent settlement窗口每次均触发暂停，未中断任何MR1/结算生产任务；safe-window会等待作业退出和安静期后重建队列继续。统一库存仍是2023—2026年固定64联赛，未触及2019—2022或范围外赛事。

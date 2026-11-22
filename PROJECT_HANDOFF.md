@@ -5753,3 +5753,11 @@
 - 07:54:56 UTC只读事务快照48,102目标赛程/可信full FT；AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement4,967（相较07:51 OU movement+2）。最新field-level缺口分别15,653、11,760、15,657、43,135。
 - 新增覆盖由FID130036444与130037120产生。二者均为Crown AH+OU双市场响应；逐场盘口数量和SHA核验见`crown_64_verified_increment_20261122T0754Z.json`，SHA均匹配原始response文件。130036444先前的暂停中断已在本批重试成功。
 - 最新transport audit 334次attempt（255 success、73 IncompleteRead、6 TOO_MANY_REQUEST）；33个遇错FID全部恢复，未恢复传输失败0。总计281唯一FID全属于批准范围/2023年，越界0。任务继续历史回取，无生产模型/TG/账本/采集频率变化。
+
+
+### 2026-11-22 08:03 UTC：2023—2026 64联赛合并采集自动续进
+
+- safe-window PID49373在统一结算PID69648结束后，于08:00:12 UTC恢复collector PID71205；重建待请求FID 42,932，范围仍为固定64 Provider League ID、2023—2026。08:02:53发现统一结算PID71744后安全暂停；FID130037122的3次`IncompleteRead`保留可重试，不当作无盘口；父driver仍运行等待窗口结束。
+- 08:03一致覆盖快照：48,102场赛程/可信full FT；AH open-close 32,449，AH movement 36,342，OU open-close 32,445，OU movement 4,972。相对07:54 OU movement新增5场；目前逐市场缺口为15,653、11,760、15,657、43,130。
+- 08:00恢复批次16场成功响应、5场双市场完整、11场HTTP/API成功但无Crown市场。5个完整响应SHA逐文件复核通过。该窗口完成吞吐约7.81场/分钟；上一样本约8.9场/分钟，不能宣称实际速度提高。5.2秒间隔理论上限11.54场/分钟；SQLite单场写入仅约0.001—0.016秒。仍不提高频率/并发。
+- 累计传输审计357 attempts：271成功、80`IncompleteRead`、6`TOO_MANY_REQUEST`；36个遇错FID有35个已恢复，1个因当前结算安全暂停等待重试。详细覆盖、逐场增量、driver及transport证据与SHA清单保存在`research/data_recovery_2019_2026/ou_unification/`的T0803Z快照。采集仍在进行，未改生产模型、Telegram、账本或现有生产调度。

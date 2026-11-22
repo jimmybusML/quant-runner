@@ -1,0 +1,120 @@
+{
+  "scope": "fixed 64 provider leagues, years 2023-2026",
+  "window_start_utc": "2026-11-22T08:00:00Z",
+  "response_rows_in_window": 17,
+  "unique_fids_in_window": 17,
+  "status_counts": {
+    "BOTH_MARKETS": 5,
+    "FETCH_FAILED": 1,
+    "NO_CROWN_MARKET_DATA": 11
+  },
+  "market_fids": [
+    {
+      "fid": "130037367",
+      "league_id": 12,
+      "year": 2023,
+      "received_at_utc": "2026-11-22T08:00:21.245844+00:00",
+      "ah_summary_n": 2,
+      "ah_movement_n": 106,
+      "ou_summary_n": 2,
+      "ou_movement_n": 34,
+      "response_sha256": "545e118a7c6073f121084620671f58af4ece6ae6d1e28c6907c7de9faf4c96ad",
+      "raw_file_sha256": "545e118a7c6073f121084620671f58af4ece6ae6d1e28c6907c7de9faf4c96ad",
+      "raw_sha_matches": true,
+      "raw_file": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/raw/historical/130037367/545e118a7c6073f121084620671f58af4ece6ae6d1e28c6907c7de9faf4c96ad.json"
+    },
+    {
+      "fid": "130036446",
+      "league_id": 1,
+      "year": 2023,
+      "received_at_utc": "2026-11-22T08:00:26.611260+00:00",
+      "ah_summary_n": 2,
+      "ah_movement_n": 120,
+      "ou_summary_n": 2,
+      "ou_movement_n": 54,
+      "response_sha256": "ea880cd7cb8d702b0e682ece88dd046393dfbd62d452217cf1ff58ec4789115d",
+      "raw_file_sha256": "ea880cd7cb8d702b0e682ece88dd046393dfbd62d452217cf1ff58ec4789115d",
+      "raw_sha_matches": true,
+      "raw_file": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/raw/historical/130036446/ea880cd7cb8d702b0e682ece88dd046393dfbd62d452217cf1ff58ec4789115d.json"
+    },
+    {
+      "fid": "130036448",
+      "league_id": 1,
+      "year": 2023,
+      "received_at_utc": "2026-11-22T08:01:09.497394+00:00",
+      "ah_summary_n": 2,
+      "ah_movement_n": 100,
+      "ou_summary_n": 2,
+      "ou_movement_n": 54,
+      "response_sha256": "a1f0c8b6535ce997d12c4485e42d76b1e535ce9cefb461ae31662e00a2a7037e",
+      "raw_file_sha256": "a1f0c8b6535ce997d12c4485e42d76b1e535ce9cefb461ae31662e00a2a7037e",
+      "raw_sha_matches": true,
+      "raw_file": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/raw/historical/130036448/a1f0c8b6535ce997d12c4485e42d76b1e535ce9cefb461ae31662e00a2a7037e.json"
+    },
+    {
+      "fid": "130036451",
+      "league_id": 1,
+      "year": 2023,
+      "received_at_utc": "2026-11-22T08:01:18.273676+00:00",
+      "ah_summary_n": 2,
+      "ah_movement_n": 68,
+      "ou_summary_n": 2,
+      "ou_movement_n": 75,
+      "response_sha256": "14a8b9ef044bf1d3c3b8da4e039fcd75525f265e0b8ac03ed3832d3577fcd6b7",
+      "raw_file_sha256": "14a8b9ef044bf1d3c3b8da4e039fcd75525f265e0b8ac03ed3832d3577fcd6b7",
+      "raw_sha_matches": true,
+      "raw_file": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/raw/historical/130036451/14a8b9ef044bf1d3c3b8da4e039fcd75525f265e0b8ac03ed3832d3577fcd6b7.json"
+    },
+    {
+      "fid": "130036453",
+      "league_id": 1,
+      "year": 2023,
+      "received_at_utc": "2026-11-22T08:01:19.287728+00:00",
+      "ah_summary_n": 2,
+      "ah_movement_n": 69,
+      "ou_summary_n": 2,
+      "ou_movement_n": 24,
+      "response_sha256": "c3489976171a1c92e282dd52f52cdbdaa5f28e8df4a41464e8bfeaa0e7b572a4",
+      "raw_file_sha256": "c3489976171a1c92e282dd52f52cdbdaa5f28e8df4a41464e8bfeaa0e7b572a4",
+      "raw_sha_matches": true,
+      "raw_file": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/raw/historical/130036453/c3489976171a1c92e282dd52f52cdbdaa5f28e8df4a41464e8bfeaa0e7b572a4.json"
+    }
+  ],
+  "pending_retryable": [
+    {
+      "fid": "130037122",
+      "league_id": 14,
+      "year": 2023,
+      "error": "PAUSED_FOR_SCHEDULED_JOB",
+      "request_attempts": [
+        {
+          "attempt": 1,
+          "started_at_utc": "2026-11-22T08:02:20.728751+00:00",
+          "elapsed_seconds": 1.3261,
+          "outcome": "transport_error",
+          "error": "IncompleteRead",
+          "partial_bytes": 0,
+          "expected_remaining_bytes": null
+        },
+        {
+          "attempt": 2,
+          "started_at_utc": "2026-11-22T08:02:28.304918+00:00",
+          "elapsed_seconds": 1.4473,
+          "outcome": "transport_error",
+          "error": "IncompleteRead",
+          "partial_bytes": 0,
+          "expected_remaining_bytes": null
+        },
+        {
+          "attempt": 3,
+          "started_at_utc": "2026-11-22T08:02:41.215111+00:00",
+          "elapsed_seconds": 1.2596,
+          "outcome": "transport_error",
+          "error": "IncompleteRead",
+          "partial_bytes": 0,
+          "expected_remaining_bytes": null
+        }
+      ]
+    }
+  ]
+}
