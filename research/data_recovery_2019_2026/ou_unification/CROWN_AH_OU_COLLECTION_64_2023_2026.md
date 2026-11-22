@@ -739,3 +739,10 @@
 - 待请求41,141；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,436。按年缺口为2023年12,601、2024年14,553、2025年13,520、2026年467。
 - T1404后18个唯一FID响应SHA 18/18通过，无重复或越界；12场响应无Crown市场，6场新增OU movement。累计2,181次attempt（2,046成功、124 `IncompleteRead`、11 `TOO_MANY_REQUEST`），63个曾遇错FID全部恢复，最新待重试0。
 - T1407证据及SHA清单已归档；历史回取仍标为historical，采集继续。
+
+## 2026-11-22 14:13 UTC：T1413用户接管2023—2026采集后的首个核验点
+
+- 本轮职责为固定64联赛内2023—2026年库存；已有safe-window driver PID49373保持运行，collector PID55449已恢复，5.2秒/FID。计划中的MR1、统一结算与本地恢复任务仍会触发安全暂停；既有2019—2022采集未干预。
+- 48,102个目标FID及可信full FT 48,102。待请求41,117；分年2023年12,577、2024年14,553、2025年13,520、2026年467。AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,439。
+- T1407后24个唯一FID；24份原始SHA通过，21份无Crown AH/OU报价，3份保存OU movement。区间25次attempt含1次`IncompleteRead`后重试恢复，无重复/越界/身份不符。累计2,206次attempt：2,070成功、125 `IncompleteRead`、11 `TOO_MANY_REQUEST`；64个错误FID均恢复。
+- 历史回取响应严格使用historical标识，不作为真实赛前HTTP收据。T1413明细及SHA清单已归档；采集未完成。

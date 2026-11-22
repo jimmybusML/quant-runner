@@ -6196,3 +6196,12 @@
 - 待请求41,141；AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势5,436。分年缺口：2023年12,601、2024年14,553、2025年13,520、2026年467。
 - T1404后18个唯一FID全部成功，raw SHA 18/18通过，无重复/越界/身份不匹配；12个无Crown市场，6场新增OU movement。全日志2,181次attempt（2,046成功、124 `IncompleteRead`、11 `TOO_MANY_REQUEST`）；63个遇错FID均恢复，当前可重试失败0。
 - T1407逐场、coverage、transport、driver和SHA清单已归档；采集继续进行。
+
+## 2026-11-22 14:13 UTC：T1413用户接管2023—2026年采集后的首个核验点
+
+- 用户明确本轮由Codex负责2023、2024、2025、2026年64联赛Crown AH+OU历史采集。既有safe-window driver PID49373继续执行；保持单一collector、5.2秒/FID节奏并遵守MR1/结算调度窗口。2019—2022年独立进程PID59391未干预。
+- 最新权威队列41,117个FID；按年：2023年12,577、2024年14,553、2025年13,520、2026年467。覆盖：AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,439。固定64联赛库存48,102个FID与可信full FT 48,102不变；当前队列和采集输入均限于64联赛与2023—2026年。
+- T1407—T1413区间处理24个唯一FID；HTTP/API成功24场，另1次transport error已在本区间重试并恢复；24份原始响应SHA全部匹配，重复、越界或赛事身份错误均为0。21场响应不含Crown AH/OU market data；3场补得OU movement。该区间后队列净减24，OU movement覆盖新增3。
+- 全日志至T1413累计2,206次请求attempt：2,070成功、125 `IncompleteRead`、11 `TOO_MANY_REQUEST`。64个曾遇传输/限流错误的FID全部恢复，最新可重试失败0。历史报价均标记为historical，HTTP收件时间不代表赛前收件。
+- 统一结算任务于14:09:11 UTC触发安全暂停；任务完成后driver于14:13:12 UTC重建队列并启动collector PID55449。任务仍在执行，41,117 FID待处理；按当前5.2秒纯请求间隔估算约59.3小时，不含调度暂停及失败重试。
+- T1413逐笔记录、增量摘要、覆盖快照、transport审计、driver事件及SHA256清单均已保存于`research/data_recovery_2019_2026/ou_unification/`。未改正式采集规则、生产模型、Telegram或账本。
