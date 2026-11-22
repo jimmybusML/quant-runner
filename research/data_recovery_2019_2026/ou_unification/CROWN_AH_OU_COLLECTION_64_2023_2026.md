@@ -138,3 +138,23 @@
 - 累积传输审计至08:52为591次attempt：478成功、107 `IncompleteRead`、6 `TOO_MANY_REQUEST`。不把传输失败标为无盘口；失败状态可由重建队列重试。最近三段连续无重试的请求间隔接近5.2秒上限，对应理论上限约11.54个FID/分钟；未提高频率、未绕过服务商限流。请求仍用实测可同时返回AH/OU的`columns=asianList,goalList`，并按每场缺失的市场及open/close/movement类别选择请求字段。
 - 响应检查点、raw SHA结果、覆盖及传输审计见同目录`crown_64_collection_checkpoint_20261122T0849Z.jsonl`、`crown_64_collection_checkpoint_20261122T0852Z.jsonl`、相应`crown_64_driver_checkpoint_*`、`crown_64_verified_increment_*`、`crown_64_coverage_snapshot_*`和`crown_64_transport_audit_20261122T0852Z.json`。T0841覆盖快照的采集时点已按文件真实mtime修正为08:41:10Z。
 - 历史回取统一标记为historical，不称为真实赛前收据。OU独立采集进程当前未运行；AH+OU合并采集器复用旧响应与统一SQLite。没有模型研究、生产配置、TG派单或正式账本变更。
+
+
+## 2026-11-22 09:03 UTC：安全窗口续采增量
+
+| 数据层 | 已有 / 48,102 | 缺失 | 本轮新增（截至最后可确认队列） |
+|---|---:|---:|---:|
+| 固定64联赛赛程 | 48,102 | 0 | 0 |
+| 可信 full FT | 48,102 | 0 | 0 |
+| Crown AH open/close | 32,449 | 15,653 | 0 |
+| Crown AH movement | 36,342 | 11,760 | 0 |
+| Crown OU open/close | 32,445 | 15,657 | 0 |
+| Crown OU movement | 5,048（08:57:44Z队列审计） | 43,054 | +6（后续逐场响应推算，待下一队列审计确认） |
+
+- 08:55:13Z safe-window重建队列42,709时，覆盖为AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,044。collector PID83124在08:56:28Z因MR1 PID83376暂停；该窗15个唯一FID全部有HTTP响应，4 `BOTH_MARKETS`、11 `NO_CROWN_MARKET_DATA`，15份raw SHA均匹配且越界0。08:57:44Z下次队列审计为42,694，OU movement增至5,048（+4）。
+- collector PID83699于08:57:44Z恢复；08:59:59Z因统一结算PID84224再次安全暂停。该段27个唯一FID收到响应，6 `BOTH_MARKETS`、21 `NO_CROWN_MARKET_DATA`，raw SHA 27/27匹配、越界0。根据请求前缺失quote-kind与已保存kind逐FID重建，该段预计再新增6个OU movement；预计计数5,054，**等待安全队列重建确认**。
+- 该段首个响应08:57:48Z、末个09:00:04Z；26个间隔/136秒约11.47个FID/分钟，接近5.2秒间隔的理论上限11.54。服务响应中位约1.2秒，SQLite逐行写入毫秒级；并发/加速请求不改变5.2秒限制。本次没有改变频率。
+- 截至09:00审计累计633次attempt：520 success、107 `IncompleteRead`、6 `TOO_MANY_REQUEST`。空Crown响应仍保留原始响应并与真实无报价分开标识；传输失败不标记为无报价。
+- 08:59:59Z后统一结算PID84224退出前又出现MR1 PID84765，safe-window父进程PID49373仍在运行并继续等待；未中断任何计划任务。后续队列会在计划任务清空且满足安静期后自动重建。
+- T0902、T0901逐场响应/driver检查点、逐响应raw SHA与覆盖重建、T0900传输审计见同目录；本阶段仍只做历史采集，不做模型/策略研究，不改生产模型、TG、正式账本或生产调度。
+- 08:57队列42,694项按5.2秒间隔计算理论最低请求时长约61.7小时；这是连续运行、不含安全窗口暂停与失败重试的请求时间估算，不是日历完成承诺。终态HTTP200但回包无Crown报价的FID不进入重试队列，仍作为无报价覆盖缺口单独留存。
