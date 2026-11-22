@@ -6205,3 +6205,14 @@
 - 全日志至T1413累计2,206次请求attempt：2,070成功、125 `IncompleteRead`、11 `TOO_MANY_REQUEST`。64个曾遇传输/限流错误的FID全部恢复，最新可重试失败0。历史报价均标记为historical，HTTP收件时间不代表赛前收件。
 - 统一结算任务于14:09:11 UTC触发安全暂停；任务完成后driver于14:13:12 UTC重建队列并启动collector PID55449。任务仍在执行，41,117 FID待处理；按当前5.2秒纯请求间隔估算约59.3小时，不含调度暂停及失败重试。
 - T1413逐笔记录、增量摘要、覆盖快照、transport审计、driver事件及SHA256清单均已保存于`research/data_recovery_2019_2026/ou_unification/`。未改正式采集规则、生产模型、Telegram或账本。
+
+## 2026-11-22 14:20 UTC：T1420续采检查点与配额/开源工具评估
+
+- 用户负责区间仍为固定64 Provider League IDs、2023—2026年。统一采集使用TotalCorner Crown bookmaker endpoint；缺少哪个AH/OU数据层就只请求对应列，当前增量中的AH已完整赛事只请求`goalList`，避免重复抓取AH。
+- 14:20:54 UTC权威缺口41,068个FID：2023年12,528、2024年14,553、2025年13,520、2026年467。48,102个计划FID和可信full FT均48,102。覆盖：AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,455。
+- T1413—T1420区间49个唯一FID全部成功，49份原始SHA通过；33场响应不含Crown市场报价，16场新增OU movement；重复/越界/身份不匹配0。全日志2,255次attempt：2,119成功、125 `IncompleteRead`、11 `TOO_MANY_REQUEST`；64个曾遇错误FID均已恢复，最新重试失败0。
+- 速度证据：当前Crown采集5.2秒/FID，区间内约11.5场/min。与仍运行的2019—2022 TotalCorner历史fallback任务共用API配额；近10分钟成功响应计数合计135（约13.5/min，受安全暂停窗口影响），至少一个固定10秒窗口已达到官方文档上限5个请求。TotalCorner官方API说明为30请求/min、按10秒窗口每窗最多5次，因此未调高请求频率或加并发；重试和其他任务占用的余量需保留。现有瓶颈是服务商请求配额/调度空窗，而非SQLite（单次写入毫秒量级）。官方说明：https://www.totalcorner.com/page/api
+- 开源工具只做适用性评估：OddsHarvester项目有OddsPortal历史足球AH/赔率走势抓取能力，但数据源为OddsPortal且Crown逐赛事可用性未核实，不能代替Crown原始接口、不能确认它会减少本项目Crown缺口；未部署。`oddsportal_scraper`当前README列出的足球市场不含AH，不适用本项目缺失盘口；未部署。`soccerdata`列出的来源是ClubElo、ESPN、FBref、Football-Data.co.uk、Sofascore等，没有TotalCorner/Crown来源；不适合作为Crown补采工具，未部署。参考：<https://github.com/jordantete/OddsHarvester>、<https://github.com/Bedbin17/oddsportal_scraper>、<https://soccerdata.readthedocs.io/>。
+- unified OU import在本轮前已复核：仅本地导入，无新网络请求；97,798个SHA唯一响应已对接并导入、SHA不匹配0、身份不匹配0，含OU open/close响应43,958、goal_list响应4,889、导入的OU movement行705,320。独立OU采集进程不在运行；已由统一SQLite/collector接续。
+- safe-window driver PID49373继续运行，T1420重建队列后collector PID57807已启动，频率仍5.2秒/FID。采集未完成；41,068缺口按理论最小间隔约59.3小时（不含暂停、重试）。数据均为historical回取，不是赛前实收。未改正式生产链路。
+- T1420逐场增量、覆盖、传输、driver和SHA证据已归档于`research/data_recovery_2019_2026/ou_unification/`。

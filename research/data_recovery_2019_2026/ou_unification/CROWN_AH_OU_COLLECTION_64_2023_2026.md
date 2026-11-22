@@ -746,3 +746,12 @@
 - 48,102个目标FID及可信full FT 48,102。待请求41,117；分年2023年12,577、2024年14,553、2025年13,520、2026年467。AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,439。
 - T1407后24个唯一FID；24份原始SHA通过，21份无Crown AH/OU报价，3份保存OU movement。区间25次attempt含1次`IncompleteRead`后重试恢复，无重复/越界/身份不符。累计2,206次attempt：2,070成功、125 `IncompleteRead`、11 `TOO_MANY_REQUEST`；64个错误FID均恢复。
 - 历史回取响应严格使用historical标识，不作为真实赛前HTTP收据。T1413明细及SHA清单已归档；采集未完成。
+
+## 2026-11-22 14:20 UTC：T1420续采检查点
+
+- 固定64联赛2023—2026年库存48,102 FID、可信full FT 48,102。待请求41,068：2023年12,528、2024年14,553、2025年13,520、2026年467。AH open/close 32,449、AH movement 36,342、OU open/close 32,445、OU movement 5,455。
+- T1413后49个FID全部成功且raw SHA 49/49通过；33场无Crown AH/OU市场数据，16场增加OU movement；范围错误、FID身份错误和重复均为0。全日志2,255 attempts：2,119成功、125 `IncompleteRead`、11 `TOO_MANY_REQUEST`，所有64个遇错FID已恢复。
+- 本段已覆盖AH的赛事只请求OU `goalList`，没有重抓AH；AH与OU都缺的赛事才用`asianList,goalList`一次请求。已有独立OU历史响应完成统一SQLite本地导入，97,798份原始响应SHA核验通过，无网络重复抓取；独立OU采集器已停止。
+- TotalCorner官方API上限为30请求/min、每10秒5次；当前Crown进程5.2秒/FID，与2019—2022历史任务共享配额，近期窗口达到5次/10秒。因此没有安全余量在此时进一步提速。安全窗口driver PID49373运行，collector PID57807接续中；剩余41,068个FID，理论纯间隔约59.3小时，计划任务暂停与重试另计。
+- 评估OddsHarvester、oddsportal_scraper、soccerdata后均未部署：前两者数据源为OddsPortal且AH/Crown可用性不足以确认Crown补数，soccerdata无Crown/TotalCorner数据源。其结果不能替代Crown。
+- T1420逐场、覆盖、transport、driver与SHA文件已归档。历史回取与真实赛前HTTP接收继续分开标记。
