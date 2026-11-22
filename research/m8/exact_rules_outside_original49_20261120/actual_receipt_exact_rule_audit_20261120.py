@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Verify contemporaneous Crown HTTP receipts for expanded non-Original49 FIDs."""
-import collections,datetime as dt,gzip,hashlib,json,pathlib
+import collections,datetime as dt,gzip,hashlib,json,pathlib,os
 from zoneinfo import ZoneInfo
 from exact_rule_cross_league_20261120 import load_schedules,make_score_rates,features,trigger_all,settle,sha,OUT,WORK,GROUPS,ORIGINAL49
 
@@ -56,7 +56,7 @@ def main():
       'capture_mode':'live','response_sha256':digest,'source_file':str(p),'status':'QUOTES_SAVED'} for x in qs]
     per_fid[fid].append((received,base,qrows))
   except Exception:errors['parse_or_identity']+=1
- out=OUT/'actual_receipt_exact_rule_audit_20261121.jsonl.gz'
+ out=OUT/'actual_receipt_exact_rule_audit_20261122.jsonl.gz'
  with gzip.open(out,'wt',encoding='utf-8') as f:
   for r in rows:f.write(json.dumps(r,ensure_ascii=False)+'\n')
  # For each FID, use only the latest actual Crown HTTP response received no later
@@ -72,7 +72,7 @@ def main():
     'response_sha256':meta['response_sha256'],'raw_response_relative_path':meta['raw_response_relative_path'],
     'is_frozen_overlap':fid in ORIGINAL49,'receipt_source':'verified_true_http_Crown'})
   receipt_orders.append(feat)
- with gzip.open(OUT/'actual_receipt_exact_rule_orders_20261121.jsonl.gz','wt',encoding='utf-8') as f:
+ with gzip.open(OUT/'actual_receipt_exact_rule_orders_20261122.jsonl.gz','wt',encoding='utf-8') as f:
   for r in receipt_orders:f.write(json.dumps(r,ensure_ascii=False)+'\n')
  receipt_archives=[pathlib.Path('/Users/mac/QuantAsiaDesk/research-work/m8_MR1_full_actual_Crown_receipt_archive_20261113.jsonl'),
   pathlib.Path('/Users/mac/Documents/ChatGPT/m8-m9-group-research/research/m8/m8_batch_actual_receipt_independently_audited_20261118.jsonl'),
@@ -87,7 +87,8 @@ def main():
    if fid in known:archive_rows[p0.name]+=1;archive_ids[p0.name].add(fid)
  # The Crown DB's explicit live mode is also checked independently of raw archive indexes.
  import sqlite3
- cx=sqlite3.connect('file:/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3?mode=ro',uri=True)
+ db=pathlib.Path(os.environ.get('M8_CROSS_LEAGUE_DB','/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3'))
+ cx=sqlite3.connect(f'file:{db}?mode=ro',uri=True)
  live_fids=set()
  fids=list(known)
  for i in range(0,len(fids),800):
@@ -104,11 +105,11 @@ def main():
   'note':'Receipt counts are independent of historical API replay. Completeness means a verified response was actually received by T1 and contained Crown source quotes permitting all three original cutoffs; it does not itself claim positive settlement.'}
  for year in sorted({r['year'] for r in rows}):
   z=[r for r in rows if r['year']==year];counts['by_year'][str(year)]={'receipt_rows':len(z),'fids':len({r['fid'] for r in z}),'received_by_T1':len({r['fid'] for r in z if r['received_by_T1']}),'complete_T6_T3_T1':len({r['fid'] for r in z if r['complete_T6_T3_T1_using_receipt']})}
- (OUT/'actual_receipt_exact_rule_audit_20261121.json').write_text(json.dumps(counts,indent=2))
+ (OUT/'actual_receipt_exact_rule_audit_20261122.json').write_text(json.dumps(counts,indent=2))
  def stat(z):
   n=len(z);u=sum(x['net_u'] for x in z);return {'n':n,'net_u':round(u,6),'roi_pct':round(u/n*100,6) if n else None}
  counts['receipt_order_results']={'all':stat(receipt_orders),'by_group':{g:stat([x for x in receipt_orders if x['group']==g]) for g in GROUPS},
   'by_year':{str(y):stat([x for x in receipt_orders if x['year']==y]) for y in sorted({x['year'] for x in receipt_orders})}}
- counts['orders_output']='actual_receipt_exact_rule_orders_20261121.jsonl.gz';counts['orders_sha256']=sha(OUT/counts['orders_output'])
+ counts['orders_output']='actual_receipt_exact_rule_orders_20261122.jsonl.gz';counts['orders_sha256']=sha(OUT/counts['orders_output'])
  print(json.dumps(counts,ensure_ascii=False),flush=True)
 if __name__=='__main__':main()

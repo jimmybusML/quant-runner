@@ -6,14 +6,14 @@ changes production files. Historical source-event replay is kept separate from
 the archived true HTTP receipt audit.
 """
 from __future__ import annotations
-import collections, datetime as dt, gzip, glob, hashlib, json, math, pathlib, sqlite3, sys
+import collections, datetime as dt, gzip, glob, hashlib, json, math, pathlib, sqlite3, sys, os
 from zoneinfo import ZoneInfo
 import numpy as np
 
 ROOT=pathlib.Path(__file__).resolve().parents[3]
 OUT=pathlib.Path(__file__).resolve().parent
 WORK=pathlib.Path('/Users/mac/QuantAsiaDesk/research-work')
-DB=pathlib.Path('/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3')
+DB=pathlib.Path(os.environ.get('M8_CROSS_LEAGUE_DB','/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3'))
 OLD=pathlib.Path('/Users/mac/QuantAsiaDesk/research-work/crown-drop-expanded-62/schedule_universe.jsonl')
 PAGES=pathlib.Path('/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules')
 DAILY=pathlib.Path('/Users/mac/QuantAsiaDesk/research-work/m7/m7_future_schedule_refresh_daily_20261111')

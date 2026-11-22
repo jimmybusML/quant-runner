@@ -1,0 +1,27 @@
+{
+  "comparison": "prior committed history replay vs fixed SQLite online-backup snapshot replay",
+  "previous_commit": "37328888",
+  "current_sqlite_snapshot_sha256": "28e0f1aa4ed69205c8933950f270c1805e831d9314d22622191fb5029d44592a",
+  "complete_paths": {
+    "previous": 6982,
+    "current": 7068,
+    "new_fids": 86,
+    "missing_fids": 0,
+    "common_fids": 6982,
+    "common_paths_with_changed_T6_T3_T1_or_rule_features": 0
+  },
+  "orders": {
+    "previous": 1276,
+    "current": 1303,
+    "new_order_fids": 27,
+    "removed_order_fids": 0,
+    "common_order_fids": 1276,
+    "common_orders_with_changed_group_side_contract_or_pnl": 0,
+    "previous_net_u": 6.345,
+    "current_net_u": -1.505,
+    "net_u_delta": -7.85,
+    "new_order_net_u": -7.85,
+    "changed_common_order_net_u_delta": 0.0
+  },
+  "method_note": "Prior outputs were read from the prior Git tree. Current outputs were computed from the fixed SQLite online-backup snapshot. The new coverage is a data-availability change, not a rule or parameter change."
+}

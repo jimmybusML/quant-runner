@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Independent Crown raw-response and FT/AH settlement verification."""
-import collections,datetime as dt,gzip,hashlib,json,math,pathlib,sqlite3,glob
+import collections,datetime as dt,gzip,hashlib,json,math,pathlib,sqlite3,glob,os
 ROOT=pathlib.Path(__file__).resolve().parents[3];OUT=pathlib.Path(__file__).resolve().parent
 WORK=pathlib.Path('/Users/mac/QuantAsiaDesk/research-work');DB=pathlib.Path('/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3')
 SCHEDULE=WORK/'crown-drop-expanded-62/schedule_universe.jsonl';ORDERS=OUT/'exact_rule_cross_league_orders.jsonl.gz';TZ=dt.timezone(dt.timedelta(hours=8));UTC=dt.timezone.utc
+DB=pathlib.Path(os.environ.get('M8_CROSS_LEAGUE_DB',str(DB)))
 PAGES=pathlib.Path('/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/schedules')
 DAILY=pathlib.Path('/Users/mac/QuantAsiaDesk/research-work/m7/m7_future_schedule_refresh_daily_20261111')
 def sha(p):
@@ -95,8 +96,8 @@ def main():
   except Exception:errs['raw_parse_or_identity_error']+=1
  cx.close()
  out={'independently_checked_orders':len(checks),'expected_orders':len(orders),'verified':sum(x['verified'] for x in checks),'errors':dict(errs),'settlement_counts':dict(labels),'net_u_recomputed':round(sum_u,6),'source_schedule_sha256':sha(SCHEDULE),'source_schedule_page_count':len(set(page_files)),'source_schedule_pages_sha256':{str(pathlib.Path(x)):sha(x) for x in sorted(set(page_files))},'source_order_ledger_sha256':sha(ORDERS),'sqlite_sha256':sha(DB)}
- (OUT/'independent_settlement_verification_20261121.json').write_text(json.dumps(out,indent=2))
- with gzip.open(OUT/'independent_settlement_verification_20261121.jsonl.gz','wt',encoding='utf-8') as f:
+ (OUT/'independent_settlement_verification_20261122.json').write_text(json.dumps(out,indent=2))
+ with gzip.open(OUT/'independent_settlement_verification_20261122.jsonl.gz','wt',encoding='utf-8') as f:
   for x in checks:f.write(json.dumps(x,ensure_ascii=False)+'\n')
  print(json.dumps({k:out[k] for k in ('independently_checked_orders','expected_orders','verified','errors','settlement_counts','net_u_recomputed','source_schedule_page_count','source_order_ledger_sha256','sqlite_sha256')},ensure_ascii=False),flush=True)
 if __name__=='__main__':main()
