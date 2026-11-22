@@ -585,3 +585,11 @@
 - 全日志1,582 attempts：1,457 success、119 `IncompleteRead`、6 `TOO_MANY_REQUEST`；53个错误FID均已恢复，当前未恢复失败0。
 - 统一结算计划触发PID26276安全暂停；父driver PID49373在12:11:49 UTC重建队列并启动collector PID27769，间隔仍为5.2秒。
 - T1211逐场、增量、coverage、transport、driver和SHA文件已保存于本目录。所有请求仍为historical，未触碰正式生产行为。
+
+
+## 2026-11-22 12:18 UTC：T1218检查点及安全续采
+
+- 固定64联赛2023—2026范围仍为48,102个FID，可信full FT 48,102。12:18:55 UTC权威队列41,701（较T1211减少29）；AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,295（较T1211增加4）。按年度待请求：2023年13,161、2024年14,553、2025年13,520、2026年467。
+- T1211后29个唯一FID响应均在目标范围、raw SHA 29/29匹配；25个返回无Crown市场报价，4场保存OU movement，AH和两市场开收盘无新增。31次HTTP/API attempts中29成功、2次API错误；无FID重复或越界。历史回取保持`historical`。
+- 全日志累计1,614 attempts：1,486成功、119 `IncompleteRead`、9 `TOO_MANY_REQUEST`；56个曾遇错误FID中55个已恢复；另有1个当时处于调度暂停的可重试FID，随安全窗口自动续采。成功响应记录的单市场空响应大小中位数约393字节。
+- 统一结算于12:18:26 UTC记录完成；safe-window父driver PID49373随即在12:18:55 UTC重建队列并启动collector PID29429，5.2秒间隔未变。T1218完整增量、队列快照、transport审计和SHA manifest随本次提交归档。采集未完成；41,701项按当前5.2秒间隔约60.2小时纯请求时间，安全暂停及重试另计。
