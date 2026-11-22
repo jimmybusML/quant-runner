@@ -5746,3 +5746,10 @@
 - 07:51:42 UTC一致只读快照：48,102场目标库存/full FT；AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement4,965；与07:43快照相比OU movement +3。三场新OU movement FID（130037365、130036441、130037117）的原始响应SHA逐文件复核匹配；其中暂停前遗留130037365已成功恢复，返回AH movement 130行与OU movement 120行。
 - 07:49队列至MR1暂停共有11个唯一FID成功响应：3个两市场完整、8个无Crown bookmaker响应。累计运输328次尝试（249成功、73 IncompleteRead、6 TOO_MANY_REQUEST），33个经历错误FID中32个恢复，余1为本轮安全暂停可重试。越界FID 0，日志276唯一FID全为2023年目标联赛。
 - 最新覆盖/逐场/driver/运输快照和SHA见`research/data_recovery_2019_2026/ou_unification/`中的07:51检查点。历史回取持续进行，不等同赛前实收；没有生产策略、模型、Telegram、正式账本或采集频率改动。
+
+### 2026-11-22 07:55 UTC：MR1结算窗口前增量落库核验
+
+- 07:53:15 UTC队列42,938；collector在该批处理11个唯一FID成功HTTP/API响应后，于07:53:46因统一结算PID69648安全暂停。当前PID69648的M3 settlement子进程PID69884仍运行；safe-window PID49373持续等待自动恢复。
+- 07:54:56 UTC只读事务快照48,102目标赛程/可信full FT；AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement4,967（相较07:51 OU movement+2）。最新field-level缺口分别15,653、11,760、15,657、43,135。
+- 新增覆盖由FID130036444与130037120产生。二者均为Crown AH+OU双市场响应；逐场盘口数量和SHA核验见`crown_64_verified_increment_20261122T0754Z.json`，SHA均匹配原始response文件。130036444先前的暂停中断已在本批重试成功。
+- 最新transport audit 334次attempt（255 success、73 IncompleteRead、6 TOO_MANY_REQUEST）；33个遇错FID全部恢复，未恢复传输失败0。总计281唯一FID全属于批准范围/2023年，越界0。任务继续历史回取，无生产模型/TG/账本/采集频率变化。

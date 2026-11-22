@@ -100,3 +100,10 @@
 - 07:49:02队列重建后，11个唯一FID收到成功HTTP/API响应（3场双市场完整、8场无Crown bookmaker数据）。3场新增OU movement FID为`130037365`、`130036441`、`130037117`；逐条raw文件SHA256均与SQLite/采集日志一致，见`crown_64_collection_checkpoint_20261122T0751Z.jsonl`及原始响应路径。暂停边界FID `130037365` 的07:44失败已在本轮恢复为双市场完整，AH movement 130行、OU `goal_list` 120行。
 - 07:50:59 UTC driver检测到MR1计划任务PID 69022，暂停collector PID 68638；safe-window PID 49373仍运行。FID `130036444` 的一次请求因该暂停记录`PAUSED_FOR_SCHEDULED_JOB`，保留可重试状态，不当作无报价。最新重建队列仍是42,949，待MR1退出后自动重建实际余量。
 - 累计传输审计截至07:51：328次请求attempt，249成功、73次`IncompleteRead`、6次`TOO_MANY_REQUEST`；33个有错误FID中32个恢复，剩余1个是上述安全暂停中断。所有范围审计仍为固定64 ID/2023—2026；当前日志276唯一FID均为2023年、越界0。
+
+## 2026-11-22 07:55 UTC：MR1/结算窗口前新增两场可核市场报价
+
+- 07:54:56 UTC一致只读覆盖快照：48,102个固定赛程/可信full FT FID；AH开收盘32,449、AH movement36,342、OU开收盘32,445、OU movement4,967。field-level缺口15,653、11,760、15,657、43,135；较07:51快照OU movement新增2场。
+- 07:49—07:53本批在结算再次暂停前完成11个唯一FID的成功响应，3个双市场完整、8个无Crown报价。两条新覆盖报价是FID `130036444`（league 1，AH summary2/AH movement61/OU summary2/OU movement74）和FID `130037120`（league14，AH summary2/AH movement73/OU summary2/OU movement33）；两条raw文件SHA均经独立哈希核实。被暂停边界的FID `130036444` 前次失败已实际恢复。
+- safe-window父进程PID49373仍活跃；统一结算PID69648及其M3 settlement子进程PID69884运行，采集子进程已安全暂停。最近一次队列重建为07:53:15 UTC、42,938个待请求；下一队列待窗口退出后重建，暂停中断不认作无盘口。
+- 截至07:55传输审计累计334次尝试（255成功、73 `IncompleteRead`、6 `TOO_MANY_REQUEST`），33个遇错FID全部恢复，未恢复失败为0。原始日志281唯一FID全在批准范围、年份2023，越界0。完整证据在同目录07:54/07:55检查点及SHA manifest。
