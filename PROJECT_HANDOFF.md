@@ -5890,3 +5890,10 @@
 - 最新SQLite覆盖：赛程/可信full FT 48,102/48,102；AH开收盘32,449，AH movement 36,342，OU开收盘32,445，OU movement 5,165；字段缺失分别15,653/11,760/15,657/42,937。字段缺失量不同于去重终态响应后的42,286待处理请求。
 - T1008以后至10:14:21的22场增量中，10个新增OU movement、12个无Crown市场；一次`IncompleteRead`后已成功恢复。raw SHA 22/22匹配、超范围/重复0。累计1,037 attempts（917 success、114 IncompleteRead、6 TOO_MANY_REQUEST），48个遇错FID均恢复，当前无retryable failures。
 - T1014 SHA manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1014Z.txt`，包含逐场、增量、driver、coverage、transport证据。范围、来源和historical标注未变；未动生产配置或账本。
+
+
+### 2026-11-22 10:17 UTC：安全暂停批次已落盘
+
+- 父driver PID49373于10:15:41为MR1计划作业PID1365安全暂停collector PID767。10:17核查计划作业仍运行，driver等待后自动续采。暂停前该collector批次共处理32 FID（9个有可保存市场记录，23个无Crown市场）。
+- 10:14:21—10:15:44的最后16个响应全部成功，raw SHA 16/16正确，越界/重复0，其中3场新增OU movement；累计1,053 attempts（933 success、114 IncompleteRead、6 TOO_MANY_REQUEST），错误FID均已恢复。
+- SQLite当前可引用的最后权威覆盖为T1014：AH开收盘32,449、AH movement 36,342、OU开收盘32,445、OU movement 5,165；暂停批次的精确覆盖增量待生产任务退出后数据库/队列重建。T1017证据SHA manifest：`research/data_recovery_2019_2026/ou_unification/CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1017Z.txt`。

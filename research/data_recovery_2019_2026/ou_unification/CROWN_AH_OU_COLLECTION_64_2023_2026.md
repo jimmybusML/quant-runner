@@ -356,3 +356,11 @@
 - 从T1008上次增量终点10:07:57.978至10:14:21.281 UTC，新增22个唯一FID响应：10个补入OU movement，12个无Crown市场；AH及开收盘无新增。共23次HTTP尝试，其中22成功、一次`IncompleteRead`，该FID已恢复成功。22份最终原始响应SHA全匹配；越界/联赛不匹配0、重复0。
 - 全日志transport累计1,037 attempts（917 success、114 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；48个出现过传输错误的FID均已恢复，latest retryable failures为0。T1014数据库字段覆盖审计与队列重建均在该固定目标范围。
 - T1014响应、增量、driver、coverage、transport和SHA manifest：`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1014Z.txt`及同目录`crown_64_collection_checkpoint_20261122T1014Z.jsonl`、`crown_64_verified_increment_20261122T1014Z.json`、`crown_64_driver_checkpoint_20261122T1014Z.jsonl`、`crown_64_coverage_snapshot_20261122T1014Z.json`、`crown_64_transport_audit_20261122T1014Z.json`。一切仍标为historical回取。
+
+
+## 2026-11-22 10:17 UTC：T1017安全暂停响应核验
+
+- 10:12:59 UTC最近重建队列为42,286并启动collector PID767。10:15:41 UTC遇MR1计划任务PID1365后安全暂停；该批次共处理32个唯一FID，9个返回可保存的Crown市场记录、23个HTTP成功但没有Crown AH/OU报价。driver PID49373等待计划任务完成。
+- T1014增量结束后至10:15:44.410 UTC的最后16个FID均成功，SHA 16/16匹配，超范围/重复0，新增OU movement 3个FID；AH及开收盘没有新增。最后一批其他已处理记录在10:14:21前的T1014增量中，整体覆盖须等安全任务结束后只读重审确认。
+- 当前累计1,053次传输尝试（933 success、114 `IncompleteRead`、6 `TOO_MANY_REQUEST`）；仍没有尚未恢复的错误FID。T1017逐场/增量/driver/transport及manifest已保存。由于同一时段SQLite被排定任务占用，未并行重建覆盖表；最新权威覆盖仍引用T1014（OU movement 5,165），下一次队列重建时更新。
+- 证据文件：`CROWN_AH_OU_64_CHECKPOINT_SHA256_20261122T1017Z.txt`及`crown_64_collection_checkpoint_20261122T1017Z.jsonl`、`crown_64_verified_increment_20261122T1017Z.json`、`crown_64_driver_checkpoint_20261122T1017Z.jsonl`、`crown_64_transport_audit_20261122T1017Z.json`。所有报价仍为历史回取。
