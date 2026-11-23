@@ -1,0 +1,279 @@
+{
+  "scope": "Four-league annual-freeze actual M9 bivariate model-class score-grid research, NOT exact per-run production replay",
+  "method": "For test year Y, fit a calibration model on matches before Jan1(Y-1). Forecast fixtures in Y-1 for known teams; actual-minus-forecast expected points per team creates genuine prior-model forecast residual. Independently fit baseline M9 bivariate model on ALL matches before Jan1(Y); tilt its full score grid with exp(0.1*(home residual-away residual)*(home_goals-away_goals)), renormalize. Both baseline and corrected grids forecast same test fixtures Y. All calibration predictions use models trained strictly before their target matches. 0.1 is an exploratory grid-tilt parameter, not a user rule. Unseen teams get zero correction.",
+  "results": [
+    {
+      "league": "1",
+      "year": 2024,
+      "calibration_train_n": 325,
+      "calibration_oos_n": 375,
+      "train_n": 738,
+      "test_n": 353,
+      "metrics": {
+        "original": {
+          "n": 353,
+          "exact_ll": 3.1124179059894135,
+          "1x2_ll": 0.9742283548229076,
+          "synthetic_AH0_unit": 0.31728045325779036
+        },
+        "corrected": {
+          "n": 353,
+          "exact_ll": 3.1130791435292444,
+          "1x2_ll": 0.9734514963289378,
+          "synthetic_AH0_unit": 0.32294617563739375
+        }
+      }
+    },
+    {
+      "league": "1",
+      "year": 2025,
+      "calibration_train_n": 738,
+      "calibration_oos_n": 353,
+      "train_n": 1110,
+      "test_n": 360,
+      "metrics": {
+        "original": {
+          "n": 360,
+          "exact_ll": 2.9463077166006744,
+          "1x2_ll": 0.9752949399556199,
+          "synthetic_AH0_unit": 0.2861111111111111
+        },
+        "corrected": {
+          "n": 360,
+          "exact_ll": 2.943417179019474,
+          "1x2_ll": 0.9723173019537492,
+          "synthetic_AH0_unit": 0.30277777777777776
+        }
+      }
+    },
+    {
+      "league": "1",
+      "year": 2026,
+      "calibration_train_n": 1110,
+      "calibration_oos_n": 360,
+      "train_n": 1488,
+      "test_n": 281,
+      "metrics": {
+        "original": {
+          "n": 281,
+          "exact_ll": 2.965876840816979,
+          "1x2_ll": 1.0979686182210662,
+          "synthetic_AH0_unit": 0.17793594306049823
+        },
+        "corrected": {
+          "n": 281,
+          "exact_ll": 2.9628526751837096,
+          "1x2_ll": 1.0949708663863353,
+          "synthetic_AH0_unit": 0.19217081850533807
+        }
+      }
+    },
+    {
+      "league": "10",
+      "year": 2024,
+      "calibration_train_n": 704,
+      "calibration_oos_n": 214,
+      "train_n": 926,
+      "test_n": 220,
+      "metrics": {
+        "original": {
+          "n": 220,
+          "exact_ll": 3.182100762998411,
+          "1x2_ll": 1.1126100199465143,
+          "synthetic_AH0_unit": 0.36363636363636365
+        },
+        "corrected": {
+          "n": 220,
+          "exact_ll": 3.194442859876138,
+          "1x2_ll": 1.1229914206191507,
+          "synthetic_AH0_unit": 0.35454545454545455
+        }
+      }
+    },
+    {
+      "league": "10",
+      "year": 2025,
+      "calibration_train_n": 926,
+      "calibration_oos_n": 220,
+      "train_n": 1160,
+      "test_n": 187,
+      "metrics": {
+        "original": {
+          "n": 187,
+          "exact_ll": 3.28157342344872,
+          "1x2_ll": 1.044015638519425,
+          "synthetic_AH0_unit": 0.32620320855614976
+        },
+        "corrected": {
+          "n": 187,
+          "exact_ll": 3.2739194876539375,
+          "1x2_ll": 1.0404071184683226,
+          "synthetic_AH0_unit": 0.33689839572192515
+        }
+      }
+    },
+    {
+      "league": "10",
+      "year": 2026,
+      "calibration_train_n": 1160,
+      "calibration_oos_n": 187,
+      "train_n": 1374,
+      "test_n": 313,
+      "metrics": {
+        "original": {
+          "n": 313,
+          "exact_ll": 3.1789243050105487,
+          "1x2_ll": 0.9692001837890498,
+          "synthetic_AH0_unit": 0.38977635782747605
+        },
+        "corrected": {
+          "n": 313,
+          "exact_ll": 3.1801630845869626,
+          "1x2_ll": 0.9705091852260892,
+          "synthetic_AH0_unit": 0.402555910543131
+        }
+      }
+    },
+    {
+      "league": "12",
+      "year": 2024,
+      "calibration_train_n": 329,
+      "calibration_oos_n": 391,
+      "train_n": 738,
+      "test_n": 343,
+      "metrics": {
+        "original": {
+          "n": 343,
+          "exact_ll": 2.8600562087296306,
+          "1x2_ll": 0.9947425203620779,
+          "synthetic_AH0_unit": 0.26239067055393583
+        },
+        "corrected": {
+          "n": 343,
+          "exact_ll": 2.8560394344791704,
+          "1x2_ll": 0.9925608890487718,
+          "synthetic_AH0_unit": 0.27405247813411077
+        }
+      }
+    },
+    {
+      "league": "12",
+      "year": 2025,
+      "calibration_train_n": 738,
+      "calibration_oos_n": 343,
+      "train_n": 1116,
+      "test_n": 349,
+      "metrics": {
+        "original": {
+          "n": 349,
+          "exact_ll": 2.7450464404284736,
+          "1x2_ll": 1.0186836507108603,
+          "synthetic_AH0_unit": 0.23782234957020057
+        },
+        "corrected": {
+          "n": 349,
+          "exact_ll": 2.7451152417840508,
+          "1x2_ll": 1.0196354311641505,
+          "synthetic_AH0_unit": 0.23782234957020057
+        }
+      }
+    },
+    {
+      "league": "12",
+      "year": 2026,
+      "calibration_train_n": 1116,
+      "calibration_oos_n": 349,
+      "train_n": 1482,
+      "test_n": 328,
+      "metrics": {
+        "original": {
+          "n": 328,
+          "exact_ll": 2.886382160286812,
+          "1x2_ll": 0.9519190111271234,
+          "synthetic_AH0_unit": 0.3445121951219512
+        },
+        "corrected": {
+          "n": 328,
+          "exact_ll": 2.8829099063975496,
+          "1x2_ll": 0.9497122315776348,
+          "synthetic_AH0_unit": 0.35060975609756095
+        }
+      }
+    },
+    {
+      "league": "61",
+      "year": 2024,
+      "calibration_train_n": 914,
+      "calibration_oos_n": 174,
+      "train_n": 1122,
+      "test_n": 228,
+      "metrics": {
+        "original": {
+          "n": 228,
+          "exact_ll": 2.9483965564126193,
+          "1x2_ll": 1.0608188468338444,
+          "synthetic_AH0_unit": 0.18859649122807018
+        },
+        "corrected": {
+          "n": 228,
+          "exact_ll": 2.9489674618726123,
+          "1x2_ll": 1.059597780985272,
+          "synthetic_AH0_unit": 0.17105263157894737
+        }
+      }
+    },
+    {
+      "league": "61",
+      "year": 2025,
+      "calibration_train_n": 1122,
+      "calibration_oos_n": 228,
+      "train_n": 1350,
+      "test_n": 232,
+      "metrics": {
+        "original": {
+          "n": 232,
+          "exact_ll": 3.128790250102991,
+          "1x2_ll": 1.0407050823415727,
+          "synthetic_AH0_unit": 0.2025862068965517
+        },
+        "corrected": {
+          "n": 232,
+          "exact_ll": 3.127765214899363,
+          "1x2_ll": 1.0396775898612343,
+          "synthetic_AH0_unit": 0.21982758620689655
+        }
+      }
+    },
+    {
+      "league": "61",
+      "year": 2026,
+      "calibration_train_n": 1350,
+      "calibration_oos_n": 232,
+      "train_n": 1582,
+      "test_n": 192,
+      "metrics": {
+        "original": {
+          "n": 192,
+          "exact_ll": 3.2615431389060863,
+          "1x2_ll": 1.0563970694129592,
+          "synthetic_AH0_unit": 0.16145833333333334
+        },
+        "corrected": {
+          "n": 192,
+          "exact_ll": 3.2609704718470383,
+          "1x2_ll": 1.055458339960337,
+          "synthetic_AH0_unit": 0.171875
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "caveats": [
+    "Calibration uses a prior-year OOS model forecast residual, not raw goal difference; model class is same as M9.",
+    "Calibration model is annual frozen, not per-match updated; previous-year OOS forecasts can be less recent than production.",
+    "Historical cache is latest snapshot and does not establish as-of historical receipt for each match.",
+    "0.1 score-grid tilt is exploratory, not fitted or authorized production setting.",
+    "Synthetic neutral AH0 2.0 is NOT Crown, no Crown ROI or tradable orders.",
+    "No formal M9, Telegram or ledger changes."
+  ]
+}
