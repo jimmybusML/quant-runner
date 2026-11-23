@@ -2036,3 +2036,8 @@ T0420后至04:22:33 UTC统一结算暂停窗口处理27个唯一FID，全部HTTP
 - T1207 checkpoint 12:07:18.423Z through settlement pause 12:08:10.450Z processed 11 unique FIDs, all with newly added OU movement paths (258 rows). All 11 HTTP 200/API-success; no failures, SHA/identity/scope mismatches or duplicates.
 - Mean/median request time 1.3194/1.3193 sec. Queue at 12:11:08.550Z: 33,865 (2023 5,325; 2024 14,553; 2025 13,520; 2026 467), down 11 and matching the rebuilt queue. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 7,645 unique FIDs. New OU rows were independently checked in SQLite and all seven checkpoint manifest hashes passed.
 - Driver PID49373 / collector PID63901 continue at 5.2-second spacing with automatic safe-window yielding. Historical retrieval only; no production changes.
+
+### 2026-11-23 12:13 UTC — T1213 checkpoint
+- T1211 checkpoint 12:11:08.550Z through settlement pause 12:12:00.459Z processed 11 unique FIDs: 6 added OU movement paths (90 rows), 5 successful Crown API responses with no AH/OU quote data. All 11 returned HTTP 200; no unresolved errors, SHA/identity/scope mismatch or duplicate.
+- Request mean/median 1.2268/1.2607 sec. Queue at 12:13:15.589Z was 33,854 (2023 5,314; 2024 14,553; 2025 13,520; 2026 467), down 11 and queue-rebuild verified. Coverage AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 7,651 unique FIDs. Six new OU FIDs independently checked in SQLite; all seven manifest hashes verified.
+- Driver PID49373 / collector PID64442 continue at 5.2-second intervals; safe-window yielding remains active. Historical retrieval; no production settings changed.
