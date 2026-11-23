@@ -2334,3 +2334,10 @@ References reviewed: [OddsHarvester README](https://github.com/jordantete/OddsHa
 - Queue rebuilt at 17:22:32.871Z: 32,254 requests (2023 3,714; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,629 FIDs. The queue decreased by 46 and OU movement coverage increased by six FIDs versus T1714.
 - Separate read-only SQLite verification matched all 46 `crown_ou_source` rows by FID, response SHA and actual receive timestamp; six quote-bearing FIDs held exactly 247 `crown_ou_quote` movement rows (61+31+39+44+35+37).
 - Safe-window driver PID49373 resumed collector PID35878 at the unchanged 5.2-second interval. Historical retrieval only; production jobs and rules unchanged. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261123T1722Z`.
+
+
+### 2026-11-23 17:26 UTC — T1726 checkpoint
+- T1722 17:22:32.871Z through the MR1 pause at 17:24:33.192Z processed 23 unique FIDs; 23 requests returned HTTP 200 with one transient transport error recovered on retry (24 attempts). Seven Crown responses added 358 OU movement rows; 16 responses had no Crown AH/OU quotes. Unresolved failures=0; duplicate FIDs, raw SHA mismatches and fixture/scope mismatches=0.
+- Queue rebuilt at 17:26:42.597Z: 32,231 requests (2023 3,691; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,636 FIDs. Queue decreased by 23; OU movement coverage increased by seven FIDs versus T1722.
+- Separate read-only SQLite check matched all 23 `crown_ou_source` records by FID, SHA and actual receipt time. Seven quote-bearing FIDs had 358 `crown_ou_quote` movement rows, matching the increment audit.
+- Safe-window driver PID49373 resumed collector PID36802 at the fixed 5.2-second interval. Historical retrieval only; production unchanged. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261123T1726Z`.

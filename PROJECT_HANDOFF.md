@@ -7673,3 +7673,10 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - Queue rebuilt at 17:22:32.871Z: 32,254 requests (2023 3,714; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,629 FIDs. Queue decreased by 46 and OU movement coverage increased by six FIDs versus T1714.
 - Independent read-only SQLite check matched all 46 `crown_ou_source` records to audited FID, response SHA and receipt timestamp; the six quote-bearing FIDs had 247 movement rows in `crown_ou_quote`, matching the audit (61+31+39+44+35+37).
 - Driver PID49373 resumed collector PID35878 at unchanged 5.2-second cadence. Historical retrieval only. T1722 evidence and SHA manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T1722Z`.
+
+
+### 2026-11-23 17:26 UTC — 2023–2026 Crown AH/OU historical collection T1726
+- T1722 through the MR1 pause at 17:24:33.192Z processed 23 unique FIDs; 23 requests returned HTTP 200, with one transient transport error recovered on retry (24 attempts total). Seven Crown responses added 358 OU movement rows; 16 successful responses had no Crown AH/OU quotes. Unresolved failures=0, duplicate FIDs=0, raw SHA mismatches=0, fixture/scope mismatches=0.
+- Queue rebuilt at 17:26:42.597Z: 32,231 missing requests (2023 3,691; 2024 14,553; 2025 13,520; 2026 467), matching its contents. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,636 FIDs; queue decreased by 23 and OU movement coverage increased by seven FIDs from T1722.
+- Read-only SQLite verification matched all 23 `crown_ou_source` records to FID, response SHA and actual receive timestamp. The seven quote-bearing FIDs had 358 `crown_ou_quote` movement rows, exactly matching the checkpoint.
+- Driver PID49373 resumed collector PID36802 at fixed 5.2-second spacing. Historical retrieval only; production unaffected. T1726 evidence and SHA manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T1726Z`.
