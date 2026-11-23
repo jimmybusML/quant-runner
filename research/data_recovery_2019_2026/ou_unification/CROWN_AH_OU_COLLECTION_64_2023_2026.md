@@ -2362,3 +2362,10 @@ References reviewed: [OddsHarvester README](https://github.com/jordantete/OddsHa
 - Queue rebuilt at 17:39:35.884Z: 32,195 requests (2023 3,655; 2024 14,553; 2025 13,520; 2026 467), matching its contents. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,643 FIDs; queue decreased by 18 and OU movement coverage increased by three FIDs.
 - Request duration mean 1.8193s, median 1.4097s. Read-only SQLite verification matched all 18 `crown_ou_source` records by FID, response SHA and receipt time; the three quote-bearing FIDs contained all 92 expected movement rows.
 - Safe-window driver PID49373 resumed collector PID39741 at the fixed 5.2-second interval. Historical retrieval only; production unchanged. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261123T1739Z`.
+
+
+### 2026-11-23 17:47 UTC — T1747 checkpoint
+- T1739 through the unified-settlement pause at 17:43:22.094Z produced 44 unique FID responses, all HTTP 200. Seven Crown quote-bearing responses added 256 OU movement rows; 37 successful responses returned no Crown AH/OU market data. There were no failed attempts, unresolved FIDs, duplicate FIDs, raw SHA mismatches, or fixture/league/year scope mismatches.
+- Queue rebuilt at 17:47:07.992Z: 32,151 missing requests (2023 3,611; 2024 14,553; 2025 13,520; 2026 467), matching the rebuilt queue. The queue fell by 44. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,650 FIDs.
+- Request duration mean 1.3124s, median 1.3249s; configured request-start spacing remained 5.2s. A separate read-only SQLite query matched all 44 FIDs by raw response SHA and HTTP receive timestamp; the seven quote-bearing FIDs had exactly 256 `crown_ou_quote` rows. All eight checkpoint evidence files and the SHA manifest were generated.
+- Safe-window driver PID49373 resumed collector PID41409 at 5.2-second spacing. Queue is restricted to the fixed 64 Provider League IDs and 2023–2026. Historical retrieval only; production unchanged. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261123T1747Z`.
