@@ -1,0 +1,56 @@
+{
+  "after_authoritative_checkpoint_utc": "2026-11-23T20:05:57.557323+00:00",
+  "through_scheduled_pause_utc": "2026-11-23T20:10:08.522787+00:00",
+  "through_last_response_received_at_utc": "2026-11-23T20:09:48.835563+00:00",
+  "records": 31,
+  "unique_fids": 31,
+  "fetch_failed_records": 1,
+  "fetch_failed_fids": [
+    "144662883"
+  ],
+  "statuses": {
+    "PARTIAL_MARKETS": 27,
+    "NO_CROWN_MARKET_DATA": 3,
+    "BOTH_MARKETS": 1
+  },
+  "market_rows": {
+    "ah_summary_n": 0,
+    "ah_movement_n": 0,
+    "ou_summary_n": 0,
+    "ou_movement_n": 547
+  },
+  "market_fids": {
+    "ah_summary_n": 0,
+    "ah_movement_n": 0,
+    "ou_summary_n": 0,
+    "ou_movement_n": 28
+  },
+  "request_attempts": 42,
+  "attempt_outcomes": {
+    "success": 31,
+    "api_error": 7,
+    "transport_error": 4
+  },
+  "http_statuses": {
+    "200": 38
+  },
+  "failures": 11,
+  "request_seconds_mean": 1.3032,
+  "request_seconds_median": 1.3386,
+  "raw_sha_checked": 31,
+  "raw_sha_mismatches": [],
+  "identity_scope_mismatches": [],
+  "duplicate_fids": 0,
+  "capture_mode": "historical",
+  "queue_checkpoint_utc": "2026-11-23T20:14:27.641329+00:00",
+  "queue_after_rebuild": {
+    "2023": 2948,
+    "2024": 14553,
+    "2025": 13520,
+    "2026": 467
+  },
+  "queue_count_matches_rebuild": true,
+  "queue_count": 31488,
+  "queue_delta_since_previous_checkpoint": -31,
+  "queue_year_basis": "actual safe-window rebuilt queue"
+}
