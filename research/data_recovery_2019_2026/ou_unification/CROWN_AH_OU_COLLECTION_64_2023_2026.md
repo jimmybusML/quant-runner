@@ -2236,3 +2236,9 @@ T0420后至04:22:33 UTC统一结算暂停窗口处理27个唯一FID，全部HTTP
 - No third-party tool was installed or run. The existing TotalCorner Crown endpoint remains the verifiable source; its actual combined `asianList,goalList` response and parsing are already recorded in the local interface verification/checkpoint artifacts. No other bookmaker data was merged into the Crown tables.
 
 References reviewed: [OddsHarvester README](https://github.com/jordantete/OddsHarvester), [oddsportal_scraper README](https://github.com/djibril-marega/oddsportal_scraper), [soccerdata MatchHistory documentation](https://soccerdata.readthedocs.io/en/latest/datasources/MatchHistory.html), and [TotalCorner API documentation](https://www.totalcorner.com/page/api).
+
+
+### 2026-11-23 15:38 UTC — T1538 checkpoint
+- Combined the two short safe windows after T1530: from the 15:30:13.920Z authoritative queue snapshot through the 15:34:56.302Z unified-settlement pause (including the intermediate T1532 queue rebuild). The interval produced 41 unique FIDs: 39 Crown-market responses with 798 new OU movement rows and 2 HTTP 200 responses with no Crown market data. All 41 attempts succeeded; no unresolved failures, duplicate FIDs, raw SHA mismatches, or fixture/scope mismatches.
+- Queue rebuilt at 15:38:30.549Z: 32,787 (2023 4,247; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,536 FIDs. SQLite independently matched the 39 new OU paths / 798 rows; all seven checkpoint manifest hashes passed.
+- Safe-window driver PID49373 resumed collector PID11974 with the existing 5.2-second request spacing. Retrieval remains historical only. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261123T1538Z*`.
