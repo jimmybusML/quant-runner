@@ -7694,3 +7694,10 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - Queue rebuilt at 17:33:41.527Z: 32,213 requests (2023 3,673; 2024 14,553; 2025 13,520; 2026 467), matching queue contents. Coverage unchanged from T1730: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,640 FIDs. Queue decreased by 11; no market quote rows were added.
 - Independent read-only SQLite check found 11 source rows whose response SHA and actual receive time matched the audit; the FIDs had zero movement rows, matching their no-market responses.
 - Driver PID49373 resumed collector PID38414 at 5.2-second spacing. Historical retrieval only; production unchanged. T1733 evidence and SHA manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T1733Z`.
+
+
+### 2026-11-23 17:39 UTC — 2023–2026 Crown AH/OU historical collection T1739
+- T1733 through the unified-settlement pause at 17:35:12.879Z processed 18 unique FIDs; all 18 returned HTTP 200. Three Crown responses added 92 OU movement rows; 15 successful responses contained no Crown AH/OU quotes. No transport or unresolved failures, duplicate FIDs, raw SHA mismatches or fixture/scope mismatches.
+- Queue rebuilt at 17:39:35.884Z: 32,195 missing requests (2023 3,655; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,643 FIDs. Queue decreased by 18 and OU movement coverage increased by three FIDs versus T1733.
+- API response duration mean 1.8193 seconds, median 1.4097 seconds; the unchanged 5.2-second request-start interval remains the controlling request cadence. Independent read-only SQLite verification matched all 18 source rows by FID, raw SHA and receipt timestamp, and all 92 movement rows for the three quote-bearing fixtures.
+- Driver PID49373 resumed collector PID39741 at 5.2-second spacing. Historical retrieval only; production unchanged. T1739 evidence and SHA manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T1739Z`.
