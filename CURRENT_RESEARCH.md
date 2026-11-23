@@ -1,13 +1,17 @@
-# 当前研究：北京时间2026-11-23重新开始
+# 当前研究｜动态贝叶斯足球亚洲盘模型
 
-以Codex当前采集Crown数据与其配套赛程、比分为唯一研究基础。旧组、旧研究模型和旧数据成果不作为本轮研究依据；保留旧文件只为历史存档。
+**起点：北京时间2026年11月23日。**
+**正式工作准则：CURRENT_RESEARCH_WORK_RULES.md（必须以此为当前模型身份和数据依据）。**
 
-最新实际研究与可复核聚合：research/current_codex_crown_bj20261123/README.md
+**唯一研究主线**：动态贝叶斯足球进球/比分预测模型。持续测试和优化其对AH、OU的盈利因子，最终推进真正实战。
 
-当前Mac原始库：/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3
+**唯一当前研究数据来源**：Codex正在采集的Crown AH/OU盘口和同一链路球队、赛程、赛果。
+- 数据库：/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3
+- 赛程：/Users/mac/QuantAsiaDesk/research-work/crown-drop-expanded-62/schedule_universe.jsonl
+- 研究目录：/Users/mac/QuantAsiaDesk/research-work/newstart_20261123_codex_only/
 
-当前Mac独立研究输出：/Users/mac/QuantAsiaDesk/research-work/newstart_20261123_codex_only/
+旧组、旧模型、旧xG及历史马后炮盈利仅保留作历史归档，不参与当前研究。以前助手自创的泊松、k10/k30、赔率回归、EV选边负收益不能冒充动态贝叶斯结果。
 
-已发现：历史盘口源事件不等于真实收到报价；现行Codex历史赛事清单里2026只到6月30日，与全库95个实际赛前收到fixture无重叠。未经用户指令不改变采集器或正式派单逻辑。
+当前尚无用户明确确认的动态贝叶斯精确公式、先验参数、时间更新参数、正式选边或EV算法；允许开展候选研究，但不得擅自把自己的候选定为正式规则。
 
-本文件只记录用户当下的研究方向与已发生操作，未新增任何交易Gate。
+亏损就研究模型本身，不反复拿数据对齐当借口。研究起点是北京时间11月23日，不是新增比赛时间范围限制。不能擅自改变Codex采集或正式生产。
