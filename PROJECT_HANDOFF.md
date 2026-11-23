@@ -7647,3 +7647,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - T1642 through MR1 pause at 16:46:58.426Z processed 51 unique FIDs; 5 Crown responses added 297 OU movement rows and 46 valid HTTP 200 responses had no Crown AH/OU quotes. All requests succeeded; unresolved failures, duplicate FIDs, SHA, identity and scope mismatches=0.
 - Queue at 16:50:51.876Z: 32,414 (2023 3,874; 2024 14,553; 2025 13,520; 2026 467), matching its rebuilt queue. Coverage: AH summary 32,449; AH movement 36,342; OU summary 32,445; OU movement 8,602 FIDs. Read-only SQLite matched all five new FIDs / 297 rows; all seven checkpoint SHA entries passed.
 - Driver PID49373 resumed collector PID28658 at 5.2-second spacing. Historical backfill only; production unchanged. T1650 evidence: `research/data_recovery_2019_2026/ou_unification/*20261123T1650Z`.
+
+
+### 2026-11-23 16:58 UTC — 2023–2026 Crown AH/OU historical collection T1658
+- T1650 through MR1 pause at 16:53:33.885Z completed 32 unique FIDs; seven Crown responses added 388 OU movement rows and 25 valid HTTP 200 responses had no Crown AH/OU quotes. All requests succeeded; unresolved failures, duplicate FIDs, SHA, identity and scope mismatches=0.
+- Queue at 16:58:42.642Z: 32,382 (2023 3,842; 2024 14,553; 2025 13,520; 2026 467), matching the rebuilt queue. Coverage: AH summary 32,449; AH movement 36,342; OU summary 32,445; OU movement 8,609 FIDs. Read-only SQLite matched all 7 new FIDs / 388 rows; all seven checkpoint SHA entries passed.
+- Driver PID49373 resumed collector PID30339 at the unchanged 5.2-second cadence. Historical retrieval only; production unchanged. T1658 evidence: `research/data_recovery_2019_2026/ou_unification/*20261123T1658Z`.
