@@ -2191,3 +2191,9 @@ T0420后至04:22:33 UTC统一结算暂停窗口处理27个唯一FID，全部HTTP
 - T1450 14:50:39.188Z through MR1 pause at 14:54:34.114Z processed 46 unique FIDs: 35 new OU movement paths / 747 rows and 11 successful no-market responses. All 46 returned HTTP 200; unresolved failures=0. Raw SHA, FID identity, scope and duplicate checks all passed.
 - Queue rebuilt at 14:58:33.453Z: 32,986 (2023 4,446; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,357 FIDs. The 35 new OU paths / 747 rows matched SQLite; all seven checkpoint artifact hashes passed.
 - Safe-window driver PID49373 resumed collector PID2389 at the existing 5.2-second pacing. Historical retrieval only; production systems unchanged. T1458 evidence is under `research/data_recovery_2019_2026/ou_unification/`.
+
+
+### 2026-11-23 15:01 UTC — T1501 checkpoint
+- T1458 14:58:33.453Z through MR1 pause at 15:00:28.006Z completed 23 unique FIDs: 22 new OU movement paths / 505 rows and 1 successful no-market response. All 23 HTTP 200; no unresolved errors, duplicate FIDs, raw SHA mismatches, or identity/scope mismatches.
+- Queue rebuilt at 15:01:48.134Z: 32,963 (2023 4,423; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,379 FIDs. The 22 new OU paths / 505 rows matched SQLite; all seven checkpoint artifact hashes passed.
+- Safe-window driver PID49373 resumed collector PID3261 at the unchanged 5.2-second pacing. Historical retrieval only; production systems unchanged. T1501 evidence is under `research/data_recovery_2019_2026/ou_unification/`.
