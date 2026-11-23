@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "checks": {
+    "model_score_checks": 39632,
+    "quarter_cash_checks": 79264,
+    "market_fixed_blend_checks": 79264,
+    "fixture_keys_full_sample": 9908,
+    "prior_year_goal_dispersion_train_reconstruct": 35,
+    "xg_train_two_prior_year_count": 35,
+    "summary_model_market_cash": 8,
+    "R5_to_R9_sha256_file_checks": 273
+  },
+  "errors": {},
+  "R10_source_sha256": {
+    "r10_prior_two_season_xg_Gamma_shape.json": "33dfa00a3fd8a2febeda7fd7d279109e1d4f191d8a4f88db865f461b103bce76",
+    "r10_Gamma_xG_posterior_predictive_20261123.jsonl": "546a288e85c65331a85c7a5954279aeacc63cdbcddf6091ad8a1c1d5b7433239",
+    "r10_asof_dynamic_logxG_Kalman_CrownT12_20261123.jsonl": "bd1f3e2ca35f8ad2db965f5ff2ab8be9153f2df515bba7100e6530e65ec2c6b7",
+    "r10_prev_two_season_asof_negative_binomial_CrownT12_20261123.jsonl": "68d7a500c87cac4bd3fd7b462f0a5c18c649181ce255db1aa73599392380b726",
+    "r10_vs_Crown_market_incremental_1X2_20261123.jsonl": "02ffddb1ee34b703d836224c4bdd3000190e665a4eb98f3a4f03645bbe980801"
+  },
+  "prior_frozen_R5_to_R9_manifest_SHA256": {
+    "R5_BAYES_BIVAR_FROZEN_20261123": "6f465b284492eca97b311753e3850cd08e783a0fc93ba8c2af5e194f496996c2",
+    "R6_BAYES_BIVAR_COMPLEMENT_20261123": "402a9c469517354c6a371137057f4119fe66a9e6d3869d88002fe7cb9481c4c4",
+    "R7_CROWN_MARKET_PRICING_20261123": "90cf4d48ae54be76761c60419033a417f7f1cabcaceb791c7c4680922ab61d71",
+    "R8_CROWN_HTTP_TIMING_BAYES_POSTERIOR_20261123": "67d61404562d7c3fa0e0ab2f00bb6755ab29861841a022acf838f834b8896cdd",
+    "R9_CROWN_TRUE_UPDATE_BAYES_OU_20261123": "2791c6c88624e10fc5fa051bd4867b19222d52e80cb8909cd82cd3aecb050299"
+  },
+  "scope": "Full 9,908 same old Crown source-event fixtures, no actual trading; independent score/quarter payouts and previous-season dispersion, freeze integrity."
+}

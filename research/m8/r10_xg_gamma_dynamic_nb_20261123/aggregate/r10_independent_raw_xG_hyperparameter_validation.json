@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "checks": {
+    "independent_field_estimations": 350,
+    "league_year_hyperparameter_reconstruction": 35
+  },
+  "error_fields": {},
+  "max_abs_difference_each_estimator": {
+    "xG_Gamma_shape": 2.220446049250313e-15,
+    "train_valid_xG_games": 0.0,
+    "train_Gamma_team_role_groups": 0.0,
+    "train_Gamma_observations": 0.0,
+    "Kalman_R": 2.7755575615628914e-16,
+    "Kalman_Q": 6.661338147750939e-16,
+    "Kalman_prior_state_var": 2.7755575615628914e-17,
+    "Kalman_league_home_mean": 4.440892098500626e-16,
+    "Kalman_league_away_mean": 2.220446049250313e-16,
+    "Kalman_raw_fixture_count": 0.0
+  },
+  "scope": "All 35 league×target-season parameter sets reproduced from previous two complete Understat seasons, using neither target scores nor betting ROI.",
+  "note": "Raw training fixture count and reliable-xG fixture count are distinct; three 2-season groups contain 1 invalid xG entry each, fully accounted for. No changes to R5-R9."
+}

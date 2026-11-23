@@ -1,0 +1,745 @@
+{
+  "study": "R10_PREV_TWO_SEASON_TOTAL_GOALS_NEGATIVE_BINOMIAL_PREMATCH_PREDICTIVE",
+  "source_SHA256": {
+    "r5_bayes_bivar_asof_features_20261123.jsonl": "71e841b629136c266b79190366bd47175f5748818db9a6b8fe1c888d65658561",
+    "r5_bayes_bivar_CrownT12_20261123.jsonl": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+    "r7_market_implied_2market_20261123.jsonl": "c3405e0fadcf539fe45a0408035efd6ce4a1e268d32bbe4d50ce3db4500eecf8"
+  },
+  "method": "Same R5 Bayesian k2 per-fixture means. Estimate overdispersion delta=(sum((T-mu)^2-mu))/sum(mu^2) on previous TWO completed seasons same league. For delta>0 use common Gamma match-rate mixer and total NB goals with H|T binomial share. For delta<=0 NB overdispersion cannot represent negative variance, Poisson limit exact. Scores from prior years allowed for goal dispersion; NO ROI or target-year scores fitted.",
+  "target_league_season_noise": {
+    "epl": {
+      "2019": {
+        "raw_delta_variance_over_mu_sq": -0.005954638683344717,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 636,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2017,
+          2018
+        ]
+      },
+      "2020": {
+        "raw_delta_variance_over_mu_sq": -0.05057347980816401,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 638,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2018,
+          2019
+        ]
+      },
+      "2021": {
+        "raw_delta_variance_over_mu_sq": -0.03343392160616569,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 638,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2019,
+          2020
+        ]
+      },
+      "2022": {
+        "raw_delta_variance_over_mu_sq": 0.0012749211515005595,
+        "mathematically_valid_delta": 0.0012749211515005595,
+        "effective_negative_binomial_shape": 784.3622319882431,
+        "training_match_n": 638,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2020,
+          2021
+        ]
+      },
+      "2023": {
+        "raw_delta_variance_over_mu_sq": 0.01430495600340521,
+        "mathematically_valid_delta": 0.01430495600340521,
+        "effective_negative_binomial_shape": 69.90584240608331,
+        "training_match_n": 640,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2021,
+          2022
+        ]
+      },
+      "2024": {
+        "raw_delta_variance_over_mu_sq": -0.010565267814189795,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 634,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2022,
+          2023
+        ]
+      },
+      "2025": {
+        "raw_delta_variance_over_mu_sq": -0.04126047743233768,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 634,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2023,
+          2024
+        ]
+      }
+    },
+    "bundesliga": {
+      "2019": {
+        "raw_delta_variance_over_mu_sq": 0.02996710463616744,
+        "mathematically_valid_delta": 0.02996710463616744,
+        "effective_negative_binomial_shape": 33.36992385954749,
+        "training_match_n": 498,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2017,
+          2018
+        ]
+      },
+      "2020": {
+        "raw_delta_variance_over_mu_sq": -0.007549954455866685,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 500,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2018,
+          2019
+        ]
+      },
+      "2021": {
+        "raw_delta_variance_over_mu_sq": -0.021339496817832437,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 500,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2019,
+          2020
+        ]
+      },
+      "2022": {
+        "raw_delta_variance_over_mu_sq": -0.017468022134673356,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 500,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2020,
+          2021
+        ]
+      },
+      "2023": {
+        "raw_delta_variance_over_mu_sq": -0.0001273937725220129,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 500,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2021,
+          2022
+        ]
+      },
+      "2024": {
+        "raw_delta_variance_over_mu_sq": -0.00449956392777429,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 502,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2022,
+          2023
+        ]
+      },
+      "2025": {
+        "raw_delta_variance_over_mu_sq": -0.006614317929353003,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 496,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2023,
+          2024
+        ]
+      }
+    },
+    "serie-a": {
+      "2019": {
+        "raw_delta_variance_over_mu_sq": 0.001423308697374931,
+        "mathematically_valid_delta": 0.001423308697374931,
+        "effective_negative_binomial_shape": 702.5882732567732,
+        "training_match_n": 634,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2017,
+          2018
+        ]
+      },
+      "2020": {
+        "raw_delta_variance_over_mu_sq": -0.01487221461385109,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 634,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2018,
+          2019
+        ]
+      },
+      "2021": {
+        "raw_delta_variance_over_mu_sq": -0.016491320983963394,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 630,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2019,
+          2020
+        ]
+      },
+      "2022": {
+        "raw_delta_variance_over_mu_sq": -0.009280468930066935,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 632,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2020,
+          2021
+        ]
+      },
+      "2023": {
+        "raw_delta_variance_over_mu_sq": -0.029440459028876313,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 632,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2021,
+          2022
+        ]
+      },
+      "2024": {
+        "raw_delta_variance_over_mu_sq": -0.04413937919829153,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 630,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2022,
+          2023
+        ]
+      },
+      "2025": {
+        "raw_delta_variance_over_mu_sq": -0.042622960853556435,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 630,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2023,
+          2024
+        ]
+      }
+    },
+    "la-liga": {
+      "2019": {
+        "raw_delta_variance_over_mu_sq": 0.0017687430670162566,
+        "mathematically_valid_delta": 0.0017687430670162566,
+        "effective_negative_binomial_shape": 565.3732408330673,
+        "training_match_n": 632,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2017,
+          2018
+        ]
+      },
+      "2020": {
+        "raw_delta_variance_over_mu_sq": -0.03881196891281583,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 625,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2018,
+          2019
+        ]
+      },
+      "2021": {
+        "raw_delta_variance_over_mu_sq": -0.021494233642855902,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 619,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2019,
+          2020
+        ]
+      },
+      "2022": {
+        "raw_delta_variance_over_mu_sq": 0.03563696384435369,
+        "mathematically_valid_delta": 0.03563696384435369,
+        "effective_negative_binomial_shape": 28.06075187458596,
+        "training_match_n": 625,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2020,
+          2021
+        ]
+      },
+      "2023": {
+        "raw_delta_variance_over_mu_sq": 0.022467549374277977,
+        "mathematically_valid_delta": 0.022467549374277977,
+        "effective_negative_binomial_shape": 44.50863702762582,
+        "training_match_n": 629,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2021,
+          2022
+        ]
+      },
+      "2024": {
+        "raw_delta_variance_over_mu_sq": -0.00789680418330032,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 629,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2022,
+          2023
+        ]
+      },
+      "2025": {
+        "raw_delta_variance_over_mu_sq": -0.01997469084626391,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 629,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2023,
+          2024
+        ]
+      }
+    },
+    "ligue-1": {
+      "2019": {
+        "raw_delta_variance_over_mu_sq": -0.01762949588852271,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 633,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2017,
+          2018
+        ]
+      },
+      "2020": {
+        "raw_delta_variance_over_mu_sq": 0.003837478917539612,
+        "mathematically_valid_delta": 0.003837478917539612,
+        "effective_negative_binomial_shape": 260.5877508354227,
+        "training_match_n": 534,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2018,
+          2019
+        ]
+      },
+      "2021": {
+        "raw_delta_variance_over_mu_sq": -0.008929216434479997,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 533,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2019,
+          2020
+        ]
+      },
+      "2022": {
+        "raw_delta_variance_over_mu_sq": 0.008195260142544392,
+        "mathematically_valid_delta": 0.008195260142544392,
+        "effective_negative_binomial_shape": 122.02175191592256,
+        "training_match_n": 633,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2020,
+          2021
+        ]
+      },
+      "2023": {
+        "raw_delta_variance_over_mu_sq": 0.005887047532034007,
+        "mathematically_valid_delta": 0.005887047532034007,
+        "effective_negative_binomial_shape": 169.8644345163788,
+        "training_match_n": 633,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2021,
+          2022
+        ]
+      },
+      "2024": {
+        "raw_delta_variance_over_mu_sq": -0.016812514226573764,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 564,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2022,
+          2023
+        ]
+      },
+      "2025": {
+        "raw_delta_variance_over_mu_sq": -0.01910733314967832,
+        "mathematically_valid_delta": 0.0,
+        "effective_negative_binomial_shape": null,
+        "training_match_n": 495,
+        "training_includes_goals_but_NO_betting_results_or_target_season": true,
+        "train_seasons": [
+          2023,
+          2024
+        ]
+      }
+    }
+  },
+  "overall": {
+    "n": 9908,
+    "Brier": 0.5993086,
+    "logloss": 1.0037004,
+    "market_Brier": 0.5783596,
+    "mean_pred_total_variance": 2.932014,
+    "mean_actual_total_sq_error": 2.758573,
+    "NB_greater_dispersion_fixture_n": 2898,
+    "AH": {
+      "n": 9908,
+      "net_U": -111.68,
+      "ROI_pct": -1.12717,
+      "R5_k2_poisson_U": -121.55,
+      "paired_delta_vs_R5_k2_U": 9.87,
+      "switch_from_R5_k2": 7
+    },
+    "OU": {
+      "n": 9908,
+      "net_U": -163.335,
+      "ROI_pct": -1.64852,
+      "R5_k2_poisson_U": -148.56,
+      "paired_delta_vs_R5_k2_U": -14.775,
+      "switch_from_R5_k2": 41
+    }
+  },
+  "by_year": {
+    "2019": {
+      "n": 1373,
+      "Brier": 0.5948064,
+      "logloss": 0.997393,
+      "market_Brier": 0.5778054,
+      "mean_pred_total_variance": 2.886819,
+      "mean_actual_total_sq_error": 2.536521,
+      "NB_greater_dispersion_fixture_n": 838,
+      "AH": {
+        "n": 1373,
+        "net_U": 37.265,
+        "ROI_pct": 2.71413,
+        "R5_k2_poisson_U": 35.335,
+        "paired_delta_vs_R5_k2_U": 1.93,
+        "switch_from_R5_k2": 1
+      },
+      "OU": {
+        "n": 1373,
+        "net_U": 29.635,
+        "ROI_pct": 2.15841,
+        "R5_k2_poisson_U": 35.695,
+        "paired_delta_vs_R5_k2_U": -6.06,
+        "switch_from_R5_k2": 14
+      }
+    },
+    "2020": {
+      "n": 1462,
+      "Brier": 0.6010774,
+      "logloss": 1.0061765,
+      "market_Brier": 0.5786587,
+      "mean_pred_total_variance": 2.764297,
+      "mean_actual_total_sq_error": 2.697821,
+      "NB_greater_dispersion_fixture_n": 312,
+      "AH": {
+        "n": 1462,
+        "net_U": -24.06,
+        "ROI_pct": -1.64569,
+        "R5_k2_poisson_U": -24.06,
+        "paired_delta_vs_R5_k2_U": 0.0,
+        "switch_from_R5_k2": 0
+      },
+      "OU": {
+        "n": 1462,
+        "net_U": 14.71,
+        "ROI_pct": 1.00616,
+        "R5_k2_poisson_U": 13.785,
+        "paired_delta_vs_R5_k2_U": 0.925,
+        "switch_from_R5_k2": 1
+      }
+    },
+    "2021": {
+      "n": 1418,
+      "Brier": 0.6000916,
+      "logloss": 1.0057278,
+      "market_Brier": 0.5822157,
+      "mean_pred_total_variance": 2.787198,
+      "mean_actual_total_sq_error": 2.881824,
+      "NB_greater_dispersion_fixture_n": 0,
+      "AH": {
+        "n": 1418,
+        "net_U": 5.81,
+        "ROI_pct": 0.40973,
+        "R5_k2_poisson_U": 5.81,
+        "paired_delta_vs_R5_k2_U": 0.0,
+        "switch_from_R5_k2": 0
+      },
+      "OU": {
+        "n": 1418,
+        "net_U": -25.545,
+        "ROI_pct": -1.80148,
+        "R5_k2_poisson_U": -25.545,
+        "paired_delta_vs_R5_k2_U": 0.0,
+        "switch_from_R5_k2": 0
+      }
+    },
+    "2022": {
+      "n": 1468,
+      "Brier": 0.6008119,
+      "logloss": 1.0061824,
+      "market_Brier": 0.5795739,
+      "mean_pred_total_variance": 2.920004,
+      "mean_actual_total_sq_error": 2.803192,
+      "NB_greater_dispersion_fixture_n": 908,
+      "AH": {
+        "n": 1468,
+        "net_U": -40.05,
+        "ROI_pct": -2.7282,
+        "R5_k2_poisson_U": -43.99,
+        "paired_delta_vs_R5_k2_U": 3.94,
+        "switch_from_R5_k2": 4
+      },
+      "OU": {
+        "n": 1468,
+        "net_U": -90.76,
+        "ROI_pct": -6.18256,
+        "R5_k2_poisson_U": -86.01,
+        "paired_delta_vs_R5_k2_U": -4.75,
+        "switch_from_R5_k2": 11
+      }
+    },
+    "2023": {
+      "n": 1396,
+      "Brier": 0.5986436,
+      "logloss": 1.0014806,
+      "market_Brier": 0.5743101,
+      "mean_pred_total_variance": 3.103825,
+      "mean_actual_total_sq_error": 2.78537,
+      "NB_greater_dispersion_fixture_n": 840,
+      "AH": {
+        "n": 1396,
+        "net_U": -17.665,
+        "ROI_pct": -1.2654,
+        "R5_k2_poisson_U": -21.665,
+        "paired_delta_vs_R5_k2_U": 4.0,
+        "switch_from_R5_k2": 2
+      },
+      "OU": {
+        "n": 1396,
+        "net_U": -19.035,
+        "ROI_pct": -1.36354,
+        "R5_k2_poisson_U": -14.145,
+        "paired_delta_vs_R5_k2_U": -4.89,
+        "switch_from_R5_k2": 15
+      }
+    },
+    "2024": {
+      "n": 1391,
+      "Brier": 0.5895183,
+      "logloss": 0.9887162,
+      "market_Brier": 0.5700479,
+      "mean_pred_total_variance": 3.079109,
+      "mean_actual_total_sq_error": 2.795919,
+      "NB_greater_dispersion_fixture_n": 0,
+      "AH": {
+        "n": 1391,
+        "net_U": -33.715,
+        "ROI_pct": -2.4238,
+        "R5_k2_poisson_U": -33.715,
+        "paired_delta_vs_R5_k2_U": 0.0,
+        "switch_from_R5_k2": 0
+      },
+      "OU": {
+        "n": 1391,
+        "net_U": -32.1,
+        "ROI_pct": -2.30769,
+        "R5_k2_poisson_U": -32.1,
+        "paired_delta_vs_R5_k2_U": 0.0,
+        "switch_from_R5_k2": 0
+      }
+    },
+    "2025": {
+      "n": 1400,
+      "Brier": 0.6098981,
+      "logloss": 1.0197458,
+      "market_Brier": 0.5857078,
+      "mean_pred_total_variance": 2.99328,
+      "mean_actual_total_sq_error": 2.804339,
+      "NB_greater_dispersion_fixture_n": 0,
+      "AH": {
+        "n": 1400,
+        "net_U": -39.265,
+        "ROI_pct": -2.80464,
+        "R5_k2_poisson_U": -39.265,
+        "paired_delta_vs_R5_k2_U": 0.0,
+        "switch_from_R5_k2": 0
+      },
+      "OU": {
+        "n": 1400,
+        "net_U": -40.24,
+        "ROI_pct": -2.87429,
+        "R5_k2_poisson_U": -40.24,
+        "paired_delta_vs_R5_k2_U": 0.0,
+        "switch_from_R5_k2": 0
+      }
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "n": 1720,
+      "Brier": 0.6033972,
+      "logloss": 1.0098145,
+      "market_Brier": 0.583032,
+      "mean_pred_total_variance": 3.177727,
+      "mean_actual_total_sq_error": 3.007901,
+      "NB_greater_dispersion_fixture_n": 249,
+      "AH": {
+        "n": 1720,
+        "net_U": -34.175,
+        "ROI_pct": -1.98692,
+        "R5_k2_poisson_U": -36.105,
+        "paired_delta_vs_R5_k2_U": 1.93,
+        "switch_from_R5_k2": 1
+      },
+      "OU": {
+        "n": 1720,
+        "net_U": -64.7,
+        "ROI_pct": -3.76163,
+        "R5_k2_poisson_U": -58.59,
+        "paired_delta_vs_R5_k2_U": -6.11,
+        "switch_from_R5_k2": 12
+      }
+    },
+    "epl": {
+      "n": 2193,
+      "Brier": 0.5911932,
+      "logloss": 0.9928396,
+      "market_Brier": 0.5746553,
+      "mean_pred_total_variance": 3.000032,
+      "mean_actual_total_sq_error": 2.752564,
+      "NB_greater_dispersion_fixture_n": 632,
+      "AH": {
+        "n": 2193,
+        "net_U": 44.03,
+        "ROI_pct": 2.00775,
+        "R5_k2_poisson_U": 44.03,
+        "paired_delta_vs_R5_k2_U": 0.0,
+        "switch_from_R5_k2": 0
+      },
+      "OU": {
+        "n": 2193,
+        "net_U": -31.36,
+        "ROI_pct": -1.43,
+        "R5_k2_poisson_U": -29.3,
+        "paired_delta_vs_R5_k2_U": -2.06,
+        "switch_from_R5_k2": 5
+      }
+    },
+    "la-liga": {
+      "n": 1944,
+      "Brier": 0.5976857,
+      "logloss": 1.0007726,
+      "market_Brier": 0.5752279,
+      "mean_pred_total_variance": 2.82138,
+      "mean_actual_total_sq_error": 2.632674,
+      "NB_greater_dispersion_fixture_n": 837,
+      "AH": {
+        "n": 1944,
+        "net_U": -39.44,
+        "ROI_pct": -2.02881,
+        "R5_k2_poisson_U": -45.51,
+        "paired_delta_vs_R5_k2_U": 6.07,
+        "switch_from_R5_k2": 5
+      },
+      "OU": {
+        "n": 1944,
+        "net_U": -25.33,
+        "ROI_pct": -1.30298,
+        "R5_k2_poisson_U": -16.74,
+        "paired_delta_vs_R5_k2_U": -8.59,
+        "switch_from_R5_k2": 19
+      }
+    },
+    "ligue-1": {
+      "n": 1880,
+      "Brier": 0.6058881,
+      "logloss": 1.0119203,
+      "market_Brier": 0.5853036,
+      "mean_pred_total_variance": 2.866033,
+      "mean_actual_total_sq_error": 2.861126,
+      "NB_greater_dispersion_fixture_n": 868,
+      "AH": {
+        "n": 1880,
+        "net_U": -0.375,
+        "ROI_pct": -0.01995,
+        "R5_k2_poisson_U": -2.245,
+        "paired_delta_vs_R5_k2_U": 1.87,
+        "switch_from_R5_k2": 1
+      },
+      "OU": {
+        "n": 1880,
+        "net_U": -64.625,
+        "ROI_pct": -3.4375,
+        "R5_k2_poisson_U": -66.56,
+        "paired_delta_vs_R5_k2_U": 1.935,
+        "switch_from_R5_k2": 3
+      }
+    },
+    "serie-a": {
+      "n": 2171,
+      "Brier": 0.6000228,
+      "logloss": 1.005331,
+      "market_Brier": 0.5751906,
+      "mean_pred_total_variance": 2.824839,
+      "mean_actual_total_sq_error": 2.59104,
+      "NB_greater_dispersion_fixture_n": 312,
+      "AH": {
+        "n": 2171,
+        "net_U": -81.72,
+        "ROI_pct": -3.76416,
+        "R5_k2_poisson_U": -81.72,
+        "paired_delta_vs_R5_k2_U": 0.0,
+        "switch_from_R5_k2": 0
+      },
+      "OU": {
+        "n": 2171,
+        "net_U": 22.68,
+        "ROI_pct": 1.04468,
+        "R5_k2_poisson_U": 22.63,
+        "paired_delta_vs_R5_k2_U": 0.05,
+        "switch_from_R5_k2": 2
+      }
+    }
+  },
+  "audit": {
+    "league_target_season_nb_equals_poisson": 25,
+    "market_cash_checked": 19816
+  },
+  "limitations": [
+    "NB only represents nonnegative excess variance; negative method-of-moments estimate maps to Poisson distribution as an intrinsic probability-family boundary, not a trading Gate.",
+    "R5 mean xG provider actual publication time unverified; previous fixture-date source is not proof of historic provider access.",
+    "Crown T12 historical source event returned post-game, not truly executed or actually pregame HTTP price.",
+    "All fixtures and AH/OU outcomes included, including negative ROI, no formal Telegram or new release logic; national teams excluded."
+  ]
+}

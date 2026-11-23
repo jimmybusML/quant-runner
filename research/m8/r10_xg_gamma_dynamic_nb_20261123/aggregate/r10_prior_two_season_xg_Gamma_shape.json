@@ -1,0 +1,490 @@
+{
+  "study": "R10_XG_GAMMA_OBSERVATION_SHAPE_PREVIOUS_TWO_SEASONS",
+  "source_archive_manifest_SHA256": "f3cf5114bed302cd4f002e75451a9a6372d3d7d19b67254b39c40346c28a246e",
+  "input_fixture_listed_sha256": "6ad9b43671212d29064c360e81298b6c216206694ca4650d25abeeb3c6409ba9",
+  "scope": "Five domestic European club leagues; target seasons 2019-2025. Zero national teams.",
+  "methodology": "Observations xG conditional on true latent team-venue attack/defense mean are Gamma(shape r, scale mean/r). Fit dispersion r from within-team same venue role xG fluctuations in the TWO completed seasons prior to each target season. Match score and betting profit NEVER enter dispersion training.",
+  "by_league_season": {
+    "epl": {
+      "2019": {
+        "shape": 3.297583015534951,
+        "variance_over_mean_sq": 0.30325241102012856,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2017,
+          2018
+        ],
+        "evaluation_season": 2019
+      },
+      "2020": {
+        "shape": 3.337338427119132,
+        "variance_over_mean_sq": 0.29963997414047794,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2018,
+          2019
+        ],
+        "evaluation_season": 2020
+      },
+      "2021": {
+        "shape": 3.1122703400270617,
+        "variance_over_mean_sq": 0.3213088487651445,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "evaluation_season": 2021
+      },
+      "2022": {
+        "shape": 3.140357079951806,
+        "variance_over_mean_sq": 0.3184351252231949,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "evaluation_season": 2022
+      },
+      "2023": {
+        "shape": 3.29585699871939,
+        "variance_over_mean_sq": 0.30341122214603106,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "evaluation_season": 2023
+      },
+      "2024": {
+        "shape": 3.565854900986175,
+        "variance_over_mean_sq": 0.28043765878511756,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "evaluation_season": 2024
+      },
+      "2025": {
+        "shape": 3.6190103248482606,
+        "variance_over_mean_sq": 0.2763186369306444,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "evaluation_season": 2025
+      }
+    },
+    "bundesliga": {
+      "2019": {
+        "shape": 3.39128762727017,
+        "variance_over_mean_sq": 0.2948732487208564,
+        "team_venue_role_groups": 80,
+        "xG_observations_in_groups": 2448,
+        "trained_match_count": 612,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2017,
+          2018
+        ],
+        "evaluation_season": 2019
+      },
+      "2020": {
+        "shape": 3.47969286384,
+        "variance_over_mean_sq": 0.2873816854331374,
+        "team_venue_role_groups": 84,
+        "xG_observations_in_groups": 2448,
+        "trained_match_count": 612,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2018,
+          2019
+        ],
+        "evaluation_season": 2020
+      },
+      "2021": {
+        "shape": 3.2508089865135577,
+        "variance_over_mean_sq": 0.3076157363132198,
+        "team_venue_role_groups": 80,
+        "xG_observations_in_groups": 2448,
+        "trained_match_count": 612,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "evaluation_season": 2021
+      },
+      "2022": {
+        "shape": 3.1379463671561365,
+        "variance_over_mean_sq": 0.3186797615366134,
+        "team_venue_role_groups": 80,
+        "xG_observations_in_groups": 2448,
+        "trained_match_count": 612,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "evaluation_season": 2022
+      },
+      "2023": {
+        "shape": 3.131837984835044,
+        "variance_over_mean_sq": 0.3193013191749351,
+        "team_venue_role_groups": 80,
+        "xG_observations_in_groups": 2448,
+        "trained_match_count": 612,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "evaluation_season": 2023
+      },
+      "2024": {
+        "shape": 3.3671607706750466,
+        "variance_over_mean_sq": 0.29698611622857574,
+        "team_venue_role_groups": 80,
+        "xG_observations_in_groups": 2448,
+        "trained_match_count": 612,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "evaluation_season": 2024
+      },
+      "2025": {
+        "shape": 3.6370861396195213,
+        "variance_over_mean_sq": 0.2749453715453137,
+        "team_venue_role_groups": 80,
+        "xG_observations_in_groups": 2444,
+        "trained_match_count": 611,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "evaluation_season": 2025
+      }
+    },
+    "serie-a": {
+      "2019": {
+        "shape": 3.3103283033406004,
+        "variance_over_mean_sq": 0.3020848412499918,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2017,
+          2018
+        ],
+        "evaluation_season": 2019
+      },
+      "2020": {
+        "shape": 3.6628568077720276,
+        "variance_over_mean_sq": 0.2730109454123763,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2018,
+          2019
+        ],
+        "evaluation_season": 2020
+      },
+      "2021": {
+        "shape": 3.5963564809728528,
+        "variance_over_mean_sq": 0.27805919832771675,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "evaluation_season": 2021
+      },
+      "2022": {
+        "shape": 3.278568411915167,
+        "variance_over_mean_sq": 0.30501117389094,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "evaluation_season": 2022
+      },
+      "2023": {
+        "shape": 3.228287139163418,
+        "variance_over_mean_sq": 0.30976178911369734,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "evaluation_season": 2023
+      },
+      "2024": {
+        "shape": 3.2952652637939344,
+        "variance_over_mean_sq": 0.3034657060805694,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "evaluation_season": 2024
+      },
+      "2025": {
+        "shape": 3.3114585379849752,
+        "variance_over_mean_sq": 0.30198173660616046,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "evaluation_season": 2025
+      }
+    },
+    "la-liga": {
+      "2019": {
+        "shape": 3.2442441046359787,
+        "variance_over_mean_sq": 0.30823821135130186,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2017,
+          2018
+        ],
+        "evaluation_season": 2019
+      },
+      "2020": {
+        "shape": 3.28763625239169,
+        "variance_over_mean_sq": 0.3041699030032656,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3036,
+        "trained_match_count": 759,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2018,
+          2019
+        ],
+        "evaluation_season": 2020
+      },
+      "2021": {
+        "shape": 2.944352996721837,
+        "variance_over_mean_sq": 0.3396331897409628,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3036,
+        "trained_match_count": 759,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "evaluation_season": 2021
+      },
+      "2022": {
+        "shape": 2.731664649372877,
+        "variance_over_mean_sq": 0.36607714648632855,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "evaluation_season": 2022
+      },
+      "2023": {
+        "shape": 3.0402460152531727,
+        "variance_over_mean_sq": 0.3289207501573606,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "evaluation_season": 2023
+      },
+      "2024": {
+        "shape": 3.420979742381207,
+        "variance_over_mean_sq": 0.29231392036947285,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "evaluation_season": 2024
+      },
+      "2025": {
+        "shape": 3.2478556335780198,
+        "variance_over_mean_sq": 0.3078954586717095,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "evaluation_season": 2025
+      }
+    },
+    "ligue-1": {
+      "2019": {
+        "shape": 3.1403868531079997,
+        "variance_over_mean_sq": 0.31843210622612084,
+        "team_venue_role_groups": 88,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2017,
+          2018
+        ],
+        "evaluation_season": 2019
+      },
+      "2020": {
+        "shape": 3.1565727724301915,
+        "variance_over_mean_sq": 0.3167992858375057,
+        "team_venue_role_groups": 88,
+        "xG_observations_in_groups": 2636,
+        "trained_match_count": 659,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2018,
+          2019
+        ],
+        "evaluation_season": 2020
+      },
+      "2021": {
+        "shape": 2.80103262600631,
+        "variance_over_mean_sq": 0.3570111931990568,
+        "team_venue_role_groups": 88,
+        "xG_observations_in_groups": 2636,
+        "trained_match_count": 659,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "evaluation_season": 2021
+      },
+      "2022": {
+        "shape": 2.9699791919340264,
+        "variance_over_mean_sq": 0.33670269566730804,
+        "team_venue_role_groups": 88,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "evaluation_season": 2022
+      },
+      "2023": {
+        "shape": 3.285109034335117,
+        "variance_over_mean_sq": 0.30440389939824114,
+        "team_venue_role_groups": 92,
+        "xG_observations_in_groups": 3040,
+        "trained_match_count": 760,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "evaluation_season": 2023
+      },
+      "2024": {
+        "shape": 3.6040190985138048,
+        "variance_over_mean_sq": 0.2774680079837456,
+        "team_venue_role_groups": 88,
+        "xG_observations_in_groups": 2744,
+        "trained_match_count": 686,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "evaluation_season": 2024
+      },
+      "2025": {
+        "shape": 3.398579928227968,
+        "variance_over_mean_sq": 0.2942405419670102,
+        "team_venue_role_groups": 84,
+        "xG_observations_in_groups": 2448,
+        "trained_match_count": 612,
+        "estimator": "Pooled Gamma variance-over-team-venue-role-mean-squared, using only two PRIOR seasons. No outcome scores or ROI.",
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "evaluation_season": 2025
+      }
+    }
+  },
+  "all_estimates": {
+    "n": 35,
+    "min": 2.731664649372877,
+    "max": 3.6628568077720276,
+    "mean": 3.2777106191694125
+  },
+  "audit": {
+    "historical_fixture_xG_valid": 16107,
+    "historical_fixture_xg_missing": 1,
+    "historical_fixture_xg_unreliable": 3
+  },
+  "limitations": [
+    "Per-team role averages from two seasons are only approximate latent-strength controls, can confound drift/lineup with xG measurement error.",
+    "Understat historical match xG publishing exact timestamps unverified; strict prior seasons do not guarantee historical API availability.",
+    "Research-estimated gamma shape is a model hypothesis, not a new EV or volume Gate or official model setting."
+  ]
+}

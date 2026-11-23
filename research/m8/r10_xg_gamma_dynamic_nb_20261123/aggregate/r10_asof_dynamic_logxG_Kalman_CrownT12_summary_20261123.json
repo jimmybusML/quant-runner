@@ -1,0 +1,940 @@
+{
+  "study": "R10_DYNAMIC_TEAM_VENUE_ATTACK_DEFENSE_LOGXG_STATE_SPACE_KALMAN",
+  "source_R5_SHA256": "71e841b629136c266b79190366bd47175f5748818db9a6b8fe1c888d65658561",
+  "source_Crown_SHA256": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+  "source_19490_2025_xg_csv_manifest_SHA256": "f3cf5114bed302cd4f002e75451a9a6372d3d7d19b67254b39c40346c28a246e",
+  "method": "Four dynamic log(xG+0.1) states per club separated by venue and attack/defense. Process Q and measurement R learned from first-difference variance and lag1 covariance of logxG in previous two completed seasons only. Filter state updated AFTER all same-day match predictions; full training seasons filtered first; carry over as-of past team strength. This is an observational hypothesis, NOT a fitted ROI strategy.",
+  "model_hypotheses": {
+    "logxg_offset": 0.1,
+    "Gaussian_Kalman_random_walk_per_team_role_match": true,
+    "process_Q_nonnegative_variance_property": true,
+    "R_pretrained_only": true,
+    "starting_club_state_log_league_prior_from_train_years": true
+  },
+  "train_hyperparameters_by_league_season": {
+    "epl": {
+      "2019": {
+        "measurement_noise_logxG_R": 0.3750280301841121,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.7313204472595565,
+        "difference_lag1_covariance": -0.3750280301841121,
+        "prior_team_role_log_variance": 0.09608038925132355,
+        "prior_league_home_mean_xG": 1.5448912869736842,
+        "prior_league_away_mean_xG": 1.1882761782894737,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2017,
+          2018
+        ]
+      },
+      "2020": {
+        "measurement_noise_logxG_R": 0.37338182759890803,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.7133880700474644,
+        "difference_lag1_covariance": -0.37338182759890803,
+        "prior_team_role_log_variance": 0.07821619952908965,
+        "prior_league_home_mean_xG": 1.563822737368421,
+        "prior_league_away_mean_xG": 1.2894553896052632,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2018,
+          2019
+        ]
+      },
+      "2021": {
+        "measurement_noise_logxG_R": 0.3618151440631332,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.7125803240252173,
+        "difference_lag1_covariance": -0.3618151440631332,
+        "prior_team_role_log_variance": 0.06476708048692735,
+        "prior_league_home_mean_xG": 1.4829478296052632,
+        "prior_league_away_mean_xG": 1.3098925780263158,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2019,
+          2020
+        ]
+      },
+      "2022": {
+        "measurement_noise_logxG_R": 0.3680937775025159,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.7289289122397707,
+        "difference_lag1_covariance": -0.3680937775025159,
+        "prior_team_role_log_variance": 0.0795995591809161,
+        "prior_league_home_mean_xG": 1.495601937894737,
+        "prior_league_away_mean_xG": 1.2912628128947368,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2020,
+          2021
+        ]
+      },
+      "2023": {
+        "measurement_noise_logxG_R": 0.3520316941161862,
+        "process_innovation_Q_per_team_venue_role_match": 0.0017078249204462992,
+        "variance_difference_estimate": 0.7057712131528187,
+        "difference_lag1_covariance": -0.3520316941161862,
+        "prior_team_role_log_variance": 0.0824205842751775,
+        "prior_league_home_mean_xG": 1.6145483284210524,
+        "prior_league_away_mean_xG": 1.2871261056578949,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2021,
+          2022
+        ]
+      },
+      "2024": {
+        "measurement_noise_logxG_R": 0.3111955074451999,
+        "process_innovation_Q_per_team_venue_role_match": 0.022117301263496203,
+        "variance_difference_estimate": 0.644508316153896,
+        "difference_lag1_covariance": -0.3111955074451999,
+        "prior_team_role_log_variance": 0.08083421442896586,
+        "prior_league_home_mean_xG": 1.7955796628947371,
+        "prior_league_away_mean_xG": 1.3770088721052631,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2022,
+          2023
+        ]
+      },
+      "2025": {
+        "measurement_noise_logxG_R": 0.30315484694670713,
+        "process_innovation_Q_per_team_venue_role_match": 0.015126407571828482,
+        "variance_difference_estimate": 0.6214361014652428,
+        "difference_lag1_covariance": -0.30315484694670713,
+        "prior_team_role_log_variance": 0.08523987027174323,
+        "prior_league_home_mean_xG": 1.8081297467105264,
+        "prior_league_away_mean_xG": 1.4830714443421051,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2023,
+          2024
+        ]
+      }
+    },
+    "bundesliga": {
+      "2019": {
+        "measurement_noise_logxG_R": 0.31373505720048056,
+        "process_innovation_Q_per_team_venue_role_match": 0.006537400722489761,
+        "variance_difference_estimate": 0.6340075151234509,
+        "difference_lag1_covariance": -0.31373505720048056,
+        "prior_team_role_log_variance": 0.07383051672254544,
+        "prior_league_home_mean_xG": 1.6580034385620916,
+        "prior_league_away_mean_xG": 1.270518368153595,
+        "train_games": 612,
+        "trained_role_series": 80,
+        "train_diff_observations": 2368,
+        "train_seasons": [
+          2017,
+          2018
+        ]
+      },
+      "2020": {
+        "measurement_noise_logxG_R": 0.2993833338230818,
+        "process_innovation_Q_per_team_venue_role_match": 0.018165401476230247,
+        "variance_difference_estimate": 0.6169320691223938,
+        "difference_lag1_covariance": -0.2993833338230818,
+        "prior_team_role_log_variance": 0.07172520893907924,
+        "prior_league_home_mean_xG": 1.7105238965686276,
+        "prior_league_away_mean_xG": 1.4461670232026145,
+        "train_games": 612,
+        "trained_role_series": 84,
+        "train_diff_observations": 2364,
+        "train_seasons": [
+          2018,
+          2019
+        ]
+      },
+      "2021": {
+        "measurement_noise_logxG_R": 0.3444483002835464,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.6882060094758781,
+        "difference_lag1_covariance": -0.3444483002835464,
+        "prior_team_role_log_variance": 0.0640034711304323,
+        "prior_league_home_mean_xG": 1.5851491919934642,
+        "prior_league_away_mean_xG": 1.4092642766339867,
+        "train_games": 612,
+        "trained_role_series": 80,
+        "train_diff_observations": 2368,
+        "train_seasons": [
+          2019,
+          2020
+        ]
+      },
+      "2022": {
+        "measurement_noise_logxG_R": 0.3373869939323373,
+        "process_innovation_Q_per_team_venue_role_match": 0.001187632577055009,
+        "variance_difference_estimate": 0.6759616204417296,
+        "difference_lag1_covariance": -0.3373869939323373,
+        "prior_team_role_log_variance": 0.07366383165475264,
+        "prior_league_home_mean_xG": 1.6237720326797385,
+        "prior_league_away_mean_xG": 1.366207608006536,
+        "train_games": 612,
+        "trained_role_series": 80,
+        "train_diff_observations": 2368,
+        "train_seasons": [
+          2020,
+          2021
+        ]
+      },
+      "2023": {
+        "measurement_noise_logxG_R": 0.3163368152585914,
+        "process_innovation_Q_per_team_venue_role_match": 0.014735597445442505,
+        "variance_difference_estimate": 0.6474092279626253,
+        "difference_lag1_covariance": -0.3163368152585914,
+        "prior_team_role_log_variance": 0.07216959652469838,
+        "prior_league_home_mean_xG": 1.7247656952614379,
+        "prior_league_away_mean_xG": 1.3483491344771241,
+        "train_games": 612,
+        "trained_role_series": 80,
+        "train_diff_observations": 2368,
+        "train_seasons": [
+          2021,
+          2022
+        ]
+      },
+      "2024": {
+        "measurement_noise_logxG_R": 0.30633850494424447,
+        "process_innovation_Q_per_team_venue_role_match": 0.015531953949532107,
+        "variance_difference_estimate": 0.628208963838021,
+        "difference_lag1_covariance": -0.30633850494424447,
+        "prior_team_role_log_variance": 0.07416556044393727,
+        "prior_league_home_mean_xG": 1.810205591503268,
+        "prior_league_away_mean_xG": 1.3713622810457518,
+        "train_games": 612,
+        "trained_role_series": 80,
+        "train_diff_observations": 2368,
+        "train_seasons": [
+          2022,
+          2023
+        ]
+      },
+      "2025": {
+        "measurement_noise_logxG_R": 0.3117650754229952,
+        "process_innovation_Q_per_team_venue_role_match": 0.01392206687727049,
+        "variance_difference_estimate": 0.6374522177232609,
+        "difference_lag1_covariance": -0.3117650754229952,
+        "prior_team_role_log_variance": 0.07576452798158143,
+        "prior_league_home_mean_xG": 1.8494794579378069,
+        "prior_league_away_mean_xG": 1.4479439322422258,
+        "train_games": 612,
+        "trained_role_series": 80,
+        "train_diff_observations": 2364,
+        "train_seasons": [
+          2023,
+          2024
+        ]
+      }
+    },
+    "serie-a": {
+      "2019": {
+        "measurement_noise_logxG_R": 0.3654095249379706,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.7204582466151754,
+        "difference_lag1_covariance": -0.3654095249379706,
+        "prior_team_role_log_variance": 0.08412611214084648,
+        "prior_league_home_mean_xG": 1.4692630094736843,
+        "prior_league_away_mean_xG": 1.187285322105263,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2017,
+          2018
+        ]
+      },
+      "2020": {
+        "measurement_noise_logxG_R": 0.30680933818704026,
+        "process_innovation_Q_per_team_venue_role_match": 0.0011333010204851446,
+        "variance_difference_estimate": 0.6147519773945657,
+        "difference_lag1_covariance": -0.30680933818704026,
+        "prior_team_role_log_variance": 0.06599570041814323,
+        "prior_league_home_mean_xG": 1.580611025131579,
+        "prior_league_away_mean_xG": 1.2886765706578946,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2018,
+          2019
+        ]
+      },
+      "2021": {
+        "measurement_noise_logxG_R": 0.3331785493237695,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.6590671176697867,
+        "difference_lag1_covariance": -0.3331785493237695,
+        "prior_team_role_log_variance": 0.06608776861445677,
+        "prior_league_home_mean_xG": 1.6018339853947368,
+        "prior_league_away_mean_xG": 1.3910413378947368,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2019,
+          2020
+        ]
+      },
+      "2022": {
+        "measurement_noise_logxG_R": 0.36742648781259873,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.7245130300986548,
+        "difference_lag1_covariance": -0.36742648781259873,
+        "prior_team_role_log_variance": 0.07396167165233422,
+        "prior_league_home_mean_xG": 1.559177327894737,
+        "prior_league_away_mean_xG": 1.3756835086842107,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2020,
+          2021
+        ]
+      },
+      "2023": {
+        "measurement_noise_logxG_R": 0.3281109435004742,
+        "process_innovation_Q_per_team_venue_role_match": 0.013314234416315296,
+        "variance_difference_estimate": 0.6695361214172637,
+        "difference_lag1_covariance": -0.3281109435004742,
+        "prior_team_role_log_variance": 0.07617628518509334,
+        "prior_league_home_mean_xG": 1.4865707557894738,
+        "prior_league_away_mean_xG": 1.278160986842105,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2021,
+          2022
+        ]
+      },
+      "2024": {
+        "measurement_noise_logxG_R": 0.3086627296241594,
+        "process_innovation_Q_per_team_venue_role_match": 0.01836576589199057,
+        "variance_difference_estimate": 0.6356912251403094,
+        "difference_lag1_covariance": -0.3086627296241594,
+        "prior_team_role_log_variance": 0.06850685615018988,
+        "prior_league_home_mean_xG": 1.4778436763157896,
+        "prior_league_away_mean_xG": 1.2254392619736842,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2022,
+          2023
+        ]
+      },
+      "2025": {
+        "measurement_noise_logxG_R": 0.3168179145544275,
+        "process_innovation_Q_per_team_venue_role_match": 0.025450784622569445,
+        "variance_difference_estimate": 0.6590866137314244,
+        "difference_lag1_covariance": -0.3168179145544275,
+        "prior_team_role_log_variance": 0.06888523999012322,
+        "prior_league_home_mean_xG": 1.4929514319736843,
+        "prior_league_away_mean_xG": 1.244355730263158,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2023,
+          2024
+        ]
+      }
+    },
+    "la-liga": {
+      "2019": {
+        "measurement_noise_logxG_R": 0.3422036418261897,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.6611459300635223,
+        "difference_lag1_covariance": -0.3422036418261897,
+        "prior_team_role_log_variance": 0.07035178721097544,
+        "prior_league_home_mean_xG": 1.6073745342105266,
+        "prior_league_away_mean_xG": 1.1573054853947369,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2017,
+          2018
+        ]
+      },
+      "2020": {
+        "measurement_noise_logxG_R": 0.35365005474132605,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.6845890502933272,
+        "difference_lag1_covariance": -0.35365005474132605,
+        "prior_team_role_log_variance": 0.05833687148088293,
+        "prior_league_home_mean_xG": 1.5297109847167327,
+        "prior_league_away_mean_xG": 1.1402719374176549,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2944,
+        "train_seasons": [
+          2018,
+          2019
+        ]
+      },
+      "2021": {
+        "measurement_noise_logxG_R": 0.3897680897207184,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.7621187764193139,
+        "difference_lag1_covariance": -0.3897680897207184,
+        "prior_team_role_log_variance": 0.05980238191311002,
+        "prior_league_home_mean_xG": 1.4137059728590249,
+        "prior_league_away_mean_xG": 1.118780563768116,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2944,
+        "train_seasons": [
+          2019,
+          2020
+        ]
+      },
+      "2022": {
+        "measurement_noise_logxG_R": 0.3754495535607855,
+        "process_innovation_Q_per_team_venue_role_match": 0.00830958903635659,
+        "variance_difference_estimate": 0.7592086961579276,
+        "difference_lag1_covariance": -0.3754495535607855,
+        "prior_team_role_log_variance": 0.05776225472374614,
+        "prior_league_home_mean_xG": 1.418195504473684,
+        "prior_league_away_mean_xG": 1.1489393417105263,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2020,
+          2021
+        ]
+      },
+      "2023": {
+        "measurement_noise_logxG_R": 0.31535693018090055,
+        "process_innovation_Q_per_team_venue_role_match": 0.05012951652867326,
+        "variance_difference_estimate": 0.6808433768904744,
+        "difference_lag1_covariance": -0.31535693018090055,
+        "prior_team_role_log_variance": 0.07915163881014356,
+        "prior_league_home_mean_xG": 1.555641959736842,
+        "prior_league_away_mean_xG": 1.1466449701315788,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2021,
+          2022
+        ]
+      },
+      "2024": {
+        "measurement_noise_logxG_R": 0.32161401146513513,
+        "process_innovation_Q_per_team_venue_role_match": 0.031564973666749596,
+        "variance_difference_estimate": 0.6747929965970199,
+        "difference_lag1_covariance": -0.32161401146513513,
+        "prior_team_role_log_variance": 0.08872262730953599,
+        "prior_league_home_mean_xG": 1.6549136718421054,
+        "prior_league_away_mean_xG": 1.1695999406578947,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2022,
+          2023
+        ]
+      },
+      "2025": {
+        "measurement_noise_logxG_R": 0.34348906732502654,
+        "process_innovation_Q_per_team_venue_role_match": 0.01808269956937658,
+        "variance_difference_estimate": 0.7050608342194297,
+        "difference_lag1_covariance": -0.34348906732502654,
+        "prior_team_role_log_variance": 0.07980415441793846,
+        "prior_league_home_mean_xG": 1.6431790427631578,
+        "prior_league_away_mean_xG": 1.2193879125,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2023,
+          2024
+        ]
+      }
+    },
+    "ligue-1": {
+      "2019": {
+        "measurement_noise_logxG_R": 0.33791776748248903,
+        "process_innovation_Q_per_team_venue_role_match": 0.007950517343112584,
+        "variance_difference_estimate": 0.6837860523080906,
+        "difference_lag1_covariance": -0.33791776748248903,
+        "prior_team_role_log_variance": 0.07083224024940289,
+        "prior_league_home_mean_xG": 1.454921077368421,
+        "prior_league_away_mean_xG": 1.1026772314473685,
+        "train_games": 760,
+        "trained_role_series": 88,
+        "train_diff_observations": 2952,
+        "train_seasons": [
+          2017,
+          2018
+        ]
+      },
+      "2020": {
+        "measurement_noise_logxG_R": 0.323792548436578,
+        "process_innovation_Q_per_team_venue_role_match": 0.01725213992050567,
+        "variance_difference_estimate": 0.6648372367936617,
+        "difference_lag1_covariance": -0.323792548436578,
+        "prior_team_role_log_variance": 0.07349526537709473,
+        "prior_league_home_mean_xG": 1.4355255494688923,
+        "prior_league_away_mean_xG": 1.0856593177541731,
+        "train_games": 659,
+        "trained_role_series": 88,
+        "train_diff_observations": 2548,
+        "train_seasons": [
+          2018,
+          2019
+        ]
+      },
+      "2021": {
+        "measurement_noise_logxG_R": 0.33773895137069715,
+        "process_innovation_Q_per_team_venue_role_match": 0.030743965514835048,
+        "variance_difference_estimate": 0.7062218682562293,
+        "difference_lag1_covariance": -0.33773895137069715,
+        "prior_team_role_log_variance": 0.056091375363715126,
+        "prior_league_home_mean_xG": 1.4152855978755692,
+        "prior_league_away_mean_xG": 1.1675868649468892,
+        "train_games": 659,
+        "trained_role_series": 88,
+        "train_diff_observations": 2548,
+        "train_seasons": [
+          2019,
+          2020
+        ]
+      },
+      "2022": {
+        "measurement_noise_logxG_R": 0.34136464696844493,
+        "process_innovation_Q_per_team_venue_role_match": 0.02055032240482324,
+        "variance_difference_estimate": 0.7032796163417131,
+        "difference_lag1_covariance": -0.34136464696844493,
+        "prior_team_role_log_variance": 0.0596591006926138,
+        "prior_league_home_mean_xG": 1.4599105118421054,
+        "prior_league_away_mean_xG": 1.228144529605263,
+        "train_games": 760,
+        "trained_role_series": 88,
+        "train_diff_observations": 2952,
+        "train_seasons": [
+          2020,
+          2021
+        ]
+      },
+      "2023": {
+        "measurement_noise_logxG_R": 0.34365049198374614,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.6704145862861445,
+        "difference_lag1_covariance": -0.34365049198374614,
+        "prior_team_role_log_variance": 0.06955366600369968,
+        "prior_league_home_mean_xG": 1.5436804105263158,
+        "prior_league_away_mean_xG": 1.2869330947368423,
+        "train_games": 760,
+        "trained_role_series": 92,
+        "train_diff_observations": 2948,
+        "train_seasons": [
+          2021,
+          2022
+        ]
+      },
+      "2024": {
+        "measurement_noise_logxG_R": 0.3237600859243578,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.6261521997340181,
+        "difference_lag1_covariance": -0.3237600859243578,
+        "prior_team_role_log_variance": 0.07435308559504661,
+        "prior_league_home_mean_xG": 1.6284790466472303,
+        "prior_league_away_mean_xG": 1.3243184793002916,
+        "train_games": 686,
+        "trained_role_series": 88,
+        "train_diff_observations": 2656,
+        "train_seasons": [
+          2022,
+          2023
+        ]
+      },
+      "2025": {
+        "measurement_noise_logxG_R": 0.3279424192975692,
+        "process_innovation_Q_per_team_venue_role_match": 0.0,
+        "variance_difference_estimate": 0.641660970006138,
+        "difference_lag1_covariance": -0.3279424192975692,
+        "prior_team_role_log_variance": 0.07045349358977897,
+        "prior_league_home_mean_xG": 1.7396867728758172,
+        "prior_league_away_mean_xG": 1.3909759663398693,
+        "train_games": 612,
+        "trained_role_series": 84,
+        "train_diff_observations": 2364,
+        "train_seasons": [
+          2023,
+          2024
+        ]
+      }
+    }
+  },
+  "audit": {
+    "not_in_old_Crown_9908_cohort": 2551,
+    "market_contracts_processed": 19816,
+    "evaluated_fixtures": 9908
+  },
+  "overall": {
+    "n": 9908,
+    "Brier": 0.6015536,
+    "logloss": 1.0082706,
+    "Crown_market_Brier": 0.5783596,
+    "mean_Q": 0.0102135,
+    "mean_R": 0.3370682,
+    "actual_goal_MSE": 2.915792,
+    "mean_expected_goals": 3.0564804,
+    "AH": {
+      "n": 9908,
+      "net_U": -295.92,
+      "ROI_pct": -2.98668,
+      "R5_Bayes_k2_U": -121.55,
+      "paired_delta_v_R5_k2_U": -174.37,
+      "change_of_side_vs_R5_k2": 3218
+    },
+    "OU": {
+      "n": 9908,
+      "net_U": -272.875,
+      "ROI_pct": -2.75409,
+      "R5_Bayes_k2_U": -148.56,
+      "paired_delta_v_R5_k2_U": -124.315,
+      "change_of_side_vs_R5_k2": 2922
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "n": 1720,
+      "Brier": 0.6027046,
+      "logloss": 1.0099129,
+      "Crown_market_Brier": 0.583032,
+      "mean_Q": 0.0100291,
+      "mean_R": 0.3184235,
+      "actual_goal_MSE": 3.0991455,
+      "mean_expected_goals": 3.2695226,
+      "AH": {
+        "n": 1720,
+        "net_U": -42.55,
+        "ROI_pct": -2.47384,
+        "R5_Bayes_k2_U": -36.105,
+        "paired_delta_v_R5_k2_U": -6.445,
+        "change_of_side_vs_R5_k2": 540
+      },
+      "OU": {
+        "n": 1720,
+        "net_U": -42.07,
+        "ROI_pct": -2.44593,
+        "R5_Bayes_k2_U": -58.59,
+        "paired_delta_v_R5_k2_U": 16.52,
+        "change_of_side_vs_R5_k2": 420
+      }
+    },
+    "epl": {
+      "n": 2193,
+      "Brier": 0.5948186,
+      "logloss": 0.9989234,
+      "Crown_market_Brier": 0.5746553,
+      "mean_Q": 0.0056581,
+      "mean_R": 0.3489998,
+      "actual_goal_MSE": 2.9069651,
+      "mean_expected_goals": 3.1265281,
+      "AH": {
+        "n": 2193,
+        "net_U": -61.82,
+        "ROI_pct": -2.81897,
+        "R5_Bayes_k2_U": 44.03,
+        "paired_delta_v_R5_k2_U": -105.85,
+        "change_of_side_vs_R5_k2": 795
+      },
+      "OU": {
+        "n": 2193,
+        "net_U": -36.345,
+        "ROI_pct": -1.65732,
+        "R5_Bayes_k2_U": -29.3,
+        "paired_delta_v_R5_k2_U": -7.045,
+        "change_of_side_vs_R5_k2": 702
+      }
+    },
+    "la-liga": {
+      "n": 1944,
+      "Brier": 0.6021633,
+      "logloss": 1.0089484,
+      "Crown_market_Brier": 0.5752279,
+      "mean_Q": 0.0155808,
+      "mean_R": 0.3486042,
+      "actual_goal_MSE": 2.9174145,
+      "mean_expected_goals": 3.0152318,
+      "AH": {
+        "n": 1944,
+        "net_U": -36.07,
+        "ROI_pct": -1.85545,
+        "R5_Bayes_k2_U": -45.51,
+        "paired_delta_v_R5_k2_U": 9.44,
+        "change_of_side_vs_R5_k2": 590
+      },
+      "OU": {
+        "n": 1944,
+        "net_U": -62.68,
+        "ROI_pct": -3.22428,
+        "R5_Bayes_k2_U": -16.74,
+        "paired_delta_v_R5_k2_U": -45.94,
+        "change_of_side_vs_R5_k2": 556
+      }
+    },
+    "ligue-1": {
+      "n": 1880,
+      "Brier": 0.6096914,
+      "logloss": 1.0207245,
+      "Crown_market_Brier": 0.5853036,
+      "mean_Q": 0.012262,
+      "mean_R": 0.3337473,
+      "actual_goal_MSE": 2.9196918,
+      "mean_expected_goals": 2.9328311,
+      "AH": {
+        "n": 1880,
+        "net_U": -67.815,
+        "ROI_pct": -3.60718,
+        "R5_Bayes_k2_U": -2.245,
+        "paired_delta_v_R5_k2_U": -65.57,
+        "change_of_side_vs_R5_k2": 625
+      },
+      "OU": {
+        "n": 1880,
+        "net_U": -58.01,
+        "ROI_pct": -3.08564,
+        "R5_Bayes_k2_U": -66.56,
+        "paired_delta_v_R5_k2_U": 8.55,
+        "change_of_side_vs_R5_k2": 524
+      }
+    },
+    "serie-a": {
+      "n": 2171,
+      "Brier": 0.599852,
+      "logloss": 1.0050198,
+      "Crown_market_Brier": 0.5751906,
+      "mean_Q": 0.0083811,
+      "mean_R": 0.3323329,
+      "actual_goal_MSE": 2.7746146,
+      "mean_expected_goals": 2.9609488,
+      "AH": {
+        "n": 2171,
+        "net_U": -87.665,
+        "ROI_pct": -4.038,
+        "R5_Bayes_k2_U": -81.72,
+        "paired_delta_v_R5_k2_U": -5.945,
+        "change_of_side_vs_R5_k2": 668
+      },
+      "OU": {
+        "n": 2171,
+        "net_U": -73.77,
+        "ROI_pct": -3.39797,
+        "R5_Bayes_k2_U": 22.63,
+        "paired_delta_v_R5_k2_U": -96.4,
+        "change_of_side_vs_R5_k2": 720
+      }
+    }
+  },
+  "by_season": {
+    "2019": {
+      "n": 1373,
+      "Brier": 0.5920035,
+      "logloss": 0.9922128,
+      "Crown_market_Brier": 0.5778054,
+      "mean_Q": 0.0024364,
+      "mean_R": 0.3492661,
+      "actual_goal_MSE": 2.6097119,
+      "mean_expected_goals": 2.9516701,
+      "AH": {
+        "n": 1373,
+        "net_U": -39.425,
+        "ROI_pct": -2.87145,
+        "R5_Bayes_k2_U": 35.335,
+        "paired_delta_v_R5_k2_U": -74.76,
+        "change_of_side_vs_R5_k2": 432
+      },
+      "OU": {
+        "n": 1373,
+        "net_U": -26.675,
+        "ROI_pct": -1.94283,
+        "R5_Bayes_k2_U": 35.695,
+        "paired_delta_v_R5_k2_U": -62.37,
+        "change_of_side_vs_R5_k2": 435
+      }
+    },
+    "2020": {
+      "n": 1462,
+      "Brier": 0.6010229,
+      "logloss": 1.008914,
+      "Crown_market_Brier": 0.5786587,
+      "mean_Q": 0.0070174,
+      "mean_R": 0.3322506,
+      "actual_goal_MSE": 2.8404761,
+      "mean_expected_goals": 2.9040025,
+      "AH": {
+        "n": 1462,
+        "net_U": -28.725,
+        "ROI_pct": -1.96477,
+        "R5_Bayes_k2_U": -24.06,
+        "paired_delta_v_R5_k2_U": -4.665,
+        "change_of_side_vs_R5_k2": 478
+      },
+      "OU": {
+        "n": 1462,
+        "net_U": -40.05,
+        "ROI_pct": -2.7394,
+        "R5_Bayes_k2_U": 13.785,
+        "paired_delta_v_R5_k2_U": -53.835,
+        "change_of_side_vs_R5_k2": 473
+      }
+    },
+    "2021": {
+      "n": 1418,
+      "Brier": 0.6062777,
+      "logloss": 1.0166478,
+      "Crown_market_Brier": 0.5822157,
+      "mean_Q": 0.0067429,
+      "mean_R": 0.3529179,
+      "actual_goal_MSE": 2.8729177,
+      "mean_expected_goals": 2.9636803,
+      "AH": {
+        "n": 1418,
+        "net_U": -59.64,
+        "ROI_pct": -4.20592,
+        "R5_Bayes_k2_U": 5.81,
+        "paired_delta_v_R5_k2_U": -65.45,
+        "change_of_side_vs_R5_k2": 548
+      },
+      "OU": {
+        "n": 1418,
+        "net_U": -26.6,
+        "ROI_pct": -1.87588,
+        "R5_Bayes_k2_U": -25.545,
+        "paired_delta_v_R5_k2_U": -1.055,
+        "change_of_side_vs_R5_k2": 567
+      }
+    },
+    "2022": {
+      "n": 1468,
+      "Brier": 0.5949588,
+      "logloss": 0.9979539,
+      "Crown_market_Brier": 0.5795739,
+      "mean_Q": 0.0061279,
+      "mean_R": 0.3584948,
+      "actual_goal_MSE": 2.9251623,
+      "mean_expected_goals": 3.0723219,
+      "AH": {
+        "n": 1468,
+        "net_U": -43.135,
+        "ROI_pct": -2.93835,
+        "R5_Bayes_k2_U": -43.99,
+        "paired_delta_v_R5_k2_U": 0.855,
+        "change_of_side_vs_R5_k2": 494
+      },
+      "OU": {
+        "n": 1468,
+        "net_U": -66.655,
+        "ROI_pct": -4.54053,
+        "R5_Bayes_k2_U": -86.01,
+        "paired_delta_v_R5_k2_U": 19.355,
+        "change_of_side_vs_R5_k2": 467
+      }
+    },
+    "2023": {
+      "n": 1396,
+      "Brier": 0.5987877,
+      "logloss": 1.0027658,
+      "Crown_market_Brier": 0.5743101,
+      "mean_Q": 0.0160657,
+      "mean_R": 0.331525,
+      "actual_goal_MSE": 2.9372044,
+      "mean_expected_goals": 3.1047675,
+      "AH": {
+        "n": 1396,
+        "net_U": -20.275,
+        "ROI_pct": -1.45236,
+        "R5_Bayes_k2_U": -21.665,
+        "paired_delta_v_R5_k2_U": 1.39,
+        "change_of_side_vs_R5_k2": 411
+      },
+      "OU": {
+        "n": 1396,
+        "net_U": 1.535,
+        "ROI_pct": 0.10996,
+        "R5_Bayes_k2_U": -14.145,
+        "paired_delta_v_R5_k2_U": 15.68,
+        "change_of_side_vs_R5_k2": 321
+      }
+    },
+    "2024": {
+      "n": 1391,
+      "Brier": 0.5945317,
+      "logloss": 0.9969946,
+      "Crown_market_Brier": 0.5700479,
+      "mean_Q": 0.0181966,
+      "mean_R": 0.3140978,
+      "actual_goal_MSE": 3.0313604,
+      "mean_expected_goals": 3.1325042,
+      "AH": {
+        "n": 1391,
+        "net_U": -69.77,
+        "ROI_pct": -5.01582,
+        "R5_Bayes_k2_U": -33.715,
+        "paired_delta_v_R5_k2_U": -36.055,
+        "change_of_side_vs_R5_k2": 448
+      },
+      "OU": {
+        "n": 1391,
+        "net_U": -54.28,
+        "ROI_pct": -3.90223,
+        "R5_Bayes_k2_U": -32.1,
+        "paired_delta_v_R5_k2_U": -22.18,
+        "change_of_side_vs_R5_k2": 355
+      }
+    },
+    "2025": {
+      "n": 1400,
+      "Brier": 0.6233385,
+      "logloss": 1.042372,
+      "Crown_market_Brier": 0.5857078,
+      "mean_Q": 0.0152103,
+      "mean_R": 0.3199654,
+      "actual_goal_MSE": 3.1920441,
+      "mean_expected_goals": 3.272198,
+      "AH": {
+        "n": 1400,
+        "net_U": -34.95,
+        "ROI_pct": -2.49643,
+        "R5_Bayes_k2_U": -39.265,
+        "paired_delta_v_R5_k2_U": 4.315,
+        "change_of_side_vs_R5_k2": 407
+      },
+      "OU": {
+        "n": 1400,
+        "net_U": -60.15,
+        "ROI_pct": -4.29643,
+        "R5_Bayes_k2_U": -40.24,
+        "paired_delta_v_R5_k2_U": -19.91,
+        "change_of_side_vs_R5_k2": 304
+      }
+    }
+  },
+  "limitations": [
+    "xG historical provider published timestamp unknown; strict prior match-date does not prove price+xG availability.",
+    "Kalman log(xG+.1) additive Gaussian observation and per-match Q are model research assumptions, not established football dynamics.",
+    "If learned Q<0 at unconstrained moments, Q=0 as valid stochastic-process variance boundary, not fixture filter. Report all.",
+    "Crown T12 source-event quote retrieved after games and not known executable; same 9908 repeatedly researched fixtures, not fresh blind trades.",
+    "No national teams, no positive EV eligibility filter, no user-approved production changes."
+  ]
+}

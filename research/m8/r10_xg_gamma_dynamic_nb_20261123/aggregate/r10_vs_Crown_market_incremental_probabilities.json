@@ -1,0 +1,751 @@
+{
+  "study": "R10_ASOF_MODELS_INCREMENTAL_PROBABILITY_VS_CROWN_MARKET_PREGAME_HISTORICAL",
+  "source_sha256": {
+    "r10_Gamma_xG_posterior_predictive_20261123.jsonl": "546a288e85c65331a85c7a5954279aeacc63cdbcddf6091ad8a1c1d5b7433239",
+    "r10_asof_dynamic_logxG_Kalman_CrownT12_20261123.jsonl": "bd1f3e2ca35f8ad2db965f5ff2ab8be9153f2df515bba7100e6530e65ec2c6b7",
+    "r10_prev_two_season_asof_negative_binomial_CrownT12_20261123.jsonl": "68d7a500c87cac4bd3fd7b462f0a5c18c649181ce255db1aa73599392380b726",
+    "r7_market_implied_2market_20261123.jsonl": "c3405e0fadcf539fe45a0408035efd6ce4a1e268d32bbe4d50ce3db4500eecf8",
+    "r5_bayes_bivar_CrownT12_20261123.jsonl": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8"
+  },
+  "scope": "Five domestic club leagues, exactly same 9908 historical source-event Crown paired fixtures, no national teams.",
+  "methods": "The Crown market distribution is inferred from its same-event AH+OU prices. Compare each new model and 75% market /25% model or 50/50 fixed probability mixtures. None of the fixed weights was selected to maximize historic ROI or Brier; no order eligibility Gate.",
+  "overall": {
+    "n": 9908,
+    "Crown_AH_OU_market": {
+      "Brier": 0.5783596,
+      "logloss": 0.9735839
+    },
+    "Gamma_xG_k1": {
+      "Brier": 0.6000966,
+      "logloss": 1.0051598
+    },
+    "Gamma_xG_k2": {
+      "Brier": 0.5994302,
+      "logloss": 1.0040229
+    },
+    "dynamic_Kalman": {
+      "Brier": 0.6015536,
+      "logloss": 1.0082706
+    },
+    "goal_total_NB_k2": {
+      "Brier": 0.5993086,
+      "logloss": 1.0037004
+    },
+    "market75_Gamma_xG_k125": {
+      "Brier": 0.5797764,
+      "logloss": 0.9757763
+    },
+    "market50_Gamma_xG_k150": {
+      "Brier": 0.5838715,
+      "logloss": 0.9817302
+    },
+    "market75_Gamma_xG_k225": {
+      "Brier": 0.5798535,
+      "logloss": 0.975952
+    },
+    "market50_Gamma_xG_k250": {
+      "Brier": 0.5838632,
+      "logloss": 0.9818728
+    },
+    "market75_dynamic_Kalman25": {
+      "Brier": 0.5798498,
+      "logloss": 0.9757961
+    },
+    "market50_dynamic_Kalman50": {
+      "Brier": 0.5842123,
+      "logloss": 0.9820426
+    },
+    "market75_goal_total_NB_k225": {
+      "Brier": 0.5797476,
+      "logloss": 0.9757199
+    },
+    "market50_goal_total_NB_k250": {
+      "Brier": 0.5837018,
+      "logloss": 0.9814552
+    },
+    "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "goal_total_NB_k2"
+  },
+  "by_year": {
+    "2019": {
+      "n": 1373,
+      "Crown_AH_OU_market": {
+        "Brier": 0.5778054,
+        "logloss": 0.9726347
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.5958506,
+        "logloss": 0.9991835
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.595046,
+        "logloss": 0.997704
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.5920035,
+        "logloss": 0.9922128
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.5948064,
+        "logloss": 0.997393
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.5778356,
+        "logloss": 0.9727394
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.5808533,
+        "logloss": 0.977262
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5778269,
+        "logloss": 0.9727153
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.5807075,
+        "logloss": 0.9770952
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.5783222,
+        "logloss": 0.9732862
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.5808608,
+        "logloss": 0.9767486
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.5777154,
+        "logloss": 0.9725244
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.5805189,
+        "logloss": 0.976728
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "dynamic_Kalman"
+    },
+    "2020": {
+      "n": 1462,
+      "Crown_AH_OU_market": {
+        "Brier": 0.5786587,
+        "logloss": 0.9770653
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.6021178,
+        "logloss": 1.0079605
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.6009851,
+        "logloss": 1.0062774
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.6010229,
+        "logloss": 1.008914
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.6010774,
+        "logloss": 1.0061765
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.5802717,
+        "logloss": 0.9784904
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.5847193,
+        "logloss": 0.9841549
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5802874,
+        "logloss": 0.9785294
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.5845514,
+        "logloss": 0.9840542
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.5799523,
+        "logloss": 0.9784067
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.5841109,
+        "logloss": 0.9840425
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.5802402,
+        "logloss": 0.978428
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.5845038,
+        "logloss": 0.9838441
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "Gamma_xG_k2"
+    },
+    "2021": {
+      "n": 1418,
+      "Crown_AH_OU_market": {
+        "Brier": 0.5822157,
+        "logloss": 0.9795754
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.6012146,
+        "logloss": 1.007539
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.6001819,
+        "logloss": 1.0057936
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.6062777,
+        "logloss": 1.0166478
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.6000916,
+        "logloss": 1.0057278
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.582855,
+        "logloss": 0.9809482
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.5862346,
+        "logloss": 0.9859922
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5827918,
+        "logloss": 0.9808335
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.5859782,
+        "logloss": 0.9856347
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.5846026,
+        "logloss": 0.9831214
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.5894085,
+        "logloss": 0.9901933
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.5827185,
+        "logloss": 0.9807135
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.5858654,
+        "logloss": 0.9854108
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "goal_total_NB_k2"
+    },
+    "2022": {
+      "n": 1468,
+      "Crown_AH_OU_market": {
+        "Brier": 0.5795739,
+        "logloss": 0.9749318
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.6022217,
+        "logloss": 1.0087384
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.600598,
+        "logloss": 1.0058325
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.5949588,
+        "logloss": 0.9979539
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.6008119,
+        "logloss": 1.0061824
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.5815498,
+        "logloss": 0.9775616
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.5859831,
+        "logloss": 0.9839856
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5814295,
+        "logloss": 0.9774721
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.585552,
+        "logloss": 0.9835098
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.579849,
+        "logloss": 0.9752986
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.5825049,
+        "logloss": 0.9791613
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.5813873,
+        "logloss": 0.9773208
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.5855315,
+        "logloss": 0.9832943
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "dynamic_Kalman"
+    },
+    "2023": {
+      "n": 1396,
+      "Crown_AH_OU_market": {
+        "Brier": 0.5743101,
+        "logloss": 0.9660678
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.5983539,
+        "logloss": 1.0015131
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.5990605,
+        "logloss": 1.0025655
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.5987877,
+        "logloss": 1.0027658
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.5986436,
+        "logloss": 1.0014806
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.5766673,
+        "logloss": 0.970083
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.5814603,
+        "logloss": 0.9772123
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5770528,
+        "logloss": 0.9708287
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.5820921,
+        "logloss": 0.9784757
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.5757478,
+        "logloss": 0.9686978
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.5803066,
+        "logloss": 0.9753096
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.5768582,
+        "logloss": 0.9703485
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.5817631,
+        "logloss": 0.9775917
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "Gamma_xG_k1"
+    },
+    "2024": {
+      "n": 1391,
+      "Crown_AH_OU_market": {
+        "Brier": 0.5700479,
+        "logloss": 0.9609309
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.5898302,
+        "logloss": 0.9891119
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.589657,
+        "logloss": 0.9891443
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.5945317,
+        "logloss": 0.9969946
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.5895183,
+        "logloss": 0.9887162
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.5707674,
+        "logloss": 0.9622673
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.5743043,
+        "logloss": 0.9673968
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5710726,
+        "logloss": 0.9628397
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.5746824,
+        "logloss": 0.9682381
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.5705172,
+        "logloss": 0.9616493
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.5747542,
+        "logloss": 0.9674514
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.5709434,
+        "logloss": 0.962567
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.574487,
+        "logloss": 0.9677638
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "goal_total_NB_k2"
+    },
+    "2025": {
+      "n": 1400,
+      "Crown_AH_OU_market": {
+        "Brier": 0.5857078,
+        "logloss": 0.9834639
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.6107271,
+        "logloss": 1.0215148
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.6101995,
+        "logloss": 1.0204107
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.6233385,
+        "logloss": 1.042372
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.6098981,
+        "logloss": 1.0197458
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.5882359,
+        "logloss": 0.987909
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.5932484,
+        "logloss": 0.9956447
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5882762,
+        "logloss": 0.9880335
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.5932143,
+        "logloss": 0.9956878
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.589791,
+        "logloss": 0.9897673
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.5974238,
+        "logloss": 1.001123
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.5881265,
+        "logloss": 0.9877137
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.5929645,
+        "logloss": 0.9951173
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "goal_total_NB_k2"
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "n": 1720,
+      "Crown_AH_OU_market": {
+        "Brier": 0.583032,
+        "logloss": 0.9807446
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.6048076,
+        "logloss": 1.0121588
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.6034318,
+        "logloss": 1.0100473
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.6027046,
+        "logloss": 1.0099129
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.6033972,
+        "logloss": 1.0098145
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.5843878,
+        "logloss": 0.9830349
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.588469,
+        "logloss": 0.9890082
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5842838,
+        "logloss": 0.9828852
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.588101,
+        "logloss": 0.9885744
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.5834506,
+        "logloss": 0.981398
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.5868689,
+        "logloss": 0.9862856
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.5841868,
+        "logloss": 0.9826588
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.5879659,
+        "logloss": 0.9881662
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "dynamic_Kalman"
+    },
+    "epl": {
+      "n": 2193,
+      "Crown_AH_OU_market": {
+        "Brier": 0.5746553,
+        "logloss": 0.9676549
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.592117,
+        "logloss": 0.9945814
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.5914109,
+        "logloss": 0.9932257
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.5948186,
+        "logloss": 0.9989234
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.5911932,
+        "logloss": 0.9928396
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.5745607,
+        "logloss": 0.9679813
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.5774395,
+        "logloss": 0.9725652
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5745594,
+        "logloss": 0.9680543
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.5773201,
+        "logloss": 0.9725343
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.5756465,
+        "logloss": 0.9696199
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.5793375,
+        "logloss": 0.9752998
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.5744629,
+        "logloss": 0.9678486
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.5771551,
+        "logloss": 0.9721396
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "goal_total_NB_k2"
+    },
+    "la-liga": {
+      "n": 1944,
+      "Crown_AH_OU_market": {
+        "Brier": 0.5752279,
+        "logloss": 0.9698429
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.5984865,
+        "logloss": 1.0021821
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.5978475,
+        "logloss": 1.0012607
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.6021633,
+        "logloss": 1.0089484
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.5976857,
+        "logloss": 1.0007726
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.5771115,
+        "logloss": 0.9727354
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.5816158,
+        "logloss": 0.9790434
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5772458,
+        "logloss": 0.9729422
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.5816884,
+        "logloss": 0.9792354
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.5767956,
+        "logloss": 0.9721296
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.5818075,
+        "logloss": 0.9790109
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.5771097,
+        "logloss": 0.9726863
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.5814799,
+        "logloss": 0.978777
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "goal_total_NB_k2"
+    },
+    "ligue-1": {
+      "n": 1880,
+      "Crown_AH_OU_market": {
+        "Brier": 0.5853036,
+        "logloss": 0.9840883
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.6066331,
+        "logloss": 1.0131805
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.6056363,
+        "logloss": 1.0116015
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.6096914,
+        "logloss": 1.0207245
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.6058881,
+        "logloss": 1.0119203
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.5864347,
+        "logloss": 0.9849857
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.5903666,
+        "logloss": 0.9901307
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5865011,
+        "logloss": 0.9851489
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.5902891,
+        "logloss": 0.9902012
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.5870846,
+        "logloss": 0.986125
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.591743,
+        "logloss": 0.9925898
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.586451,
+        "logloss": 0.985012
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.5902642,
+        "logloss": 0.990002
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "Gamma_xG_k2"
+    },
+    "serie-a": {
+      "n": 2171,
+      "Crown_AH_OU_market": {
+        "Brier": 0.5751906,
+        "logloss": 0.9681535
+      },
+      "Gamma_xG_k1": {
+        "Brier": 0.6002059,
+        "logloss": 1.006021
+      },
+      "Gamma_xG_k2": {
+        "Brier": 0.6004035,
+        "logloss": 1.0060671
+      },
+      "dynamic_Kalman": {
+        "Brier": 0.599852,
+        "logloss": 1.0050198
+      },
+      "goal_total_NB_k2": {
+        "Brier": 0.6000228,
+        "logloss": 1.005331
+      },
+      "market75_Gamma_xG_k125": {
+        "Brier": 0.5780118,
+        "logloss": 0.9726474
+      },
+      "market50_Gamma_xG_k150": {
+        "Brier": 0.5831214,
+        "logloss": 0.9803535
+      },
+      "market75_Gamma_xG_k225": {
+        "Brier": 0.5782696,
+        "logloss": 0.973168
+      },
+      "market50_Gamma_xG_k250": {
+        "Brier": 0.5834981,
+        "logloss": 0.9811459
+      },
+      "market75_dynamic_Kalman25": {
+        "Brier": 0.5777128,
+        "logloss": 0.9719354
+      },
+      "market50_dynamic_Kalman50": {
+        "Brier": 0.5826637,
+        "logloss": 0.9790734
+      },
+      "market75_goal_total_NB_k225": {
+        "Brier": 0.5781261,
+        "logloss": 0.9728435
+      },
+      "market50_goal_total_NB_k250": {
+        "Brier": 0.5832433,
+        "logloss": 0.9805452
+      },
+      "best_single_model_by_Brier_is_descriptive_NOT_a_trading_selection_rule": "dynamic_Kalman"
+    }
+  },
+  "limitations": [
+    "Brier does NOT imply bet profitability; benchmark Crown uses SAME odds and no independent market executable price.",
+    "Historic Crown T12 source event retrieved after target game; not actually received historical quote.",
+    "All R5-R10 model versions repeatedly explored same games, so exploratory comparisons are not fresh blind performance.",
+    "No target-year goals or returns trained the Gamma xG shape or dynamic Q/R; prior-year goals train NB dispersion as method.",
+    "No national teams, no new production rules or Telegram sends."
+  ]
+}
