@@ -1,3 +1,13 @@
+# 当前唯一新研究入口｜北京时间2026-11-23重新开始
+
+**用户最新明确决定**：所有此前分组、原八组及此前研究数据、模型与盈利结论均不作为这轮全新研究的依据。研究工作以北京时间2026-11-23开始，只读取Codex目前实际正在采集的Crown数据库及其配套赛程、赛果；**比赛日期范围依Codex正在运行的配置，不是擅自限定为2026-11-23当天**。下方旧条目全部仅作历史存档，不准自动恢复为当前研究规则或比较基准。用户未授权任何新的EV、数量、筛选、上线或派单门槛。
+
+**全新研究报告/代码/汇总**：research/current_codex_crown_bj20261123/README.md，见同目录聚合结果和SOURCE_SHA256_PUBLIC.json。正在运行的采集器与SQLite严格只读，没有修改正式策略、TG派单或账本。
+
+首轮直接从现行Codex 48,102场范围读取，构建AH/OU开收盘回放（各约3.2万场），四个市场的固定两侧ROI全部为负；独立审核128,724条开收盘源时序，已选样本没有实际赛前HTTP收到的报价：74,034个事后才收到、54,690个接收时刻缺失。全库中另有95个真实赛前收件fixture不在现行赛事清单（该清单2026比赛仅截至6月30日），未纳入历史收益。完整亚洲盘正反方向257,448笔核算零差。这是数据源时序和覆盖事实，不是盈利策略、执行门槛或采集器故障认定。
+
+---
+
 ## 2026-11-23 | R70 four-year model-selected Asian EV calibration: direction selection, not globally broken probability model
 
 - User approved R70 following published SportsQuant calibration articles and R65–R69 negative historical Crown ROI research. **Strict scope remains Codex 2023–2026 historical fulltime matches + Crown quotation archive, NOT M9 formal Telegram 275 orders.** Read-only study. Reused 27,826 unique T−6h and 27,304 unique T−12h matched completed fixtures and stored per-fixture model output; 3 models per quote = **165,390 independent EV / five-state score / realized-payout recomputations**; per-fixture uniqueness verified within each lead-time scenario. Same match can appear at both times. No EV gating/quantity limits/formal production rules introduced.

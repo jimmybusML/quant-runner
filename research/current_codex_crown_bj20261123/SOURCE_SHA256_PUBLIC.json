@@ -1,0 +1,44 @@
+{
+  "research_started_Beijing_date": "2026-11-23",
+  "scope": "Codex CURRENT collector Crown SQLite + schedule, NO prior group model or old data sources",
+  "public_files": [
+    {
+      "path": "research/current_codex_crown_bj20261123/README.md",
+      "sha256": "c597698b192a9238fadd11db90112adc5ba22a9a4e0c09cd3cfad7d126552b8e",
+      "bytes": 6693
+    },
+    {
+      "path": "research/current_codex_crown_bj20261123/code/newstart_crown_pricing_base.py",
+      "sha256": "e80135aca29154745b903f7de7ba869342cf4022e7a487f4447344df172d6a70",
+      "bytes": 8491
+    },
+    {
+      "path": "research/current_codex_crown_bj20261123/code/newstart_timing_drift_validate.py",
+      "sha256": "d7428b86fda8ebd7339499b4a243401446a86e9bff3fbc9b8af21980e67e224e",
+      "bytes": 7336
+    },
+    {
+      "path": "research/current_codex_crown_bj20261123/aggregate/market_open_close_baseline.json",
+      "sha256": "9ef0db78611f46af5ea91c54371b092093e1eccded64eed98da866bc883b5439",
+      "bytes": 8553
+    },
+    {
+      "path": "research/current_codex_crown_bj20261123/aggregate/market_timing_and_drift.json",
+      "sha256": "1b68f4841baec49aa8f769d5c994f3a8d9922da43be7ebc403c71949e3aa02e8",
+      "bytes": 14719
+    }
+  ],
+  "local_private_not_published": [
+    {
+      "name": "newstart_fixture_quote_baseline.jsonl",
+      "sha256": "b1553b3b7cec5f9a9dbcca714f487bb466d9b9ab1bf4749a6583f9a648ca4279",
+      "bytes": 55718276
+    },
+    {
+      "name": "newstart_Crown_market_movement_by_fixture.jsonl",
+      "sha256": "6b34f714a5691a75feec8799c4e1dfd36bff10be321e190039a76342f7cb026a",
+      "bytes": 29594953
+    }
+  ],
+  "note": "Current live 3.5GB SQLite is not copied/uploaded; private fixture-level ledger remains on authorized Mac; public results do not represent trades."
+}
