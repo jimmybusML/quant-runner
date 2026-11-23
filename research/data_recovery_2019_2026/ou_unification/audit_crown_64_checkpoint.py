@@ -78,6 +78,16 @@ def main():
 
     all_rows = read_jsonl(COLLECTION)
     rows = [r for r in all_rows if r.get('response_received_at_utc') and start < iso(r['response_received_at_utc']) <= end]
+    # Failed attempts have no response-received timestamp. Attribute them to a
+    # safe-window by their actual request start time so they remain auditable
+    # and are never silently treated as completed quotes.
+    failed_rows = []
+    for row in all_rows:
+        if row.get('status') != 'FETCH_FAILED':
+            continue
+        starts = [a.get('started_at_utc') for a in row.get('request_attempts') or [] if a.get('started_at_utc')]
+        if any(start < iso(value) <= end for value in starts):
+            failed_rows.append(row)
     schedule = schedule_index()
     seen = set()
     identity_records = []
@@ -122,7 +132,7 @@ def main():
         })
 
     statuses = collections.Counter(r.get('status') for r in rows)
-    attempts = [a for r in rows for a in (r.get('request_attempts') or [])]
+    attempts = [a for r in rows + failed_rows for a in (r.get('request_attempts') or [])]
     outcomes = collections.Counter(a.get('outcome') for a in attempts)
     http_statuses = collections.Counter(str(a.get('http_status')) for a in attempts if a.get('http_status') is not None)
     elapsed = [float(r['request_seconds']) for r in rows if r.get('request_seconds') is not None]
@@ -139,6 +149,8 @@ def main():
         'through_last_response_received_at_utc': max((r['response_received_at_utc'] for r in rows), default=None),
         'records': len(rows),
         'unique_fids': len(seen),
+        'fetch_failed_records': len(failed_rows),
+        'fetch_failed_fids': sorted(str(r.get('match_id') or '') for r in failed_rows),
         'statuses': dict(statuses),
         'market_rows': market_rows,
         'market_fids': market_fids,
@@ -175,6 +187,7 @@ def main():
     driver_slice = events[prev_i + 1:latest_i + 1]
     files = {
         f'crown_64_collection_checkpoint_{stamp}.jsonl': rows,
+        f'crown_64_failures_checkpoint_{stamp}.jsonl': failed_rows,
         f'crown_64_driver_checkpoint_{stamp}.jsonl': driver_slice,
         f'crown_64_verified_increment_{stamp}.json': increment,
         f'crown_64_increment_identity_sha_audit_{stamp}.json': {
