@@ -7666,3 +7666,10 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - Queue rebuilt at 17:14:39.966Z: 32,300 missing requests (2023 3,760; 2024 14,553; 2025 13,520; 2026 467), matching queue contents. Coverage now: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,623 FIDs. This is 43 fewer queue items and four additional OU movement FIDs versus T1707.
 - Independent read-only SQLite verification found 43 matching `crown_ou_source` rows; all 43 matched the audited raw response SHA and HTTP receive timestamp. The four quote-bearing FIDs had exactly 227 `crown_ou_quote` movement rows, matching the collector checkpoint (61+68+43+55).
 - Driver PID49373 resumed collector PID34060 at unchanged 5.2-second spacing. Historical retrieval, not live receipts. T1714 evidence files and SHA manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T1714Z`.
+
+
+### 2026-11-23 17:22 UTC — 2023–2026 Crown AH/OU historical collection T1722
+- T1714 checkpoint through the MR1 pause at 17:18:36.476Z processed 46 unique FIDs. All 46 requests returned HTTP 200; six Crown responses added 247 OU movement rows and 40 successful responses contained no Crown AH/OU quotes. Transport/unresolved failures=0, duplicate FIDs=0, raw SHA mismatches=0, fixture/scope mismatches=0.
+- Queue rebuilt at 17:22:32.871Z: 32,254 requests (2023 3,714; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,629 FIDs. Queue decreased by 46 and OU movement coverage increased by six FIDs versus T1714.
+- Independent read-only SQLite check matched all 46 `crown_ou_source` records to audited FID, response SHA and receipt timestamp; the six quote-bearing FIDs had 247 movement rows in `crown_ou_quote`, matching the audit (61+31+39+44+35+37).
+- Driver PID49373 resumed collector PID35878 at unchanged 5.2-second cadence. Historical retrieval only. T1722 evidence and SHA manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T1722Z`.
