@@ -1,0 +1,45 @@
+{
+  "scope": "R44 direction review of existing M5 goal model independent of EV-first selection",
+  "M5_source": "research/m5/m5_goal_model_oos.py",
+  "M5_source_sha256": "39ada0911fba86dbe15496e5ef24fbe2424a435539296df0b35a5e8e4ff13fff",
+  "architecture": {
+    "fit": "per-league independent home/away Poisson with team attack/defence and ridge penalty",
+    "time": "calendar-year walk-forward; prior-year validation selects penalty; annual Jan 1 predictions",
+    "distribution": "15x15 independent goal score grid",
+    "limitations": [
+      "no explicit goal correlation",
+      "team parameters frozen within calendar year",
+      "new teams neutral strength",
+      "M5 baseline not automatically superior to Crown prices"
+    ]
+  },
+  "prior_goal_calibration": {
+    "method": "per-league multiplicative home/away goal-rate correction from M5 OOS forecasts and settled scores, shrunk toward all-league factor by kappa pseudo-expected goals; apply to the complete M5 score grid via exponential tilting. No Crown ROI enters calibration.",
+    "2025": {
+      "fixtures": 11967,
+      "raw_mean_goal_nll": 2.94616099,
+      "calibrated_mean_goal_nll": 2.94530921,
+      "improvement_nll": 0.00085178,
+      "unique_fixture_ids": 11967
+    },
+    "2026": {
+      "fixtures": 10235,
+      "raw_mean_goal_nll": 2.99609417,
+      "calibrated_mean_goal_nll": 2.99492682,
+      "improvement_nll": 0.00116734,
+      "unique_fixture_ids": 10235
+    },
+    "selected_kappa": null
+  },
+  "market_blend": {
+    "2025_AH_weight": 1.0,
+    "2025_AH_training_n": 1075,
+    "2026_AH_positive_ev_orders": 0
+  },
+  "decision": "Keep M5 as an existing research baseline; insufficient evidence that it is a profitable AH strategy. Research direction should test score/goal calibration and independent incremental signal versus market before EV-based selection. No new rules, production changes, or strategy switches.",
+  "source_caveats": [
+    "Existing 2025/2026 Crown paired quotes were retrospectively retrieved after kickoff",
+    "Historical model comparisons do not prove independent future trading edge",
+    "Score NLL improvement is small; statistical significance and direct price-edge improvement not established"
+  ]
+}
