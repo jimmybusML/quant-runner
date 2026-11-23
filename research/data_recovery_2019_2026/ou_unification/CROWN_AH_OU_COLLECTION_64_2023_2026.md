@@ -2121,3 +2121,8 @@ T0420后至04:22:33 UTC统一结算暂停窗口处理27个唯一FID，全部HTTP
 - T1338 13:38:52.930Z to MR1 pause 13:41:28.910Z processed 31 unique FIDs: 28 new OU movement paths / 510 rows and 3 successful no-market responses. All 31 HTTP 200; no failed FIDs, duplicate FIDs, raw SHA mismatches or identity/scope mismatches.
 - Request mean/median 1.3456/1.3009 sec. Queue at 13:42:42.946Z: 33,356 (2023 4,816; 2024 14,553; 2025 13,520; 2026 467), down 31; rebuilt queue count matched. Coverage AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,032 FIDs. All 28 new FIDs / 510 rows matched `crown_ou_quote`; seven checkpoint artifact hashes passed.
 - Safe-window driver PID49373 / collector PID84921 resumed at the fixed 5.2-second pacing. Historical backfill only; no production behavior changed.
+
+### 2026-11-23 13:46 UTC — T1346 checkpoint
+- T1342 13:42:42.946Z to unified-settlement pause 13:43:32.857Z processed 10 unique FIDs: 9 new OU movement paths / 278 rows and 1 successful no-market response. All 10 HTTP 200; no failed FIDs, duplicates, raw SHA mismatches or identity/scope mismatches.
+- Request mean/median 1.2566/1.2658 sec. Queue at 13:46:48.235Z: 33,346 (2023 4,806; 2024 14,553; 2025 13,520; 2026 467), down 10 with queue-file count matched. Coverage AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,041 FIDs. Nine new FIDs / 278 rows matched `crown_ou_quote`; all seven manifest artifacts passed SHA256.
+- Safe-window driver PID49373 / collector PID85788 resumed at the same 5.2-second interval. Historical backfill only; no production configuration changed.
