@@ -7517,3 +7517,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - T1426 to the 14:31:22Z unified-settlement pause processed 28 unique FIDs: 20 new OU movement paths / 318 rows and 8 successful no-market responses. All 28 HTTP 200; unresolved errors, duplicates, response SHA, identity and scope mismatches were 0.
 - Queue rebuilt at 14:35:51Z: 33,124 total (2023 4,584; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH summary 32,449; AH movement 36,342; OU summary 32,445; OU movement 8,236 FIDs. SQLite independently matched all 20 new FIDs / 318 rows; all seven artifact manifest hashes passed.
 - Safe-window driver PID49373 resumed collector PID96898 at the same 5.2-second cadence. Historical backfill only; production configuration and rules unchanged. Artifacts: `research/data_recovery_2019_2026/ou_unification/*20261123T1435Z*`.
+
+
+### 2026-11-23 14:42 UTC — 2023–2026 Crown AH/OU historical collection T1442
+- T1435 to the 14:39:08Z unified-settlement pause completed 39 unique FIDs: 37 new OU movement paths / 628 rows and 2 successful no-market responses. All HTTP 200; unresolved failures, duplicates, SHA, identity and scope mismatches were 0.
+- Queue rebuilt at 14:42:27Z: 33,085 (2023 4,545; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH summary 32,449; AH movement 36,342; OU summary 32,445; OU movement 8,273 FIDs. SQLite independently confirmed all 37 new FIDs / 628 rows; seven artifact manifest entries passed.
+- Safe-window driver PID49373 / collector PID98431 continues with unchanged 5.2-second request spacing. Historical backfill only; production models, Telegram, ledger and schedule unchanged. Artifacts: `research/data_recovery_2019_2026/ou_unification/*20261123T1442Z*`.
