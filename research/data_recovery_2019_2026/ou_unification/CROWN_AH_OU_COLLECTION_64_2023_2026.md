@@ -2646,3 +2646,11 @@ From T2153 through the 21:55:43.365477Z MR1 pause, 21 unique FIDs were finalized
 Queue rebuilt at 21:59:45.462959Z: 30,957 requests remain (2023 2,417; 2024 14,553; 2025 13,520; 2026 467), down 21. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 9,635. Mean/median response duration was 1.3491/1.3710 seconds at the unchanged 5.2-second cadence. Independent raw SHA/SQLite and queue-rebuild checks passed. Safe driver PID49373 resumed collection as PID 96846. This is historical retrieval, not a real-time Crown receipt.
 
 Checkpoint evidence and SHA manifest use the `20261123T2159Z` suffix in this directory.
+
+### T2207 incremental checkpoint (2026-11-23 22:07 UTC)
+
+From T2159 through the 22:03:44.270704Z MR1 pause, 38 unique FIDs completed HTTP 200 responses; statuses were 27 `PARTIAL_MARKETS`, 3 `BOTH_MARKETS`, and 8 `NO_CROWN_MARKET_DATA`. Thirty quote-bearing FIDs added 550 OU movement rows. Across 43 attempts, four API-error bodies and one transport error were encountered; all recovered, with no unresolved failures. No duplicate FIDs, raw SHA mismatches, or identity/scope mismatches remain.
+
+Queue rebuilt at 22:07:22.415688Z: 30,919 requests remain (2023 2,379; 2024 14,553; 2025 13,520; 2026 467), down 38. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 9,665. Mean/median response duration was 1.3368/1.3533 seconds at the unchanged 5.2-second cadence. Independent raw SHA/SQLite and queue-rebuild checks passed. Safe driver PID49373 resumed collection as PID 98437. This is historical retrieval, not a real-time Crown receipt.
+
+Checkpoint evidence and SHA manifest use the `20261123T2207Z` suffix in this directory.

@@ -7944,3 +7944,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - From T2153 through the 21:55:43.365Z MR1 pause, 21 unique FIDs were finalized; all returned HTTP 200. All 21 quote-bearing FIDs added 472 OU movement rows. One transport error was retried successfully; no unresolved failures, duplicate FIDs, raw SHA mismatches, or scope mismatches.
 - Queue rebuilt at 21:59:45.462Z: 30,957 requests (2023 2,417; 2024 14,553; 2025 13,520; 2026 467), down 21. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 9,635 FIDs. Mean/median response duration 1.3491/1.3710s; cadence remains 5.2s.
 - Independent SQLite/raw SHA and queue rebuild passed. Safe driver PID49373 resumed collector PID96846. Historical retrieval only. Evidence and manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T2159Z`.
+
+
+### 2026-11-23 22:07 UTC — T2207 checkpoint; active scope 2023–2026
+- From T2159 through the 22:03:44.270Z settlement pause, 38 unique FIDs completed HTTP 200 responses. Thirty quote-bearing FIDs added 550 OU movement rows; eight responses had no Crown market data. Across 43 attempts there were four API-error bodies and one transport error; all were recovered, with no unresolved failures. No duplicate FIDs, raw SHA mismatches, or scope mismatches.
+- Queue rebuilt at 22:07:22.415Z: 30,919 requests (2023 2,379; 2024 14,553; 2025 13,520; 2026 467), down 38. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 9,665 FIDs. Mean/median response duration 1.3368/1.3533s; cadence remains 5.2s.
+- Independent SQLite/raw SHA and queue rebuild passed. Safe driver PID49373 resumed collector PID98437. Historical retrieval only. Evidence and manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T2207Z`.
