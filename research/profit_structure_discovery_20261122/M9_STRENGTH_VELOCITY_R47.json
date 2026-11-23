@@ -1,0 +1,244 @@
+{
+  "source": "research/m3/results/predictions/a382ebde7d0a89d8574ee3168c1923529084296de890a8abf5a18ff64d83c977.csv",
+  "source_generated_utc": "2026-11-22T21:29:25.966007+00:00",
+  "method": "All variants are exploratory probability post-processing, not M9 parameter refitting. Each test season uses the two strictly prior seasons, per-league previous-season team point residuals (actual minus model expected). Velocity = most-recent prior-season residual minus earlier prior-season residual. No current-season results are used.",
+  "years": {
+    "2021": {
+      "previous_seasons": [
+        1819,
+        1920
+      ],
+      "scores": {
+        "base": {
+          "n": 1808,
+          "logloss": 1.01791931,
+          "brier": 0.60817569
+        },
+        "recent": {
+          "n": 1808,
+          "logloss": 1.01745533,
+          "brier": 0.60745726
+        },
+        "velocity": {
+          "n": 1808,
+          "logloss": 1.02529363,
+          "brier": 0.61317403
+        },
+        "recent_plus_velocity": {
+          "n": 1808,
+          "logloss": 1.03124515,
+          "brier": 0.61644958
+        },
+        "two_season_mean": {
+          "n": 1808,
+          "logloss": 1.01683634,
+          "brier": 0.60687317
+        }
+      }
+    },
+    "2122": {
+      "previous_seasons": [
+        1920,
+        2021
+      ],
+      "scores": {
+        "base": {
+          "n": 1850,
+          "logloss": 1.00539059,
+          "brier": 0.6010818
+        },
+        "recent": {
+          "n": 1850,
+          "logloss": 1.00571608,
+          "brier": 0.60157754
+        },
+        "velocity": {
+          "n": 1850,
+          "logloss": 1.01533937,
+          "brier": 0.6077635
+        },
+        "recent_plus_velocity": {
+          "n": 1850,
+          "logloss": 1.0222512,
+          "brier": 0.61256436
+        },
+        "two_season_mean": {
+          "n": 1850,
+          "logloss": 1.00272576,
+          "brier": 0.59961954
+        }
+      }
+    },
+    "2223": {
+      "previous_seasons": [
+        2021,
+        2122
+      ],
+      "scores": {
+        "base": {
+          "n": 1874,
+          "logloss": 1.0036975,
+          "brier": 0.59808098
+        },
+        "recent": {
+          "n": 1874,
+          "logloss": 0.99988463,
+          "brier": 0.59507658
+        },
+        "velocity": {
+          "n": 1874,
+          "logloss": 1.00737825,
+          "brier": 0.60060398
+        },
+        "recent_plus_velocity": {
+          "n": 1874,
+          "logloss": 1.01009637,
+          "brier": 0.60212996
+        },
+        "two_season_mean": {
+          "n": 1874,
+          "logloss": 1.00033569,
+          "brier": 0.59543352
+        }
+      }
+    },
+    "2324": {
+      "previous_seasons": [
+        2122,
+        2223
+      ],
+      "scores": {
+        "base": {
+          "n": 1890,
+          "logloss": 1.00002126,
+          "brier": 0.59681905
+        },
+        "recent": {
+          "n": 1890,
+          "logloss": 1.00340327,
+          "brier": 0.59942152
+        },
+        "velocity": {
+          "n": 1890,
+          "logloss": 1.0112968,
+          "brier": 0.60501023
+        },
+        "recent_plus_velocity": {
+          "n": 1890,
+          "logloss": 1.0226633,
+          "brier": 0.61310053
+        },
+        "two_season_mean": {
+          "n": 1890,
+          "logloss": 0.99900223,
+          "brier": 0.5961904
+        }
+      }
+    },
+    "2425": {
+      "previous_seasons": [
+        2223,
+        2324
+      ],
+      "scores": {
+        "base": {
+          "n": 1882,
+          "logloss": 1.00716041,
+          "brier": 0.60194228
+        },
+        "recent": {
+          "n": 1882,
+          "logloss": 1.0040103,
+          "brier": 0.60028769
+        },
+        "velocity": {
+          "n": 1882,
+          "logloss": 1.02016869,
+          "brier": 0.61186146
+        },
+        "recent_plus_velocity": {
+          "n": 1882,
+          "logloss": 1.02715335,
+          "brier": 0.61680073
+        },
+        "two_season_mean": {
+          "n": 1882,
+          "logloss": 1.00006359,
+          "brier": 0.59690951
+        }
+      }
+    },
+    "2526": {
+      "previous_seasons": [
+        2324,
+        2425
+      ],
+      "scores": {
+        "base": {
+          "n": 1880,
+          "logloss": 1.00140026,
+          "brier": 0.59813235
+        },
+        "recent": {
+          "n": 1880,
+          "logloss": 1.00008937,
+          "brier": 0.59729647
+        },
+        "velocity": {
+          "n": 1880,
+          "logloss": 1.01078759,
+          "brier": 0.60525097
+        },
+        "recent_plus_velocity": {
+          "n": 1880,
+          "logloss": 1.01547888,
+          "brier": 0.60831244
+        },
+        "two_season_mean": {
+          "n": 1880,
+          "logloss": 0.99855781,
+          "brier": 0.59596101
+        }
+      }
+    },
+    "2627": {
+      "previous_seasons": [
+        2425,
+        2526
+      ],
+      "scores": {
+        "base": {
+          "n": 528,
+          "logloss": 0.95616231,
+          "brier": 0.56607294
+        },
+        "recent": {
+          "n": 528,
+          "logloss": 0.95369787,
+          "brier": 0.56425776
+        },
+        "velocity": {
+          "n": 528,
+          "logloss": 0.96837229,
+          "brier": 0.57385249
+        },
+        "recent_plus_velocity": {
+          "n": 528,
+          "logloss": 0.97106329,
+          "brier": 0.57522666
+        },
+        "two_season_mean": {
+          "n": 528,
+          "logloss": 0.95002128,
+          "brier": 0.56183637
+        }
+      }
+    }
+  },
+  "caveats": [
+    "Source is independent M3 penaltyblog season-forward model, not production M9 training and fixture universe.",
+    "Season-aggregated residual change is a proxy for speed, not rolling-match temporal update or dynamic goal-intensity fitting.",
+    "No Asian handicap quote pairing or ROI; not evidence of betting edge.",
+    "No model gates, quantity restrictions, production or Telegram changes."
+  ]
+}
