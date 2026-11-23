@@ -7732,3 +7732,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - Through the MR1 pause at 18:32:45.613Z, 19 unique 2023 FIDs received final HTTP 200 responses. Eighteen had Crown quotes, adding 550 OU movement rows. FID `144010056` accumulated five transient `IncompleteRead` attempts across the pause, then succeeded on retry; no failures remained unresolved. Duplicates, raw SHA mismatches and fixture/league/year mismatches were zero.
 - Queue is 31,933 (2023 3,393; 2024 14,553; 2025 13,520; 2026 467). Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,800 FIDs. Response mean/median 1.3265/1.3496s; 5.2s spacing unchanged. Independent query-only SQLite and seven manifest hashes passed.
 - Fixed 64-league, 2023–2026 scope and historical-only source labeling remain in force. Driver PID49373 and collector PID52949 resumed. T1837 evidence: `research/data_recovery_2019_2026/ou_unification/*20261123T1837Z`.
+
+
+### 2026-11-23 18:44 UTC — 2023–2026 Crown AH/OU collection T1844
+- T1837 through the scheduled settlement pause produced 37 unique 2023 FIDs, all final HTTP 200. Thirty-four Crown quote responses added 802 OU movement rows; three had no Crown markets. One transport error recovered on retry, leaving no unresolved failure; duplicates, SHA mismatches and scope mismatches=0.
+- Queue at T1844: 31,896 requests (2023 3,356; 2024 14,553; 2025 13,520; 2026 467). Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,834 FIDs. Mean/median response duration 1.3954/1.3968s; 5.2s request spacing unchanged.
+- Independent query-only SQLite validated all 37 sources by FID/SHA/receive time and the 802 movement rows; the seven-file manifest passed. T1844 evidence is `research/data_recovery_2019_2026/ou_unification/*20261123T1844Z`. Driver PID49373 and collector PID54581 continued; data are historical retrievals.
