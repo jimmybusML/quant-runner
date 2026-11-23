@@ -1,0 +1,28 @@
+{
+  "method": "Same-fixture retrospective research on actual Crown quote and settlement receipts, with model-class M9 bivariate grids fitted on latest snapshot historical cache filtered by kickoff before earliest quote receipt in each league; true previous-year prior-model forecast residual, full score-grid exp(0.1*residual*score-difference) correction. Does not reproduce production M9 exact original predictions or prove as-of historical availability.",
+  "errors": [],
+  "limitations": [
+    "Historical training cache is latest snapshot, filtered by kickoff only; NOT a point-in-time as-of model input archive.",
+    "Original baseline refit once per league at earliest quote receipt; not exact production per-run M9 grid, so baseline side may differ from actual production.",
+    "Actual Crown quote and settlement are verified by R55; challenger decision is retrospective, not a live pre-registered shadow.",
+    "Small sample from three leagues; no inference of long-term ROI.",
+    "No Telegram send or formal ledger change."
+  ],
+  "sample_n": 14,
+  "skipped_count": 10,
+  "skipped_reasons": {
+    "fixture_or_team_missing": 10
+  },
+  "league_sample_counts": {
+    "1": 7,
+    "12": 4,
+    "61": 3
+  },
+  "same_side_count": 14,
+  "baseline_matches_production_count": 14,
+  "pnl_by_version": {
+    "original_rebuilt_pnl": -3.1,
+    "corrected_pnl": -3.1,
+    "actual_production_pnl": -3.1
+  }
+}
