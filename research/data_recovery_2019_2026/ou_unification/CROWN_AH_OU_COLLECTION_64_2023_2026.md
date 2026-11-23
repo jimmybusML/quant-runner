@@ -2598,3 +2598,11 @@ From T2118 through the 21:22:21.925359Z MR1 pause, 32 unique FIDs had successful
 Queue rebuilt at 21:26:38.950427Z: 31,120 requests remain (2023 2,580; 2024 14,553; 2025 13,520; 2026 467), down 32. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 9,488. Mean/median response duration was 1.3601/1.3394 seconds at the unchanged 5.2-second cadence. Independent raw SHA/SQLite and queue-rebuild checks passed. Safe driver PID49373 resumed collection as PID 89790. Failed FIDs remain eligible for later retries; retrieval is historical only.
 
 Checkpoint evidence and SHA manifest use the `20261123T2126Z` suffix in this directory.
+
+### T2129 incremental checkpoint (2026-11-23 21:29 UTC)
+
+From T2126 through the 21:28:10.234740Z MR1 pause, 15 unique FIDs were completed successfully; all 15 returned HTTP 200 and contained OU movement data, adding 421 rows. Four transport errors across 19 attempts were retried successfully. No unresolved fetch failures, duplicate FIDs, raw SHA mismatches, or identity/scope mismatches were found.
+
+Queue rebuilt at 21:29:12.362914Z: 31,105 requests remain (2023 2,565; 2024 14,553; 2025 13,520; 2026 467), down 15. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 9,503. Mean/median response duration was 1.4417/1.3893 seconds at the unchanged 5.2-second cadence. Independent raw SHA/SQLite and queue-rebuild checks passed. Safe driver PID49373 resumed collection as PID 90339. This is historical retrieval, not a real-time Crown receipt.
+
+Checkpoint evidence and SHA manifest use the `20261123T2129Z` suffix in this directory.
