@@ -1,0 +1,111 @@
+{
+  "method": "Paired fixture (not quote) bootstrap with 10,000 resamples, randomized seed 20261123. Descriptive uncertainty; no new model acceptance gate.",
+  "source_SHA256": "2baf61a662b9f347af355bc713d0f922872fe0d8c55b0351a005bc679335549c",
+  "groups": {
+    "all_11_domestic_club_leagues": {
+      "label": "all_11_domestic_club_leagues",
+      "n": 468,
+      "mean_latest_minus_earliest_Brier": -0.0025612,
+      "paired_bootstrap_95pct_Brier_delta": [
+        -0.0066153,
+        0.0014058
+      ],
+      "T6plus_n": 465,
+      "T6plus_late_minus_early_Brier": -0.0001051,
+      "T6plus_bootstrap_95pct_Brier_delta": [
+        -0.0028949,
+        0.002798
+      ],
+      "by_month": {
+        "2026-10": {
+          "n": 327,
+          "delta_Brier": -0.0023392
+        },
+        "2026-11": {
+          "n": 141,
+          "delta_Brier": -0.0030762
+        }
+      }
+    },
+    "five_big_club_leagues": {
+      "label": "five_big_club_leagues",
+      "n": 249,
+      "mean_latest_minus_earliest_Brier": 0.0020313,
+      "paired_bootstrap_95pct_Brier_delta": [
+        -0.0033842,
+        0.0075949
+      ],
+      "T6plus_n": 248,
+      "T6plus_late_minus_early_Brier": 0.0037536,
+      "T6plus_bootstrap_95pct_Brier_delta": [
+        -0.0001528,
+        0.00765
+      ],
+      "by_month": {
+        "2026-10": {
+          "n": 180,
+          "delta_Brier": 0.0027408
+        },
+        "2026-11": {
+          "n": 69,
+          "delta_Brier": 0.0001804
+        }
+      }
+    },
+    "R5_old_138_receipt": {
+      "label": "R5_old_138_receipt",
+      "n": 138,
+      "mean_latest_minus_earliest_Brier": -0.0060302,
+      "paired_bootstrap_95pct_Brier_delta": [
+        -0.0126307,
+        0.0008106
+      ],
+      "T6plus_n": 137,
+      "T6plus_late_minus_early_Brier": -0.0032448,
+      "T6plus_bootstrap_95pct_Brier_delta": [
+        -0.0084181,
+        0.0019351
+      ],
+      "by_month": {
+        "2026-10": {
+          "n": 112,
+          "delta_Brier": -0.0095885
+        },
+        "2026-11": {
+          "n": 26,
+          "delta_Brier": 0.0092979
+        }
+      }
+    },
+    "R5_old_71_big5": {
+      "label": "R5_old_71_big5",
+      "n": 71,
+      "mean_latest_minus_earliest_Brier": -0.0037856,
+      "paired_bootstrap_95pct_Brier_delta": [
+        -0.0129225,
+        0.005126
+      ],
+      "T6plus_n": 71,
+      "T6plus_late_minus_early_Brier": 0.001389,
+      "T6plus_bootstrap_95pct_Brier_delta": [
+        -0.0054023,
+        0.0082122
+      ],
+      "by_month": {
+        "2026-10": {
+          "n": 55,
+          "delta_Brier": -0.0076328
+        },
+        "2026-11": {
+          "n": 16,
+          "delta_Brier": 0.0094389
+        }
+      }
+    }
+  },
+  "notes": [
+    "R7 old 138 actual receipts are 11 domestic club leagues; only 71 from the five major leagues. Historical 9908 matches remain five.",
+    "No causal claim: early and late snapshots are a repeated known-outcome observation, quoted lines and implied margins may change.",
+    "Intervals are observational uncertainty; repeat historical study and selection not accounted for; no blinded new live prices."
+  ]
+}
