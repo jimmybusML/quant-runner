@@ -1,0 +1,1298 @@
+{
+  "generated_utc": "2026-11-23T09:36:21.719481+00:00",
+  "scope": "Only R66 archived historical Crown fixture and 6h/12h source quotes. No formal M9 orders.",
+  "concept": "Selected side = maximum model EV across two book odds. Fixed-side analyses simulate the same historic quote on home or away irrespective of model choice. This distinguishes unconditional and side-conditioned calibration; cannot establish causal market profitability.",
+  "checks": {
+    "exact_reverse_settlement_and_selected_ev": 165390
+  },
+  "models": {
+    "lead6h": {
+      "annual_bp": {
+        "all": {
+          "selected": {
+            "n": 27826,
+            "model_ev_pct": 14.947815127130267,
+            "simulated_roi_pct": -3.1688528714152238,
+            "gap_pp": 18.11666799854549,
+            "predicted_fullwin_pct": 49.412359647986065,
+            "observed_fullwin_pct": 39.39121684755265,
+            "predicted_fullloss_pct": 31.271351829524132,
+            "observed_fullloss_pct": 39.62121756630489
+          },
+          "unselected": {
+            "n": 27826,
+            "model_ev_pct": -21.0750779466701,
+            "simulated_roi_pct": -2.9400201250628917,
+            "gap_pp": -18.135057821607205,
+            "predicted_fullwin_pct": 31.271351829524132,
+            "observed_fullwin_pct": 39.62121756630489,
+            "predicted_fullloss_pct": 49.412359647986065,
+            "observed_fullloss_pct": 39.39121684755265
+          },
+          "home": {
+            "n": 27826,
+            "model_ev_pct": -3.8657398459396544,
+            "simulated_roi_pct": -3.428106806583771,
+            "gap_pp": -0.4376330393558825,
+            "predicted_fullwin_pct": 40.13864215289849,
+            "observed_fullwin_pct": 39.5385610580033,
+            "predicted_fullloss_pct": 40.54506932461171,
+            "observed_fullloss_pct": 39.47387335585424
+          },
+          "away": {
+            "n": 27826,
+            "model_ev_pct": -2.2615229736001754,
+            "simulated_roi_pct": -2.6807661898943445,
+            "gap_pp": 0.4192432162941689,
+            "predicted_fullwin_pct": 40.54506932461171,
+            "observed_fullwin_pct": 39.47387335585424,
+            "predicted_fullloss_pct": 40.13864215289849,
+            "observed_fullloss_pct": 39.5385610580033
+          }
+        },
+        "by_year": {
+          "2023": {
+            "selected": {
+              "n": 4618,
+              "model_ev_pct": 15.854986906470282,
+              "simulated_roi_pct": -2.037353832828065,
+              "gap_pp": 17.892340739298348,
+              "predicted_fullwin_pct": 49.589769497272265,
+              "observed_fullwin_pct": 39.62754439151148,
+              "predicted_fullloss_pct": 30.834960474541663,
+              "observed_fullloss_pct": 39.064530099610224
+            },
+            "unselected": {
+              "n": 4618,
+              "model_ev_pct": -21.413274647229713,
+              "simulated_roi_pct": -3.5226288436552626,
+              "gap_pp": -17.89064580357445,
+              "predicted_fullwin_pct": 30.834960474541663,
+              "observed_fullwin_pct": 39.064530099610224,
+              "predicted_fullloss_pct": 49.589769497272265,
+              "observed_fullloss_pct": 39.62754439151148
+            },
+            "home": {
+              "n": 4618,
+              "model_ev_pct": -4.433893391070972,
+              "simulated_roi_pct": -0.914356864443483,
+              "gap_pp": -3.519536526627489,
+              "predicted_fullwin_pct": 39.5172358409268,
+              "observed_fullwin_pct": 40.450411433521005,
+              "predicted_fullloss_pct": 40.90749413088713,
+              "observed_fullloss_pct": 38.24166305760069
+            },
+            "away": {
+              "n": 4618,
+              "model_ev_pct": -1.1243943496884603,
+              "simulated_roi_pct": -4.645625812039845,
+              "gap_pp": 3.521231462351385,
+              "predicted_fullwin_pct": 40.90749413088713,
+              "observed_fullwin_pct": 38.24166305760069,
+              "predicted_fullloss_pct": 39.5172358409268,
+              "observed_fullloss_pct": 40.450411433521005
+            }
+          },
+          "2024": {
+            "selected": {
+              "n": 7925,
+              "model_ev_pct": 14.334557276011484,
+              "simulated_roi_pct": -3.8290851735015785,
+              "gap_pp": 18.163642449513063,
+              "predicted_fullwin_pct": 48.85569492209527,
+              "observed_fullwin_pct": 38.94006309148265,
+              "predicted_fullloss_pct": 31.660157556397717,
+              "observed_fullloss_pct": 39.91167192429022
+            },
+            "unselected": {
+              "n": 7925,
+              "model_ev_pct": -20.165650976328312,
+              "simulated_roi_pct": -2.11627760252366,
+              "gap_pp": -18.049373373804652,
+              "predicted_fullwin_pct": 31.660157556397717,
+              "observed_fullwin_pct": 39.91167192429022,
+              "predicted_fullloss_pct": 48.85569492209527,
+              "observed_fullloss_pct": 38.94006309148265
+            },
+            "home": {
+              "n": 7925,
+              "model_ev_pct": -3.37328183349629,
+              "simulated_roi_pct": -4.046119873817036,
+              "gap_pp": 0.672838040320745,
+              "predicted_fullwin_pct": 40.25367716568265,
+              "observed_fullwin_pct": 39.10410094637224,
+              "predicted_fullloss_pct": 40.262175312810335,
+              "observed_fullloss_pct": 39.74763406940063
+            },
+            "away": {
+              "n": 7925,
+              "model_ev_pct": -2.4578118668205358,
+              "simulated_roi_pct": -1.899242902208203,
+              "gap_pp": -0.5585689646123334,
+              "predicted_fullwin_pct": 40.262175312810335,
+              "observed_fullwin_pct": 39.74763406940063,
+              "predicted_fullloss_pct": 40.25367716568265,
+              "observed_fullloss_pct": 39.10410094637224
+            }
+          },
+          "2025": {
+            "selected": {
+              "n": 8115,
+              "model_ev_pct": 14.994882407373254,
+              "simulated_roi_pct": -2.870856438693778,
+              "gap_pp": 17.865738846067032,
+              "predicted_fullwin_pct": 49.56254345235106,
+              "observed_fullwin_pct": 39.679605668515094,
+              "predicted_fullloss_pct": 31.348418670082857,
+              "observed_fullloss_pct": 39.55637707948244
+            },
+            "unselected": {
+              "n": 8115,
+              "model_ev_pct": -21.263491375549325,
+              "simulated_roi_pct": -3.2906962415280354,
+              "gap_pp": -17.972795134021286,
+              "predicted_fullwin_pct": 31.348418670082857,
+              "observed_fullwin_pct": 39.55637707948244,
+              "predicted_fullloss_pct": 49.56254345235106,
+              "observed_fullloss_pct": 39.679605668515094
+            },
+            "home": {
+              "n": 8115,
+              "model_ev_pct": -3.864486771810848,
+              "simulated_roi_pct": -4.16863832409119,
+              "gap_pp": 0.3041515522803422,
+              "predicted_fullwin_pct": 40.251746675375294,
+              "observed_fullwin_pct": 39.26062846580407,
+              "predicted_fullloss_pct": 40.65921544705863,
+              "observed_fullloss_pct": 39.97535428219347
+            },
+            "away": {
+              "n": 8115,
+              "model_ev_pct": -2.4041221963652206,
+              "simulated_roi_pct": -1.9929143561306233,
+              "gap_pp": -0.4112078402345976,
+              "predicted_fullwin_pct": 40.65921544705863,
+              "observed_fullwin_pct": 39.97535428219347,
+              "predicted_fullloss_pct": 40.251746675375294,
+              "observed_fullloss_pct": 39.26062846580407
+            }
+          },
+          "2026": {
+            "selected": {
+              "n": 7168,
+              "model_ev_pct": 14.988105056532097,
+              "simulated_roi_pct": -3.5052315848214293,
+              "gap_pp": 18.493336641353526,
+              "predicted_fullwin_pct": 49.74349074400436,
+              "observed_fullwin_pct": 39.41127232142857,
+              "predicted_fullloss_pct": 31.03538258855061,
+              "observed_fullloss_pct": 39.732142857142854
+            },
+            "unselected": {
+              "n": 7168,
+              "model_ev_pct": -21.649358276109187,
+              "simulated_roi_pct": -3.0784040178571432,
+              "gap_pp": -18.570954258252044,
+              "predicted_fullwin_pct": 31.03538258855061,
+              "observed_fullwin_pct": 39.732142857142854,
+              "predicted_fullloss_pct": 49.74349074400436,
+              "observed_fullloss_pct": 39.41127232142857
+            },
+            "home": {
+              "n": 7168,
+              "model_ev_pct": -4.045589925983249,
+              "simulated_roi_pct": -3.525948660714287,
+              "gap_pp": -0.5196412652689625,
+              "predicted_fullwin_pct": 40.28375357483928,
+              "observed_fullwin_pct": 39.74609375,
+              "predicted_fullloss_pct": 40.4951197577157,
+              "observed_fullloss_pct": 39.39732142857143
+            },
+            "away": {
+              "n": 7168,
+              "model_ev_pct": -2.6156632935938413,
+              "simulated_roi_pct": -3.057686941964287,
+              "gap_pp": 0.44202364837044517,
+              "predicted_fullwin_pct": 40.4951197577157,
+              "observed_fullwin_pct": 39.39732142857143,
+              "predicted_fullloss_pct": 40.28375357483928,
+              "observed_fullloss_pct": 39.74609375
+            }
+          }
+        }
+      },
+      "annual_dc": {
+        "all": {
+          "selected": {
+            "n": 27826,
+            "model_ev_pct": 14.532888082531656,
+            "simulated_roi_pct": -3.162114569108029,
+            "gap_pp": 17.695002651639683,
+            "predicted_fullwin_pct": 49.35794363319259,
+            "observed_fullwin_pct": 39.39481060878315,
+            "predicted_fullloss_pct": 31.628815844921107,
+            "observed_fullloss_pct": 39.61762380507439
+          },
+          "unselected": {
+            "n": 27826,
+            "model_ev_pct": -20.668329904305562,
+            "simulated_roi_pct": -2.9467584273700864,
+            "gap_pp": -17.721571476935477,
+            "predicted_fullwin_pct": 31.628815844921107,
+            "observed_fullwin_pct": 39.61762380507439,
+            "predicted_fullloss_pct": 49.35794363319259,
+            "observed_fullloss_pct": 39.39481060878315
+          },
+          "home": {
+            "n": 27826,
+            "model_ev_pct": -3.8744606851549643,
+            "simulated_roi_pct": -3.428106806583771,
+            "gap_pp": -0.44635387857119285,
+            "predicted_fullwin_pct": 40.29556546112982,
+            "observed_fullwin_pct": 39.5385610580033,
+            "predicted_fullloss_pct": 40.69119401698388,
+            "observed_fullloss_pct": 39.47387335585424
+          },
+          "away": {
+            "n": 27826,
+            "model_ev_pct": -2.2609811366189434,
+            "simulated_roi_pct": -2.6807661898943445,
+            "gap_pp": 0.41978505327540117,
+            "predicted_fullwin_pct": 40.69119401698388,
+            "observed_fullwin_pct": 39.47387335585424,
+            "predicted_fullloss_pct": 40.29556546112982,
+            "observed_fullloss_pct": 39.5385610580033
+          }
+        },
+        "by_year": {
+          "2023": {
+            "selected": {
+              "n": 4618,
+              "model_ev_pct": 15.267894345782915,
+              "simulated_roi_pct": -1.889887397141621,
+              "gap_pp": 17.157781742924534,
+              "predicted_fullwin_pct": 49.472409700897465,
+              "observed_fullwin_pct": 39.7141619748809,
+              "predicted_fullloss_pct": 31.275433630087463,
+              "observed_fullloss_pct": 38.9779125162408
+            },
+            "unselected": {
+              "n": 4618,
+              "model_ev_pct": -20.834024909836202,
+              "simulated_roi_pct": -3.670095279341707,
+              "gap_pp": -17.163929630494497,
+              "predicted_fullwin_pct": 31.275433630087463,
+              "observed_fullwin_pct": 38.9779125162408,
+              "predicted_fullloss_pct": 49.472409700897465,
+              "observed_fullloss_pct": 39.7141619748809
+            },
+            "home": {
+              "n": 4618,
+              "model_ev_pct": -4.45310602700852,
+              "simulated_roi_pct": -0.914356864443483,
+              "gap_pp": -3.538749162565037,
+              "predicted_fullwin_pct": 39.685379752419394,
+              "observed_fullwin_pct": 40.450411433521005,
+              "predicted_fullloss_pct": 41.062463578565534,
+              "observed_fullloss_pct": 38.24166305760069
+            },
+            "away": {
+              "n": 4618,
+              "model_ev_pct": -1.1130245370447687,
+              "simulated_roi_pct": -4.645625812039845,
+              "gap_pp": 3.5326012749950766,
+              "predicted_fullwin_pct": 41.062463578565534,
+              "observed_fullwin_pct": 38.24166305760069,
+              "predicted_fullloss_pct": 39.685379752419394,
+              "observed_fullloss_pct": 40.450411433521005
+            }
+          },
+          "2024": {
+            "selected": {
+              "n": 7925,
+              "model_ev_pct": 13.92343500254359,
+              "simulated_roi_pct": -3.939179810725553,
+              "gap_pp": 17.862614813269143,
+              "predicted_fullwin_pct": 48.813034826172526,
+              "observed_fullwin_pct": 38.86435331230284,
+              "predicted_fullloss_pct": 32.014813039629836,
+              "observed_fullloss_pct": 39.98738170347003
+            },
+            "unselected": {
+              "n": 7925,
+              "model_ev_pct": -19.759100622349447,
+              "simulated_roi_pct": -2.0061829652996854,
+              "gap_pp": -17.75291765704976,
+              "predicted_fullwin_pct": 32.014813039629836,
+              "observed_fullwin_pct": 39.98738170347003,
+              "predicted_fullloss_pct": 48.813034826172526,
+              "observed_fullloss_pct": 38.86435331230284
+            },
+            "home": {
+              "n": 7925,
+              "model_ev_pct": -3.4176354645971476,
+              "simulated_roi_pct": -4.046119873817036,
+              "gap_pp": 0.6284844092198882,
+              "predicted_fullwin_pct": 40.39663982409472,
+              "observed_fullwin_pct": 39.10410094637224,
+              "predicted_fullloss_pct": 40.431208041707634,
+              "observed_fullloss_pct": 39.74763406940063
+            },
+            "away": {
+              "n": 7925,
+              "model_ev_pct": -2.4180301552087085,
+              "simulated_roi_pct": -1.899242902208203,
+              "gap_pp": -0.518787253000506,
+              "predicted_fullwin_pct": 40.431208041707634,
+              "observed_fullwin_pct": 39.74763406940063,
+              "predicted_fullloss_pct": 40.39663982409472,
+              "observed_fullloss_pct": 39.10410094637224
+            }
+          },
+          "2025": {
+            "selected": {
+              "n": 8115,
+              "model_ev_pct": 14.670951999036948,
+              "simulated_roi_pct": -2.7802218114602595,
+              "gap_pp": 17.45117381049721,
+              "predicted_fullwin_pct": 49.50501629649926,
+              "observed_fullwin_pct": 39.72889710412816,
+              "predicted_fullloss_pct": 31.650018143496734,
+              "observed_fullloss_pct": 39.50708564386938
+            },
+            "unselected": {
+              "n": 8115,
+              "model_ev_pct": -20.946363841136897,
+              "simulated_roi_pct": -3.381330868761554,
+              "gap_pp": -17.56503297237534,
+              "predicted_fullwin_pct": 31.650018143496734,
+              "observed_fullwin_pct": 39.50708564386938,
+              "predicted_fullloss_pct": 49.50501629649926,
+              "observed_fullloss_pct": 39.72889710412816
+            },
+            "home": {
+              "n": 8115,
+              "model_ev_pct": -3.86107531118096,
+              "simulated_roi_pct": -4.16863832409119,
+              "gap_pp": 0.30756301291022925,
+              "predicted_fullwin_pct": 40.38531081715608,
+              "observed_fullwin_pct": 39.26062846580407,
+              "predicted_fullloss_pct": 40.7697236228399,
+              "observed_fullloss_pct": 39.97535428219347
+            },
+            "away": {
+              "n": 8115,
+              "model_ev_pct": -2.414336530918988,
+              "simulated_roi_pct": -1.9929143561306233,
+              "gap_pp": -0.4214221747883644,
+              "predicted_fullwin_pct": 40.7697236228399,
+              "observed_fullwin_pct": 39.97535428219347,
+              "predicted_fullloss_pct": 40.38531081715608,
+              "observed_fullloss_pct": 39.26062846580407
+            }
+          },
+          "2026": {
+            "selected": {
+              "n": 7168,
+              "model_ev_pct": 14.576870790786487,
+              "simulated_roi_pct": -3.5549665178571432,
+              "gap_pp": 18.131837308643632,
+              "predicted_fullwin_pct": 49.72015112931973,
+              "observed_fullwin_pct": 39.39732142857143,
+              "predicted_fullloss_pct": 31.405717999928612,
+              "observed_fullloss_pct": 39.74609375
+            },
+            "unselected": {
+              "n": 7168,
+              "model_ev_pct": -21.252065552544327,
+              "simulated_roi_pct": -3.0286690848214297,
+              "gap_pp": -18.223396467722896,
+              "predicted_fullwin_pct": 31.405717999928612,
+              "observed_fullwin_pct": 39.74609375,
+              "predicted_fullloss_pct": 49.72015112931973,
+              "observed_fullloss_pct": 39.39732142857143
+            },
+            "home": {
+              "n": 7168,
+              "model_ev_pct": -4.021890650841351,
+              "simulated_roi_pct": -3.525948660714287,
+              "gap_pp": -0.4959419901270642,
+              "predicted_fullwin_pct": 40.475328255797024,
+              "observed_fullwin_pct": 39.74609375,
+              "predicted_fullloss_pct": 40.65054087345131,
+              "observed_fullloss_pct": 39.39732142857143
+            },
+            "away": {
+              "n": 7168,
+              "model_ev_pct": -2.653304110916486,
+              "simulated_roi_pct": -3.057686941964287,
+              "gap_pp": 0.4043828310478009,
+              "predicted_fullwin_pct": 40.65054087345131,
+              "observed_fullwin_pct": 39.39732142857143,
+              "predicted_fullloss_pct": 40.475328255797024,
+              "observed_fullloss_pct": 39.74609375
+            }
+          }
+        }
+      },
+      "dynamic_ekf": {
+        "all": {
+          "selected": {
+            "n": 27826,
+            "model_ev_pct": 11.769319156867207,
+            "simulated_roi_pct": -3.837058865808957,
+            "gap_pp": 15.606378022676163,
+            "predicted_fullwin_pct": 48.152090349403736,
+            "observed_fullwin_pct": 39.10012218788184,
+            "predicted_fullloss_pct": 33.03330260117983,
+            "observed_fullloss_pct": 39.912312225975704
+          },
+          "unselected": {
+            "n": 27826,
+            "model_ev_pct": -17.92663014707573,
+            "simulated_roi_pct": -2.271814130669159,
+            "gap_pp": -15.65481601640657,
+            "predicted_fullwin_pct": 33.03330260117983,
+            "observed_fullwin_pct": 39.912312225975704,
+            "predicted_fullloss_pct": 48.152090349403736,
+            "observed_fullloss_pct": 39.10012218788184
+          },
+          "home": {
+            "n": 27826,
+            "model_ev_pct": -3.4694940998727386,
+            "simulated_roi_pct": -3.428106806583771,
+            "gap_pp": -0.04138729328896674,
+            "predicted_fullwin_pct": 40.58483867305127,
+            "observed_fullwin_pct": 39.5385610580033,
+            "predicted_fullloss_pct": 40.60055427753229,
+            "observed_fullloss_pct": 39.47387335585424
+          },
+          "away": {
+            "n": 27826,
+            "model_ev_pct": -2.687816890335785,
+            "simulated_roi_pct": -2.6807661898943445,
+            "gap_pp": -0.0070507004414402715,
+            "predicted_fullwin_pct": 40.60055427753229,
+            "observed_fullwin_pct": 39.47387335585424,
+            "predicted_fullloss_pct": 40.58483867305127,
+            "observed_fullloss_pct": 39.5385610580033
+          }
+        },
+        "by_year": {
+          "2023": {
+            "selected": {
+              "n": 4618,
+              "model_ev_pct": 11.58742320856811,
+              "simulated_roi_pct": -3.866500649631876,
+              "gap_pp": 15.453923858199984,
+              "predicted_fullwin_pct": 47.79020986788089,
+              "observed_fullwin_pct": 38.78302295365959,
+              "predicted_fullloss_pct": 33.19519108935332,
+              "observed_fullloss_pct": 39.909051537462105
+            },
+            "unselected": {
+              "n": 4618,
+              "model_ev_pct": -17.132855461948154,
+              "simulated_roi_pct": -1.6934820268514517,
+              "gap_pp": -15.439373435096702,
+              "predicted_fullwin_pct": 33.19519108935332,
+              "observed_fullwin_pct": 39.909051537462105,
+              "predicted_fullloss_pct": 47.79020986788089,
+              "observed_fullloss_pct": 38.78302295365959
+            },
+            "home": {
+              "n": 4618,
+              "model_ev_pct": -2.9901908085935984,
+              "simulated_roi_pct": -0.914356864443483,
+              "gap_pp": -2.0758339441501152,
+              "predicted_fullwin_pct": 40.51797015411181,
+              "observed_fullwin_pct": 40.450411433521005,
+              "predicted_fullloss_pct": 40.467430803122404,
+              "observed_fullloss_pct": 38.24166305760069
+            },
+            "away": {
+              "n": 4618,
+              "model_ev_pct": -2.555241444786447,
+              "simulated_roi_pct": -4.645625812039845,
+              "gap_pp": 2.090384367253399,
+              "predicted_fullwin_pct": 40.467430803122404,
+              "observed_fullwin_pct": 38.24166305760069,
+              "predicted_fullloss_pct": 40.51797015411181,
+              "observed_fullloss_pct": 40.450411433521005
+            }
+          },
+          "2024": {
+            "selected": {
+              "n": 7925,
+              "model_ev_pct": 11.701461465889976,
+              "simulated_roi_pct": -3.7927444794952687,
+              "gap_pp": 15.494205945385245,
+              "predicted_fullwin_pct": 47.99105222280801,
+              "observed_fullwin_pct": 39.041009463722396,
+              "predicted_fullloss_pct": 33.09307073135011,
+              "observed_fullloss_pct": 39.81072555205047
+            },
+            "unselected": {
+              "n": 7925,
+              "model_ev_pct": -17.585006374955228,
+              "simulated_roi_pct": -2.1526182965299694,
+              "gap_pp": -15.43238807842526,
+              "predicted_fullwin_pct": 33.09307073135011,
+              "observed_fullwin_pct": 39.81072555205047,
+              "predicted_fullloss_pct": 47.99105222280801,
+              "observed_fullloss_pct": 39.041009463722396
+            },
+            "home": {
+              "n": 7925,
+              "model_ev_pct": -3.1366356701198526,
+              "simulated_roi_pct": -4.046119873817036,
+              "gap_pp": 0.9094842036971826,
+              "predicted_fullwin_pct": 40.649159241430596,
+              "observed_fullwin_pct": 39.10410094637224,
+              "predicted_fullloss_pct": 40.43496371272753,
+              "observed_fullloss_pct": 39.74763406940063
+            },
+            "away": {
+              "n": 7925,
+              "model_ev_pct": -2.746909238945398,
+              "simulated_roi_pct": -1.899242902208203,
+              "gap_pp": -0.8476663367371955,
+              "predicted_fullwin_pct": 40.43496371272753,
+              "observed_fullwin_pct": 39.74763406940063,
+              "predicted_fullloss_pct": 40.649159241430596,
+              "observed_fullloss_pct": 39.10410094637224
+            }
+          },
+          "2025": {
+            "selected": {
+              "n": 8115,
+              "model_ev_pct": 11.797743558812483,
+              "simulated_roi_pct": -4.175723967960567,
+              "gap_pp": 15.973467526773053,
+              "predicted_fullwin_pct": 48.249109256614204,
+              "observed_fullwin_pct": 39.12507701786814,
+              "predicted_fullloss_pct": 32.968511494705254,
+              "observed_fullloss_pct": 40.11090573012939
+            },
+            "unselected": {
+              "n": 8115,
+              "model_ev_pct": -18.108644450356632,
+              "simulated_roi_pct": -1.9858287122612452,
+              "gap_pp": -16.122815738095387,
+              "predicted_fullwin_pct": 32.968511494705254,
+              "observed_fullwin_pct": 40.11090573012939,
+              "predicted_fullloss_pct": 48.249109256614204,
+              "observed_fullloss_pct": 39.12507701786814
+            },
+            "home": {
+              "n": 8115,
+              "model_ev_pct": -3.865701811878457,
+              "simulated_roi_pct": -4.16863832409119,
+              "gap_pp": 0.30293651221273304,
+              "predicted_fullwin_pct": 40.40590438251711,
+              "observed_fullwin_pct": 39.26062846580407,
+              "predicted_fullloss_pct": 40.81171636880236,
+              "observed_fullloss_pct": 39.97535428219347
+            },
+            "away": {
+              "n": 8115,
+              "model_ev_pct": -2.4451990796656906,
+              "simulated_roi_pct": -1.9929143561306233,
+              "gap_pp": -0.45228472353506755,
+              "predicted_fullwin_pct": 40.81171636880236,
+              "observed_fullwin_pct": 39.97535428219347,
+              "predicted_fullloss_pct": 40.40590438251711,
+              "observed_fullloss_pct": 39.26062846580407
+            }
+          },
+          "2026": {
+            "selected": {
+              "n": 7168,
+              "model_ev_pct": 11.929350360613558,
+              "simulated_roi_pct": -3.4836774553571437,
+              "gap_pp": 15.413027815970702,
+              "predicted_fullwin_pct": 48.45344118435501,
+              "observed_fullwin_pct": 39.341517857142854,
+              "predicted_fullloss_pct": 32.93627642359284,
+              "observed_fullloss_pct": 39.80189732142857
+            },
+            "unselected": {
+              "n": 7168,
+              "model_ev_pct": -18.609662208857202,
+              "simulated_roi_pct": -3.0999581473214297,
+              "gap_pp": -15.509704061535771,
+              "predicted_fullwin_pct": 32.93627642359284,
+              "observed_fullwin_pct": 39.80189732142857,
+              "predicted_fullloss_pct": 48.45344118435501,
+              "observed_fullloss_pct": 39.341517857142854
+            },
+            "home": {
+              "n": 7168,
+              "model_ev_pct": -3.6977446679520183,
+              "simulated_roi_pct": -3.525948660714287,
+              "gap_pp": -0.17179600723773117,
+              "predicted_fullwin_pct": 40.75937970035891,
+              "observed_fullwin_pct": 39.74609375,
+              "predicted_fullloss_pct": 40.63033790758892,
+              "observed_fullloss_pct": 39.39732142857143
+            },
+            "away": {
+              "n": 7168,
+              "model_ev_pct": -2.9825671802916256,
+              "simulated_roi_pct": -3.057686941964287,
+              "gap_pp": 0.07511976167266113,
+              "predicted_fullwin_pct": 40.63033790758892,
+              "observed_fullwin_pct": 39.39732142857143,
+              "predicted_fullloss_pct": 40.75937970035891,
+              "observed_fullloss_pct": 39.74609375
+            }
+          }
+        }
+      }
+    },
+    "lead12h": {
+      "annual_bp": {
+        "all": {
+          "selected": {
+            "n": 27304,
+            "model_ev_pct": 14.35346930638522,
+            "simulated_roi_pct": -3.554094638148257,
+            "gap_pp": 17.90756394453348,
+            "predicted_fullwin_pct": 49.281122670543056,
+            "observed_fullwin_pct": 39.26897157925578,
+            "predicted_fullloss_pct": 31.435011207310506,
+            "observed_fullloss_pct": 39.80735423381189
+          },
+          "unselected": {
+            "n": 27304,
+            "model_ev_pct": -20.897282259128488,
+            "simulated_roi_pct": -2.90798051567536,
+            "gap_pp": -17.98930174345313,
+            "predicted_fullwin_pct": 31.435011207310506,
+            "observed_fullwin_pct": 39.80735423381189,
+            "predicted_fullloss_pct": 49.281122670543056,
+            "observed_fullloss_pct": 39.26897157925578
+          },
+          "home": {
+            "n": 27304,
+            "model_ev_pct": -4.007080814697903,
+            "simulated_roi_pct": -3.619634485789629,
+            "gap_pp": -0.3874463289082745,
+            "predicted_fullwin_pct": 40.192029926643634,
+            "observed_fullwin_pct": 39.51801933782596,
+            "predicted_fullloss_pct": 40.52410395120992,
+            "observed_fullloss_pct": 39.55830647524172
+          },
+          "away": {
+            "n": 27304,
+            "model_ev_pct": -2.5367321380453656,
+            "simulated_roi_pct": -2.842440668033989,
+            "gap_pp": 0.3057085299886231,
+            "predicted_fullwin_pct": 40.52410395120992,
+            "observed_fullwin_pct": 39.55830647524172,
+            "predicted_fullloss_pct": 40.192029926643634,
+            "observed_fullloss_pct": 39.51801933782596
+          }
+        },
+        "by_year": {
+          "2023": {
+            "selected": {
+              "n": 4545,
+              "model_ev_pct": 15.423250450837122,
+              "simulated_roi_pct": -2.6017601760176023,
+              "gap_pp": 18.025010626854723,
+              "predicted_fullwin_pct": 49.42138339159957,
+              "observed_fullwin_pct": 39.273927392739274,
+              "predicted_fullloss_pct": 30.980782678333107,
+              "observed_fullloss_pct": 39.47194719471947
+            },
+            "unselected": {
+              "n": 4545,
+              "model_ev_pct": -21.104106041973935,
+              "simulated_roi_pct": -2.860506050605062,
+              "gap_pp": -18.24359999136887,
+              "predicted_fullwin_pct": 30.980782678333107,
+              "observed_fullwin_pct": 39.47194719471947,
+              "predicted_fullloss_pct": 49.42138339159957,
+              "observed_fullloss_pct": 39.273927392739274
+            },
+            "home": {
+              "n": 4545,
+              "model_ev_pct": -4.4734507668143,
+              "simulated_roi_pct": -0.7811881188118824,
+              "gap_pp": -3.692262648002418,
+              "predicted_fullwin_pct": 39.550321989080594,
+              "observed_fullwin_pct": 40.44004400440044,
+              "predicted_fullloss_pct": 40.85184408085209,
+              "observed_fullloss_pct": 38.3058305830583
+            },
+            "away": {
+              "n": 4545,
+              "model_ev_pct": -1.2074048243225113,
+              "simulated_roi_pct": -4.681078107810782,
+              "gap_pp": 3.4736732834882704,
+              "predicted_fullwin_pct": 40.85184408085209,
+              "observed_fullwin_pct": 38.3058305830583,
+              "predicted_fullloss_pct": 39.550321989080594,
+              "observed_fullloss_pct": 40.44004400440044
+            }
+          },
+          "2024": {
+            "selected": {
+              "n": 7766,
+              "model_ev_pct": 13.920650729292344,
+              "simulated_roi_pct": -4.228367241823333,
+              "gap_pp": 18.149017971115676,
+              "predicted_fullwin_pct": 48.69553629100663,
+              "observed_fullwin_pct": 38.668555240793204,
+              "predicted_fullloss_pct": 31.727828908283808,
+              "observed_fullloss_pct": 40.1107391192377
+            },
+            "unselected": {
+              "n": 7766,
+              "model_ev_pct": -19.95249695559714,
+              "simulated_roi_pct": -1.7082152974504259,
+              "gap_pp": -18.24428165814671,
+              "predicted_fullwin_pct": 31.727828908283808,
+              "observed_fullwin_pct": 40.1107391192377,
+              "predicted_fullloss_pct": 48.69553629100663,
+              "observed_fullloss_pct": 38.668555240793204
+            },
+            "home": {
+              "n": 7766,
+              "model_ev_pct": -3.4380110027965287,
+              "simulated_roi_pct": -4.263262941024982,
+              "gap_pp": 0.8252519382284528,
+              "predicted_fullwin_pct": 40.289222223764085,
+              "observed_fullwin_pct": 39.0162245686325,
+              "predicted_fullloss_pct": 40.134142975526366,
+              "observed_fullloss_pct": 39.7630697913984
+            },
+            "away": {
+              "n": 7766,
+              "model_ev_pct": -2.593835223508268,
+              "simulated_roi_pct": -1.6733195982487776,
+              "gap_pp": -0.9205156252594902,
+              "predicted_fullwin_pct": 40.134142975526366,
+              "observed_fullwin_pct": 39.7630697913984,
+              "predicted_fullloss_pct": 40.289222223764085,
+              "observed_fullloss_pct": 39.0162245686325
+            }
+          },
+          "2025": {
+            "selected": {
+              "n": 7936,
+              "model_ev_pct": 14.350821593455962,
+              "simulated_roi_pct": -3.113092237903227,
+              "gap_pp": 17.463913831359186,
+              "predicted_fullwin_pct": 49.50531782208396,
+              "observed_fullwin_pct": 39.75554435483871,
+              "predicted_fullloss_pct": 31.507779049337756,
+              "observed_fullloss_pct": 39.440524193548384
+            },
+            "unselected": {
+              "n": 7936,
+              "model_ev_pct": -21.00116491985933,
+              "simulated_roi_pct": -3.505922379032259,
+              "gap_pp": -17.495242540827075,
+              "predicted_fullwin_pct": 31.507779049337756,
+              "observed_fullwin_pct": 39.440524193548384,
+              "predicted_fullloss_pct": 49.50531782208396,
+              "observed_fullloss_pct": 39.75554435483871
+            },
+            "home": {
+              "n": 7936,
+              "model_ev_pct": -3.949840388207564,
+              "simulated_roi_pct": -4.287235383064517,
+              "gap_pp": 0.33739499485695335,
+              "predicted_fullwin_pct": 40.36337513735424,
+              "observed_fullwin_pct": 39.26411290322581,
+              "predicted_fullloss_pct": 40.64972173406748,
+              "observed_fullloss_pct": 39.93195564516129
+            },
+            "away": {
+              "n": 7936,
+              "model_ev_pct": -2.7005029381958034,
+              "simulated_roi_pct": -2.331779233870969,
+              "gap_pp": -0.3687237043248354,
+              "predicted_fullwin_pct": 40.64972173406748,
+              "observed_fullwin_pct": 39.93195564516129,
+              "predicted_fullloss_pct": 40.36337513735424,
+              "observed_fullloss_pct": 39.26411290322581
+            }
+          },
+          "2026": {
+            "selected": {
+              "n": 7057,
+              "model_ev_pct": 14.143766318993409,
+              "simulated_roi_pct": -3.921354683293185,
+              "gap_pp": 18.065121002286595,
+              "predicted_fullwin_pct": 49.583087545652766,
+              "observed_fullwin_pct": 39.37933966274621,
+              "predicted_fullloss_pct": 31.323485177002347,
+              "observed_fullloss_pct": 40.10202635680884
+            },
+            "unselected": {
+              "n": 7057,
+              "model_ev_pct": -21.68696282858179,
+              "simulated_roi_pct": -3.5864389967408257,
+              "gap_pp": -18.100523831840967,
+              "predicted_fullwin_pct": 31.323485177002347,
+              "observed_fullwin_pct": 40.10202635680884,
+              "predicted_fullloss_pct": 49.583087545652766,
+              "observed_fullloss_pct": 39.37933966274621
+            },
+            "home": {
+              "n": 7057,
+              "model_ev_pct": -4.397332302792615,
+              "simulated_roi_pct": -3.988663738132352,
+              "gap_pp": -0.4086685646602639,
+              "predicted_fullwin_pct": 40.30567192814387,
+              "observed_fullwin_pct": 39.761938500779365,
+              "predicted_fullloss_pct": 40.600900794511254,
+              "observed_fullloss_pct": 39.71942751877568
+            },
+            "away": {
+              "n": 7057,
+              "model_ev_pct": -3.1458642067957685,
+              "simulated_roi_pct": -3.519129941901659,
+              "gap_pp": 0.3732657351058903,
+              "predicted_fullwin_pct": 40.600900794511254,
+              "observed_fullwin_pct": 39.71942751877568,
+              "predicted_fullloss_pct": 40.30567192814387,
+              "observed_fullloss_pct": 39.761938500779365
+            }
+          }
+        }
+      },
+      "annual_dc": {
+        "all": {
+          "selected": {
+            "n": 27304,
+            "model_ev_pct": 13.935701915548197,
+            "simulated_roi_pct": -3.5585445355991805,
+            "gap_pp": 17.49424645114738,
+            "predicted_fullwin_pct": 49.2319832079029,
+            "observed_fullwin_pct": 39.26897157925578,
+            "predicted_fullloss_pct": 31.793894410326484,
+            "observed_fullloss_pct": 39.80735423381189
+          },
+          "unselected": {
+            "n": 27304,
+            "model_ev_pct": -20.49275282071641,
+            "simulated_roi_pct": -2.9035306182244365,
+            "gap_pp": -17.589222202491975,
+            "predicted_fullwin_pct": 31.793894410326484,
+            "observed_fullwin_pct": 39.80735423381189,
+            "predicted_fullloss_pct": 49.2319832079029,
+            "observed_fullloss_pct": 39.26897157925578
+          },
+          "home": {
+            "n": 27304,
+            "model_ev_pct": -4.026114031301755,
+            "simulated_roi_pct": -3.619634485789629,
+            "gap_pp": -0.406479545512126,
+            "predicted_fullwin_pct": 40.34816307971972,
+            "observed_fullwin_pct": 39.51801933782596,
+            "predicted_fullloss_pct": 40.67771453850966,
+            "observed_fullloss_pct": 39.55830647524172
+          },
+          "away": {
+            "n": 27304,
+            "model_ev_pct": -2.53093687386646,
+            "simulated_roi_pct": -2.842440668033989,
+            "gap_pp": 0.31150379416752877,
+            "predicted_fullwin_pct": 40.67771453850966,
+            "observed_fullwin_pct": 39.55830647524172,
+            "predicted_fullloss_pct": 40.34816307971972,
+            "observed_fullloss_pct": 39.51801933782596
+          }
+        },
+        "by_year": {
+          "2023": {
+            "selected": {
+              "n": 4545,
+              "model_ev_pct": 14.825506810087152,
+              "simulated_roi_pct": -2.267326732673268,
+              "gap_pp": 17.092833542760417,
+              "predicted_fullwin_pct": 49.309375743199816,
+              "observed_fullwin_pct": 39.40594059405941,
+              "predicted_fullloss_pct": 31.433140009526255,
+              "observed_fullloss_pct": 39.33993399339934
+            },
+            "unselected": {
+              "n": 4545,
+              "model_ev_pct": -20.517815783480604,
+              "simulated_roi_pct": -3.1949394939493967,
+              "gap_pp": -17.322876289531205,
+              "predicted_fullwin_pct": 31.433140009526255,
+              "observed_fullwin_pct": 39.33993399339934,
+              "predicted_fullloss_pct": 49.309375743199816,
+              "observed_fullloss_pct": 39.40594059405941
+            },
+            "home": {
+              "n": 4545,
+              "model_ev_pct": -4.497183901174654,
+              "simulated_roi_pct": -0.7811881188118824,
+              "gap_pp": -3.7159957823627714,
+              "predicted_fullwin_pct": 39.72551506106807,
+              "observed_fullwin_pct": 40.44004400440044,
+              "predicted_fullloss_pct": 41.017000691658,
+              "observed_fullloss_pct": 38.3058305830583
+            },
+            "away": {
+              "n": 4545,
+              "model_ev_pct": -1.1951250722187985,
+              "simulated_roi_pct": -4.681078107810782,
+              "gap_pp": 3.485953035591983,
+              "predicted_fullwin_pct": 41.017000691658,
+              "observed_fullwin_pct": 38.3058305830583,
+              "predicted_fullloss_pct": 39.72551506106807,
+              "observed_fullloss_pct": 40.44004400440044
+            }
+          },
+          "2024": {
+            "selected": {
+              "n": 7766,
+              "model_ev_pct": 13.513072485875865,
+              "simulated_roi_pct": -4.080479011073914,
+              "gap_pp": 17.59355149694978,
+              "predicted_fullwin_pct": 48.658077294182895,
+              "observed_fullwin_pct": 38.720061807880505,
+              "predicted_fullloss_pct": 32.089136069949184,
+              "observed_fullloss_pct": 40.0592325521504
+            },
+            "unselected": {
+              "n": 7766,
+              "model_ev_pct": -19.55476153766023,
+              "simulated_roi_pct": -1.8561035281998464,
+              "gap_pp": -17.69865800946038,
+              "predicted_fullwin_pct": 32.089136069949184,
+              "observed_fullwin_pct": 40.0592325521504,
+              "predicted_fullloss_pct": 48.658077294182895,
+              "observed_fullloss_pct": 38.720061807880505
+            },
+            "home": {
+              "n": 7766,
+              "model_ev_pct": -3.5029826806213085,
+              "simulated_roi_pct": -4.263262941024982,
+              "gap_pp": 0.7602802604036731,
+              "predicted_fullwin_pct": 40.43022140800521,
+              "observed_fullwin_pct": 39.0162245686325,
+              "predicted_fullloss_pct": 40.31699195612688,
+              "observed_fullloss_pct": 39.7630697913984
+            },
+            "away": {
+              "n": 7766,
+              "model_ev_pct": -2.5387063711630584,
+              "simulated_roi_pct": -1.6733195982487776,
+              "gap_pp": -0.8653867729142808,
+              "predicted_fullwin_pct": 40.31699195612688,
+              "observed_fullwin_pct": 39.7630697913984,
+              "predicted_fullloss_pct": 40.43022140800521,
+              "observed_fullloss_pct": 39.0162245686325
+            }
+          },
+          "2025": {
+            "selected": {
+              "n": 7936,
+              "model_ev_pct": 14.017098069591382,
+              "simulated_roi_pct": -3.358492943548388,
+              "gap_pp": 17.37559101313977,
+              "predicted_fullwin_pct": 49.44728228396877,
+              "observed_fullwin_pct": 39.65473790322581,
+              "predicted_fullloss_pct": 31.80971175577004,
+              "observed_fullloss_pct": 39.54133064516129
+            },
+            "unselected": {
+              "n": 7936,
+              "model_ev_pct": -20.680919852192474,
+              "simulated_roi_pct": -3.2605216733870974,
+              "gap_pp": -17.420398178805378,
+              "predicted_fullwin_pct": 31.80971175577004,
+              "observed_fullwin_pct": 39.54133064516129,
+              "predicted_fullloss_pct": 49.44728228396877,
+              "observed_fullloss_pct": 39.65473790322581
+            },
+            "home": {
+              "n": 7936,
+              "model_ev_pct": -3.957458681666105,
+              "simulated_roi_pct": -4.287235383064517,
+              "gap_pp": 0.3297767013984123,
+              "predicted_fullwin_pct": 40.491624284126246,
+              "observed_fullwin_pct": 39.26411290322581,
+              "predicted_fullloss_pct": 40.76536975561256,
+              "observed_fullloss_pct": 39.93195564516129
+            },
+            "away": {
+              "n": 7936,
+              "model_ev_pct": -2.70636310093499,
+              "simulated_roi_pct": -2.331779233870969,
+              "gap_pp": -0.37458386706402147,
+              "predicted_fullwin_pct": 40.76536975561256,
+              "observed_fullwin_pct": 39.93195564516129,
+              "predicted_fullloss_pct": 40.491624284126246,
+              "observed_fullloss_pct": 39.26411290322581
+            }
+          },
+          "2026": {
+            "selected": {
+              "n": 7057,
+              "model_ev_pct": 13.736186119412318,
+              "simulated_roi_pct": -4.0407396910868645,
+              "gap_pp": 17.776925810499186,
+              "predicted_fullwin_pct": 49.57158796705923,
+              "observed_fullwin_pct": 39.35099900807709,
+              "predicted_fullloss_pct": 31.683543775434472,
+              "observed_fullloss_pct": 40.130367011477965
+            },
+            "unselected": {
+              "n": 7057,
+              "model_ev_pct": -21.29723568548289,
+              "simulated_roi_pct": -3.467053988947145,
+              "gap_pp": -17.830181696535742,
+              "predicted_fullwin_pct": 31.683543775434472,
+              "observed_fullwin_pct": 40.130367011477965,
+              "predicted_fullloss_pct": 49.57158796705923,
+              "observed_fullloss_pct": 39.35099900807709
+            },
+            "home": {
+              "n": 7057,
+              "model_ev_pct": -4.3756215225190624,
+              "simulated_roi_pct": -3.988663738132352,
+              "gap_pp": -0.38695778438671086,
+              "predicted_fullwin_pct": 40.49754130688938,
+              "observed_fullwin_pct": 39.761938500779365,
+              "predicted_fullloss_pct": 40.75759043560432,
+              "observed_fullloss_pct": 39.71942751877568
+            },
+            "away": {
+              "n": 7057,
+              "model_ev_pct": -3.185428043551507,
+              "simulated_roi_pct": -3.519129941901659,
+              "gap_pp": 0.33370189835015146,
+              "predicted_fullwin_pct": 40.75759043560432,
+              "observed_fullwin_pct": 39.71942751877568,
+              "predicted_fullloss_pct": 40.49754130688938,
+              "observed_fullloss_pct": 39.761938500779365
+            }
+          }
+        }
+      },
+      "dynamic_ekf": {
+        "all": {
+          "selected": {
+            "n": 27304,
+            "model_ev_pct": 11.288160150508117,
+            "simulated_roi_pct": -3.6484947260474665,
+            "gap_pp": 14.936654876555583,
+            "predicted_fullwin_pct": 48.088053231694666,
+            "observed_fullwin_pct": 39.32390858482274,
+            "predicted_fullloss_pct": 33.15414386051566,
+            "observed_fullloss_pct": 39.752417228244944
+          },
+          "unselected": {
+            "n": 27304,
+            "model_ev_pct": -17.873882618465608,
+            "simulated_roi_pct": -2.813580427776151,
+            "gap_pp": -15.060302190689457,
+            "predicted_fullwin_pct": 33.15414386051566,
+            "observed_fullwin_pct": 39.752417228244944,
+            "predicted_fullloss_pct": 48.088053231694666,
+            "observed_fullloss_pct": 39.32390858482274
+          },
+          "home": {
+            "n": 27304,
+            "model_ev_pct": -3.640917348951336,
+            "simulated_roi_pct": -3.619634485789629,
+            "gap_pp": -0.02128286316170699,
+            "predicted_fullwin_pct": 40.63418263245922,
+            "observed_fullwin_pct": 39.51801933782596,
+            "predicted_fullloss_pct": 40.608014459751104,
+            "observed_fullloss_pct": 39.55830647524172
+          },
+          "away": {
+            "n": 27304,
+            "model_ev_pct": -2.9448051190061557,
+            "simulated_roi_pct": -2.842440668033989,
+            "gap_pp": -0.10236445097216745,
+            "predicted_fullwin_pct": 40.608014459751104,
+            "observed_fullwin_pct": 39.55830647524172,
+            "predicted_fullloss_pct": 40.63418263245922,
+            "observed_fullloss_pct": 39.51801933782596
+          }
+        },
+        "by_year": {
+          "2023": {
+            "selected": {
+              "n": 4545,
+              "model_ev_pct": 11.30394697435531,
+              "simulated_roi_pct": -3.297359735973599,
+              "gap_pp": 14.601306710328906,
+              "predicted_fullwin_pct": 47.769347756468974,
+              "observed_fullwin_pct": 39.25192519251925,
+              "predicted_fullloss_pct": 33.25473561332227,
+              "observed_fullloss_pct": 39.49394939493949
+            },
+            "unselected": {
+              "n": 4545,
+              "model_ev_pct": -16.98354462065095,
+              "simulated_roi_pct": -2.164906490649066,
+              "gap_pp": -14.818638130001883,
+              "predicted_fullwin_pct": 33.25473561332227,
+              "observed_fullwin_pct": 39.49394939493949,
+              "predicted_fullloss_pct": 47.769347756468974,
+              "observed_fullloss_pct": 39.25192519251925
+            },
+            "home": {
+              "n": 4545,
+              "model_ev_pct": -2.9494382179825682,
+              "simulated_roi_pct": -0.7811881188118824,
+              "gap_pp": -2.168250099170686,
+              "predicted_fullwin_pct": 40.60061831010008,
+              "observed_fullwin_pct": 40.44004400440044,
+              "predicted_fullloss_pct": 40.42346505969116,
+              "observed_fullloss_pct": 38.3058305830583
+            },
+            "away": {
+              "n": 4545,
+              "model_ev_pct": -2.7301594283130726,
+              "simulated_roi_pct": -4.681078107810782,
+              "gap_pp": 1.9509186794977098,
+              "predicted_fullwin_pct": 40.42346505969116,
+              "observed_fullwin_pct": 38.3058305830583,
+              "predicted_fullloss_pct": 40.60061831010008,
+              "observed_fullloss_pct": 40.44004400440044
+            }
+          },
+          "2024": {
+            "selected": {
+              "n": 7766,
+              "model_ev_pct": 11.3372883282985,
+              "simulated_roi_pct": -3.975534380633532,
+              "gap_pp": 15.312822708932032,
+              "predicted_fullwin_pct": 47.88537452026148,
+              "observed_fullwin_pct": 38.823074942055115,
+              "predicted_fullloss_pct": 33.13433533563445,
+              "observed_fullloss_pct": 39.956219417975795
+            },
+            "unselected": {
+              "n": 7766,
+              "model_ev_pct": -17.418150635005308,
+              "simulated_roi_pct": -1.9610481586402275,
+              "gap_pp": -15.45710247636508,
+              "predicted_fullwin_pct": 33.13433533563445,
+              "observed_fullwin_pct": 39.956219417975795,
+              "predicted_fullloss_pct": 47.88537452026148,
+              "observed_fullloss_pct": 38.823074942055115
+            },
+            "home": {
+              "n": 7766,
+              "model_ev_pct": -3.1977275475636358,
+              "simulated_roi_pct": -4.263262941024982,
+              "gap_pp": 1.0655353934613458,
+              "predicted_fullwin_pct": 40.69956303932862,
+              "observed_fullwin_pct": 39.0162245686325,
+              "predicted_fullloss_pct": 40.3201468165673,
+              "observed_fullloss_pct": 39.7630697913984
+            },
+            "away": {
+              "n": 7766,
+              "model_ev_pct": -2.8831347591431746,
+              "simulated_roi_pct": -1.6733195982487776,
+              "gap_pp": -1.2098151608943972,
+              "predicted_fullwin_pct": 40.3201468165673,
+              "observed_fullwin_pct": 39.7630697913984,
+              "predicted_fullloss_pct": 40.69956303932862,
+              "observed_fullloss_pct": 39.0162245686325
+            }
+          },
+          "2025": {
+            "selected": {
+              "n": 7936,
+              "model_ev_pct": 11.286479336518557,
+              "simulated_roi_pct": -3.4262222782258074,
+              "gap_pp": 14.712701614744365,
+              "predicted_fullwin_pct": 48.16685278324034,
+              "observed_fullwin_pct": 39.629536290322584,
+              "predicted_fullloss_pct": 33.15609789290368,
+              "observed_fullloss_pct": 39.56653225806452
+            },
+            "unselected": {
+              "n": 7936,
+              "model_ev_pct": -17.99729144284498,
+              "simulated_roi_pct": -3.1927923387096784,
+              "gap_pp": -14.804499104135303,
+              "predicted_fullwin_pct": 33.15609789290368,
+              "observed_fullwin_pct": 39.56653225806452,
+              "predicted_fullloss_pct": 48.16685278324034,
+              "observed_fullloss_pct": 39.629536290322584
+            },
+            "home": {
+              "n": 7936,
+              "model_ev_pct": -4.069541501004384,
+              "simulated_roi_pct": -4.287235383064517,
+              "gap_pp": 0.21769388206013307,
+              "predicted_fullwin_pct": 40.46067122658864,
+              "observed_fullwin_pct": 39.26411290322581,
+              "predicted_fullloss_pct": 40.86227944955538,
+              "observed_fullloss_pct": 39.93195564516129
+            },
+            "away": {
+              "n": 7936,
+              "model_ev_pct": -2.64127060532204,
+              "simulated_roi_pct": -2.331779233870969,
+              "gap_pp": -0.3094913714510714,
+              "predicted_fullwin_pct": 40.86227944955538,
+              "observed_fullwin_pct": 39.93195564516129,
+              "predicted_fullloss_pct": 40.46067122658864,
+              "observed_fullloss_pct": 39.26411290322581
+            }
+          },
+          "2026": {
+            "selected": {
+              "n": 7057,
+              "model_ev_pct": 11.225818985241792,
+              "simulated_roi_pct": -3.7647017146096085,
+              "gap_pp": 14.9905206998514,
+              "predicted_fullwin_pct": 48.427739503031546,
+              "observed_fullwin_pct": 39.57772424543007,
+              "predicted_fullloss_pct": 33.1089598285885,
+              "observed_fullloss_pct": 39.903641774124985
+            },
+            "unselected": {
+              "n": 7057,
+              "model_ev_pct": -18.810035141257956,
+              "simulated_roi_pct": -3.743091965424402,
+              "gap_pp": -15.066943175833554,
+              "predicted_fullwin_pct": 33.1089598285885,
+              "observed_fullwin_pct": 39.903641774124985,
+              "predicted_fullloss_pct": 48.427739503031546,
+              "observed_fullloss_pct": 39.57772424543007
+            },
+            "home": {
+              "n": 7057,
+              "model_ev_pct": -4.0919621806272515,
+              "simulated_roi_pct": -3.988663738132352,
+              "gap_pp": -0.10329844249489985,
+              "predicted_fullwin_pct": 40.77897392087688,
+              "observed_fullwin_pct": 39.761938500779365,
+              "predicted_fullloss_pct": 40.75772541074317,
+              "observed_fullloss_pct": 39.71942751877568
+            },
+            "away": {
+              "n": 7057,
+              "model_ev_pct": -3.492253975388914,
+              "simulated_roi_pct": -3.519129941901659,
+              "gap_pp": 0.026875966512744844,
+              "predicted_fullwin_pct": 40.75772541074317,
+              "observed_fullwin_pct": 39.71942751877568,
+              "predicted_fullloss_pct": 40.77897392087688,
+              "observed_fullloss_pct": 39.761938500779365
+            }
+          }
+        }
+      }
+    }
+  }
+}
