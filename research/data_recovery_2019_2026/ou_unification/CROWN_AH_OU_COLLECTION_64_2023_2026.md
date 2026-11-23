@@ -2574,3 +2574,11 @@ From T2059 through the 21:04:05.234259Z MR1 pause, 16 unique FIDs were finalized
 The safe driver rebuilt the queue at 21:05:21.136360Z: 31,219 requests remain (2023 2,679; 2024 14,553; 2025 13,520; 2026 467), down 16. Coverage remains AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 9,407. Mean/median response duration was 1.3755/1.3213 seconds at the unchanged 5.2-second cadence. Independent raw SHA/SQLite and queue-rebuild checks passed. The driver restarted collection as PID 85390 after the scheduled job. This is historical retrieval, not a real-time Crown receipt.
 
 Checkpoint evidence and SHA manifest use the `20261123T2105Z` suffix in this directory.
+
+### T2111 incremental checkpoint (2026-11-23 21:11 UTC)
+
+From T2105 through the 21:07:27.721679Z settlement pause, 23 unique FIDs were handled. Twenty-three HTTP 200 responses completed; statuses were 6 `BOTH_MARKETS`, 13 `PARTIAL_MARKETS`, and 4 `NO_CROWN_MARKET_DATA`. Nineteen quote-bearing FIDs added 398 OU movement rows. One FID (`144328391`) ended the interval as a failed `IncompleteRead` and remains queued for retry. The audit counted 25 attempts: 23 successes and two transport errors, with the other error recovered within the window. There were no duplicate FIDs, raw SHA mismatches, or identity/scope mismatches.
+
+Queue rebuilt at 21:11:12.593895Z: 31,196 requests remain (2023 2,656; 2024 14,553; 2025 13,520; 2026 467), down 23. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 9,426. Mean/median response duration was 1.3250/1.3299 seconds at the unchanged 5.2-second cadence. Independent raw SHA/SQLite and queue-rebuild checks passed. Safe driver PID49373 restarted the collector as PID 86682. This is historical retrieval, not a real-time Crown receipt.
+
+Checkpoint evidence and SHA manifest use the `20261123T2111Z` suffix in this directory.
