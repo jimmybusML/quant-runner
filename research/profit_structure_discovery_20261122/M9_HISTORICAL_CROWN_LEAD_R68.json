@@ -1,0 +1,35 @@
+{
+  "generated_at_utc": "2026-11-23T07:55:45.171060+00:00",
+  "method": "For each completed 2023-26 fixture select most recent genuine Crown source event timestamp no later than T-6h or T-12h, across original open and historical movement rows. Replay analysis only, not actually pre-received prices.",
+  "counts": {
+    "scanned_pre_kickoff_rows": 2004209,
+    "kickoff_identity_conflict": 7,
+    "invalid_quote_row": 29,
+    "selected_lead6h": 32467,
+    "raw_ok": 64260,
+    "actually_received_after_kickoff": 64078,
+    "actually_received_pre_kickoff": 180,
+    "selected_lead12h": 31793,
+    "no_received_timestamp": 2
+  },
+  "by_year_kind": {
+    "2023": {
+      "lead6h": 5212,
+      "lead12h": 5127
+    },
+    "2024": {
+      "lead6h": 8875,
+      "lead12h": 8694
+    },
+    "2025": {
+      "lead6h": 8904,
+      "lead12h": 8696
+    },
+    "2026": {
+      "lead6h": 9476,
+      "lead12h": 9276
+    }
+  },
+  "distinct_checked_response_and_fixture": 32467,
+  "hash_or_identity_failures": {}
+}

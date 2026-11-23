@@ -1,0 +1,103 @@
+{
+  "generated_utc": "2026-11-23T07:45:41.835369+00:00",
+  "sources": {
+    "history": "/Users/mac/QuantAsiaDesk/repos/m1/data/m1_history_cache",
+    "sqlite": "/Users/mac/QuantAsiaDesk/data/crown_quote_store/crown_quotes.sqlite3"
+  },
+  "method": "Full 2023-2026 completed fixture inventory joined by TotalCorner match ID and kickoff with selected exact Crown summary open and close; all distinct selected source-file SHA256 and Crown identity audited. Quote source timestamp before kickoff is historical provider event time; actual system reception may have occurred in 2026.",
+  "source": {
+    "2023": {
+      "cache": {
+        "cache_rows": 10282,
+        "valid_completed": 9887,
+        "not_full": 395
+      },
+      "league_count": 39,
+      "valid_completed_unique_ids": 9887,
+      "quote": {
+        "quote_records": 9620,
+        "open_rows": 4810,
+        "close_rows": 4810,
+        "quote_not_pre_kickoff": 174,
+        "quote_without_completed_cache_fixture": 1722,
+        "year_mismatch": 4,
+        "matched_selected_quote_open": 3727,
+        "raw_ok": 7438,
+        "no_receive_timestamp": 7349,
+        "matched_selected_quote_close": 3711,
+        "received_after_kickoff": 89
+      }
+    },
+    "2024": {
+      "cache": {
+        "cache_rows": 10338,
+        "valid_completed": 10029,
+        "not_full": 309
+      },
+      "league_count": 45,
+      "valid_completed_unique_ids": 10029,
+      "quote": {
+        "quote_records": 22966,
+        "open_rows": 11483,
+        "close_rows": 11483,
+        "quote_without_completed_cache_fixture": 7185,
+        "quote_not_pre_kickoff": 286,
+        "year_mismatch": 10,
+        "matched_selected_quote_open": 7761,
+        "raw_ok": 15485,
+        "no_receive_timestamp": 15485,
+        "matched_selected_quote_close": 7724
+      }
+    },
+    "2025": {
+      "cache": {
+        "cache_rows": 10566,
+        "valid_completed": 10308,
+        "not_full": 258
+      },
+      "league_count": 44,
+      "valid_completed_unique_ids": 10308,
+      "quote": {
+        "quote_records": 24908,
+        "open_rows": 12454,
+        "close_rows": 12454,
+        "quote_without_completed_cache_fixture": 6967,
+        "year_mismatch": 10,
+        "quote_not_pre_kickoff": 49,
+        "matched_selected_quote_open": 8951,
+        "raw_ok": 17882,
+        "received_after_kickoff": 2169,
+        "matched_selected_quote_close": 8931,
+        "no_receive_timestamp": 15713
+      }
+    },
+    "2026": {
+      "cache": {
+        "cache_rows": 13148,
+        "not_full": 671,
+        "valid_completed": 12477
+      },
+      "league_count": 61,
+      "valid_completed_unique_ids": 12477,
+      "quote": {
+        "quote_records": 19172,
+        "open_rows": 9586,
+        "close_rows": 9586,
+        "quote_without_completed_cache_fixture": 642,
+        "kickoff_disagrees_over_3min": 14,
+        "quote_not_pre_kickoff": 1582,
+        "matched_selected_quote_open": 9214,
+        "raw_ok": 16862,
+        "received_after_kickoff": 16576,
+        "matched_selected_quote_close": 7648,
+        "received_pre_kickoff": 171,
+        "no_receive_timestamp": 115
+      }
+    }
+  },
+  "selected_quotes": 57667,
+  "matched_completed_fixtures": 29653,
+  "verified_distinct_source_files": 29664,
+  "source_file_hash_problems": {},
+  "scope": "Historical Codex recovery only. No formal M9 275-order sample or production state changed."
+}

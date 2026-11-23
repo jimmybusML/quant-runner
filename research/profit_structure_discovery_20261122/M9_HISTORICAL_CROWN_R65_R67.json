@@ -1,0 +1,1213 @@
+{
+  "generated_utc": "2026-11-23T07:53:11.419488+00:00",
+  "scope": "Codex historical 2023-26 full-time matches and historical Crown source files, NOT 275 M9 formal orders.",
+  "method": "Crown real archive open/close prices with genuine historical SOURCE timestamps; model predictions at those time points use only prior match results whose kickoff+3h elapsed, but historical score first-receipt and Crown live reception in 2023-25 not established. One unconditional simulated home/away decision per matching historical event, both EV-maximizing at actual quoted prices and neutral-2.0 direction, no EV gate. Historical backtest only, no investment/execution claim.",
+  "audit": {
+    "verified_files": 29664,
+    "raw_integrity_problems": {},
+    "matched_completed_fixtures": 29653,
+    "selected_quotes": 57667
+  },
+  "model_coverage": {
+    "league_files": 56,
+    "quotes_selected": 57667,
+    "model_compatible_quotes": 49451,
+    "dc_rho_projections": 404,
+    "skip_unseen_annual_team": 4887,
+    "skip_no_past_year_training": 16,
+    "skip_no_annual_fit": 3329,
+    "skip_annual_fit_failed_ValueError": 1
+  },
+  "by_kind": {
+    "open": {
+      "n": 25209,
+      "unique_fixtures": 25209,
+      "lead_minutes_p10_p50_p90": [
+        1786.9900000000002,
+        8197.6,
+        19028.010000000002
+      ],
+      "models": {
+        "annual_bp": {
+          "one_ll": 1.03064705178315,
+          "ev_side": {
+            "n": 25209,
+            "net_u": -1000.1350000000002,
+            "roi_percent": -3.9673727636955065,
+            "predicted_ev_per_order": 0.13238390361368643,
+            "predicted_ev_total_u": 3337.265826197421,
+            "outcomes": {
+              "FULL_LOSS": 10046,
+              "FULL_WIN": 9920,
+              "HALF_WIN": 1781,
+              "HALF_LOSS": 1735,
+              "PUSH": 1727
+            },
+            "home_choices": 12137
+          },
+          "neutral_side": {
+            "n": 25209,
+            "net_u": -942.2750000000001,
+            "roi_percent": -3.7378515609504546,
+            "predicted_ev_per_order": 0.1298113598781894,
+            "predicted_ev_total_u": 3272.4145711692763,
+            "outcomes": {
+              "FULL_LOSS": 9983,
+              "FULL_WIN": 9983,
+              "HALF_WIN": 1851,
+              "HALF_LOSS": 1665,
+              "PUSH": 1727
+            },
+            "home_choices": 12147
+          }
+        },
+        "annual_dc": {
+          "one_ll": 1.0241655824700093,
+          "ev_side": {
+            "n": 25209,
+            "net_u": -1053.9,
+            "roi_percent": -4.180649767940022,
+            "predicted_ev_per_order": 0.1285231550707981,
+            "predicted_ev_total_u": 3239.940216179749,
+            "outcomes": {
+              "FULL_LOSS": 10068,
+              "FULL_WIN": 9898,
+              "HALF_WIN": 1766,
+              "HALF_LOSS": 1750,
+              "PUSH": 1727
+            },
+            "home_choices": 12096
+          },
+          "neutral_side": {
+            "n": 25209,
+            "net_u": -937.2600000000001,
+            "roi_percent": -3.7179578721885047,
+            "predicted_ev_per_order": 0.12591008482860874,
+            "predicted_ev_total_u": 3174.067328444398,
+            "outcomes": {
+              "FULL_LOSS": 9975,
+              "FULL_WIN": 9991,
+              "HALF_WIN": 1840,
+              "HALF_LOSS": 1676,
+              "PUSH": 1727
+            },
+            "home_choices": 12126
+          }
+        },
+        "dynamic_ekf": {
+          "one_ll": 1.0012082098972004,
+          "ev_side": {
+            "n": 25209,
+            "net_u": -837.4800000000001,
+            "roi_percent": -3.32214685231465,
+            "predicted_ev_per_order": 0.10792941311780391,
+            "predicted_ev_total_u": 2720.7925752867186,
+            "outcomes": {
+              "FULL_LOSS": 9948,
+              "FULL_WIN": 10018,
+              "HALF_LOSS": 1766,
+              "HALF_WIN": 1750,
+              "PUSH": 1727
+            },
+            "home_choices": 12141
+          },
+          "neutral_side": {
+            "n": 25209,
+            "net_u": -892.1350000000001,
+            "roi_percent": -3.5389543417033607,
+            "predicted_ev_per_order": 0.10501314234830947,
+            "predicted_ev_total_u": 2647.2763054585334,
+            "outcomes": {
+              "FULL_LOSS": 9919,
+              "FULL_WIN": 10047,
+              "HALF_LOSS": 1729,
+              "HALF_WIN": 1787,
+              "PUSH": 1727
+            },
+            "home_choices": 12159
+          }
+        }
+      },
+      "direction_diff_ev_dynamic_vs_annual_bp": 12120,
+      "direction_diff_ev_dynamic_vs_annual_dc": 12131
+    },
+    "close": {
+      "n": 24242,
+      "unique_fixtures": 24242,
+      "lead_minutes_p10_p50_p90": [
+        0.31666666666666665,
+        2.45,
+        21.998333333333356
+      ],
+      "models": {
+        "annual_bp": {
+          "one_ll": 1.0337470888810258,
+          "ev_side": {
+            "n": 24242,
+            "net_u": -701.5050000000002,
+            "roi_percent": -2.8937587657784025,
+            "predicted_ev_per_order": 0.1558951900135572,
+            "predicted_ev_total_u": 3779.2111963086536,
+            "outcomes": {
+              "FULL_WIN": 9576,
+              "FULL_LOSS": 9603,
+              "HALF_LOSS": 1706,
+              "HALF_WIN": 1741,
+              "PUSH": 1616
+            },
+            "home_choices": 11737
+          },
+          "neutral_side": {
+            "n": 24242,
+            "net_u": -711.8850000000002,
+            "roi_percent": -2.9365770150977655,
+            "predicted_ev_per_order": 0.15284736292700302,
+            "predicted_ev_total_u": 3705.325772076407,
+            "outcomes": {
+              "FULL_WIN": 9619,
+              "FULL_LOSS": 9560,
+              "HALF_LOSS": 1651,
+              "HALF_WIN": 1796,
+              "PUSH": 1616
+            },
+            "home_choices": 11782
+          }
+        },
+        "annual_dc": {
+          "one_ll": 1.0267913046587611,
+          "ev_side": {
+            "n": 24242,
+            "net_u": -743.4650000000003,
+            "roi_percent": -3.0668467948189106,
+            "predicted_ev_per_order": 0.15170419261521645,
+            "predicted_ev_total_u": 3677.613037378077,
+            "outcomes": {
+              "FULL_WIN": 9554,
+              "FULL_LOSS": 9625,
+              "HALF_LOSS": 1707,
+              "HALF_WIN": 1740,
+              "PUSH": 1616
+            },
+            "home_choices": 11718
+          },
+          "neutral_side": {
+            "n": 24242,
+            "net_u": -755.4200000000002,
+            "roi_percent": -3.1161620328355752,
+            "predicted_ev_per_order": 0.1485751358451809,
+            "predicted_ev_total_u": 3601.7584431588753,
+            "outcomes": {
+              "FULL_WIN": 9606,
+              "FULL_LOSS": 9573,
+              "HALF_LOSS": 1668,
+              "HALF_WIN": 1779,
+              "PUSH": 1616
+            },
+            "home_choices": 11757
+          }
+        },
+        "dynamic_ekf": {
+          "one_ll": 1.0027039722978355,
+          "ev_side": {
+            "n": 24242,
+            "net_u": -838.5900000000003,
+            "roi_percent": -3.4592442867750197,
+            "predicted_ev_per_order": 0.12313835555403811,
+            "predicted_ev_total_u": 2985.120015340992,
+            "outcomes": {
+              "FULL_WIN": 9520,
+              "FULL_LOSS": 9659,
+              "HALF_LOSS": 1733,
+              "HALF_WIN": 1714,
+              "PUSH": 1616
+            },
+            "home_choices": 11757
+          },
+          "neutral_side": {
+            "n": 24242,
+            "net_u": -872.4250000000002,
+            "roi_percent": -3.5988161042818256,
+            "predicted_ev_per_order": 0.11961181791782315,
+            "predicted_ev_total_u": 2899.6296899638687,
+            "outcomes": {
+              "FULL_WIN": 9571,
+              "FULL_LOSS": 9608,
+              "HALF_LOSS": 1697,
+              "HALF_WIN": 1750,
+              "PUSH": 1616
+            },
+            "home_choices": 11687
+          }
+        }
+      },
+      "direction_diff_ev_dynamic_vs_annual_bp": 10528,
+      "direction_diff_ev_dynamic_vs_annual_dc": 10519
+    }
+  },
+  "by_year_kind": {
+    "2023": {
+      "open": {
+        "n": 3306,
+        "unique_fixtures": 3306,
+        "lead_minutes_p10_p50_p90": [
+          3864.2916666666665,
+          13053.591666666667,
+          26717.15
+        ],
+        "models": {
+          "annual_bp": {
+            "one_ll": 1.0209975211741935,
+            "ev_side": {
+              "n": 3306,
+              "net_u": -128.19500000000002,
+              "roi_percent": -3.877646702964308,
+              "predicted_ev_per_order": 0.13922919889277813,
+              "predicted_ev_total_u": 460.29173153952445,
+              "outcomes": {
+                "FULL_LOSS": 1324,
+                "FULL_WIN": 1301,
+                "HALF_WIN": 224,
+                "HALF_LOSS": 229,
+                "PUSH": 228
+              },
+              "home_choices": 1533
+            },
+            "neutral_side": {
+              "n": 3306,
+              "net_u": -146.145,
+              "roi_percent": -4.420598911070781,
+              "predicted_ev_per_order": 0.13633741762060939,
+              "predicted_ev_total_u": 450.73150265373465,
+              "outcomes": {
+                "FULL_LOSS": 1328,
+                "FULL_WIN": 1297,
+                "HALF_WIN": 233,
+                "HALF_LOSS": 220,
+                "PUSH": 228
+              },
+              "home_choices": 1540
+            }
+          },
+          "annual_dc": {
+            "one_ll": 1.0125007491098537,
+            "ev_side": {
+              "n": 3306,
+              "net_u": -139.39500000000004,
+              "roi_percent": -4.216424682395646,
+              "predicted_ev_per_order": 0.13343848393684318,
+              "predicted_ev_total_u": 441.1476278952036,
+              "outcomes": {
+                "FULL_LOSS": 1329,
+                "FULL_WIN": 1296,
+                "HALF_WIN": 222,
+                "HALF_LOSS": 231,
+                "PUSH": 228
+              },
+              "home_choices": 1527
+            },
+            "neutral_side": {
+              "n": 3306,
+              "net_u": -136.09000000000003,
+              "roi_percent": -4.116454930429523,
+              "predicted_ev_per_order": 0.13064346769370896,
+              "predicted_ev_total_u": 431.9073041954018,
+              "outcomes": {
+                "FULL_LOSS": 1322,
+                "FULL_WIN": 1303,
+                "HALF_WIN": 231,
+                "HALF_LOSS": 222,
+                "PUSH": 228
+              },
+              "home_choices": 1540
+            }
+          },
+          "dynamic_ekf": {
+            "one_ll": 0.9906904857597437,
+            "ev_side": {
+              "n": 3306,
+              "net_u": -107.97500000000002,
+              "roi_percent": -3.2660314579552336,
+              "predicted_ev_per_order": 0.11548819918071415,
+              "predicted_ev_total_u": 381.803986491441,
+              "outcomes": {
+                "FULL_LOSS": 1307,
+                "FULL_WIN": 1318,
+                "HALF_LOSS": 243,
+                "HALF_WIN": 210,
+                "PUSH": 228
+              },
+              "home_choices": 1598
+            },
+            "neutral_side": {
+              "n": 3306,
+              "net_u": -89.71000000000002,
+              "roi_percent": -2.713551119177254,
+              "predicted_ev_per_order": 0.1124297679319946,
+              "predicted_ev_total_u": 371.6928127831742,
+              "outcomes": {
+                "FULL_LOSS": 1290,
+                "FULL_WIN": 1335,
+                "HALF_LOSS": 238,
+                "HALF_WIN": 215,
+                "PUSH": 228
+              },
+              "home_choices": 1595
+            }
+          }
+        },
+        "direction_diff_ev_dynamic_vs_annual_bp": 1513,
+        "direction_diff_ev_dynamic_vs_annual_dc": 1521
+      },
+      "close": {
+        "n": 3346,
+        "unique_fixtures": 3346,
+        "lead_minutes_p10_p50_p90": [
+          0.26666666666666666,
+          1.6,
+          7.633333333333334
+        ],
+        "models": {
+          "annual_bp": {
+            "one_ll": 1.0207901719704773,
+            "ev_side": {
+              "n": 3346,
+              "net_u": -122.39000000000003,
+              "roi_percent": -3.65780035863718,
+              "predicted_ev_per_order": 0.15952539468804294,
+              "predicted_ev_total_u": 533.7719706261917,
+              "outcomes": {
+                "FULL_WIN": 1303,
+                "FULL_LOSS": 1358,
+                "HALF_LOSS": 224,
+                "HALF_WIN": 252,
+                "PUSH": 209
+              },
+              "home_choices": 1598
+            },
+            "neutral_side": {
+              "n": 3346,
+              "net_u": -104.23500000000003,
+              "roi_percent": -3.1152121936640778,
+              "predicted_ev_per_order": 0.15682452056619864,
+              "predicted_ev_total_u": 524.7348458145007,
+              "outcomes": {
+                "FULL_WIN": 1316,
+                "FULL_LOSS": 1345,
+                "HALF_LOSS": 212,
+                "HALF_WIN": 264,
+                "PUSH": 209
+              },
+              "home_choices": 1629
+            }
+          },
+          "annual_dc": {
+            "one_ll": 1.012333104650891,
+            "ev_side": {
+              "n": 3346,
+              "net_u": -129.26500000000004,
+              "roi_percent": -3.863269575612673,
+              "predicted_ev_per_order": 0.15340194556322562,
+              "predicted_ev_total_u": 513.2829098545529,
+              "outcomes": {
+                "FULL_WIN": 1300,
+                "FULL_LOSS": 1361,
+                "HALF_LOSS": 225,
+                "HALF_WIN": 251,
+                "PUSH": 209
+              },
+              "home_choices": 1594
+            },
+            "neutral_side": {
+              "n": 3346,
+              "net_u": -100.14500000000002,
+              "roi_percent": -2.9929766885833837,
+              "predicted_ev_per_order": 0.15076909951336306,
+              "predicted_ev_total_u": 504.47340697171285,
+              "outcomes": {
+                "FULL_WIN": 1319,
+                "FULL_LOSS": 1342,
+                "HALF_LOSS": 214,
+                "HALF_WIN": 262,
+                "PUSH": 209
+              },
+              "home_choices": 1619
+            }
+          },
+          "dynamic_ekf": {
+            "one_ll": 0.9907357971023175,
+            "ev_side": {
+              "n": 3346,
+              "net_u": -93.02000000000004,
+              "roi_percent": -2.780035863717873,
+              "predicted_ev_per_order": 0.12570703305929146,
+              "predicted_ev_total_u": 420.6157326163892,
+              "outcomes": {
+                "FULL_WIN": 1329,
+                "FULL_LOSS": 1332,
+                "HALF_LOSS": 250,
+                "HALF_WIN": 226,
+                "PUSH": 209
+              },
+              "home_choices": 1654
+            },
+            "neutral_side": {
+              "n": 3346,
+              "net_u": -105.63500000000003,
+              "roi_percent": -3.157053197848178,
+              "predicted_ev_per_order": 0.1223024895475424,
+              "predicted_ev_total_u": 409.22413002607686,
+              "outcomes": {
+                "FULL_WIN": 1332,
+                "FULL_LOSS": 1329,
+                "HALF_LOSS": 246,
+                "HALF_WIN": 230,
+                "PUSH": 209
+              },
+              "home_choices": 1633
+            }
+          }
+        },
+        "direction_diff_ev_dynamic_vs_annual_bp": 1390,
+        "direction_diff_ev_dynamic_vs_annual_dc": 1386
+      }
+    },
+    "2024": {
+      "open": {
+        "n": 6856,
+        "unique_fixtures": 6856,
+        "lead_minutes_p10_p50_p90": [
+          1495.5583333333334,
+          8016.25,
+          18103.966666666667
+        ],
+        "models": {
+          "annual_bp": {
+            "one_ll": 1.019356493295441,
+            "ev_side": {
+              "n": 6856,
+              "net_u": -265.05000000000007,
+              "roi_percent": -3.865956826137691,
+              "predicted_ev_per_order": 0.1321855287461516,
+              "predicted_ev_total_u": 906.2639850836155,
+              "outcomes": {
+                "FULL_LOSS": 2742,
+                "FULL_WIN": 2682,
+                "HALF_LOSS": 447,
+                "PUSH": 499,
+                "HALF_WIN": 486
+              },
+              "home_choices": 3294
+            },
+            "neutral_side": {
+              "n": 6856,
+              "net_u": -229.29500000000004,
+              "roi_percent": -3.344442823803968,
+              "predicted_ev_per_order": 0.12964908554637117,
+              "predicted_ev_total_u": 888.8741305059208,
+              "outcomes": {
+                "FULL_LOSS": 2717,
+                "FULL_WIN": 2707,
+                "HALF_LOSS": 423,
+                "PUSH": 499,
+                "HALF_WIN": 510
+              },
+              "home_choices": 3292
+            }
+          },
+          "annual_dc": {
+            "one_ll": 1.016928905952335,
+            "ev_side": {
+              "n": 6856,
+              "net_u": -289.44500000000005,
+              "roi_percent": -4.221776546091015,
+              "predicted_ev_per_order": 0.12836074197377187,
+              "predicted_ev_total_u": 880.0412469721799,
+              "outcomes": {
+                "FULL_LOSS": 2752,
+                "FULL_WIN": 2672,
+                "HALF_LOSS": 453,
+                "PUSH": 499,
+                "HALF_WIN": 480
+              },
+              "home_choices": 3288
+            },
+            "neutral_side": {
+              "n": 6856,
+              "net_u": -220.21500000000003,
+              "roi_percent": -3.2120040840140027,
+              "predicted_ev_per_order": 0.12583352301408457,
+              "predicted_ev_total_u": 862.7146337845637,
+              "outcomes": {
+                "FULL_LOSS": 2708,
+                "FULL_WIN": 2716,
+                "HALF_LOSS": 431,
+                "PUSH": 499,
+                "HALF_WIN": 502
+              },
+              "home_choices": 3300
+            }
+          },
+          "dynamic_ekf": {
+            "one_ll": 0.9995111895225635,
+            "ev_side": {
+              "n": 6856,
+              "net_u": -198.09000000000006,
+              "roi_percent": -2.889294049008169,
+              "predicted_ev_per_order": 0.1094835528545273,
+              "predicted_ev_total_u": 750.6192383706391,
+              "outcomes": {
+                "FULL_LOSS": 2694,
+                "HALF_LOSS": 476,
+                "FULL_WIN": 2730,
+                "PUSH": 499,
+                "HALF_WIN": 457
+              },
+              "home_choices": 3321
+            },
+            "neutral_side": {
+              "n": 6856,
+              "net_u": -234.00500000000002,
+              "roi_percent": -3.4131417736289387,
+              "predicted_ev_per_order": 0.10640504315993635,
+              "predicted_ev_total_u": 729.5129759045236,
+              "outcomes": {
+                "FULL_LOSS": 2693,
+                "HALF_LOSS": 471,
+                "FULL_WIN": 2731,
+                "PUSH": 499,
+                "HALF_WIN": 462
+              },
+              "home_choices": 3298
+            }
+          }
+        },
+        "direction_diff_ev_dynamic_vs_annual_bp": 3241,
+        "direction_diff_ev_dynamic_vs_annual_dc": 3225
+      },
+      "close": {
+        "n": 6834,
+        "unique_fixtures": 6834,
+        "lead_minutes_p10_p50_p90": [
+          0.3,
+          2.1,
+          15.883333333333333
+        ],
+        "models": {
+          "annual_bp": {
+            "one_ll": 1.019321602232683,
+            "ev_side": {
+              "n": 6834,
+              "net_u": -230.05000000000007,
+              "roi_percent": -3.3662569505414117,
+              "predicted_ev_per_order": 0.15389485231366123,
+              "predicted_ev_total_u": 1051.7174207115609,
+              "outcomes": {
+                "HALF_LOSS": 520,
+                "FULL_WIN": 2686,
+                "FULL_LOSS": 2696,
+                "PUSH": 470,
+                "HALF_WIN": 462
+              },
+              "home_choices": 3292
+            },
+            "neutral_side": {
+              "n": 6834,
+              "net_u": -239.10500000000005,
+              "roi_percent": -3.498756218905473,
+              "predicted_ev_per_order": 0.1506843044671424,
+              "predicted_ev_total_u": 1029.7765367284512,
+              "outcomes": {
+                "HALF_LOSS": 489,
+                "FULL_WIN": 2688,
+                "FULL_LOSS": 2694,
+                "PUSH": 470,
+                "HALF_WIN": 493
+              },
+              "home_choices": 3303
+            }
+          },
+          "annual_dc": {
+            "one_ll": 1.0169189324313908,
+            "ev_side": {
+              "n": 6834,
+              "net_u": -250.50000000000006,
+              "roi_percent": -3.6654960491659363,
+              "predicted_ev_per_order": 0.14986473080196053,
+              "predicted_ev_total_u": 1024.1755703005983,
+              "outcomes": {
+                "HALF_LOSS": 520,
+                "FULL_WIN": 2675,
+                "FULL_LOSS": 2707,
+                "PUSH": 470,
+                "HALF_WIN": 462
+              },
+              "home_choices": 3293
+            },
+            "neutral_side": {
+              "n": 6834,
+              "net_u": -246.72000000000006,
+              "roi_percent": -3.6101843722563665,
+              "predicted_ev_per_order": 0.14667704594940542,
+              "predicted_ev_total_u": 1002.3909320182366,
+              "outcomes": {
+                "HALF_LOSS": 495,
+                "FULL_WIN": 2687,
+                "FULL_LOSS": 2695,
+                "PUSH": 470,
+                "HALF_WIN": 487
+              },
+              "home_choices": 3306
+            }
+          },
+          "dynamic_ekf": {
+            "one_ll": 0.9994864558356245,
+            "ev_side": {
+              "n": 6834,
+              "net_u": -287.09000000000003,
+              "roi_percent": -4.200907228563068,
+              "predicted_ev_per_order": 0.1235810322464414,
+              "predicted_ev_total_u": 844.5527743721806,
+              "outcomes": {
+                "HALF_LOSS": 502,
+                "FULL_LOSS": 2735,
+                "FULL_WIN": 2647,
+                "PUSH": 470,
+                "HALF_WIN": 480
+              },
+              "home_choices": 3353
+            },
+            "neutral_side": {
+              "n": 6834,
+              "net_u": -274.53000000000003,
+              "roi_percent": -4.017120280948201,
+              "predicted_ev_per_order": 0.11975701634880678,
+              "predicted_ev_total_u": 818.4194497277456,
+              "outcomes": {
+                "HALF_LOSS": 489,
+                "FULL_LOSS": 2708,
+                "FULL_WIN": 2674,
+                "PUSH": 470,
+                "HALF_WIN": 493
+              },
+              "home_choices": 3302
+            }
+          }
+        },
+        "direction_diff_ev_dynamic_vs_annual_bp": 2999,
+        "direction_diff_ev_dynamic_vs_annual_dc": 2986
+      }
+    },
+    "2025": {
+      "open": {
+        "n": 8146,
+        "unique_fixtures": 8146,
+        "lead_minutes_p10_p50_p90": [
+          1680.9666666666667,
+          7983.0,
+          18496.75
+        ],
+        "models": {
+          "annual_bp": {
+            "one_ll": 1.0671604088610074,
+            "ev_side": {
+              "n": 8146,
+              "net_u": -272.11000000000007,
+              "roi_percent": -3.3404124723790827,
+              "predicted_ev_per_order": 0.13386835274708722,
+              "predicted_ev_total_u": 1090.4916014777725,
+              "outcomes": {
+                "HALF_WIN": 582,
+                "FULL_WIN": 3243,
+                "PUSH": 527,
+                "FULL_LOSS": 3217,
+                "HALF_LOSS": 577
+              },
+              "home_choices": 3951
+            },
+            "neutral_side": {
+              "n": 8146,
+              "net_u": -301.555,
+              "roi_percent": -3.7018782224404614,
+              "predicted_ev_per_order": 0.13119854575241977,
+              "predicted_ev_total_u": 1068.7433536992114,
+              "outcomes": {
+                "HALF_WIN": 598,
+                "FULL_WIN": 3242,
+                "PUSH": 527,
+                "FULL_LOSS": 3218,
+                "HALF_LOSS": 561
+              },
+              "home_choices": 3972
+            }
+          },
+          "annual_dc": {
+            "one_ll": 1.0530323967651405,
+            "ev_side": {
+              "n": 8146,
+              "net_u": -276.2300000000001,
+              "roi_percent": -3.3909894426712506,
+              "predicted_ev_per_order": 0.130569496601643,
+              "predicted_ev_total_u": 1063.6191193169839,
+              "outcomes": {
+                "HALF_WIN": 576,
+                "FULL_WIN": 3243,
+                "PUSH": 527,
+                "FULL_LOSS": 3217,
+                "HALF_LOSS": 583
+              },
+              "home_choices": 3936
+            },
+            "neutral_side": {
+              "n": 8146,
+              "net_u": -300.38500000000005,
+              "roi_percent": -3.6875153449545794,
+              "predicted_ev_per_order": 0.1277733583749146,
+              "predicted_ev_total_u": 1040.8417773220544,
+              "outcomes": {
+                "HALF_WIN": 595,
+                "FULL_WIN": 3244,
+                "PUSH": 527,
+                "FULL_LOSS": 3216,
+                "HALF_LOSS": 564
+              },
+              "home_choices": 3956
+            }
+          },
+          "dynamic_ekf": {
+            "one_ll": 1.0117082139217184,
+            "ev_side": {
+              "n": 8146,
+              "net_u": -289.43000000000006,
+              "roi_percent": -3.5530321630247985,
+              "predicted_ev_per_order": 0.10895265875796807,
+              "predicted_ev_total_u": 887.5283582424079,
+              "outcomes": {
+                "HALF_WIN": 569,
+                "FULL_LOSS": 3219,
+                "PUSH": 527,
+                "FULL_WIN": 3241,
+                "HALF_LOSS": 590
+              },
+              "home_choices": 3874
+            },
+            "neutral_side": {
+              "n": 8146,
+              "net_u": -306.51000000000005,
+              "roi_percent": -3.762705622391358,
+              "predicted_ev_per_order": 0.10614358372383494,
+              "predicted_ev_total_u": 864.6456330143594,
+              "outcomes": {
+                "HALF_WIN": 585,
+                "FULL_LOSS": 3212,
+                "PUSH": 527,
+                "FULL_WIN": 3248,
+                "HALF_LOSS": 574
+              },
+              "home_choices": 3942
+            }
+          }
+        },
+        "direction_diff_ev_dynamic_vs_annual_bp": 3987,
+        "direction_diff_ev_dynamic_vs_annual_dc": 4004
+      },
+      "close": {
+        "n": 8143,
+        "unique_fixtures": 8143,
+        "lead_minutes_p10_p50_p90": [
+          0.35,
+          2.966666666666667,
+          25.95
+        ],
+        "models": {
+          "annual_bp": {
+            "one_ll": 1.0678643257574554,
+            "ev_side": {
+              "n": 8143,
+              "net_u": -200.27500000000006,
+              "roi_percent": -2.4594743951860503,
+              "predicted_ev_per_order": 0.1586587527792278,
+              "predicted_ev_total_u": 1291.958223881252,
+              "outcomes": {
+                "PUSH": 520,
+                "FULL_LOSS": 3214,
+                "HALF_WIN": 591,
+                "FULL_WIN": 3246,
+                "HALF_LOSS": 572
+              },
+              "home_choices": 3960
+            },
+            "neutral_side": {
+              "n": 8143,
+              "net_u": -232.49000000000007,
+              "roi_percent": -2.855090261574359,
+              "predicted_ev_per_order": 0.15547751032836182,
+              "predicted_ev_total_u": 1266.0533666038502,
+              "outcomes": {
+                "PUSH": 520,
+                "FULL_LOSS": 3211,
+                "HALF_WIN": 604,
+                "FULL_WIN": 3249,
+                "HALF_LOSS": 559
+              },
+              "home_choices": 3976
+            }
+          },
+          "annual_dc": {
+            "one_ll": 1.0531299406008265,
+            "ev_side": {
+              "n": 8143,
+              "net_u": -195.77000000000007,
+              "roi_percent": -2.404150804371854,
+              "predicted_ev_per_order": 0.15508487673144933,
+              "predicted_ev_total_u": 1262.856151224192,
+              "outcomes": {
+                "PUSH": 520,
+                "FULL_LOSS": 3211,
+                "HALF_WIN": 590,
+                "FULL_WIN": 3249,
+                "HALF_LOSS": 573
+              },
+              "home_choices": 3962
+            },
+            "neutral_side": {
+              "n": 8143,
+              "net_u": -265.15000000000003,
+              "roi_percent": -3.2561709443693974,
+              "predicted_ev_per_order": 0.15173581822625315,
+              "predicted_ev_total_u": 1235.5847678163793,
+              "outcomes": {
+                "PUSH": 520,
+                "FULL_LOSS": 3223,
+                "HALF_WIN": 596,
+                "FULL_WIN": 3237,
+                "HALF_LOSS": 567
+              },
+              "home_choices": 3975
+            }
+          },
+          "dynamic_ekf": {
+            "one_ll": 1.0115565091210825,
+            "ev_side": {
+              "n": 8143,
+              "net_u": -295.95000000000005,
+              "roi_percent": -3.6344099226329365,
+              "predicted_ev_per_order": 0.12587209089082368,
+              "predicted_ev_total_u": 1024.9764361239772,
+              "outcomes": {
+                "PUSH": 520,
+                "FULL_LOSS": 3260,
+                "HALF_LOSS": 573,
+                "FULL_WIN": 3200,
+                "HALF_WIN": 590
+              },
+              "home_choices": 3940
+            },
+            "neutral_side": {
+              "n": 8143,
+              "net_u": -278.6700000000001,
+              "roi_percent": -3.4222031192435227,
+              "predicted_ev_per_order": 0.1224907619096351,
+              "predicted_ev_total_u": 997.4422742301587,
+              "outcomes": {
+                "PUSH": 520,
+                "FULL_LOSS": 3229,
+                "HALF_LOSS": 560,
+                "FULL_WIN": 3231,
+                "HALF_WIN": 603
+              },
+              "home_choices": 3916
+            }
+          }
+        },
+        "direction_diff_ev_dynamic_vs_annual_bp": 3554,
+        "direction_diff_ev_dynamic_vs_annual_dc": 3560
+      }
+    },
+    "2026": {
+      "open": {
+        "n": 6901,
+        "unique_fixtures": 6901,
+        "lead_minutes_p10_p50_p90": [
+          2543.616666666667,
+          7394.716666666666,
+          18548.833333333332
+        ],
+        "models": {
+          "annual_bp": {
+            "one_ll": 1.0033860186616768,
+            "ev_side": {
+              "n": 6901,
+              "net_u": -334.78000000000003,
+              "roi_percent": -4.851180988262571,
+              "predicted_ev_per_order": 0.12754941430176914,
+              "predicted_ev_total_u": 880.2185080965088,
+              "outcomes": {
+                "PUSH": 473,
+                "HALF_LOSS": 482,
+                "FULL_WIN": 2694,
+                "FULL_LOSS": 2763,
+                "HALF_WIN": 489
+              },
+              "home_choices": 3359
+            },
+            "neutral_side": {
+              "n": 6901,
+              "net_u": -265.28000000000003,
+              "roi_percent": -3.8440805680336187,
+              "predicted_ev_per_order": 0.12520875008120702,
+              "predicted_ev_total_u": 864.0655843104096,
+              "outcomes": {
+                "PUSH": 473,
+                "HALF_LOSS": 461,
+                "FULL_WIN": 2737,
+                "FULL_LOSS": 2720,
+                "HALF_WIN": 510
+              },
+              "home_choices": 3343
+            }
+          },
+          "annual_dc": {
+            "one_ll": 1.002868600010324,
+            "ev_side": {
+              "n": 6901,
+              "net_u": -348.83000000000004,
+              "roi_percent": -5.0547746703376335,
+              "predicted_ev_per_order": 0.12391424749969306,
+              "predicted_ev_total_u": 855.1322219953818,
+              "outcomes": {
+                "PUSH": 473,
+                "HALF_LOSS": 483,
+                "FULL_WIN": 2687,
+                "FULL_LOSS": 2770,
+                "HALF_WIN": 488
+              },
+              "home_choices": 3345
+            },
+            "neutral_side": {
+              "n": 6901,
+              "net_u": -280.57,
+              "roi_percent": -4.065642660483988,
+              "predicted_ev_per_order": 0.12151914405772753,
+              "predicted_ev_total_u": 838.6036131423776,
+              "outcomes": {
+                "PUSH": 473,
+                "HALF_LOSS": 459,
+                "FULL_WIN": 2728,
+                "FULL_LOSS": 2729,
+                "HALF_WIN": 512
+              },
+              "home_choices": 3330
+            }
+          },
+          "dynamic_ekf": {
+            "one_ll": 0.9955385004207793,
+            "ev_side": {
+              "n": 6901,
+              "net_u": -241.98500000000004,
+              "roi_percent": -3.506520794087814,
+              "predicted_ev_per_order": 0.10155643996264756,
+              "predicted_ev_total_u": 700.8409921822308,
+              "outcomes": {
+                "PUSH": 473,
+                "HALF_WIN": 514,
+                "FULL_WIN": 2729,
+                "FULL_LOSS": 2728,
+                "HALF_LOSS": 457
+              },
+              "home_choices": 3348
+            },
+            "neutral_side": {
+              "n": 6901,
+              "net_u": -261.91,
+              "roi_percent": -3.795247065642661,
+              "predicted_ev_per_order": 0.09874291896195862,
+              "predicted_ev_total_u": 681.4248837564764,
+              "outcomes": {
+                "PUSH": 473,
+                "HALF_WIN": 525,
+                "FULL_WIN": 2733,
+                "FULL_LOSS": 2724,
+                "HALF_LOSS": 446
+              },
+              "home_choices": 3324
+            }
+          }
+        },
+        "direction_diff_ev_dynamic_vs_annual_bp": 3379,
+        "direction_diff_ev_dynamic_vs_annual_dc": 3381
+      },
+      "close": {
+        "n": 5919,
+        "unique_fixtures": 5919,
+        "lead_minutes_p10_p50_p90": [
+          0.3333333333333333,
+          3.033333333333333,
+          28.35333333333333
+        ],
+        "models": {
+          "annual_bp": {
+            "one_ll": 1.0107906705422367,
+            "ev_side": {
+              "n": 5919,
+              "net_u": -148.79000000000005,
+              "roi_percent": -2.5137692177732736,
+              "predicted_ev_per_order": 0.15235066414760073,
+              "predicted_ev_total_u": 901.7635810896488,
+              "outcomes": {
+                "PUSH": 417,
+                "HALF_LOSS": 390,
+                "FULL_WIN": 2341,
+                "FULL_LOSS": 2335,
+                "HALF_WIN": 436
+              },
+              "home_choices": 2887
+            },
+            "neutral_side": {
+              "n": 5919,
+              "net_u": -136.05500000000004,
+              "roi_percent": -2.2986146308498063,
+              "predicted_ev_per_order": 0.14947812517817272,
+              "predicted_ev_total_u": 884.7610229296043,
+              "outcomes": {
+                "PUSH": 417,
+                "HALF_LOSS": 391,
+                "FULL_WIN": 2366,
+                "FULL_LOSS": 2310,
+                "HALF_WIN": 435
+              },
+              "home_choices": 2874
+            }
+          },
+          "annual_dc": {
+            "one_ll": 1.0101279183691758,
+            "ev_side": {
+              "n": 5919,
+              "net_u": -167.93000000000006,
+              "roi_percent": -2.8371346511235016,
+              "predicted_ev_per_order": 0.14821733502259393,
+              "predicted_ev_total_u": 877.2984059987335,
+              "outcomes": {
+                "PUSH": 417,
+                "HALF_LOSS": 389,
+                "FULL_WIN": 2330,
+                "FULL_LOSS": 2346,
+                "HALF_WIN": 437
+              },
+              "home_choices": 2869
+            },
+            "neutral_side": {
+              "n": 5919,
+              "net_u": -143.40500000000003,
+              "roi_percent": -2.4227910119952702,
+              "predicted_ev_per_order": 0.14517812744594463,
+              "predicted_ev_total_u": 859.3093363525462,
+              "outcomes": {
+                "PUSH": 417,
+                "HALF_LOSS": 392,
+                "FULL_WIN": 2363,
+                "FULL_LOSS": 2313,
+                "HALF_WIN": 434
+              },
+              "home_choices": 2857
+            }
+          },
+          "dynamic_ekf": {
+            "one_ll": 1.0010056810924381,
+            "ev_side": {
+              "n": 5919,
+              "net_u": -162.53000000000006,
+              "roi_percent": -2.7459030241594875,
+              "predicted_ev_per_order": 0.11741427136821164,
+              "predicted_ev_total_u": 694.9750722284447,
+              "outcomes": {
+                "PUSH": 417,
+                "HALF_WIN": 418,
+                "FULL_WIN": 2344,
+                "FULL_LOSS": 2332,
+                "HALF_LOSS": 408
+              },
+              "home_choices": 2810
+            },
+            "neutral_side": {
+              "n": 5919,
+              "net_u": -213.59000000000003,
+              "roi_percent": -3.608548741341443,
+              "predicted_ev_per_order": 0.11396246595368939,
+              "predicted_ev_total_u": 674.5438359798875,
+              "outcomes": {
+                "PUSH": 417,
+                "HALF_WIN": 424,
+                "FULL_WIN": 2334,
+                "FULL_LOSS": 2342,
+                "HALF_LOSS": 402
+              },
+              "home_choices": 2836
+            }
+          }
+        },
+        "direction_diff_ev_dynamic_vs_annual_bp": 2585,
+        "direction_diff_ev_dynamic_vs_annual_dc": 2587
+      }
+    }
+  },
+  "bootstrap": {
+    "open": {
+      "dynamic_vs_annual_bp_Ev_choice": {
+        "mean_unit_roi_gain": 0.006452259113808559,
+        "improved_leagues": 22,
+        "total_leagues": 44,
+        "league_cluster_bootstrap_95": [
+          -0.009110806434927576,
+          0.02159388410892838
+        ]
+      },
+      "dynamic_vs_annual_dc_Ev_choice": {
+        "mean_unit_roi_gain": 0.00858502915625372,
+        "improved_leagues": 25,
+        "total_leagues": 44,
+        "league_cluster_bootstrap_95": [
+          -0.006435110076246569,
+          0.023639269512504994
+        ]
+      },
+      "annual_dc_vs_annual_bp_Ev_choice": {
+        "mean_unit_roi_gain": -0.0021327700424451585,
+        "improved_leagues": 15,
+        "total_leagues": 44,
+        "league_cluster_bootstrap_95": [
+          -0.004825907051967833,
+          0.0005168072456201874
+        ]
+      }
+    },
+    "close": {
+      "dynamic_vs_annual_bp_Ev_choice": {
+        "mean_unit_roi_gain": -0.005654855209966176,
+        "improved_leagues": 19,
+        "total_leagues": 44,
+        "league_cluster_bootstrap_95": [
+          -0.020547911684840877,
+          0.009250084542414156
+        ]
+      },
+      "dynamic_vs_annual_dc_Ev_choice": {
+        "mean_unit_roi_gain": -0.003923974919561092,
+        "improved_leagues": 20,
+        "total_leagues": 44,
+        "league_cluster_bootstrap_95": [
+          -0.0185891236303779,
+          0.010920442494854571
+        ]
+      },
+      "annual_dc_vs_annual_bp_Ev_choice": {
+        "mean_unit_roi_gain": -0.001730880290405082,
+        "improved_leagues": 17,
+        "total_leagues": 44,
+        "league_cluster_bootstrap_95": [
+          -0.004144313167657227,
+          0.00041045777567147305
+        ]
+      }
+    }
+  }
+}
