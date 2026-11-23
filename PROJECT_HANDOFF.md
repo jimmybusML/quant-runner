@@ -7659,3 +7659,10 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - T1658 through MR1 pause at 17:00:36.662Z processed 21 unique FIDs; 7 Crown responses added 424 OU movement rows and 14 valid HTTP 200 responses had no Crown AH/OU quotes. There were 23 attempts: two transport errors recovered on retry; unresolved failures, duplicate FIDs, SHA, identity and scope mismatches=0.
 - Queue at 17:01:52.774Z: 32,361 (2023 3,821; 2024 14,553; 2025 13,520; 2026 467), matching its rebuilt queue. Coverage: AH summary 32,449; AH movement 36,342; OU summary 32,445; OU movement 8,616 FIDs. Read-only SQLite matched all 7 new FIDs / 424 rows; all seven checkpoint SHA entries passed.
 - Driver PID49373 resumed collector PID31096 at fixed 5.2-second spacing. Historical backfill only; production unchanged. T1701 evidence: `research/data_recovery_2019_2026/ou_unification/*20261123T1701Z`.
+
+
+### 2026-11-23 17:14 UTC — 2023–2026 Crown AH/OU historical collection T1714
+- T1707 checkpoint through the unified-settlement pause at 17:11:30.374Z processed 43 unique FIDs; all 43 requests returned HTTP 200. Four Crown responses added 227 OU movement rows; 39 successful responses contained no Crown AH/OU market quotes. Transport failures=0, unresolved failures=0, duplicate FIDs=0, raw SHA mismatches=0, and fixture/league/year scope mismatches=0.
+- Queue rebuilt at 17:14:39.966Z: 32,300 missing requests (2023 3,760; 2024 14,553; 2025 13,520; 2026 467), matching queue contents. Coverage now: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,623 FIDs. This is 43 fewer queue items and four additional OU movement FIDs versus T1707.
+- Independent read-only SQLite verification found 43 matching `crown_ou_source` rows; all 43 matched the audited raw response SHA and HTTP receive timestamp. The four quote-bearing FIDs had exactly 227 `crown_ou_quote` movement rows, matching the collector checkpoint (61+68+43+55).
+- Driver PID49373 resumed collector PID34060 at unchanged 5.2-second spacing. Historical retrieval, not live receipts. T1714 evidence files and SHA manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T1714Z`.
