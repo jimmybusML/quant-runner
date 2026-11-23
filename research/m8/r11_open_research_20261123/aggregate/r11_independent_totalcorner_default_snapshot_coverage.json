@@ -1,0 +1,41 @@
+{
+  "study": "R11_HISTORICAL_DEFAULT_ASIAN_ODDS_INVENTORY_READ_ONLY",
+  "snapshot_generated_utc": "2026-11-06T16:07:59.697774Z",
+  "index_capture_first_utc": "2026-11-05T20:43:52.766712Z",
+  "index_capture_last_utc": "2026-11-06T04:48:29.250711Z",
+  "source_identity": "TotalCorner /match/odds default bookmaker NOT Crown; provider-specific quote lines and odds may differ",
+  "index_sha256": "b793c8b6d5aea540a00a339f4a14f9ed11d1fc6e3717925b7051511daa7099ed",
+  "progress_SHA256": "6d1875581a8dc8693fdfe2dfbd9acfba190dd5fe944d915dcd3b1d88c29ef3ae",
+  "source_priority_counts_for_historical_11652_candidate_subset": {
+    "AH": {
+      "crown": 10433,
+      "totalcorner_default": 1065
+    },
+    "OU": {
+      "crown": 10432,
+      "totalcorner_default": 1066
+    }
+  },
+  "manifest_candidate_total": 11652,
+  "index_rows": 1156,
+  "unique_match_IDs": 1150,
+  "verified_response_count": 1150,
+  "error_response_count": 6,
+  "index_rows_with_both_pregame_AH_and_OU": 1066,
+  "index_rows_with_AH_pregame": 1066,
+  "index_rows_with_OU_pregame": 1066,
+  "total_AH_valid_pregame_quote_rows": 7771,
+  "total_OU_valid_pregame_quote_rows": 6380,
+  "index_errors_by_status": {
+    "verified_fixture_response": 1150,
+    "transport_error": 6
+  },
+  "limitations": [
+    "Data capture snapshot in early Nov 2026, NOT an up-to-date November 23 production ledger nor a continuously updated job health check.",
+    "1150 distinct match ID count and 1156 request rows include transport errors; record counts are quote event rows not independent matches or official orders.",
+    "Historical match quotes are collected long after original kickoff; source_event timestamp does NOT prove actual received price back then.",
+    "The stored old progress counts 11652 historical Crown-candidate fixtures; cannot extrapolate this to all historical games or R11 9908 Crown matched cohort.",
+    "TotalCorner default AH and OU are NOT Crown odds; original source priority Crown before fallback must be maintained; never mix performance without source labels.",
+    "This audit does not enable any new data source or production rule and does not alter running collection process or data."
+  ]
+}

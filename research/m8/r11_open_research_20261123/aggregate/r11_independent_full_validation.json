@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "checks": {
+    "Dixon_Coles_fixture": 9908,
+    "DC_quarter_payoff": 19816,
+    "DC_prior_year_parameter_calibration": 35,
+    "walkforward_prior_year_fit_parameters": 30,
+    "walkforward_fixtures": 7073,
+    "walkforward_model_probability_rechecks": 42438,
+    "xG_observation_records": 19812,
+    "xG_CDF_prob_brier_checks": 158496,
+    "fallback_source_provenance": 1,
+    "R5_R10_frozen_SHA256_file_checks": 294
+  },
+  "errors": {},
+  "prior_snapshot_manifest_SHA256": {
+    "R5_BAYES_BIVAR_FROZEN_20261123": "6f465b284492eca97b311753e3850cd08e783a0fc93ba8c2af5e194f496996c2",
+    "R6_BAYES_BIVAR_COMPLEMENT_20261123": "402a9c469517354c6a371137057f4119fe66a9e6d3869d88002fe7cb9481c4c4",
+    "R7_CROWN_MARKET_PRICING_20261123": "90cf4d48ae54be76761c60419033a417f7f1cabcaceb791c7c4680922ab61d71",
+    "R8_CROWN_HTTP_TIMING_BAYES_POSTERIOR_20261123": "67d61404562d7c3fa0e0ab2f00bb6755ab29861841a022acf838f834b8896cdd",
+    "R9_CROWN_TRUE_UPDATE_BAYES_OU_20261123": "2791c6c88624e10fc5fa051bd4867b19222d52e80cb8909cd82cd3aecb050299",
+    "R10_XG_GAMMA_OBS_DYNAMIC_NB_20261123": "8749ffa503fae84a3d128d7131dcb32935c19c0b1c4fb52774a6f46af382daaa"
+  },
+  "R11_source_SHA256": {
+    "r5_bayes_bivar_asof_features_20261123.jsonl": "71e841b629136c266b79190366bd47175f5748818db9a6b8fe1c888d65658561",
+    "r5_bayes_bivar_CrownT12_20261123.jsonl": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+    "r7_market_implied_2market_20261123.jsonl": "c3405e0fadcf539fe45a0408035efd6ce4a1e268d32bbe4d50ce3db4500eecf8",
+    "r10_Gamma_xG_posterior_predictive_20261123.jsonl": "546a288e85c65331a85c7a5954279aeacc63cdbcddf6091ad8a1c1d5b7433239",
+    "r10_prior_two_season_xg_Gamma_shape.json": "33dfa00a3fd8a2febeda7fd7d279109e1d4f191d8a4f88db865f461b103bce76"
+  },
+  "R11_result_SHA256": {
+    "r11_Dixon_Coles_rolling_prior_2seasons_CrownT12.jsonl": "25da4d4614f22f13f65613d56c2e40c004ef9896deba1e4a922bd2363817a3e1",
+    "r11_Dixon_Coles_rolling_prior_2seasons_summary.json": "a8c9c913e330be9f206419a81ceb572e9a24b20a8fef6defe60068004685251f",
+    "r11_market_residual_walk_forward_2021_2025.jsonl": "451769aee4034e91c3df5891f012c1cb66b926fa0b0bfa8afec17d7b4f897c10",
+    "r11_market_residual_walk_forward_summary.json": "f6a265e3f2015c457253a76fba6573487ae3dcd3208b79ecef697f1ec3d5a23b",
+    "r11_xG_observation_calibration_2019_2025.jsonl": "6e68d8e362341521f60ec9c7a50788dbeedcce0bea39c2433b5a6eab7a606657",
+    "r11_xG_observation_calibration_summary.json": "a00e5c86391c64465fb76408686101c54594fd47102778ee61dd39efe7a81a5a",
+    "r11_independent_totalcorner_default_snapshot_coverage.json": "46f59a4c340f88fb0416818a82b8cb99bc6f9f13efce5ccbd8dc72f57904ce8d"
+  },
+  "scope": "Prior two-season D-C and learned market+xG parameters, 9908 Crown source-event quarter cash, 7073 cross-year proper scores, 19812 target xG CDF events, 294 earlier SHA immutable."
+}

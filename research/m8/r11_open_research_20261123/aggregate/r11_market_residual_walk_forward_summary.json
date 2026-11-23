@@ -1,0 +1,572 @@
+{
+  "study": "R11_TWO_SEASON_OUT_OF_YEAR_CROWN_MARKET_CALIBRATION_AND_XG_INCREMENTAL",
+  "scope": "Five domestic club leagues, historic Crown T12 source-event 2021-2025 test seasons; train on exactly two previously completed seasons, not target outcomes; no national teams.",
+  "source_sha256": {
+    "r7_market_implied_2market_20261123.jsonl": "c3405e0fadcf539fe45a0408035efd6ce4a1e268d32bbe4d50ce3db4500eecf8",
+    "r10_Gamma_xG_posterior_predictive_20261123.jsonl": "546a288e85c65331a85c7a5954279aeacc63cdbcddf6091ad8a1c1d5b7433239",
+    "r5_bayes_bivar_CrownT12_20261123.jsonl": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8"
+  },
+  "method": "Fit market-only log-probability temperature tau and incremental xG log probability residual beta in multinomial softmax, minimizing TRAIN prior two seasons only multiclass logloss (proper score). Market-only, fixed-tau1+xG beta, joint tau+beta. Compare all 2021-2025 target years without fitting or selecting trading ROI. The unbounded numerical BFGS optimization is only research coefficient estimation, not a bet selection Gate.",
+  "learned_parameters_by_test_year": {
+    "2021": {
+      "xGk1": {
+        "market_temperature": {
+          "params": [
+            0.9985115358004201
+          ],
+          "train_logloss": 0.9749192742106984,
+          "train_gradient_max_abs": 4.829230646572037e-12,
+          "train_n": 2835,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_plus_xG": {
+          "params": [
+            0.08427223503034638
+          ],
+          "train_logloss": 0.9746846712501991,
+          "train_gradient_max_abs": 7.67125904245866e-12,
+          "train_n": 2835,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_temperature_plus_xG": {
+          "params": [
+            1.0177426574908501,
+            0.09593058550382844
+          ],
+          "train_logloss": 0.9746554497915693,
+          "train_gradient_max_abs": 1.7102662709727805e-13,
+          "train_n": 2835,
+          "optimizer_message": "Optimization terminated successfully."
+        }
+      },
+      "xGk2": {
+        "market_temperature": {
+          "params": [
+            0.9985115358004201
+          ],
+          "train_logloss": 0.9749192742106984,
+          "train_gradient_max_abs": 4.829230646572037e-12,
+          "train_n": 2835,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_plus_xG": {
+          "params": [
+            0.07894959196139376
+          ],
+          "train_logloss": 0.9747324523354706,
+          "train_gradient_max_abs": 2.050575989628677e-11,
+          "train_n": 2835,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_temperature_plus_xG": {
+          "params": [
+            1.0240994767172322,
+            0.1009143380507011
+          ],
+          "train_logloss": 0.9746846883761614,
+          "train_gradient_max_abs": 1.160351212266356e-11,
+          "train_n": 2835,
+          "optimizer_message": "Optimization terminated successfully."
+        }
+      }
+    },
+    "2022": {
+      "xGk1": {
+        "market_temperature": {
+          "params": [
+            0.9890811341255832
+          ],
+          "train_logloss": 0.9782884644046157,
+          "train_gradient_max_abs": 4.4442844466314256e-15,
+          "train_n": 2880,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_plus_xG": {
+          "params": [
+            0.05317501219174824
+          ],
+          "train_logloss": 0.9782116624247272,
+          "train_gradient_max_abs": 6.281534320473625e-13,
+          "train_n": 2880,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_temperature_plus_xG": {
+          "params": [
+            0.998961876617977,
+            0.052512781002970056
+          ],
+          "train_logloss": 0.9782115611614177,
+          "train_gradient_max_abs": 3.460390001390477e-11,
+          "train_n": 2880,
+          "optimizer_message": "Optimization terminated successfully."
+        }
+      },
+      "xGk2": {
+        "market_temperature": {
+          "params": [
+            0.9890811341255832
+          ],
+          "train_logloss": 0.9782884644046157,
+          "train_gradient_max_abs": 4.4442844466314256e-15,
+          "train_n": 2880,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_plus_xG": {
+          "params": [
+            0.047182853293561776
+          ],
+          "train_logloss": 0.9782372971126884,
+          "train_gradient_max_abs": 2.6093877136195646e-11,
+          "train_n": 2880,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_temperature_plus_xG": {
+          "params": [
+            1.0007008325048314,
+            0.04781794059160443
+          ],
+          "train_logloss": 0.9782372562083557,
+          "train_gradient_max_abs": 1.2038220813178815e-12,
+          "train_n": 2880,
+          "optimizer_message": "Optimization terminated successfully."
+        }
+      }
+    },
+    "2023": {
+      "xGk1": {
+        "market_temperature": {
+          "params": [
+            1.0103077401556275
+          ],
+          "train_logloss": 0.9772024375884079,
+          "train_gradient_max_abs": 3.89555177982127e-15,
+          "train_n": 2886,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_plus_xG": {
+          "params": [
+            -0.0059184518775980775
+          ],
+          "train_logloss": 0.9772123555530188,
+          "train_gradient_max_abs": 4.5172353960886473e-11,
+          "train_n": 2886,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_temperature_plus_xG": {
+          "params": [
+            1.0102351763143196,
+            -0.00047815284526139156
+          ],
+          "train_logloss": 0.9772024314047478,
+          "train_gradient_max_abs": 3.6266009999662133e-12,
+          "train_n": 2886,
+          "optimizer_message": "Optimization terminated successfully."
+        }
+      },
+      "xGk2": {
+        "market_temperature": {
+          "params": [
+            1.0103077401556275
+          ],
+          "train_logloss": 0.9772024375884079,
+          "train_gradient_max_abs": 3.89555177982127e-15,
+          "train_n": 2886,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_plus_xG": {
+          "params": [
+            -0.00548055656502999
+          ],
+          "train_logloss": 0.9772125878833712,
+          "train_gradient_max_abs": 8.197404409233098e-13,
+          "train_n": 2886,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_temperature_plus_xG": {
+          "params": [
+            1.0109958861746857,
+            0.003329425541190957
+          ],
+          "train_logloss": 0.9772021916416702,
+          "train_gradient_max_abs": 8.289664488641157e-12,
+          "train_n": 2886,
+          "optimizer_message": "Optimization terminated successfully."
+        }
+      }
+    },
+    "2024": {
+      "xGk1": {
+        "market_temperature": {
+          "params": [
+            1.0489822682947452
+          ],
+          "train_logloss": 0.9703697460873758,
+          "train_gradient_max_abs": 1.0731225343474494e-11,
+          "train_n": 2864,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_plus_xG": {
+          "params": [
+            -0.10172076943861885
+          ],
+          "train_logloss": 0.9703247611487062,
+          "train_gradient_max_abs": 2.634531326800799e-15,
+          "train_n": 2864,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_temperature_plus_xG": {
+          "params": [
+            1.0399397344756323,
+            -0.08679783209705436
+          ],
+          "train_logloss": 0.9701711965582288,
+          "train_gradient_max_abs": 5.355681349026164e-11,
+          "train_n": 2864,
+          "optimizer_message": "Optimization terminated successfully."
+        }
+      },
+      "xGk2": {
+        "market_temperature": {
+          "params": [
+            1.0489822682947452
+          ],
+          "train_logloss": 0.9703697460873758,
+          "train_gradient_max_abs": 1.0731225343474494e-11,
+          "train_n": 2864,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_plus_xG": {
+          "params": [
+            -0.14292199017327825
+          ],
+          "train_logloss": 0.9701103492209346,
+          "train_gradient_max_abs": 1.63795817768867e-12,
+          "train_n": 2864,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_temperature_plus_xG": {
+          "params": [
+            1.0292210050084674,
+            -0.12407179823011447
+          ],
+          "train_logloss": 0.9700338520940094,
+          "train_gradient_max_abs": 7.233603520008705e-12,
+          "train_n": 2864,
+          "optimizer_message": "Optimization terminated successfully."
+        }
+      }
+    },
+    "2025": {
+      "xGk1": {
+        "market_temperature": {
+          "params": [
+            1.0510705608235282
+          ],
+          "train_logloss": 0.9632296488314962,
+          "train_gradient_max_abs": 1.1394346296533606e-11,
+          "train_n": 2787,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_plus_xG": {
+          "params": [
+            -0.014794301892207682
+          ],
+          "train_logloss": 0.9634974911795984,
+          "train_gradient_max_abs": 1.0508677211916624e-15,
+          "train_n": 2787,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_temperature_plus_xG": {
+          "params": [
+            1.0516526965215023,
+            0.00537037896272723
+          ],
+          "train_logloss": 0.9632288394556964,
+          "train_gradient_max_abs": 4.379670110462677e-14,
+          "train_n": 2787,
+          "optimizer_message": "Optimization terminated successfully."
+        }
+      },
+      "xGk2": {
+        "market_temperature": {
+          "params": [
+            1.0510705608235282
+          ],
+          "train_logloss": 0.9632296488314962,
+          "train_gradient_max_abs": 1.1394346296533606e-11,
+          "train_n": 2787,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_plus_xG": {
+          "params": [
+            -0.07596370375075093
+          ],
+          "train_logloss": 0.9633526384009252,
+          "train_gradient_max_abs": 2.448748854289037e-14,
+          "train_n": 2787,
+          "optimizer_message": "Optimization terminated successfully."
+        },
+        "market_temperature_plus_xG": {
+          "params": [
+            1.0433297207268555,
+            -0.04777260309528892
+          ],
+          "train_logloss": 0.9631766403667079,
+          "train_gradient_max_abs": 9.871796672693417e-11,
+          "train_n": 2787,
+          "optimizer_message": "Optimization terminated successfully."
+        }
+      }
+    }
+  },
+  "overall": {
+    "n": 7073,
+    "market_raw": {
+      "Brier": 0.5784053,
+      "logloss": 0.9730486
+    },
+    "xGk1_alone": {
+      "Brier": 0.600503,
+      "logloss": 1.005741
+    },
+    "xGk1_market_temperature": {
+      "Brier": 0.5784141,
+      "logloss": 0.9730103
+    },
+    "xGk1_market_plus_xG": {
+      "Brier": 0.5785329,
+      "logloss": 0.9732241
+    },
+    "xGk1_market_temperature_plus_xG": {
+      "Brier": 0.5785342,
+      "logloss": 0.9732061
+    },
+    "xGk2_alone": {
+      "Brier": 0.5999599,
+      "logloss": 1.0047835
+    },
+    "xGk2_market_temperature": {
+      "Brier": 0.5784141,
+      "logloss": 0.9730103
+    },
+    "xGk2_market_plus_xG": {
+      "Brier": 0.5784886,
+      "logloss": 0.9731135
+    },
+    "xGk2_market_temperature_plus_xG": {
+      "Brier": 0.5784959,
+      "logloss": 0.9731246
+    }
+  },
+  "by_test_year": {
+    "2021": {
+      "n": 1418,
+      "market_raw": {
+        "Brier": 0.5822157,
+        "logloss": 0.9795754
+      },
+      "xGk1_alone": {
+        "Brier": 0.6012146,
+        "logloss": 1.007539
+      },
+      "xGk1_market_temperature": {
+        "Brier": 0.5822131,
+        "logloss": 0.9795689
+      },
+      "xGk1_market_plus_xG": {
+        "Brier": 0.582075,
+        "logloss": 0.9794564
+      },
+      "xGk1_market_temperature_plus_xG": {
+        "Brier": 0.582091,
+        "logloss": 0.9795185
+      },
+      "xGk2_alone": {
+        "Brier": 0.6001819,
+        "logloss": 1.0057936
+      },
+      "xGk2_market_temperature": {
+        "Brier": 0.5822131,
+        "logloss": 0.9795689
+      },
+      "xGk2_market_plus_xG": {
+        "Brier": 0.5820766,
+        "logloss": 0.9794408
+      },
+      "xGk2_market_temperature_plus_xG": {
+        "Brier": 0.5820872,
+        "logloss": 0.9795111
+      }
+    },
+    "2022": {
+      "n": 1468,
+      "market_raw": {
+        "Brier": 0.5795739,
+        "logloss": 0.9749318
+      },
+      "xGk1_alone": {
+        "Brier": 0.6022217,
+        "logloss": 1.0087384
+      },
+      "xGk1_market_temperature": {
+        "Brier": 0.5796498,
+        "logloss": 0.9750374
+      },
+      "xGk1_market_plus_xG": {
+        "Brier": 0.5798252,
+        "logloss": 0.9752546
+      },
+      "xGk1_market_temperature_plus_xG": {
+        "Brier": 0.5798287,
+        "logloss": 0.9752598
+      },
+      "xGk2_alone": {
+        "Brier": 0.600598,
+        "logloss": 1.0058325
+      },
+      "xGk2_market_temperature": {
+        "Brier": 0.5796498,
+        "logloss": 0.9750374
+      },
+      "xGk2_market_plus_xG": {
+        "Brier": 0.5797767,
+        "logloss": 0.9751951
+      },
+      "xGk2_market_temperature_plus_xG": {
+        "Brier": 0.5797749,
+        "logloss": 0.9751923
+      }
+    },
+    "2023": {
+      "n": 1396,
+      "market_raw": {
+        "Brier": 0.5743101,
+        "logloss": 0.9660678
+      },
+      "xGk1_alone": {
+        "Brier": 0.5983539,
+        "logloss": 1.0015131
+      },
+      "xGk1_market_temperature": {
+        "Brier": 0.5742577,
+        "logloss": 0.9659624
+      },
+      "xGk1_market_plus_xG": {
+        "Brier": 0.5742896,
+        "logloss": 0.9660285
+      },
+      "xGk1_market_temperature_plus_xG": {
+        "Brier": 0.5742563,
+        "logloss": 0.9659599
+      },
+      "xGk2_alone": {
+        "Brier": 0.5990605,
+        "logloss": 1.0025655
+      },
+      "xGk2_market_temperature": {
+        "Brier": 0.5742577,
+        "logloss": 0.9659624
+      },
+      "xGk2_market_plus_xG": {
+        "Brier": 0.574282,
+        "logloss": 0.9660146
+      },
+      "xGk2_market_temperature_plus_xG": {
+        "Brier": 0.5742715,
+        "logloss": 0.9659879
+      }
+    },
+    "2024": {
+      "n": 1391,
+      "market_raw": {
+        "Brier": 0.5700479,
+        "logloss": 0.9609309
+      },
+      "xGk1_alone": {
+        "Brier": 0.5898302,
+        "logloss": 0.9891119
+      },
+      "xGk1_market_temperature": {
+        "Brier": 0.5700048,
+        "logloss": 0.9606878
+      },
+      "xGk1_market_plus_xG": {
+        "Brier": 0.5706595,
+        "logloss": 0.9617738
+      },
+      "xGk1_market_temperature_plus_xG": {
+        "Brier": 0.5705288,
+        "logloss": 0.9614556
+      },
+      "xGk2_alone": {
+        "Brier": 0.589657,
+        "logloss": 0.9891443
+      },
+      "xGk2_market_temperature": {
+        "Brier": 0.5700048,
+        "logloss": 0.9606878
+      },
+      "xGk2_market_plus_xG": {
+        "Brier": 0.5706978,
+        "logloss": 0.9617646
+      },
+      "xGk2_market_temperature_plus_xG": {
+        "Brier": 0.5705813,
+        "logloss": 0.961514
+      }
+    },
+    "2025": {
+      "n": 1400,
+      "market_raw": {
+        "Brier": 0.5857078,
+        "logloss": 0.9834639
+      },
+      "xGk1_alone": {
+        "Brier": 0.6107271,
+        "logloss": 1.0215148
+      },
+      "xGk1_market_temperature": {
+        "Brier": 0.5857705,
+        "logloss": 0.9835128
+      },
+      "xGk1_market_plus_xG": {
+        "Brier": 0.5856439,
+        "logloss": 0.9833341
+      },
+      "xGk1_market_temperature_plus_xG": {
+        "Brier": 0.5857939,
+        "logloss": 0.9835597
+      },
+      "xGk2_alone": {
+        "Brier": 0.6101995,
+        "logloss": 1.0204107
+      },
+      "xGk2_market_temperature": {
+        "Brier": 0.5857705,
+        "logloss": 0.9835128
+      },
+      "xGk2_market_plus_xG": {
+        "Brier": 0.5854391,
+        "logloss": 0.9828766
+      },
+      "xGk2_market_temperature_plus_xG": {
+        "Brier": 0.5855933,
+        "logloss": 0.9831399
+      }
+    }
+  },
+  "audit": {
+    "test_season_2021": 1418,
+    "test_season_2022": 1468,
+    "test_season_2023": 1396,
+    "test_season_2024": 1391,
+    "test_season_2025": 1400
+  },
+  "limitations": [
+    "Train and test periods separated by year, but all underlying historic Crown T12 source-event prices retrieved AFTER match and xG time of publication not verified; NOT true as-of historic executable prices.",
+    "All models repeatedly explored historical dataset; not fresh blind or valid production alpha.",
+    "Crown market baseline uses same AH+OU odds to infer odds-based probability; predicted probability improvement does not imply bet profitability.",
+    "Market-only temperature repeated identically when displayed under k1 and k2, for comparison only.",
+    "No goals from a target test year enter training for that year; all target fixtures evaluated with no EV gate or selection."
+  ]
+}

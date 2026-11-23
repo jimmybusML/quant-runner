@@ -1,0 +1,648 @@
+{
+  "study": "R11_ROLLING_PRIOR_TWO_SEASON_DIXON_COLES_LOW_SCORE_CORRELATION",
+  "sources_sha256": {
+    "r5_bayes_bivar_asof_features_20261123.jsonl": "71e841b629136c266b79190366bd47175f5748818db9a6b8fe1c888d65658561",
+    "r5_bayes_bivar_CrownT12_20261123.jsonl": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+    "r7_market_implied_2market_20261123.jsonl": "c3405e0fadcf539fe45a0408035efd6ce4a1e268d32bbe4d50ce3db4500eecf8"
+  },
+  "learned_rho": {
+    "epl": {
+      "2019": {
+        "rho": -0.04470547447190419,
+        "score_loglik_gain_train_over_independent": 0.33780249776665694,
+        "train_fixtures": 636,
+        "estimated_sample_support_low": -0.26960732228825407,
+        "estimated_sample_support_high": 0.24311703057581383,
+        "train_low_four_scores": 215,
+        "target_fixture_count": 320
+      },
+      "2020": {
+        "rho": -0.024032255022881047,
+        "score_loglik_gain_train_over_independent": 0.10812916318752253,
+        "train_fixtures": 638,
+        "estimated_sample_support_low": -0.26960732228825407,
+        "estimated_sample_support_high": 0.23829022702391706,
+        "train_low_four_scores": 200,
+        "target_fixture_count": 318
+      },
+      "2021": {
+        "rho": -0.04396738450804472,
+        "score_loglik_gain_train_over_independent": 0.41616112141463313,
+        "train_fixtures": 638,
+        "estimated_sample_support_low": -0.30080746462042696,
+        "estimated_sample_support_high": 0.23829022702391706,
+        "train_low_four_scores": 225,
+        "target_fixture_count": 320
+      },
+      "2022": {
+        "rho": -0.02019072188803986,
+        "score_loglik_gain_train_over_independent": 0.08346434166274104,
+        "train_fixtures": 638,
+        "estimated_sample_support_low": -0.30997801399275554,
+        "estimated_sample_support_high": 0.2499424302727676,
+        "train_low_four_scores": 227,
+        "target_fixture_count": 320
+      },
+      "2023": {
+        "rho": 0.026053294508799386,
+        "score_loglik_gain_train_over_independent": 0.14504443301926867,
+        "train_fixtures": 640,
+        "estimated_sample_support_low": -0.30997801399275554,
+        "estimated_sample_support_high": 0.2499424302727676,
+        "train_low_four_scores": 217,
+        "target_fixture_count": 314
+      },
+      "2024": {
+        "rho": 0.00930503433708301,
+        "score_loglik_gain_train_over_independent": 0.01762275095752333,
+        "train_fixtures": 634,
+        "estimated_sample_support_low": -0.23993983248881082,
+        "estimated_sample_support_high": 0.2103125558902359,
+        "train_low_four_scores": 182,
+        "target_fixture_count": 320
+      },
+      "2025": {
+        "rho": -0.024139626402627158,
+        "score_loglik_gain_train_over_independent": 0.12366374880888037,
+        "train_fixtures": 634,
+        "estimated_sample_support_low": -0.23993983248881082,
+        "estimated_sample_support_high": 0.19039551729622015,
+        "train_low_four_scores": 167,
+        "target_fixture_count": 320
+      }
+    },
+    "bundesliga": {
+      "2019": {
+        "rho": -0.16610627418704,
+        "score_loglik_gain_train_over_independent": 3.8448501299649003,
+        "train_fixtures": 498,
+        "estimated_sample_support_low": -0.31741294762989114,
+        "estimated_sample_support_high": 0.1590710102827396,
+        "train_low_four_scores": 150,
+        "target_fixture_count": 250
+      },
+      "2020": {
+        "rho": -0.10444978077384194,
+        "score_loglik_gain_train_over_independent": 1.570721263200963,
+        "train_fixtures": 500,
+        "estimated_sample_support_low": -0.26092434279432125,
+        "estimated_sample_support_high": 0.1590710102827396,
+        "train_low_four_scores": 132,
+        "target_fixture_count": 250
+      },
+      "2021": {
+        "rho": -0.08509309275965904,
+        "score_loglik_gain_train_over_independent": 0.9428932606275506,
+        "train_fixtures": 500,
+        "estimated_sample_support_low": -0.26092434279432125,
+        "estimated_sample_support_high": 0.1885747101528709,
+        "train_low_four_scores": 138,
+        "target_fixture_count": 250
+      },
+      "2022": {
+        "rho": -0.10629252696748716,
+        "score_loglik_gain_train_over_independent": 1.496922165597066,
+        "train_fixtures": 500,
+        "estimated_sample_support_low": -0.2527575950840461,
+        "estimated_sample_support_high": 0.20296705051049904,
+        "train_low_four_scores": 144,
+        "target_fixture_count": 250
+      },
+      "2023": {
+        "rho": -0.12270232391628247,
+        "score_loglik_gain_train_over_independent": 2.0882118932438214,
+        "train_fixtures": 500,
+        "estimated_sample_support_low": -0.2527575950840461,
+        "estimated_sample_support_high": 0.20296705051049904,
+        "train_low_four_scores": 133,
+        "target_fixture_count": 252
+      },
+      "2024": {
+        "rho": -0.151780655137236,
+        "score_loglik_gain_train_over_independent": 4.035633838219393,
+        "train_fixtures": 502,
+        "estimated_sample_support_low": -0.2454783587475998,
+        "estimated_sample_support_high": 0.22538995046517826,
+        "train_low_four_scores": 138,
+        "target_fixture_count": 244
+      },
+      "2025": {
+        "rho": -0.1110862210056267,
+        "score_loglik_gain_train_over_independent": 2.437391320060403,
+        "train_fixtures": 496,
+        "estimated_sample_support_low": -0.2454783587475998,
+        "estimated_sample_support_high": 0.1677697124876812,
+        "train_low_four_scores": 148,
+        "target_fixture_count": 248
+      }
+    },
+    "serie-a": {
+      "2019": {
+        "rho": -0.06407357392439351,
+        "score_loglik_gain_train_over_independent": 0.8072355390420263,
+        "train_fixtures": 634,
+        "estimated_sample_support_low": -0.32599400594041267,
+        "estimated_sample_support_high": 0.24791790815664552,
+        "train_low_four_scores": 242,
+        "target_fixture_count": 315
+      },
+      "2020": {
+        "rho": -0.15897354189586638,
+        "score_loglik_gain_train_over_independent": 4.712436871612537,
+        "train_fixtures": 634,
+        "estimated_sample_support_low": -0.30116057714318245,
+        "estimated_sample_support_high": 0.24704677066723862,
+        "train_low_four_scores": 199,
+        "target_fixture_count": 315
+      },
+      "2021": {
+        "rho": -0.13359668595127622,
+        "score_loglik_gain_train_over_independent": 3.246317315923946,
+        "train_fixtures": 630,
+        "estimated_sample_support_low": -0.2921877187990601,
+        "estimated_sample_support_high": 0.2406894679490127,
+        "train_low_four_scores": 177,
+        "target_fixture_count": 317
+      },
+      "2022": {
+        "rho": -0.11277833465555243,
+        "score_loglik_gain_train_over_independent": 2.499408214307072,
+        "train_fixtures": 632,
+        "estimated_sample_support_low": -0.2921877187990601,
+        "estimated_sample_support_high": 0.2406894679490127,
+        "train_low_four_scores": 213,
+        "target_fixture_count": 315
+      },
+      "2023": {
+        "rho": -0.023987913317512634,
+        "score_loglik_gain_train_over_independent": 0.10940385619713888,
+        "train_fixtures": 632,
+        "estimated_sample_support_low": -0.3101614143766423,
+        "estimated_sample_support_high": 0.25805337133058315,
+        "train_low_four_scores": 235,
+        "target_fixture_count": 315
+      },
+      "2024": {
+        "rho": 0.0017444524369907833,
+        "score_loglik_gain_train_over_independent": 0.0005894471665169945,
+        "train_fixtures": 630,
+        "estimated_sample_support_low": -0.30865696381237384,
+        "estimated_sample_support_high": 0.26921060584998874,
+        "train_low_four_scores": 244,
+        "target_fixture_count": 315
+      },
+      "2025": {
+        "rho": -0.007661215418978524,
+        "score_loglik_gain_train_over_independent": 0.012402060513532057,
+        "train_fixtures": 630,
+        "estimated_sample_support_low": -0.3003713352370752,
+        "estimated_sample_support_high": 0.22173407805958995,
+        "train_low_four_scores": 256,
+        "target_fixture_count": 317
+      }
+    },
+    "la-liga": {
+      "2019": {
+        "rho": 0.005131955835318923,
+        "score_loglik_gain_train_over_independent": 0.005434968697339254,
+        "train_fixtures": 632,
+        "estimated_sample_support_low": -0.2412332207782416,
+        "estimated_sample_support_high": 0.18232577135164046,
+        "train_low_four_scores": 236,
+        "target_fixture_count": 309
+      },
+      "2020": {
+        "rho": -0.06358543532210292,
+        "score_loglik_gain_train_over_independent": 0.7895401389431256,
+        "train_fixtures": 625,
+        "estimated_sample_support_low": -0.28587167614194026,
+        "estimated_sample_support_high": 0.18232577135164046,
+        "train_low_four_scores": 243,
+        "target_fixture_count": 310
+      },
+      "2021": {
+        "rho": -0.07509499797447476,
+        "score_loglik_gain_train_over_independent": 0.94836556385974,
+        "train_fixtures": 619,
+        "estimated_sample_support_low": -0.2968668794749063,
+        "estimated_sample_support_high": 0.20380064592198183,
+        "train_low_four_scores": 249,
+        "target_fixture_count": 315
+      },
+      "2022": {
+        "rho": -0.06856732175695304,
+        "score_loglik_gain_train_over_independent": 0.9148555115319723,
+        "train_fixtures": 625,
+        "estimated_sample_support_low": -0.30888745374614845,
+        "estimated_sample_support_high": 0.20380064592198183,
+        "train_low_four_scores": 259,
+        "target_fixture_count": 314
+      },
+      "2023": {
+        "rho": -0.0019013409696445863,
+        "score_loglik_gain_train_over_independent": 0.0008265371352132039,
+        "train_fixtures": 629,
+        "estimated_sample_support_low": -0.3014495929427062,
+        "estimated_sample_support_high": 0.2926484331723049,
+        "train_low_four_scores": 264,
+        "target_fixture_count": 315
+      },
+      "2024": {
+        "rho": -0.009543209200472027,
+        "score_loglik_gain_train_over_independent": 0.02288125538945343,
+        "train_fixtures": 629,
+        "estimated_sample_support_low": -0.3014495929427062,
+        "estimated_sample_support_high": 0.19381555083210447,
+        "train_low_four_scores": 266,
+        "target_fixture_count": 314
+      },
+      "2025": {
+        "rho": 0.010539849598243856,
+        "score_loglik_gain_train_over_independent": 0.02695617539336223,
+        "train_fixtures": 629,
+        "estimated_sample_support_low": -0.250076310364506,
+        "estimated_sample_support_high": 0.16956556640018058,
+        "train_low_four_scores": 270,
+        "target_fixture_count": 309
+      }
+    },
+    "ligue-1": {
+      "2019": {
+        "rho": -0.01996375718597221,
+        "score_loglik_gain_train_over_independent": 0.06191520833383338,
+        "train_fixtures": 633,
+        "estimated_sample_support_low": -0.28213789254667226,
+        "estimated_sample_support_high": 0.27158588350425616,
+        "train_low_four_scores": 249,
+        "target_fixture_count": 217
+      },
+      "2020": {
+        "rho": 0.029164820886285515,
+        "score_loglik_gain_train_over_independent": 0.12392207032372123,
+        "train_fixtures": 534,
+        "estimated_sample_support_low": -0.28777831992917857,
+        "estimated_sample_support_high": 0.2891517442161288,
+        "train_low_four_scores": 229,
+        "target_fixture_count": 316
+      },
+      "2021": {
+        "rho": -0.04718156526645397,
+        "score_loglik_gain_train_over_independent": 0.31632463005785183,
+        "train_fixtures": 533,
+        "estimated_sample_support_low": -0.26574222574149714,
+        "estimated_sample_support_high": 0.22083506883534154,
+        "train_low_four_scores": 200,
+        "target_fixture_count": 317
+      },
+      "2022": {
+        "rho": -0.05251001092940981,
+        "score_loglik_gain_train_over_independent": 0.5234890911748865,
+        "train_fixtures": 633,
+        "estimated_sample_support_low": -0.26574222574149714,
+        "estimated_sample_support_high": 0.22083506883534154,
+        "train_low_four_scores": 227,
+        "target_fixture_count": 316
+      },
+      "2023": {
+        "rho": -0.03439992113333652,
+        "score_loglik_gain_train_over_independent": 0.2746293932929419,
+        "train_fixtures": 633,
+        "estimated_sample_support_low": -0.3026483384150046,
+        "estimated_sample_support_high": 0.24718447273064048,
+        "train_low_four_scores": 229,
+        "target_fixture_count": 248
+      },
+      "2024": {
+        "rho": -0.06606245512907018,
+        "score_loglik_gain_train_over_independent": 0.9245081308836054,
+        "train_fixtures": 564,
+        "estimated_sample_support_low": -0.3026483384150046,
+        "estimated_sample_support_high": 0.19961553788017974,
+        "train_low_four_scores": 199,
+        "target_fixture_count": 247
+      },
+      "2025": {
+        "rho": -0.04884955555908547,
+        "score_loglik_gain_train_over_independent": 0.40610328649911565,
+        "train_fixtures": 495,
+        "estimated_sample_support_low": -0.22262526294261636,
+        "estimated_sample_support_high": 0.16508307801063435,
+        "train_low_four_scores": 159,
+        "target_fixture_count": 247
+      }
+    }
+  },
+  "overall": {
+    "n": 9908,
+    "DC_Brier": 0.5990668,
+    "independent_k2_Brier": 0.5993324,
+    "Crown_market_Brier": 0.5783596,
+    "mean_trained_rho": -0.0523634,
+    "AH": {
+      "n": 9908,
+      "DC_net_U": -161.17,
+      "DC_ROI_pct": -1.62667,
+      "R5_k2_independent_net_U": -121.55,
+      "delta_net_U": -39.62,
+      "changed_sides": 135
+    },
+    "OU": {
+      "n": 9908,
+      "DC_net_U": -142.025,
+      "DC_ROI_pct": -1.43344,
+      "R5_k2_independent_net_U": -148.56,
+      "delta_net_U": 6.535,
+      "changed_sides": 16
+    }
+  },
+  "by_season": {
+    "2019": {
+      "n": 1373,
+      "DC_Brier": 0.5949467,
+      "independent_k2_Brier": 0.5948357,
+      "Crown_market_Brier": 0.5778054,
+      "mean_trained_rho": -0.0571763,
+      "AH": {
+        "n": 1373,
+        "DC_net_U": 40.185,
+        "DC_ROI_pct": 2.9268,
+        "R5_k2_independent_net_U": 35.335,
+        "delta_net_U": 4.85,
+        "changed_sides": 19
+      },
+      "OU": {
+        "n": 1373,
+        "DC_net_U": 35.695,
+        "DC_ROI_pct": 2.59978,
+        "R5_k2_independent_net_U": 35.695,
+        "delta_net_U": 0.0,
+        "changed_sides": 0
+      }
+    },
+    "2020": {
+      "n": 1462,
+      "DC_Brier": 0.6007916,
+      "independent_k2_Brier": 0.6010819,
+      "Crown_market_Brier": 0.5786587,
+      "mean_trained_rho": -0.0626673,
+      "AH": {
+        "n": 1462,
+        "DC_net_U": -26.945,
+        "DC_ROI_pct": -1.84302,
+        "R5_k2_independent_net_U": -24.06,
+        "delta_net_U": -2.885,
+        "changed_sides": 29
+      },
+      "OU": {
+        "n": 1462,
+        "DC_net_U": 16.77,
+        "DC_ROI_pct": 1.14706,
+        "R5_k2_independent_net_U": 13.785,
+        "delta_net_U": 2.985,
+        "changed_sides": 3
+      }
+    },
+    "2021": {
+      "n": 1418,
+      "DC_Brier": 0.5997527,
+      "independent_k2_Brier": 0.6000916,
+      "Crown_market_Brier": 0.5822157,
+      "mean_trained_rho": -0.0766734,
+      "AH": {
+        "n": 1418,
+        "DC_net_U": 2.71,
+        "DC_ROI_pct": 0.19111,
+        "R5_k2_independent_net_U": 5.81,
+        "delta_net_U": -3.1,
+        "changed_sides": 26
+      },
+      "OU": {
+        "n": 1418,
+        "DC_net_U": -22.54,
+        "DC_ROI_pct": -1.58956,
+        "R5_k2_independent_net_U": -25.545,
+        "delta_net_U": 3.005,
+        "changed_sides": 4
+      }
+    },
+    "2022": {
+      "n": 1468,
+      "DC_Brier": 0.6011954,
+      "independent_k2_Brier": 0.6008444,
+      "Crown_market_Brier": 0.5795739,
+      "mean_trained_rho": -0.0704227,
+      "AH": {
+        "n": 1468,
+        "DC_net_U": -54.395,
+        "DC_ROI_pct": -3.70538,
+        "R5_k2_independent_net_U": -43.99,
+        "delta_net_U": -10.405,
+        "changed_sides": 25
+      },
+      "OU": {
+        "n": 1468,
+        "DC_net_U": -85.465,
+        "DC_ROI_pct": -5.82187,
+        "R5_k2_independent_net_U": -86.01,
+        "delta_net_U": 0.545,
+        "changed_sides": 9
+      }
+    },
+    "2023": {
+      "n": 1396,
+      "DC_Brier": 0.5977997,
+      "independent_k2_Brier": 0.5987447,
+      "Crown_market_Brier": 0.5743101,
+      "mean_trained_rho": -0.0277412,
+      "AH": {
+        "n": 1396,
+        "DC_net_U": -33.795,
+        "DC_ROI_pct": -2.42085,
+        "R5_k2_independent_net_U": -21.665,
+        "delta_net_U": -12.13,
+        "changed_sides": 14
+      },
+      "OU": {
+        "n": 1396,
+        "DC_net_U": -14.145,
+        "DC_ROI_pct": -1.01325,
+        "R5_k2_independent_net_U": -14.145,
+        "delta_net_U": 0.0,
+        "changed_sides": 0
+      }
+    },
+    "2024": {
+      "n": 1391,
+      "DC_Brier": 0.5893043,
+      "independent_k2_Brier": 0.5895183,
+      "Crown_market_Brier": 0.5700479,
+      "mean_trained_rho": -0.036921,
+      "AH": {
+        "n": 1391,
+        "DC_net_U": -41.745,
+        "DC_ROI_pct": -3.00108,
+        "R5_k2_independent_net_U": -33.715,
+        "delta_net_U": -8.03,
+        "changed_sides": 12
+      },
+      "OU": {
+        "n": 1391,
+        "DC_net_U": -32.1,
+        "DC_ROI_pct": -2.30769,
+        "R5_k2_independent_net_U": -32.1,
+        "delta_net_U": 0.0,
+        "changed_sides": 0
+      }
+    },
+    "2025": {
+      "n": 1400,
+      "DC_Brier": 0.6093427,
+      "independent_k2_Brier": 0.6098981,
+      "Crown_market_Brier": 0.5857078,
+      "mean_trained_rho": -0.0332193,
+      "AH": {
+        "n": 1400,
+        "DC_net_U": -47.185,
+        "DC_ROI_pct": -3.37036,
+        "R5_k2_independent_net_U": -39.265,
+        "delta_net_U": -7.92,
+        "changed_sides": 10
+      },
+      "OU": {
+        "n": 1400,
+        "DC_net_U": -40.24,
+        "DC_ROI_pct": -2.87429,
+        "R5_k2_independent_net_U": -40.24,
+        "delta_net_U": 0.0,
+        "changed_sides": 0
+      }
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "n": 1720,
+      "DC_Brier": 0.6022611,
+      "independent_k2_Brier": 0.6034179,
+      "Crown_market_Brier": 0.583032,
+      "mean_trained_rho": -0.1210851,
+      "AH": {
+        "n": 1720,
+        "DC_net_U": -45.515,
+        "DC_ROI_pct": -2.64622,
+        "R5_k2_independent_net_U": -36.105,
+        "delta_net_U": -9.41,
+        "changed_sides": 47
+      },
+      "OU": {
+        "n": 1720,
+        "DC_net_U": -58.59,
+        "DC_ROI_pct": -3.4064,
+        "R5_k2_independent_net_U": -58.59,
+        "delta_net_U": 0.0,
+        "changed_sides": 0
+      }
+    },
+    "epl": {
+      "n": 2193,
+      "DC_Brier": 0.5913569,
+      "independent_k2_Brier": 0.5911971,
+      "Crown_market_Brier": 0.5746553,
+      "mean_trained_rho": -0.017168,
+      "AH": {
+        "n": 2193,
+        "DC_net_U": 38.395,
+        "DC_ROI_pct": 1.7508,
+        "R5_k2_independent_net_U": 44.03,
+        "delta_net_U": -5.635,
+        "changed_sides": 13
+      },
+      "OU": {
+        "n": 2193,
+        "DC_net_U": -27.46,
+        "DC_ROI_pct": -1.25217,
+        "R5_k2_independent_net_U": -29.3,
+        "delta_net_U": 1.84,
+        "changed_sides": 1
+      }
+    },
+    "la-liga": {
+      "n": 1944,
+      "DC_Brier": 0.5976341,
+      "independent_k2_Brier": 0.5977713,
+      "Crown_market_Brier": 0.5752279,
+      "mean_trained_rho": -0.0288831,
+      "AH": {
+        "n": 1944,
+        "DC_net_U": -56.27,
+        "DC_ROI_pct": -2.89455,
+        "R5_k2_independent_net_U": -45.51,
+        "delta_net_U": -10.76,
+        "changed_sides": 12
+      },
+      "OU": {
+        "n": 1944,
+        "DC_net_U": -11.795,
+        "DC_ROI_pct": -0.60674,
+        "R5_k2_independent_net_U": -16.74,
+        "delta_net_U": 4.945,
+        "changed_sides": 9
+      }
+    },
+    "ligue-1": {
+      "n": 1880,
+      "DC_Brier": 0.6060239,
+      "independent_k2_Brier": 0.6059012,
+      "Crown_market_Brier": 0.5853036,
+      "mean_trained_rho": -0.0332551,
+      "AH": {
+        "n": 1880,
+        "DC_net_U": -10.02,
+        "DC_ROI_pct": -0.53298,
+        "R5_k2_independent_net_U": -2.245,
+        "delta_net_U": -7.775,
+        "changed_sides": 23
+      },
+      "OU": {
+        "n": 1880,
+        "DC_net_U": -64.81,
+        "DC_ROI_pct": -3.44734,
+        "R5_k2_independent_net_U": -66.56,
+        "delta_net_U": 1.75,
+        "changed_sides": 3
+      }
+    },
+    "serie-a": {
+      "n": 2171,
+      "DC_Brier": 0.5995824,
+      "independent_k2_Brier": 0.6000228,
+      "Crown_market_Brier": 0.5751906,
+      "mean_trained_rho": -0.0710423,
+      "AH": {
+        "n": 2171,
+        "DC_net_U": -87.76,
+        "DC_ROI_pct": -4.04238,
+        "R5_k2_independent_net_U": -81.72,
+        "delta_net_U": -6.04,
+        "changed_sides": 40
+      },
+      "OU": {
+        "n": 2171,
+        "DC_net_U": 20.63,
+        "DC_ROI_pct": 0.95025,
+        "R5_k2_independent_net_U": 22.63,
+        "delta_net_U": -2.0,
+        "changed_sides": 3
+      }
+    }
+  },
+  "audit": {
+    "market_contracts_processed": 19816
+  },
+  "research_method": "Dixon-Coles local score probability multiplier for 0-0,0-1,1-0,1-1; coefficient fitted by prior two seasons goals maximising low-score likelihood. Valid parameter interval derives from score-probability nonnegativity given observed prediction lambda (past+target prematch features). NO target result or ROI used for rho. All 9908 Crown quote fixtures included.",
+  "limitations": [
+    "Historic Crown source-event price retrieved AFTER match, not actual received/executable quote.",
+    "R5 mean features historical Understat publication time unknown. Study is NOT genuinely blinded.",
+    "Dixon-Coles low-score correlation can affect AH/OU quarter payouts; no user-approved new strategy rule or filter.",
+    "No national teams. Mathematical rho supports are not trading limits."
+  ]
+}

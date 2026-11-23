@@ -1,0 +1,772 @@
+{
+  "study": "R11_HISTORICAL_ASOF_XG_OBSERVATION_LIKELIHOOD_CALIBRATION",
+  "source_sha256": {
+    "r5_bayes_bivar_asof_features_20261123.jsonl": "71e841b629136c266b79190366bd47175f5748818db9a6b8fe1c888d65658561",
+    "r5_bayes_bivar_CrownT12_20261123.jsonl": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+    "r10_prior_two_season_xg_Gamma_shape.json": "33dfa00a3fd8a2febeda7fd7d279109e1d4f191d8a4f88db865f461b103bce76"
+  },
+  "model": "Compare as-of pregame venue team attack means (R5 k2) against eventual actual match xG observation, under R5 exponential shape1 versus prior two completed season learned Gamma shape r≈3.3. No target-year goals or xG used to estimate shape or means.",
+  "thresholds_only_probabilistic_CDF_scoring_points_not_trade_Gates": {
+    "lte_025": 0.25,
+    "lte_050": 0.5,
+    "gte_200": 2.0,
+    "gte_300": 3.0
+  },
+  "overall": {
+    "n": 19812,
+    "observed_zero": 7,
+    "mean_observed_xG": 1.4590362,
+    "exp_shape1": {
+      "n": 19812,
+      "MSE_mean_xG": 0.7013771,
+      "avg_assumed_observation_var": 2.2779242,
+      "MSE_to_var_ratio": 0.3079019,
+      "lte_025": {
+        "observed_rate": 0.034827,
+        "predicted_rate": 0.168196,
+        "Brier": 0.0514187
+      },
+      "lte_050": {
+        "observed_rate": 0.121341,
+        "predicted_rate": 0.306371,
+        "Brier": 0.1369806
+      },
+      "gte_200": {
+        "observed_rate": 0.238189,
+        "predicted_rate": 0.244747,
+        "Brier": 0.166655
+      },
+      "gte_300": {
+        "observed_rate": 0.063396,
+        "predicted_rate": 0.12732,
+        "Brier": 0.0603778
+      }
+    },
+    "asof_Gamma": {
+      "n": 19812,
+      "MSE_mean_xG": 0.7013771,
+      "avg_assumed_observation_var": 0.695286,
+      "MSE_to_var_ratio": 1.0087606,
+      "lte_025": {
+        "observed_rate": 0.034827,
+        "predicted_rate": 0.017513,
+        "Brier": 0.0335942
+      },
+      "lte_050": {
+        "observed_rate": 0.121341,
+        "predicted_rate": 0.09796,
+        "Brier": 0.1036961
+      },
+      "gte_200": {
+        "observed_rate": 0.238189,
+        "predicted_rate": 0.218387,
+        "Brier": 0.1654307
+      },
+      "gte_300": {
+        "observed_rate": 0.063396,
+        "predicted_rate": 0.066066,
+        "Brier": 0.0560662
+      }
+    }
+  },
+  "by_season": {
+    "2019": {
+      "n": 2746,
+      "observed_zero": 0,
+      "mean_observed_xG": 1.4116007,
+      "exp_shape1": {
+        "n": 2746,
+        "MSE_mean_xG": 0.6788734,
+        "avg_assumed_observation_var": 2.1714331,
+        "MSE_to_var_ratio": 0.3126384,
+        "lte_025": {
+          "observed_rate": 0.033503,
+          "predicted_rate": 0.171919,
+          "Brier": 0.0513798
+        },
+        "lte_050": {
+          "observed_rate": 0.123816,
+          "predicted_rate": 0.312532,
+          "Brier": 0.1411901
+        },
+        "gte_200": {
+          "observed_rate": 0.223598,
+          "predicted_rate": 0.236501,
+          "Brier": 0.1597425
+        },
+        "gte_300": {
+          "observed_rate": 0.059723,
+          "predicted_rate": 0.12117,
+          "Brier": 0.0563275
+        }
+      },
+      "asof_Gamma": {
+        "n": 2746,
+        "MSE_mean_xG": 0.6788734,
+        "avg_assumed_observation_var": 0.659569,
+        "MSE_to_var_ratio": 1.0292682,
+        "lte_025": {
+          "observed_rate": 0.033503,
+          "predicted_rate": 0.018145,
+          "Brier": 0.0322171
+        },
+        "lte_050": {
+          "observed_rate": 0.123816,
+          "predicted_rate": 0.102409,
+          "Brier": 0.1064863
+        },
+        "gte_200": {
+          "observed_rate": 0.223598,
+          "predicted_rate": 0.204913,
+          "Brier": 0.1582131
+        },
+        "gte_300": {
+          "observed_rate": 0.059723,
+          "predicted_rate": 0.060136,
+          "Brier": 0.0520283
+        }
+      }
+    },
+    "2020": {
+      "n": 2924,
+      "observed_zero": 4,
+      "mean_observed_xG": 1.3748201,
+      "exp_shape1": {
+        "n": 2924,
+        "MSE_mean_xG": 0.6783801,
+        "avg_assumed_observation_var": 2.050144,
+        "MSE_to_var_ratio": 0.3308939,
+        "lte_025": {
+          "observed_rate": 0.044802,
+          "predicted_rate": 0.175284,
+          "Brier": 0.0600182
+        },
+        "lte_050": {
+          "observed_rate": 0.146375,
+          "predicted_rate": 0.318135,
+          "Brier": 0.1511848
+        },
+        "gte_200": {
+          "observed_rate": 0.20554,
+          "predicted_rate": 0.22873,
+          "Brier": 0.15305
+        },
+        "gte_300": {
+          "observed_rate": 0.047196,
+          "predicted_rate": 0.115185,
+          "Brier": 0.048492
+        }
+      },
+      "asof_Gamma": {
+        "n": 2924,
+        "MSE_mean_xG": 0.6783801,
+        "avg_assumed_observation_var": 0.6045537,
+        "MSE_to_var_ratio": 1.1221171,
+        "lte_025": {
+          "observed_rate": 0.044802,
+          "predicted_rate": 0.017686,
+          "Brier": 0.0432867
+        },
+        "lte_050": {
+          "observed_rate": 0.146375,
+          "predicted_rate": 0.103268,
+          "Brier": 0.1241729
+        },
+        "gte_200": {
+          "observed_rate": 0.20554,
+          "predicted_rate": 0.191349,
+          "Brier": 0.15282
+        },
+        "gte_300": {
+          "observed_rate": 0.047196,
+          "predicted_rate": 0.052312,
+          "Brier": 0.0438314
+        }
+      }
+    },
+    "2021": {
+      "n": 2836,
+      "observed_zero": 1,
+      "mean_observed_xG": 1.4203777,
+      "exp_shape1": {
+        "n": 2836,
+        "MSE_mean_xG": 0.7175696,
+        "avg_assumed_observation_var": 2.0944983,
+        "MSE_to_var_ratio": 0.3425974,
+        "lte_025": {
+          "observed_rate": 0.03914,
+          "predicted_rate": 0.174049,
+          "Brier": 0.0557453
+        },
+        "lte_050": {
+          "observed_rate": 0.134697,
+          "predicted_rate": 0.316067,
+          "Brier": 0.1442588
+        },
+        "gte_200": {
+          "observed_rate": 0.22567,
+          "predicted_rate": 0.231688,
+          "Brier": 0.1614492
+        },
+        "gte_300": {
+          "observed_rate": 0.062764,
+          "predicted_rate": 0.117465,
+          "Brier": 0.0591386
+        }
+      },
+      "asof_Gamma": {
+        "n": 2836,
+        "MSE_mean_xG": 0.7175696,
+        "avg_assumed_observation_var": 0.668431,
+        "MSE_to_var_ratio": 1.0735132,
+        "lte_025": {
+          "observed_rate": 0.03914,
+          "predicted_rate": 0.021943,
+          "Brier": 0.0376567
+        },
+        "lte_050": {
+          "observed_rate": 0.134697,
+          "predicted_rate": 0.112526,
+          "Brier": 0.1125328
+        },
+        "gte_200": {
+          "observed_rate": 0.22567,
+          "predicted_rate": 0.199812,
+          "Brier": 0.1609581
+        },
+        "gte_300": {
+          "observed_rate": 0.062764,
+          "predicted_rate": 0.058252,
+          "Brier": 0.0560025
+        }
+      }
+    },
+    "2022": {
+      "n": 2936,
+      "observed_zero": 0,
+      "mean_observed_xG": 1.4312552,
+      "exp_shape1": {
+        "n": 2936,
+        "MSE_mean_xG": 0.6726468,
+        "avg_assumed_observation_var": 2.1794072,
+        "MSE_to_var_ratio": 0.3086375,
+        "lte_025": {
+          "observed_rate": 0.038828,
+          "predicted_rate": 0.170821,
+          "Brier": 0.0543782
+        },
+        "lte_050": {
+          "observed_rate": 0.127725,
+          "predicted_rate": 0.310714,
+          "Brier": 0.1395137
+        },
+        "gte_200": {
+          "observed_rate": 0.231948,
+          "predicted_rate": 0.238776,
+          "Brier": 0.165564
+        },
+        "gte_300": {
+          "observed_rate": 0.057561,
+          "predicted_rate": 0.12267,
+          "Brier": 0.0567316
+        }
+      },
+      "asof_Gamma": {
+        "n": 2936,
+        "MSE_mean_xG": 0.6726468,
+        "avg_assumed_observation_var": 0.7158425,
+        "MSE_to_var_ratio": 0.9396576,
+        "lte_025": {
+          "observed_rate": 0.038828,
+          "predicted_rate": 0.021856,
+          "Brier": 0.0370956
+        },
+        "lte_050": {
+          "observed_rate": 0.127725,
+          "predicted_rate": 0.110657,
+          "Brier": 0.1068036
+        },
+        "gte_200": {
+          "observed_rate": 0.231948,
+          "predicted_rate": 0.211498,
+          "Brier": 0.1654187
+        },
+        "gte_300": {
+          "observed_rate": 0.057561,
+          "predicted_rate": 0.064517,
+          "Brier": 0.052338
+        }
+      }
+    },
+    "2023": {
+      "n": 2792,
+      "observed_zero": 0,
+      "mean_observed_xG": 1.5271235,
+      "exp_shape1": {
+        "n": 2792,
+        "MSE_mean_xG": 0.6978039,
+        "avg_assumed_observation_var": 2.4800383,
+        "MSE_to_var_ratio": 0.2813682,
+        "lte_025": {
+          "observed_rate": 0.027579,
+          "predicted_rate": 0.162531,
+          "Brier": 0.0454783
+        },
+        "lte_050": {
+          "observed_rate": 0.102436,
+          "predicted_rate": 0.296921,
+          "Brier": 0.1275356
+        },
+        "gte_200": {
+          "observed_rate": 0.257163,
+          "predicted_rate": 0.258041,
+          "Brier": 0.1732485
+        },
+        "gte_300": {
+          "observed_rate": 0.07235,
+          "predicted_rate": 0.137632,
+          "Brier": 0.0666567
+        }
+      },
+      "asof_Gamma": {
+        "n": 2792,
+        "MSE_mean_xG": 0.6978039,
+        "avg_assumed_observation_var": 0.7758134,
+        "MSE_to_var_ratio": 0.8994482,
+        "lte_025": {
+          "observed_rate": 0.027579,
+          "predicted_rate": 0.016645,
+          "Brier": 0.0267161
+        },
+        "lte_050": {
+          "observed_rate": 0.102436,
+          "predicted_rate": 0.092844,
+          "Brier": 0.0898653
+        },
+        "gte_200": {
+          "observed_rate": 0.257163,
+          "predicted_rate": 0.240618,
+          "Brier": 0.1705066
+        },
+        "gte_300": {
+          "observed_rate": 0.07235,
+          "predicted_rate": 0.078423,
+          "Brier": 0.0621755
+        }
+      }
+    },
+    "2024": {
+      "n": 2780,
+      "observed_zero": 1,
+      "mean_observed_xG": 1.5180222,
+      "exp_shape1": {
+        "n": 2780,
+        "MSE_mean_xG": 0.7545677,
+        "avg_assumed_observation_var": 2.5753287,
+        "MSE_to_var_ratio": 0.2929986,
+        "lte_025": {
+          "observed_rate": 0.031655,
+          "predicted_rate": 0.159343,
+          "Brier": 0.0471483
+        },
+        "lte_050": {
+          "observed_rate": 0.106475,
+          "predicted_rate": 0.29162,
+          "Brier": 0.1268666
+        },
+        "gte_200": {
+          "observed_rate": 0.256115,
+          "predicted_rate": 0.26525,
+          "Brier": 0.1739262
+        },
+        "gte_300": {
+          "observed_rate": 0.072662,
+          "predicted_rate": 0.143038,
+          "Brier": 0.0681866
+        }
+      },
+      "asof_Gamma": {
+        "n": 2780,
+        "MSE_mean_xG": 0.7545677,
+        "avg_assumed_observation_var": 0.7451388,
+        "MSE_to_var_ratio": 1.0126538,
+        "lte_025": {
+          "observed_rate": 0.031655,
+          "predicted_rate": 0.01269,
+          "Brier": 0.0307415
+        },
+        "lte_050": {
+          "observed_rate": 0.106475,
+          "predicted_rate": 0.07949,
+          "Brier": 0.0932821
+        },
+        "gte_200": {
+          "observed_rate": 0.256115,
+          "predicted_rate": 0.250007,
+          "Brier": 0.1717771
+        },
+        "gte_300": {
+          "observed_rate": 0.072662,
+          "predicted_rate": 0.079464,
+          "Brier": 0.0627896
+        }
+      }
+    },
+    "2025": {
+      "n": 2798,
+      "observed_zero": 1,
+      "mean_observed_xG": 1.5353859,
+      "exp_shape1": {
+        "n": 2798,
+        "MSE_mean_xG": 0.7119474,
+        "avg_assumed_observation_var": 2.4125945,
+        "MSE_to_var_ratio": 0.2950962,
+        "lte_025": {
+          "observed_rate": 0.02752,
+          "predicted_rate": 0.1629,
+          "Brier": 0.0451498
+        },
+        "lte_050": {
+          "observed_rate": 0.106147,
+          "predicted_rate": 0.297733,
+          "Brier": 0.1274444
+        },
+        "gte_200": {
+          "observed_rate": 0.269121,
+          "predicted_rate": 0.255445,
+          "Brier": 0.1802742
+        },
+        "gte_300": {
+          "observed_rate": 0.072552,
+          "predicted_rate": 0.135,
+          "Brier": 0.0678316
+        }
+      },
+      "asof_Gamma": {
+        "n": 2798,
+        "MSE_mean_xG": 0.7119474,
+        "avg_assumed_observation_var": 0.7009198,
+        "MSE_to_var_ratio": 1.0157329,
+        "lte_025": {
+          "observed_rate": 0.02752,
+          "predicted_rate": 0.013322,
+          "Brier": 0.0267228
+        },
+        "lte_050": {
+          "observed_rate": 0.106147,
+          "predicted_rate": 0.083413,
+          "Brier": 0.0914894
+        },
+        "gte_200": {
+          "observed_rate": 0.269121,
+          "predicted_rate": 0.232322,
+          "Brier": 0.178868
+        },
+        "gte_300": {
+          "observed_rate": 0.072552,
+          "predicted_rate": 0.070164,
+          "Brier": 0.0640153
+        }
+      }
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "n": 3438,
+      "observed_zero": 1,
+      "mean_observed_xG": 1.5822305,
+      "exp_shape1": {
+        "n": 3438,
+        "MSE_mean_xG": 0.7891701,
+        "avg_assumed_observation_var": 2.6751841,
+        "MSE_to_var_ratio": 0.2949966,
+        "lte_025": {
+          "observed_rate": 0.027632,
+          "predicted_rate": 0.155951,
+          "Brier": 0.0434
+        },
+        "lte_050": {
+          "observed_rate": 0.102385,
+          "predicted_rate": 0.286188,
+          "Brier": 0.1217807
+        },
+        "gte_200": {
+          "observed_rate": 0.278941,
+          "predicted_rate": 0.271477,
+          "Brier": 0.1848846
+        },
+        "gte_300": {
+          "observed_rate": 0.084642,
+          "predicted_rate": 0.147468,
+          "Brier": 0.0755397
+        }
+      },
+      "asof_Gamma": {
+        "n": 3438,
+        "MSE_mean_xG": 0.7891701,
+        "avg_assumed_observation_var": 0.8028272,
+        "MSE_to_var_ratio": 0.9829888,
+        "lte_025": {
+          "observed_rate": 0.027632,
+          "predicted_rate": 0.012622,
+          "Brier": 0.0268689
+        },
+        "lte_050": {
+          "observed_rate": 0.102385,
+          "predicted_rate": 0.077521,
+          "Brier": 0.0888551
+        },
+        "gte_200": {
+          "observed_rate": 0.278941,
+          "predicted_rate": 0.258896,
+          "Brier": 0.1833959
+        },
+        "gte_300": {
+          "observed_rate": 0.084642,
+          "predicted_rate": 0.085556,
+          "Brier": 0.0711105
+        }
+      }
+    },
+    "epl": {
+      "n": 4386,
+      "observed_zero": 0,
+      "mean_observed_xG": 1.5047797,
+      "exp_shape1": {
+        "n": 4386,
+        "MSE_mean_xG": 0.7228938,
+        "avg_assumed_observation_var": 2.3927194,
+        "MSE_to_var_ratio": 0.3021223,
+        "lte_025": {
+          "observed_rate": 0.036936,
+          "predicted_rate": 0.163391,
+          "Brier": 0.0513736
+        },
+        "lte_050": {
+          "observed_rate": 0.113771,
+          "predicted_rate": 0.298483,
+          "Brier": 0.1308653
+        },
+        "gte_200": {
+          "observed_rate": 0.261742,
+          "predicted_rate": 0.254762,
+          "Brier": 0.1773477
+        },
+        "gte_300": {
+          "observed_rate": 0.070451,
+          "predicted_rate": 0.134521,
+          "Brier": 0.0662864
+        }
+      },
+      "asof_Gamma": {
+        "n": 4386,
+        "MSE_mean_xG": 0.7228938,
+        "avg_assumed_observation_var": 0.716154,
+        "MSE_to_var_ratio": 1.0094111,
+        "lte_025": {
+          "observed_rate": 0.036936,
+          "predicted_rate": 0.014924,
+          "Brier": 0.0357062
+        },
+        "lte_050": {
+          "observed_rate": 0.113771,
+          "predicted_rate": 0.088179,
+          "Brier": 0.0977544
+        },
+        "gte_200": {
+          "observed_rate": 0.261742,
+          "predicted_rate": 0.233017,
+          "Brier": 0.1755999
+        },
+        "gte_300": {
+          "observed_rate": 0.070451,
+          "predicted_rate": 0.071017,
+          "Brier": 0.0617545
+        }
+      }
+    },
+    "la-liga": {
+      "n": 3886,
+      "observed_zero": 2,
+      "mean_observed_xG": 1.3826351,
+      "exp_shape1": {
+        "n": 3886,
+        "MSE_mean_xG": 0.6430518,
+        "avg_assumed_observation_var": 2.0397916,
+        "MSE_to_var_ratio": 0.3152537,
+        "lte_025": {
+          "observed_rate": 0.042203,
+          "predicted_rate": 0.17881,
+          "Brier": 0.0591282
+        },
+        "lte_050": {
+          "observed_rate": 0.139475,
+          "predicted_rate": 0.323552,
+          "Brier": 0.1489127
+        },
+        "gte_200": {
+          "observed_rate": 0.216418,
+          "predicted_rate": 0.224361,
+          "Brier": 0.1549488
+        },
+        "gte_300": {
+          "observed_rate": 0.048636,
+          "predicted_rate": 0.113086,
+          "Brier": 0.0483297
+        }
+      },
+      "asof_Gamma": {
+        "n": 3886,
+        "MSE_mean_xG": 0.6430518,
+        "avg_assumed_observation_var": 0.6535823,
+        "MSE_to_var_ratio": 0.983888,
+        "lte_025": {
+          "observed_rate": 0.042203,
+          "predicted_rate": 0.023747,
+          "Brier": 0.0403629
+        },
+        "lte_050": {
+          "observed_rate": 0.139475,
+          "predicted_rate": 0.120863,
+          "Brier": 0.1159614
+        },
+        "gte_200": {
+          "observed_rate": 0.216418,
+          "predicted_rate": 0.190898,
+          "Brier": 0.1537544
+        },
+        "gte_300": {
+          "observed_rate": 0.048636,
+          "predicted_rate": 0.056945,
+          "Brier": 0.0439702
+        }
+      }
+    },
+    "ligue-1": {
+      "n": 3760,
+      "observed_zero": 1,
+      "mean_observed_xG": 1.4317465,
+      "exp_shape1": {
+        "n": 3760,
+        "MSE_mean_xG": 0.6970444,
+        "avg_assumed_observation_var": 2.1915658,
+        "MSE_to_var_ratio": 0.3180577,
+        "lte_025": {
+          "observed_rate": 0.033777,
+          "predicted_rate": 0.170934,
+          "Brier": 0.0514454
+        },
+        "lte_050": {
+          "observed_rate": 0.125532,
+          "predicted_rate": 0.310893,
+          "Brier": 0.140198
+        },
+        "gte_200": {
+          "observed_rate": 0.218617,
+          "predicted_rate": 0.238724,
+          "Brier": 0.1583606
+        },
+        "gte_300": {
+          "observed_rate": 0.063032,
+          "predicted_rate": 0.122791,
+          "Brier": 0.0597947
+        }
+      },
+      "asof_Gamma": {
+        "n": 3760,
+        "MSE_mean_xG": 0.6970444,
+        "avg_assumed_observation_var": 0.6895624,
+        "MSE_to_var_ratio": 1.0108503,
+        "lte_025": {
+          "observed_rate": 0.033777,
+          "predicted_rate": 0.020272,
+          "Brier": 0.0324709
+        },
+        "lte_050": {
+          "observed_rate": 0.125532,
+          "predicted_rate": 0.106637,
+          "Brier": 0.1065772
+        },
+        "gte_200": {
+          "observed_rate": 0.218617,
+          "predicted_rate": 0.210734,
+          "Brier": 0.1574922
+        },
+        "gte_300": {
+          "observed_rate": 0.063032,
+          "predicted_rate": 0.063202,
+          "Brier": 0.0560886
+        }
+      }
+    },
+    "serie-a": {
+      "n": 4342,
+      "observed_zero": 3,
+      "mean_observed_xG": 1.4072933,
+      "exp_shape1": {
+        "n": 4342,
+        "MSE_mean_xG": 0.6660797,
+        "avg_assumed_observation_var": 2.1353214,
+        "MSE_to_var_ratio": 0.3119342,
+        "lte_025": {
+          "observed_rate": 0.032704,
+          "predicted_rate": 0.170877,
+          "Brier": 0.0508906
+        },
+        "lte_050": {
+          "observed_rate": 0.124136,
+          "predicted_rate": 0.311028,
+          "Brier": 0.1417281
+        },
+        "gte_200": {
+          "observed_rate": 0.218563,
+          "predicted_rate": 0.236927,
+          "Brier": 0.1590792
+        },
+        "gte_300": {
+          "observed_rate": 0.052971,
+          "predicted_rate": 0.120755,
+          "Brier": 0.0536917
+        }
+      },
+      "asof_Gamma": {
+        "n": 4342,
+        "MSE_mean_xG": 0.6660797,
+        "avg_assumed_observation_var": 0.6313357,
+        "MSE_to_var_ratio": 1.0550325,
+        "lte_025": {
+          "observed_rate": 0.032704,
+          "predicted_rate": 0.016031,
+          "Brier": 0.0317009
+        },
+        "lte_050": {
+          "observed_rate": 0.124136,
+          "predicted_rate": 0.096011,
+          "Brier": 0.107977
+        },
+        "gte_200": {
+          "observed_rate": 0.218563,
+          "predicted_rate": 0.202763,
+          "Brier": 0.1582579
+        },
+        "gte_300": {
+          "observed_rate": 0.052971,
+          "predicted_rate": 0.056276,
+          "Brier": 0.0492146
+        }
+      }
+    }
+  },
+  "audit": {
+    "target_team_observations": 19812,
+    "exact_zero_observed": 7,
+    "unreliable_target_xG": 2,
+    "source_Crown_fixtures_unscored_for_xG_CDF_due_to_missing_outcome": 2
+  },
+  "limitations": [
+    "Pre-game R5 attack means are estimates of venue-specific team expected xGF, but not equal to true latent strength; errors include injuries/opponents/drift.",
+    "Original historical xG provider publication UTC not verified, only past match dates.",
+    "Zero xG observations are point masses for rounded xG data; both continuous Gamma/Exponential assign zero exact point probability. Scores use cumulative thresholds, not exact-zero log likelihood.",
+    "Data is previously explored matched Crown cohort, no new prospective sample; no betting gate or result-based selection, no national teams."
+  ]
+}
