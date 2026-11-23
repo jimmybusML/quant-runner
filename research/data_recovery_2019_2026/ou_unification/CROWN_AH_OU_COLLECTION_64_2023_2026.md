@@ -2549,3 +2549,7 @@ References reviewed: [OddsHarvester README](https://github.com/jordantete/OddsHa
 - One FID `144663546` returned `TOO_MANY_REQUEST` in an HTTP-200 error body at the pause. The restarted collector retried it successfully at 20:47:04Z; raw SHA `5e17844d...e351d26b` matches SQLite with `raw_sha_verified=1` and 16 OU rows. The retry is after the queue checkpoint and is tracked separately.
 - Queue rebuilt at 20:47:00.841Z: 31,326 requests (2023 2,786; 2024 14,553; 2025 13,520; 2026 467), down 23. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 9,328 FIDs. Mean/median request duration 1.3454/1.3423s; 5.2s cadence unchanged.
 - Independent audit passed for completed responses and queue totals. Safe driver PID49373 restarted collector PID81387; historical retrieval only. Evidence and manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T2047Z`.
+
+
+#### T2047 coverage-count correction (2026-11-23)
+- The T2047 narrative above misstated OU movement FID coverage as 9,328. The authoritative queue checkpoint `crown_64_coverage_snapshot_20261123T2047Z.json` records 9,321 FIDs at 20:47:00.841Z. After that checkpoint, retry of FID `144663546` succeeded with 16 OU rows and a verified SHA; post-retry coverage is therefore 9,322 FIDs and the two audited increments contain 308 OU movement rows (292 before pause + 16 on retry). The original checkpoint evidence files remain unchanged.
