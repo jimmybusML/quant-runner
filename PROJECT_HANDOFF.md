@@ -7774,3 +7774,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - From the 19:17 queue checkpoint through the 19:19:32.459Z MR1 pause, 29 unique FIDs were finalized. All 29 received HTTP 200; one transient transport error recovered on retry (30 attempts total). Twenty-three quote-bearing FIDs added 472 OU movement rows. No unresolved failures, duplicates, SHA mismatches, or scope mismatches.
 - Queue rebuilt at 19:24:49.507Z: 31,700 requests (2023 3,160; 2024 14,553; 2025 13,520; 2026 467), down 29. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 9,001 FIDs. Mean/median request duration 1.3203/1.3307s; request spacing remains 5.2s.
 - Independent audit matched all 29 raw response SHA/receipt records and the rebuilt queue. Scheduled settlement/MR1 work completed; safe driver PID49373 restarted collector PID63518. Historical retrieval only. Evidence and manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T1924Z`.
+
+
+### 2026-11-23 19:28 UTC — T1928 checkpoint; active scope 2023–2026
+- From the 19:24 queue checkpoint through the 19:27:00.119Z MR1 pause, 24 unique FIDs were finalized. All 24 received HTTP 200; three transient transport errors recovered on retry (27 attempts total). Nineteen quote-bearing FIDs added 582 OU movement rows. No unresolved failures, duplicate FIDs, raw SHA mismatches, or scope mismatches.
+- Queue rebuilt at 19:28:12.097Z: 31,676 requests (2023 3,136; 2024 14,553; 2025 13,520; 2026 467), down 24. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 9,020 FIDs. Mean/median response time 1.3551/1.3445s; request spacing remains 5.2s.
+- Independent audit verified raw response SHA/receipt, unique identity and queue rebuild. Driver PID49373 resumed collector PID64330 after MR1. Historical retrieval only. Evidence and manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T1928Z`.
