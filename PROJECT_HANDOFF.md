@@ -7505,3 +7505,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - T1418 to the 14:20:39Z MR1 pause produced 23 unique FIDs: 20 new OU movement paths / 358 rows and 3 successful no-market responses. All 23 HTTP 200; no unresolved failures, duplicate FIDs, raw SHA, identity, or scope mismatches.
 - Queue rebuilt at 14:21:57Z: 33,169 (2023 4,629; 2024 14,553; 2025 13,520; 2026 467), matching the actual queue file. Coverage: AH summary 32,449; AH movement 36,342; OU summary 32,445; OU movement 8,199 FIDs. Independent SQLite comparison confirmed the 20 new FIDs / 358 rows; all seven manifest SHA entries passed.
 - Safe-window driver PID49373 / collector PID93743 continues at the unchanged 5.2-second cadence and yields around scheduled jobs. Historical backfill only; no production changes. Checkpoint artifacts: `research/data_recovery_2019_2026/ou_unification/*20261123T1421Z*`.
+
+
+### 2026-11-23 14:26 UTC — 2023–2026 Crown AH/OU historical collection T1426
+- T1421 through the 14:23:22Z unified-settlement pause completed 17 unique FIDs, all returning Crown AH/OU market data and adding 488 OU movement rows. All HTTP 200; zero unresolved errors, duplicates, raw SHA mismatches, or identity/scope mismatches.
+- Queue rebuilt at 14:26:41Z: 33,152 (2023 4,612; 2024 14,553; 2025 13,520; 2026 467), and matched the queue file. Coverage: AH summary 32,449; AH movement 36,342; OU summary 32,445; OU movement 8,216 FIDs. SQLite verified all new paths / rows; seven artifact SHA entries passed.
+- Safe-window driver PID49373 remains active and yielded to the next scheduled MR1 job after rebuilding the queue; collector cadence remains 5.2 seconds. Historical retrieval only; no production changes. Checkpoint artifacts: `research/data_recovery_2019_2026/ou_unification/*20261123T1426Z*`.
