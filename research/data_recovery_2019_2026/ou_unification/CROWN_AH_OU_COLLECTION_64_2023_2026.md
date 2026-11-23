@@ -2096,3 +2096,8 @@ T0420后至04:22:33 UTC统一结算暂停窗口处理27个唯一FID，全部HTTP
 - T1310 13:10:57.951Z until unified-settlement pause 13:11:33.223Z: 7 unique FIDs, all with new OU movement paths (122 rows). All 7 returned HTTP 200, no failures, duplicates, SHA or identity/scope mismatches.
 - Request mean/median 1.4161/1.2833 sec. Queue at 13:14:50.701Z: 33,511 (2023 4,971; 2024 14,553; 2025 13,520; 2026 467), down 7 and queue-file count matched. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 7,892 FIDs. Seven new FIDs / 122 movement rows matched `crown_ou_quote`; seven checkpoint files matched their SHA256 manifest.
 - Safe-window driver PID49373 / collector PID78581 continue at existing 5.2-second interval after settlement. Historical retrieval only; no production changes. T1314 evidence is in the checkpoint artifacts.
+
+### 2026-11-23 13:17 UTC — T1317 checkpoint
+- T1314 13:14:50.701Z to MR1 pause 13:15:40.497Z processed 10 unique FIDs: 9 added OU movement paths / 195 rows and 1 successful response without Crown markets. All 10 HTTP 200; no failures, duplicates, raw SHA or identity/scope mismatches.
+- Request mean/median 1.2898/1.3160 sec. Queue at 13:17:24.226Z: 33,501 (2023 4,961; 2024 14,553; 2025 13,520; 2026 467), down 10 and queue-file count matched. Coverage AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 7,901 FIDs. Nine new paths / 195 rows matched `crown_ou_quote`; all seven checkpoint artifact hashes passed.
+- Safe-window driver PID49373 / collector PID79170 continue at the existing 5.2-second pacing. Historical retrieval only; no production changes. T1317 audit artifacts are in this directory.
