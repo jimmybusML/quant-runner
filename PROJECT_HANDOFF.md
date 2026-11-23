@@ -7499,3 +7499,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - T1410 to the 14:14:40Z MR1 pause yielded 42 unique FID responses: 38 new OU movement paths / 1,085 rows and 4 successful no-market responses. All 42 eventually succeeded; 3 transport errors were retried successfully, leaving unresolved failures=0. No response SHA, FID identity, scope or duplicate mismatches.
 - Queue rebuilt at 14:18:42Z: 33,192 total (2023 4,652; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH summary 32,449; AH movement 36,342; OU summary 32,445; OU movement 8,179 FIDs. SQLite independently confirmed all 38 new FIDs / 1,085 OU movement rows; all seven manifest hashes passed.
 - Safe-window driver PID49373 / collector PID92967 continues at fixed 5.2-second spacing and yields to scheduled jobs. Historical backfill only; production systems and existing rules unchanged. Artifacts: `research/data_recovery_2019_2026/ou_unification/*20261123T1418Z*`.
+
+
+### 2026-11-23 14:21 UTC — 2023–2026 Crown AH/OU historical collection T1421
+- T1418 to the 14:20:39Z MR1 pause produced 23 unique FIDs: 20 new OU movement paths / 358 rows and 3 successful no-market responses. All 23 HTTP 200; no unresolved failures, duplicate FIDs, raw SHA, identity, or scope mismatches.
+- Queue rebuilt at 14:21:57Z: 33,169 (2023 4,629; 2024 14,553; 2025 13,520; 2026 467), matching the actual queue file. Coverage: AH summary 32,449; AH movement 36,342; OU summary 32,445; OU movement 8,199 FIDs. Independent SQLite comparison confirmed the 20 new FIDs / 358 rows; all seven manifest SHA entries passed.
+- Safe-window driver PID49373 / collector PID93743 continues at the unchanged 5.2-second cadence and yields around scheduled jobs. Historical backfill only; no production changes. Checkpoint artifacts: `research/data_recovery_2019_2026/ou_unification/*20261123T1421Z*`.

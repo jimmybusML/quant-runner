@@ -2155,3 +2155,9 @@ T0420后至04:22:33 UTC统一结算暂停窗口处理27个唯一FID，全部HTTP
 - T1410 14:10:53.952Z through MR1 pause 14:14:40.127Z completed 42 unique FIDs: 38 new OU movement paths / 1,085 rows and 4 successful no-market responses. There were 45 attempts, including 3 transport errors followed by successful retries; unresolved failed FIDs=0.
 - Queue rebuilt at 14:18:42.795Z: 33,192 (2023 4,652; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,179 FIDs. The 38 new OU paths / 1,085 rows matched SQLite; all 42 raw hashes, FID identities and scope passed; duplicates=0; all seven artifact hashes passed.
 - Safe-window driver PID49373 resumed collector PID92967 at the unchanged 5.2-second interval. Historical retrieval only; production systems unchanged. T1418 evidence is in `research/data_recovery_2019_2026/ou_unification/`.
+
+
+### 2026-11-23 14:21 UTC — T1421 checkpoint
+- T1418 14:18:42.795Z through MR1 pause 14:20:39.055Z processed 23 unique FIDs: 20 new OU movement paths / 358 rows and 3 successful no-market responses. All 23 requests returned HTTP 200; unresolved failures=0.
+- Queue rebuilt at 14:21:57.457Z: 33,169 (2023 4,629; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,199 FIDs. The 20 new OU paths / 358 rows matched SQLite; all raw hashes, FID identities and scope passed; duplicates=0; all seven checkpoint artifact hashes passed.
+- Safe-window driver PID49373 resumed collector PID93743 at fixed 5.2-second spacing. Historical retrieval only; production systems unchanged. T1421 artifacts are under `research/data_recovery_2019_2026/ou_unification/`.
