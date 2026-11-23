@@ -1,0 +1,410 @@
+{
+  "study": "R7_MARKET_VS_XG_INDEPENDENT_INCREMENTAL_1X2_SCORE",
+  "data_source_sha256": "c3405e0fadcf539fe45a0408035efd6ce4a1e268d32bbe4d50ce3db4500eecf8",
+  "fixed_weights_only": "50/50 and market .75 + Bayes k1 .25 are research sensitivities; weights not fitted to ROI or validation outcomes",
+  "overall": {
+    "historical_Crown_T12": {
+      "n": 9908,
+      "market_alone": {
+        "Brier": 0.5783596,
+        "logloss": 0.9735839
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.6006493,
+        "logloss": 1.0061209
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.5993324,
+        "logloss": 1.0037407
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5838636,
+        "logloss": 0.9815451
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.5837116,
+        "logloss": 0.9814752
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5797013,
+        "logloss": 0.9755907
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.005352
+    },
+    "actual_HTTP_2026_receipt": {
+      "n": 138,
+      "market_alone": {
+        "Brier": 0.4999406,
+        "logloss": 0.8612154
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.5752665,
+        "logloss": 0.9706315
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.5735157,
+        "logloss": 0.9659865
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5281073,
+        "logloss": 0.9030902
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.5281009,
+        "logloss": 0.9033617
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5116499,
+        "logloss": 0.879577
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.0281603
+    }
+  },
+  "by_season": {
+    "2019": {
+      "n": 1373,
+      "market_alone": {
+        "Brier": 0.5778054,
+        "logloss": 0.9726347
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.5962195,
+        "logloss": 0.9999925
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.5948357,
+        "logloss": 0.9974044
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5808204,
+        "logloss": 0.9771416
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.580543,
+        "logloss": 0.9767624
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5777649,
+        "logloss": 0.9726185
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.0027376
+    },
+    "2020": {
+      "n": 1462,
+      "market_alone": {
+        "Brier": 0.5786587,
+        "logloss": 0.9770653
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.6030274,
+        "logloss": 1.0093501
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.6010819,
+        "logloss": 1.006184
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5848909,
+        "logloss": 0.9843034
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.584506,
+        "logloss": 0.9838475
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5802867,
+        "logloss": 0.9785018
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.0058473
+    },
+    "2021": {
+      "n": 1418,
+      "market_alone": {
+        "Brier": 0.5822157,
+        "logloss": 0.9795754
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.6018159,
+        "logloss": 1.0087541
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.6000916,
+        "logloss": 1.0057278
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5862962,
+        "logloss": 0.9860371
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.5858654,
+        "logloss": 0.9854108
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.582826,
+        "logloss": 0.9808904
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.0036497
+    },
+    "2022": {
+      "n": 1468,
+      "market_alone": {
+        "Brier": 0.5795739,
+        "logloss": 0.9749318
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.6032228,
+        "logloss": 1.0107344
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.6008444,
+        "logloss": 1.0062291
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.586132,
+        "logloss": 0.9839961
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.5855309,
+        "logloss": 0.983294
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5815364,
+        "logloss": 0.9774359
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.005957
+    },
+    "2023": {
+      "n": 1396,
+      "market_alone": {
+        "Brier": 0.5743101,
+        "logloss": 0.9660678
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.5986712,
+        "logloss": 1.001939
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.5987447,
+        "logloss": 1.0016981
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5813019,
+        "logloss": 0.9766037
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.5818073,
+        "logloss": 0.9776965
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5765088,
+        "logloss": 0.9696667
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.0074972
+    },
+    "2024": {
+      "n": 1391,
+      "market_alone": {
+        "Brier": 0.5700479,
+        "logloss": 0.9609309
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.5903746,
+        "logloss": 0.9898767
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.5895183,
+        "logloss": 0.9887162
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5742434,
+        "logloss": 0.967115
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.574487,
+        "logloss": 0.9677638
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5706537,
+        "logloss": 0.9620135
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.0044391
+    },
+    "2025": {
+      "n": 1400,
+      "market_alone": {
+        "Brier": 0.5857078,
+        "logloss": 0.9834639
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.6108115,
+        "logloss": 1.0215643
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.6098981,
+        "logloss": 1.0197458
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5930454,
+        "logloss": 0.9951282
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.5929645,
+        "logloss": 0.9951173
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5880731,
+        "logloss": 0.9875597
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.0072567
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "n": 1720,
+      "market_alone": {
+        "Brier": 0.583032,
+        "logloss": 0.9807446
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.6056209,
+        "logloss": 1.0135681
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.6034179,
+        "logloss": 1.0098177
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5885567,
+        "logloss": 0.9889404
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.5879839,
+        "logloss": 0.9881905
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5843519,
+        "logloss": 0.9829011
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.0049519
+    },
+    "epl": {
+      "n": 2193,
+      "market_alone": {
+        "Brier": 0.5746553,
+        "logloss": 0.9676549
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.5924937,
+        "logloss": 0.9953187
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.5911971,
+        "logloss": 0.9928537
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5774031,
+        "logloss": 0.9723648
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.5771573,
+        "logloss": 0.9721481
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5744863,
+        "logloss": 0.967808
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.002502
+    },
+    "la-liga": {
+      "n": 1944,
+      "market_alone": {
+        "Brier": 0.5752279,
+        "logloss": 0.9698429
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.5990759,
+        "logloss": 1.0031257
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.5977713,
+        "logloss": 1.0009344
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5815881,
+        "logloss": 0.9788909
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.5815054,
+        "logloss": 0.9788342
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.577017,
+        "logloss": 0.9725549
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.0062775
+    },
+    "ligue-1": {
+      "n": 1880,
+      "market_alone": {
+        "Brier": 0.5853036,
+        "logloss": 0.9840883
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.607592,
+        "logloss": 1.0148761
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.6059012,
+        "logloss": 1.0119459
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5905001,
+        "logloss": 0.9901676
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.5902704,
+        "logloss": 0.9900154
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5864149,
+        "logloss": 0.9848929
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.0049668
+    },
+    "serie-a": {
+      "n": 2171,
+      "market_alone": {
+        "Brier": 0.5751906,
+        "logloss": 0.9681535
+      },
+      "Bayes_k1_alone": {
+        "Brier": 0.6003455,
+        "logloss": 1.0062329
+      },
+      "Bayes_k2_alone": {
+        "Brier": 0.6000228,
+        "logloss": 1.0053309
+      },
+      "market_plus_Bayes_k1_50_50": {
+        "Brier": 0.5829619,
+        "logloss": 0.9798695
+      },
+      "market_plus_Bayes_k2_50_50": {
+        "Brier": 0.5832434,
+        "logloss": 0.9805457
+      },
+      "market_plus_Bayes_k1_75_25": {
+        "Brier": 0.5778747,
+        "logloss": 0.9723235
+      },
+      "Bayes_k2_plus_market_vs_market_Brier_delta": 0.0080528
+    }
+  },
+  "limitations": [
+    "Market model fits to SAME pre-match AH/OU odds; no independent bookmaker price info",
+    "xG models source time may be post-match published; old receipt has +72h proxy only",
+    "Market-fitted score probabilities cannot be called profitable or tradable by themselves",
+    "Historical Crown T12 source events retrieved AFTER match; actual HTTP receipts are prior-researched posthoc replay",
+    "No national team events, no Gate or formal strategy modification."
+  ]
+}

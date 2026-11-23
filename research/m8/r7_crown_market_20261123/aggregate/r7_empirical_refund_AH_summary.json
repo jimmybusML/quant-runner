@@ -1,0 +1,355 @@
+{
+  "research": "R7_HW_STYLE_PAST_TWO_SEASON_REFUND_PROBABILITY_FOR_ASIAN_HANDICAP",
+  "research_method": "Hegarty-Whelan 2025 Section 4.1 idea: solve 3 event probabilities with market-equal-gross-return and historical class-specific pivot probability; strictly PRIOR TWO seasons in this R7 implementation. NOT claiming exact paper replication for Crown.",
+  "source": "https://www.karlwhelan.com/Papers/IJF.pdf",
+  "sample": {
+    "historical_2021_2025": {
+      "n": 7073,
+      "bayes_prior_1_independent": {
+        "n": 7073,
+        "Brier_three_outcomes": 0.6418406,
+        "logloss_three_outcomes": 1.0200381,
+        "pivot_binary_Brier": 0.1533334
+      },
+      "bayes_prior_2_independent": {
+        "n": 7073,
+        "Brier_three_outcomes": 0.6386498,
+        "logloss_three_outcomes": 1.0155631,
+        "pivot_binary_Brier": 0.1531587
+      },
+      "independent_poisson": {
+        "n": 7073,
+        "Brier_three_outcomes": 0.6489882,
+        "logloss_three_outcomes": 1.0309295,
+        "pivot_binary_Brier": 0.1537329
+      },
+      "market": {
+        "n": 7073,
+        "Brier_three_outcomes": 0.6167347,
+        "logloss_three_outcomes": 0.9866264,
+        "pivot_binary_Brier": 0.1518216
+      },
+      "mean_implied_net_book_margin": -0.025902,
+      "observed_equal_home_away_net": -0.025252
+    },
+    "actual_2026_old_HTTP": {
+      "n": 138,
+      "bayes_1_independent": {
+        "n": 138,
+        "Brier_three_outcomes": 0.6567655,
+        "logloss_three_outcomes": 1.0308851,
+        "pivot_binary_Brier": 0.1368786
+      },
+      "bayes_2_independent": {
+        "n": 138,
+        "Brier_three_outcomes": 0.6499937,
+        "logloss_three_outcomes": 1.0216812,
+        "pivot_binary_Brier": 0.1364649
+      },
+      "market": {
+        "n": 138,
+        "Brier_three_outcomes": 0.6036019,
+        "logloss_three_outcomes": 0.9626434,
+        "pivot_binary_Brier": 0.1328716
+      },
+      "same_season_ratio_independent": {
+        "n": 138,
+        "Brier_three_outcomes": 0.6767003,
+        "logloss_three_outcomes": 1.0605511,
+        "pivot_binary_Brier": 0.1379014
+      },
+      "mean_implied_net_book_margin": -0.02539,
+      "observed_equal_home_away_net": -0.023714
+    }
+  },
+  "by_season": {
+    "2021": {
+      "n": 1418,
+      "bayes_prior_1_independent": {
+        "n": 1418,
+        "Brier_three_outcomes": 0.6356412,
+        "logloss_three_outcomes": 1.0106241,
+        "pivot_binary_Brier": 0.1519694
+      },
+      "bayes_prior_2_independent": {
+        "n": 1418,
+        "Brier_three_outcomes": 0.6331209,
+        "logloss_three_outcomes": 1.0076032,
+        "pivot_binary_Brier": 0.1516262
+      },
+      "independent_poisson": {
+        "n": 1418,
+        "Brier_three_outcomes": 0.6423773,
+        "logloss_three_outcomes": 1.0196189,
+        "pivot_binary_Brier": 0.1526483
+      },
+      "market": {
+        "n": 1418,
+        "Brier_three_outcomes": 0.6136248,
+        "logloss_three_outcomes": 0.9823109,
+        "pivot_binary_Brier": 0.1502763
+      },
+      "mean_implied_net_book_margin": -0.026751,
+      "observed_equal_home_away_net": -0.027352
+    },
+    "2022": {
+      "n": 1468,
+      "bayes_prior_1_independent": {
+        "n": 1468,
+        "Brier_three_outcomes": 0.6465093,
+        "logloss_three_outcomes": 1.0256226,
+        "pivot_binary_Brier": 0.150229
+      },
+      "bayes_prior_2_independent": {
+        "n": 1468,
+        "Brier_three_outcomes": 0.6421477,
+        "logloss_three_outcomes": 1.0191764,
+        "pivot_binary_Brier": 0.1500023
+      },
+      "independent_poisson": {
+        "n": 1468,
+        "Brier_three_outcomes": 0.6550915,
+        "logloss_three_outcomes": 1.0397792,
+        "pivot_binary_Brier": 0.1506997
+      },
+      "market": {
+        "n": 1468,
+        "Brier_three_outcomes": 0.6202865,
+        "logloss_three_outcomes": 0.9916906,
+        "pivot_binary_Brier": 0.149126
+      },
+      "mean_implied_net_book_margin": -0.026578,
+      "observed_equal_home_away_net": -0.025894
+    },
+    "2023": {
+      "n": 1396,
+      "bayes_prior_1_independent": {
+        "n": 1396,
+        "Brier_three_outcomes": 0.6412447,
+        "logloss_three_outcomes": 1.0205755,
+        "pivot_binary_Brier": 0.1575628
+      },
+      "bayes_prior_2_independent": {
+        "n": 1396,
+        "Brier_three_outcomes": 0.639247,
+        "logloss_three_outcomes": 1.0175763,
+        "pivot_binary_Brier": 0.1576098
+      },
+      "independent_poisson": {
+        "n": 1396,
+        "Brier_three_outcomes": 0.6463842,
+        "logloss_three_outcomes": 1.0291577,
+        "pivot_binary_Brier": 0.1574873
+      },
+      "market": {
+        "n": 1396,
+        "Brier_three_outcomes": 0.6152063,
+        "logloss_three_outcomes": 0.9855824,
+        "pivot_binary_Brier": 0.1557943
+      },
+      "mean_implied_net_book_margin": -0.024464,
+      "observed_equal_home_away_net": -0.024205
+    },
+    "2024": {
+      "n": 1391,
+      "bayes_prior_1_independent": {
+        "n": 1391,
+        "Brier_three_outcomes": 0.6466795,
+        "logloss_three_outcomes": 1.0254734,
+        "pivot_binary_Brier": 0.154987
+      },
+      "bayes_prior_2_independent": {
+        "n": 1391,
+        "Brier_three_outcomes": 0.6416802,
+        "logloss_three_outcomes": 1.0186228,
+        "pivot_binary_Brier": 0.154815
+      },
+      "independent_poisson": {
+        "n": 1391,
+        "Brier_three_outcomes": 0.6568842,
+        "logloss_three_outcomes": 1.040483,
+        "pivot_binary_Brier": 0.155468
+      },
+      "market": {
+        "n": 1391,
+        "Brier_three_outcomes": 0.6184437,
+        "logloss_three_outcomes": 0.9875121,
+        "pivot_binary_Brier": 0.1532465
+      },
+      "mean_implied_net_book_margin": -0.025373,
+      "observed_equal_home_away_net": -0.024752
+    },
+    "2025": {
+      "n": 1400,
+      "bayes_prior_1_independent": {
+        "n": 1400,
+        "Brier_three_outcomes": 0.6390104,
+        "logloss_three_outcomes": 1.0177814,
+        "pivot_binary_Brier": 0.15211
+      },
+      "bayes_prior_2_independent": {
+        "n": 1400,
+        "Brier_three_outcomes": 0.6369756,
+        "logloss_three_outcomes": 1.0147892,
+        "pivot_binary_Brier": 0.1519367
+      },
+      "independent_poisson": {
+        "n": 1400,
+        "Brier_three_outcomes": 0.6440358,
+        "logloss_three_outcomes": 1.0253805,
+        "pivot_binary_Brier": 0.1525441
+      },
+      "market": {
+        "n": 1400,
+        "Brier_three_outcomes": 0.6159865,
+        "logloss_three_outcomes": 0.9858483,
+        "pivot_binary_Brier": 0.1508361
+      },
+      "mean_implied_net_book_margin": -0.026296,
+      "observed_equal_home_away_net": -0.023991
+    }
+  },
+  "q_training_by_target_season": {
+    "2021": {
+      "q": {
+        "0": 0.29239766081871343,
+        "1": 0.28760162601626016,
+        "3": 0.23516949152542374
+      },
+      "counts": {
+        "0": [
+          200,
+          684
+        ],
+        "1": [
+          283,
+          984
+        ],
+        "3": [
+          111,
+          472
+        ]
+      }
+    },
+    "2022": {
+      "q": {
+        "0": 0.3,
+        "1": 0.2852941176470588,
+        "3": 0.22903885480572597
+      },
+      "counts": {
+        "0": [
+          204,
+          680
+        ],
+        "1": [
+          291,
+          1020
+        ],
+        "3": [
+          112,
+          489
+        ]
+      }
+    },
+    "2023": {
+      "q": {
+        "1": 0.2804878048780488,
+        "0": 0.27011494252873564,
+        "3": 0.24901960784313726
+      },
+      "counts": {
+        "1": [
+          276,
+          984
+        ],
+        "0": [
+          188,
+          696
+        ],
+        "3": [
+          127,
+          510
+        ]
+      }
+    },
+    "2024": {
+      "q": {
+        "0": 0.25584795321637427,
+        "1": 0.2918807810894142,
+        "3": 0.27099236641221375
+      },
+      "counts": {
+        "0": [
+          175,
+          684
+        ],
+        "1": [
+          284,
+          973
+        ],
+        "3": [
+          142,
+          524
+        ]
+      }
+    },
+    "2025": {
+      "q": {
+        "0": 0.2703125,
+        "3": 0.29206963249516443,
+        "1": 0.29232386961093587
+      },
+      "counts": {
+        "0": [
+          173,
+          640
+        ],
+        "3": [
+          151,
+          517
+        ],
+        "1": [
+          278,
+          951
+        ]
+      }
+    }
+  },
+  "q_training_2026_receipt": {
+    "q": {
+      "3": 0.27184466019417475,
+      "0": 0.30526315789473685,
+      "1": 0.262987012987013
+    },
+    "counts": {
+      "3": [
+        140,
+        515
+      ],
+      "0": [
+        203,
+        665
+      ],
+      "1": [
+        243,
+        924
+      ]
+    }
+  },
+  "audit": {
+    "training_year_2021_n": 2835,
+    "training_year_2022_n": 2880,
+    "training_year_2023_n": 2886,
+    "training_year_2024_n": 2864,
+    "training_year_2025_n": 2787
+  },
+  "historical_source_sha256": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+  "limitations": [
+    "AH-only Hegarty-Whelan style empirical class pivotal probability; no goal model needed for market probability, except model comparison.",
+    "For .5 lines pivotal probability identically zero; for integer/.25/.75 estimated from previous seasons, no target outcome in estimated q.",
+    "Results conditional on equal expected gross payout on both sides; market inefficiencies may violate assumption.",
+    "Historical Crown T12 prices collected post-match, not actual pregame HTTP receipt; 2026 receipt old offline cohort uses previous historic type-q transferred across years and provider.",
+    "No national teams; no trading eligibility gate or official TG orders."
+  ]
+}

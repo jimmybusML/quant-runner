@@ -1,0 +1,473 @@
+{
+  "research": "R7_CROWN_AH_OU_IMPLIED_POISSON_MARKET_FORECAST_CLUB_ONLY",
+  "historical_source_sha256": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+  "actual_received_source_sha256": "42f3faf9171da4591ae55efdc2a49b623bd2024d07011be9043ff3db0f92a7c5",
+  "main": {
+    "historical_Crown_T12": {
+      "n": 9908,
+      "market_fit_n": 9908,
+      "bayes_prior_1_independent": {
+        "n": 9908,
+        "Brier": 0.6006493,
+        "logloss": 1.0061209,
+        "goal_total_MAE": 1.337656,
+        "goal_diff_MAE": 1.304155
+      },
+      "bayes_prior_2_independent": {
+        "n": 9908,
+        "Brier": 0.5993324,
+        "logloss": 1.0037407,
+        "goal_total_MAE": 1.329755,
+        "goal_diff_MAE": 1.293934
+      },
+      "independent_poisson": {
+        "n": 9908,
+        "Brier": 0.6046642,
+        "logloss": 1.0142821,
+        "goal_total_MAE": 1.353848,
+        "goal_diff_MAE": 1.326072
+      },
+      "market_implied_Poisson": {
+        "n": 9908,
+        "Brier": 0.5783596,
+        "logloss": 0.9735839,
+        "goal_total_MAE": 1.289724,
+        "goal_diff_MAE": 1.241148
+      }
+    },
+    "actual_HTTP_2026_receipt": {
+      "n": 138,
+      "market_fit_n": 138,
+      "bayes_1_independent": {
+        "n": 138,
+        "Brier": 0.5752665,
+        "logloss": 0.9706315,
+        "goal_total_MAE": 1.410224,
+        "goal_diff_MAE": 1.598691
+      },
+      "bayes_2_independent": {
+        "n": 138,
+        "Brier": 0.5735157,
+        "logloss": 0.9659865,
+        "goal_total_MAE": 1.395896,
+        "goal_diff_MAE": 1.576326
+      },
+      "market_implied_Poisson": {
+        "n": 138,
+        "Brier": 0.4999406,
+        "logloss": 0.8612154,
+        "goal_total_MAE": 1.361166,
+        "goal_diff_MAE": 1.435561
+      },
+      "same_season_ratio_independent": {
+        "n": 138,
+        "Brier": 0.5847495,
+        "logloss": 0.9918678,
+        "goal_total_MAE": 1.460654,
+        "goal_diff_MAE": 1.654543
+      }
+    }
+  },
+  "by_season": {
+    "2019": {
+      "n": 1373,
+      "market_fit_n": 1373,
+      "bayes_prior_1_independent": {
+        "n": 1373,
+        "Brier": 0.5962195,
+        "logloss": 0.9999925,
+        "goal_total_MAE": 1.268273,
+        "goal_diff_MAE": 1.333222
+      },
+      "bayes_prior_2_independent": {
+        "n": 1373,
+        "Brier": 0.5948357,
+        "logloss": 0.9974044,
+        "goal_total_MAE": 1.261686,
+        "goal_diff_MAE": 1.326724
+      },
+      "independent_poisson": {
+        "n": 1373,
+        "Brier": 0.6003908,
+        "logloss": 1.0084783,
+        "goal_total_MAE": 1.281181,
+        "goal_diff_MAE": 1.349804
+      },
+      "market_implied_Poisson": {
+        "n": 1373,
+        "Brier": 0.5778054,
+        "logloss": 0.9726347,
+        "goal_total_MAE": 1.240671,
+        "goal_diff_MAE": 1.29152
+      }
+    },
+    "2020": {
+      "n": 1462,
+      "market_fit_n": 1462,
+      "bayes_prior_1_independent": {
+        "n": 1462,
+        "Brier": 0.6030274,
+        "logloss": 1.0093501,
+        "goal_total_MAE": 1.3271,
+        "goal_diff_MAE": 1.281205
+      },
+      "bayes_prior_2_independent": {
+        "n": 1462,
+        "Brier": 0.6010819,
+        "logloss": 1.006184,
+        "goal_total_MAE": 1.319059,
+        "goal_diff_MAE": 1.272549
+      },
+      "independent_poisson": {
+        "n": 1462,
+        "Brier": 0.6082158,
+        "logloss": 1.0197842,
+        "goal_total_MAE": 1.344292,
+        "goal_diff_MAE": 1.303104
+      },
+      "market_implied_Poisson": {
+        "n": 1462,
+        "Brier": 0.5786587,
+        "logloss": 0.9770653,
+        "goal_total_MAE": 1.293012,
+        "goal_diff_MAE": 1.219004
+      }
+    },
+    "2021": {
+      "n": 1418,
+      "market_fit_n": 1418,
+      "bayes_prior_1_independent": {
+        "n": 1418,
+        "Brier": 0.6018159,
+        "logloss": 1.0087541,
+        "goal_total_MAE": 1.366517,
+        "goal_diff_MAE": 1.334151
+      },
+      "bayes_prior_2_independent": {
+        "n": 1418,
+        "Brier": 0.6000916,
+        "logloss": 1.0057278,
+        "goal_total_MAE": 1.360816,
+        "goal_diff_MAE": 1.32467
+      },
+      "independent_poisson": {
+        "n": 1418,
+        "Brier": 0.6065767,
+        "logloss": 1.017584,
+        "goal_total_MAE": 1.379406,
+        "goal_diff_MAE": 1.352457
+      },
+      "market_implied_Poisson": {
+        "n": 1418,
+        "Brier": 0.5822157,
+        "logloss": 0.9795754,
+        "goal_total_MAE": 1.345721,
+        "goal_diff_MAE": 1.280462
+      }
+    },
+    "2022": {
+      "n": 1468,
+      "market_fit_n": 1468,
+      "bayes_prior_1_independent": {
+        "n": 1468,
+        "Brier": 0.6032228,
+        "logloss": 1.0107344,
+        "goal_total_MAE": 1.328362,
+        "goal_diff_MAE": 1.326685
+      },
+      "bayes_prior_2_independent": {
+        "n": 1468,
+        "Brier": 0.6008444,
+        "logloss": 1.0062291,
+        "goal_total_MAE": 1.319288,
+        "goal_diff_MAE": 1.314629
+      },
+      "independent_poisson": {
+        "n": 1468,
+        "Brier": 0.6084212,
+        "logloss": 1.0221526,
+        "goal_total_MAE": 1.345819,
+        "goal_diff_MAE": 1.351272
+      },
+      "market_implied_Poisson": {
+        "n": 1468,
+        "Brier": 0.5795739,
+        "logloss": 0.9749318,
+        "goal_total_MAE": 1.275429,
+        "goal_diff_MAE": 1.259733
+      }
+    },
+    "2023": {
+      "n": 1396,
+      "market_fit_n": 1396,
+      "bayes_prior_1_independent": {
+        "n": 1396,
+        "Brier": 0.5986712,
+        "logloss": 1.001939,
+        "goal_total_MAE": 1.353686,
+        "goal_diff_MAE": 1.274943
+      },
+      "bayes_prior_2_independent": {
+        "n": 1396,
+        "Brier": 0.5987447,
+        "logloss": 1.0016981,
+        "goal_total_MAE": 1.346861,
+        "goal_diff_MAE": 1.265109
+      },
+      "independent_poisson": {
+        "n": 1396,
+        "Brier": 0.6005826,
+        "logloss": 1.006874,
+        "goal_total_MAE": 1.368555,
+        "goal_diff_MAE": 1.295897
+      },
+      "market_implied_Poisson": {
+        "n": 1396,
+        "Brier": 0.5743101,
+        "logloss": 0.9660678,
+        "goal_total_MAE": 1.294746,
+        "goal_diff_MAE": 1.202901
+      }
+    },
+    "2024": {
+      "n": 1391,
+      "market_fit_n": 1391,
+      "bayes_prior_1_independent": {
+        "n": 1391,
+        "Brier": 0.5903746,
+        "logloss": 0.9898767,
+        "goal_total_MAE": 1.366964,
+        "goal_diff_MAE": 1.313437
+      },
+      "bayes_prior_2_independent": {
+        "n": 1391,
+        "Brier": 0.5895183,
+        "logloss": 0.9887162,
+        "goal_total_MAE": 1.358596,
+        "goal_diff_MAE": 1.29522
+      },
+      "independent_poisson": {
+        "n": 1391,
+        "Brier": 0.5940566,
+        "logloss": 0.9964537,
+        "goal_total_MAE": 1.386368,
+        "goal_diff_MAE": 1.34909
+      },
+      "market_implied_Poisson": {
+        "n": 1391,
+        "Brier": 0.5700479,
+        "logloss": 0.9609309,
+        "goal_total_MAE": 1.296825,
+        "goal_diff_MAE": 1.23408
+      }
+    },
+    "2025": {
+      "n": 1400,
+      "market_fit_n": 1400,
+      "bayes_prior_1_independent": {
+        "n": 1400,
+        "Brier": 0.6108115,
+        "logloss": 1.0215643,
+        "goal_total_MAE": 1.352133,
+        "goal_diff_MAE": 1.265514
+      },
+      "bayes_prior_2_independent": {
+        "n": 1400,
+        "Brier": 0.6098981,
+        "logloss": 1.0197458,
+        "goal_total_MAE": 1.341486,
+        "goal_diff_MAE": 1.258742
+      },
+      "independent_poisson": {
+        "n": 1400,
+        "Brier": 0.6138791,
+        "logloss": 1.0277317,
+        "goal_total_MAE": 1.37065,
+        "goal_diff_MAE": 1.280852
+      },
+      "market_implied_Poisson": {
+        "n": 1400,
+        "Brier": 0.5857078,
+        "logloss": 0.9834639,
+        "goal_total_MAE": 1.280604,
+        "goal_diff_MAE": 1.200726
+      }
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "n": 1720,
+      "market_fit_n": 1720,
+      "bayes_prior_1_independent": {
+        "n": 1720,
+        "Brier": 0.6056209,
+        "logloss": 1.0135681,
+        "goal_total_MAE": 1.398488,
+        "goal_diff_MAE": 1.457612
+      },
+      "bayes_prior_2_independent": {
+        "n": 1720,
+        "Brier": 0.6034179,
+        "logloss": 1.0098177,
+        "goal_total_MAE": 1.389969,
+        "goal_diff_MAE": 1.444947
+      },
+      "independent_poisson": {
+        "n": 1720,
+        "Brier": 0.6110384,
+        "logloss": 1.024424,
+        "goal_total_MAE": 1.417491,
+        "goal_diff_MAE": 1.483352
+      },
+      "market_implied_Poisson": {
+        "n": 1720,
+        "Brier": 0.583032,
+        "logloss": 0.9807446,
+        "goal_total_MAE": 1.337448,
+        "goal_diff_MAE": 1.39035
+      }
+    },
+    "epl": {
+      "n": 2193,
+      "market_fit_n": 2193,
+      "bayes_prior_1_independent": {
+        "n": 2193,
+        "Brier": 0.5924937,
+        "logloss": 0.9953187,
+        "goal_total_MAE": 1.337313,
+        "goal_diff_MAE": 1.353276
+      },
+      "bayes_prior_2_independent": {
+        "n": 2193,
+        "Brier": 0.5911971,
+        "logloss": 0.9928537,
+        "goal_total_MAE": 1.32917,
+        "goal_diff_MAE": 1.343619
+      },
+      "independent_poisson": {
+        "n": 2193,
+        "Brier": 0.5965792,
+        "logloss": 1.0035469,
+        "goal_total_MAE": 1.353043,
+        "goal_diff_MAE": 1.373755
+      },
+      "market_implied_Poisson": {
+        "n": 2193,
+        "Brier": 0.5746553,
+        "logloss": 0.9676549,
+        "goal_total_MAE": 1.305044,
+        "goal_diff_MAE": 1.307181
+      }
+    },
+    "la-liga": {
+      "n": 1944,
+      "market_fit_n": 1944,
+      "bayes_prior_1_independent": {
+        "n": 1944,
+        "Brier": 0.5990759,
+        "logloss": 1.0031257,
+        "goal_total_MAE": 1.314696,
+        "goal_diff_MAE": 1.191943
+      },
+      "bayes_prior_2_independent": {
+        "n": 1944,
+        "Brier": 0.5977713,
+        "logloss": 1.0009344,
+        "goal_total_MAE": 1.306692,
+        "goal_diff_MAE": 1.178192
+      },
+      "independent_poisson": {
+        "n": 1944,
+        "Brier": 0.6026937,
+        "logloss": 1.0103975,
+        "goal_total_MAE": 1.330911,
+        "goal_diff_MAE": 1.219007
+      },
+      "market_implied_Poisson": {
+        "n": 1944,
+        "Brier": 0.5752279,
+        "logloss": 0.9698429,
+        "goal_total_MAE": 1.247532,
+        "goal_diff_MAE": 1.114191
+      }
+    },
+    "ligue-1": {
+      "n": 1880,
+      "market_fit_n": 1880,
+      "bayes_prior_1_independent": {
+        "n": 1880,
+        "Brier": 0.607592,
+        "logloss": 1.0148761,
+        "goal_total_MAE": 1.363076,
+        "goal_diff_MAE": 1.315348
+      },
+      "bayes_prior_2_independent": {
+        "n": 1880,
+        "Brier": 0.6059012,
+        "logloss": 1.0119459,
+        "goal_total_MAE": 1.354534,
+        "goal_diff_MAE": 1.304745
+      },
+      "independent_poisson": {
+        "n": 1880,
+        "Brier": 0.6121849,
+        "logloss": 1.0240974,
+        "goal_total_MAE": 1.38037,
+        "goal_diff_MAE": 1.336746
+      },
+      "market_implied_Poisson": {
+        "n": 1880,
+        "Brier": 0.5853036,
+        "logloss": 0.9840883,
+        "goal_total_MAE": 1.305185,
+        "goal_diff_MAE": 1.252011
+      }
+    },
+    "serie-a": {
+      "n": 2171,
+      "market_fit_n": 2171,
+      "bayes_prior_1_independent": {
+        "n": 2171,
+        "Brier": 0.6003455,
+        "logloss": 1.0062329,
+        "goal_total_MAE": 1.288353,
+        "goal_diff_MAE": 1.223742
+      },
+      "bayes_prior_2_independent": {
+        "n": 2171,
+        "Brier": 0.6000228,
+        "logloss": 1.0053309,
+        "goal_total_MAE": 1.281836,
+        "goal_diff_MAE": 1.218381
+      },
+      "independent_poisson": {
+        "n": 2171,
+        "Brier": 0.6030328,
+        "logloss": 1.0120699,
+        "goal_total_MAE": 1.301811,
+        "goal_diff_MAE": 1.239924
+      },
+      "market_implied_Poisson": {
+        "n": 2171,
+        "Brier": 0.5751906,
+        "logloss": 0.9681535,
+        "goal_total_MAE": 1.260829,
+        "goal_diff_MAE": 1.160514
+      }
+    }
+  },
+  "checks": {
+    "historical_Crown_T12_market_fit_success": 9908,
+    "actual_HTTP_2026_receipt_market_fit_success": 138
+  },
+  "methodology": [
+    "This is a new market-implied independent-Poisson experiment, not Hegarty-Whelan empirical-refund method.",
+    "Two equations: at the current AH, home expected cash return equals away expected cash return; at the current OU, over equals under. A common match score Poisson distribution then uniquely identifies lambda if within brackets.",
+    "Matches with no valid positive AH/OU root are logged as unavailable; these are failed numerical/market identification, not a strategy selection gate.",
+    "The same AH/OU market prices were used for fitting market probabilities; score evaluation is a market benchmark, NOT an independent xG forecast and must NOT be treated as trading profit.",
+    "All historical Crown quotes source event timestamps before kickoff but downloaded after; not true pregame receipts.",
+    "Actual HTTP price sample previously studied, not new blinded future test; xG publication timestamps unverified.",
+    "No national team events or formal orders."
+  ],
+  "R7_parameter_status": "Experimental inverse pricing only; no new official trading rule or stake limit"
+}
