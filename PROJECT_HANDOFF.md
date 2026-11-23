@@ -7617,3 +7617,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - T1610 through MR1 pause at 16:14:44.733Z completed 51 unique FIDs; 4 Crown-market responses added 124 OU movement rows and 47 valid HTTP 200 responses had no Crown AH/OU quotes. All 51 requests succeeded; unresolved failures, duplicate FIDs, SHA, identity and scope mismatches=0.
 - Queue at 16:18:38.328Z: 32,581 (2023 4,041; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH summary 32,449; AH movement 36,342; OU summary 32,445; OU movement 8,576 FIDs. Read-only SQLite matched all 4 new FIDs / 124 OU rows against their response SHA and receive times; all seven manifest SHA checks passed.
 - Safe-window driver PID49373 resumed collector PID21671 at the fixed 5.2-second cadence. Historical backfill only; production unchanged. T1618 evidence: `research/data_recovery_2019_2026/ou_unification/*20261123T1618Z`.
+
+
+### 2026-11-23 16:22 UTC — 2023–2026 Crown AH/OU historical collection T1622
+- T1618 through MR1 pause at 16:21:45.311Z completed 37 unique FIDs. Ten Crown responses added 440 OU movement rows; 27 valid HTTP 200 responses contained no Crown AH/OU quotes. All requests succeeded; unresolved failures, duplicate FIDs, SHA, identity and scope mismatches=0.
+- Queue at 16:22:54.438Z: 32,544 (2023 4,004; 2024 14,553; 2025 13,520; 2026 467), matching the rebuilt queue. Coverage: AH summary 32,449; AH movement 36,342; OU summary 32,445; OU movement 8,586 FIDs. Read-only SQLite matched the ten new FIDs / 440 rows to response SHAs and receive times; all seven manifest SHA entries passed.
+- Safe-window driver PID49373 resumed collector PID22641 at the existing 5.2-second interval. Historical backfill only; production unchanged. T1622 evidence: `research/data_recovery_2019_2026/ou_unification/*20261123T1622Z`.
