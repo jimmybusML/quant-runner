@@ -1,0 +1,99 @@
+{
+  "scope": "R45 read-only same-fixture predictive comparison; archival bivariate baseline is not M9 production runner",
+  "source_files": {
+    "m5_annual": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/m5-model-oos/m5_goal_model_forecasts.jsonl",
+    "bivariate_archive": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/m5-model-oos/m5_goal_model_baseline_matched_penaltyblog_bivariate_2025_2026.jsonl",
+    "recency_archive": "/Users/mac/QuantAsiaDesk/data/m5-crown-authorized/m5-model-oos/m5_goal_model_baseline_matched_recency_2025_2026.jsonl"
+  },
+  "source_rows": {
+    "m5_annual": 22202,
+    "bivariate_archive": 20596,
+    "recency_archive": 22202
+  },
+  "source_valid_rows": {
+    "m5_annual": 22202,
+    "bivariate_archive": 20596,
+    "recency_archive": 22202
+  },
+  "source_errors": {},
+  "matched_total": 20596,
+  "years": {
+    "2025": {
+      "matched_fixtures": 11187,
+      "models": {
+        "m5_annual": {
+          "n": 11187,
+          "mean_1x2_logloss": 1.0173152,
+          "mean_1x2_brier": 0.6093744,
+          "mean_exact_score_logloss": 2.947253
+        },
+        "bivariate_archive": {
+          "n": 11187,
+          "mean_1x2_logloss": 1.0173152,
+          "mean_1x2_brier": 0.6093744,
+          "mean_exact_score_logloss": 2.947253
+        },
+        "recency_archive": {
+          "n": 11187,
+          "mean_1x2_logloss": 1.0173152,
+          "mean_1x2_brier": 0.6093744,
+          "mean_exact_score_logloss": 2.947253
+        }
+      },
+      "paired_delta_vs_M5": {
+        "bivariate_archive": {
+          "logloss": 0.0,
+          "brier": 0.0,
+          "exact_ll": 0.0
+        },
+        "recency_archive": {
+          "logloss": 0.0,
+          "brier": 0.0,
+          "exact_ll": 0.0
+        }
+      }
+    },
+    "2026": {
+      "matched_fixtures": 9409,
+      "models": {
+        "m5_annual": {
+          "n": 9409,
+          "mean_1x2_logloss": 1.0132839,
+          "mean_1x2_brier": 0.6052857,
+          "mean_exact_score_logloss": 2.988485
+        },
+        "bivariate_archive": {
+          "n": 9409,
+          "mean_1x2_logloss": 1.0132839,
+          "mean_1x2_brier": 0.6052857,
+          "mean_exact_score_logloss": 2.988485
+        },
+        "recency_archive": {
+          "n": 9409,
+          "mean_1x2_logloss": 1.0132839,
+          "mean_1x2_brier": 0.6052857,
+          "mean_exact_score_logloss": 2.988485
+        }
+      },
+      "paired_delta_vs_M5": {
+        "bivariate_archive": {
+          "logloss": 0.0,
+          "brier": 0.0,
+          "exact_ll": 0.0
+        },
+        "recency_archive": {
+          "logloss": 0.0,
+          "brier": 0.0,
+          "exact_ll": 0.0
+        }
+      }
+    }
+  },
+  "caveats": [
+    "Bivariate archived forecasts and recency archived forecasts are pre-existing M5 comparison artifacts, NOT the M9 production runner trained with M3 history. Therefore no M9 production improvement can be inferred.",
+    "This scores predictive accuracy on common fixture IDs only; not Crown line/price or Asian settlement ROI.",
+    "2025/26 historical results can have been examined during earlier research, so this is retrospective matched scoring, not pristine untouched prospective confirmation.",
+    "Archived forecast training as-of provenance must be checked separately before claiming executable point-in-time forecast equivalence.",
+    "No selection thresholds, gates, strategy, M9 production code, Telegram or formal ledgers changed."
+  ]
+}
