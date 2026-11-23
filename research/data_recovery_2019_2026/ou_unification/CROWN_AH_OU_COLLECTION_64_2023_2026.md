@@ -2487,3 +2487,9 @@ References reviewed: [OddsHarvester README](https://github.com/jordantete/OddsHa
 - FID `144010065`, interrupted at T1949, was retried after restart and succeeded at 19:49:05Z with SHA `0fd8278e...e6c402911`, adding 44 OU movement rows; the current audit verifies it as a successful historical receipt.
 - Queue rebuilt at 19:52:30.729Z: 31,550 requests (2023 3,010; 2024 14,553; 2025 13,520; 2026 467), down 28. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 9,124 FIDs. Mean/median request duration 1.3511/1.3735s; cadence remains 5.2s.
 - Independent audit matched all response hashes and queue totals. Safe driver PID49373 resumed collector PID69589. Historical retrieval only. Evidence and manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T1952Z`.
+
+
+### 2026-11-23 19:57 UTC — T1957 checkpoint; active scope 2023–2026
+- From the 19:52 queue checkpoint through the 19:53:41.215Z settlement pause, 10 unique FIDs were finalized; all 10 received HTTP 200. Two transient transport errors recovered on retry (12 attempts). Nine quote-bearing FIDs added 179 OU movement rows. No unresolved failures, duplicate FIDs, SHA mismatches, or scope mismatches.
+- Queue rebuilt at 19:57:11.067Z: 31,540 requests (2023 3,000; 2024 14,553; 2025 13,520; 2026 467), down 10. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 9,133 FIDs. Mean/median request duration 1.3577/1.3520s; configured spacing 5.2s.
+- Independent audit verified every response SHA and queue count. A new MR1 job began immediately after collector PID70574 started, so safe driver PID49373 paused collection again. Historical retrieval only. Evidence and manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T1957Z`.
