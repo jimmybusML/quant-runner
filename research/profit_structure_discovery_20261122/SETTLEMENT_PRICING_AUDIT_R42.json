@@ -1,0 +1,123 @@
+{
+  "scope": "R42 exact five-state Asian settlement calibration; M5 annual score-grid and pre-existing market-adjusted blend, not R7",
+  "source": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_frozen_market_probability_blend_all_orders.jsonl",
+  "class_order": [
+    "FULL_LOSS",
+    "HALF_LOSS",
+    "PUSH",
+    "HALF_WIN",
+    "FULL_WIN"
+  ],
+  "coverage": {
+    "AH_rows": 9400,
+    "validated": 9400
+  },
+  "mismatches": [],
+  "years": {
+    "2025": {
+      "n": 1075,
+      "unique_fixtures": 1075,
+      "actual_state_counts": {
+        "FULL_LOSS": 449,
+        "HALF_LOSS": 68,
+        "PUSH": 74,
+        "HALF_WIN": 85,
+        "FULL_WIN": 399
+      },
+      "actual_state_rates": {
+        "FULL_LOSS": 0.417674,
+        "HALF_LOSS": 0.063256,
+        "PUSH": 0.068837,
+        "HALF_WIN": 0.07907,
+        "FULL_WIN": 0.371163
+      },
+      "m5": {
+        "multiclass_brier": 0.661117,
+        "multiclass_logloss": 1.045945,
+        "predicted_state_rates": {
+          "FULL_LOSS": 0.316858,
+          "HALF_LOSS": 0.053584,
+          "PUSH": 0.057009,
+          "HALF_WIN": 0.072155,
+          "FULL_WIN": 0.500394
+        }
+      },
+      "market_adjusted_blend": {
+        "multiclass_brier": 0.622424,
+        "multiclass_logloss": 0.997964,
+        "predicted_state_rates": {
+          "FULL_LOSS": 0.405584,
+          "HALF_LOSS": 0.067967,
+          "PUSH": 0.057009,
+          "HALF_WIN": 0.061831,
+          "FULL_WIN": 0.407608
+        }
+      },
+      "model_predicted_EV": 0.144301,
+      "blend_predicted_EV": -0.040902,
+      "realized_net_U_per_order": -0.074433,
+      "mean_model_EV_error": 0.218734,
+      "mean_blend_EV_error": 0.033531,
+      "source_capture_classes": {
+        "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 1075
+      }
+    },
+    "2026": {
+      "n": 8325,
+      "unique_fixtures": 8325,
+      "actual_state_counts": {
+        "FULL_LOSS": 3315,
+        "HALF_LOSS": 567,
+        "PUSH": 548,
+        "HALF_WIN": 576,
+        "FULL_WIN": 3319
+      },
+      "actual_state_rates": {
+        "FULL_LOSS": 0.398198,
+        "HALF_LOSS": 0.068108,
+        "PUSH": 0.065826,
+        "HALF_WIN": 0.069189,
+        "FULL_WIN": 0.398679
+      },
+      "m5": {
+        "multiclass_brier": 0.643681,
+        "multiclass_logloss": 1.023066,
+        "predicted_state_rates": {
+          "FULL_LOSS": 0.316244,
+          "HALF_LOSS": 0.060527,
+          "PUSH": 0.05858,
+          "HALF_WIN": 0.064787,
+          "FULL_WIN": 0.499861
+        }
+      },
+      "market_adjusted_blend": {
+        "multiclass_brier": 0.618731,
+        "multiclass_logloss": 0.989443,
+        "predicted_state_rates": {
+          "FULL_LOSS": 0.400689,
+          "HALF_LOSS": 0.075567,
+          "PUSH": 0.05858,
+          "HALF_WIN": 0.055744,
+          "FULL_WIN": 0.40942
+        }
+      },
+      "model_predicted_EV": 0.138638,
+      "blend_predicted_EV": -0.040218,
+      "realized_net_U_per_order": -0.036712,
+      "mean_model_EV_error": 0.17535,
+      "mean_blend_EV_error": -0.003506,
+      "source_capture_classes": {
+        "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 8325
+      }
+    }
+  },
+  "caveats": [
+    "Verified class order by independently recomputing theoretical EV and AH settlement from raw line, side, score and odds.",
+    "Market-adjusted blend is not an independent bookmaker probability distribution: it incorporates model information; no pure Crown five-state market distribution is identified from a single two-sided AH quote.",
+    "Five-state multiclass Brier and logloss compare M5 and pre-existing blend on same outcome target, but market-independent superiority cannot be inferred.",
+    "M5 forecasts and blend may have different information provenance or hindsight model-selection; not a prospectively registered experiment.",
+    "All price-paired historical Crown records were retrieved after kickoff, not proof of real-time executable odds.",
+    "2025 and 2026 are existing M5/M7 historical research cohorts, not original R7 or official Telegram wagers.",
+    "No new strategy, thresholds, portfolio changes or production writes."
+  ]
+}
