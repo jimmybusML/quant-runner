@@ -1,0 +1,5473 @@
+{
+  "study": "R6_EQUAL_WEIGHTS_VS_FROZEN_R5_AND_PREVIOUS_TWO_SEASONS_AH_OU_SURVIVAL_CALIBRATION",
+  "models": [
+    "independent_poisson",
+    "bayes_prior_1_independent",
+    "bayes_prior_2_independent",
+    "bayes_prior_5_independent",
+    "bivar_empirical_c",
+    "bayes_prior_2_bivar_fixed_c010",
+    "equal_blend_independent_and_bayes1",
+    "equal_blend_bayes1_and_bayes2"
+  ],
+  "sample_count": 19816,
+  "frozen_R5_SHA256": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+  "raw": {
+    "AH": {
+      "n": 9908,
+      "independent_poisson": {
+        "n": 9908,
+        "U": -153.615,
+        "ROI_pct": -1.55041,
+        "mean_estimated_EV": 0.165961,
+        "Brier": 0.247101,
+        "changed_direction_vs_independent_raw": 0
+      },
+      "bayes_prior_1_independent": {
+        "n": 9908,
+        "U": -78.14,
+        "ROI_pct": -0.78866,
+        "mean_estimated_EV": 0.147576,
+        "Brier": 0.2438758,
+        "changed_direction_vs_independent_raw": 601
+      },
+      "bayes_prior_2_independent": {
+        "n": 9908,
+        "U": -121.55,
+        "ROI_pct": -1.22679,
+        "mean_estimated_EV": 0.139421,
+        "Brier": 0.2425225,
+        "changed_direction_vs_independent_raw": 1148
+      },
+      "bayes_prior_5_independent": {
+        "n": 9908,
+        "U": -218.96,
+        "ROI_pct": -2.20993,
+        "mean_estimated_EV": 0.140139,
+        "Brier": 0.242404,
+        "changed_direction_vs_independent_raw": 2268
+      },
+      "bivar_empirical_c": {
+        "n": 9908,
+        "U": -145.73,
+        "ROI_pct": -1.47083,
+        "mean_estimated_EV": 0.169498,
+        "Brier": 0.2476131,
+        "changed_direction_vs_independent_raw": 27
+      },
+      "bayes_prior_2_bivar_fixed_c010": {
+        "n": 9908,
+        "U": -100.28,
+        "ROI_pct": -1.01211,
+        "mean_estimated_EV": 0.145416,
+        "Brier": 0.2431395,
+        "changed_direction_vs_independent_raw": 1179
+      },
+      "equal_blend_independent_and_bayes1": {
+        "n": 9908,
+        "U": -89.86,
+        "ROI_pct": -0.90694,
+        "mean_estimated_EV": 0.155806,
+        "Brier": 0.2452829,
+        "changed_direction_vs_independent_raw": 292
+      },
+      "equal_blend_bayes1_and_bayes2": {
+        "n": 9908,
+        "U": -89.89,
+        "ROI_pct": -0.90725,
+        "mean_estimated_EV": 0.142781,
+        "Brier": 0.2430884,
+        "changed_direction_vs_independent_raw": 877
+      }
+    },
+    "OU": {
+      "n": 9908,
+      "independent_poisson": {
+        "n": 9908,
+        "U": -129.055,
+        "ROI_pct": -1.30253,
+        "mean_estimated_EV": 0.144667,
+        "Brier": 0.2479044,
+        "changed_direction_vs_independent_raw": 0
+      },
+      "bayes_prior_1_independent": {
+        "n": 9908,
+        "U": -126.085,
+        "ROI_pct": -1.27256,
+        "mean_estimated_EV": 0.124526,
+        "Brier": 0.2449647,
+        "changed_direction_vs_independent_raw": 366
+      },
+      "bayes_prior_2_independent": {
+        "n": 9908,
+        "U": -148.56,
+        "ROI_pct": -1.49939,
+        "mean_estimated_EV": 0.111539,
+        "Brier": 0.2433946,
+        "changed_direction_vs_independent_raw": 677
+      },
+      "bayes_prior_5_independent": {
+        "n": 9908,
+        "U": -151.46,
+        "ROI_pct": -1.52866,
+        "mean_estimated_EV": 0.092715,
+        "Brier": 0.2415093,
+        "changed_direction_vs_independent_raw": 1472
+      },
+      "bivar_empirical_c": {
+        "n": 9908,
+        "U": -166.96,
+        "ROI_pct": -1.6851,
+        "mean_estimated_EV": 0.142251,
+        "Brier": 0.2476224,
+        "changed_direction_vs_independent_raw": 88
+      },
+      "bayes_prior_2_bivar_fixed_c010": {
+        "n": 9908,
+        "U": -146.615,
+        "ROI_pct": -1.47976,
+        "mean_estimated_EV": 0.107184,
+        "Brier": 0.2430611,
+        "changed_direction_vs_independent_raw": 609
+      },
+      "equal_blend_independent_and_bayes1": {
+        "n": 9908,
+        "U": -107.835,
+        "ROI_pct": -1.08836,
+        "mean_estimated_EV": 0.134257,
+        "Brier": 0.2463158,
+        "changed_direction_vs_independent_raw": 169
+      },
+      "equal_blend_bayes1_and_bayes2": {
+        "n": 9908,
+        "U": -141.28,
+        "ROI_pct": -1.42592,
+        "mean_estimated_EV": 0.117821,
+        "Brier": 0.2441254,
+        "changed_direction_vs_independent_raw": 520
+      }
+    }
+  },
+  "rolling_two_season": {
+    "AH": {
+      "raw": {
+        "n": 7073,
+        "independent_poisson": {
+          "n": 7073,
+          "U": -165.16,
+          "ROI_pct": -2.33508,
+          "mean_estimated_EV": 0.161562,
+          "Brier": 0.2476277,
+          "changed_direction_vs_independent_raw": 0
+        },
+        "bayes_prior_1_independent": {
+          "n": 7073,
+          "U": -98.66,
+          "ROI_pct": -1.39488,
+          "mean_estimated_EV": 0.142549,
+          "Brier": 0.2442536,
+          "changed_direction_vs_independent_raw": 431
+        },
+        "bayes_prior_2_independent": {
+          "n": 7073,
+          "U": -132.825,
+          "ROI_pct": -1.87792,
+          "mean_estimated_EV": 0.134163,
+          "Brier": 0.2427456,
+          "changed_direction_vs_independent_raw": 842
+        },
+        "bayes_prior_5_independent": {
+          "n": 7073,
+          "U": -189.235,
+          "ROI_pct": -2.67546,
+          "mean_estimated_EV": 0.134751,
+          "Brier": 0.242229,
+          "changed_direction_vs_independent_raw": 1673
+        },
+        "bivar_empirical_c": {
+          "n": 7073,
+          "U": -156.105,
+          "ROI_pct": -2.20705,
+          "mean_estimated_EV": 0.165328,
+          "Brier": 0.2481804,
+          "changed_direction_vs_independent_raw": 20
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 7073,
+          "U": -126.925,
+          "ROI_pct": -1.7945,
+          "mean_estimated_EV": 0.139922,
+          "Brier": 0.2433277,
+          "changed_direction_vs_independent_raw": 863
+        },
+        "equal_blend_independent_and_bayes1": {
+          "n": 7073,
+          "U": -109.68,
+          "ROI_pct": -1.55069,
+          "mean_estimated_EV": 0.151081,
+          "Brier": 0.2457349,
+          "changed_direction_vs_independent_raw": 212
+        },
+        "equal_blend_bayes1_and_bayes2": {
+          "n": 7073,
+          "U": -101.675,
+          "ROI_pct": -1.43751,
+          "mean_estimated_EV": 0.137587,
+          "Brier": 0.2433891,
+          "changed_direction_vs_independent_raw": 645
+        }
+      },
+      "global": {
+        "n": 7073,
+        "independent_poisson": {
+          "n": 7073,
+          "U": -125.285,
+          "ROI_pct": -1.77131,
+          "mean_estimated_EV": 0.09807,
+          "Brier": 0.2425195,
+          "changed_direction_vs_independent_raw": 811
+        },
+        "bayes_prior_1_independent": {
+          "n": 7073,
+          "U": -247.0,
+          "ROI_pct": -3.49215,
+          "mean_estimated_EV": 0.096825,
+          "Brier": 0.2413898,
+          "changed_direction_vs_independent_raw": 993
+        },
+        "bayes_prior_2_independent": {
+          "n": 7073,
+          "U": -148.86,
+          "ROI_pct": -2.10462,
+          "mean_estimated_EV": 0.095928,
+          "Brier": 0.2407814,
+          "changed_direction_vs_independent_raw": 1195
+        },
+        "bayes_prior_5_independent": {
+          "n": 7073,
+          "U": -166.61,
+          "ROI_pct": -2.35558,
+          "mean_estimated_EV": 0.097667,
+          "Brier": 0.2403321,
+          "changed_direction_vs_independent_raw": 1838
+        },
+        "bivar_empirical_c": {
+          "n": 7073,
+          "U": -133.775,
+          "ROI_pct": -1.89135,
+          "mean_estimated_EV": 0.097791,
+          "Brier": 0.2426366,
+          "changed_direction_vs_independent_raw": 828
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 7073,
+          "U": -170.35,
+          "ROI_pct": -2.40845,
+          "mean_estimated_EV": 0.095838,
+          "Brier": 0.2407553,
+          "changed_direction_vs_independent_raw": 1211
+        },
+        "equal_blend_independent_and_bayes1": {
+          "n": 7073,
+          "U": -183.48,
+          "ROI_pct": -2.59409,
+          "mean_estimated_EV": 0.097154,
+          "Brier": 0.2420512,
+          "changed_direction_vs_independent_raw": 870
+        },
+        "equal_blend_bayes1_and_bayes2": {
+          "n": 7073,
+          "U": -165.14,
+          "ROI_pct": -2.33479,
+          "mean_estimated_EV": 0.096026,
+          "Brier": 0.2409559,
+          "changed_direction_vs_independent_raw": 1072
+        }
+      },
+      "league": {
+        "n": 7073,
+        "independent_poisson": {
+          "n": 7073,
+          "U": -125.79,
+          "ROI_pct": -1.77845,
+          "mean_estimated_EV": 0.110152,
+          "Brier": 0.2436281,
+          "changed_direction_vs_independent_raw": 1045
+        },
+        "bayes_prior_1_independent": {
+          "n": 7073,
+          "U": -98.65,
+          "ROI_pct": -1.39474,
+          "mean_estimated_EV": 0.110071,
+          "Brier": 0.2426602,
+          "changed_direction_vs_independent_raw": 1192
+        },
+        "bayes_prior_2_independent": {
+          "n": 7073,
+          "U": -78.8,
+          "ROI_pct": -1.1141,
+          "mean_estimated_EV": 0.109738,
+          "Brier": 0.2420013,
+          "changed_direction_vs_independent_raw": 1374
+        },
+        "bayes_prior_5_independent": {
+          "n": 7073,
+          "U": -62.31,
+          "ROI_pct": -0.88096,
+          "mean_estimated_EV": 0.110352,
+          "Brier": 0.2414054,
+          "changed_direction_vs_independent_raw": 1967
+        },
+        "bivar_empirical_c": {
+          "n": 7073,
+          "U": -84.355,
+          "ROI_pct": -1.19263,
+          "mean_estimated_EV": 0.109668,
+          "Brier": 0.2437156,
+          "changed_direction_vs_independent_raw": 1037
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 7073,
+          "U": -63.49,
+          "ROI_pct": -0.89764,
+          "mean_estimated_EV": 0.109546,
+          "Brier": 0.2421767,
+          "changed_direction_vs_independent_raw": 1389
+        },
+        "equal_blend_independent_and_bayes1": {
+          "n": 7073,
+          "U": -101.46,
+          "ROI_pct": -1.43447,
+          "mean_estimated_EV": 0.109474,
+          "Brier": 0.2429511,
+          "changed_direction_vs_independent_raw": 1074
+        },
+        "equal_blend_bayes1_and_bayes2": {
+          "n": 7073,
+          "U": -71.46,
+          "ROI_pct": -1.01032,
+          "mean_estimated_EV": 0.109835,
+          "Brier": 0.2421159,
+          "changed_direction_vs_independent_raw": 1271
+        }
+      }
+    },
+    "OU": {
+      "raw": {
+        "n": 7073,
+        "independent_poisson": {
+          "n": 7073,
+          "U": -152.625,
+          "ROI_pct": -2.15785,
+          "mean_estimated_EV": 0.145015,
+          "Brier": 0.2495383,
+          "changed_direction_vs_independent_raw": 0
+        },
+        "bayes_prior_1_independent": {
+          "n": 7073,
+          "U": -165.59,
+          "ROI_pct": -2.34116,
+          "mean_estimated_EV": 0.125768,
+          "Brier": 0.2465272,
+          "changed_direction_vs_independent_raw": 279
+        },
+        "bayes_prior_2_independent": {
+          "n": 7073,
+          "U": -198.04,
+          "ROI_pct": -2.79994,
+          "mean_estimated_EV": 0.113441,
+          "Brier": 0.2449072,
+          "changed_direction_vs_independent_raw": 493
+        },
+        "bayes_prior_5_independent": {
+          "n": 7073,
+          "U": -160.3,
+          "ROI_pct": -2.26637,
+          "mean_estimated_EV": 0.096016,
+          "Brier": 0.2429246,
+          "changed_direction_vs_independent_raw": 1049
+        },
+        "bivar_empirical_c": {
+          "n": 7073,
+          "U": -177.645,
+          "ROI_pct": -2.51159,
+          "mean_estimated_EV": 0.142141,
+          "Brier": 0.2491963,
+          "changed_direction_vs_independent_raw": 67
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 7073,
+          "U": -177.5,
+          "ROI_pct": -2.50954,
+          "mean_estimated_EV": 0.10838,
+          "Brier": 0.2444548,
+          "changed_direction_vs_independent_raw": 433
+        },
+        "equal_blend_independent_and_bayes1": {
+          "n": 7073,
+          "U": -146.01,
+          "ROI_pct": -2.06433,
+          "mean_estimated_EV": 0.135033,
+          "Brier": 0.2479142,
+          "changed_direction_vs_independent_raw": 132
+        },
+        "equal_blend_bayes1_and_bayes2": {
+          "n": 7073,
+          "U": -181.38,
+          "ROI_pct": -2.5644,
+          "mean_estimated_EV": 0.119387,
+          "Brier": 0.2456632,
+          "changed_direction_vs_independent_raw": 383
+        }
+      },
+      "global": {
+        "n": 7073,
+        "independent_poisson": {
+          "n": 7073,
+          "U": -125.805,
+          "ROI_pct": -1.77867,
+          "mean_estimated_EV": 0.083057,
+          "Brier": 0.2446499,
+          "changed_direction_vs_independent_raw": 667
+        },
+        "bayes_prior_1_independent": {
+          "n": 7073,
+          "U": -213.63,
+          "ROI_pct": -3.02036,
+          "mean_estimated_EV": 0.082289,
+          "Brier": 0.243602,
+          "changed_direction_vs_independent_raw": 740
+        },
+        "bayes_prior_2_independent": {
+          "n": 7073,
+          "U": -215.945,
+          "ROI_pct": -3.05309,
+          "mean_estimated_EV": 0.079182,
+          "Brier": 0.2428239,
+          "changed_direction_vs_independent_raw": 874
+        },
+        "bayes_prior_5_independent": {
+          "n": 7073,
+          "U": -207.34,
+          "ROI_pct": -2.93143,
+          "mean_estimated_EV": 0.074006,
+          "Brier": 0.2422939,
+          "changed_direction_vs_independent_raw": 1272
+        },
+        "bivar_empirical_c": {
+          "n": 7073,
+          "U": -113.83,
+          "ROI_pct": -1.60936,
+          "mean_estimated_EV": 0.082652,
+          "Brier": 0.2444738,
+          "changed_direction_vs_independent_raw": 654
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 7073,
+          "U": -249.575,
+          "ROI_pct": -3.52856,
+          "mean_estimated_EV": 0.07979,
+          "Brier": 0.2429657,
+          "changed_direction_vs_independent_raw": 851
+        },
+        "equal_blend_independent_and_bayes1": {
+          "n": 7073,
+          "U": -143.69,
+          "ROI_pct": -2.03153,
+          "mean_estimated_EV": 0.082832,
+          "Brier": 0.2441289,
+          "changed_direction_vs_independent_raw": 675
+        },
+        "equal_blend_bayes1_and_bayes2": {
+          "n": 7073,
+          "U": -192.65,
+          "ROI_pct": -2.72374,
+          "mean_estimated_EV": 0.081154,
+          "Brier": 0.2433065,
+          "changed_direction_vs_independent_raw": 804
+        }
+      },
+      "league": {
+        "n": 7073,
+        "independent_poisson": {
+          "n": 7073,
+          "U": -165.355,
+          "ROI_pct": -2.33783,
+          "mean_estimated_EV": 0.097621,
+          "Brier": 0.2465231,
+          "changed_direction_vs_independent_raw": 1121
+        },
+        "bayes_prior_1_independent": {
+          "n": 7073,
+          "U": -229.59,
+          "ROI_pct": -3.24601,
+          "mean_estimated_EV": 0.094207,
+          "Brier": 0.2452205,
+          "changed_direction_vs_independent_raw": 1132
+        },
+        "bayes_prior_2_independent": {
+          "n": 7073,
+          "U": -242.305,
+          "ROI_pct": -3.42577,
+          "mean_estimated_EV": 0.090946,
+          "Brier": 0.2445275,
+          "changed_direction_vs_independent_raw": 1208
+        },
+        "bayes_prior_5_independent": {
+          "n": 7073,
+          "U": -147.24,
+          "ROI_pct": -2.08172,
+          "mean_estimated_EV": 0.085997,
+          "Brier": 0.2435581,
+          "changed_direction_vs_independent_raw": 1558
+        },
+        "bivar_empirical_c": {
+          "n": 7073,
+          "U": -157.76,
+          "ROI_pct": -2.23045,
+          "mean_estimated_EV": 0.097037,
+          "Brier": 0.2465404,
+          "changed_direction_vs_independent_raw": 1092
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 7073,
+          "U": -246.705,
+          "ROI_pct": -3.48798,
+          "mean_estimated_EV": 0.091478,
+          "Brier": 0.2445863,
+          "changed_direction_vs_independent_raw": 1185
+        },
+        "equal_blend_independent_and_bayes1": {
+          "n": 7073,
+          "U": -217.41,
+          "ROI_pct": -3.0738,
+          "mean_estimated_EV": 0.095124,
+          "Brier": 0.2458755,
+          "changed_direction_vs_independent_raw": 1103
+        },
+        "equal_blend_bayes1_and_bayes2": {
+          "n": 7073,
+          "U": -230.905,
+          "ROI_pct": -3.2646,
+          "mean_estimated_EV": 0.092325,
+          "Brier": 0.244897,
+          "changed_direction_vs_independent_raw": 1163
+        }
+      }
+    }
+  },
+  "by_season": {
+    "2019": {
+      "AH": {
+        "raw": {
+          "n": 1373,
+          "independent_poisson": {
+            "n": 1373,
+            "U": 20.055,
+            "ROI_pct": 1.46067,
+            "mean_estimated_EV": 0.17846,
+            "Brier": 0.2439583,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1373,
+            "U": 21.415,
+            "ROI_pct": 1.55972,
+            "mean_estimated_EV": 0.163788,
+            "Brier": 0.2412454,
+            "changed_direction_vs_independent_raw": 82
+          },
+          "bayes_prior_2_independent": {
+            "n": 1373,
+            "U": 35.335,
+            "ROI_pct": 2.57356,
+            "mean_estimated_EV": 0.157548,
+            "Brier": 0.2402717,
+            "changed_direction_vs_independent_raw": 142
+          },
+          "bayes_prior_5_independent": {
+            "n": 1373,
+            "U": 22.37,
+            "ROI_pct": 1.62928,
+            "mean_estimated_EV": 0.158433,
+            "Brier": 0.240918,
+            "changed_direction_vs_independent_raw": 264
+          },
+          "bivar_empirical_c": {
+            "n": 1373,
+            "U": 18.115,
+            "ROI_pct": 1.31937,
+            "mean_estimated_EV": 0.18126,
+            "Brier": 0.2443182,
+            "changed_direction_vs_independent_raw": 1
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1373,
+            "U": 42.605,
+            "ROI_pct": 3.10306,
+            "mean_estimated_EV": 0.164186,
+            "Brier": 0.240901,
+            "changed_direction_vs_independent_raw": 146
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1373,
+            "U": 20.78,
+            "ROI_pct": 1.51347,
+            "mean_estimated_EV": 0.170217,
+            "Brier": 0.2424147,
+            "changed_direction_vs_independent_raw": 38
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1373,
+            "U": 16.525,
+            "ROI_pct": 1.20357,
+            "mean_estimated_EV": 0.160118,
+            "Brier": 0.2406561,
+            "changed_direction_vs_independent_raw": 110
+          }
+        },
+        "global": {
+          "n": 1373,
+          "independent_poisson": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_5_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bivar_empirical_c": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          }
+        },
+        "league": {
+          "n": 1373,
+          "independent_poisson": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_5_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bivar_empirical_c": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1373,
+          "independent_poisson": {
+            "n": 1373,
+            "U": 29.72,
+            "ROI_pct": 2.1646,
+            "mean_estimated_EV": 0.150282,
+            "Brier": 0.2432227,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1373,
+            "U": 33.69,
+            "ROI_pct": 2.45375,
+            "mean_estimated_EV": 0.127008,
+            "Brier": 0.2408187,
+            "changed_direction_vs_independent_raw": 35
+          },
+          "bayes_prior_2_independent": {
+            "n": 1373,
+            "U": 35.695,
+            "ROI_pct": 2.59978,
+            "mean_estimated_EV": 0.111417,
+            "Brier": 0.2395882,
+            "changed_direction_vs_independent_raw": 81
+          },
+          "bayes_prior_5_independent": {
+            "n": 1373,
+            "U": 27.925,
+            "ROI_pct": 2.03387,
+            "mean_estimated_EV": 0.087629,
+            "Brier": 0.2383296,
+            "changed_direction_vs_independent_raw": 207
+          },
+          "bivar_empirical_c": {
+            "n": 1373,
+            "U": 20.415,
+            "ROI_pct": 1.48689,
+            "mean_estimated_EV": 0.148754,
+            "Brier": 0.2431546,
+            "changed_direction_vs_independent_raw": 13
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1373,
+            "U": 25.78,
+            "ROI_pct": 1.87764,
+            "mean_estimated_EV": 0.108321,
+            "Brier": 0.2395466,
+            "changed_direction_vs_independent_raw": 80
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1373,
+            "U": 25.495,
+            "ROI_pct": 1.85688,
+            "mean_estimated_EV": 0.138483,
+            "Brier": 0.2419027,
+            "changed_direction_vs_independent_raw": 14
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1373,
+            "U": 39.87,
+            "ROI_pct": 2.90386,
+            "mean_estimated_EV": 0.119047,
+            "Brier": 0.2401475,
+            "changed_direction_vs_independent_raw": 62
+          }
+        },
+        "global": {
+          "n": 1373,
+          "independent_poisson": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_5_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bivar_empirical_c": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          }
+        },
+        "league": {
+          "n": 1373,
+          "independent_poisson": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_5_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bivar_empirical_c": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          }
+        }
+      }
+    },
+    "2020": {
+      "AH": {
+        "raw": {
+          "n": 1462,
+          "independent_poisson": {
+            "n": 1462,
+            "U": -8.51,
+            "ROI_pct": -0.58208,
+            "mean_estimated_EV": 0.175509,
+            "Brier": 0.2475047,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1462,
+            "U": -0.895,
+            "ROI_pct": -0.06122,
+            "mean_estimated_EV": 0.15667,
+            "Brier": 0.2445182,
+            "changed_direction_vs_independent_raw": 88
+          },
+          "bayes_prior_2_independent": {
+            "n": 1462,
+            "U": -24.06,
+            "ROI_pct": -1.64569,
+            "mean_estimated_EV": 0.147833,
+            "Brier": 0.2435572,
+            "changed_direction_vs_independent_raw": 164
+          },
+          "bayes_prior_5_independent": {
+            "n": 1462,
+            "U": -52.095,
+            "ROI_pct": -3.56327,
+            "mean_estimated_EV": 0.149023,
+            "Brier": 0.2446458,
+            "changed_direction_vs_independent_raw": 331
+          },
+          "bivar_empirical_c": {
+            "n": 1462,
+            "U": -7.74,
+            "ROI_pct": -0.52941,
+            "mean_estimated_EV": 0.178625,
+            "Brier": 0.247963,
+            "changed_direction_vs_independent_raw": 6
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1462,
+            "U": -15.96,
+            "ROI_pct": -1.09166,
+            "mean_estimated_EV": 0.154365,
+            "Brier": 0.2443314,
+            "changed_direction_vs_independent_raw": 170
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1462,
+            "U": -0.96,
+            "ROI_pct": -0.06566,
+            "mean_estimated_EV": 0.165133,
+            "Brier": 0.2457894,
+            "changed_direction_vs_independent_raw": 42
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1462,
+            "U": -4.74,
+            "ROI_pct": -0.32421,
+            "mean_estimated_EV": 0.151628,
+            "Brier": 0.243918,
+            "changed_direction_vs_independent_raw": 122
+          }
+        },
+        "global": {
+          "n": 1462,
+          "independent_poisson": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_5_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bivar_empirical_c": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          }
+        },
+        "league": {
+          "n": 1462,
+          "independent_poisson": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_5_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bivar_empirical_c": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1462,
+          "independent_poisson": {
+            "n": 1462,
+            "U": -6.15,
+            "ROI_pct": -0.42066,
+            "mean_estimated_EV": 0.13771,
+            "Brier": 0.2443965,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1462,
+            "U": 5.815,
+            "ROI_pct": 0.39774,
+            "mean_estimated_EV": 0.116186,
+            "Brier": 0.2412988,
+            "changed_direction_vs_independent_raw": 52
+          },
+          "bayes_prior_2_independent": {
+            "n": 1462,
+            "U": 13.785,
+            "ROI_pct": 0.94289,
+            "mean_estimated_EV": 0.102451,
+            "Brier": 0.2396517,
+            "changed_direction_vs_independent_raw": 103
+          },
+          "bayes_prior_5_independent": {
+            "n": 1462,
+            "U": -19.085,
+            "ROI_pct": -1.3054,
+            "mean_estimated_EV": 0.081523,
+            "Brier": 0.2376486,
+            "changed_direction_vs_independent_raw": 216
+          },
+          "bivar_empirical_c": {
+            "n": 1462,
+            "U": -9.73,
+            "ROI_pct": -0.66553,
+            "mean_estimated_EV": 0.136675,
+            "Brier": 0.2442037,
+            "changed_direction_vs_independent_raw": 8
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1462,
+            "U": 5.105,
+            "ROI_pct": 0.34918,
+            "mean_estimated_EV": 0.100331,
+            "Brier": 0.2396195,
+            "changed_direction_vs_independent_raw": 96
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1462,
+            "U": 12.68,
+            "ROI_pct": 0.86731,
+            "mean_estimated_EV": 0.126536,
+            "Brier": 0.2427273,
+            "changed_direction_vs_independent_raw": 23
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1462,
+            "U": 0.23,
+            "ROI_pct": 0.01573,
+            "mean_estimated_EV": 0.109093,
+            "Brier": 0.2404212,
+            "changed_direction_vs_independent_raw": 75
+          }
+        },
+        "global": {
+          "n": 1462,
+          "independent_poisson": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_5_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bivar_empirical_c": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          }
+        },
+        "league": {
+          "n": 1462,
+          "independent_poisson": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_5_independent": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bivar_empirical_c": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 0,
+            "U": 0,
+            "ROI_pct": null,
+            "mean_estimated_EV": null,
+            "Brier": null,
+            "changed_direction_vs_independent_raw": 0
+          }
+        }
+      }
+    },
+    "2021": {
+      "AH": {
+        "raw": {
+          "n": 1418,
+          "independent_poisson": {
+            "n": 1418,
+            "U": -16.13,
+            "ROI_pct": -1.13752,
+            "mean_estimated_EV": 0.161289,
+            "Brier": 0.2448645,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1418,
+            "U": 0.995,
+            "ROI_pct": 0.07017,
+            "mean_estimated_EV": 0.144467,
+            "Brier": 0.2418359,
+            "changed_direction_vs_independent_raw": 90
+          },
+          "bayes_prior_2_independent": {
+            "n": 1418,
+            "U": 5.81,
+            "ROI_pct": 0.40973,
+            "mean_estimated_EV": 0.138642,
+            "Brier": 0.2407473,
+            "changed_direction_vs_independent_raw": 176
+          },
+          "bayes_prior_5_independent": {
+            "n": 1418,
+            "U": -30.98,
+            "ROI_pct": -2.18477,
+            "mean_estimated_EV": 0.144165,
+            "Brier": 0.241205,
+            "changed_direction_vs_independent_raw": 334
+          },
+          "bivar_empirical_c": {
+            "n": 1418,
+            "U": -10.47,
+            "ROI_pct": -0.73836,
+            "mean_estimated_EV": 0.165428,
+            "Brier": 0.2453548,
+            "changed_direction_vs_independent_raw": 9
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1418,
+            "U": 9.3,
+            "ROI_pct": 0.65585,
+            "mean_estimated_EV": 0.145107,
+            "Brier": 0.2413706,
+            "changed_direction_vs_independent_raw": 179
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1418,
+            "U": 2.05,
+            "ROI_pct": 0.14457,
+            "mean_estimated_EV": 0.151838,
+            "Brier": 0.2431432,
+            "changed_direction_vs_independent_raw": 45
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1418,
+            "U": 13.075,
+            "ROI_pct": 0.92207,
+            "mean_estimated_EV": 0.140694,
+            "Brier": 0.2411828,
+            "changed_direction_vs_independent_raw": 136
+          }
+        },
+        "global": {
+          "n": 1418,
+          "independent_poisson": {
+            "n": 1418,
+            "U": -11.81,
+            "ROI_pct": -0.83286,
+            "mean_estimated_EV": 0.09803,
+            "Brier": 0.240614,
+            "changed_direction_vs_independent_raw": 119
+          },
+          "bayes_prior_1_independent": {
+            "n": 1418,
+            "U": -23.79,
+            "ROI_pct": -1.67772,
+            "mean_estimated_EV": 0.095825,
+            "Brier": 0.2391882,
+            "changed_direction_vs_independent_raw": 148
+          },
+          "bayes_prior_2_independent": {
+            "n": 1418,
+            "U": -19.66,
+            "ROI_pct": -1.38646,
+            "mean_estimated_EV": 0.096344,
+            "Brier": 0.2391281,
+            "changed_direction_vs_independent_raw": 214
+          },
+          "bayes_prior_5_independent": {
+            "n": 1418,
+            "U": -35.725,
+            "ROI_pct": -2.51939,
+            "mean_estimated_EV": 0.097374,
+            "Brier": 0.2387947,
+            "changed_direction_vs_independent_raw": 348
+          },
+          "bivar_empirical_c": {
+            "n": 1418,
+            "U": -26.37,
+            "ROI_pct": -1.85966,
+            "mean_estimated_EV": 0.098135,
+            "Brier": 0.240616,
+            "changed_direction_vs_independent_raw": 123
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1418,
+            "U": -24.205,
+            "ROI_pct": -1.70698,
+            "mean_estimated_EV": 0.096244,
+            "Brier": 0.2394197,
+            "changed_direction_vs_independent_raw": 225
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1418,
+            "U": -2.395,
+            "ROI_pct": -0.1689,
+            "mean_estimated_EV": 0.095405,
+            "Brier": 0.2398179,
+            "changed_direction_vs_independent_raw": 130
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1418,
+            "U": -11.085,
+            "ROI_pct": -0.78173,
+            "mean_estimated_EV": 0.094806,
+            "Brier": 0.2392061,
+            "changed_direction_vs_independent_raw": 177
+          }
+        },
+        "league": {
+          "n": 1418,
+          "independent_poisson": {
+            "n": 1418,
+            "U": 0.79,
+            "ROI_pct": 0.05571,
+            "mean_estimated_EV": 0.109996,
+            "Brier": 0.2407248,
+            "changed_direction_vs_independent_raw": 165
+          },
+          "bayes_prior_1_independent": {
+            "n": 1418,
+            "U": 1.07,
+            "ROI_pct": 0.07546,
+            "mean_estimated_EV": 0.106824,
+            "Brier": 0.2406774,
+            "changed_direction_vs_independent_raw": 201
+          },
+          "bayes_prior_2_independent": {
+            "n": 1418,
+            "U": -1.465,
+            "ROI_pct": -0.10331,
+            "mean_estimated_EV": 0.107615,
+            "Brier": 0.2399555,
+            "changed_direction_vs_independent_raw": 276
+          },
+          "bayes_prior_5_independent": {
+            "n": 1418,
+            "U": -12.055,
+            "ROI_pct": -0.85014,
+            "mean_estimated_EV": 0.107501,
+            "Brier": 0.2391677,
+            "changed_direction_vs_independent_raw": 382
+          },
+          "bivar_empirical_c": {
+            "n": 1418,
+            "U": 3.645,
+            "ROI_pct": 0.25705,
+            "mean_estimated_EV": 0.109657,
+            "Brier": 0.2407222,
+            "changed_direction_vs_independent_raw": 166
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1418,
+            "U": 1.885,
+            "ROI_pct": 0.13293,
+            "mean_estimated_EV": 0.107126,
+            "Brier": 0.2402196,
+            "changed_direction_vs_independent_raw": 277
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1418,
+            "U": -14.455,
+            "ROI_pct": -1.01939,
+            "mean_estimated_EV": 0.107362,
+            "Brier": 0.2410126,
+            "changed_direction_vs_independent_raw": 180
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1418,
+            "U": 9.625,
+            "ROI_pct": 0.67877,
+            "mean_estimated_EV": 0.107649,
+            "Brier": 0.2409279,
+            "changed_direction_vs_independent_raw": 240
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1418,
+          "independent_poisson": {
+            "n": 1418,
+            "U": -8.11,
+            "ROI_pct": -0.57193,
+            "mean_estimated_EV": 0.127973,
+            "Brier": 0.2479788,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1418,
+            "U": -15.635,
+            "ROI_pct": -1.10261,
+            "mean_estimated_EV": 0.107562,
+            "Brier": 0.2453994,
+            "changed_direction_vs_independent_raw": 49
+          },
+          "bayes_prior_2_independent": {
+            "n": 1418,
+            "U": -25.545,
+            "ROI_pct": -1.80148,
+            "mean_estimated_EV": 0.093865,
+            "Brier": 0.2441174,
+            "changed_direction_vs_independent_raw": 79
+          },
+          "bayes_prior_5_independent": {
+            "n": 1418,
+            "U": -7.925,
+            "ROI_pct": -0.55889,
+            "mean_estimated_EV": 0.072856,
+            "Brier": 0.2428306,
+            "changed_direction_vs_independent_raw": 209
+          },
+          "bivar_empirical_c": {
+            "n": 1418,
+            "U": -21.46,
+            "ROI_pct": -1.5134,
+            "mean_estimated_EV": 0.126534,
+            "Brier": 0.2478447,
+            "changed_direction_vs_independent_raw": 20
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1418,
+            "U": -28.17,
+            "ROI_pct": -1.9866,
+            "mean_estimated_EV": 0.091807,
+            "Brier": 0.2440202,
+            "changed_direction_vs_independent_raw": 80
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1418,
+            "U": -2.92,
+            "ROI_pct": -0.20592,
+            "mean_estimated_EV": 0.117518,
+            "Brier": 0.2465889,
+            "changed_direction_vs_independent_raw": 25
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1418,
+            "U": -20.6,
+            "ROI_pct": -1.45275,
+            "mean_estimated_EV": 0.100564,
+            "Brier": 0.244712,
+            "changed_direction_vs_independent_raw": 67
+          }
+        },
+        "global": {
+          "n": 1418,
+          "independent_poisson": {
+            "n": 1418,
+            "U": 5.525,
+            "ROI_pct": 0.38963,
+            "mean_estimated_EV": 0.08192,
+            "Brier": 0.2444437,
+            "changed_direction_vs_independent_raw": 129
+          },
+          "bayes_prior_1_independent": {
+            "n": 1418,
+            "U": -17.105,
+            "ROI_pct": -1.20628,
+            "mean_estimated_EV": 0.081289,
+            "Brier": 0.2435162,
+            "changed_direction_vs_independent_raw": 126
+          },
+          "bayes_prior_2_independent": {
+            "n": 1418,
+            "U": -24.54,
+            "ROI_pct": -1.73061,
+            "mean_estimated_EV": 0.076839,
+            "Brier": 0.2430255,
+            "changed_direction_vs_independent_raw": 186
+          },
+          "bayes_prior_5_independent": {
+            "n": 1418,
+            "U": -14.26,
+            "ROI_pct": -1.00564,
+            "mean_estimated_EV": 0.070586,
+            "Brier": 0.2430458,
+            "changed_direction_vs_independent_raw": 234
+          },
+          "bivar_empirical_c": {
+            "n": 1418,
+            "U": -7.725,
+            "ROI_pct": -0.54478,
+            "mean_estimated_EV": 0.081606,
+            "Brier": 0.2443368,
+            "changed_direction_vs_independent_raw": 112
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1418,
+            "U": -19.835,
+            "ROI_pct": -1.3988,
+            "mean_estimated_EV": 0.077549,
+            "Brier": 0.2429064,
+            "changed_direction_vs_independent_raw": 178
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1418,
+            "U": -12.06,
+            "ROI_pct": -0.85049,
+            "mean_estimated_EV": 0.083208,
+            "Brier": 0.2439933,
+            "changed_direction_vs_independent_raw": 118
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1418,
+            "U": -13.62,
+            "ROI_pct": -0.96051,
+            "mean_estimated_EV": 0.07912,
+            "Brier": 0.2434216,
+            "changed_direction_vs_independent_raw": 171
+          }
+        },
+        "league": {
+          "n": 1418,
+          "independent_poisson": {
+            "n": 1418,
+            "U": -18.57,
+            "ROI_pct": -1.30959,
+            "mean_estimated_EV": 0.097929,
+            "Brier": 0.2467637,
+            "changed_direction_vs_independent_raw": 291
+          },
+          "bayes_prior_1_independent": {
+            "n": 1418,
+            "U": -65.455,
+            "ROI_pct": -4.61601,
+            "mean_estimated_EV": 0.092954,
+            "Brier": 0.2461469,
+            "changed_direction_vs_independent_raw": 272
+          },
+          "bayes_prior_2_independent": {
+            "n": 1418,
+            "U": -30.795,
+            "ROI_pct": -2.17172,
+            "mean_estimated_EV": 0.088376,
+            "Brier": 0.2450386,
+            "changed_direction_vs_independent_raw": 275
+          },
+          "bayes_prior_5_independent": {
+            "n": 1418,
+            "U": -3.83,
+            "ROI_pct": -0.2701,
+            "mean_estimated_EV": 0.080619,
+            "Brier": 0.2452502,
+            "changed_direction_vs_independent_raw": 348
+          },
+          "bivar_empirical_c": {
+            "n": 1418,
+            "U": -8.065,
+            "ROI_pct": -0.56876,
+            "mean_estimated_EV": 0.096283,
+            "Brier": 0.2471379,
+            "changed_direction_vs_independent_raw": 285
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1418,
+            "U": -37.885,
+            "ROI_pct": -2.67172,
+            "mean_estimated_EV": 0.090741,
+            "Brier": 0.2451991,
+            "changed_direction_vs_independent_raw": 287
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1418,
+            "U": -36.845,
+            "ROI_pct": -2.59838,
+            "mean_estimated_EV": 0.097066,
+            "Brier": 0.2465625,
+            "changed_direction_vs_independent_raw": 285
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1418,
+            "U": -41.21,
+            "ROI_pct": -2.90621,
+            "mean_estimated_EV": 0.09016,
+            "Brier": 0.2456367,
+            "changed_direction_vs_independent_raw": 292
+          }
+        }
+      }
+    },
+    "2022": {
+      "AH": {
+        "raw": {
+          "n": 1468,
+          "independent_poisson": {
+            "n": 1468,
+            "U": -54.42,
+            "ROI_pct": -3.70708,
+            "mean_estimated_EV": 0.159175,
+            "Brier": 0.2521959,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1468,
+            "U": -56.3,
+            "ROI_pct": -3.83515,
+            "mean_estimated_EV": 0.138099,
+            "Brier": 0.2481402,
+            "changed_direction_vs_independent_raw": 93
+          },
+          "bayes_prior_2_independent": {
+            "n": 1468,
+            "U": -43.99,
+            "ROI_pct": -2.99659,
+            "mean_estimated_EV": 0.128461,
+            "Brier": 0.2460727,
+            "changed_direction_vs_independent_raw": 191
+          },
+          "bayes_prior_5_independent": {
+            "n": 1468,
+            "U": -43.77,
+            "ROI_pct": -2.98161,
+            "mean_estimated_EV": 0.128477,
+            "Brier": 0.2444412,
+            "changed_direction_vs_independent_raw": 371
+          },
+          "bivar_empirical_c": {
+            "n": 1468,
+            "U": -51.6,
+            "ROI_pct": -3.51499,
+            "mean_estimated_EV": 0.163423,
+            "Brier": 0.2532192,
+            "changed_direction_vs_independent_raw": 4
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1468,
+            "U": -35.59,
+            "ROI_pct": -2.42439,
+            "mean_estimated_EV": 0.134186,
+            "Brier": 0.246818,
+            "changed_direction_vs_independent_raw": 199
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1468,
+            "U": -62.12,
+            "ROI_pct": -4.23161,
+            "mean_estimated_EV": 0.147604,
+            "Brier": 0.2499555,
+            "changed_direction_vs_independent_raw": 43
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1468,
+            "U": -49.565,
+            "ROI_pct": -3.37636,
+            "mean_estimated_EV": 0.1324,
+            "Brier": 0.2469899,
+            "changed_direction_vs_independent_raw": 143
+          }
+        },
+        "global": {
+          "n": 1468,
+          "independent_poisson": {
+            "n": 1468,
+            "U": -46.06,
+            "ROI_pct": -3.1376,
+            "mean_estimated_EV": 0.094317,
+            "Brier": 0.2449051,
+            "changed_direction_vs_independent_raw": 86
+          },
+          "bayes_prior_1_independent": {
+            "n": 1468,
+            "U": -88.765,
+            "ROI_pct": -6.04666,
+            "mean_estimated_EV": 0.089002,
+            "Brier": 0.2439586,
+            "changed_direction_vs_independent_raw": 149
+          },
+          "bayes_prior_2_independent": {
+            "n": 1468,
+            "U": -63.54,
+            "ROI_pct": -4.32834,
+            "mean_estimated_EV": 0.084848,
+            "Brier": 0.2429965,
+            "changed_direction_vs_independent_raw": 207
+          },
+          "bayes_prior_5_independent": {
+            "n": 1468,
+            "U": -30.69,
+            "ROI_pct": -2.0906,
+            "mean_estimated_EV": 0.08746,
+            "Brier": 0.2422676,
+            "changed_direction_vs_independent_raw": 405
+          },
+          "bivar_empirical_c": {
+            "n": 1468,
+            "U": -55.23,
+            "ROI_pct": -3.76226,
+            "mean_estimated_EV": 0.094925,
+            "Brier": 0.2458188,
+            "changed_direction_vs_independent_raw": 91
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1468,
+            "U": -62.085,
+            "ROI_pct": -4.22922,
+            "mean_estimated_EV": 0.085558,
+            "Brier": 0.2431602,
+            "changed_direction_vs_independent_raw": 208
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1468,
+            "U": -66.345,
+            "ROI_pct": -4.51941,
+            "mean_estimated_EV": 0.091658,
+            "Brier": 0.2443655,
+            "changed_direction_vs_independent_raw": 114
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1468,
+            "U": -48.26,
+            "ROI_pct": -3.28747,
+            "mean_estimated_EV": 0.086193,
+            "Brier": 0.2433742,
+            "changed_direction_vs_independent_raw": 169
+          }
+        },
+        "league": {
+          "n": 1468,
+          "independent_poisson": {
+            "n": 1468,
+            "U": -30.085,
+            "ROI_pct": -2.04939,
+            "mean_estimated_EV": 0.110999,
+            "Brier": 0.2457935,
+            "changed_direction_vs_independent_raw": 181
+          },
+          "bayes_prior_1_independent": {
+            "n": 1468,
+            "U": -12.755,
+            "ROI_pct": -0.86887,
+            "mean_estimated_EV": 0.109079,
+            "Brier": 0.244101,
+            "changed_direction_vs_independent_raw": 227
+          },
+          "bayes_prior_2_independent": {
+            "n": 1468,
+            "U": -9.135,
+            "ROI_pct": -0.62228,
+            "mean_estimated_EV": 0.108083,
+            "Brier": 0.2426217,
+            "changed_direction_vs_independent_raw": 262
+          },
+          "bayes_prior_5_independent": {
+            "n": 1468,
+            "U": -13.97,
+            "ROI_pct": -0.95163,
+            "mean_estimated_EV": 0.101976,
+            "Brier": 0.2416863,
+            "changed_direction_vs_independent_raw": 412
+          },
+          "bivar_empirical_c": {
+            "n": 1468,
+            "U": -26.895,
+            "ROI_pct": -1.83208,
+            "mean_estimated_EV": 0.110813,
+            "Brier": 0.2464384,
+            "changed_direction_vs_independent_raw": 173
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1468,
+            "U": -13.29,
+            "ROI_pct": -0.90531,
+            "mean_estimated_EV": 0.106952,
+            "Brier": 0.2426204,
+            "changed_direction_vs_independent_raw": 270
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1468,
+            "U": -14.43,
+            "ROI_pct": -0.98297,
+            "mean_estimated_EV": 0.109818,
+            "Brier": 0.2441676,
+            "changed_direction_vs_independent_raw": 183
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1468,
+            "U": -11.535,
+            "ROI_pct": -0.78576,
+            "mean_estimated_EV": 0.107668,
+            "Brier": 0.2422384,
+            "changed_direction_vs_independent_raw": 243
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1468,
+          "independent_poisson": {
+            "n": 1468,
+            "U": -79.65,
+            "ROI_pct": -5.42575,
+            "mean_estimated_EV": 0.132388,
+            "Brier": 0.2496012,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1468,
+            "U": -87.495,
+            "ROI_pct": -5.96015,
+            "mean_estimated_EV": 0.112222,
+            "Brier": 0.2462819,
+            "changed_direction_vs_independent_raw": 56
+          },
+          "bayes_prior_2_independent": {
+            "n": 1468,
+            "U": -86.01,
+            "ROI_pct": -5.85899,
+            "mean_estimated_EV": 0.099342,
+            "Brier": 0.2445065,
+            "changed_direction_vs_independent_raw": 104
+          },
+          "bayes_prior_5_independent": {
+            "n": 1468,
+            "U": -87.185,
+            "ROI_pct": -5.93903,
+            "mean_estimated_EV": 0.079832,
+            "Brier": 0.242287,
+            "changed_direction_vs_independent_raw": 202
+          },
+          "bivar_empirical_c": {
+            "n": 1468,
+            "U": -67.75,
+            "ROI_pct": -4.61512,
+            "mean_estimated_EV": 0.129198,
+            "Brier": 0.2491908,
+            "changed_direction_vs_independent_raw": 19
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1468,
+            "U": -84.14,
+            "ROI_pct": -5.73161,
+            "mean_estimated_EV": 0.094944,
+            "Brier": 0.2440965,
+            "changed_direction_vs_independent_raw": 84
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1468,
+            "U": -82.5,
+            "ROI_pct": -5.61989,
+            "mean_estimated_EV": 0.122017,
+            "Brier": 0.2478247,
+            "changed_direction_vs_independent_raw": 22
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1468,
+            "U": -82.295,
+            "ROI_pct": -5.60593,
+            "mean_estimated_EV": 0.105516,
+            "Brier": 0.2453429,
+            "changed_direction_vs_independent_raw": 76
+          }
+        },
+        "global": {
+          "n": 1468,
+          "independent_poisson": {
+            "n": 1468,
+            "U": -74.78,
+            "ROI_pct": -5.09401,
+            "mean_estimated_EV": 0.082742,
+            "Brier": 0.2457684,
+            "changed_direction_vs_independent_raw": 130
+          },
+          "bayes_prior_1_independent": {
+            "n": 1468,
+            "U": -95.47,
+            "ROI_pct": -6.50341,
+            "mean_estimated_EV": 0.08147,
+            "Brier": 0.2442555,
+            "changed_direction_vs_independent_raw": 152
+          },
+          "bayes_prior_2_independent": {
+            "n": 1468,
+            "U": -85.85,
+            "ROI_pct": -5.84809,
+            "mean_estimated_EV": 0.078888,
+            "Brier": 0.2430382,
+            "changed_direction_vs_independent_raw": 192
+          },
+          "bayes_prior_5_independent": {
+            "n": 1468,
+            "U": -59.82,
+            "ROI_pct": -4.07493,
+            "mean_estimated_EV": 0.070254,
+            "Brier": 0.2422689,
+            "changed_direction_vs_independent_raw": 269
+          },
+          "bivar_empirical_c": {
+            "n": 1468,
+            "U": -73.68,
+            "ROI_pct": -5.01907,
+            "mean_estimated_EV": 0.08149,
+            "Brier": 0.2454487,
+            "changed_direction_vs_independent_raw": 125
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1468,
+            "U": -107.985,
+            "ROI_pct": -7.35593,
+            "mean_estimated_EV": 0.08005,
+            "Brier": 0.2433004,
+            "changed_direction_vs_independent_raw": 185
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1468,
+            "U": -81.63,
+            "ROI_pct": -5.56063,
+            "mean_estimated_EV": 0.081643,
+            "Brier": 0.2448119,
+            "changed_direction_vs_independent_raw": 125
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1468,
+            "U": -71.53,
+            "ROI_pct": -4.87262,
+            "mean_estimated_EV": 0.082451,
+            "Brier": 0.2436319,
+            "changed_direction_vs_independent_raw": 173
+          }
+        },
+        "league": {
+          "n": 1468,
+          "independent_poisson": {
+            "n": 1468,
+            "U": -30.65,
+            "ROI_pct": -2.08787,
+            "mean_estimated_EV": 0.0978,
+            "Brier": 0.2460268,
+            "changed_direction_vs_independent_raw": 200
+          },
+          "bayes_prior_1_independent": {
+            "n": 1468,
+            "U": -45.25,
+            "ROI_pct": -3.08243,
+            "mean_estimated_EV": 0.095234,
+            "Brier": 0.2446444,
+            "changed_direction_vs_independent_raw": 222
+          },
+          "bayes_prior_2_independent": {
+            "n": 1468,
+            "U": -50.85,
+            "ROI_pct": -3.4639,
+            "mean_estimated_EV": 0.089578,
+            "Brier": 0.2437472,
+            "changed_direction_vs_independent_raw": 229
+          },
+          "bayes_prior_5_independent": {
+            "n": 1468,
+            "U": -24.295,
+            "ROI_pct": -1.65497,
+            "mean_estimated_EV": 0.084281,
+            "Brier": 0.2424866,
+            "changed_direction_vs_independent_raw": 304
+          },
+          "bivar_empirical_c": {
+            "n": 1468,
+            "U": -57.18,
+            "ROI_pct": -3.8951,
+            "mean_estimated_EV": 0.098063,
+            "Brier": 0.2466798,
+            "changed_direction_vs_independent_raw": 191
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1468,
+            "U": -47.845,
+            "ROI_pct": -3.2592,
+            "mean_estimated_EV": 0.090576,
+            "Brier": 0.2438244,
+            "changed_direction_vs_independent_raw": 227
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1468,
+            "U": -54.9,
+            "ROI_pct": -3.73978,
+            "mean_estimated_EV": 0.09404,
+            "Brier": 0.2454325,
+            "changed_direction_vs_independent_raw": 204
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1468,
+            "U": -34.715,
+            "ROI_pct": -2.36478,
+            "mean_estimated_EV": 0.092444,
+            "Brier": 0.2443695,
+            "changed_direction_vs_independent_raw": 212
+          }
+        }
+      }
+    },
+    "2023": {
+      "AH": {
+        "raw": {
+          "n": 1396,
+          "independent_poisson": {
+            "n": 1396,
+            "U": -42.81,
+            "ROI_pct": -3.06662,
+            "mean_estimated_EV": 0.160742,
+            "Brier": 0.2444484,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1396,
+            "U": -17.185,
+            "ROI_pct": -1.23102,
+            "mean_estimated_EV": 0.142354,
+            "Brier": 0.241841,
+            "changed_direction_vs_independent_raw": 98
+          },
+          "bayes_prior_2_independent": {
+            "n": 1396,
+            "U": -21.665,
+            "ROI_pct": -1.55193,
+            "mean_estimated_EV": 0.134561,
+            "Brier": 0.2408186,
+            "changed_direction_vs_independent_raw": 166
+          },
+          "bayes_prior_5_independent": {
+            "n": 1396,
+            "U": -46.73,
+            "ROI_pct": -3.34742,
+            "mean_estimated_EV": 0.135273,
+            "Brier": 0.2411732,
+            "changed_direction_vs_independent_raw": 322
+          },
+          "bivar_empirical_c": {
+            "n": 1396,
+            "U": -43.935,
+            "ROI_pct": -3.14721,
+            "mean_estimated_EV": 0.164887,
+            "Brier": 0.2448003,
+            "changed_direction_vs_independent_raw": 4
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1396,
+            "U": -21.115,
+            "ROI_pct": -1.51254,
+            "mean_estimated_EV": 0.139996,
+            "Brier": 0.2412575,
+            "changed_direction_vs_independent_raw": 171
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1396,
+            "U": -23.665,
+            "ROI_pct": -1.6952,
+            "mean_estimated_EV": 0.150529,
+            "Brier": 0.2429436,
+            "changed_direction_vs_independent_raw": 54
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1396,
+            "U": -20.195,
+            "ROI_pct": -1.44663,
+            "mean_estimated_EV": 0.137785,
+            "Brier": 0.241222,
+            "changed_direction_vs_independent_raw": 133
+          }
+        },
+        "global": {
+          "n": 1396,
+          "independent_poisson": {
+            "n": 1396,
+            "U": -39.735,
+            "ROI_pct": -2.84635,
+            "mean_estimated_EV": 0.098345,
+            "Brier": 0.2415751,
+            "changed_direction_vs_independent_raw": 129
+          },
+          "bayes_prior_1_independent": {
+            "n": 1396,
+            "U": -49.925,
+            "ROI_pct": -3.57629,
+            "mean_estimated_EV": 0.097817,
+            "Brier": 0.2412158,
+            "changed_direction_vs_independent_raw": 172
+          },
+          "bayes_prior_2_independent": {
+            "n": 1396,
+            "U": -16.13,
+            "ROI_pct": -1.15544,
+            "mean_estimated_EV": 0.097385,
+            "Brier": 0.2402147,
+            "changed_direction_vs_independent_raw": 217
+          },
+          "bayes_prior_5_independent": {
+            "n": 1396,
+            "U": -53.275,
+            "ROI_pct": -3.81626,
+            "mean_estimated_EV": 0.098698,
+            "Brier": 0.2401421,
+            "changed_direction_vs_independent_raw": 331
+          },
+          "bivar_empirical_c": {
+            "n": 1396,
+            "U": -26.17,
+            "ROI_pct": -1.87464,
+            "mean_estimated_EV": 0.097461,
+            "Brier": 0.2411572,
+            "changed_direction_vs_independent_raw": 127
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1396,
+            "U": -29.095,
+            "ROI_pct": -2.08417,
+            "mean_estimated_EV": 0.097535,
+            "Brier": 0.2400084,
+            "changed_direction_vs_independent_raw": 221
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1396,
+            "U": -50.915,
+            "ROI_pct": -3.64721,
+            "mean_estimated_EV": 0.098757,
+            "Brier": 0.2412177,
+            "changed_direction_vs_independent_raw": 152
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1396,
+            "U": -30.14,
+            "ROI_pct": -2.15903,
+            "mean_estimated_EV": 0.097661,
+            "Brier": 0.2403919,
+            "changed_direction_vs_independent_raw": 176
+          }
+        },
+        "league": {
+          "n": 1396,
+          "independent_poisson": {
+            "n": 1396,
+            "U": -30.11,
+            "ROI_pct": -2.15688,
+            "mean_estimated_EV": 0.112534,
+            "Brier": 0.2430439,
+            "changed_direction_vs_independent_raw": 195
+          },
+          "bayes_prior_1_independent": {
+            "n": 1396,
+            "U": -6.18,
+            "ROI_pct": -0.44269,
+            "mean_estimated_EV": 0.113422,
+            "Brier": 0.2412762,
+            "changed_direction_vs_independent_raw": 236
+          },
+          "bayes_prior_2_independent": {
+            "n": 1396,
+            "U": -11.34,
+            "ROI_pct": -0.81232,
+            "mean_estimated_EV": 0.112786,
+            "Brier": 0.2410825,
+            "changed_direction_vs_independent_raw": 265
+          },
+          "bayes_prior_5_independent": {
+            "n": 1396,
+            "U": -36.21,
+            "ROI_pct": -2.59384,
+            "mean_estimated_EV": 0.11393,
+            "Brier": 0.2420004,
+            "changed_direction_vs_independent_raw": 372
+          },
+          "bivar_empirical_c": {
+            "n": 1396,
+            "U": -15.735,
+            "ROI_pct": -1.12715,
+            "mean_estimated_EV": 0.112031,
+            "Brier": 0.2431113,
+            "changed_direction_vs_independent_raw": 198
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1396,
+            "U": -21.815,
+            "ROI_pct": -1.56268,
+            "mean_estimated_EV": 0.113438,
+            "Brier": 0.2418965,
+            "changed_direction_vs_independent_raw": 261
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1396,
+            "U": -4.63,
+            "ROI_pct": -0.33166,
+            "mean_estimated_EV": 0.112557,
+            "Brier": 0.2416546,
+            "changed_direction_vs_independent_raw": 215
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1396,
+            "U": -17.945,
+            "ROI_pct": -1.28546,
+            "mean_estimated_EV": 0.113114,
+            "Brier": 0.2411676,
+            "changed_direction_vs_independent_raw": 240
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1396,
+          "independent_poisson": {
+            "n": 1396,
+            "U": -10.805,
+            "ROI_pct": -0.774,
+            "mean_estimated_EV": 0.153528,
+            "Brier": 0.2489599,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1396,
+            "U": -3.78,
+            "ROI_pct": -0.27077,
+            "mean_estimated_EV": 0.133585,
+            "Brier": 0.2461995,
+            "changed_direction_vs_independent_raw": 65
+          },
+          "bayes_prior_2_independent": {
+            "n": 1396,
+            "U": -14.145,
+            "ROI_pct": -1.01325,
+            "mean_estimated_EV": 0.120678,
+            "Brier": 0.2447329,
+            "changed_direction_vs_independent_raw": 108
+          },
+          "bayes_prior_5_independent": {
+            "n": 1396,
+            "U": -14.545,
+            "ROI_pct": -1.04191,
+            "mean_estimated_EV": 0.101977,
+            "Brier": 0.2429707,
+            "changed_direction_vs_independent_raw": 208
+          },
+          "bivar_empirical_c": {
+            "n": 1396,
+            "U": -16.665,
+            "ROI_pct": -1.19377,
+            "mean_estimated_EV": 0.149969,
+            "Brier": 0.248478,
+            "changed_direction_vs_independent_raw": 10
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1396,
+            "U": -17.875,
+            "ROI_pct": -1.28044,
+            "mean_estimated_EV": 0.115094,
+            "Brier": 0.2442353,
+            "changed_direction_vs_independent_raw": 97
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1396,
+            "U": -4.83,
+            "ROI_pct": -0.34599,
+            "mean_estimated_EV": 0.143164,
+            "Brier": 0.2474599,
+            "changed_direction_vs_independent_raw": 35
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1396,
+            "U": -15.505,
+            "ROI_pct": -1.11067,
+            "mean_estimated_EV": 0.126935,
+            "Brier": 0.2454114,
+            "changed_direction_vs_independent_raw": 81
+          }
+        },
+        "global": {
+          "n": 1396,
+          "independent_poisson": {
+            "n": 1396,
+            "U": -25.745,
+            "ROI_pct": -1.8442,
+            "mean_estimated_EV": 0.087753,
+            "Brier": 0.2441907,
+            "changed_direction_vs_independent_raw": 115
+          },
+          "bayes_prior_1_independent": {
+            "n": 1396,
+            "U": -13.78,
+            "ROI_pct": -0.98711,
+            "mean_estimated_EV": 0.086398,
+            "Brier": 0.2433172,
+            "changed_direction_vs_independent_raw": 124
+          },
+          "bayes_prior_2_independent": {
+            "n": 1396,
+            "U": -28.295,
+            "ROI_pct": -2.02686,
+            "mean_estimated_EV": 0.084463,
+            "Brier": 0.2426348,
+            "changed_direction_vs_independent_raw": 146
+          },
+          "bayes_prior_5_independent": {
+            "n": 1396,
+            "U": -53.795,
+            "ROI_pct": -3.85351,
+            "mean_estimated_EV": 0.080312,
+            "Brier": 0.2418662,
+            "changed_direction_vs_independent_raw": 254
+          },
+          "bivar_empirical_c": {
+            "n": 1396,
+            "U": -5.98,
+            "ROI_pct": -0.42837,
+            "mean_estimated_EV": 0.086922,
+            "Brier": 0.2438575,
+            "changed_direction_vs_independent_raw": 129
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1396,
+            "U": -37.665,
+            "ROI_pct": -2.69807,
+            "mean_estimated_EV": 0.084505,
+            "Brier": 0.2427972,
+            "changed_direction_vs_independent_raw": 145
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1396,
+            "U": -5.07,
+            "ROI_pct": -0.36318,
+            "mean_estimated_EV": 0.086101,
+            "Brier": 0.2437376,
+            "changed_direction_vs_independent_raw": 110
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1396,
+            "U": -36.28,
+            "ROI_pct": -2.59885,
+            "mean_estimated_EV": 0.085744,
+            "Brier": 0.243094,
+            "changed_direction_vs_independent_raw": 132
+          }
+        },
+        "league": {
+          "n": 1396,
+          "independent_poisson": {
+            "n": 1396,
+            "U": -40.395,
+            "ROI_pct": -2.89362,
+            "mean_estimated_EV": 0.106711,
+            "Brier": 0.2472165,
+            "changed_direction_vs_independent_raw": 178
+          },
+          "bayes_prior_1_independent": {
+            "n": 1396,
+            "U": -43.37,
+            "ROI_pct": -3.10673,
+            "mean_estimated_EV": 0.104424,
+            "Brier": 0.2458022,
+            "changed_direction_vs_independent_raw": 192
+          },
+          "bayes_prior_2_independent": {
+            "n": 1396,
+            "U": -78.85,
+            "ROI_pct": -5.64828,
+            "mean_estimated_EV": 0.098819,
+            "Brier": 0.2453417,
+            "changed_direction_vs_independent_raw": 201
+          },
+          "bayes_prior_5_independent": {
+            "n": 1396,
+            "U": -45.54,
+            "ROI_pct": -3.26218,
+            "mean_estimated_EV": 0.093229,
+            "Brier": 0.2443244,
+            "changed_direction_vs_independent_raw": 306
+          },
+          "bivar_empirical_c": {
+            "n": 1396,
+            "U": -43.865,
+            "ROI_pct": -3.14219,
+            "mean_estimated_EV": 0.105495,
+            "Brier": 0.2464242,
+            "changed_direction_vs_independent_raw": 172
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1396,
+            "U": -66.775,
+            "ROI_pct": -4.78331,
+            "mean_estimated_EV": 0.099127,
+            "Brier": 0.2453269,
+            "changed_direction_vs_independent_raw": 192
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1396,
+            "U": -34.745,
+            "ROI_pct": -2.4889,
+            "mean_estimated_EV": 0.103744,
+            "Brier": 0.2463162,
+            "changed_direction_vs_independent_raw": 166
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1396,
+            "U": -53.92,
+            "ROI_pct": -3.86246,
+            "mean_estimated_EV": 0.101475,
+            "Brier": 0.2453683,
+            "changed_direction_vs_independent_raw": 187
+          }
+        }
+      }
+    },
+    "2024": {
+      "AH": {
+        "raw": {
+          "n": 1391,
+          "independent_poisson": {
+            "n": 1391,
+            "U": -34.98,
+            "ROI_pct": -2.51474,
+            "mean_estimated_EV": 0.171551,
+            "Brier": 0.2507081,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1391,
+            "U": -21.91,
+            "ROI_pct": -1.57513,
+            "mean_estimated_EV": 0.148421,
+            "Brier": 0.2458462,
+            "changed_direction_vs_independent_raw": 84
+          },
+          "bayes_prior_2_independent": {
+            "n": 1391,
+            "U": -33.715,
+            "ROI_pct": -2.4238,
+            "mean_estimated_EV": 0.137512,
+            "Brier": 0.2434326,
+            "changed_direction_vs_independent_raw": 181
+          },
+          "bayes_prior_5_independent": {
+            "n": 1391,
+            "U": -20.525,
+            "ROI_pct": -1.47556,
+            "mean_estimated_EV": 0.134599,
+            "Brier": 0.2416512,
+            "changed_direction_vs_independent_raw": 340
+          },
+          "bivar_empirical_c": {
+            "n": 1391,
+            "U": -33.17,
+            "ROI_pct": -2.38462,
+            "mean_estimated_EV": 0.173811,
+            "Brier": 0.251096,
+            "changed_direction_vs_independent_raw": 1
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1391,
+            "U": -35.105,
+            "ROI_pct": -2.52372,
+            "mean_estimated_EV": 0.143085,
+            "Brier": 0.2439392,
+            "changed_direction_vs_independent_raw": 181
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1391,
+            "U": -15.44,
+            "ROI_pct": -1.10999,
+            "mean_estimated_EV": 0.159,
+            "Brier": 0.2480409,
+            "changed_direction_vs_independent_raw": 35
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1391,
+            "U": -28.925,
+            "ROI_pct": -2.07944,
+            "mean_estimated_EV": 0.14202,
+            "Brier": 0.2445123,
+            "changed_direction_vs_independent_raw": 138
+          }
+        },
+        "global": {
+          "n": 1391,
+          "independent_poisson": {
+            "n": 1391,
+            "U": 3.76,
+            "ROI_pct": 0.27031,
+            "mean_estimated_EV": 0.09841,
+            "Brier": 0.2431136,
+            "changed_direction_vs_independent_raw": 157
+          },
+          "bayes_prior_1_independent": {
+            "n": 1391,
+            "U": -25.625,
+            "ROI_pct": -1.8422,
+            "mean_estimated_EV": 0.095892,
+            "Brier": 0.2403941,
+            "changed_direction_vs_independent_raw": 177
+          },
+          "bayes_prior_2_independent": {
+            "n": 1391,
+            "U": -4.49,
+            "ROI_pct": -0.32279,
+            "mean_estimated_EV": 0.094107,
+            "Brier": 0.2395614,
+            "changed_direction_vs_independent_raw": 212
+          },
+          "bayes_prior_5_independent": {
+            "n": 1391,
+            "U": -1.34,
+            "ROI_pct": -0.09633,
+            "mean_estimated_EV": 0.095492,
+            "Brier": 0.2388741,
+            "changed_direction_vs_independent_raw": 357
+          },
+          "bivar_empirical_c": {
+            "n": 1391,
+            "U": 0.175,
+            "ROI_pct": 0.01258,
+            "mean_estimated_EV": 0.097308,
+            "Brier": 0.2431674,
+            "changed_direction_vs_independent_raw": 165
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1391,
+            "U": -8.29,
+            "ROI_pct": -0.59597,
+            "mean_estimated_EV": 0.093421,
+            "Brier": 0.2393994,
+            "changed_direction_vs_independent_raw": 215
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1391,
+            "U": -16.89,
+            "ROI_pct": -1.21423,
+            "mean_estimated_EV": 0.096616,
+            "Brier": 0.2418869,
+            "changed_direction_vs_independent_raw": 159
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1391,
+            "U": -16.59,
+            "ROI_pct": -1.19267,
+            "mean_estimated_EV": 0.095547,
+            "Brier": 0.2400504,
+            "changed_direction_vs_independent_raw": 204
+          }
+        },
+        "league": {
+          "n": 1391,
+          "independent_poisson": {
+            "n": 1391,
+            "U": -26.865,
+            "ROI_pct": -1.93134,
+            "mean_estimated_EV": 0.107303,
+            "Brier": 0.2437813,
+            "changed_direction_vs_independent_raw": 196
+          },
+          "bayes_prior_1_independent": {
+            "n": 1391,
+            "U": -28.41,
+            "ROI_pct": -2.04242,
+            "mean_estimated_EV": 0.105671,
+            "Brier": 0.2423806,
+            "changed_direction_vs_independent_raw": 213
+          },
+          "bayes_prior_2_independent": {
+            "n": 1391,
+            "U": -22.035,
+            "ROI_pct": -1.58411,
+            "mean_estimated_EV": 0.10433,
+            "Brier": 0.2422634,
+            "changed_direction_vs_independent_raw": 249
+          },
+          "bayes_prior_5_independent": {
+            "n": 1391,
+            "U": 14.915,
+            "ROI_pct": 1.07225,
+            "mean_estimated_EV": 0.107244,
+            "Brier": 0.2409524,
+            "changed_direction_vs_independent_raw": 389
+          },
+          "bivar_empirical_c": {
+            "n": 1391,
+            "U": -9.695,
+            "ROI_pct": -0.69698,
+            "mean_estimated_EV": 0.106349,
+            "Brier": 0.2433116,
+            "changed_direction_vs_independent_raw": 195
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1391,
+            "U": -14.83,
+            "ROI_pct": -1.06614,
+            "mean_estimated_EV": 0.105332,
+            "Brier": 0.2425027,
+            "changed_direction_vs_independent_raw": 249
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1391,
+            "U": -14.475,
+            "ROI_pct": -1.04062,
+            "mean_estimated_EV": 0.106703,
+            "Brier": 0.2426704,
+            "changed_direction_vs_independent_raw": 206
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1391,
+            "U": -9.38,
+            "ROI_pct": -0.67434,
+            "mean_estimated_EV": 0.105753,
+            "Brier": 0.2420832,
+            "changed_direction_vs_independent_raw": 229
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1391,
+          "independent_poisson": {
+            "n": 1391,
+            "U": -7.27,
+            "ROI_pct": -0.52265,
+            "mean_estimated_EV": 0.157499,
+            "Brier": 0.2494556,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1391,
+            "U": -16.64,
+            "ROI_pct": -1.19626,
+            "mean_estimated_EV": 0.137383,
+            "Brier": 0.2464581,
+            "changed_direction_vs_independent_raw": 56
+          },
+          "bayes_prior_2_independent": {
+            "n": 1391,
+            "U": -32.1,
+            "ROI_pct": -2.30769,
+            "mean_estimated_EV": 0.124212,
+            "Brier": 0.2448524,
+            "changed_direction_vs_independent_raw": 101
+          },
+          "bayes_prior_5_independent": {
+            "n": 1391,
+            "U": -26.485,
+            "ROI_pct": -1.90403,
+            "mean_estimated_EV": 0.108867,
+            "Brier": 0.2429656,
+            "changed_direction_vs_independent_raw": 239
+          },
+          "bivar_empirical_c": {
+            "n": 1391,
+            "U": -11.16,
+            "ROI_pct": -0.8023,
+            "mean_estimated_EV": 0.155259,
+            "Brier": 0.2493257,
+            "changed_direction_vs_independent_raw": 6
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1391,
+            "U": -16.93,
+            "ROI_pct": -1.21711,
+            "mean_estimated_EV": 0.117746,
+            "Brier": 0.2442163,
+            "changed_direction_vs_independent_raw": 86
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1391,
+            "U": -7.38,
+            "ROI_pct": -0.53055,
+            "mean_estimated_EV": 0.147068,
+            "Brier": 0.247808,
+            "changed_direction_vs_independent_raw": 28
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1391,
+            "U": -26.675,
+            "ROI_pct": -1.91769,
+            "mean_estimated_EV": 0.13057,
+            "Brier": 0.245587,
+            "changed_direction_vs_independent_raw": 74
+          }
+        },
+        "global": {
+          "n": 1391,
+          "independent_poisson": {
+            "n": 1391,
+            "U": -1.655,
+            "ROI_pct": -0.11898,
+            "mean_estimated_EV": 0.083005,
+            "Brier": 0.243441,
+            "changed_direction_vs_independent_raw": 138
+          },
+          "bayes_prior_1_independent": {
+            "n": 1391,
+            "U": -26.06,
+            "ROI_pct": -1.87347,
+            "mean_estimated_EV": 0.082701,
+            "Brier": 0.2420935,
+            "changed_direction_vs_independent_raw": 166
+          },
+          "bayes_prior_2_independent": {
+            "n": 1391,
+            "U": -16.99,
+            "ROI_pct": -1.22142,
+            "mean_estimated_EV": 0.077236,
+            "Brier": 0.2414179,
+            "changed_direction_vs_independent_raw": 167
+          },
+          "bayes_prior_5_independent": {
+            "n": 1391,
+            "U": -24.455,
+            "ROI_pct": -1.75809,
+            "mean_estimated_EV": 0.070593,
+            "Brier": 0.2403782,
+            "changed_direction_vs_independent_raw": 260
+          },
+          "bivar_empirical_c": {
+            "n": 1391,
+            "U": -4.555,
+            "ROI_pct": -0.32746,
+            "mean_estimated_EV": 0.084329,
+            "Brier": 0.2433835,
+            "changed_direction_vs_independent_raw": 137
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1391,
+            "U": -31.62,
+            "ROI_pct": -2.27318,
+            "mean_estimated_EV": 0.078439,
+            "Brier": 0.2417333,
+            "changed_direction_vs_independent_raw": 162
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1391,
+            "U": -12.485,
+            "ROI_pct": -0.89756,
+            "mean_estimated_EV": 0.082253,
+            "Brier": 0.2429158,
+            "changed_direction_vs_independent_raw": 156
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1391,
+            "U": -35.905,
+            "ROI_pct": -2.58124,
+            "mean_estimated_EV": 0.078616,
+            "Brier": 0.241822,
+            "changed_direction_vs_independent_raw": 147
+          }
+        },
+        "league": {
+          "n": 1391,
+          "independent_poisson": {
+            "n": 1391,
+            "U": 1.59,
+            "ROI_pct": 0.11431,
+            "mean_estimated_EV": 0.091726,
+            "Brier": 0.2453159,
+            "changed_direction_vs_independent_raw": 215
+          },
+          "bayes_prior_1_independent": {
+            "n": 1391,
+            "U": -23.53,
+            "ROI_pct": -1.69159,
+            "mean_estimated_EV": 0.089182,
+            "Brier": 0.244065,
+            "changed_direction_vs_independent_raw": 214
+          },
+          "bayes_prior_2_independent": {
+            "n": 1391,
+            "U": -35.455,
+            "ROI_pct": -2.54889,
+            "mean_estimated_EV": 0.087581,
+            "Brier": 0.2437321,
+            "changed_direction_vs_independent_raw": 236
+          },
+          "bayes_prior_5_independent": {
+            "n": 1391,
+            "U": -32.12,
+            "ROI_pct": -2.30913,
+            "mean_estimated_EV": 0.082687,
+            "Brier": 0.2414578,
+            "changed_direction_vs_independent_raw": 306
+          },
+          "bivar_empirical_c": {
+            "n": 1391,
+            "U": 4.43,
+            "ROI_pct": 0.31848,
+            "mean_estimated_EV": 0.093635,
+            "Brier": 0.2453647,
+            "changed_direction_vs_independent_raw": 207
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1391,
+            "U": -45.755,
+            "ROI_pct": -3.28936,
+            "mean_estimated_EV": 0.087316,
+            "Brier": 0.2435708,
+            "changed_direction_vs_independent_raw": 228
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1391,
+            "U": -11.6,
+            "ROI_pct": -0.83393,
+            "mean_estimated_EV": 0.08992,
+            "Brier": 0.2449651,
+            "changed_direction_vs_independent_raw": 221
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1391,
+            "U": -30.65,
+            "ROI_pct": -2.20345,
+            "mean_estimated_EV": 0.088861,
+            "Brier": 0.2445794,
+            "changed_direction_vs_independent_raw": 233
+          }
+        }
+      }
+    },
+    "2025": {
+      "AH": {
+        "raw": {
+          "n": 1400,
+          "independent_poisson": {
+            "n": 1400,
+            "U": -16.82,
+            "ROI_pct": -1.20143,
+            "mean_estimated_EV": 0.155233,
+            "Brier": 0.2457459,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1400,
+            "U": -4.26,
+            "ROI_pct": -0.30429,
+            "mean_estimated_EV": 0.139633,
+            "Brier": 0.2434502,
+            "changed_direction_vs_independent_raw": 66
+          },
+          "bayes_prior_2_independent": {
+            "n": 1400,
+            "U": -39.265,
+            "ROI_pct": -2.80464,
+            "mean_estimated_EV": 0.131883,
+            "Brier": 0.2425195,
+            "changed_direction_vs_independent_raw": 128
+          },
+          "bayes_prior_5_independent": {
+            "n": 1400,
+            "U": -47.23,
+            "ROI_pct": -3.37357,
+            "mean_estimated_EV": 0.131428,
+            "Brier": 0.2425733,
+            "changed_direction_vs_independent_raw": 306
+          },
+          "bivar_empirical_c": {
+            "n": 1400,
+            "U": -16.93,
+            "ROI_pct": -1.20929,
+            "mean_estimated_EV": 0.159235,
+            "Brier": 0.2462325,
+            "changed_direction_vs_independent_raw": 2
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1400,
+            "U": -44.415,
+            "ROI_pct": -3.1725,
+            "mean_estimated_EV": 0.137469,
+            "Brier": 0.2431069,
+            "changed_direction_vs_independent_raw": 133
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1400,
+            "U": -10.505,
+            "ROI_pct": -0.75036,
+            "mean_estimated_EV": 0.146642,
+            "Brier": 0.2444267,
+            "changed_direction_vs_independent_raw": 35
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1400,
+            "U": -16.065,
+            "ROI_pct": -1.1475,
+            "mean_estimated_EV": 0.135279,
+            "Brier": 0.2428929,
+            "changed_direction_vs_independent_raw": 95
+          }
+        },
+        "global": {
+          "n": 1400,
+          "independent_poisson": {
+            "n": 1400,
+            "U": -31.44,
+            "ROI_pct": -2.24571,
+            "mean_estimated_EV": 0.101432,
+            "Brier": 0.2422996,
+            "changed_direction_vs_independent_raw": 320
+          },
+          "bayes_prior_1_independent": {
+            "n": 1400,
+            "U": -58.895,
+            "ROI_pct": -4.20679,
+            "mean_estimated_EV": 0.105981,
+            "Brier": 0.2420888,
+            "changed_direction_vs_independent_raw": 347
+          },
+          "bayes_prior_2_independent": {
+            "n": 1400,
+            "U": -45.04,
+            "ROI_pct": -3.21714,
+            "mean_estimated_EV": 0.107481,
+            "Brier": 0.2419108,
+            "changed_direction_vs_independent_raw": 345
+          },
+          "bayes_prior_5_independent": {
+            "n": 1400,
+            "U": -45.58,
+            "ROI_pct": -3.25571,
+            "mean_estimated_EV": 0.109799,
+            "Brier": 0.2414978,
+            "changed_direction_vs_independent_raw": 397
+          },
+          "bivar_empirical_c": {
+            "n": 1400,
+            "U": -26.18,
+            "ROI_pct": -1.87,
+            "mean_estimated_EV": 0.101258,
+            "Brier": 0.2422944,
+            "changed_direction_vs_independent_raw": 322
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1400,
+            "U": -46.675,
+            "ROI_pct": -3.33393,
+            "mean_estimated_EV": 0.106912,
+            "Brier": 0.2416783,
+            "changed_direction_vs_independent_raw": 342
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1400,
+            "U": -46.935,
+            "ROI_pct": -3.3525,
+            "mean_estimated_EV": 0.103625,
+            "Brier": 0.2428811,
+            "changed_direction_vs_independent_raw": 315
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1400,
+            "U": -59.065,
+            "ROI_pct": -4.21893,
+            "mean_estimated_EV": 0.106419,
+            "Brier": 0.2416545,
+            "changed_direction_vs_independent_raw": 346
+          }
+        },
+        "league": {
+          "n": 1400,
+          "independent_poisson": {
+            "n": 1400,
+            "U": -39.52,
+            "ROI_pct": -2.82286,
+            "mean_estimated_EV": 0.109875,
+            "Brier": 0.2447283,
+            "changed_direction_vs_independent_raw": 308
+          },
+          "bayes_prior_1_independent": {
+            "n": 1400,
+            "U": -52.375,
+            "ROI_pct": -3.74107,
+            "mean_estimated_EV": 0.115429,
+            "Brier": 0.2448154,
+            "changed_direction_vs_independent_raw": 315
+          },
+          "bayes_prior_2_independent": {
+            "n": 1400,
+            "U": -34.825,
+            "ROI_pct": -2.4875,
+            "mean_estimated_EV": 0.115959,
+            "Brier": 0.2440788,
+            "changed_direction_vs_independent_raw": 322
+          },
+          "bayes_prior_5_independent": {
+            "n": 1400,
+            "U": -14.99,
+            "ROI_pct": -1.07071,
+            "mean_estimated_EV": 0.121544,
+            "Brier": 0.2432343,
+            "changed_direction_vs_independent_raw": 412
+          },
+          "bivar_empirical_c": {
+            "n": 1400,
+            "U": -35.675,
+            "ROI_pct": -2.54821,
+            "mean_estimated_EV": 0.109418,
+            "Brier": 0.2448964,
+            "changed_direction_vs_independent_raw": 305
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1400,
+            "U": -15.44,
+            "ROI_pct": -1.10286,
+            "mean_estimated_EV": 0.115022,
+            "Brier": 0.2436493,
+            "changed_direction_vs_independent_raw": 332
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1400,
+            "U": -53.47,
+            "ROI_pct": -3.81929,
+            "mean_estimated_EV": 0.11093,
+            "Brier": 0.2452106,
+            "changed_direction_vs_independent_raw": 290
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1400,
+            "U": -42.225,
+            "ROI_pct": -3.01607,
+            "mean_estimated_EV": 0.115106,
+            "Brier": 0.2441689,
+            "changed_direction_vs_independent_raw": 319
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1400,
+          "independent_poisson": {
+            "n": 1400,
+            "U": -46.79,
+            "ROI_pct": -3.34214,
+            "mean_estimated_EV": 0.154626,
+            "Brier": 0.2517106,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1400,
+            "U": -42.04,
+            "ROI_pct": -3.00286,
+            "mean_estimated_EV": 0.139076,
+            "Brier": 0.2483222,
+            "changed_direction_vs_independent_raw": 53
+          },
+          "bayes_prior_2_independent": {
+            "n": 1400,
+            "U": -40.24,
+            "ROI_pct": -2.87429,
+            "mean_estimated_EV": 0.130138,
+            "Brier": 0.2463556,
+            "changed_direction_vs_independent_raw": 101
+          },
+          "bayes_prior_5_independent": {
+            "n": 1400,
+            "U": -24.16,
+            "ROI_pct": -1.72571,
+            "mean_estimated_EV": 0.11773,
+            "Brier": 0.2436016,
+            "changed_direction_vs_independent_raw": 191
+          },
+          "bivar_empirical_c": {
+            "n": 1400,
+            "U": -60.61,
+            "ROI_pct": -4.32929,
+            "mean_estimated_EV": 0.150682,
+            "Brier": 0.2511585,
+            "changed_direction_vs_independent_raw": 12
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1400,
+            "U": -30.385,
+            "ROI_pct": -2.17036,
+            "mean_estimated_EV": 0.123255,
+            "Brier": 0.2457264,
+            "changed_direction_vs_independent_raw": 86
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1400,
+            "U": -48.38,
+            "ROI_pct": -3.45571,
+            "mean_estimated_EV": 0.146354,
+            "Brier": 0.2499088,
+            "changed_direction_vs_independent_raw": 22
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1400,
+            "U": -36.305,
+            "ROI_pct": -2.59321,
+            "mean_estimated_EV": 0.134359,
+            "Brier": 0.2472896,
+            "changed_direction_vs_independent_raw": 85
+          }
+        },
+        "global": {
+          "n": 1400,
+          "independent_poisson": {
+            "n": 1400,
+            "U": -29.15,
+            "ROI_pct": -2.08214,
+            "mean_estimated_EV": 0.079907,
+            "Brier": 0.2453448,
+            "changed_direction_vs_independent_raw": 155
+          },
+          "bayes_prior_1_independent": {
+            "n": 1400,
+            "U": -61.215,
+            "ROI_pct": -4.3725,
+            "mean_estimated_EV": 0.079654,
+            "Brier": 0.2447865,
+            "changed_direction_vs_independent_raw": 172
+          },
+          "bayes_prior_2_independent": {
+            "n": 1400,
+            "U": -60.27,
+            "ROI_pct": -4.305,
+            "mean_estimated_EV": 0.07853,
+            "Brier": 0.2439807,
+            "changed_direction_vs_independent_raw": 183
+          },
+          "bayes_prior_5_independent": {
+            "n": 1400,
+            "U": -55.01,
+            "ROI_pct": -3.92929,
+            "mean_estimated_EV": 0.078509,
+            "Brier": 0.2438886,
+            "changed_direction_vs_independent_raw": 255
+          },
+          "bivar_empirical_c": {
+            "n": 1400,
+            "U": -21.89,
+            "ROI_pct": -1.56357,
+            "mean_estimated_EV": 0.079005,
+            "Brier": 0.2452884,
+            "changed_direction_vs_independent_raw": 151
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1400,
+            "U": -52.47,
+            "ROI_pct": -3.74786,
+            "mean_estimated_EV": 0.07843,
+            "Brier": 0.2440674,
+            "changed_direction_vs_independent_raw": 181
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1400,
+            "U": -32.445,
+            "ROI_pct": -2.3175,
+            "mean_estimated_EV": 0.081016,
+            "Brier": 0.2451456,
+            "changed_direction_vs_independent_raw": 166
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1400,
+            "U": -35.315,
+            "ROI_pct": -2.5225,
+            "mean_estimated_EV": 0.079796,
+            "Brier": 0.2445356,
+            "changed_direction_vs_independent_raw": 181
+          }
+        },
+        "league": {
+          "n": 1400,
+          "independent_poisson": {
+            "n": 1400,
+            "U": -77.33,
+            "ROI_pct": -5.52357,
+            "mean_estimated_EV": 0.093911,
+            "Brier": 0.2473078,
+            "changed_direction_vs_independent_raw": 237
+          },
+          "bayes_prior_1_independent": {
+            "n": 1400,
+            "U": -51.985,
+            "ROI_pct": -3.71321,
+            "mean_estimated_EV": 0.089206,
+            "Brier": 0.2454544,
+            "changed_direction_vs_independent_raw": 232
+          },
+          "bayes_prior_2_independent": {
+            "n": 1400,
+            "U": -46.355,
+            "ROI_pct": -3.31107,
+            "mean_estimated_EV": 0.090478,
+            "Brier": 0.2448062,
+            "changed_direction_vs_independent_raw": 267
+          },
+          "bayes_prior_5_independent": {
+            "n": 1400,
+            "U": -41.455,
+            "ROI_pct": -2.96107,
+            "mean_estimated_EV": 0.089322,
+            "Brier": 0.2442903,
+            "changed_direction_vs_independent_raw": 294
+          },
+          "bivar_empirical_c": {
+            "n": 1400,
+            "U": -53.08,
+            "ROI_pct": -3.79143,
+            "mean_estimated_EV": 0.091669,
+            "Brier": 0.2470728,
+            "changed_direction_vs_independent_raw": 237
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1400,
+            "U": -48.445,
+            "ROI_pct": -3.46036,
+            "mean_estimated_EV": 0.089678,
+            "Brier": 0.2450349,
+            "changed_direction_vs_independent_raw": 251
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1400,
+            "U": -79.32,
+            "ROI_pct": -5.66571,
+            "mean_estimated_EV": 0.090872,
+            "Brier": 0.2461093,
+            "changed_direction_vs_independent_raw": 227
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1400,
+            "U": -70.41,
+            "ROI_pct": -5.02929,
+            "mean_estimated_EV": 0.08871,
+            "Brier": 0.2445467,
+            "changed_direction_vs_independent_raw": 239
+          }
+        }
+      }
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "AH": {
+        "raw": {
+          "n": 1222,
+          "independent_poisson": {
+            "n": 1222,
+            "U": -67.525,
+            "ROI_pct": -5.52578,
+            "mean_estimated_EV": 0.162361,
+            "Brier": 0.2514,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1222,
+            "U": -23.215,
+            "ROI_pct": -1.89975,
+            "mean_estimated_EV": 0.14299,
+            "Brier": 0.2473867,
+            "changed_direction_vs_independent_raw": 89
+          },
+          "bayes_prior_2_independent": {
+            "n": 1222,
+            "U": -23.515,
+            "ROI_pct": -1.9243,
+            "mean_estimated_EV": 0.135877,
+            "Brier": 0.2456474,
+            "changed_direction_vs_independent_raw": 156
+          },
+          "bayes_prior_5_independent": {
+            "n": 1222,
+            "U": -30.665,
+            "ROI_pct": -2.50941,
+            "mean_estimated_EV": 0.138801,
+            "Brier": 0.2451085,
+            "changed_direction_vs_independent_raw": 289
+          },
+          "bivar_empirical_c": {
+            "n": 1222,
+            "U": -67.525,
+            "ROI_pct": -5.52578,
+            "mean_estimated_EV": 0.164989,
+            "Brier": 0.2517677,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1222,
+            "U": -25.775,
+            "ROI_pct": -2.10925,
+            "mean_estimated_EV": 0.14118,
+            "Brier": 0.2462092,
+            "changed_direction_vs_independent_raw": 159
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1222,
+            "U": -48.71,
+            "ROI_pct": -3.98609,
+            "mean_estimated_EV": 0.151229,
+            "Brier": 0.2491368,
+            "changed_direction_vs_independent_raw": 42
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1222,
+            "U": -18.425,
+            "ROI_pct": -1.50777,
+            "mean_estimated_EV": 0.138614,
+            "Brier": 0.2463819,
+            "changed_direction_vs_independent_raw": 120
+          }
+        },
+        "global": {
+          "n": 1222,
+          "independent_poisson": {
+            "n": 1222,
+            "U": -19.645,
+            "ROI_pct": -1.60761,
+            "mean_estimated_EV": 0.100353,
+            "Brier": 0.245321,
+            "changed_direction_vs_independent_raw": 142
+          },
+          "bayes_prior_1_independent": {
+            "n": 1222,
+            "U": -39.225,
+            "ROI_pct": -3.2099,
+            "mean_estimated_EV": 0.099695,
+            "Brier": 0.2440717,
+            "changed_direction_vs_independent_raw": 179
+          },
+          "bayes_prior_2_independent": {
+            "n": 1222,
+            "U": -14.865,
+            "ROI_pct": -1.21645,
+            "mean_estimated_EV": 0.09773,
+            "Brier": 0.2433409,
+            "changed_direction_vs_independent_raw": 213
+          },
+          "bayes_prior_5_independent": {
+            "n": 1222,
+            "U": -21.465,
+            "ROI_pct": -1.75655,
+            "mean_estimated_EV": 0.101123,
+            "Brier": 0.2430022,
+            "changed_direction_vs_independent_raw": 321
+          },
+          "bivar_empirical_c": {
+            "n": 1222,
+            "U": -23.715,
+            "ROI_pct": -1.94067,
+            "mean_estimated_EV": 0.09928,
+            "Brier": 0.2451788,
+            "changed_direction_vs_independent_raw": 148
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1222,
+            "U": -10.495,
+            "ROI_pct": -0.85884,
+            "mean_estimated_EV": 0.097082,
+            "Brier": 0.2432527,
+            "changed_direction_vs_independent_raw": 218
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1222,
+            "U": -11.475,
+            "ROI_pct": -0.93903,
+            "mean_estimated_EV": 0.099497,
+            "Brier": 0.2442504,
+            "changed_direction_vs_independent_raw": 163
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1222,
+            "U": -9.195,
+            "ROI_pct": -0.75245,
+            "mean_estimated_EV": 0.097761,
+            "Brier": 0.2437384,
+            "changed_direction_vs_independent_raw": 194
+          }
+        },
+        "league": {
+          "n": 1222,
+          "independent_poisson": {
+            "n": 1222,
+            "U": -29.505,
+            "ROI_pct": -2.41448,
+            "mean_estimated_EV": 0.091879,
+            "Brier": 0.2463267,
+            "changed_direction_vs_independent_raw": 235
+          },
+          "bayes_prior_1_independent": {
+            "n": 1222,
+            "U": -14.42,
+            "ROI_pct": -1.18003,
+            "mean_estimated_EV": 0.101574,
+            "Brier": 0.2449044,
+            "changed_direction_vs_independent_raw": 242
+          },
+          "bayes_prior_2_independent": {
+            "n": 1222,
+            "U": -4.76,
+            "ROI_pct": -0.38953,
+            "mean_estimated_EV": 0.104218,
+            "Brier": 0.2439663,
+            "changed_direction_vs_independent_raw": 282
+          },
+          "bayes_prior_5_independent": {
+            "n": 1222,
+            "U": -6.88,
+            "ROI_pct": -0.56301,
+            "mean_estimated_EV": 0.101268,
+            "Brier": 0.2443697,
+            "changed_direction_vs_independent_raw": 376
+          },
+          "bivar_empirical_c": {
+            "n": 1222,
+            "U": -17.61,
+            "ROI_pct": -1.44108,
+            "mean_estimated_EV": 0.092849,
+            "Brier": 0.2464121,
+            "changed_direction_vs_independent_raw": 229
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1222,
+            "U": 1.425,
+            "ROI_pct": 0.11661,
+            "mean_estimated_EV": 0.104418,
+            "Brier": 0.2440302,
+            "changed_direction_vs_independent_raw": 283
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1222,
+            "U": -1.38,
+            "ROI_pct": -0.11293,
+            "mean_estimated_EV": 0.095513,
+            "Brier": 0.2456072,
+            "changed_direction_vs_independent_raw": 238
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1222,
+            "U": 0.33,
+            "ROI_pct": 0.027,
+            "mean_estimated_EV": 0.103005,
+            "Brier": 0.245116,
+            "changed_direction_vs_independent_raw": 266
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1222,
+          "independent_poisson": {
+            "n": 1222,
+            "U": -82.02,
+            "ROI_pct": -6.71195,
+            "mean_estimated_EV": 0.140321,
+            "Brier": 0.2533677,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1222,
+            "U": -88.685,
+            "ROI_pct": -7.25736,
+            "mean_estimated_EV": 0.119308,
+            "Brier": 0.2499887,
+            "changed_direction_vs_independent_raw": 48
+          },
+          "bayes_prior_2_independent": {
+            "n": 1222,
+            "U": -76.01,
+            "ROI_pct": -6.22013,
+            "mean_estimated_EV": 0.105824,
+            "Brier": 0.2480997,
+            "changed_direction_vs_independent_raw": 75
+          },
+          "bayes_prior_5_independent": {
+            "n": 1222,
+            "U": -60.985,
+            "ROI_pct": -4.99059,
+            "mean_estimated_EV": 0.0881,
+            "Brier": 0.2456839,
+            "changed_direction_vs_independent_raw": 187
+          },
+          "bivar_empirical_c": {
+            "n": 1222,
+            "U": -86.54,
+            "ROI_pct": -7.08183,
+            "mean_estimated_EV": 0.138354,
+            "Brier": 0.2531896,
+            "changed_direction_vs_independent_raw": 7
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1222,
+            "U": -81.925,
+            "ROI_pct": -6.70417,
+            "mean_estimated_EV": 0.101965,
+            "Brier": 0.2478535,
+            "changed_direction_vs_independent_raw": 66
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1222,
+            "U": -84.84,
+            "ROI_pct": -6.94272,
+            "mean_estimated_EV": 0.129515,
+            "Brier": 0.2515392,
+            "changed_direction_vs_independent_raw": 24
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1222,
+            "U": -84.705,
+            "ROI_pct": -6.93167,
+            "mean_estimated_EV": 0.112367,
+            "Brier": 0.2489815,
+            "changed_direction_vs_independent_raw": 61
+          }
+        },
+        "global": {
+          "n": 1222,
+          "independent_poisson": {
+            "n": 1222,
+            "U": -87.74,
+            "ROI_pct": -7.18003,
+            "mean_estimated_EV": 0.0791,
+            "Brier": 0.2474314,
+            "changed_direction_vs_independent_raw": 124
+          },
+          "bayes_prior_1_independent": {
+            "n": 1222,
+            "U": -125.05,
+            "ROI_pct": -10.23322,
+            "mean_estimated_EV": 0.076072,
+            "Brier": 0.2463454,
+            "changed_direction_vs_independent_raw": 145
+          },
+          "bayes_prior_2_independent": {
+            "n": 1222,
+            "U": -89.675,
+            "ROI_pct": -7.33838,
+            "mean_estimated_EV": 0.071644,
+            "Brier": 0.2456217,
+            "changed_direction_vs_independent_raw": 163
+          },
+          "bayes_prior_5_independent": {
+            "n": 1222,
+            "U": -74.155,
+            "ROI_pct": -6.06833,
+            "mean_estimated_EV": 0.067354,
+            "Brier": 0.2447492,
+            "changed_direction_vs_independent_raw": 243
+          },
+          "bivar_empirical_c": {
+            "n": 1222,
+            "U": -92.495,
+            "ROI_pct": -7.56915,
+            "mean_estimated_EV": 0.078739,
+            "Brier": 0.247037,
+            "changed_direction_vs_independent_raw": 122
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1222,
+            "U": -98.65,
+            "ROI_pct": -8.07283,
+            "mean_estimated_EV": 0.072079,
+            "Brier": 0.2457357,
+            "changed_direction_vs_independent_raw": 162
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1222,
+            "U": -93.535,
+            "ROI_pct": -7.65426,
+            "mean_estimated_EV": 0.077921,
+            "Brier": 0.2467483,
+            "changed_direction_vs_independent_raw": 143
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1222,
+            "U": -107.98,
+            "ROI_pct": -8.83633,
+            "mean_estimated_EV": 0.073641,
+            "Brier": 0.2458684,
+            "changed_direction_vs_independent_raw": 150
+          }
+        },
+        "league": {
+          "n": 1222,
+          "independent_poisson": {
+            "n": 1222,
+            "U": -67.98,
+            "ROI_pct": -5.56301,
+            "mean_estimated_EV": 0.083231,
+            "Brier": 0.2484208,
+            "changed_direction_vs_independent_raw": 206
+          },
+          "bayes_prior_1_independent": {
+            "n": 1222,
+            "U": -91.715,
+            "ROI_pct": -7.50532,
+            "mean_estimated_EV": 0.085237,
+            "Brier": 0.2483211,
+            "changed_direction_vs_independent_raw": 232
+          },
+          "bayes_prior_2_independent": {
+            "n": 1222,
+            "U": -106.66,
+            "ROI_pct": -8.72831,
+            "mean_estimated_EV": 0.085531,
+            "Brier": 0.2483564,
+            "changed_direction_vs_independent_raw": 231
+          },
+          "bayes_prior_5_independent": {
+            "n": 1222,
+            "U": -70.585,
+            "ROI_pct": -5.77619,
+            "mean_estimated_EV": 0.083627,
+            "Brier": 0.2480257,
+            "changed_direction_vs_independent_raw": 276
+          },
+          "bivar_empirical_c": {
+            "n": 1222,
+            "U": -77.185,
+            "ROI_pct": -6.31628,
+            "mean_estimated_EV": 0.0802,
+            "Brier": 0.2486397,
+            "changed_direction_vs_independent_raw": 206
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1222,
+            "U": -119.95,
+            "ROI_pct": -9.81588,
+            "mean_estimated_EV": 0.085629,
+            "Brier": 0.2486091,
+            "changed_direction_vs_independent_raw": 236
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1222,
+            "U": -82.215,
+            "ROI_pct": -6.72791,
+            "mean_estimated_EV": 0.083086,
+            "Brier": 0.2482433,
+            "changed_direction_vs_independent_raw": 228
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1222,
+            "U": -103.545,
+            "ROI_pct": -8.4734,
+            "mean_estimated_EV": 0.086072,
+            "Brier": 0.2482774,
+            "changed_direction_vs_independent_raw": 234
+          }
+        }
+      }
+    },
+    "epl": {
+      "AH": {
+        "raw": {
+          "n": 1562,
+          "independent_poisson": {
+            "n": 1562,
+            "U": -29.435,
+            "ROI_pct": -1.88444,
+            "mean_estimated_EV": 0.170303,
+            "Brier": 0.2501902,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1562,
+            "U": -15.24,
+            "ROI_pct": -0.97567,
+            "mean_estimated_EV": 0.153106,
+            "Brier": 0.2461752,
+            "changed_direction_vs_independent_raw": 95
+          },
+          "bayes_prior_2_independent": {
+            "n": 1562,
+            "U": 11.28,
+            "ROI_pct": 0.72215,
+            "mean_estimated_EV": 0.146185,
+            "Brier": 0.2442662,
+            "changed_direction_vs_independent_raw": 190
+          },
+          "bayes_prior_5_independent": {
+            "n": 1562,
+            "U": 24.685,
+            "ROI_pct": 1.58035,
+            "mean_estimated_EV": 0.151003,
+            "Brier": 0.2430499,
+            "changed_direction_vs_independent_raw": 381
+          },
+          "bivar_empirical_c": {
+            "n": 1562,
+            "U": -31.415,
+            "ROI_pct": -2.0112,
+            "mean_estimated_EV": 0.173356,
+            "Brier": 0.2509703,
+            "changed_direction_vs_independent_raw": 3
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1562,
+            "U": 14.64,
+            "ROI_pct": 0.93726,
+            "mean_estimated_EV": 0.1522,
+            "Brier": 0.2449329,
+            "changed_direction_vs_independent_raw": 194
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1562,
+            "U": -29.89,
+            "ROI_pct": -1.91357,
+            "mean_estimated_EV": 0.160872,
+            "Brier": 0.247971,
+            "changed_direction_vs_independent_raw": 47
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1562,
+            "U": -4.585,
+            "ROI_pct": -0.29353,
+            "mean_estimated_EV": 0.148837,
+            "Brier": 0.2451081,
+            "changed_direction_vs_independent_raw": 148
+          }
+        },
+        "global": {
+          "n": 1562,
+          "independent_poisson": {
+            "n": 1562,
+            "U": -2.24,
+            "ROI_pct": -0.14341,
+            "mean_estimated_EV": 0.103689,
+            "Brier": 0.2434398,
+            "changed_direction_vs_independent_raw": 182
+          },
+          "bayes_prior_1_independent": {
+            "n": 1562,
+            "U": -31.27,
+            "ROI_pct": -2.00192,
+            "mean_estimated_EV": 0.104566,
+            "Brier": 0.243204,
+            "changed_direction_vs_independent_raw": 209
+          },
+          "bayes_prior_2_independent": {
+            "n": 1562,
+            "U": 12.765,
+            "ROI_pct": 0.81722,
+            "mean_estimated_EV": 0.106434,
+            "Brier": 0.2416643,
+            "changed_direction_vs_independent_raw": 261
+          },
+          "bayes_prior_5_independent": {
+            "n": 1562,
+            "U": 26.885,
+            "ROI_pct": 1.72119,
+            "mean_estimated_EV": 0.109668,
+            "Brier": 0.2407779,
+            "changed_direction_vs_independent_raw": 408
+          },
+          "bivar_empirical_c": {
+            "n": 1562,
+            "U": 0.555,
+            "ROI_pct": 0.03553,
+            "mean_estimated_EV": 0.103287,
+            "Brier": 0.2440574,
+            "changed_direction_vs_independent_raw": 179
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1562,
+            "U": 15.52,
+            "ROI_pct": 0.9936,
+            "mean_estimated_EV": 0.106099,
+            "Brier": 0.2417444,
+            "changed_direction_vs_independent_raw": 260
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1562,
+            "U": -36.545,
+            "ROI_pct": -2.33963,
+            "mean_estimated_EV": 0.103793,
+            "Brier": 0.2438228,
+            "changed_direction_vs_independent_raw": 182
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1562,
+            "U": -0.305,
+            "ROI_pct": -0.01953,
+            "mean_estimated_EV": 0.105469,
+            "Brier": 0.2422547,
+            "changed_direction_vs_independent_raw": 232
+          }
+        },
+        "league": {
+          "n": 1562,
+          "independent_poisson": {
+            "n": 1562,
+            "U": -5.75,
+            "ROI_pct": -0.36812,
+            "mean_estimated_EV": 0.10481,
+            "Brier": 0.2450905,
+            "changed_direction_vs_independent_raw": 169
+          },
+          "bayes_prior_1_independent": {
+            "n": 1562,
+            "U": -2.47,
+            "ROI_pct": -0.15813,
+            "mean_estimated_EV": 0.106854,
+            "Brier": 0.24454,
+            "changed_direction_vs_independent_raw": 217
+          },
+          "bayes_prior_2_independent": {
+            "n": 1562,
+            "U": 18.515,
+            "ROI_pct": 1.18534,
+            "mean_estimated_EV": 0.104269,
+            "Brier": 0.2424847,
+            "changed_direction_vs_independent_raw": 235
+          },
+          "bayes_prior_5_independent": {
+            "n": 1562,
+            "U": 19.425,
+            "ROI_pct": 1.2436,
+            "mean_estimated_EV": 0.102232,
+            "Brier": 0.2412786,
+            "changed_direction_vs_independent_raw": 397
+          },
+          "bivar_empirical_c": {
+            "n": 1562,
+            "U": 13.16,
+            "ROI_pct": 0.84251,
+            "mean_estimated_EV": 0.103454,
+            "Brier": 0.2450756,
+            "changed_direction_vs_independent_raw": 167
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1562,
+            "U": 1.515,
+            "ROI_pct": 0.09699,
+            "mean_estimated_EV": 0.105379,
+            "Brier": 0.2427298,
+            "changed_direction_vs_independent_raw": 247
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1562,
+            "U": -17.95,
+            "ROI_pct": -1.14917,
+            "mean_estimated_EV": 0.105186,
+            "Brier": 0.2444056,
+            "changed_direction_vs_independent_raw": 185
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1562,
+            "U": -0.285,
+            "ROI_pct": -0.01825,
+            "mean_estimated_EV": 0.108166,
+            "Brier": 0.2430356,
+            "changed_direction_vs_independent_raw": 234
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1562,
+          "independent_poisson": {
+            "n": 1562,
+            "U": 4.125,
+            "ROI_pct": 0.26408,
+            "mean_estimated_EV": 0.144678,
+            "Brier": 0.2497779,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1562,
+            "U": 1.815,
+            "ROI_pct": 0.1162,
+            "mean_estimated_EV": 0.124847,
+            "Brier": 0.246105,
+            "changed_direction_vs_independent_raw": 60
+          },
+          "bayes_prior_2_independent": {
+            "n": 1562,
+            "U": -16.19,
+            "ROI_pct": -1.03649,
+            "mean_estimated_EV": 0.111599,
+            "Brier": 0.2440506,
+            "changed_direction_vs_independent_raw": 113
+          },
+          "bayes_prior_5_independent": {
+            "n": 1562,
+            "U": 7.11,
+            "ROI_pct": 0.45519,
+            "mean_estimated_EV": 0.092052,
+            "Brier": 0.2413,
+            "changed_direction_vs_independent_raw": 236
+          },
+          "bivar_empirical_c": {
+            "n": 1562,
+            "U": 3.25,
+            "ROI_pct": 0.20807,
+            "mean_estimated_EV": 0.142671,
+            "Brier": 0.249567,
+            "changed_direction_vs_independent_raw": 10
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1562,
+            "U": -3.015,
+            "ROI_pct": -0.19302,
+            "mean_estimated_EV": 0.106845,
+            "Brier": 0.2437919,
+            "changed_direction_vs_independent_raw": 92
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1562,
+            "U": 8.0,
+            "ROI_pct": 0.51216,
+            "mean_estimated_EV": 0.1345,
+            "Brier": 0.2478275,
+            "changed_direction_vs_independent_raw": 34
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1562,
+            "U": 4.805,
+            "ROI_pct": 0.30762,
+            "mean_estimated_EV": 0.118016,
+            "Brier": 0.2450265,
+            "changed_direction_vs_independent_raw": 85
+          }
+        },
+        "global": {
+          "n": 1562,
+          "independent_poisson": {
+            "n": 1562,
+            "U": 31.685,
+            "ROI_pct": 2.02849,
+            "mean_estimated_EV": 0.08362,
+            "Brier": 0.2452581,
+            "changed_direction_vs_independent_raw": 178
+          },
+          "bayes_prior_1_independent": {
+            "n": 1562,
+            "U": 11.255,
+            "ROI_pct": 0.72055,
+            "mean_estimated_EV": 0.082607,
+            "Brier": 0.2435756,
+            "changed_direction_vs_independent_raw": 193
+          },
+          "bayes_prior_2_independent": {
+            "n": 1562,
+            "U": 9.685,
+            "ROI_pct": 0.62004,
+            "mean_estimated_EV": 0.078837,
+            "Brier": 0.2425321,
+            "changed_direction_vs_independent_raw": 224
+          },
+          "bayes_prior_5_independent": {
+            "n": 1562,
+            "U": 6.435,
+            "ROI_pct": 0.41197,
+            "mean_estimated_EV": 0.074128,
+            "Brier": 0.2420103,
+            "changed_direction_vs_independent_raw": 290
+          },
+          "bivar_empirical_c": {
+            "n": 1562,
+            "U": 20.245,
+            "ROI_pct": 1.29609,
+            "mean_estimated_EV": 0.083583,
+            "Brier": 0.2447442,
+            "changed_direction_vs_independent_raw": 167
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1562,
+            "U": 1.855,
+            "ROI_pct": 0.11876,
+            "mean_estimated_EV": 0.080171,
+            "Brier": 0.2426579,
+            "changed_direction_vs_independent_raw": 222
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1562,
+            "U": -5.51,
+            "ROI_pct": -0.35275,
+            "mean_estimated_EV": 0.083209,
+            "Brier": 0.2445293,
+            "changed_direction_vs_independent_raw": 168
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1562,
+            "U": 11.72,
+            "ROI_pct": 0.75032,
+            "mean_estimated_EV": 0.082046,
+            "Brier": 0.2429741,
+            "changed_direction_vs_independent_raw": 199
+          }
+        },
+        "league": {
+          "n": 1562,
+          "independent_poisson": {
+            "n": 1562,
+            "U": 15.29,
+            "ROI_pct": 0.97887,
+            "mean_estimated_EV": 0.113363,
+            "Brier": 0.2480184,
+            "changed_direction_vs_independent_raw": 279
+          },
+          "bayes_prior_1_independent": {
+            "n": 1562,
+            "U": 6.615,
+            "ROI_pct": 0.4235,
+            "mean_estimated_EV": 0.104917,
+            "Brier": 0.2458569,
+            "changed_direction_vs_independent_raw": 263
+          },
+          "bayes_prior_2_independent": {
+            "n": 1562,
+            "U": 14.965,
+            "ROI_pct": 0.95807,
+            "mean_estimated_EV": 0.101914,
+            "Brier": 0.2451966,
+            "changed_direction_vs_independent_raw": 244
+          },
+          "bayes_prior_5_independent": {
+            "n": 1562,
+            "U": 51.69,
+            "ROI_pct": 3.30922,
+            "mean_estimated_EV": 0.094694,
+            "Brier": 0.243276,
+            "changed_direction_vs_independent_raw": 319
+          },
+          "bivar_empirical_c": {
+            "n": 1562,
+            "U": 33.12,
+            "ROI_pct": 2.12036,
+            "mean_estimated_EV": 0.11305,
+            "Brier": 0.2475098,
+            "changed_direction_vs_independent_raw": 268
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1562,
+            "U": 18.935,
+            "ROI_pct": 1.21223,
+            "mean_estimated_EV": 0.102303,
+            "Brier": 0.2453073,
+            "changed_direction_vs_independent_raw": 247
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1562,
+            "U": 7.035,
+            "ROI_pct": 0.45038,
+            "mean_estimated_EV": 0.10662,
+            "Brier": 0.2469785,
+            "changed_direction_vs_independent_raw": 250
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1562,
+            "U": 10.48,
+            "ROI_pct": 0.67093,
+            "mean_estimated_EV": 0.103066,
+            "Brier": 0.2457199,
+            "changed_direction_vs_independent_raw": 247
+          }
+        }
+      }
+    },
+    "la-liga": {
+      "AH": {
+        "raw": {
+          "n": 1390,
+          "independent_poisson": {
+            "n": 1390,
+            "U": -67.95,
+            "ROI_pct": -4.88849,
+            "mean_estimated_EV": 0.162978,
+            "Brier": 0.24361,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1390,
+            "U": -37.54,
+            "ROI_pct": -2.70072,
+            "mean_estimated_EV": 0.141652,
+            "Brier": 0.2397213,
+            "changed_direction_vs_independent_raw": 71
+          },
+          "bayes_prior_2_independent": {
+            "n": 1390,
+            "U": -56.045,
+            "ROI_pct": -4.03201,
+            "mean_estimated_EV": 0.130467,
+            "Brier": 0.237772,
+            "changed_direction_vs_independent_raw": 142
+          },
+          "bayes_prior_5_independent": {
+            "n": 1390,
+            "U": -56.22,
+            "ROI_pct": -4.0446,
+            "mean_estimated_EV": 0.124618,
+            "Brier": 0.2364901,
+            "changed_direction_vs_independent_raw": 299
+          },
+          "bivar_empirical_c": {
+            "n": 1390,
+            "U": -64.11,
+            "ROI_pct": -4.61223,
+            "mean_estimated_EV": 0.168538,
+            "Brier": 0.2441077,
+            "changed_direction_vs_independent_raw": 6
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1390,
+            "U": -52.065,
+            "ROI_pct": -3.74568,
+            "mean_estimated_EV": 0.13626,
+            "Brier": 0.238218,
+            "changed_direction_vs_independent_raw": 142
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1390,
+            "U": -42.665,
+            "ROI_pct": -3.06942,
+            "mean_estimated_EV": 0.151458,
+            "Brier": 0.2414721,
+            "changed_direction_vs_independent_raw": 34
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1390,
+            "U": -48.075,
+            "ROI_pct": -3.45863,
+            "mean_estimated_EV": 0.135359,
+            "Brier": 0.2386405,
+            "changed_direction_vs_independent_raw": 103
+          }
+        },
+        "global": {
+          "n": 1390,
+          "independent_poisson": {
+            "n": 1390,
+            "U": -72.8,
+            "ROI_pct": -5.23741,
+            "mean_estimated_EV": 0.096582,
+            "Brier": 0.2405943,
+            "changed_direction_vs_independent_raw": 162
+          },
+          "bayes_prior_1_independent": {
+            "n": 1390,
+            "U": -112.6,
+            "ROI_pct": -8.10072,
+            "mean_estimated_EV": 0.094507,
+            "Brier": 0.2384711,
+            "changed_direction_vs_independent_raw": 177
+          },
+          "bayes_prior_2_independent": {
+            "n": 1390,
+            "U": -77.7,
+            "ROI_pct": -5.58993,
+            "mean_estimated_EV": 0.093787,
+            "Brier": 0.2375674,
+            "changed_direction_vs_independent_raw": 232
+          },
+          "bayes_prior_5_independent": {
+            "n": 1390,
+            "U": -63.42,
+            "ROI_pct": -4.56259,
+            "mean_estimated_EV": 0.09009,
+            "Brier": 0.2368416,
+            "changed_direction_vs_independent_raw": 342
+          },
+          "bivar_empirical_c": {
+            "n": 1390,
+            "U": -78.625,
+            "ROI_pct": -5.65647,
+            "mean_estimated_EV": 0.097527,
+            "Brier": 0.2403645,
+            "changed_direction_vs_independent_raw": 161
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1390,
+            "U": -90.4,
+            "ROI_pct": -6.5036,
+            "mean_estimated_EV": 0.093533,
+            "Brier": 0.2374624,
+            "changed_direction_vs_independent_raw": 243
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1390,
+            "U": -89.97,
+            "ROI_pct": -6.47266,
+            "mean_estimated_EV": 0.095624,
+            "Brier": 0.2393281,
+            "changed_direction_vs_independent_raw": 169
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1390,
+            "U": -99.235,
+            "ROI_pct": -7.13921,
+            "mean_estimated_EV": 0.093946,
+            "Brier": 0.2378167,
+            "changed_direction_vs_independent_raw": 200
+          }
+        },
+        "league": {
+          "n": 1390,
+          "independent_poisson": {
+            "n": 1390,
+            "U": -72.42,
+            "ROI_pct": -5.21007,
+            "mean_estimated_EV": 0.126957,
+            "Brier": 0.2424215,
+            "changed_direction_vs_independent_raw": 214
+          },
+          "bayes_prior_1_independent": {
+            "n": 1390,
+            "U": -73.875,
+            "ROI_pct": -5.31475,
+            "mean_estimated_EV": 0.125635,
+            "Brier": 0.2397978,
+            "changed_direction_vs_independent_raw": 242
+          },
+          "bayes_prior_2_independent": {
+            "n": 1390,
+            "U": -53.02,
+            "ROI_pct": -3.81439,
+            "mean_estimated_EV": 0.13002,
+            "Brier": 0.2405557,
+            "changed_direction_vs_independent_raw": 277
+          },
+          "bayes_prior_5_independent": {
+            "n": 1390,
+            "U": -5.465,
+            "ROI_pct": -0.39317,
+            "mean_estimated_EV": 0.128899,
+            "Brier": 0.2392188,
+            "changed_direction_vs_independent_raw": 372
+          },
+          "bivar_empirical_c": {
+            "n": 1390,
+            "U": -73.0,
+            "ROI_pct": -5.2518,
+            "mean_estimated_EV": 0.12463,
+            "Brier": 0.24218,
+            "changed_direction_vs_independent_raw": 229
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1390,
+            "U": -36.015,
+            "ROI_pct": -2.59101,
+            "mean_estimated_EV": 0.129263,
+            "Brier": 0.2404066,
+            "changed_direction_vs_independent_raw": 288
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1390,
+            "U": -72.74,
+            "ROI_pct": -5.23309,
+            "mean_estimated_EV": 0.127025,
+            "Brier": 0.2409434,
+            "changed_direction_vs_independent_raw": 236
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1390,
+            "U": -44.48,
+            "ROI_pct": -3.2,
+            "mean_estimated_EV": 0.125758,
+            "Brier": 0.2391193,
+            "changed_direction_vs_independent_raw": 253
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1390,
+          "independent_poisson": {
+            "n": 1390,
+            "U": 2.75,
+            "ROI_pct": 0.19784,
+            "mean_estimated_EV": 0.144171,
+            "Brier": 0.2459014,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1390,
+            "U": -7.545,
+            "ROI_pct": -0.54281,
+            "mean_estimated_EV": 0.128042,
+            "Brier": 0.2431259,
+            "changed_direction_vs_independent_raw": 77
+          },
+          "bayes_prior_2_independent": {
+            "n": 1390,
+            "U": -14.325,
+            "ROI_pct": -1.03058,
+            "mean_estimated_EV": 0.119216,
+            "Brier": 0.2417395,
+            "changed_direction_vs_independent_raw": 132
+          },
+          "bayes_prior_5_independent": {
+            "n": 1390,
+            "U": -16.65,
+            "ROI_pct": -1.19784,
+            "mean_estimated_EV": 0.109859,
+            "Brier": 0.2403196,
+            "changed_direction_vs_independent_raw": 240
+          },
+          "bivar_empirical_c": {
+            "n": 1390,
+            "U": -13.88,
+            "ROI_pct": -0.99856,
+            "mean_estimated_EV": 0.139991,
+            "Brier": 0.2454982,
+            "changed_direction_vs_independent_raw": 20
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1390,
+            "U": -19.165,
+            "ROI_pct": -1.37878,
+            "mean_estimated_EV": 0.112541,
+            "Brier": 0.2411478,
+            "changed_direction_vs_independent_raw": 112
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1390,
+            "U": -0.56,
+            "ROI_pct": -0.04029,
+            "mean_estimated_EV": 0.135371,
+            "Brier": 0.2443881,
+            "changed_direction_vs_independent_raw": 28
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1390,
+            "U": -15.23,
+            "ROI_pct": -1.09568,
+            "mean_estimated_EV": 0.123287,
+            "Brier": 0.2423753,
+            "changed_direction_vs_independent_raw": 102
+          }
+        },
+        "global": {
+          "n": 1390,
+          "independent_poisson": {
+            "n": 1390,
+            "U": -3.14,
+            "ROI_pct": -0.2259,
+            "mean_estimated_EV": 0.08179,
+            "Brier": 0.2421436,
+            "changed_direction_vs_independent_raw": 124
+          },
+          "bayes_prior_1_independent": {
+            "n": 1390,
+            "U": -31.26,
+            "ROI_pct": -2.24892,
+            "mean_estimated_EV": 0.083305,
+            "Brier": 0.2408503,
+            "changed_direction_vs_independent_raw": 148
+          },
+          "bayes_prior_2_independent": {
+            "n": 1390,
+            "U": -41.775,
+            "ROI_pct": -3.0054,
+            "mean_estimated_EV": 0.082714,
+            "Brier": 0.2397067,
+            "changed_direction_vs_independent_raw": 172
+          },
+          "bayes_prior_5_independent": {
+            "n": 1390,
+            "U": -35.065,
+            "ROI_pct": -2.52266,
+            "mean_estimated_EV": 0.082297,
+            "Brier": 0.2390712,
+            "changed_direction_vs_independent_raw": 287
+          },
+          "bivar_empirical_c": {
+            "n": 1390,
+            "U": 4.255,
+            "ROI_pct": 0.30612,
+            "mean_estimated_EV": 0.08141,
+            "Brier": 0.242257,
+            "changed_direction_vs_independent_raw": 127
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1390,
+            "U": -48.74,
+            "ROI_pct": -3.50647,
+            "mean_estimated_EV": 0.082177,
+            "Brier": 0.239978,
+            "changed_direction_vs_independent_raw": 163
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1390,
+            "U": 5.525,
+            "ROI_pct": 0.39748,
+            "mean_estimated_EV": 0.082881,
+            "Brier": 0.2419129,
+            "changed_direction_vs_independent_raw": 130
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1390,
+            "U": -24.35,
+            "ROI_pct": -1.7518,
+            "mean_estimated_EV": 0.082968,
+            "Brier": 0.2405297,
+            "changed_direction_vs_independent_raw": 152
+          }
+        },
+        "league": {
+          "n": 1390,
+          "independent_poisson": {
+            "n": 1390,
+            "U": -15.595,
+            "ROI_pct": -1.12194,
+            "mean_estimated_EV": 0.103849,
+            "Brier": 0.2441973,
+            "changed_direction_vs_independent_raw": 183
+          },
+          "bayes_prior_1_independent": {
+            "n": 1390,
+            "U": -29.87,
+            "ROI_pct": -2.14892,
+            "mean_estimated_EV": 0.09708,
+            "Brier": 0.2420741,
+            "changed_direction_vs_independent_raw": 219
+          },
+          "bayes_prior_2_independent": {
+            "n": 1390,
+            "U": -47.58,
+            "ROI_pct": -3.42302,
+            "mean_estimated_EV": 0.093279,
+            "Brier": 0.241428,
+            "changed_direction_vs_independent_raw": 229
+          },
+          "bayes_prior_5_independent": {
+            "n": 1390,
+            "U": -56.11,
+            "ROI_pct": -4.03669,
+            "mean_estimated_EV": 0.090876,
+            "Brier": 0.2405877,
+            "changed_direction_vs_independent_raw": 349
+          },
+          "bivar_empirical_c": {
+            "n": 1390,
+            "U": -24.445,
+            "ROI_pct": -1.75863,
+            "mean_estimated_EV": 0.104303,
+            "Brier": 0.2444518,
+            "changed_direction_vs_independent_raw": 174
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1390,
+            "U": -47.03,
+            "ROI_pct": -3.38345,
+            "mean_estimated_EV": 0.094102,
+            "Brier": 0.2412433,
+            "changed_direction_vs_independent_raw": 217
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1390,
+            "U": -42.63,
+            "ROI_pct": -3.06691,
+            "mean_estimated_EV": 0.098816,
+            "Brier": 0.2431758,
+            "changed_direction_vs_independent_raw": 195
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1390,
+            "U": -46.235,
+            "ROI_pct": -3.32626,
+            "mean_estimated_EV": 0.093249,
+            "Brier": 0.2419432,
+            "changed_direction_vs_independent_raw": 227
+          }
+        }
+      }
+    },
+    "ligue-1": {
+      "AH": {
+        "raw": {
+          "n": 1352,
+          "independent_poisson": {
+            "n": 1352,
+            "U": 18.45,
+            "ROI_pct": 1.36464,
+            "mean_estimated_EV": 0.165204,
+            "Brier": 0.250068,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1352,
+            "U": -1.285,
+            "ROI_pct": -0.09504,
+            "mean_estimated_EV": 0.146501,
+            "Brier": 0.2469095,
+            "changed_direction_vs_independent_raw": 72
+          },
+          "bayes_prior_2_independent": {
+            "n": 1352,
+            "U": -4.465,
+            "ROI_pct": -0.33025,
+            "mean_estimated_EV": 0.137528,
+            "Brier": 0.2454264,
+            "changed_direction_vs_independent_raw": 157
+          },
+          "bayes_prior_5_independent": {
+            "n": 1352,
+            "U": -30.615,
+            "ROI_pct": -2.26442,
+            "mean_estimated_EV": 0.135625,
+            "Brier": 0.2447097,
+            "changed_direction_vs_independent_raw": 313
+          },
+          "bivar_empirical_c": {
+            "n": 1352,
+            "U": 24.05,
+            "ROI_pct": 1.77885,
+            "mean_estimated_EV": 0.169968,
+            "Brier": 0.2507732,
+            "changed_direction_vs_independent_raw": 5
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1352,
+            "U": -8.845,
+            "ROI_pct": -0.65422,
+            "mean_estimated_EV": 0.143366,
+            "Brier": 0.2461179,
+            "changed_direction_vs_independent_raw": 161
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1352,
+            "U": 16.255,
+            "ROI_pct": 1.20229,
+            "mean_estimated_EV": 0.155041,
+            "Brier": 0.2483067,
+            "changed_direction_vs_independent_raw": 30
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1352,
+            "U": 18.465,
+            "ROI_pct": 1.36575,
+            "mean_estimated_EV": 0.141293,
+            "Brier": 0.2460695,
+            "changed_direction_vs_independent_raw": 119
+          }
+        },
+        "global": {
+          "n": 1352,
+          "independent_poisson": {
+            "n": 1352,
+            "U": -18.91,
+            "ROI_pct": -1.39867,
+            "mean_estimated_EV": 0.098673,
+            "Brier": 0.244069,
+            "changed_direction_vs_independent_raw": 137
+          },
+          "bayes_prior_1_independent": {
+            "n": 1352,
+            "U": -24.335,
+            "ROI_pct": -1.79993,
+            "mean_estimated_EV": 0.09787,
+            "Brier": 0.2429187,
+            "changed_direction_vs_independent_raw": 178
+          },
+          "bayes_prior_2_independent": {
+            "n": 1352,
+            "U": -8.375,
+            "ROI_pct": -0.61945,
+            "mean_estimated_EV": 0.095356,
+            "Brier": 0.2429432,
+            "changed_direction_vs_independent_raw": 213
+          },
+          "bayes_prior_5_independent": {
+            "n": 1352,
+            "U": -31.49,
+            "ROI_pct": -2.32914,
+            "mean_estimated_EV": 0.094724,
+            "Brier": 0.2421671,
+            "changed_direction_vs_independent_raw": 343
+          },
+          "bivar_empirical_c": {
+            "n": 1352,
+            "U": -16.16,
+            "ROI_pct": -1.19527,
+            "mean_estimated_EV": 0.098576,
+            "Brier": 0.2439145,
+            "changed_direction_vs_independent_raw": 136
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1352,
+            "U": -21.12,
+            "ROI_pct": -1.56213,
+            "mean_estimated_EV": 0.095534,
+            "Brier": 0.2429506,
+            "changed_direction_vs_independent_raw": 213
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1352,
+            "U": -8.61,
+            "ROI_pct": -0.63683,
+            "mean_estimated_EV": 0.097697,
+            "Brier": 0.2433684,
+            "changed_direction_vs_independent_raw": 149
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1352,
+            "U": -15.57,
+            "ROI_pct": -1.15163,
+            "mean_estimated_EV": 0.095946,
+            "Brier": 0.2425962,
+            "changed_direction_vs_independent_raw": 192
+          }
+        },
+        "league": {
+          "n": 1352,
+          "independent_poisson": {
+            "n": 1352,
+            "U": -8.78,
+            "ROI_pct": -0.64941,
+            "mean_estimated_EV": 0.109103,
+            "Brier": 0.2459882,
+            "changed_direction_vs_independent_raw": 204
+          },
+          "bayes_prior_1_independent": {
+            "n": 1352,
+            "U": -3.2,
+            "ROI_pct": -0.23669,
+            "mean_estimated_EV": 0.106259,
+            "Brier": 0.2454021,
+            "changed_direction_vs_independent_raw": 231
+          },
+          "bayes_prior_2_independent": {
+            "n": 1352,
+            "U": -0.915,
+            "ROI_pct": -0.06768,
+            "mean_estimated_EV": 0.105908,
+            "Brier": 0.244855,
+            "changed_direction_vs_independent_raw": 266
+          },
+          "bayes_prior_5_independent": {
+            "n": 1352,
+            "U": -4.41,
+            "ROI_pct": -0.32618,
+            "mean_estimated_EV": 0.104096,
+            "Brier": 0.2427772,
+            "changed_direction_vs_independent_raw": 383
+          },
+          "bivar_empirical_c": {
+            "n": 1352,
+            "U": 0.84,
+            "ROI_pct": 0.06213,
+            "mean_estimated_EV": 0.110082,
+            "Brier": 0.2460054,
+            "changed_direction_vs_independent_raw": 199
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1352,
+            "U": 2.16,
+            "ROI_pct": 0.15976,
+            "mean_estimated_EV": 0.104205,
+            "Brier": 0.2454741,
+            "changed_direction_vs_independent_raw": 267
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1352,
+            "U": -18.57,
+            "ROI_pct": -1.37352,
+            "mean_estimated_EV": 0.10757,
+            "Brier": 0.2449717,
+            "changed_direction_vs_independent_raw": 206
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1352,
+            "U": -28.23,
+            "ROI_pct": -2.08802,
+            "mean_estimated_EV": 0.104698,
+            "Brier": 0.2452667,
+            "changed_direction_vs_independent_raw": 239
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1352,
+          "independent_poisson": {
+            "n": 1352,
+            "U": -72.18,
+            "ROI_pct": -5.33876,
+            "mean_estimated_EV": 0.154269,
+            "Brier": 0.2557965,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1352,
+            "U": -79.71,
+            "ROI_pct": -5.89571,
+            "mean_estimated_EV": 0.134759,
+            "Brier": 0.2526545,
+            "changed_direction_vs_independent_raw": 43
+          },
+          "bayes_prior_2_independent": {
+            "n": 1352,
+            "U": -79.47,
+            "ROI_pct": -5.87796,
+            "mean_estimated_EV": 0.121897,
+            "Brier": 0.2509219,
+            "changed_direction_vs_independent_raw": 74
+          },
+          "bayes_prior_5_independent": {
+            "n": 1352,
+            "U": -69.27,
+            "ROI_pct": -5.12352,
+            "mean_estimated_EV": 0.102356,
+            "Brier": 0.2486433,
+            "changed_direction_vs_independent_raw": 172
+          },
+          "bivar_empirical_c": {
+            "n": 1352,
+            "U": -81.64,
+            "ROI_pct": -6.03846,
+            "mean_estimated_EV": 0.149912,
+            "Brier": 0.2551191,
+            "changed_direction_vs_independent_raw": 15
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1352,
+            "U": -67.715,
+            "ROI_pct": -5.00851,
+            "mean_estimated_EV": 0.116441,
+            "Brier": 0.250285,
+            "changed_direction_vs_independent_raw": 73
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1352,
+            "U": -68.895,
+            "ROI_pct": -5.09578,
+            "mean_estimated_EV": 0.144248,
+            "Brier": 0.2541092,
+            "changed_direction_vs_independent_raw": 19
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1352,
+            "U": -73.41,
+            "ROI_pct": -5.42973,
+            "mean_estimated_EV": 0.128187,
+            "Brier": 0.2517354,
+            "changed_direction_vs_independent_raw": 57
+          }
+        },
+        "global": {
+          "n": 1352,
+          "independent_poisson": {
+            "n": 1352,
+            "U": -73.735,
+            "ROI_pct": -5.45377,
+            "mean_estimated_EV": 0.090185,
+            "Brier": 0.2482277,
+            "changed_direction_vs_independent_raw": 102
+          },
+          "bayes_prior_1_independent": {
+            "n": 1352,
+            "U": -74.84,
+            "ROI_pct": -5.5355,
+            "mean_estimated_EV": 0.089657,
+            "Brier": 0.2474701,
+            "changed_direction_vs_independent_raw": 110
+          },
+          "bayes_prior_2_independent": {
+            "n": 1352,
+            "U": -88.595,
+            "ROI_pct": -6.55288,
+            "mean_estimated_EV": 0.087747,
+            "Brier": 0.2474352,
+            "changed_direction_vs_independent_raw": 146
+          },
+          "bayes_prior_5_independent": {
+            "n": 1352,
+            "U": -72.23,
+            "ROI_pct": -5.34246,
+            "mean_estimated_EV": 0.078272,
+            "Brier": 0.2466759,
+            "changed_direction_vs_independent_raw": 215
+          },
+          "bivar_empirical_c": {
+            "n": 1352,
+            "U": -71.145,
+            "ROI_pct": -5.2622,
+            "mean_estimated_EV": 0.088858,
+            "Brier": 0.2481666,
+            "changed_direction_vs_independent_raw": 104
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1352,
+            "U": -101.335,
+            "ROI_pct": -7.49519,
+            "mean_estimated_EV": 0.088599,
+            "Brier": 0.2475324,
+            "changed_direction_vs_independent_raw": 142
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1352,
+            "U": -60.675,
+            "ROI_pct": -4.4878,
+            "mean_estimated_EV": 0.090181,
+            "Brier": 0.2475394,
+            "changed_direction_vs_independent_raw": 98
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1352,
+            "U": -84.515,
+            "ROI_pct": -6.25111,
+            "mean_estimated_EV": 0.089036,
+            "Brier": 0.2476339,
+            "changed_direction_vs_independent_raw": 143
+          }
+        },
+        "league": {
+          "n": 1352,
+          "independent_poisson": {
+            "n": 1352,
+            "U": -92.97,
+            "ROI_pct": -6.87648,
+            "mean_estimated_EV": 0.080855,
+            "Brier": 0.2497494,
+            "changed_direction_vs_independent_raw": 243
+          },
+          "bayes_prior_1_independent": {
+            "n": 1352,
+            "U": -101.485,
+            "ROI_pct": -7.50629,
+            "mean_estimated_EV": 0.082564,
+            "Brier": 0.2488245,
+            "changed_direction_vs_independent_raw": 214
+          },
+          "bayes_prior_2_independent": {
+            "n": 1352,
+            "U": -105.075,
+            "ROI_pct": -7.77182,
+            "mean_estimated_EV": 0.080174,
+            "Brier": 0.2480715,
+            "changed_direction_vs_independent_raw": 268
+          },
+          "bayes_prior_5_independent": {
+            "n": 1352,
+            "U": -95.685,
+            "ROI_pct": -7.07729,
+            "mean_estimated_EV": 0.074166,
+            "Brier": 0.2475268,
+            "changed_direction_vs_independent_raw": 281
+          },
+          "bivar_empirical_c": {
+            "n": 1352,
+            "U": -74.16,
+            "ROI_pct": -5.48521,
+            "mean_estimated_EV": 0.080932,
+            "Brier": 0.2493178,
+            "changed_direction_vs_independent_raw": 241
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1352,
+            "U": -107.13,
+            "ROI_pct": -7.92382,
+            "mean_estimated_EV": 0.080803,
+            "Brier": 0.248128,
+            "changed_direction_vs_independent_raw": 255
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1352,
+            "U": -98.1,
+            "ROI_pct": -7.25592,
+            "mean_estimated_EV": 0.085349,
+            "Brier": 0.2491916,
+            "changed_direction_vs_independent_raw": 229
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1352,
+            "U": -90.7,
+            "ROI_pct": -6.70858,
+            "mean_estimated_EV": 0.082794,
+            "Brier": 0.2480902,
+            "changed_direction_vs_independent_raw": 230
+          }
+        }
+      }
+    },
+    "serie-a": {
+      "AH": {
+        "raw": {
+          "n": 1547,
+          "independent_poisson": {
+            "n": 1547,
+            "U": -18.7,
+            "ROI_pct": -1.20879,
+            "mean_estimated_EV": 0.147649,
+            "Brier": 0.2435377,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1547,
+            "U": -21.38,
+            "ROI_pct": -1.38203,
+            "mean_estimated_EV": 0.128894,
+            "Brier": 0.2415895,
+            "changed_direction_vs_independent_raw": 104
+          },
+          "bayes_prior_2_independent": {
+            "n": 1547,
+            "U": -60.08,
+            "ROI_pct": -3.88365,
+            "mean_estimated_EV": 0.121052,
+            "Brier": 0.2410438,
+            "changed_direction_vs_independent_raw": 197
+          },
+          "bayes_prior_5_independent": {
+            "n": 1547,
+            "U": -96.42,
+            "ROI_pct": -6.23271,
+            "mean_estimated_EV": 0.123485,
+            "Brier": 0.2421141,
+            "changed_direction_vs_independent_raw": 391
+          },
+          "bivar_empirical_c": {
+            "n": 1547,
+            "U": -17.105,
+            "ROI_pct": -1.10569,
+            "mean_estimated_EV": 0.150549,
+            "Brier": 0.2439233,
+            "changed_direction_vs_independent_raw": 6
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1547,
+            "U": -54.88,
+            "ROI_pct": -3.54751,
+            "mean_estimated_EV": 0.126812,
+            "Brier": 0.2415834,
+            "changed_direction_vs_independent_raw": 207
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1547,
+            "U": -4.67,
+            "ROI_pct": -0.30187,
+            "mean_estimated_EV": 0.137279,
+            "Brier": 0.2423727,
+            "changed_direction_vs_independent_raw": 59
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1547,
+            "U": -49.055,
+            "ROI_pct": -3.17098,
+            "mean_estimated_EV": 0.124181,
+            "Brier": 0.2412134,
+            "changed_direction_vs_independent_raw": 155
+          }
+        },
+        "global": {
+          "n": 1547,
+          "independent_poisson": {
+            "n": 1547,
+            "U": -11.69,
+            "ROI_pct": -0.75566,
+            "mean_estimated_EV": 0.091401,
+            "Brier": 0.2397531,
+            "changed_direction_vs_independent_raw": 188
+          },
+          "bayes_prior_1_independent": {
+            "n": 1547,
+            "U": -39.57,
+            "ROI_pct": -2.55785,
+            "mean_estimated_EV": 0.087914,
+            "Brier": 0.2387257,
+            "changed_direction_vs_independent_raw": 250
+          },
+          "bayes_prior_2_independent": {
+            "n": 1547,
+            "U": -60.685,
+            "ROI_pct": -3.92275,
+            "mean_estimated_EV": 0.08632,
+            "Brier": 0.2388669,
+            "changed_direction_vs_independent_raw": 276
+          },
+          "bayes_prior_5_independent": {
+            "n": 1547,
+            "U": -77.12,
+            "ROI_pct": -4.98513,
+            "mean_estimated_EV": 0.0922,
+            "Brier": 0.2393054,
+            "changed_direction_vs_independent_raw": 424
+          },
+          "bivar_empirical_c": {
+            "n": 1547,
+            "U": -15.83,
+            "ROI_pct": -1.02327,
+            "mean_estimated_EV": 0.090618,
+            "Brier": 0.2401187,
+            "changed_direction_vs_independent_raw": 204
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1547,
+            "U": -63.855,
+            "ROI_pct": -4.12767,
+            "mean_estimated_EV": 0.086829,
+            "Brier": 0.238824,
+            "changed_direction_vs_independent_raw": 277
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1547,
+            "U": -36.88,
+            "ROI_pct": -2.38397,
+            "mean_estimated_EV": 0.089501,
+            "Brier": 0.239821,
+            "changed_direction_vs_independent_raw": 207
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1547,
+            "U": -40.835,
+            "ROI_pct": -2.63963,
+            "mean_estimated_EV": 0.087061,
+            "Brier": 0.2388336,
+            "changed_direction_vs_independent_raw": 254
+          }
+        },
+        "league": {
+          "n": 1547,
+          "independent_poisson": {
+            "n": 1547,
+            "U": -9.335,
+            "ROI_pct": -0.60343,
+            "mean_estimated_EV": 0.115796,
+            "Brier": 0.2390412,
+            "changed_direction_vs_independent_raw": 223
+          },
+          "bayes_prior_1_independent": {
+            "n": 1547,
+            "U": -4.685,
+            "ROI_pct": -0.30284,
+            "mean_estimated_EV": 0.109377,
+            "Brier": 0.2391651,
+            "changed_direction_vs_independent_raw": 260
+          },
+          "bayes_prior_2_independent": {
+            "n": 1547,
+            "U": -38.62,
+            "ROI_pct": -2.49644,
+            "mean_estimated_EV": 0.104744,
+            "Brier": 0.238766,
+            "changed_direction_vs_independent_raw": 314
+          },
+          "bayes_prior_5_independent": {
+            "n": 1547,
+            "U": -64.98,
+            "ROI_pct": -4.20039,
+            "mean_estimated_EV": 0.114531,
+            "Brier": 0.2399577,
+            "changed_direction_vs_independent_raw": 439
+          },
+          "bivar_empirical_c": {
+            "n": 1547,
+            "U": -7.745,
+            "ROI_pct": -0.50065,
+            "mean_estimated_EV": 0.115421,
+            "Brier": 0.239591,
+            "changed_direction_vs_independent_raw": 213
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1547,
+            "U": -32.575,
+            "ROI_pct": -2.10569,
+            "mean_estimated_EV": 0.104755,
+            "Brier": 0.238863,
+            "changed_direction_vs_independent_raw": 304
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1547,
+            "U": 9.18,
+            "ROI_pct": 0.59341,
+            "mean_estimated_EV": 0.110725,
+            "Brier": 0.2394224,
+            "changed_direction_vs_independent_raw": 209
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1547,
+            "U": 1.205,
+            "ROI_pct": 0.07789,
+            "mean_estimated_EV": 0.107097,
+            "Brier": 0.2387564,
+            "changed_direction_vs_independent_raw": 279
+          }
+        }
+      },
+      "OU": {
+        "raw": {
+          "n": 1547,
+          "independent_poisson": {
+            "n": 1547,
+            "U": -5.3,
+            "ROI_pct": -0.3426,
+            "mean_estimated_EV": 0.141735,
+            "Brier": 0.2440697,
+            "changed_direction_vs_independent_raw": 0
+          },
+          "bayes_prior_1_independent": {
+            "n": 1547,
+            "U": 8.535,
+            "ROI_pct": 0.55171,
+            "mean_estimated_EV": 0.1219,
+            "Brier": 0.2419205,
+            "changed_direction_vs_independent_raw": 51
+          },
+          "bayes_prior_2_independent": {
+            "n": 1547,
+            "U": -12.045,
+            "ROI_pct": -0.7786,
+            "mean_estimated_EV": 0.108741,
+            "Brier": 0.24084,
+            "changed_direction_vs_independent_raw": 99
+          },
+          "bayes_prior_5_independent": {
+            "n": 1547,
+            "U": -20.505,
+            "ROI_pct": -1.32547,
+            "mean_estimated_EV": 0.08829,
+            "Brier": 0.2397281,
+            "changed_direction_vs_independent_raw": 214
+          },
+          "bivar_empirical_c": {
+            "n": 1547,
+            "U": 1.165,
+            "ROI_pct": 0.07531,
+            "mean_estimated_EV": 0.139739,
+            "Brier": 0.243814,
+            "changed_direction_vs_independent_raw": 15
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1547,
+            "U": -5.68,
+            "ROI_pct": -0.36716,
+            "mean_estimated_EV": 0.104212,
+            "Brier": 0.2403153,
+            "changed_direction_vs_independent_raw": 90
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1547,
+            "U": 0.285,
+            "ROI_pct": 0.01842,
+            "mean_estimated_EV": 0.131571,
+            "Brier": 0.2428923,
+            "changed_direction_vs_independent_raw": 27
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1547,
+            "U": -12.84,
+            "ROI_pct": -0.82999,
+            "mean_estimated_EV": 0.115122,
+            "Brier": 0.2413325,
+            "changed_direction_vs_independent_raw": 78
+          }
+        },
+        "global": {
+          "n": 1547,
+          "independent_poisson": {
+            "n": 1547,
+            "U": 7.125,
+            "ROI_pct": 0.46057,
+            "mean_estimated_EV": 0.080522,
+            "Brier": 0.2409636,
+            "changed_direction_vs_independent_raw": 139
+          },
+          "bayes_prior_1_independent": {
+            "n": 1547,
+            "U": 6.265,
+            "ROI_pct": 0.40498,
+            "mean_estimated_EV": 0.079526,
+            "Brier": 0.2405535,
+            "changed_direction_vs_independent_raw": 144
+          },
+          "bayes_prior_2_independent": {
+            "n": 1547,
+            "U": -5.585,
+            "ROI_pct": -0.36102,
+            "mean_estimated_EV": 0.074825,
+            "Brier": 0.2396794,
+            "changed_direction_vs_independent_raw": 169
+          },
+          "bayes_prior_5_independent": {
+            "n": 1547,
+            "U": -32.325,
+            "ROI_pct": -2.08953,
+            "mean_estimated_EV": 0.06796,
+            "Brier": 0.2397069,
+            "changed_direction_vs_independent_raw": 237
+          },
+          "bivar_empirical_c": {
+            "n": 1547,
+            "U": 25.31,
+            "ROI_pct": 1.63607,
+            "mean_estimated_EV": 0.080494,
+            "Brier": 0.2409407,
+            "changed_direction_vs_independent_raw": 134
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1547,
+            "U": -2.705,
+            "ROI_pct": -0.17485,
+            "mean_estimated_EV": 0.075655,
+            "Brier": 0.2397819,
+            "changed_direction_vs_independent_raw": 162
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1547,
+            "U": 10.505,
+            "ROI_pct": 0.67906,
+            "mean_estimated_EV": 0.079865,
+            "Brier": 0.2406661,
+            "changed_direction_vs_independent_raw": 136
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1547,
+            "U": 12.475,
+            "ROI_pct": 0.8064,
+            "mean_estimated_EV": 0.077668,
+            "Brier": 0.2403317,
+            "changed_direction_vs_independent_raw": 160
+          }
+        },
+        "league": {
+          "n": 1547,
+          "independent_poisson": {
+            "n": 1547,
+            "U": -4.1,
+            "ROI_pct": -0.26503,
+            "mean_estimated_EV": 0.102147,
+            "Brier": 0.2427845,
+            "changed_direction_vs_independent_raw": 210
+          },
+          "bayes_prior_1_independent": {
+            "n": 1547,
+            "U": -13.135,
+            "ROI_pct": -0.84906,
+            "mean_estimated_EV": 0.098073,
+            "Brier": 0.2418062,
+            "changed_direction_vs_independent_raw": 204
+          },
+          "bayes_prior_2_independent": {
+            "n": 1547,
+            "U": 2.045,
+            "ROI_pct": 0.13219,
+            "mean_estimated_EV": 0.091468,
+            "Brier": 0.240515,
+            "changed_direction_vs_independent_raw": 236
+          },
+          "bayes_prior_5_independent": {
+            "n": 1547,
+            "U": 23.45,
+            "ROI_pct": 1.51584,
+            "mean_estimated_EV": 0.085044,
+            "Brier": 0.2395142,
+            "changed_direction_vs_independent_raw": 333
+          },
+          "bivar_empirical_c": {
+            "n": 1547,
+            "U": -15.09,
+            "ROI_pct": -0.97544,
+            "mean_estimated_EV": 0.101713,
+            "Brier": 0.2433524,
+            "changed_direction_vs_independent_raw": 203
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1547,
+            "U": 8.47,
+            "ROI_pct": 0.54751,
+            "mean_estimated_EV": 0.09214,
+            "Brier": 0.2405891,
+            "changed_direction_vs_independent_raw": 230
+          },
+          "equal_blend_independent_and_bayes1": {
+            "n": 1547,
+            "U": -1.5,
+            "ROI_pct": -0.09696,
+            "mean_estimated_EV": 0.098254,
+            "Brier": 0.2424191,
+            "changed_direction_vs_independent_raw": 201
+          },
+          "equal_blend_bayes1_and_bayes2": {
+            "n": 1547,
+            "U": -0.905,
+            "ROI_pct": -0.0585,
+            "mean_estimated_EV": 0.093917,
+            "Brier": 0.2412592,
+            "changed_direction_vs_independent_raw": 225
+          }
+        }
+      }
+    }
+  },
+  "methods_summary": {
+    "equal_blends": "Fixed equal weights 0.5, chosen for a direct complementarity test without optimizing any ROI, no new trade rule",
+    "global_vs_league_isotonic": "Monotone piecewise-constant PAV on previous TWO historical seasons survival events P(goal-difference or total > integer)",
+    "quarter_lines": "AH/OU all half/quarter pushes preserved by legs, one side each fixture regardless of EV sign",
+    "calibration_is_research_only": "No EV Gate, no user-approved product rule or new actual Telegram order"
+  },
+  "limitations": [
+    "Historic Crown T12 source events retrieved after games: NOT true pregame received prices",
+    "Past explored fixtures and model choices: rolling chronologically fit but overall work is not fresh blinded out-of-sample",
+    "Historical published xG original timestamps are unverified",
+    "Equal-weight blends are only research sensitivities, not user authorized official combination",
+    "No national team matches, no official M8 or TG changes"
+  ],
+  "checks": {}
+}
