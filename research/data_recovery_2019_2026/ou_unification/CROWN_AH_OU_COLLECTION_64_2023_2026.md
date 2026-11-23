@@ -2254,3 +2254,9 @@ References reviewed: [OddsHarvester README](https://github.com/jordantete/OddsHa
 - T1546 15:46:40.198Z through the MR1 scheduled pause at 15:49:17.814Z processed 31 unique FIDs. All 31 requests returned HTTP 200 successfully: 9 Crown-market responses added 434 OU movement rows; 22 successful responses had no Crown AH/OU quotes. Unresolved failures=0, duplicate FIDs=0, raw SHA mismatches=0, and identity/scope mismatches=0.
 - Queue rebuilt at 15:54:25.621Z: 32,706 (2023 4,166; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,558 FIDs. Read-only SQLite matched all 9 new OU paths / 434 rows; all seven checkpoint manifest hashes passed.
 - Safe-window driver PID49373 resumed collector PID15912 at unchanged 5.2-second pacing. This is historical retrieval only. T1554 artifacts are under `research/data_recovery_2019_2026/ou_unification/`.
+
+
+### 2026-11-23 15:57 UTC — T1557 checkpoint
+- T1554 15:54:25.621Z through the MR1 pause at 15:56:13.456Z processed 22 unique FIDs. All 22 requests succeeded with HTTP 200: 3 Crown-market responses added 91 OU movement rows; 19 successful responses contained no Crown AH/OU quotes. Unresolved failures, duplicate FIDs, raw SHA mismatches, and fixture/scope mismatches were all 0.
+- Queue rebuilt at 15:57:52.310Z: 32,684 (2023 4,144; 2024 14,553; 2025 13,520; 2026 467), matching the queue file. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 8,561 FIDs. Read-only SQLite matched all 3 new OU paths / 91 rows; all seven manifest hashes passed.
+- Safe-window driver PID49373 resumed collector PID16811 at the unchanged 5.2-second cadence. Retrieval remains historical. T1557 artifacts are under `research/data_recovery_2019_2026/ou_unification/`.
