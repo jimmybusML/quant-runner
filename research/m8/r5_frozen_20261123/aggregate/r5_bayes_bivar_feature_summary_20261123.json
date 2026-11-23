@@ -1,0 +1,20 @@
+{
+  "study": "R5_BAYES_BIVAR_PREGAME_XG_FEATURES_CLUB_ONLY",
+  "research_only": true,
+  "input_sha256": "ba9a07d0236bab247d4a416dfc9408334e89957ef0b959c0deffaf16ca3fbef4",
+  "n": 13312,
+  "audit": {
+    "not_in_R4_baseline": 2799,
+    "non_positive_past_residual_covariance": 4309,
+    "positive_past_residual_covariance": 9003,
+    "missing_historical_xg": 4
+  },
+  "method": "Bayes inverse-Gamma prior mean from same-league as-of xG; exponential xG observation likelihood with temporal power weights; prior pseudo-observations k=1,2,5 as research sensitivity; bivariate shared parameter from earlier same-league current-season goal-minus-xG residual sample covariance. No profitability tuning.",
+  "source_scope": "Only five European domestic club leagues; zero national teams",
+  "limitations": [
+    "Research model assumptions not user-approved criteria",
+    "xG historical publication timestamp unknown; strict previous match dates only",
+    "Bivar Poisson can represent non-negative common-shock covariance only",
+    "Retrospective already explored cohort, not independent new real prices"
+  ]
+}

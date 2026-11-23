@@ -1,0 +1,1256 @@
+{
+  "study": "R5_BAYES_BIVARIATE_OLD_ACTUAL_CROWN_HTTP_RECEIPT_REPLAY",
+  "receipt_source_sha256": "70b6892379fd2a11ea778bc1b14b3c2a1c0e9fdbe0d6a0c73f6b60e6262c7295",
+  "matched_market_count": 276,
+  "matched_fixtures": 138,
+  "methods": [
+    "old_arithmetic3_independent",
+    "same_season_ratio_independent",
+    "same_season_ratio_bivar_empirical",
+    "same_season_ratio_bivar_fixed_c010",
+    "bayes_1_independent",
+    "bayes_2_independent",
+    "bayes_2_bivar_empirical",
+    "bayes_2_bivar_fixed_c010",
+    "bayes_5_independent"
+  ],
+  "audit": {
+    "nonpositive_raw_residual_covariance": 190,
+    "positive_raw_residual_covariance": 86
+  },
+  "overall": {
+    "AH": {
+      "markets": 138,
+      "settled": 138,
+      "pending": 0,
+      "old_arithmetic3_independent": {
+        "U": -2.275,
+        "ROI_pct": -1.64855,
+        "changed_sides_vs_old_arithmetic3": 0
+      },
+      "same_season_ratio_independent": {
+        "U": -10.465,
+        "ROI_pct": -7.58333,
+        "changed_sides_vs_old_arithmetic3": 40
+      },
+      "same_season_ratio_bivar_empirical": {
+        "U": -10.465,
+        "ROI_pct": -7.58333,
+        "changed_sides_vs_old_arithmetic3": 40
+      },
+      "same_season_ratio_bivar_fixed_c010": {
+        "U": -10.465,
+        "ROI_pct": -7.58333,
+        "changed_sides_vs_old_arithmetic3": 40
+      },
+      "bayes_1_independent": {
+        "U": -4.095,
+        "ROI_pct": -2.96739,
+        "changed_sides_vs_old_arithmetic3": 30
+      },
+      "bayes_2_independent": {
+        "U": 9.965,
+        "ROI_pct": 7.22101,
+        "changed_sides_vs_old_arithmetic3": 21
+      },
+      "bayes_2_bivar_empirical": {
+        "U": 9.965,
+        "ROI_pct": 7.22101,
+        "changed_sides_vs_old_arithmetic3": 21
+      },
+      "bayes_2_bivar_fixed_c010": {
+        "U": 9.965,
+        "ROI_pct": 7.22101,
+        "changed_sides_vs_old_arithmetic3": 21
+      },
+      "bayes_5_independent": {
+        "U": -2.945,
+        "ROI_pct": -2.13406,
+        "changed_sides_vs_old_arithmetic3": 18
+      }
+    },
+    "OU": {
+      "markets": 138,
+      "settled": 138,
+      "pending": 0,
+      "old_arithmetic3_independent": {
+        "U": -1.38,
+        "ROI_pct": -1.0,
+        "changed_sides_vs_old_arithmetic3": 0
+      },
+      "same_season_ratio_independent": {
+        "U": -13.185,
+        "ROI_pct": -9.55435,
+        "changed_sides_vs_old_arithmetic3": 26
+      },
+      "same_season_ratio_bivar_empirical": {
+        "U": -13.185,
+        "ROI_pct": -9.55435,
+        "changed_sides_vs_old_arithmetic3": 26
+      },
+      "same_season_ratio_bivar_fixed_c010": {
+        "U": -11.275,
+        "ROI_pct": -8.17029,
+        "changed_sides_vs_old_arithmetic3": 27
+      },
+      "bayes_1_independent": {
+        "U": -8.435,
+        "ROI_pct": -6.11232,
+        "changed_sides_vs_old_arithmetic3": 23
+      },
+      "bayes_2_independent": {
+        "U": -8.345,
+        "ROI_pct": -6.0471,
+        "changed_sides_vs_old_arithmetic3": 19
+      },
+      "bayes_2_bivar_empirical": {
+        "U": -8.345,
+        "ROI_pct": -6.0471,
+        "changed_sides_vs_old_arithmetic3": 19
+      },
+      "bayes_2_bivar_fixed_c010": {
+        "U": -4.455,
+        "ROI_pct": -3.22826,
+        "changed_sides_vs_old_arithmetic3": 21
+      },
+      "bayes_5_independent": {
+        "U": 6.125,
+        "ROI_pct": 4.43841,
+        "changed_sides_vs_old_arithmetic3": 17
+      }
+    }
+  },
+  "by_league": {
+    "1": {
+      "AH": {
+        "markets": 26,
+        "settled": 26,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": -2.43,
+          "ROI_pct": -9.34615,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -2.56,
+          "ROI_pct": -9.84615,
+          "changed_sides_vs_old_arithmetic3": 5
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -2.56,
+          "ROI_pct": -9.84615,
+          "changed_sides_vs_old_arithmetic3": 5
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -2.56,
+          "ROI_pct": -9.84615,
+          "changed_sides_vs_old_arithmetic3": 5
+        },
+        "bayes_1_independent": {
+          "U": -2.42,
+          "ROI_pct": -9.30769,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_independent": {
+          "U": -0.46,
+          "ROI_pct": -1.76923,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_empirical": {
+          "U": -0.46,
+          "ROI_pct": -1.76923,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": -0.46,
+          "ROI_pct": -1.76923,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_5_independent": {
+          "U": -1.45,
+          "ROI_pct": -5.57692,
+          "changed_sides_vs_old_arithmetic3": 1
+        }
+      },
+      "OU": {
+        "markets": 26,
+        "settled": 26,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": 4.81,
+          "ROI_pct": 18.5,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": 4.76,
+          "ROI_pct": 18.30769,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": 4.76,
+          "ROI_pct": 18.30769,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": 4.76,
+          "ROI_pct": 18.30769,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_1_independent": {
+          "U": 4.76,
+          "ROI_pct": 18.30769,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_2_independent": {
+          "U": 4.76,
+          "ROI_pct": 18.30769,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 4.76,
+          "ROI_pct": 18.30769,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 6.73,
+          "ROI_pct": 25.88462,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_5_independent": {
+          "U": 4.75,
+          "ROI_pct": 18.26923,
+          "changed_sides_vs_old_arithmetic3": 3
+        }
+      }
+    },
+    "12": {
+      "AH": {
+        "markets": 9,
+        "settled": 9,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": -1.54,
+          "ROI_pct": -17.11111,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -1.77,
+          "ROI_pct": -19.66667,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -1.77,
+          "ROI_pct": -19.66667,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -1.77,
+          "ROI_pct": -19.66667,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_1_independent": {
+          "U": -1.77,
+          "ROI_pct": -19.66667,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_independent": {
+          "U": 2.37,
+          "ROI_pct": 26.33333,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 2.37,
+          "ROI_pct": 26.33333,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 2.37,
+          "ROI_pct": 26.33333,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_5_independent": {
+          "U": 0.38,
+          "ROI_pct": 4.22222,
+          "changed_sides_vs_old_arithmetic3": 3
+        }
+      },
+      "OU": {
+        "markets": 9,
+        "settled": 9,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": 5.37,
+          "ROI_pct": 59.66667,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": 1.44,
+          "ROI_pct": 16.0,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": 1.44,
+          "ROI_pct": 16.0,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": 1.44,
+          "ROI_pct": 16.0,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_1_independent": {
+          "U": 3.32,
+          "ROI_pct": 36.88889,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_independent": {
+          "U": 3.32,
+          "ROI_pct": 36.88889,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 3.32,
+          "ROI_pct": 36.88889,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 3.32,
+          "ROI_pct": 36.88889,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_5_independent": {
+          "U": 5.37,
+          "ROI_pct": 59.66667,
+          "changed_sides_vs_old_arithmetic3": 0
+        }
+      }
+    },
+    "14": {
+      "AH": {
+        "markets": 9,
+        "settled": 9,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": 2.49,
+          "ROI_pct": 27.66667,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": 2.35,
+          "ROI_pct": 26.11111,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": 2.35,
+          "ROI_pct": 26.11111,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": 2.35,
+          "ROI_pct": 26.11111,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_1_independent": {
+          "U": 2.35,
+          "ROI_pct": 26.11111,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_independent": {
+          "U": 4.36,
+          "ROI_pct": 48.44444,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 4.36,
+          "ROI_pct": 48.44444,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 4.36,
+          "ROI_pct": 48.44444,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_5_independent": {
+          "U": 2.49,
+          "ROI_pct": 27.66667,
+          "changed_sides_vs_old_arithmetic3": 0
+        }
+      },
+      "OU": {
+        "markets": 9,
+        "settled": 9,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": 2.72,
+          "ROI_pct": 30.22222,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -3.14,
+          "ROI_pct": -34.88889,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -3.14,
+          "ROI_pct": -34.88889,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -3.14,
+          "ROI_pct": -34.88889,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_1_independent": {
+          "U": -1.18,
+          "ROI_pct": -13.11111,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_independent": {
+          "U": -1.17,
+          "ROI_pct": -13.0,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_bivar_empirical": {
+          "U": -1.17,
+          "ROI_pct": -13.0,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": -1.17,
+          "ROI_pct": -13.0,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_5_independent": {
+          "U": 2.76,
+          "ROI_pct": 30.66667,
+          "changed_sides_vs_old_arithmetic3": 2
+        }
+      }
+    },
+    "141": {
+      "AH": {
+        "markets": 3,
+        "settled": 3,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": 0.98,
+          "ROI_pct": 32.66667,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": 3.01,
+          "ROI_pct": 100.33333,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": 3.01,
+          "ROI_pct": 100.33333,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": 3.01,
+          "ROI_pct": 100.33333,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_1_independent": {
+          "U": 3.01,
+          "ROI_pct": 100.33333,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_independent": {
+          "U": 3.01,
+          "ROI_pct": 100.33333,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 3.01,
+          "ROI_pct": 100.33333,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 3.01,
+          "ROI_pct": 100.33333,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_5_independent": {
+          "U": 0.98,
+          "ROI_pct": 32.66667,
+          "changed_sides_vs_old_arithmetic3": 0
+        }
+      },
+      "OU": {
+        "markets": 3,
+        "settled": 3,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": 0.63,
+          "ROI_pct": 21.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": 0.63,
+          "ROI_pct": 21.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": 0.63,
+          "ROI_pct": 21.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": 0.63,
+          "ROI_pct": 21.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_1_independent": {
+          "U": 0.63,
+          "ROI_pct": 21.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_2_independent": {
+          "U": 0.63,
+          "ROI_pct": 21.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 0.63,
+          "ROI_pct": 21.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 0.63,
+          "ROI_pct": 21.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_5_independent": {
+          "U": 0.63,
+          "ROI_pct": 21.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        }
+      }
+    },
+    "16": {
+      "AH": {
+        "markets": 4,
+        "settled": 4,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": -2.12,
+          "ROI_pct": -53.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -2.12,
+          "ROI_pct": -53.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -2.12,
+          "ROI_pct": -53.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -2.12,
+          "ROI_pct": -53.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_1_independent": {
+          "U": -2.12,
+          "ROI_pct": -53.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_2_independent": {
+          "U": -2.12,
+          "ROI_pct": -53.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_2_bivar_empirical": {
+          "U": -2.12,
+          "ROI_pct": -53.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": -2.12,
+          "ROI_pct": -53.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_5_independent": {
+          "U": -2.04,
+          "ROI_pct": -51.0,
+          "changed_sides_vs_old_arithmetic3": 2
+        }
+      },
+      "OU": {
+        "markets": 4,
+        "settled": 4,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": 0.03,
+          "ROI_pct": 0.75,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": 0.03,
+          "ROI_pct": 0.75,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": 0.03,
+          "ROI_pct": 0.75,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": 0.03,
+          "ROI_pct": 0.75,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_1_independent": {
+          "U": 0.03,
+          "ROI_pct": 0.75,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_2_independent": {
+          "U": 0.03,
+          "ROI_pct": 0.75,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 0.03,
+          "ROI_pct": 0.75,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 0.03,
+          "ROI_pct": 0.75,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_5_independent": {
+          "U": 1.85,
+          "ROI_pct": 46.25,
+          "changed_sides_vs_old_arithmetic3": 1
+        }
+      }
+    },
+    "25": {
+      "AH": {
+        "markets": 23,
+        "settled": 23,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": -4.585,
+          "ROI_pct": -19.93478,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -0.985,
+          "ROI_pct": -4.28261,
+          "changed_sides_vs_old_arithmetic3": 6
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -0.985,
+          "ROI_pct": -4.28261,
+          "changed_sides_vs_old_arithmetic3": 6
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -0.985,
+          "ROI_pct": -4.28261,
+          "changed_sides_vs_old_arithmetic3": 6
+        },
+        "bayes_1_independent": {
+          "U": -4.765,
+          "ROI_pct": -20.71739,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_independent": {
+          "U": -2.805,
+          "ROI_pct": -12.19565,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_2_bivar_empirical": {
+          "U": -2.805,
+          "ROI_pct": -12.19565,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": -2.805,
+          "ROI_pct": -12.19565,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_5_independent": {
+          "U": -2.805,
+          "ROI_pct": -12.19565,
+          "changed_sides_vs_old_arithmetic3": 3
+        }
+      },
+      "OU": {
+        "markets": 23,
+        "settled": 23,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": -2.595,
+          "ROI_pct": -11.28261,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -3.415,
+          "ROI_pct": -14.84783,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -3.415,
+          "ROI_pct": -14.84783,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -1.505,
+          "ROI_pct": -6.54348,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_1_independent": {
+          "U": -2.495,
+          "ROI_pct": -10.84783,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_independent": {
+          "U": -2.595,
+          "ROI_pct": -11.28261,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_2_bivar_empirical": {
+          "U": -2.595,
+          "ROI_pct": -11.28261,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": -2.495,
+          "ROI_pct": -10.84783,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_5_independent": {
+          "U": -0.725,
+          "ROI_pct": -3.15217,
+          "changed_sides_vs_old_arithmetic3": 1
+        }
+      }
+    },
+    "262": {
+      "AH": {
+        "markets": 23,
+        "settled": 23,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": -2.735,
+          "ROI_pct": -11.8913,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -5.465,
+          "ROI_pct": -23.76087,
+          "changed_sides_vs_old_arithmetic3": 7
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -5.465,
+          "ROI_pct": -23.76087,
+          "changed_sides_vs_old_arithmetic3": 7
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -5.465,
+          "ROI_pct": -23.76087,
+          "changed_sides_vs_old_arithmetic3": 7
+        },
+        "bayes_1_independent": {
+          "U": -5.465,
+          "ROI_pct": -23.76087,
+          "changed_sides_vs_old_arithmetic3": 7
+        },
+        "bayes_2_independent": {
+          "U": -4.445,
+          "ROI_pct": -19.32609,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_bivar_empirical": {
+          "U": -4.445,
+          "ROI_pct": -19.32609,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": -4.445,
+          "ROI_pct": -19.32609,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_5_independent": {
+          "U": -2.565,
+          "ROI_pct": -11.15217,
+          "changed_sides_vs_old_arithmetic3": 2
+        }
+      },
+      "OU": {
+        "markets": 23,
+        "settled": 23,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": -7.025,
+          "ROI_pct": -30.54348,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -4.0,
+          "ROI_pct": -17.3913,
+          "changed_sides_vs_old_arithmetic3": 5
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -4.0,
+          "ROI_pct": -17.3913,
+          "changed_sides_vs_old_arithmetic3": 5
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -4.0,
+          "ROI_pct": -17.3913,
+          "changed_sides_vs_old_arithmetic3": 5
+        },
+        "bayes_1_independent": {
+          "U": -5.96,
+          "ROI_pct": -25.91304,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_independent": {
+          "U": -5.96,
+          "ROI_pct": -25.91304,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_bivar_empirical": {
+          "U": -5.96,
+          "ROI_pct": -25.91304,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": -5.96,
+          "ROI_pct": -25.91304,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_5_independent": {
+          "U": -4.02,
+          "ROI_pct": -17.47826,
+          "changed_sides_vs_old_arithmetic3": 3
+        }
+      }
+    },
+    "31": {
+      "AH": {
+        "markets": 8,
+        "settled": 8,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": -4.05,
+          "ROI_pct": -50.625,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -2.05,
+          "ROI_pct": -25.625,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -2.05,
+          "ROI_pct": -25.625,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -2.05,
+          "ROI_pct": -25.625,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_1_independent": {
+          "U": 0.04,
+          "ROI_pct": 0.5,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_independent": {
+          "U": 0.04,
+          "ROI_pct": 0.5,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 0.04,
+          "ROI_pct": 0.5,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 0.04,
+          "ROI_pct": 0.5,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_5_independent": {
+          "U": 0.07,
+          "ROI_pct": 0.875,
+          "changed_sides_vs_old_arithmetic3": 2
+        }
+      },
+      "OU": {
+        "markets": 8,
+        "settled": 8,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": -1.91,
+          "ROI_pct": -23.875,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": 0.05,
+          "ROI_pct": 0.625,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": 0.05,
+          "ROI_pct": 0.625,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": 0.05,
+          "ROI_pct": 0.625,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_1_independent": {
+          "U": 0.05,
+          "ROI_pct": 0.625,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_independent": {
+          "U": 0.05,
+          "ROI_pct": 0.625,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 0.05,
+          "ROI_pct": 0.625,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 0.05,
+          "ROI_pct": 0.625,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_5_independent": {
+          "U": -1.99,
+          "ROI_pct": -24.875,
+          "changed_sides_vs_old_arithmetic3": 2
+        }
+      }
+    },
+    "37": {
+      "AH": {
+        "markets": 6,
+        "settled": 6,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": 0.98,
+          "ROI_pct": 16.33333,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -3.0,
+          "ROI_pct": -50.0,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -3.0,
+          "ROI_pct": -50.0,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -3.0,
+          "ROI_pct": -50.0,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_1_independent": {
+          "U": -3.0,
+          "ROI_pct": -50.0,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_independent": {
+          "U": 0.98,
+          "ROI_pct": 16.33333,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 0.98,
+          "ROI_pct": 16.33333,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 0.98,
+          "ROI_pct": 16.33333,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_5_independent": {
+          "U": 0.98,
+          "ROI_pct": 16.33333,
+          "changed_sides_vs_old_arithmetic3": 0
+        }
+      },
+      "OU": {
+        "markets": 6,
+        "settled": 6,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": -3.96,
+          "ROI_pct": -66.0,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -1.93,
+          "ROI_pct": -32.16667,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -1.93,
+          "ROI_pct": -32.16667,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -1.93,
+          "ROI_pct": -32.16667,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_1_independent": {
+          "U": -1.93,
+          "ROI_pct": -32.16667,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_independent": {
+          "U": -1.93,
+          "ROI_pct": -32.16667,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_empirical": {
+          "U": -1.93,
+          "ROI_pct": -32.16667,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": -1.93,
+          "ROI_pct": -32.16667,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_5_independent": {
+          "U": -1.93,
+          "ROI_pct": -32.16667,
+          "changed_sides_vs_old_arithmetic3": 1
+        }
+      }
+    },
+    "51": {
+      "AH": {
+        "markets": 13,
+        "settled": 13,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": 6.175,
+          "ROI_pct": 47.5,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": 5.225,
+          "ROI_pct": 40.19231,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": 5.225,
+          "ROI_pct": 40.19231,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": 5.225,
+          "ROI_pct": 40.19231,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_1_independent": {
+          "U": 9.275,
+          "ROI_pct": 71.34615,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_independent": {
+          "U": 8.265,
+          "ROI_pct": 63.57692,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 8.265,
+          "ROI_pct": 63.57692,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 8.265,
+          "ROI_pct": 63.57692,
+          "changed_sides_vs_old_arithmetic3": 1
+        },
+        "bayes_5_independent": {
+          "U": 2.275,
+          "ROI_pct": 17.5,
+          "changed_sides_vs_old_arithmetic3": 2
+        }
+      },
+      "OU": {
+        "markets": 13,
+        "settled": 13,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": 2.74,
+          "ROI_pct": 21.07692,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -5.18,
+          "ROI_pct": -39.84615,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -5.18,
+          "ROI_pct": -39.84615,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -5.18,
+          "ROI_pct": -39.84615,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_1_independent": {
+          "U": -5.18,
+          "ROI_pct": -39.84615,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_2_independent": {
+          "U": -3.18,
+          "ROI_pct": -24.46154,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_2_bivar_empirical": {
+          "U": -3.18,
+          "ROI_pct": -24.46154,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": -3.18,
+          "ROI_pct": -24.46154,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_5_independent": {
+          "U": -1.2,
+          "ROI_pct": -9.23077,
+          "changed_sides_vs_old_arithmetic3": 2
+        }
+      }
+    },
+    "62": {
+      "AH": {
+        "markets": 14,
+        "settled": 14,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": 4.56,
+          "ROI_pct": 32.57143,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -3.1,
+          "ROI_pct": -22.14286,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -3.1,
+          "ROI_pct": -22.14286,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -3.1,
+          "ROI_pct": -22.14286,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_1_independent": {
+          "U": 0.77,
+          "ROI_pct": 5.5,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_independent": {
+          "U": 0.77,
+          "ROI_pct": 5.5,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_bivar_empirical": {
+          "U": 0.77,
+          "ROI_pct": 5.5,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": 0.77,
+          "ROI_pct": 5.5,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_5_independent": {
+          "U": -1.26,
+          "ROI_pct": -9.0,
+          "changed_sides_vs_old_arithmetic3": 3
+        }
+      },
+      "OU": {
+        "markets": 14,
+        "settled": 14,
+        "pending": 0,
+        "old_arithmetic3_independent": {
+          "U": -2.19,
+          "ROI_pct": -15.64286,
+          "changed_sides_vs_old_arithmetic3": 0
+        },
+        "same_season_ratio_independent": {
+          "U": -2.43,
+          "ROI_pct": -17.35714,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_empirical": {
+          "U": -2.43,
+          "ROI_pct": -17.35714,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "same_season_ratio_bivar_fixed_c010": {
+          "U": -2.43,
+          "ROI_pct": -17.35714,
+          "changed_sides_vs_old_arithmetic3": 4
+        },
+        "bayes_1_independent": {
+          "U": -0.48,
+          "ROI_pct": -3.42857,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_2_independent": {
+          "U": -2.3,
+          "ROI_pct": -16.42857,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_bivar_empirical": {
+          "U": -2.3,
+          "ROI_pct": -16.42857,
+          "changed_sides_vs_old_arithmetic3": 2
+        },
+        "bayes_2_bivar_fixed_c010": {
+          "U": -0.48,
+          "ROI_pct": -3.42857,
+          "changed_sides_vs_old_arithmetic3": 3
+        },
+        "bayes_5_independent": {
+          "U": 0.63,
+          "ROI_pct": 4.5,
+          "changed_sides_vs_old_arithmetic3": 2
+        }
+      }
+    }
+  },
+  "limitations": [
+    "All market prices were actually received before kickoff, but this is a posthoc offline study on already-known results, not new formal Telegram orders",
+    "Source xG actual publication times unavailable, uses game kickoff+72h maturity proxy",
+    "Research sample same 138 eligible fixtures as R3, already seen in previous work",
+    "Source league event files domestic clubs only; no national teams",
+    "Comparison formulas may differ in xG history span from original R3 arithmetic3; each within-model Poisson/bivariate pair uses exact same lambdas",
+    "Prior strengths and fixed covariance are research sensitivity only, no ROI-fitted parameters or eligibility gate",
+    "No new betting rules, M8 production change or formal ledger change"
+  ]
+}

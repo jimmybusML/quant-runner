@@ -1,0 +1,2370 @@
+{
+  "study": "R5_INDEPENDENT_VS_BIVARIATE_VS_EMPIRICAL_BAYES_VS_COMBINATION_CLUB_CROWN",
+  "method_count": 8,
+  "models": [
+    "independent_poisson",
+    "bivar_empirical_c",
+    "bivar_fixed_c010",
+    "bayes_prior_1_independent",
+    "bayes_prior_2_independent",
+    "bayes_prior_5_independent",
+    "bayes_prior_2_bivar_empirical_c",
+    "bayes_prior_2_bivar_fixed_c010"
+  ],
+  "five_state_contract": "Each market both sides and two legs calculated from normalized 21x21 joint score matrix; one chosen side per fixture; no EV eligibility",
+  "data_source_sha256": {
+    "features": "71e841b629136c266b79190366bd47175f5748818db9a6b8fe1c888d65658561",
+    "Crown": "0190f868bcbfe3b4efad68ba33332d52234864075530b8dbf5c1fe8daa3d99a0"
+  },
+  "audit": {
+    "Crown_unique_fixtures": 9908,
+    "empirical_c_clipped_on_min_lambda": 3
+  },
+  "prediction": {
+    "overall": {
+      "n": 13312,
+      "independent_poisson": {
+        "n": 13312,
+        "Brier": 0.6033919,
+        "logloss": 1.0113466,
+        "accuracy_pct": 51.0817
+      },
+      "bivar_empirical_c": {
+        "n": 13312,
+        "Brier": 0.6039442,
+        "logloss": 1.0149303,
+        "accuracy_pct": 50.9766
+      },
+      "bivar_fixed_c010": {
+        "n": 13312,
+        "Brier": 0.6042252,
+        "logloss": 1.0139353,
+        "accuracy_pct": 50.909
+      },
+      "bayes_prior_1_independent": {
+        "n": 13312,
+        "Brier": 0.5996716,
+        "logloss": 1.0040695,
+        "accuracy_pct": 51.3672
+      },
+      "bayes_prior_2_independent": {
+        "n": 13312,
+        "Brier": 0.5985453,
+        "logloss": 1.002162,
+        "accuracy_pct": 51.4273
+      },
+      "bayes_prior_5_independent": {
+        "n": 13312,
+        "Brier": 0.6005069,
+        "logloss": 1.0053156,
+        "accuracy_pct": 51.2019
+      },
+      "bayes_prior_2_bivar_empirical_c": {
+        "n": 13312,
+        "Brier": 0.5985594,
+        "logloss": 1.0021644,
+        "accuracy_pct": 51.4123
+      },
+      "bayes_prior_2_bivar_fixed_c010": {
+        "n": 13312,
+        "Brier": 0.5984174,
+        "logloss": 1.0018733,
+        "accuracy_pct": 51.4423
+      }
+    },
+    "by_season": {
+      "2017": {
+        "n": 1513,
+        "independent_poisson": {
+          "n": 1513,
+          "Brier": 0.5983672,
+          "logloss": 0.9999641,
+          "accuracy_pct": 50.8262
+        },
+        "bivar_empirical_c": {
+          "n": 1513,
+          "Brier": 0.5991083,
+          "logloss": 1.00126,
+          "accuracy_pct": 50.6279
+        },
+        "bivar_fixed_c010": {
+          "n": 1513,
+          "Brier": 0.5999021,
+          "logloss": 1.0032551,
+          "accuracy_pct": 50.5618
+        },
+        "bayes_prior_1_independent": {
+          "n": 1513,
+          "Brier": 0.5946702,
+          "logloss": 0.9942684,
+          "accuracy_pct": 51.5532
+        },
+        "bayes_prior_2_independent": {
+          "n": 1513,
+          "Brier": 0.5935805,
+          "logloss": 0.993068,
+          "accuracy_pct": 51.6854
+        },
+        "bayes_prior_5_independent": {
+          "n": 1513,
+          "Brier": 0.5955532,
+          "logloss": 0.9969833,
+          "accuracy_pct": 51.6193
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 1513,
+          "Brier": 0.5939181,
+          "logloss": 0.993574,
+          "accuracy_pct": 51.5532
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 1513,
+          "Brier": 0.5939995,
+          "logloss": 0.9935811,
+          "accuracy_pct": 51.7515
+        }
+      },
+      "2018": {
+        "n": 1520,
+        "independent_poisson": {
+          "n": 1520,
+          "Brier": 0.5938485,
+          "logloss": 0.9953551,
+          "accuracy_pct": 51.4474
+        },
+        "bivar_empirical_c": {
+          "n": 1520,
+          "Brier": 0.5942902,
+          "logloss": 0.9965602,
+          "accuracy_pct": 51.4474
+        },
+        "bivar_fixed_c010": {
+          "n": 1520,
+          "Brier": 0.5939506,
+          "logloss": 0.9965571,
+          "accuracy_pct": 51.1842
+        },
+        "bayes_prior_1_independent": {
+          "n": 1520,
+          "Brier": 0.5924967,
+          "logloss": 0.9927193,
+          "accuracy_pct": 51.5132
+        },
+        "bayes_prior_2_independent": {
+          "n": 1520,
+          "Brier": 0.5929851,
+          "logloss": 0.9936423,
+          "accuracy_pct": 51.7105
+        },
+        "bayes_prior_5_independent": {
+          "n": 1520,
+          "Brier": 0.597535,
+          "logloss": 1.0009079,
+          "accuracy_pct": 51.1184
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 1520,
+          "Brier": 0.5931466,
+          "logloss": 0.9939772,
+          "accuracy_pct": 51.7105
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 1520,
+          "Brier": 0.5922816,
+          "logloss": 0.992331,
+          "accuracy_pct": 51.7105
+        }
+      },
+      "2019": {
+        "n": 1411,
+        "independent_poisson": {
+          "n": 1411,
+          "Brier": 0.6011646,
+          "logloss": 1.009258,
+          "accuracy_pct": 51.0276
+        },
+        "bivar_empirical_c": {
+          "n": 1411,
+          "Brier": 0.601687,
+          "logloss": 1.0104524,
+          "accuracy_pct": 50.6733
+        },
+        "bivar_fixed_c010": {
+          "n": 1411,
+          "Brier": 0.6022086,
+          "logloss": 1.0124514,
+          "accuracy_pct": 50.6733
+        },
+        "bayes_prior_1_independent": {
+          "n": 1411,
+          "Brier": 0.596929,
+          "logloss": 1.0007499,
+          "accuracy_pct": 51.1694
+        },
+        "bayes_prior_2_independent": {
+          "n": 1411,
+          "Brier": 0.5954827,
+          "logloss": 0.9981099,
+          "accuracy_pct": 51.2403
+        },
+        "bayes_prior_5_independent": {
+          "n": 1411,
+          "Brier": 0.5970463,
+          "logloss": 1.0003879,
+          "accuracy_pct": 51.382
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 1411,
+          "Brier": 0.5954781,
+          "logloss": 0.9978924,
+          "accuracy_pct": 51.1694
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 1411,
+          "Brier": 0.5955109,
+          "logloss": 0.9982068,
+          "accuracy_pct": 51.2403
+        }
+      },
+      "2020": {
+        "n": 1509,
+        "independent_poisson": {
+          "n": 1509,
+          "Brier": 0.6100331,
+          "logloss": 1.0222423,
+          "accuracy_pct": 50.8284
+        },
+        "bivar_empirical_c": {
+          "n": 1509,
+          "Brier": 0.6111576,
+          "logloss": 1.0248882,
+          "accuracy_pct": 50.6296
+        },
+        "bivar_fixed_c010": {
+          "n": 1509,
+          "Brier": 0.6111752,
+          "logloss": 1.0257089,
+          "accuracy_pct": 50.497
+        },
+        "bayes_prior_1_independent": {
+          "n": 1509,
+          "Brier": 0.6047878,
+          "logloss": 1.0116819,
+          "accuracy_pct": 50.8946
+        },
+        "bayes_prior_2_independent": {
+          "n": 1509,
+          "Brier": 0.6027839,
+          "logloss": 1.0084052,
+          "accuracy_pct": 50.7621
+        },
+        "bayes_prior_5_independent": {
+          "n": 1509,
+          "Brier": 0.6038623,
+          "logloss": 1.0104688,
+          "accuracy_pct": 50.6296
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 1509,
+          "Brier": 0.6032731,
+          "logloss": 1.0092931,
+          "accuracy_pct": 50.7621
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 1509,
+          "Brier": 0.6027798,
+          "logloss": 1.0083211,
+          "accuracy_pct": 50.8946
+        }
+      },
+      "2021": {
+        "n": 1519,
+        "independent_poisson": {
+          "n": 1519,
+          "Brier": 0.6076034,
+          "logloss": 1.0186659,
+          "accuracy_pct": 50.5596
+        },
+        "bivar_empirical_c": {
+          "n": 1519,
+          "Brier": 0.6076734,
+          "logloss": 1.0200107,
+          "accuracy_pct": 50.7571
+        },
+        "bivar_fixed_c010": {
+          "n": 1519,
+          "Brier": 0.6083294,
+          "logloss": 1.0214262,
+          "accuracy_pct": 50.6254
+        },
+        "bayes_prior_1_independent": {
+          "n": 1519,
+          "Brier": 0.6028999,
+          "logloss": 1.0100452,
+          "accuracy_pct": 50.8229
+        },
+        "bayes_prior_2_independent": {
+          "n": 1519,
+          "Brier": 0.6011561,
+          "logloss": 1.0070615,
+          "accuracy_pct": 51.2179
+        },
+        "bayes_prior_5_independent": {
+          "n": 1519,
+          "Brier": 0.602033,
+          "logloss": 1.0082378,
+          "accuracy_pct": 51.6787
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 1519,
+          "Brier": 0.6006719,
+          "logloss": 1.0064179,
+          "accuracy_pct": 51.2179
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 1519,
+          "Brier": 0.6009432,
+          "logloss": 1.0069623,
+          "accuracy_pct": 51.1521
+        }
+      },
+      "2022": {
+        "n": 1515,
+        "independent_poisson": {
+          "n": 1515,
+          "Brier": 0.6107914,
+          "logloss": 1.0256586,
+          "accuracy_pct": 49.967
+        },
+        "bivar_empirical_c": {
+          "n": 1515,
+          "Brier": 0.6124579,
+          "logloss": 1.0477544,
+          "accuracy_pct": 49.703
+        },
+        "bivar_fixed_c010": {
+          "n": 1515,
+          "Brier": 0.61247,
+          "logloss": 1.0308062,
+          "accuracy_pct": 49.769
+        },
+        "bayes_prior_1_independent": {
+          "n": 1515,
+          "Brier": 0.6054713,
+          "logloss": 1.0140984,
+          "accuracy_pct": 50.429
+        },
+        "bayes_prior_2_independent": {
+          "n": 1515,
+          "Brier": 0.6030051,
+          "logloss": 1.0094752,
+          "accuracy_pct": 50.495
+        },
+        "bayes_prior_5_independent": {
+          "n": 1515,
+          "Brier": 0.6020655,
+          "logloss": 1.0077412,
+          "accuracy_pct": 51.4191
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 1515,
+          "Brier": 0.6036429,
+          "logloss": 1.0108841,
+          "accuracy_pct": 50.429
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 1515,
+          "Brier": 0.603608,
+          "logloss": 1.0108525,
+          "accuracy_pct": 50.495
+        }
+      },
+      "2023": {
+        "n": 1444,
+        "independent_poisson": {
+          "n": 1444,
+          "Brier": 0.5994693,
+          "logloss": 1.0049947,
+          "accuracy_pct": 52.0776
+        },
+        "bivar_empirical_c": {
+          "n": 1444,
+          "Brier": 0.5989844,
+          "logloss": 1.0040848,
+          "accuracy_pct": 52.1468
+        },
+        "bivar_fixed_c010": {
+          "n": 1444,
+          "Brier": 0.5990689,
+          "logloss": 1.0043698,
+          "accuracy_pct": 52.2853
+        },
+        "bayes_prior_1_independent": {
+          "n": 1444,
+          "Brier": 0.5974361,
+          "logloss": 0.9999609,
+          "accuracy_pct": 51.8698
+        },
+        "bayes_prior_2_independent": {
+          "n": 1444,
+          "Brier": 0.5974504,
+          "logloss": 0.99971,
+          "accuracy_pct": 51.662
+        },
+        "bayes_prior_5_independent": {
+          "n": 1444,
+          "Brier": 0.6016456,
+          "logloss": 1.0062828,
+          "accuracy_pct": 50.554
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 1444,
+          "Brier": 0.596527,
+          "logloss": 0.9974648,
+          "accuracy_pct": 51.7313
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 1444,
+          "Brier": 0.596411,
+          "logloss": 0.9971936,
+          "accuracy_pct": 51.662
+        }
+      },
+      "2024": {
+        "n": 1440,
+        "independent_poisson": {
+          "n": 1440,
+          "Brier": 0.5956902,
+          "logloss": 0.9985549,
+          "accuracy_pct": 52.7083
+        },
+        "bivar_empirical_c": {
+          "n": 1440,
+          "Brier": 0.5960492,
+          "logloss": 0.9996237,
+          "accuracy_pct": 52.5694
+        },
+        "bivar_fixed_c010": {
+          "n": 1440,
+          "Brier": 0.5964289,
+          "logloss": 1.0005946,
+          "accuracy_pct": 52.5
+        },
+        "bayes_prior_1_independent": {
+          "n": 1440,
+          "Brier": 0.5918709,
+          "logloss": 0.9918746,
+          "accuracy_pct": 52.7778
+        },
+        "bayes_prior_2_independent": {
+          "n": 1440,
+          "Brier": 0.5909029,
+          "logloss": 0.9906045,
+          "accuracy_pct": 52.9167
+        },
+        "bayes_prior_5_independent": {
+          "n": 1440,
+          "Brier": 0.5937243,
+          "logloss": 0.9955055,
+          "accuracy_pct": 51.9444
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 1440,
+          "Brier": 0.5908223,
+          "logloss": 0.990473,
+          "accuracy_pct": 52.9861
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 1440,
+          "Brier": 0.5906684,
+          "logloss": 0.9900631,
+          "accuracy_pct": 52.9167
+        }
+      },
+      "2025": {
+        "n": 1441,
+        "independent_poisson": {
+          "n": 1441,
+          "Brier": 0.6133691,
+          "logloss": 1.0271866,
+          "accuracy_pct": 50.3817
+        },
+        "bivar_empirical_c": {
+          "n": 1441,
+          "Brier": 0.6138391,
+          "logloss": 1.0289164,
+          "accuracy_pct": 50.3123
+        },
+        "bivar_fixed_c010": {
+          "n": 1441,
+          "Brier": 0.6142624,
+          "logloss": 1.0298875,
+          "accuracy_pct": 50.1735
+        },
+        "bayes_prior_1_independent": {
+          "n": 1441,
+          "Brier": 0.6103534,
+          "logloss": 1.021072,
+          "accuracy_pct": 51.3532
+        },
+        "bayes_prior_2_independent": {
+          "n": 1441,
+          "Brier": 0.6094763,
+          "logloss": 1.0192799,
+          "accuracy_pct": 51.2144
+        },
+        "bayes_prior_5_independent": {
+          "n": 1441,
+          "Brier": 0.6111076,
+          "logloss": 1.0213456,
+          "accuracy_pct": 50.4511
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 1441,
+          "Brier": 0.60942,
+          "logloss": 1.0192795,
+          "accuracy_pct": 51.2144
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 1441,
+          "Brier": 0.6094405,
+          "logloss": 1.0191699,
+          "accuracy_pct": 51.2144
+        }
+      }
+    },
+    "by_league": {
+      "bundesliga": {
+        "n": 2242,
+        "independent_poisson": {
+          "n": 2242,
+          "Brier": 0.6095033,
+          "logloss": 1.0215794,
+          "accuracy_pct": 50.1784
+        },
+        "bivar_empirical_c": {
+          "n": 2242,
+          "Brier": 0.6097475,
+          "logloss": 1.0345043,
+          "accuracy_pct": 50.0892
+        },
+        "bivar_fixed_c010": {
+          "n": 2242,
+          "Brier": 0.6102739,
+          "logloss": 1.0241038,
+          "accuracy_pct": 50.1784
+        },
+        "bayes_prior_1_independent": {
+          "n": 2242,
+          "Brier": 0.6049458,
+          "logloss": 1.012484,
+          "accuracy_pct": 50.7136
+        },
+        "bayes_prior_2_independent": {
+          "n": 2242,
+          "Brier": 0.6032944,
+          "logloss": 1.0096557,
+          "accuracy_pct": 50.9367
+        },
+        "bayes_prior_5_independent": {
+          "n": 2242,
+          "Brier": 0.6045748,
+          "logloss": 1.0116925,
+          "accuracy_pct": 50.7583
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 2242,
+          "Brier": 0.6031758,
+          "logloss": 1.009504,
+          "accuracy_pct": 50.8921
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 2242,
+          "Brier": 0.6031467,
+          "logloss": 1.0093033,
+          "accuracy_pct": 50.9367
+        }
+      },
+      "epl": {
+        "n": 2868,
+        "independent_poisson": {
+          "n": 2868,
+          "Brier": 0.5905627,
+          "logloss": 0.9940409,
+          "accuracy_pct": 53.2078
+        },
+        "bivar_empirical_c": {
+          "n": 2868,
+          "Brier": 0.5919594,
+          "logloss": 0.9974308,
+          "accuracy_pct": 52.9986
+        },
+        "bivar_fixed_c010": {
+          "n": 2868,
+          "Brier": 0.5918622,
+          "logloss": 0.997821,
+          "accuracy_pct": 52.9637
+        },
+        "bayes_prior_1_independent": {
+          "n": 2868,
+          "Brier": 0.5867706,
+          "logloss": 0.9864621,
+          "accuracy_pct": 53.417
+        },
+        "bayes_prior_2_independent": {
+          "n": 2868,
+          "Brier": 0.585719,
+          "logloss": 0.9844878,
+          "accuracy_pct": 53.5565
+        },
+        "bayes_prior_5_independent": {
+          "n": 2868,
+          "Brier": 0.5881396,
+          "logloss": 0.9880592,
+          "accuracy_pct": 53.7308
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 2868,
+          "Brier": 0.5863333,
+          "logloss": 0.9856936,
+          "accuracy_pct": 53.5216
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 2868,
+          "Brier": 0.5860142,
+          "logloss": 0.9850753,
+          "accuracy_pct": 53.6262
+        }
+      },
+      "la-liga": {
+        "n": 2818,
+        "independent_poisson": {
+          "n": 2818,
+          "Brier": 0.6071818,
+          "logloss": 1.0153546,
+          "accuracy_pct": 49.929
+        },
+        "bivar_empirical_c": {
+          "n": 2818,
+          "Brier": 0.6073217,
+          "logloss": 1.0160479,
+          "accuracy_pct": 49.7161
+        },
+        "bivar_fixed_c010": {
+          "n": 2818,
+          "Brier": 0.6077053,
+          "logloss": 1.0171384,
+          "accuracy_pct": 49.6451
+        },
+        "bayes_prior_1_independent": {
+          "n": 2818,
+          "Brier": 0.6034756,
+          "logloss": 1.0085676,
+          "accuracy_pct": 50.3194
+        },
+        "bayes_prior_2_independent": {
+          "n": 2818,
+          "Brier": 0.6020475,
+          "logloss": 1.0064847,
+          "accuracy_pct": 50.3549
+        },
+        "bayes_prior_5_independent": {
+          "n": 2818,
+          "Brier": 0.6028752,
+          "logloss": 1.0084484,
+          "accuracy_pct": 50.2129
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 2818,
+          "Brier": 0.6015393,
+          "logloss": 1.0053467,
+          "accuracy_pct": 50.3903
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 2818,
+          "Brier": 0.6016617,
+          "logloss": 1.0056972,
+          "accuracy_pct": 50.4258
+        }
+      },
+      "ligue-1": {
+        "n": 2541,
+        "independent_poisson": {
+          "n": 2541,
+          "Brier": 0.6131231,
+          "logloss": 1.0238003,
+          "accuracy_pct": 50.4132
+        },
+        "bivar_empirical_c": {
+          "n": 2541,
+          "Brier": 0.6137531,
+          "logloss": 1.0252834,
+          "accuracy_pct": 50.2952
+        },
+        "bivar_fixed_c010": {
+          "n": 2541,
+          "Brier": 0.6144235,
+          "logloss": 1.0269963,
+          "accuracy_pct": 49.9803
+        },
+        "bayes_prior_1_independent": {
+          "n": 2541,
+          "Brier": 0.6087221,
+          "logloss": 1.0154888,
+          "accuracy_pct": 50.61
+        },
+        "bayes_prior_2_independent": {
+          "n": 2541,
+          "Brier": 0.6071089,
+          "logloss": 1.0128859,
+          "accuracy_pct": 50.61
+        },
+        "bayes_prior_5_independent": {
+          "n": 2541,
+          "Brier": 0.6080274,
+          "logloss": 1.0146128,
+          "accuracy_pct": 49.8229
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 2541,
+          "Brier": 0.6072443,
+          "logloss": 1.0130336,
+          "accuracy_pct": 50.5313
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 2541,
+          "Brier": 0.6073549,
+          "logloss": 1.0131975,
+          "accuracy_pct": 50.5706
+        }
+      },
+      "serie-a": {
+        "n": 2843,
+        "independent_poisson": {
+          "n": 2843,
+          "Brier": 0.5990605,
+          "logloss": 1.0056313,
+          "accuracy_pct": 51.3894
+        },
+        "bivar_empirical_c": {
+          "n": 2843,
+          "Brier": 0.5993431,
+          "logloss": 1.0067863,
+          "accuracy_pct": 51.4949
+        },
+        "bivar_fixed_c010": {
+          "n": 2843,
+          "Brier": 0.5993624,
+          "logloss": 1.007324,
+          "accuracy_pct": 51.4949
+        },
+        "bayes_prior_1_independent": {
+          "n": 2843,
+          "Brier": 0.596667,
+          "logloss": 1.0005312,
+          "accuracy_pct": 51.5301
+        },
+        "bayes_prior_2_independent": {
+          "n": 2843,
+          "Brier": 0.5966138,
+          "logloss": 1.0002125,
+          "accuracy_pct": 51.4597
+        },
+        "bayes_prior_5_independent": {
+          "n": 2843,
+          "Brier": 0.6007061,
+          "logloss": 1.00628,
+          "accuracy_pct": 51.2135
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 2843,
+          "Brier": 0.5965364,
+          "logloss": 1.0001231,
+          "accuracy_pct": 51.4949
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 2843,
+          "Brier": 0.5959963,
+          "logloss": 0.999048,
+          "accuracy_pct": 51.4246
+        }
+      }
+    }
+  },
+  "Crown_T12": {
+    "overall": {
+      "AH": {
+        "n": 9908,
+        "independent_poisson": {
+          "n": 9908,
+          "net_U": -153.615,
+          "ROI_pct": -1.55041,
+          "mean_model_expected_EV": 0.16596,
+          "side_changes_vs_independent_poisson": 0
+        },
+        "bivar_empirical_c": {
+          "n": 9908,
+          "net_U": -145.73,
+          "ROI_pct": -1.47083,
+          "mean_model_expected_EV": 0.1695,
+          "side_changes_vs_independent_poisson": 27
+        },
+        "bivar_fixed_c010": {
+          "n": 9908,
+          "net_U": -130.895,
+          "ROI_pct": -1.3211,
+          "mean_model_expected_EV": 0.1725,
+          "side_changes_vs_independent_poisson": 52
+        },
+        "bayes_prior_1_independent": {
+          "n": 9908,
+          "net_U": -78.14,
+          "ROI_pct": -0.78866,
+          "mean_model_expected_EV": 0.14758,
+          "side_changes_vs_independent_poisson": 601
+        },
+        "bayes_prior_2_independent": {
+          "n": 9908,
+          "net_U": -121.55,
+          "ROI_pct": -1.22679,
+          "mean_model_expected_EV": 0.13942,
+          "side_changes_vs_independent_poisson": 1148
+        },
+        "bayes_prior_5_independent": {
+          "n": 9908,
+          "net_U": -218.96,
+          "ROI_pct": -2.20993,
+          "mean_model_expected_EV": 0.14014,
+          "side_changes_vs_independent_poisson": 2268
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 9908,
+          "net_U": -124.94,
+          "ROI_pct": -1.261,
+          "mean_model_expected_EV": 0.1426,
+          "side_changes_vs_independent_poisson": 1161
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 9908,
+          "net_U": -100.28,
+          "ROI_pct": -1.01211,
+          "mean_model_expected_EV": 0.14542,
+          "side_changes_vs_independent_poisson": 1179
+        }
+      },
+      "OU": {
+        "n": 9908,
+        "independent_poisson": {
+          "n": 9908,
+          "net_U": -129.055,
+          "ROI_pct": -1.30253,
+          "mean_model_expected_EV": 0.14467,
+          "side_changes_vs_independent_poisson": 0
+        },
+        "bivar_empirical_c": {
+          "n": 9908,
+          "net_U": -166.96,
+          "ROI_pct": -1.6851,
+          "mean_model_expected_EV": 0.14225,
+          "side_changes_vs_independent_poisson": 88
+        },
+        "bivar_fixed_c010": {
+          "n": 9908,
+          "net_U": -165.575,
+          "ROI_pct": -1.67112,
+          "mean_model_expected_EV": 0.14027,
+          "side_changes_vs_independent_poisson": 167
+        },
+        "bayes_prior_1_independent": {
+          "n": 9908,
+          "net_U": -126.085,
+          "ROI_pct": -1.27256,
+          "mean_model_expected_EV": 0.12453,
+          "side_changes_vs_independent_poisson": 366
+        },
+        "bayes_prior_2_independent": {
+          "n": 9908,
+          "net_U": -148.56,
+          "ROI_pct": -1.49939,
+          "mean_model_expected_EV": 0.11154,
+          "side_changes_vs_independent_poisson": 677
+        },
+        "bayes_prior_5_independent": {
+          "n": 9908,
+          "net_U": -151.46,
+          "ROI_pct": -1.52866,
+          "mean_model_expected_EV": 0.09272,
+          "side_changes_vs_independent_poisson": 1472
+        },
+        "bayes_prior_2_bivar_empirical_c": {
+          "n": 9908,
+          "net_U": -151.95,
+          "ROI_pct": -1.53361,
+          "mean_model_expected_EV": 0.1092,
+          "side_changes_vs_independent_poisson": 641
+        },
+        "bayes_prior_2_bivar_fixed_c010": {
+          "n": 9908,
+          "net_U": -146.615,
+          "ROI_pct": -1.47976,
+          "mean_model_expected_EV": 0.10718,
+          "side_changes_vs_independent_poisson": 609
+        }
+      }
+    },
+    "by_season": {
+      "2019": {
+        "AH": {
+          "n": 1373,
+          "independent_poisson": {
+            "n": 1373,
+            "net_U": 20.055,
+            "ROI_pct": 1.46067,
+            "mean_model_expected_EV": 0.17846,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1373,
+            "net_U": 18.115,
+            "ROI_pct": 1.31937,
+            "mean_model_expected_EV": 0.18126,
+            "side_changes_vs_independent_poisson": 1
+          },
+          "bivar_fixed_c010": {
+            "n": 1373,
+            "net_U": 18.55,
+            "ROI_pct": 1.35106,
+            "mean_model_expected_EV": 0.18563,
+            "side_changes_vs_independent_poisson": 10
+          },
+          "bayes_prior_1_independent": {
+            "n": 1373,
+            "net_U": 21.415,
+            "ROI_pct": 1.55972,
+            "mean_model_expected_EV": 0.16379,
+            "side_changes_vs_independent_poisson": 82
+          },
+          "bayes_prior_2_independent": {
+            "n": 1373,
+            "net_U": 35.335,
+            "ROI_pct": 2.57356,
+            "mean_model_expected_EV": 0.15755,
+            "side_changes_vs_independent_poisson": 142
+          },
+          "bayes_prior_5_independent": {
+            "n": 1373,
+            "net_U": 22.37,
+            "ROI_pct": 1.62928,
+            "mean_model_expected_EV": 0.15843,
+            "side_changes_vs_independent_poisson": 264
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1373,
+            "net_U": 37.025,
+            "ROI_pct": 2.69665,
+            "mean_model_expected_EV": 0.15999,
+            "side_changes_vs_independent_poisson": 143
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1373,
+            "net_U": 42.605,
+            "ROI_pct": 3.10306,
+            "mean_model_expected_EV": 0.16419,
+            "side_changes_vs_independent_poisson": 146
+          }
+        },
+        "OU": {
+          "n": 1373,
+          "independent_poisson": {
+            "n": 1373,
+            "net_U": 29.72,
+            "ROI_pct": 2.1646,
+            "mean_model_expected_EV": 0.15028,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1373,
+            "net_U": 20.415,
+            "ROI_pct": 1.48689,
+            "mean_model_expected_EV": 0.14875,
+            "side_changes_vs_independent_poisson": 13
+          },
+          "bivar_fixed_c010": {
+            "n": 1373,
+            "net_U": 17.47,
+            "ROI_pct": 1.2724,
+            "mean_model_expected_EV": 0.14653,
+            "side_changes_vs_independent_poisson": 31
+          },
+          "bayes_prior_1_independent": {
+            "n": 1373,
+            "net_U": 33.69,
+            "ROI_pct": 2.45375,
+            "mean_model_expected_EV": 0.12701,
+            "side_changes_vs_independent_poisson": 35
+          },
+          "bayes_prior_2_independent": {
+            "n": 1373,
+            "net_U": 35.695,
+            "ROI_pct": 2.59978,
+            "mean_model_expected_EV": 0.11142,
+            "side_changes_vs_independent_poisson": 81
+          },
+          "bayes_prior_5_independent": {
+            "n": 1373,
+            "net_U": 27.925,
+            "ROI_pct": 2.03387,
+            "mean_model_expected_EV": 0.08763,
+            "side_changes_vs_independent_poisson": 207
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1373,
+            "net_U": 34.07,
+            "ROI_pct": 2.48143,
+            "mean_model_expected_EV": 0.1101,
+            "side_changes_vs_independent_poisson": 81
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1373,
+            "net_U": 25.78,
+            "ROI_pct": 1.87764,
+            "mean_model_expected_EV": 0.10832,
+            "side_changes_vs_independent_poisson": 80
+          }
+        }
+      },
+      "2020": {
+        "AH": {
+          "n": 1462,
+          "independent_poisson": {
+            "n": 1462,
+            "net_U": -8.51,
+            "ROI_pct": -0.58208,
+            "mean_model_expected_EV": 0.17551,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1462,
+            "net_U": -7.74,
+            "ROI_pct": -0.52941,
+            "mean_model_expected_EV": 0.17863,
+            "side_changes_vs_independent_poisson": 6
+          },
+          "bivar_fixed_c010": {
+            "n": 1462,
+            "net_U": -8.03,
+            "ROI_pct": -0.54925,
+            "mean_model_expected_EV": 0.18256,
+            "side_changes_vs_independent_poisson": 9
+          },
+          "bayes_prior_1_independent": {
+            "n": 1462,
+            "net_U": -0.895,
+            "ROI_pct": -0.06122,
+            "mean_model_expected_EV": 0.15667,
+            "side_changes_vs_independent_poisson": 88
+          },
+          "bayes_prior_2_independent": {
+            "n": 1462,
+            "net_U": -24.06,
+            "ROI_pct": -1.64569,
+            "mean_model_expected_EV": 0.14783,
+            "side_changes_vs_independent_poisson": 164
+          },
+          "bayes_prior_5_independent": {
+            "n": 1462,
+            "net_U": -52.095,
+            "ROI_pct": -3.56327,
+            "mean_model_expected_EV": 0.14902,
+            "side_changes_vs_independent_poisson": 331
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1462,
+            "net_U": -22.24,
+            "ROI_pct": -1.5212,
+            "mean_model_expected_EV": 0.1507,
+            "side_changes_vs_independent_poisson": 165
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1462,
+            "net_U": -15.96,
+            "ROI_pct": -1.09166,
+            "mean_model_expected_EV": 0.15437,
+            "side_changes_vs_independent_poisson": 170
+          }
+        },
+        "OU": {
+          "n": 1462,
+          "independent_poisson": {
+            "n": 1462,
+            "net_U": -6.15,
+            "ROI_pct": -0.42066,
+            "mean_model_expected_EV": 0.13771,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1462,
+            "net_U": -9.73,
+            "ROI_pct": -0.66553,
+            "mean_model_expected_EV": 0.13668,
+            "side_changes_vs_independent_poisson": 8
+          },
+          "bivar_fixed_c010": {
+            "n": 1462,
+            "net_U": -4.465,
+            "ROI_pct": -0.3054,
+            "mean_model_expected_EV": 0.13519,
+            "side_changes_vs_independent_poisson": 19
+          },
+          "bayes_prior_1_independent": {
+            "n": 1462,
+            "net_U": 5.815,
+            "ROI_pct": 0.39774,
+            "mean_model_expected_EV": 0.11619,
+            "side_changes_vs_independent_poisson": 52
+          },
+          "bayes_prior_2_independent": {
+            "n": 1462,
+            "net_U": 13.785,
+            "ROI_pct": 0.94289,
+            "mean_model_expected_EV": 0.10245,
+            "side_changes_vs_independent_poisson": 103
+          },
+          "bayes_prior_5_independent": {
+            "n": 1462,
+            "net_U": -19.085,
+            "ROI_pct": -1.3054,
+            "mean_model_expected_EV": 0.08152,
+            "side_changes_vs_independent_poisson": 216
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1462,
+            "net_U": 8.32,
+            "ROI_pct": 0.56908,
+            "mean_model_expected_EV": 0.10176,
+            "side_changes_vs_independent_poisson": 97
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1462,
+            "net_U": 5.105,
+            "ROI_pct": 0.34918,
+            "mean_model_expected_EV": 0.10033,
+            "side_changes_vs_independent_poisson": 96
+          }
+        }
+      },
+      "2021": {
+        "AH": {
+          "n": 1418,
+          "independent_poisson": {
+            "n": 1418,
+            "net_U": -16.13,
+            "ROI_pct": -1.13752,
+            "mean_model_expected_EV": 0.16129,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1418,
+            "net_U": -10.47,
+            "ROI_pct": -0.73836,
+            "mean_model_expected_EV": 0.16543,
+            "side_changes_vs_independent_poisson": 9
+          },
+          "bivar_fixed_c010": {
+            "n": 1418,
+            "net_U": -12.65,
+            "ROI_pct": -0.8921,
+            "mean_model_expected_EV": 0.16817,
+            "side_changes_vs_independent_poisson": 11
+          },
+          "bayes_prior_1_independent": {
+            "n": 1418,
+            "net_U": 0.995,
+            "ROI_pct": 0.07017,
+            "mean_model_expected_EV": 0.14447,
+            "side_changes_vs_independent_poisson": 90
+          },
+          "bayes_prior_2_independent": {
+            "n": 1418,
+            "net_U": 5.81,
+            "ROI_pct": 0.40973,
+            "mean_model_expected_EV": 0.13864,
+            "side_changes_vs_independent_poisson": 176
+          },
+          "bayes_prior_5_independent": {
+            "n": 1418,
+            "net_U": -30.98,
+            "ROI_pct": -2.18477,
+            "mean_model_expected_EV": 0.14416,
+            "side_changes_vs_independent_poisson": 334
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1418,
+            "net_U": 5.6,
+            "ROI_pct": 0.39492,
+            "mean_model_expected_EV": 0.14263,
+            "side_changes_vs_independent_poisson": 178
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1418,
+            "net_U": 9.3,
+            "ROI_pct": 0.65585,
+            "mean_model_expected_EV": 0.14511,
+            "side_changes_vs_independent_poisson": 179
+          }
+        },
+        "OU": {
+          "n": 1418,
+          "independent_poisson": {
+            "n": 1418,
+            "net_U": -8.11,
+            "ROI_pct": -0.57193,
+            "mean_model_expected_EV": 0.12797,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1418,
+            "net_U": -21.46,
+            "ROI_pct": -1.5134,
+            "mean_model_expected_EV": 0.12653,
+            "side_changes_vs_independent_poisson": 20
+          },
+          "bivar_fixed_c010": {
+            "n": 1418,
+            "net_U": -20.11,
+            "ROI_pct": -1.41819,
+            "mean_model_expected_EV": 0.12543,
+            "side_changes_vs_independent_poisson": 25
+          },
+          "bayes_prior_1_independent": {
+            "n": 1418,
+            "net_U": -15.635,
+            "ROI_pct": -1.10261,
+            "mean_model_expected_EV": 0.10756,
+            "side_changes_vs_independent_poisson": 49
+          },
+          "bayes_prior_2_independent": {
+            "n": 1418,
+            "net_U": -25.545,
+            "ROI_pct": -1.80148,
+            "mean_model_expected_EV": 0.09386,
+            "side_changes_vs_independent_poisson": 79
+          },
+          "bayes_prior_5_independent": {
+            "n": 1418,
+            "net_U": -7.925,
+            "ROI_pct": -0.55889,
+            "mean_model_expected_EV": 0.07286,
+            "side_changes_vs_independent_poisson": 209
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1418,
+            "net_U": -20.79,
+            "ROI_pct": -1.46615,
+            "mean_model_expected_EV": 0.0927,
+            "side_changes_vs_independent_poisson": 77
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1418,
+            "net_U": -28.17,
+            "ROI_pct": -1.9866,
+            "mean_model_expected_EV": 0.09181,
+            "side_changes_vs_independent_poisson": 80
+          }
+        }
+      },
+      "2022": {
+        "AH": {
+          "n": 1468,
+          "independent_poisson": {
+            "n": 1468,
+            "net_U": -54.42,
+            "ROI_pct": -3.70708,
+            "mean_model_expected_EV": 0.15918,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1468,
+            "net_U": -51.6,
+            "ROI_pct": -3.51499,
+            "mean_model_expected_EV": 0.16342,
+            "side_changes_vs_independent_poisson": 4
+          },
+          "bivar_fixed_c010": {
+            "n": 1468,
+            "net_U": -45.97,
+            "ROI_pct": -3.13147,
+            "mean_model_expected_EV": 0.16544,
+            "side_changes_vs_independent_poisson": 5
+          },
+          "bayes_prior_1_independent": {
+            "n": 1468,
+            "net_U": -56.3,
+            "ROI_pct": -3.83515,
+            "mean_model_expected_EV": 0.1381,
+            "side_changes_vs_independent_poisson": 93
+          },
+          "bayes_prior_2_independent": {
+            "n": 1468,
+            "net_U": -43.99,
+            "ROI_pct": -2.99659,
+            "mean_model_expected_EV": 0.12846,
+            "side_changes_vs_independent_poisson": 191
+          },
+          "bayes_prior_5_independent": {
+            "n": 1468,
+            "net_U": -43.77,
+            "ROI_pct": -2.98161,
+            "mean_model_expected_EV": 0.12848,
+            "side_changes_vs_independent_poisson": 371
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1468,
+            "net_U": -43.97,
+            "ROI_pct": -2.99523,
+            "mean_model_expected_EV": 0.13225,
+            "side_changes_vs_independent_poisson": 193
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1468,
+            "net_U": -35.59,
+            "ROI_pct": -2.42439,
+            "mean_model_expected_EV": 0.13419,
+            "side_changes_vs_independent_poisson": 199
+          }
+        },
+        "OU": {
+          "n": 1468,
+          "independent_poisson": {
+            "n": 1468,
+            "net_U": -79.65,
+            "ROI_pct": -5.42575,
+            "mean_model_expected_EV": 0.13239,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1468,
+            "net_U": -67.75,
+            "ROI_pct": -4.61512,
+            "mean_model_expected_EV": 0.1292,
+            "side_changes_vs_independent_poisson": 19
+          },
+          "bivar_fixed_c010": {
+            "n": 1468,
+            "net_U": -70.995,
+            "ROI_pct": -4.83617,
+            "mean_model_expected_EV": 0.12802,
+            "side_changes_vs_independent_poisson": 29
+          },
+          "bayes_prior_1_independent": {
+            "n": 1468,
+            "net_U": -87.495,
+            "ROI_pct": -5.96015,
+            "mean_model_expected_EV": 0.11222,
+            "side_changes_vs_independent_poisson": 56
+          },
+          "bayes_prior_2_independent": {
+            "n": 1468,
+            "net_U": -86.01,
+            "ROI_pct": -5.85899,
+            "mean_model_expected_EV": 0.09934,
+            "side_changes_vs_independent_poisson": 104
+          },
+          "bayes_prior_5_independent": {
+            "n": 1468,
+            "net_U": -87.185,
+            "ROI_pct": -5.93903,
+            "mean_model_expected_EV": 0.07983,
+            "side_changes_vs_independent_poisson": 202
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1468,
+            "net_U": -79.33,
+            "ROI_pct": -5.40395,
+            "mean_model_expected_EV": 0.09617,
+            "side_changes_vs_independent_poisson": 93
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1468,
+            "net_U": -84.14,
+            "ROI_pct": -5.73161,
+            "mean_model_expected_EV": 0.09494,
+            "side_changes_vs_independent_poisson": 84
+          }
+        }
+      },
+      "2023": {
+        "AH": {
+          "n": 1396,
+          "independent_poisson": {
+            "n": 1396,
+            "net_U": -42.81,
+            "ROI_pct": -3.06662,
+            "mean_model_expected_EV": 0.16074,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1396,
+            "net_U": -43.935,
+            "ROI_pct": -3.14721,
+            "mean_model_expected_EV": 0.16489,
+            "side_changes_vs_independent_poisson": 4
+          },
+          "bivar_fixed_c010": {
+            "n": 1396,
+            "net_U": -40.315,
+            "ROI_pct": -2.88789,
+            "mean_model_expected_EV": 0.16672,
+            "side_changes_vs_independent_poisson": 6
+          },
+          "bayes_prior_1_independent": {
+            "n": 1396,
+            "net_U": -17.185,
+            "ROI_pct": -1.23102,
+            "mean_model_expected_EV": 0.14235,
+            "side_changes_vs_independent_poisson": 98
+          },
+          "bayes_prior_2_independent": {
+            "n": 1396,
+            "net_U": -21.665,
+            "ROI_pct": -1.55193,
+            "mean_model_expected_EV": 0.13456,
+            "side_changes_vs_independent_poisson": 166
+          },
+          "bayes_prior_5_independent": {
+            "n": 1396,
+            "net_U": -46.73,
+            "ROI_pct": -3.34742,
+            "mean_model_expected_EV": 0.13527,
+            "side_changes_vs_independent_poisson": 322
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1396,
+            "net_U": -26.025,
+            "ROI_pct": -1.86426,
+            "mean_model_expected_EV": 0.13809,
+            "side_changes_vs_independent_poisson": 170
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1396,
+            "net_U": -21.115,
+            "ROI_pct": -1.51254,
+            "mean_model_expected_EV": 0.14,
+            "side_changes_vs_independent_poisson": 171
+          }
+        },
+        "OU": {
+          "n": 1396,
+          "independent_poisson": {
+            "n": 1396,
+            "net_U": -10.805,
+            "ROI_pct": -0.774,
+            "mean_model_expected_EV": 0.15353,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1396,
+            "net_U": -16.665,
+            "ROI_pct": -1.19377,
+            "mean_model_expected_EV": 0.14997,
+            "side_changes_vs_independent_poisson": 10
+          },
+          "bivar_fixed_c010": {
+            "n": 1396,
+            "net_U": -19.57,
+            "ROI_pct": -1.40186,
+            "mean_model_expected_EV": 0.14841,
+            "side_changes_vs_independent_poisson": 22
+          },
+          "bayes_prior_1_independent": {
+            "n": 1396,
+            "net_U": -3.78,
+            "ROI_pct": -0.27077,
+            "mean_model_expected_EV": 0.13359,
+            "side_changes_vs_independent_poisson": 65
+          },
+          "bayes_prior_2_independent": {
+            "n": 1396,
+            "net_U": -14.145,
+            "ROI_pct": -1.01325,
+            "mean_model_expected_EV": 0.12068,
+            "side_changes_vs_independent_poisson": 108
+          },
+          "bayes_prior_5_independent": {
+            "n": 1396,
+            "net_U": -14.545,
+            "ROI_pct": -1.04191,
+            "mean_model_expected_EV": 0.10198,
+            "side_changes_vs_independent_poisson": 208
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1396,
+            "net_U": -20.915,
+            "ROI_pct": -1.49821,
+            "mean_model_expected_EV": 0.11698,
+            "side_changes_vs_independent_poisson": 105
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1396,
+            "net_U": -17.875,
+            "ROI_pct": -1.28044,
+            "mean_model_expected_EV": 0.11509,
+            "side_changes_vs_independent_poisson": 97
+          }
+        }
+      },
+      "2024": {
+        "AH": {
+          "n": 1391,
+          "independent_poisson": {
+            "n": 1391,
+            "net_U": -34.98,
+            "ROI_pct": -2.51474,
+            "mean_model_expected_EV": 0.17155,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1391,
+            "net_U": -33.17,
+            "ROI_pct": -2.38462,
+            "mean_model_expected_EV": 0.17381,
+            "side_changes_vs_independent_poisson": 1
+          },
+          "bivar_fixed_c010": {
+            "n": 1391,
+            "net_U": -31.23,
+            "ROI_pct": -2.24515,
+            "mean_model_expected_EV": 0.17782,
+            "side_changes_vs_independent_poisson": 6
+          },
+          "bayes_prior_1_independent": {
+            "n": 1391,
+            "net_U": -21.91,
+            "ROI_pct": -1.57513,
+            "mean_model_expected_EV": 0.14842,
+            "side_changes_vs_independent_poisson": 84
+          },
+          "bayes_prior_2_independent": {
+            "n": 1391,
+            "net_U": -33.715,
+            "ROI_pct": -2.4238,
+            "mean_model_expected_EV": 0.13751,
+            "side_changes_vs_independent_poisson": 181
+          },
+          "bayes_prior_5_independent": {
+            "n": 1391,
+            "net_U": -20.525,
+            "ROI_pct": -1.47556,
+            "mean_model_expected_EV": 0.1346,
+            "side_changes_vs_independent_poisson": 340
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1391,
+            "net_U": -35.795,
+            "ROI_pct": -2.57333,
+            "mean_model_expected_EV": 0.13949,
+            "side_changes_vs_independent_poisson": 182
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1391,
+            "net_U": -35.105,
+            "ROI_pct": -2.52372,
+            "mean_model_expected_EV": 0.14308,
+            "side_changes_vs_independent_poisson": 181
+          }
+        },
+        "OU": {
+          "n": 1391,
+          "independent_poisson": {
+            "n": 1391,
+            "net_U": -7.27,
+            "ROI_pct": -0.52265,
+            "mean_model_expected_EV": 0.1575,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1391,
+            "net_U": -11.16,
+            "ROI_pct": -0.8023,
+            "mean_model_expected_EV": 0.15526,
+            "side_changes_vs_independent_poisson": 6
+          },
+          "bivar_fixed_c010": {
+            "n": 1391,
+            "net_U": -6.17,
+            "ROI_pct": -0.44357,
+            "mean_model_expected_EV": 0.15134,
+            "side_changes_vs_independent_poisson": 19
+          },
+          "bayes_prior_1_independent": {
+            "n": 1391,
+            "net_U": -16.64,
+            "ROI_pct": -1.19626,
+            "mean_model_expected_EV": 0.13738,
+            "side_changes_vs_independent_poisson": 56
+          },
+          "bayes_prior_2_independent": {
+            "n": 1391,
+            "net_U": -32.1,
+            "ROI_pct": -2.30769,
+            "mean_model_expected_EV": 0.12421,
+            "side_changes_vs_independent_poisson": 101
+          },
+          "bayes_prior_5_independent": {
+            "n": 1391,
+            "net_U": -26.485,
+            "ROI_pct": -1.90403,
+            "mean_model_expected_EV": 0.10887,
+            "side_changes_vs_independent_poisson": 239
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1391,
+            "net_U": -35.125,
+            "ROI_pct": -2.52516,
+            "mean_model_expected_EV": 0.12195,
+            "side_changes_vs_independent_poisson": 96
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1391,
+            "net_U": -16.93,
+            "ROI_pct": -1.21711,
+            "mean_model_expected_EV": 0.11775,
+            "side_changes_vs_independent_poisson": 86
+          }
+        }
+      },
+      "2025": {
+        "AH": {
+          "n": 1400,
+          "independent_poisson": {
+            "n": 1400,
+            "net_U": -16.82,
+            "ROI_pct": -1.20143,
+            "mean_model_expected_EV": 0.15523,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1400,
+            "net_U": -16.93,
+            "ROI_pct": -1.20929,
+            "mean_model_expected_EV": 0.15923,
+            "side_changes_vs_independent_poisson": 2
+          },
+          "bivar_fixed_c010": {
+            "n": 1400,
+            "net_U": -11.25,
+            "ROI_pct": -0.80357,
+            "mean_model_expected_EV": 0.16137,
+            "side_changes_vs_independent_poisson": 5
+          },
+          "bayes_prior_1_independent": {
+            "n": 1400,
+            "net_U": -4.26,
+            "ROI_pct": -0.30429,
+            "mean_model_expected_EV": 0.13963,
+            "side_changes_vs_independent_poisson": 66
+          },
+          "bayes_prior_2_independent": {
+            "n": 1400,
+            "net_U": -39.265,
+            "ROI_pct": -2.80464,
+            "mean_model_expected_EV": 0.13188,
+            "side_changes_vs_independent_poisson": 128
+          },
+          "bayes_prior_5_independent": {
+            "n": 1400,
+            "net_U": -47.23,
+            "ROI_pct": -3.37357,
+            "mean_model_expected_EV": 0.13143,
+            "side_changes_vs_independent_poisson": 306
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1400,
+            "net_U": -39.535,
+            "ROI_pct": -2.82393,
+            "mean_model_expected_EV": 0.13553,
+            "side_changes_vs_independent_poisson": 130
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1400,
+            "net_U": -44.415,
+            "ROI_pct": -3.1725,
+            "mean_model_expected_EV": 0.13747,
+            "side_changes_vs_independent_poisson": 133
+          }
+        },
+        "OU": {
+          "n": 1400,
+          "independent_poisson": {
+            "n": 1400,
+            "net_U": -46.79,
+            "ROI_pct": -3.34214,
+            "mean_model_expected_EV": 0.15463,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1400,
+            "net_U": -60.61,
+            "ROI_pct": -4.32929,
+            "mean_model_expected_EV": 0.15068,
+            "side_changes_vs_independent_poisson": 12
+          },
+          "bivar_fixed_c010": {
+            "n": 1400,
+            "net_U": -61.735,
+            "ROI_pct": -4.40964,
+            "mean_model_expected_EV": 0.1482,
+            "side_changes_vs_independent_poisson": 22
+          },
+          "bayes_prior_1_independent": {
+            "n": 1400,
+            "net_U": -42.04,
+            "ROI_pct": -3.00286,
+            "mean_model_expected_EV": 0.13908,
+            "side_changes_vs_independent_poisson": 53
+          },
+          "bayes_prior_2_independent": {
+            "n": 1400,
+            "net_U": -40.24,
+            "ROI_pct": -2.87429,
+            "mean_model_expected_EV": 0.13014,
+            "side_changes_vs_independent_poisson": 101
+          },
+          "bayes_prior_5_independent": {
+            "n": 1400,
+            "net_U": -24.16,
+            "ROI_pct": -1.72571,
+            "mean_model_expected_EV": 0.11773,
+            "side_changes_vs_independent_poisson": 191
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1400,
+            "net_U": -38.18,
+            "ROI_pct": -2.72714,
+            "mean_model_expected_EV": 0.126,
+            "side_changes_vs_independent_poisson": 92
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1400,
+            "net_U": -30.385,
+            "ROI_pct": -2.17036,
+            "mean_model_expected_EV": 0.12325,
+            "side_changes_vs_independent_poisson": 86
+          }
+        }
+      }
+    },
+    "by_league": {
+      "bundesliga": {
+        "AH": {
+          "n": 1720,
+          "independent_poisson": {
+            "n": 1720,
+            "net_U": -72.645,
+            "ROI_pct": -4.22355,
+            "mean_model_expected_EV": 0.16927,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1720,
+            "net_U": -72.645,
+            "ROI_pct": -4.22355,
+            "mean_model_expected_EV": 0.17174,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_fixed_c010": {
+            "n": 1720,
+            "net_U": -57.515,
+            "ROI_pct": -3.3439,
+            "mean_model_expected_EV": 0.17539,
+            "side_changes_vs_independent_poisson": 8
+          },
+          "bayes_prior_1_independent": {
+            "n": 1720,
+            "net_U": -20.025,
+            "ROI_pct": -1.16424,
+            "mean_model_expected_EV": 0.15109,
+            "side_changes_vs_independent_poisson": 114
+          },
+          "bayes_prior_2_independent": {
+            "n": 1720,
+            "net_U": -36.105,
+            "ROI_pct": -2.09913,
+            "mean_model_expected_EV": 0.14403,
+            "side_changes_vs_independent_poisson": 209
+          },
+          "bayes_prior_5_independent": {
+            "n": 1720,
+            "net_U": -41.165,
+            "ROI_pct": -2.39331,
+            "mean_model_expected_EV": 0.14664,
+            "side_changes_vs_independent_poisson": 391
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1720,
+            "net_U": -36.295,
+            "ROI_pct": -2.11017,
+            "mean_model_expected_EV": 0.1462,
+            "side_changes_vs_independent_poisson": 209
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1720,
+            "net_U": -38.365,
+            "ROI_pct": -2.23052,
+            "mean_model_expected_EV": 0.14962,
+            "side_changes_vs_independent_poisson": 212
+          }
+        },
+        "OU": {
+          "n": 1720,
+          "independent_poisson": {
+            "n": 1720,
+            "net_U": -82.87,
+            "ROI_pct": -4.81802,
+            "mean_model_expected_EV": 0.14833,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1720,
+            "net_U": -89.33,
+            "ROI_pct": -5.1936,
+            "mean_model_expected_EV": 0.14672,
+            "side_changes_vs_independent_poisson": 8
+          },
+          "bivar_fixed_c010": {
+            "n": 1720,
+            "net_U": -99.28,
+            "ROI_pct": -5.77209,
+            "mean_model_expected_EV": 0.14476,
+            "side_changes_vs_independent_poisson": 28
+          },
+          "bayes_prior_1_independent": {
+            "n": 1720,
+            "net_U": -82.77,
+            "ROI_pct": -4.81221,
+            "mean_model_expected_EV": 0.12563,
+            "side_changes_vs_independent_poisson": 55
+          },
+          "bayes_prior_2_independent": {
+            "n": 1720,
+            "net_U": -58.59,
+            "ROI_pct": -3.4064,
+            "mean_model_expected_EV": 0.11091,
+            "side_changes_vs_independent_poisson": 97
+          },
+          "bayes_prior_5_independent": {
+            "n": 1720,
+            "net_U": -79.405,
+            "ROI_pct": -4.61657,
+            "mean_model_expected_EV": 0.09049,
+            "side_changes_vs_independent_poisson": 248
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1720,
+            "net_U": -59.645,
+            "ROI_pct": -3.46773,
+            "mean_model_expected_EV": 0.1095,
+            "side_changes_vs_independent_poisson": 94
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1720,
+            "net_U": -71.25,
+            "ROI_pct": -4.14244,
+            "mean_model_expected_EV": 0.10777,
+            "side_changes_vs_independent_poisson": 85
+          }
+        }
+      },
+      "epl": {
+        "AH": {
+          "n": 2193,
+          "independent_poisson": {
+            "n": 2193,
+            "net_U": -13.455,
+            "ROI_pct": -0.61354,
+            "mean_model_expected_EV": 0.17216,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 2193,
+            "net_U": -14.665,
+            "ROI_pct": -0.66872,
+            "mean_model_expected_EV": 0.17585,
+            "side_changes_vs_independent_poisson": 9
+          },
+          "bivar_fixed_c010": {
+            "n": 2193,
+            "net_U": -12.05,
+            "ROI_pct": -0.54948,
+            "mean_model_expected_EV": 0.17883,
+            "side_changes_vs_independent_poisson": 16
+          },
+          "bayes_prior_1_independent": {
+            "n": 2193,
+            "net_U": 2.735,
+            "ROI_pct": 0.12472,
+            "mean_model_expected_EV": 0.15645,
+            "side_changes_vs_independent_poisson": 142
+          },
+          "bayes_prior_2_independent": {
+            "n": 2193,
+            "net_U": 44.03,
+            "ROI_pct": 2.00775,
+            "mean_model_expected_EV": 0.15042,
+            "side_changes_vs_independent_poisson": 268
+          },
+          "bayes_prior_5_independent": {
+            "n": 2193,
+            "net_U": 47.1,
+            "ROI_pct": 2.14774,
+            "mean_model_expected_EV": 0.15575,
+            "side_changes_vs_independent_poisson": 513
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 2193,
+            "net_U": 43.84,
+            "ROI_pct": 1.99909,
+            "mean_model_expected_EV": 0.15379,
+            "side_changes_vs_independent_poisson": 272
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 2193,
+            "net_U": 49.13,
+            "ROI_pct": 2.24031,
+            "mean_model_expected_EV": 0.1567,
+            "side_changes_vs_independent_poisson": 275
+          }
+        },
+        "OU": {
+          "n": 2193,
+          "independent_poisson": {
+            "n": 2193,
+            "net_U": 5.735,
+            "ROI_pct": 0.26151,
+            "mean_model_expected_EV": 0.13823,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 2193,
+            "net_U": 3.22,
+            "ROI_pct": 0.14683,
+            "mean_model_expected_EV": 0.13633,
+            "side_changes_vs_independent_poisson": 17
+          },
+          "bivar_fixed_c010": {
+            "n": 2193,
+            "net_U": 1.06,
+            "ROI_pct": 0.04834,
+            "mean_model_expected_EV": 0.13413,
+            "side_changes_vs_independent_poisson": 33
+          },
+          "bayes_prior_1_independent": {
+            "n": 2193,
+            "net_U": -3.18,
+            "ROI_pct": -0.14501,
+            "mean_model_expected_EV": 0.11837,
+            "side_changes_vs_independent_poisson": 78
+          },
+          "bayes_prior_2_independent": {
+            "n": 2193,
+            "net_U": -29.3,
+            "ROI_pct": -1.33607,
+            "mean_model_expected_EV": 0.10532,
+            "side_changes_vs_independent_poisson": 155
+          },
+          "bayes_prior_5_independent": {
+            "n": 2193,
+            "net_U": -0.855,
+            "ROI_pct": -0.03899,
+            "mean_model_expected_EV": 0.08645,
+            "side_changes_vs_independent_poisson": 332
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 2193,
+            "net_U": -38.18,
+            "ROI_pct": -1.74099,
+            "mean_model_expected_EV": 0.10374,
+            "side_changes_vs_independent_poisson": 142
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 2193,
+            "net_U": -18.48,
+            "ROI_pct": -0.84268,
+            "mean_model_expected_EV": 0.10125,
+            "side_changes_vs_independent_poisson": 132
+          }
+        }
+      },
+      "la-liga": {
+        "AH": {
+          "n": 1944,
+          "independent_poisson": {
+            "n": 1944,
+            "net_U": -61.47,
+            "ROI_pct": -3.16204,
+            "mean_model_expected_EV": 0.16505,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1944,
+            "net_U": -59.57,
+            "ROI_pct": -3.0643,
+            "mean_model_expected_EV": 0.17029,
+            "side_changes_vs_independent_poisson": 7
+          },
+          "bivar_fixed_c010": {
+            "n": 1944,
+            "net_U": -60.785,
+            "ROI_pct": -3.1268,
+            "mean_model_expected_EV": 0.1718,
+            "side_changes_vs_independent_poisson": 7
+          },
+          "bayes_prior_1_independent": {
+            "n": 1944,
+            "net_U": -29.215,
+            "ROI_pct": -1.50283,
+            "mean_model_expected_EV": 0.14551,
+            "side_changes_vs_independent_poisson": 101
+          },
+          "bayes_prior_2_independent": {
+            "n": 1944,
+            "net_U": -45.51,
+            "ROI_pct": -2.34105,
+            "mean_model_expected_EV": 0.13543,
+            "side_changes_vs_independent_poisson": 196
+          },
+          "bayes_prior_5_independent": {
+            "n": 1944,
+            "net_U": -53.82,
+            "ROI_pct": -2.76852,
+            "mean_model_expected_EV": 0.13165,
+            "side_changes_vs_independent_poisson": 409
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1944,
+            "net_U": -47.54,
+            "ROI_pct": -2.44547,
+            "mean_model_expected_EV": 0.13998,
+            "side_changes_vs_independent_poisson": 195
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1944,
+            "net_U": -39.82,
+            "ROI_pct": -2.04835,
+            "mean_model_expected_EV": 0.14152,
+            "side_changes_vs_independent_poisson": 199
+          }
+        },
+        "OU": {
+          "n": 1944,
+          "independent_poisson": {
+            "n": 1944,
+            "net_U": -9.76,
+            "ROI_pct": -0.50206,
+            "mean_model_expected_EV": 0.14424,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1944,
+            "net_U": -31.855,
+            "ROI_pct": -1.63863,
+            "mean_model_expected_EV": 0.1405,
+            "side_changes_vs_independent_poisson": 28
+          },
+          "bivar_fixed_c010": {
+            "n": 1944,
+            "net_U": -24.3,
+            "ROI_pct": -1.25,
+            "mean_model_expected_EV": 0.139,
+            "side_changes_vs_independent_poisson": 30
+          },
+          "bayes_prior_1_independent": {
+            "n": 1944,
+            "net_U": -20.205,
+            "ROI_pct": -1.03935,
+            "mean_model_expected_EV": 0.12737,
+            "side_changes_vs_independent_poisson": 93
+          },
+          "bayes_prior_2_independent": {
+            "n": 1944,
+            "net_U": -16.74,
+            "ROI_pct": -0.86111,
+            "mean_model_expected_EV": 0.11744,
+            "side_changes_vs_independent_poisson": 165
+          },
+          "bayes_prior_5_independent": {
+            "n": 1944,
+            "net_U": -19.155,
+            "ROI_pct": -0.98534,
+            "mean_model_expected_EV": 0.10541,
+            "side_changes_vs_independent_poisson": 321
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1944,
+            "net_U": -19.14,
+            "ROI_pct": -0.98457,
+            "mean_model_expected_EV": 0.11335,
+            "side_changes_vs_independent_poisson": 149
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1944,
+            "net_U": -34.4,
+            "ROI_pct": -1.76955,
+            "mean_model_expected_EV": 0.11161,
+            "side_changes_vs_independent_poisson": 143
+          }
+        }
+      },
+      "ligue-1": {
+        "AH": {
+          "n": 1880,
+          "independent_poisson": {
+            "n": 1880,
+            "net_U": 37.635,
+            "ROI_pct": 2.00186,
+            "mean_model_expected_EV": 0.17062,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1880,
+            "net_U": 43.235,
+            "ROI_pct": 2.29973,
+            "mean_model_expected_EV": 0.17436,
+            "side_changes_vs_independent_poisson": 5
+          },
+          "bivar_fixed_c010": {
+            "n": 1880,
+            "net_U": 41.87,
+            "ROI_pct": 2.22713,
+            "mean_model_expected_EV": 0.17743,
+            "side_changes_vs_independent_poisson": 9
+          },
+          "bayes_prior_1_independent": {
+            "n": 1880,
+            "net_U": 13.525,
+            "ROI_pct": 0.71941,
+            "mean_model_expected_EV": 0.15061,
+            "side_changes_vs_independent_poisson": 105
+          },
+          "bayes_prior_2_independent": {
+            "n": 1880,
+            "net_U": -2.245,
+            "ROI_pct": -0.11941,
+            "mean_model_expected_EV": 0.14116,
+            "side_changes_vs_independent_poisson": 214
+          },
+          "bayes_prior_5_independent": {
+            "n": 1880,
+            "net_U": -35.775,
+            "ROI_pct": -1.90293,
+            "mean_model_expected_EV": 0.13741,
+            "side_changes_vs_independent_poisson": 420
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1880,
+            "net_U": -4.795,
+            "ROI_pct": -0.25505,
+            "mean_model_expected_EV": 0.14466,
+            "side_changes_vs_independent_poisson": 221
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1880,
+            "net_U": -0.155,
+            "ROI_pct": -0.00824,
+            "mean_model_expected_EV": 0.14734,
+            "side_changes_vs_independent_poisson": 220
+          }
+        },
+        "OU": {
+          "n": 1880,
+          "independent_poisson": {
+            "n": 1880,
+            "net_U": -49.59,
+            "ROI_pct": -2.63777,
+            "mean_model_expected_EV": 0.15827,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 1880,
+            "net_U": -62.73,
+            "ROI_pct": -3.3367,
+            "mean_model_expected_EV": 0.15499,
+            "side_changes_vs_independent_poisson": 17
+          },
+          "bivar_fixed_c010": {
+            "n": 1880,
+            "net_U": -79.01,
+            "ROI_pct": -4.20266,
+            "mean_model_expected_EV": 0.15343,
+            "side_changes_vs_independent_poisson": 30
+          },
+          "bayes_prior_1_independent": {
+            "n": 1880,
+            "net_U": -61.09,
+            "ROI_pct": -3.24947,
+            "mean_model_expected_EV": 0.13726,
+            "side_changes_vs_independent_poisson": 61
+          },
+          "bayes_prior_2_independent": {
+            "n": 1880,
+            "net_U": -66.56,
+            "ROI_pct": -3.54043,
+            "mean_model_expected_EV": 0.12336,
+            "side_changes_vs_independent_poisson": 109
+          },
+          "bayes_prior_5_independent": {
+            "n": 1880,
+            "net_U": -76.545,
+            "ROI_pct": -4.07154,
+            "mean_model_expected_EV": 0.10154,
+            "side_changes_vs_independent_poisson": 242
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 1880,
+            "net_U": -59.56,
+            "ROI_pct": -3.16809,
+            "mean_model_expected_EV": 0.12006,
+            "side_changes_vs_independent_poisson": 102
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 1880,
+            "net_U": -50.625,
+            "ROI_pct": -2.69282,
+            "mean_model_expected_EV": 0.11868,
+            "side_changes_vs_independent_poisson": 100
+          }
+        }
+      },
+      "serie-a": {
+        "AH": {
+          "n": 2171,
+          "independent_poisson": {
+            "n": 2171,
+            "net_U": -43.68,
+            "ROI_pct": -2.01198,
+            "mean_model_expected_EV": 0.15386,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 2171,
+            "net_U": -42.085,
+            "ROI_pct": -1.93851,
+            "mean_model_expected_EV": 0.15639,
+            "side_changes_vs_independent_poisson": 6
+          },
+          "bivar_fixed_c010": {
+            "n": 2171,
+            "net_U": -42.415,
+            "ROI_pct": -1.95371,
+            "mean_model_expected_EV": 0.16016,
+            "side_changes_vs_independent_poisson": 12
+          },
+          "bayes_prior_1_independent": {
+            "n": 2171,
+            "net_U": -45.16,
+            "ROI_pct": -2.08015,
+            "mean_model_expected_EV": 0.13504,
+            "side_changes_vs_independent_poisson": 139
+          },
+          "bayes_prior_2_independent": {
+            "n": 2171,
+            "net_U": -81.72,
+            "ROI_pct": -3.76416,
+            "mean_model_expected_EV": 0.12672,
+            "side_changes_vs_independent_poisson": 261
+          },
+          "bayes_prior_5_independent": {
+            "n": 2171,
+            "net_U": -135.3,
+            "ROI_pct": -6.23215,
+            "mean_model_expected_EV": 0.12918,
+            "side_changes_vs_independent_poisson": 535
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 2171,
+            "net_U": -80.15,
+            "ROI_pct": -3.69185,
+            "mean_model_expected_EV": 0.12903,
+            "side_changes_vs_independent_poisson": 264
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 2171,
+            "net_U": -71.07,
+            "ROI_pct": -3.27361,
+            "mean_model_expected_EV": 0.1325,
+            "side_changes_vs_independent_poisson": 273
+          }
+        },
+        "OU": {
+          "n": 2171,
+          "independent_poisson": {
+            "n": 2171,
+            "net_U": 7.43,
+            "ROI_pct": 0.34224,
+            "mean_model_expected_EV": 0.13688,
+            "side_changes_vs_independent_poisson": 0
+          },
+          "bivar_empirical_c": {
+            "n": 2171,
+            "net_U": 13.735,
+            "ROI_pct": 0.63266,
+            "mean_model_expected_EV": 0.13523,
+            "side_changes_vs_independent_poisson": 18
+          },
+          "bivar_fixed_c010": {
+            "n": 2171,
+            "net_U": 35.955,
+            "ROI_pct": 1.65615,
+            "mean_model_expected_EV": 0.13267,
+            "side_changes_vs_independent_poisson": 46
+          },
+          "bayes_prior_1_independent": {
+            "n": 2171,
+            "net_U": 41.16,
+            "ROI_pct": 1.8959,
+            "mean_model_expected_EV": 0.1163,
+            "side_changes_vs_independent_poisson": 79
+          },
+          "bayes_prior_2_independent": {
+            "n": 2171,
+            "net_U": 22.63,
+            "ROI_pct": 1.04238,
+            "mean_model_expected_EV": 0.1028,
+            "side_changes_vs_independent_poisson": 151
+          },
+          "bayes_prior_5_independent": {
+            "n": 2171,
+            "net_U": 24.5,
+            "ROI_pct": 1.12851,
+            "mean_model_expected_EV": 0.08179,
+            "side_changes_vs_independent_poisson": 329
+          },
+          "bayes_prior_2_bivar_empirical_c": {
+            "n": 2171,
+            "net_U": 24.575,
+            "ROI_pct": 1.13197,
+            "mean_model_expected_EV": 0.10133,
+            "side_changes_vs_independent_poisson": 154
+          },
+          "bayes_prior_2_bivar_fixed_c010": {
+            "n": 2171,
+            "net_U": 28.14,
+            "ROI_pct": 1.29618,
+            "mean_model_expected_EV": 0.09879,
+            "side_changes_vs_independent_poisson": 149
+          }
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Bivariate Poisson common component c nonnegative only, negative empirical covariance represented as c=0, mathematically required not user gate",
+    "Empirical goal residual covariance estimated from earlier same-season league matches strictly before target date; not optimized for profit",
+    "Fixed common component c=0.1 is a research sensitivity, not fitted/production default",
+    "Inverse-Gamma posterior for xG match totals assumes exponential observed xG; power likelihood for time discount. This is an explicit approximate Bayes model, not the only Bayesian formulation",
+    "Bayesian prior pseudocounts 1,2,5 are research sensitivity not ROI chosen settings",
+    "Same past-explored matched historical Crown T12 source-event quotes not actually received pregame or executable",
+    "Historical xG original publication dates not recovered; target fixture scores NEVER input to predictors",
+    "No national teams or non-domestic leagues; no official TG bets or formal M8 structures touched"
+  ]
+}

@@ -1,0 +1,574 @@
+{
+  "source_sha256": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+  "scope": "Post-hoc description on seven previously explored seasons; confidence interval is not new model approval Gate; no adjustment for research multiplicity, historical quote bias or xG provider asof",
+  "market": {
+    "AH": {
+      "bayes_prior_1_independent MINUS independent_poisson": {
+        "total_paired_U_improvement": 75.475,
+        "paired_ROI_pp_improvement": 0.76176,
+        "season_positive_count": 6,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          0.31234,
+          1.21818
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": 1.36
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": 7.615
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": 17.125
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": -1.88
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": 25.625
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": 13.07
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": 12.56
+          }
+        ]
+      },
+      "bayes_prior_2_independent MINUS independent_poisson": {
+        "total_paired_U_improvement": 32.065,
+        "paired_ROI_pp_improvement": 0.32363,
+        "season_positive_count": 5,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          -0.56509,
+          1.11242
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": 15.28
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": -15.55
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": 21.94
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": 10.43
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": 21.145
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": 1.265
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": -22.445
+          }
+        ]
+      },
+      "bivar_empirical_c MINUS independent_poisson": {
+        "total_paired_U_improvement": 7.885,
+        "paired_ROI_pp_improvement": 0.07958,
+        "season_positive_count": 4,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          -0.03716,
+          0.2072
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": -1.94
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": 0.77
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": 5.66
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": 2.82
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": -1.125
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": 1.81
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": -0.11
+          }
+        ]
+      },
+      "bivar_fixed_c010 MINUS independent_poisson": {
+        "total_paired_U_improvement": 22.72,
+        "paired_ROI_pp_improvement": 0.22931,
+        "season_positive_count": 6,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          0.07772,
+          0.38417
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": -1.505
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": 0.48
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": 3.48
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": 8.45
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": 2.495
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": 3.75
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": 5.57
+          }
+        ]
+      },
+      "bayes_prior_2_bivar_empirical_c MINUS bayes_prior_2_independent": {
+        "total_paired_U_improvement": -3.39,
+        "paired_ROI_pp_improvement": -0.03421,
+        "season_positive_count": 3,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          -0.14381,
+          0.06517
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": 1.69
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": 1.82
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": -0.21
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": 0.02
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": -4.36
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": -2.08
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": -0.27
+          }
+        ]
+      },
+      "bayes_prior_2_bivar_fixed_c010 MINUS bayes_prior_2_independent": {
+        "total_paired_U_improvement": 21.27,
+        "paired_ROI_pp_improvement": 0.21468,
+        "season_positive_count": 5,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          -0.04832,
+          0.4531
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": 7.27
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": 8.1
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": 3.49
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": 8.4
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": 0.55
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": -1.39
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": -5.15
+          }
+        ]
+      }
+    },
+    "OU": {
+      "bayes_prior_1_independent MINUS independent_poisson": {
+        "total_paired_U_improvement": 2.97,
+        "paired_ROI_pp_improvement": 0.02998,
+        "season_positive_count": 4,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          -0.37322,
+          0.44234
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": 3.97
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": 11.965
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": -7.525
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": -7.845
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": 7.025
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": -9.37
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": 4.75
+          }
+        ]
+      },
+      "bayes_prior_2_independent MINUS independent_poisson": {
+        "total_paired_U_improvement": -19.505,
+        "paired_ROI_pp_improvement": -0.19686,
+        "season_positive_count": 3,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          -0.94832,
+          0.5213
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": 5.975
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": 19.935
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": -17.435
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": -6.36
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": -3.34
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": -24.83
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": 6.55
+          }
+        ]
+      },
+      "bivar_empirical_c MINUS independent_poisson": {
+        "total_paired_U_improvement": -37.905,
+        "paired_ROI_pp_improvement": -0.38257,
+        "season_positive_count": 1,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          -0.7483,
+          0.0871
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": -9.305
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": -3.58
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": -13.35
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": 11.9
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": -5.86
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": -3.89
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": -13.82
+          }
+        ]
+      },
+      "bivar_fixed_c010 MINUS independent_poisson": {
+        "total_paired_U_improvement": -36.52,
+        "paired_ROI_pp_improvement": -0.36859,
+        "season_positive_count": 3,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          -0.78493,
+          0.07187
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": -12.25
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": 1.685
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": -12.0
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": 8.655
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": -8.765
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": 1.1
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": -14.945
+          }
+        ]
+      },
+      "bayes_prior_2_bivar_empirical_c MINUS bayes_prior_2_independent": {
+        "total_paired_U_improvement": -3.39,
+        "paired_ROI_pp_improvement": -0.03421,
+        "season_positive_count": 3,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          -0.27482,
+          0.21517
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": -1.625
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": -5.465
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": 4.755
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": 6.68
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": -6.77
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": -3.025
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": 2.06
+          }
+        ]
+      },
+      "bayes_prior_2_bivar_fixed_c010 MINUS bayes_prior_2_independent": {
+        "total_paired_U_improvement": 1.945,
+        "paired_ROI_pp_improvement": 0.01963,
+        "season_positive_count": 3,
+        "season_count": 7,
+        "block_bootstrap_resample_seasons_95pct_ROI_pp_interval": [
+          -0.40676,
+          0.50494
+        ],
+        "by_season": [
+          {
+            "year": 2019,
+            "n": 1373,
+            "delta_U": -9.915
+          },
+          {
+            "year": 2020,
+            "n": 1462,
+            "delta_U": -8.68
+          },
+          {
+            "year": 2021,
+            "n": 1418,
+            "delta_U": -2.625
+          },
+          {
+            "year": 2022,
+            "n": 1468,
+            "delta_U": 1.87
+          },
+          {
+            "year": 2023,
+            "n": 1396,
+            "delta_U": -3.73
+          },
+          {
+            "year": 2024,
+            "n": 1391,
+            "delta_U": 15.17
+          },
+          {
+            "year": 2025,
+            "n": 1400,
+            "delta_U": 9.855
+          }
+        ]
+      }
+    }
+  }
+}
