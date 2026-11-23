@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "checks": {
+    "timing_fixtures": 468,
+    "timing_transition_checks": 3531,
+    "Bayes_OU_fixture_checks": 9908,
+    "Bayes_OU_model_fixture_checks": 19816,
+    "shape_aggregate_comparisons": 2,
+    "R5_to_R8_prior_frozen_sha256_checks": 259
+  },
+  "errors": {},
+  "source_SHA256": {
+    "r8_11club_Crown_actual_receipt_market_timing.jsonl": "2baf61a662b9f347af355bc713d0f922872fe0d8c55b0351a005bc679335549c",
+    "r5_bayes_bivar_asof_features_20261123.jsonl": "71e841b629136c266b79190366bd47175f5748818db9a6b8fe1c888d65658561",
+    "r5_bayes_bivar_CrownT12_20261123.jsonl": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+    "r8_full_posterior_predictive_club_20261123.jsonl": "a1956ff17f271cf6529335bf2a98b2a95442fa3485445a2f3dbbb6e96202aa3f"
+  },
+  "outputs_SHA256": {
+    "r9_crown_true_source_event_transition_ledger.jsonl": "7aae4680f5e7fcc719bab426683bea83115da28e6b80761e43933e3be6c2320b",
+    "r9_Bayes_OU_Over_to_Under_mechanism.jsonl": "5f0af2f1ee5bdd7e2a97ddb27998e50792575f7e5aa12caa60551654387dbc09",
+    "r9_crown_true_source_event_transition_summary.json": "e648bba0b5a06e8bdd4c0239c2378e49e8d48e447c77328d88ba13930b695e10",
+    "r9_Bayes_OU_Over_to_Under_summary.json": "6d32360ef15af685299d77a6e2a4a2bf13f25126250c5a087c03bb7e308f2c5c",
+    "r9_Bayes_OU_distribution_shape_sensitivity.json": "25329e113585ef91932a1ab069ebe54f061ea4f1b6d8db8da55006af45140bfc",
+    "r9_Bayes_OU_variance_calibration_by_year.json": "6b201835ae2bb6b5677fa0f67716ba3bea85f51ab9c68472f5a19339b7802b4a"
+  },
+  "prior_frozen_manifest_SHA256": {
+    "R5_BAYES_BIVAR_FROZEN_20261123": "6f465b284492eca97b311753e3850cd08e783a0fc93ba8c2af5e194f496996c2",
+    "R6_BAYES_BIVAR_COMPLEMENT_20261123": "402a9c469517354c6a371137057f4119fe66a9e6d3869d88002fe7cb9481c4c4",
+    "R7_CROWN_MARKET_PRICING_20261123": "90cf4d48ae54be76761c60419033a417f7f1cabcaceb791c7c4680922ab61d71",
+    "R8_CROWN_HTTP_TIMING_BAYES_POSTERIOR_20261123": "67d61404562d7c3fa0e0ab2f00bb6755ab29861841a022acf838f834b8896cdd"
+  },
+  "scope": "Independent R9 source-event transitions, Asian-quarter outcomes, posterior mixture decomposition and four previous frozen research integrity checks."
+}

@@ -1,0 +1,476 @@
+{
+  "study": "R9_ACTUAL_HTTP_CROWN_RECEIPT_VS_SOURCE_EVENT_UPDATE",
+  "source_R8_frozen_sha256": "2baf61a662b9f347af355bc713d0f922872fe0d8c55b0351a005bc679335549c",
+  "description": "Price change classified per market alongside source_event_utc monotonicity. Raw HTTP SHA alone is NOT treated as a market update. Delta Brier is purely retrospective score outcome.",
+  "all": {
+    "all_11_domestic_club_leagues": {
+      "fixtures": 468,
+      "transitions": 3531,
+      "quote_update_transition_count": 2387,
+      "quote_update_fixtures": 468,
+      "earliest_Brier": 0.537757,
+      "latest_Brier": 0.5351958,
+      "per_fixture_net_Brier_delta_due_to_price_updates": -0.0025612,
+      "per_fixture_bootstrap_95pct_Brier_delta": [
+        -0.0065745,
+        0.0014084
+      ],
+      "transitions_by_state": {
+        "new_raw_response_same_price_no_event_advance": {
+          "n": 135,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 135,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "price_change_matching_source_event_advance": {
+          "n": 2387,
+          "mean_delta_Brier": -0.0005022,
+          "improved_Brier": 1238,
+          "worsened_Brier": 1149,
+          "unchanged_Brier": 0,
+          "AH_source_event_advance": 2243,
+          "OU_source_event_advance": 1895,
+          "quote_changes_at_T6plus": 1190
+        },
+        "repeat_identical_quote_and_raw": {
+          "n": 956,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 956,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "source_timestamp_advance_same_price": {
+          "n": 53,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 53,
+          "AH_source_event_advance": 41,
+          "OU_source_event_advance": 26,
+          "quote_changes_at_T6plus": 0
+        }
+      },
+      "T6plus_update_transitions": {
+        "n": 1190,
+        "mean_delta_Brier": -4.11e-05,
+        "improved_Brier": 625,
+        "worsened_Brier": 565,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 1080,
+        "OU_source_event_advance": 817,
+        "quote_changes_at_T6plus": 1190
+      },
+      "after_T6_update_transitions": {
+        "n": 1197,
+        "mean_delta_Brier": -0.0009606,
+        "improved_Brier": 613,
+        "worsened_Brier": 584,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 1163,
+        "OU_source_event_advance": 1078,
+        "quote_changes_at_T6plus": 0
+      }
+    },
+    "big5_club_leagues": {
+      "fixtures": 249,
+      "transitions": 1894,
+      "quote_update_transition_count": 1388,
+      "quote_update_fixtures": 249,
+      "earliest_Brier": 0.5322497,
+      "latest_Brier": 0.534281,
+      "per_fixture_net_Brier_delta_due_to_price_updates": 0.0020313,
+      "per_fixture_bootstrap_95pct_Brier_delta": [
+        -0.0034879,
+        0.0074988
+      ],
+      "transitions_by_state": {
+        "new_raw_response_same_price_no_event_advance": {
+          "n": 115,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 115,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "price_change_matching_source_event_advance": {
+          "n": 1388,
+          "mean_delta_Brier": 0.0003644,
+          "improved_Brier": 691,
+          "worsened_Brier": 697,
+          "unchanged_Brier": 0,
+          "AH_source_event_advance": 1304,
+          "OU_source_event_advance": 1131,
+          "quote_changes_at_T6plus": 724
+        },
+        "repeat_identical_quote_and_raw": {
+          "n": 367,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 367,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "source_timestamp_advance_same_price": {
+          "n": 24,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 24,
+          "AH_source_event_advance": 20,
+          "OU_source_event_advance": 12,
+          "quote_changes_at_T6plus": 0
+        }
+      },
+      "T6plus_update_transitions": {
+        "n": 724,
+        "mean_delta_Brier": 0.0012858,
+        "improved_Brier": 356,
+        "worsened_Brier": 368,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 649,
+        "OU_source_event_advance": 487,
+        "quote_changes_at_T6plus": 724
+      },
+      "after_T6_update_transitions": {
+        "n": 664,
+        "mean_delta_Brier": -0.0006402,
+        "improved_Brier": 335,
+        "worsened_Brier": 329,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 655,
+        "OU_source_event_advance": 644,
+        "quote_changes_at_T6plus": 0
+      }
+    },
+    "R5_old_138": {
+      "fixtures": 138,
+      "transitions": 1011,
+      "quote_update_transition_count": 681,
+      "quote_update_fixtures": 138,
+      "earliest_Brier": 0.5059709,
+      "latest_Brier": 0.4999406,
+      "per_fixture_net_Brier_delta_due_to_price_updates": -0.0060302,
+      "per_fixture_bootstrap_95pct_Brier_delta": [
+        -0.0127449,
+        0.0006226
+      ],
+      "transitions_by_state": {
+        "new_raw_response_same_price_no_event_advance": {
+          "n": 38,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 38,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "price_change_matching_source_event_advance": {
+          "n": 681,
+          "mean_delta_Brier": -0.001222,
+          "improved_Brier": 371,
+          "worsened_Brier": 310,
+          "unchanged_Brier": 0,
+          "AH_source_event_advance": 638,
+          "OU_source_event_advance": 537,
+          "quote_changes_at_T6plus": 339
+        },
+        "repeat_identical_quote_and_raw": {
+          "n": 271,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 271,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "source_timestamp_advance_same_price": {
+          "n": 21,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 21,
+          "AH_source_event_advance": 13,
+          "OU_source_event_advance": 12,
+          "quote_changes_at_T6plus": 0
+        }
+      },
+      "T6plus_update_transitions": {
+        "n": 339,
+        "mean_delta_Brier": -0.0013113,
+        "improved_Brier": 187,
+        "worsened_Brier": 152,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 307,
+        "OU_source_event_advance": 232,
+        "quote_changes_at_T6plus": 339
+      },
+      "after_T6_update_transitions": {
+        "n": 342,
+        "mean_delta_Brier": -0.0011334,
+        "improved_Brier": 184,
+        "worsened_Brier": 158,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 331,
+        "OU_source_event_advance": 305,
+        "quote_changes_at_T6plus": 0
+      }
+    },
+    "R5_old_big5_71": {
+      "fixtures": 71,
+      "transitions": 525,
+      "quote_update_transition_count": 384,
+      "quote_update_fixtures": 71,
+      "earliest_Brier": 0.5395151,
+      "latest_Brier": 0.5357294,
+      "per_fixture_net_Brier_delta_due_to_price_updates": -0.0037856,
+      "per_fixture_bootstrap_95pct_Brier_delta": [
+        -0.0129262,
+        0.0055072
+      ],
+      "transitions_by_state": {
+        "new_raw_response_same_price_no_event_advance": {
+          "n": 33,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 33,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "price_change_matching_source_event_advance": {
+          "n": 384,
+          "mean_delta_Brier": -0.0006999,
+          "improved_Brier": 202,
+          "worsened_Brier": 182,
+          "unchanged_Brier": 0,
+          "AH_source_event_advance": 361,
+          "OU_source_event_advance": 308,
+          "quote_changes_at_T6plus": 196
+        },
+        "repeat_identical_quote_and_raw": {
+          "n": 101,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 101,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "source_timestamp_advance_same_price": {
+          "n": 7,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 7,
+          "AH_source_event_advance": 5,
+          "OU_source_event_advance": 4,
+          "quote_changes_at_T6plus": 0
+        }
+      },
+      "T6plus_update_transitions": {
+        "n": 196,
+        "mean_delta_Brier": 0.0005032,
+        "improved_Brier": 99,
+        "worsened_Brier": 97,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 177,
+        "OU_source_event_advance": 129,
+        "quote_changes_at_T6plus": 196
+      },
+      "after_T6_update_transitions": {
+        "n": 188,
+        "mean_delta_Brier": -0.0019542,
+        "improved_Brier": 103,
+        "worsened_Brier": 85,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 184,
+        "OU_source_event_advance": 179,
+        "quote_changes_at_T6plus": 0
+      }
+    }
+  },
+  "by_month": {
+    "2026-10": {
+      "fixtures": 327,
+      "transitions": 2487,
+      "quote_update_transition_count": 1697,
+      "quote_update_fixtures": 327,
+      "earliest_Brier": 0.5496044,
+      "latest_Brier": 0.5472652,
+      "per_fixture_net_Brier_delta_due_to_price_updates": -0.0023392,
+      "per_fixture_bootstrap_95pct_Brier_delta": [
+        -0.0071152,
+        0.0024803
+      ],
+      "transitions_by_state": {
+        "new_raw_response_same_price_no_event_advance": {
+          "n": 85,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 85,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "price_change_matching_source_event_advance": {
+          "n": 1697,
+          "mean_delta_Brier": -0.0004507,
+          "improved_Brier": 859,
+          "worsened_Brier": 838,
+          "unchanged_Brier": 0,
+          "AH_source_event_advance": 1598,
+          "OU_source_event_advance": 1360,
+          "quote_changes_at_T6plus": 863
+        },
+        "repeat_identical_quote_and_raw": {
+          "n": 660,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 660,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "source_timestamp_advance_same_price": {
+          "n": 45,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 45,
+          "AH_source_event_advance": 35,
+          "OU_source_event_advance": 21,
+          "quote_changes_at_T6plus": 0
+        }
+      },
+      "T6plus_update_transitions": {
+        "n": 863,
+        "mean_delta_Brier": 0.0001172,
+        "improved_Brier": 438,
+        "worsened_Brier": 425,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 788,
+        "OU_source_event_advance": 606,
+        "quote_changes_at_T6plus": 863
+      },
+      "after_T6_update_transitions": {
+        "n": 834,
+        "mean_delta_Brier": -0.0010384,
+        "improved_Brier": 421,
+        "worsened_Brier": 413,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 810,
+        "OU_source_event_advance": 754,
+        "quote_changes_at_T6plus": 0
+      }
+    },
+    "2026-11": {
+      "fixtures": 141,
+      "transitions": 1044,
+      "quote_update_transition_count": 690,
+      "quote_update_fixtures": 141,
+      "earliest_Brier": 0.5102813,
+      "latest_Brier": 0.5072051,
+      "per_fixture_net_Brier_delta_due_to_price_updates": -0.0030762,
+      "per_fixture_bootstrap_95pct_Brier_delta": [
+        -0.0103831,
+        0.0044236
+      ],
+      "transitions_by_state": {
+        "new_raw_response_same_price_no_event_advance": {
+          "n": 50,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 50,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "price_change_matching_source_event_advance": {
+          "n": 690,
+          "mean_delta_Brier": -0.0006286,
+          "improved_Brier": 379,
+          "worsened_Brier": 311,
+          "unchanged_Brier": 0,
+          "AH_source_event_advance": 645,
+          "OU_source_event_advance": 535,
+          "quote_changes_at_T6plus": 327
+        },
+        "repeat_identical_quote_and_raw": {
+          "n": 296,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 296,
+          "AH_source_event_advance": 0,
+          "OU_source_event_advance": 0,
+          "quote_changes_at_T6plus": 0
+        },
+        "source_timestamp_advance_same_price": {
+          "n": 8,
+          "mean_delta_Brier": 0.0,
+          "improved_Brier": 0,
+          "worsened_Brier": 0,
+          "unchanged_Brier": 8,
+          "AH_source_event_advance": 6,
+          "OU_source_event_advance": 5,
+          "quote_changes_at_T6plus": 0
+        }
+      },
+      "T6plus_update_transitions": {
+        "n": 327,
+        "mean_delta_Brier": -0.0004587,
+        "improved_Brier": 187,
+        "worsened_Brier": 140,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 292,
+        "OU_source_event_advance": 211,
+        "quote_changes_at_T6plus": 327
+      },
+      "after_T6_update_transitions": {
+        "n": 363,
+        "mean_delta_Brier": -0.0007817,
+        "improved_Brier": 192,
+        "worsened_Brier": 171,
+        "unchanged_Brier": 0,
+        "AH_source_event_advance": 353,
+        "OU_source_event_advance": 324,
+        "quote_changes_at_T6plus": 0
+      }
+    }
+  },
+  "audit": {
+    "all_transition_observations": 3531,
+    "class_repeat_identical_quote_and_raw": 956,
+    "T6plus_transitions": 2140,
+    "class_price_change_matching_source_event_advance": 2387,
+    "price_changed_transitions": 2387,
+    "any_source_clock_advance": 2440,
+    "class_new_raw_response_same_price_no_event_advance": 135,
+    "class_source_timestamp_advance_same_price": 53
+  },
+  "limitations": [
+    "Only 468 previously researched domestic club fixtures with verified FT and two AH+OU snapshots, not new blind data or 1607 all receipts.",
+    "Source-event clock advancement with quoted price change indicates observable market update; it does not establish instantaneous true time of actual executable change.",
+    "Non-changed quotes inherently have unchanged market-implied Brier; they cannot be modeled as independent predictions.",
+    "Bootstrap clusters at fixture, not snapshot, and is descriptive, not proof of causal information edge.",
+    "All national team matches excluded. No betting ROI gate, no official TG, no changes to production logic."
+  ]
+}

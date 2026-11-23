@@ -1,0 +1,476 @@
+{
+  "study": "R9_GENERALIZED_BAYES_RATE_MIXTURE_PREDICTED_VS_ACTUAL_TOTAL_GOAL_VARIANCE",
+  "source_sha256": "5f0af2f1ee5bdd7e2a97ddb27998e50792575f7e5aa12caa60551654387dbc09",
+  "overall": {
+    "k1": {
+      "n": 9908,
+      "actual_total_squared_error_vs_R5_point": 2.797132,
+      "actual_total_squared_error_vs_posterior_mc_mean": 2.793139,
+      "R5_point_Poisson_mean_pred_variance": 2.898135,
+      "posterior_mixture_mean_pred_variance": 4.239571,
+      "variance_excess_mix_minus_actual": 1.446432,
+      "MSE_to_pred_mix_var_ratio": 0.658826,
+      "MSE_to_pred_point_var_ratio": 0.965149,
+      "actual_P_total_le1": 0.225575,
+      "point_P_total_le1": 0.230541,
+      "matched_mean_var_Gamma_P_total_le1": 0.28613,
+      "actual_P_total_le2": 0.465382,
+      "point_P_total_le2": 0.457126,
+      "matched_mean_var_Gamma_P_total_le2": 0.495092
+    },
+    "k2": {
+      "n": 9908,
+      "actual_total_squared_error_vs_R5_point": 2.758573,
+      "actual_total_squared_error_vs_posterior_mc_mean": 2.755688,
+      "R5_point_Poisson_mean_pred_variance": 2.900517,
+      "posterior_mixture_mean_pred_variance": 4.02343,
+      "variance_excess_mix_minus_actual": 1.267742,
+      "MSE_to_pred_mix_var_ratio": 0.68491,
+      "MSE_to_pred_point_var_ratio": 0.951063,
+      "actual_P_total_le1": 0.225575,
+      "point_P_total_le1": 0.227269,
+      "matched_mean_var_Gamma_P_total_le1": 0.276119,
+      "actual_P_total_le2": 0.465382,
+      "point_P_total_le2": 0.45462,
+      "matched_mean_var_Gamma_P_total_le2": 0.488141
+    }
+  },
+  "by_season": {
+    "2019": {
+      "k1": {
+        "n": 1373,
+        "actual_total_squared_error_vs_R5_point": 2.565713,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.564858,
+        "R5_point_Poisson_mean_pred_variance": 2.824472,
+        "posterior_mixture_mean_pred_variance": 4.129236,
+        "variance_excess_mix_minus_actual": 1.564379,
+        "MSE_to_pred_mix_var_ratio": 0.621146,
+        "MSE_to_pred_point_var_ratio": 0.908387,
+        "actual_P_total_le1": 0.212673,
+        "point_P_total_le1": 0.243584,
+        "matched_mean_var_Gamma_P_total_le1": 0.299408,
+        "actual_P_total_le2": 0.447196,
+        "point_P_total_le2": 0.474068,
+        "matched_mean_var_Gamma_P_total_le2": 0.510169
+      },
+      "k2": {
+        "n": 1373,
+        "actual_total_squared_error_vs_R5_point": 2.536521,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.536095,
+        "R5_point_Poisson_mean_pred_variance": 2.826653,
+        "posterior_mixture_mean_pred_variance": 3.919167,
+        "variance_excess_mix_minus_actual": 1.383072,
+        "MSE_to_pred_mix_var_ratio": 0.647101,
+        "MSE_to_pred_point_var_ratio": 0.897358,
+        "actual_P_total_le1": 0.212673,
+        "point_P_total_le1": 0.240136,
+        "matched_mean_var_Gamma_P_total_le1": 0.289216,
+        "actual_P_total_le2": 0.447196,
+        "point_P_total_le2": 0.47163,
+        "matched_mean_var_Gamma_P_total_le2": 0.50343
+      }
+    },
+    "2020": {
+      "k1": {
+        "n": 1462,
+        "actual_total_squared_error_vs_R5_point": 2.734349,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.732553,
+        "R5_point_Poisson_mean_pred_variance": 2.757502,
+        "posterior_mixture_mean_pred_variance": 3.951676,
+        "variance_excess_mix_minus_actual": 1.219124,
+        "MSE_to_pred_mix_var_ratio": 0.691492,
+        "MSE_to_pred_point_var_ratio": 0.991603,
+        "actual_P_total_le1": 0.225718,
+        "point_P_total_le1": 0.253094,
+        "matched_mean_var_Gamma_P_total_le1": 0.305514,
+        "actual_P_total_le2": 0.471956,
+        "point_P_total_le2": 0.488561,
+        "matched_mean_var_Gamma_P_total_le2": 0.52113
+      },
+      "k2": {
+        "n": 1462,
+        "actual_total_squared_error_vs_R5_point": 2.697821,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.696823,
+        "R5_point_Poisson_mean_pred_variance": 2.758291,
+        "posterior_mixture_mean_pred_variance": 3.752443,
+        "variance_excess_mix_minus_actual": 1.055621,
+        "MSE_to_pred_mix_var_ratio": 0.718684,
+        "MSE_to_pred_point_var_ratio": 0.978077,
+        "actual_P_total_le1": 0.225718,
+        "point_P_total_le1": 0.250043,
+        "matched_mean_var_Gamma_P_total_le1": 0.296114,
+        "actual_P_total_le2": 0.471956,
+        "point_P_total_le2": 0.486561,
+        "matched_mean_var_Gamma_P_total_le2": 0.515132
+      }
+    },
+    "2021": {
+      "k1": {
+        "n": 1418,
+        "actual_total_squared_error_vs_R5_point": 2.911096,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.910775,
+        "R5_point_Poisson_mean_pred_variance": 2.785457,
+        "posterior_mixture_mean_pred_variance": 4.019956,
+        "variance_excess_mix_minus_actual": 1.109181,
+        "MSE_to_pred_mix_var_ratio": 0.724081,
+        "MSE_to_pred_point_var_ratio": 1.045105,
+        "actual_P_total_le1": 0.232017,
+        "point_P_total_le1": 0.246558,
+        "matched_mean_var_Gamma_P_total_le1": 0.300927,
+        "actual_P_total_le2": 0.470381,
+        "point_P_total_le2": 0.481108,
+        "matched_mean_var_Gamma_P_total_le2": 0.515225
+      },
+      "k2": {
+        "n": 1418,
+        "actual_total_squared_error_vs_R5_point": 2.881824,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.881968,
+        "R5_point_Poisson_mean_pred_variance": 2.787198,
+        "posterior_mixture_mean_pred_variance": 3.818069,
+        "variance_excess_mix_minus_actual": 0.936101,
+        "MSE_to_pred_mix_var_ratio": 0.754823,
+        "MSE_to_pred_point_var_ratio": 1.03395,
+        "actual_P_total_le1": 0.232017,
+        "point_P_total_le1": 0.243764,
+        "matched_mean_var_Gamma_P_total_le1": 0.29146,
+        "actual_P_total_le2": 0.470381,
+        "point_P_total_le2": 0.4791,
+        "matched_mean_var_Gamma_P_total_le2": 0.509063
+      }
+    },
+    "2022": {
+      "k1": {
+        "n": 1468,
+        "actual_total_squared_error_vs_R5_point": 2.842477,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.838718,
+        "R5_point_Poisson_mean_pred_variance": 2.846943,
+        "posterior_mixture_mean_pred_variance": 4.137868,
+        "variance_excess_mix_minus_actual": 1.29915,
+        "MSE_to_pred_mix_var_ratio": 0.686034,
+        "MSE_to_pred_point_var_ratio": 0.998431,
+        "actual_P_total_le1": 0.23297,
+        "point_P_total_le1": 0.235337,
+        "matched_mean_var_Gamma_P_total_le1": 0.29139,
+        "actual_P_total_le2": 0.481608,
+        "point_P_total_le2": 0.466117,
+        "matched_mean_var_Gamma_P_total_le2": 0.502974
+      },
+      "k2": {
+        "n": 1468,
+        "actual_total_squared_error_vs_R5_point": 2.803192,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.800433,
+        "R5_point_Poisson_mean_pred_variance": 2.84951,
+        "posterior_mixture_mean_pred_variance": 3.930943,
+        "variance_excess_mix_minus_actual": 1.13051,
+        "MSE_to_pred_mix_var_ratio": 0.712407,
+        "MSE_to_pred_point_var_ratio": 0.983745,
+        "actual_P_total_le1": 0.23297,
+        "point_P_total_le1": 0.232331,
+        "matched_mean_var_Gamma_P_total_le1": 0.281516,
+        "actual_P_total_le2": 0.481608,
+        "point_P_total_le2": 0.463898,
+        "matched_mean_var_Gamma_P_total_le2": 0.496332
+      }
+    },
+    "2023": {
+      "k1": {
+        "n": 1396,
+        "actual_total_squared_error_vs_R5_point": 2.823094,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.81691,
+        "R5_point_Poisson_mean_pred_variance": 3.015504,
+        "posterior_mixture_mean_pred_variance": 4.46453,
+        "variance_excess_mix_minus_actual": 1.64762,
+        "MSE_to_pred_mix_var_ratio": 0.630953,
+        "MSE_to_pred_point_var_ratio": 0.936193,
+        "actual_P_total_le1": 0.215616,
+        "point_P_total_le1": 0.213588,
+        "matched_mean_var_Gamma_P_total_le1": 0.270437,
+        "actual_P_total_le2": 0.454155,
+        "point_P_total_le2": 0.432053,
+        "matched_mean_var_Gamma_P_total_le2": 0.473981
+      },
+      "k2": {
+        "n": 1396,
+        "actual_total_squared_error_vs_R5_point": 2.78537,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.780629,
+        "R5_point_Poisson_mean_pred_variance": 3.019874,
+        "posterior_mixture_mean_pred_variance": 4.238429,
+        "variance_excess_mix_minus_actual": 1.4578,
+        "MSE_to_pred_mix_var_ratio": 0.656052,
+        "MSE_to_pred_point_var_ratio": 0.922347,
+        "actual_P_total_le1": 0.215616,
+        "point_P_total_le1": 0.209999,
+        "matched_mean_var_Gamma_P_total_le1": 0.259961,
+        "actual_P_total_le2": 0.454155,
+        "point_P_total_le2": 0.42901,
+        "matched_mean_var_Gamma_P_total_le2": 0.466184
+      }
+    },
+    "2024": {
+      "k1": {
+        "n": 1391,
+        "actual_total_squared_error_vs_R5_point": 2.848596,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.839892,
+        "R5_point_Poisson_mean_pred_variance": 3.076319,
+        "posterior_mixture_mean_pred_variance": 4.617282,
+        "variance_excess_mix_minus_actual": 1.77739,
+        "MSE_to_pred_mix_var_ratio": 0.615057,
+        "MSE_to_pred_point_var_ratio": 0.925976,
+        "actual_P_total_le1": 0.23005,
+        "point_P_total_le1": 0.206021,
+        "matched_mean_var_Gamma_P_total_le1": 0.263295,
+        "actual_P_total_le2": 0.470165,
+        "point_P_total_le2": 0.420476,
+        "matched_mean_var_Gamma_P_total_le2": 0.464475
+      },
+      "k2": {
+        "n": 1391,
+        "actual_total_squared_error_vs_R5_point": 2.795919,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.789355,
+        "R5_point_Poisson_mean_pred_variance": 3.079109,
+        "posterior_mixture_mean_pred_variance": 4.362907,
+        "variance_excess_mix_minus_actual": 1.573552,
+        "MSE_to_pred_mix_var_ratio": 0.639334,
+        "MSE_to_pred_point_var_ratio": 0.908029,
+        "actual_P_total_le1": 0.23005,
+        "point_P_total_le1": 0.202082,
+        "matched_mean_var_Gamma_P_total_le1": 0.252461,
+        "actual_P_total_le2": 0.470165,
+        "point_P_total_le2": 0.417097,
+        "matched_mean_var_Gamma_P_total_le2": 0.456167
+      }
+    },
+    "2025": {
+      "k1": {
+        "n": 1400,
+        "actual_total_squared_error_vs_R5_point": 2.84965,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.843188,
+        "R5_point_Poisson_mean_pred_variance": 2.990974,
+        "posterior_mixture_mean_pred_variance": 4.3779,
+        "variance_excess_mix_minus_actual": 1.534712,
+        "MSE_to_pred_mix_var_ratio": 0.649441,
+        "MSE_to_pred_point_var_ratio": 0.95275,
+        "actual_P_total_le1": 0.229286,
+        "point_P_total_le1": 0.214212,
+        "matched_mean_var_Gamma_P_total_le1": 0.270695,
+        "actual_P_total_le2": 0.460714,
+        "point_P_total_le2": 0.435379,
+        "matched_mean_var_Gamma_P_total_le2": 0.475925
+      },
+      "k2": {
+        "n": 1400,
+        "actual_total_squared_error_vs_R5_point": 2.804339,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.799374,
+        "R5_point_Poisson_mean_pred_variance": 2.99328,
+        "posterior_mixture_mean_pred_variance": 4.161972,
+        "variance_excess_mix_minus_actual": 1.362598,
+        "MSE_to_pred_mix_var_ratio": 0.672608,
+        "MSE_to_pred_point_var_ratio": 0.936878,
+        "actual_P_total_le1": 0.229286,
+        "point_P_total_le1": 0.211101,
+        "matched_mean_var_Gamma_P_total_le1": 0.260818,
+        "actual_P_total_le2": 0.460714,
+        "point_P_total_le2": 0.432874,
+        "matched_mean_var_Gamma_P_total_le2": 0.468842
+      }
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "k1": {
+        "n": 1720,
+        "actual_total_squared_error_vs_R5_point": 3.051811,
+        "actual_total_squared_error_vs_posterior_mc_mean": 3.050269,
+        "R5_point_Poisson_mean_pred_variance": 3.130436,
+        "posterior_mixture_mean_pred_variance": 4.785384,
+        "variance_excess_mix_minus_actual": 1.735115,
+        "MSE_to_pred_mix_var_ratio": 0.637414,
+        "MSE_to_pred_point_var_ratio": 0.974883,
+        "actual_P_total_le1": 0.164535,
+        "point_P_total_le1": 0.194829,
+        "matched_mean_var_Gamma_P_total_le1": 0.256184,
+        "actual_P_total_le2": 0.39186,
+        "point_P_total_le2": 0.406557,
+        "matched_mean_var_Gamma_P_total_le2": 0.454749
+      },
+      "k2": {
+        "n": 1720,
+        "actual_total_squared_error_vs_R5_point": 3.007901,
+        "actual_total_squared_error_vs_posterior_mc_mean": 3.007063,
+        "R5_point_Poisson_mean_pred_variance": 3.134087,
+        "posterior_mixture_mean_pred_variance": 4.509085,
+        "variance_excess_mix_minus_actual": 1.502022,
+        "MSE_to_pred_mix_var_ratio": 0.66689,
+        "MSE_to_pred_point_var_ratio": 0.959738,
+        "actual_P_total_le1": 0.164535,
+        "point_P_total_le1": 0.191229,
+        "matched_mean_var_Gamma_P_total_le1": 0.244858,
+        "actual_P_total_le2": 0.39186,
+        "point_P_total_le2": 0.403223,
+        "matched_mean_var_Gamma_P_total_le2": 0.445847
+      }
+    },
+    "epl": {
+      "k1": {
+        "n": 2193,
+        "actual_total_squared_error_vs_R5_point": 2.790919,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.786355,
+        "R5_point_Poisson_mean_pred_variance": 2.972556,
+        "posterior_mixture_mean_pred_variance": 4.336645,
+        "variance_excess_mix_minus_actual": 1.550291,
+        "MSE_to_pred_mix_var_ratio": 0.642514,
+        "MSE_to_pred_point_var_ratio": 0.938896,
+        "actual_P_total_le1": 0.212494,
+        "point_P_total_le1": 0.217397,
+        "matched_mean_var_Gamma_P_total_le1": 0.273154,
+        "actual_P_total_le2": 0.451436,
+        "point_P_total_le2": 0.43975,
+        "matched_mean_var_Gamma_P_total_le2": 0.479402
+      },
+      "k2": {
+        "n": 2193,
+        "actual_total_squared_error_vs_R5_point": 2.752564,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.749123,
+        "R5_point_Poisson_mean_pred_variance": 2.975774,
+        "posterior_mixture_mean_pred_variance": 4.123642,
+        "variance_excess_mix_minus_actual": 1.374519,
+        "MSE_to_pred_mix_var_ratio": 0.666674,
+        "MSE_to_pred_point_var_ratio": 0.924991,
+        "actual_P_total_le1": 0.212494,
+        "point_P_total_le1": 0.214295,
+        "matched_mean_var_Gamma_P_total_le1": 0.263295,
+        "actual_P_total_le2": 0.451436,
+        "point_P_total_le2": 0.437172,
+        "matched_mean_var_Gamma_P_total_le2": 0.472305
+      }
+    },
+    "la-liga": {
+      "k1": {
+        "n": 1944,
+        "actual_total_squared_error_vs_R5_point": 2.674624,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.669182,
+        "R5_point_Poisson_mean_pred_variance": 2.751269,
+        "posterior_mixture_mean_pred_variance": 3.932991,
+        "variance_excess_mix_minus_actual": 1.263809,
+        "MSE_to_pred_mix_var_ratio": 0.678665,
+        "MSE_to_pred_point_var_ratio": 0.972142,
+        "actual_P_total_le1": 0.271091,
+        "point_P_total_le1": 0.25637,
+        "matched_mean_var_Gamma_P_total_le1": 0.308189,
+        "actual_P_total_le2": 0.522634,
+        "point_P_total_le2": 0.491459,
+        "matched_mean_var_Gamma_P_total_le2": 0.523181
+      },
+      "k2": {
+        "n": 1944,
+        "actual_total_squared_error_vs_R5_point": 2.632674,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.628682,
+        "R5_point_Poisson_mean_pred_variance": 2.751491,
+        "posterior_mixture_mean_pred_variance": 3.741817,
+        "variance_excess_mix_minus_actual": 1.113135,
+        "MSE_to_pred_mix_var_ratio": 0.702515,
+        "MSE_to_pred_point_var_ratio": 0.956817,
+        "actual_P_total_le1": 0.271091,
+        "point_P_total_le1": 0.253051,
+        "matched_mean_var_Gamma_P_total_le1": 0.298843,
+        "actual_P_total_le2": 0.522634,
+        "point_P_total_le2": 0.489384,
+        "matched_mean_var_Gamma_P_total_le2": 0.517356
+      }
+    },
+    "ligue-1": {
+      "k1": {
+        "n": 1880,
+        "actual_total_squared_error_vs_R5_point": 2.901502,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.897171,
+        "R5_point_Poisson_mean_pred_variance": 2.839233,
+        "posterior_mixture_mean_pred_variance": 4.160782,
+        "variance_excess_mix_minus_actual": 1.263611,
+        "MSE_to_pred_mix_var_ratio": 0.696304,
+        "MSE_to_pred_point_var_ratio": 1.021932,
+        "actual_P_total_le1": 0.240426,
+        "point_P_total_le1": 0.24096,
+        "matched_mean_var_Gamma_P_total_le1": 0.296931,
+        "actual_P_total_le2": 0.469681,
+        "point_P_total_le2": 0.470649,
+        "matched_mean_var_Gamma_P_total_le2": 0.507331
+      },
+      "k2": {
+        "n": 1880,
+        "actual_total_squared_error_vs_R5_point": 2.861126,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.857961,
+        "R5_point_Poisson_mean_pred_variance": 2.842641,
+        "posterior_mixture_mean_pred_variance": 3.947781,
+        "variance_excess_mix_minus_actual": 1.08982,
+        "MSE_to_pred_mix_var_ratio": 0.723941,
+        "MSE_to_pred_point_var_ratio": 1.006503,
+        "actual_P_total_le1": 0.240426,
+        "point_P_total_le1": 0.237426,
+        "matched_mean_var_Gamma_P_total_le1": 0.28655,
+        "actual_P_total_le2": 0.469681,
+        "point_P_total_le2": 0.467984,
+        "matched_mean_var_Gamma_P_total_le2": 0.500304
+      }
+    },
+    "serie-a": {
+      "k1": {
+        "n": 2171,
+        "actual_total_squared_error_vs_R5_point": 2.620951,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.617186,
+        "R5_point_Poisson_mean_pred_variance": 2.821435,
+        "posterior_mixture_mean_pred_variance": 4.051837,
+        "variance_excess_mix_minus_actual": 1.434652,
+        "MSE_to_pred_mix_var_ratio": 0.645926,
+        "MSE_to_pred_point_var_ratio": 0.928943,
+        "actual_P_total_le1": 0.233533,
+        "point_P_total_le1": 0.239961,
+        "matched_mean_var_Gamma_P_total_le1": 0.293856,
+        "actual_P_total_le2": 0.482727,
+        "point_P_total_le2": 0.472288,
+        "matched_mean_var_Gamma_P_total_le2": 0.50715
+      },
+      "k2": {
+        "n": 2171,
+        "actual_total_squared_error_vs_R5_point": 2.59104,
+        "actual_total_squared_error_vs_posterior_mc_mean": 2.588325,
+        "R5_point_Poisson_mean_pred_variance": 2.82301,
+        "posterior_mixture_mean_pred_variance": 3.855114,
+        "variance_excess_mix_minus_actual": 1.266789,
+        "MSE_to_pred_mix_var_ratio": 0.6714,
+        "MSE_to_pred_point_var_ratio": 0.917829,
+        "actual_P_total_le1": 0.233533,
+        "point_P_total_le1": 0.237048,
+        "matched_mean_var_Gamma_P_total_le1": 0.28446,
+        "actual_P_total_le2": 0.482727,
+        "point_P_total_le2": 0.470261,
+        "matched_mean_var_Gamma_P_total_le2": 0.500952
+      }
+    }
+  },
+  "whole_season_block_bootstrap": {
+    "k1": {
+      "resampled_whole_seasons": 5000,
+      "season_blocks": 7,
+      "bootstrap_95pct_mean_excess_pred_variance": [
+        1.27956,
+        1.608772
+      ],
+      "years_posterior_variance_excess_positive": 7
+    },
+    "k2": {
+      "resampled_whole_seasons": 5000,
+      "season_blocks": 7,
+      "bootstrap_95pct_mean_excess_pred_variance": [
+        1.111785,
+        1.426088
+      ],
+      "years_posterior_variance_excess_positive": 7
+    }
+  },
+  "limitations": [
+    "Full historical 9908 Crown-matched five-league fixtures already explored; observed score outcome used ONLY for retrospective score. No blind future data.",
+    "MSE versus predictive variance is marginal diagnostic: cannot prove conditional calibration and is sensitive to model mean misspecification.",
+    "Gamma low-tail probability approximates mixing distribution with same mean/variance as original IG; not exact IG low-tail probability.",
+    "A calibration discrepancy does not directly imply monetary edge or order filter. National team excluded, no production changes."
+  ]
+}
