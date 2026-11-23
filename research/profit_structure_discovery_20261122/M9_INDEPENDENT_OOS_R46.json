@@ -1,0 +1,571 @@
+{
+  "source": "/Users/mac/QuantAsiaDesk/research-work/r24_publish_20261123/research/m3/results/predictions/a382ebde7d0a89d8574ee3168c1923529084296de890a8abf5a18ff64d83c977.csv",
+  "source_generated_utc": "2026-11-22T21:29:25.966007+00:00",
+  "scope": "Independent M3 penaltyblog season-forward bivariate model, not exact production M9",
+  "models": {
+    "bivariate_poisson": {
+      "1920": {
+        "base": {
+          "n": 1573,
+          "logloss": 1.00190502,
+          "brier": 0.59883721
+        },
+        "draw": {
+          "n": 1573,
+          "logloss": 1.0038476,
+          "brier": 0.60002149
+        },
+        "team": {
+          "n": 1573,
+          "logloss": 1.00506018,
+          "brier": 0.60073972
+        },
+        "combined": {
+          "n": 1573,
+          "logloss": 1.00713419,
+          "brier": 0.60204563
+        },
+        "prior_season": 1819
+      },
+      "2021": {
+        "base": {
+          "n": 1808,
+          "logloss": 1.01791931,
+          "brier": 0.60817569
+        },
+        "draw": {
+          "n": 1808,
+          "logloss": 1.01777587,
+          "brier": 0.6081602
+        },
+        "team": {
+          "n": 1808,
+          "logloss": 1.01745533,
+          "brier": 0.60745726
+        },
+        "combined": {
+          "n": 1808,
+          "logloss": 1.01735098,
+          "brier": 0.60757028
+        },
+        "prior_season": 1920
+      },
+      "2122": {
+        "base": {
+          "n": 1850,
+          "logloss": 1.00539059,
+          "brier": 0.6010818
+        },
+        "draw": {
+          "n": 1850,
+          "logloss": 1.00473185,
+          "brier": 0.60056464
+        },
+        "team": {
+          "n": 1850,
+          "logloss": 1.00571608,
+          "brier": 0.60157754
+        },
+        "combined": {
+          "n": 1850,
+          "logloss": 1.00498625,
+          "brier": 0.60105198
+        },
+        "prior_season": 2021
+      },
+      "2223": {
+        "base": {
+          "n": 1874,
+          "logloss": 1.0036975,
+          "brier": 0.59808098
+        },
+        "draw": {
+          "n": 1874,
+          "logloss": 1.004667,
+          "brier": 0.59864428
+        },
+        "team": {
+          "n": 1874,
+          "logloss": 0.99988463,
+          "brier": 0.59507658
+        },
+        "combined": {
+          "n": 1874,
+          "logloss": 1.00083402,
+          "brier": 0.59564649
+        },
+        "prior_season": 2122
+      },
+      "2324": {
+        "base": {
+          "n": 1890,
+          "logloss": 1.00002126,
+          "brier": 0.59681905
+        },
+        "draw": {
+          "n": 1890,
+          "logloss": 0.99950858,
+          "brier": 0.59652519
+        },
+        "team": {
+          "n": 1890,
+          "logloss": 1.00340327,
+          "brier": 0.59942152
+        },
+        "combined": {
+          "n": 1890,
+          "logloss": 1.00290269,
+          "brier": 0.59904364
+        },
+        "prior_season": 2223
+      },
+      "2425": {
+        "base": {
+          "n": 1882,
+          "logloss": 1.00716041,
+          "brier": 0.60194228
+        },
+        "draw": {
+          "n": 1882,
+          "logloss": 1.0068108,
+          "brier": 0.60204488
+        },
+        "team": {
+          "n": 1882,
+          "logloss": 1.0040103,
+          "brier": 0.60028769
+        },
+        "combined": {
+          "n": 1882,
+          "logloss": 1.00354717,
+          "brier": 0.6002012
+        },
+        "prior_season": 2324
+      },
+      "2526": {
+        "base": {
+          "n": 1880,
+          "logloss": 1.00140026,
+          "brier": 0.59813235
+        },
+        "draw": {
+          "n": 1880,
+          "logloss": 1.00207716,
+          "brier": 0.5983815
+        },
+        "team": {
+          "n": 1880,
+          "logloss": 1.00008937,
+          "brier": 0.59729647
+        },
+        "combined": {
+          "n": 1880,
+          "logloss": 1.0007101,
+          "brier": 0.59754669
+        },
+        "prior_season": 2425
+      },
+      "2627": {
+        "base": {
+          "n": 528,
+          "logloss": 0.95616231,
+          "brier": 0.56607294
+        },
+        "draw": {
+          "n": 528,
+          "logloss": 0.95675126,
+          "brier": 0.56629721
+        },
+        "team": {
+          "n": 528,
+          "logloss": 0.95369787,
+          "brier": 0.56425776
+        },
+        "combined": {
+          "n": 528,
+          "logloss": 0.95434213,
+          "brier": 0.56462855
+        },
+        "prior_season": 2526
+      }
+    },
+    "poisson": {
+      "1920": {
+        "base": {
+          "n": 1573,
+          "logloss": 1.00075242,
+          "brier": 0.59836196
+        },
+        "draw": {
+          "n": 1573,
+          "logloss": 1.00244207,
+          "brier": 0.59935238
+        },
+        "team": {
+          "n": 1573,
+          "logloss": 1.00392857,
+          "brier": 0.6003541
+        },
+        "combined": {
+          "n": 1573,
+          "logloss": 1.00568324,
+          "brier": 0.60135875
+        },
+        "prior_season": 1819
+      },
+      "2021": {
+        "base": {
+          "n": 1808,
+          "logloss": 1.0178672,
+          "brier": 0.60827155
+        },
+        "draw": {
+          "n": 1808,
+          "logloss": 1.01715952,
+          "brier": 0.60789213
+        },
+        "team": {
+          "n": 1808,
+          "logloss": 1.01743121,
+          "brier": 0.60758288
+        },
+        "combined": {
+          "n": 1808,
+          "logloss": 1.01672443,
+          "brier": 0.60727586
+        },
+        "prior_season": 1920
+      },
+      "2122": {
+        "base": {
+          "n": 1850,
+          "logloss": 1.00603632,
+          "brier": 0.60147859
+        },
+        "draw": {
+          "n": 1850,
+          "logloss": 1.00469317,
+          "brier": 0.60058888
+        },
+        "team": {
+          "n": 1850,
+          "logloss": 1.00640676,
+          "brier": 0.60202918
+        },
+        "combined": {
+          "n": 1850,
+          "logloss": 1.00495159,
+          "brier": 0.6010939
+        },
+        "prior_season": 2021
+      },
+      "2223": {
+        "base": {
+          "n": 1874,
+          "logloss": 1.00304133,
+          "brier": 0.59783831
+        },
+        "draw": {
+          "n": 1874,
+          "logloss": 1.00354418,
+          "brier": 0.59813103
+        },
+        "team": {
+          "n": 1874,
+          "logloss": 0.99932045,
+          "brier": 0.59487376
+        },
+        "combined": {
+          "n": 1874,
+          "logloss": 0.9997741,
+          "brier": 0.59515582
+        },
+        "prior_season": 2122
+      },
+      "2324": {
+        "base": {
+          "n": 1890,
+          "logloss": 1.00103348,
+          "brier": 0.5974095
+        },
+        "draw": {
+          "n": 1890,
+          "logloss": 0.99964778,
+          "brier": 0.59661683
+        },
+        "team": {
+          "n": 1890,
+          "logloss": 1.0045181,
+          "brier": 0.60009333
+        },
+        "combined": {
+          "n": 1890,
+          "logloss": 1.00314115,
+          "brier": 0.59920341
+        },
+        "prior_season": 2223
+      },
+      "2425": {
+        "base": {
+          "n": 1882,
+          "logloss": 1.00785346,
+          "brier": 0.60228586
+        },
+        "draw": {
+          "n": 1882,
+          "logloss": 1.00680678,
+          "brier": 0.60204209
+        },
+        "team": {
+          "n": 1882,
+          "logloss": 1.00481012,
+          "brier": 0.60070389
+        },
+        "combined": {
+          "n": 1882,
+          "logloss": 1.00360244,
+          "brier": 0.60022557
+        },
+        "prior_season": 2324
+      },
+      "2526": {
+        "base": {
+          "n": 1880,
+          "logloss": 1.00150739,
+          "brier": 0.59815768
+        },
+        "draw": {
+          "n": 1880,
+          "logloss": 1.0019312,
+          "brier": 0.59828434
+        },
+        "team": {
+          "n": 1880,
+          "logloss": 1.00026911,
+          "brier": 0.59738643
+        },
+        "combined": {
+          "n": 1880,
+          "logloss": 1.00060281,
+          "brier": 0.59747685
+        },
+        "prior_season": 2425
+      },
+      "2627": {
+        "base": {
+          "n": 528,
+          "logloss": 0.95620202,
+          "brier": 0.56600189
+        },
+        "draw": {
+          "n": 528,
+          "logloss": 0.95735445,
+          "brier": 0.56665958
+        },
+        "team": {
+          "n": 528,
+          "logloss": 0.95357182,
+          "brier": 0.56406619
+        },
+        "combined": {
+          "n": 528,
+          "logloss": 0.95476534,
+          "brier": 0.5648522
+        },
+        "prior_season": 2526
+      }
+    },
+    "dixon_coles": {
+      "1920": {
+        "base": {
+          "n": 1573,
+          "logloss": 1.00193854,
+          "brier": 0.59864575
+        },
+        "draw": {
+          "n": 1573,
+          "logloss": 1.00411608,
+          "brier": 0.60021182
+        },
+        "team": {
+          "n": 1573,
+          "logloss": 1.00497973,
+          "brier": 0.60037153
+        },
+        "combined": {
+          "n": 1573,
+          "logloss": 1.00738466,
+          "brier": 0.60213968
+        },
+        "prior_season": 1819
+      },
+      "2021": {
+        "base": {
+          "n": 1808,
+          "logloss": 1.01761018,
+          "brier": 0.60782912
+        },
+        "draw": {
+          "n": 1808,
+          "logloss": 1.01762691,
+          "brier": 0.60812916
+        },
+        "team": {
+          "n": 1808,
+          "logloss": 1.01706564,
+          "brier": 0.60696907
+        },
+        "combined": {
+          "n": 1808,
+          "logloss": 1.01722527,
+          "brier": 0.60750259
+        },
+        "prior_season": 1920
+      },
+      "2122": {
+        "base": {
+          "n": 1850,
+          "logloss": 1.00519538,
+          "brier": 0.60079963
+        },
+        "draw": {
+          "n": 1850,
+          "logloss": 1.00473198,
+          "brier": 0.60054149
+        },
+        "team": {
+          "n": 1850,
+          "logloss": 1.00548772,
+          "brier": 0.60129711
+        },
+        "combined": {
+          "n": 1850,
+          "logloss": 1.00490983,
+          "brier": 0.60098001
+        },
+        "prior_season": 2021
+      },
+      "2223": {
+        "base": {
+          "n": 1874,
+          "logloss": 1.00305687,
+          "brier": 0.59781972
+        },
+        "draw": {
+          "n": 1874,
+          "logloss": 1.00400252,
+          "brier": 0.5983743
+        },
+        "team": {
+          "n": 1874,
+          "logloss": 0.99925399,
+          "brier": 0.59485954
+        },
+        "combined": {
+          "n": 1874,
+          "logloss": 1.00017922,
+          "brier": 0.59538043
+        },
+        "prior_season": 2122
+      },
+      "2324": {
+        "base": {
+          "n": 1890,
+          "logloss": 0.99941504,
+          "brier": 0.59645132
+        },
+        "draw": {
+          "n": 1890,
+          "logloss": 0.99953805,
+          "brier": 0.59655717
+        },
+        "team": {
+          "n": 1890,
+          "logloss": 1.0028269,
+          "brier": 0.5989797
+        },
+        "combined": {
+          "n": 1890,
+          "logloss": 1.00296233,
+          "brier": 0.59905014
+        },
+        "prior_season": 2223
+      },
+      "2425": {
+        "base": {
+          "n": 1882,
+          "logloss": 1.00684369,
+          "brier": 0.60167663
+        },
+        "draw": {
+          "n": 1882,
+          "logloss": 1.00713575,
+          "brier": 0.60221903
+        },
+        "team": {
+          "n": 1882,
+          "logloss": 1.00364533,
+          "brier": 0.59996821
+        },
+        "combined": {
+          "n": 1882,
+          "logloss": 1.00386018,
+          "brier": 0.60035603
+        },
+        "prior_season": 2324
+      },
+      "2526": {
+        "base": {
+          "n": 1880,
+          "logloss": 1.00106395,
+          "brier": 0.59797787
+        },
+        "draw": {
+          "n": 1880,
+          "logloss": 1.00198399,
+          "brier": 0.5983276
+        },
+        "team": {
+          "n": 1880,
+          "logloss": 0.99975731,
+          "brier": 0.59712769
+        },
+        "combined": {
+          "n": 1880,
+          "logloss": 1.00063317,
+          "brier": 0.59748925
+        },
+        "prior_season": 2425
+      },
+      "2627": {
+        "base": {
+          "n": 528,
+          "logloss": 0.95790459,
+          "brier": 0.56737234
+        },
+        "draw": {
+          "n": 528,
+          "logloss": 0.957465,
+          "brier": 0.56678584
+        },
+        "team": {
+          "n": 528,
+          "logloss": 0.95521092,
+          "brier": 0.56537849
+        },
+        "combined": {
+          "n": 528,
+          "logloss": 0.95485938,
+          "brier": 0.56497721
+        },
+        "prior_season": 2526
+      }
+    }
+  },
+  "caveats": [
+    "Research exploratory challengers: draw multiplier and team residual offset fitted only from prior-season OOS predictions/outcomes; not full low-score Dixon-Coles correction or refitted bivariate team-strength model.",
+    "The test source has date-only fixtures and 6 leagues, different from production M9 training/history/league universe.",
+    "No Crown odds/Asian line or official Telegram orders are paired, so no ROI or production improvement claims.",
+    "No production code or order rules changed."
+  ]
+}
