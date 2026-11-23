@@ -2530,3 +2530,9 @@ References reviewed: [OddsHarvester README](https://github.com/jordantete/OddsHa
 - From T2022 through the 20:27:04.649Z settlement pause, 50 unique FIDs were completed; all received HTTP 200 with no API or transport errors. Forty-nine quote-bearing FIDs added 1,008 OU movement rows. No duplicates, raw SHA mismatches, or fixture/league/year scope mismatches.
 - Queue rebuilt at 20:30:23.846Z: 31,411 requests (2023 2,871; 2024 14,553; 2025 13,520; 2026 467), down 50. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 9,253 FIDs. Mean/median response time 1.3208/1.3327s; configured 5.2s request-start interval unchanged.
 - Independent query-only SQLite and SHA audit passed for all 50 FIDs. Safe-window driver PID49373 resumed collector PID77855. Retrieval is historical only. Evidence and manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T2030Z`.
+
+
+### 2026-11-23 20:38 UTC — T2038 checkpoint; active scope 2023–2026
+- From T2030 through the 20:34:01.842Z scheduled pause, 43 unique FIDs were completed, all HTTP 200 with no API/transport errors. Thirty-two quote-bearing FIDs added 631 OU movement rows. No duplicate FIDs, raw SHA mismatches, or fixture/league/year scope mismatches.
+- Queue rebuilt at 20:38:31.175Z: 31,368 requests (2023 2,828; 2024 14,553; 2025 13,520; 2026 467), down 43. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 9,285 FIDs. Mean/median response time 1.3059/1.3174s; 5.2s cadence unchanged.
+- Independent SQLite/SHA and queue-rebuild audit passed. Safe driver PID49373 restarted collector PID79543. Historical retrieval only. Evidence and manifest: `research/data_recovery_2019_2026/ou_unification/*20261123T2038Z`.
