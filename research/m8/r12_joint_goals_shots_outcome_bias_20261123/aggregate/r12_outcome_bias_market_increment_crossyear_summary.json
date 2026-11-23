@@ -1,0 +1,323 @@
+{
+  "study": "R12_OUTCOME_BIAS_TEAM_GOAL_DIFFERENCE_MINUS_XG_GOAL_DIFFERENCE_VS_CROWN",
+  "source_SHA256": {
+    "r5_bayes_bivar_CrownT12_20261123.jsonl": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+    "r7_market_implied_2market_20261123.jsonl": "c3405e0fadcf539fe45a0408035efd6ce4a1e268d32bbe4d50ce3db4500eecf8"
+  },
+  "feature": "Team actual goal difference minus xG goal difference per prior match, relative home versus away. Two research history definitions: current domestic season prior games and all archive since 2017. Source xG reliability enforced only for history update; all current 9908 target quotes evaluated, with no ROI/EV gate.",
+  "method": "Each target date uses prior strictly EARLIER calendar dates, no target/same-day actual score or xG in feature. Fit one scalar market multinomial logit residual coefficient beta using only previous two completed seasons, optimize multiclass logloss, then predict all games in each target 2021–2025 season. Never fit ROI or choose betting cutoff.",
+  "learned_parameters_by_test_year": {
+    "2021": {
+      "current_season_home_minus_away_luck": {
+        "coefficient": -0.0405162700373821,
+        "train_n": 2835,
+        "train_logloss": 0.9747795741160451,
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "research_feature": "current_season_home_minus_away_luck"
+      },
+      "full_archive_home_minus_away_luck": {
+        "coefficient": -0.02358622170420638,
+        "train_n": 2835,
+        "train_logloss": 0.9749065507822974,
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "research_feature": "full_archive_home_minus_away_luck"
+      }
+    },
+    "2022": {
+      "current_season_home_minus_away_luck": {
+        "coefficient": -0.10188576076075517,
+        "train_n": 2880,
+        "train_logloss": 0.9775526395098744,
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "research_feature": "current_season_home_minus_away_luck"
+      },
+      "full_archive_home_minus_away_luck": {
+        "coefficient": 0.04227932872590206,
+        "train_n": 2880,
+        "train_logloss": 0.978260702778278,
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "research_feature": "full_archive_home_minus_away_luck"
+      }
+    },
+    "2023": {
+      "current_season_home_minus_away_luck": {
+        "coefficient": -0.031845062424230144,
+        "train_n": 2886,
+        "train_logloss": 0.9771380212053011,
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "research_feature": "current_season_home_minus_away_luck"
+      },
+      "full_archive_home_minus_away_luck": {
+        "coefficient": 0.07430052422283548,
+        "train_n": 2886,
+        "train_logloss": 0.9771068972572773,
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "research_feature": "full_archive_home_minus_away_luck"
+      }
+    },
+    "2024": {
+      "current_season_home_minus_away_luck": {
+        "coefficient": 0.02834460202308651,
+        "train_n": 2864,
+        "train_logloss": 0.9705466434009316,
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "research_feature": "current_season_home_minus_away_luck"
+      },
+      "full_archive_home_minus_away_luck": {
+        "coefficient": 0.07024217340827839,
+        "train_n": 2864,
+        "train_logloss": 0.9705338128419425,
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "research_feature": "full_archive_home_minus_away_luck"
+      }
+    },
+    "2025": {
+      "current_season_home_minus_away_luck": {
+        "coefficient": -0.050608504553121735,
+        "train_n": 2787,
+        "train_logloss": 0.9633113079845719,
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "research_feature": "current_season_home_minus_away_luck"
+      },
+      "full_archive_home_minus_away_luck": {
+        "coefficient": -0.12486292072917264,
+        "train_n": 2787,
+        "train_logloss": 0.9632896048492137,
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "research_feature": "full_archive_home_minus_away_luck"
+      }
+    }
+  },
+  "overall": {
+    "n": 7073,
+    "market_raw": {
+      "Brier": 0.5784053,
+      "logloss": 0.9730486
+    },
+    "current_season_home_minus_away_luck": {
+      "Brier": 0.5785349,
+      "logloss": 0.973296,
+      "Brier_gain_vs_market": -0.0001296
+    },
+    "full_archive_home_minus_away_luck": {
+      "Brier": 0.5785642,
+      "logloss": 0.9732671,
+      "Brier_gain_vs_market": -0.0001589
+    }
+  },
+  "by_year": {
+    "2021": {
+      "n": 1418,
+      "market_raw": {
+        "Brier": 0.5822157,
+        "logloss": 0.9795754
+      },
+      "current_season_home_minus_away_luck": {
+        "Brier": 0.5818349,
+        "logloss": 0.9790404,
+        "Brier_gain_vs_market": 0.0003808
+      },
+      "full_archive_home_minus_away_luck": {
+        "Brier": 0.5822871,
+        "logloss": 0.9796773,
+        "Brier_gain_vs_market": -7.14e-05
+      }
+    },
+    "2022": {
+      "n": 1468,
+      "market_raw": {
+        "Brier": 0.5795739,
+        "logloss": 0.9749318
+      },
+      "current_season_home_minus_away_luck": {
+        "Brier": 0.580521,
+        "logloss": 0.9763812,
+        "Brier_gain_vs_market": -0.0009471
+      },
+      "full_archive_home_minus_away_luck": {
+        "Brier": 0.5794939,
+        "logloss": 0.9748777,
+        "Brier_gain_vs_market": 8e-05
+      }
+    },
+    "2023": {
+      "n": 1396,
+      "market_raw": {
+        "Brier": 0.5743101,
+        "logloss": 0.9660678
+      },
+      "current_season_home_minus_away_luck": {
+        "Brier": 0.5743559,
+        "logloss": 0.9662429,
+        "Brier_gain_vs_market": -4.58e-05
+      },
+      "full_archive_home_minus_away_luck": {
+        "Brier": 0.5742959,
+        "logloss": 0.9659677,
+        "Brier_gain_vs_market": 1.42e-05
+      }
+    },
+    "2024": {
+      "n": 1391,
+      "market_raw": {
+        "Brier": 0.5700479,
+        "logloss": 0.9609309
+      },
+      "current_season_home_minus_away_luck": {
+        "Brier": 0.5704479,
+        "logloss": 0.9614983,
+        "Brier_gain_vs_market": -0.0004
+      },
+      "full_archive_home_minus_away_luck": {
+        "Brier": 0.5706355,
+        "logloss": 0.9616479,
+        "Brier_gain_vs_market": -0.0005876
+      }
+    },
+    "2025": {
+      "n": 1400,
+      "market_raw": {
+        "Brier": 0.5857078,
+        "logloss": 0.9834639
+      },
+      "current_season_home_minus_away_luck": {
+        "Brier": 0.5853118,
+        "logloss": 0.9829977,
+        "Brier_gain_vs_market": 0.000396
+      },
+      "full_archive_home_minus_away_luck": {
+        "Brier": 0.5859525,
+        "logloss": 0.9839086,
+        "Brier_gain_vs_market": -0.0002447
+      }
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "n": 1222,
+      "market_raw": {
+        "Brier": 0.5818577,
+        "logloss": 0.9793501
+      },
+      "current_season_home_minus_away_luck": {
+        "Brier": 0.5817103,
+        "logloss": 0.9793423,
+        "Brier_gain_vs_market": 0.0001474
+      },
+      "full_archive_home_minus_away_luck": {
+        "Brier": 0.5820097,
+        "logloss": 0.9794865,
+        "Brier_gain_vs_market": -0.000152
+      }
+    },
+    "epl": {
+      "n": 1562,
+      "market_raw": {
+        "Brier": 0.5716667,
+        "logloss": 0.9619406
+      },
+      "current_season_home_minus_away_luck": {
+        "Brier": 0.5716051,
+        "logloss": 0.9619647,
+        "Brier_gain_vs_market": 6.16e-05
+      },
+      "full_archive_home_minus_away_luck": {
+        "Brier": 0.572141,
+        "logloss": 0.9625945,
+        "Brier_gain_vs_market": -0.0004743
+      }
+    },
+    "la-liga": {
+      "n": 1390,
+      "market_raw": {
+        "Brier": 0.5759148,
+        "logloss": 0.9710397
+      },
+      "current_season_home_minus_away_luck": {
+        "Brier": 0.5755239,
+        "logloss": 0.9704898,
+        "Brier_gain_vs_market": 0.0003909
+      },
+      "full_archive_home_minus_away_luck": {
+        "Brier": 0.5759217,
+        "logloss": 0.9710468,
+        "Brier_gain_vs_market": -6.9e-06
+      }
+    },
+    "ligue-1": {
+      "n": 1352,
+      "market_raw": {
+        "Brier": 0.5832781,
+        "logloss": 0.9803039
+      },
+      "current_season_home_minus_away_luck": {
+        "Brier": 0.5837458,
+        "logloss": 0.9809467,
+        "Brier_gain_vs_market": -0.0004677
+      },
+      "full_archive_home_minus_away_luck": {
+        "Brier": 0.5832455,
+        "logloss": 0.9802861,
+        "Brier_gain_vs_market": 3.26e-05
+      }
+    },
+    "serie-a": {
+      "n": 1547,
+      "market_raw": {
+        "Brier": 0.5804614,
+        "logloss": 0.9747509
+      },
+      "current_season_home_minus_away_luck": {
+        "Brier": 0.5811748,
+        "logloss": 0.9757963,
+        "Brier_gain_vs_market": -0.0007134
+      },
+      "full_archive_home_minus_away_luck": {
+        "Brier": 0.5806112,
+        "logloss": 0.9749911,
+        "Brier_gain_vs_market": -0.0001498
+      }
+    }
+  },
+  "audit": {
+    "Crown_join_fixture": 9908,
+    "source_fixture_invalid_xG_not_used_to_update_history": 4,
+    "walkforward_test_fixture": 7073
+  },
+  "limitations": [
+    "Hypothesis inspired by Flepp et al (2024) outcome bias in betting markets, but this simplified fortune feature and Crown-derived 1X2 markets are not their historical Matchbook exchange price specification, so this is NOT a direct paper replication.",
+    "xG timing unknown, so strict prior match date does not prove the information was available before each historic quote.",
+    "Crown historic T12 source event collected AFTER each match, not actual receipted odds, not tradable validation.",
+    "Training and evaluation repeated historically known seasons, thus not newly blinded, no new bet strategy or order constraints."
+  ]
+}

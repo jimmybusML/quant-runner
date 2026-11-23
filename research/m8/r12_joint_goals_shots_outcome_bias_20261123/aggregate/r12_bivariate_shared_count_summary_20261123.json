@@ -1,0 +1,778 @@
+{
+  "study": "R12_BIVARIATE_POISSON_PRIOR_TWO_SEASON_RESIDUAL_SHARED_COMPONENT",
+  "sources_SHA256": {
+    "r5_bayes_bivar_asof_features_20261123.jsonl": "71e841b629136c266b79190366bd47175f5748818db9a6b8fe1c888d65658561",
+    "r5_bayes_bivar_CrownT12_20261123.jsonl": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+    "r7_market_implied_2market_20261123.jsonl": "c3405e0fadcf539fe45a0408035efd6ce4a1e268d32bbe4d50ce3db4500eecf8"
+  },
+  "method": "Use R5 k2 prematch expected goals, estimate covariance of actual-minus-predicted two team scores on previous two completed seasons same league, use positive part as shared Poisson count covariance; nonnegative component and <=min(lambdaH,lambdaA) required by probability definition; no gambling ROI used. All 9908 paired Crown historic fixtures AH/OU selected unconditionally by maximum estimated EV of both sides, no positive EV gate.",
+  "trained_per_league_year": {
+    "epl": {
+      "2019": {
+        "train_seasons": [
+          2017,
+          2018
+        ],
+        "train_match_n": 636,
+        "residual_covariance_raw": -0.020500685658028865,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.015139355908642266,
+        "train_home_residual_mean": 0.04327152276280546,
+        "train_away_residual_mean": 0.003653067818118943
+      },
+      "2020": {
+        "train_seasons": [
+          2018,
+          2019
+        ],
+        "train_match_n": 638,
+        "residual_covariance_raw": -0.13437099454100337,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.09970402248863135,
+        "train_home_residual_mean": -0.029357847088795873,
+        "train_away_residual_mean": -0.080364458476344
+      },
+      "2021": {
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "train_match_n": 638,
+        "residual_covariance_raw": -0.11291077218759261,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.08272295636325433,
+        "train_home_residual_mean": -0.08085731367597682,
+        "train_away_residual_mean": -0.08365444384497686
+      },
+      "2022": {
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "train_match_n": 638,
+        "residual_covariance_raw": -0.05010623530700954,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.034879782705425466,
+        "train_home_residual_mean": -0.04450353586161064,
+        "train_away_residual_mean": 0.0008144974406326551
+      },
+      "2023": {
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "train_match_n": 640,
+        "residual_covariance_raw": -0.03580508903170384,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.02359554710304959,
+        "train_home_residual_mean": -0.009435314179641722,
+        "train_away_residual_mean": 0.014449775762285197
+      },
+      "2024": {
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "train_match_n": 634,
+        "residual_covariance_raw": -0.055706772201556905,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.03603967397662981,
+        "train_home_residual_mean": -0.004587267082857714,
+        "train_away_residual_mean": -0.003189885064701661
+      },
+      "2025": {
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "train_match_n": 634,
+        "residual_covariance_raw": -0.08484604511829938,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.05690456572817867,
+        "train_home_residual_mean": -0.125193003790007,
+        "train_away_residual_mean": -0.04497600395754105
+      }
+    },
+    "bundesliga": {
+      "2019": {
+        "train_seasons": [
+          2017,
+          2018
+        ],
+        "train_match_n": 498,
+        "residual_covariance_raw": -0.1038307537035585,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.06379525314417658,
+        "train_home_residual_mean": 0.05902996147768214,
+        "train_away_residual_mean": 0.132425976434451
+      },
+      "2020": {
+        "train_seasons": [
+          2018,
+          2019
+        ],
+        "train_match_n": 500,
+        "residual_covariance_raw": -0.29785109807981774,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.16482091808191598,
+        "train_home_residual_mean": 0.018413868264575986,
+        "train_away_residual_mean": 0.08027352690217998
+      },
+      "2021": {
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "train_match_n": 500,
+        "residual_covariance_raw": -0.18423282654585302,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.11634567558892014,
+        "train_home_residual_mean": 0.07847723901134333,
+        "train_away_residual_mean": 0.02462372573775579
+      },
+      "2022": {
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "train_match_n": 500,
+        "residual_covariance_raw": -0.09298349380665424,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.062036860970895544,
+        "train_home_residual_mean": 0.07688088932215612,
+        "train_away_residual_mean": 0.009427411401319016
+      },
+      "2023": {
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "train_match_n": 500,
+        "residual_covariance_raw": -0.17217329452867472,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.10413410163096862,
+        "train_home_residual_mean": 0.14680031824328688,
+        "train_away_residual_mean": 0.0008961804179886314
+      },
+      "2024": {
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "train_match_n": 502,
+        "residual_covariance_raw": -0.11238318938365581,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.06948538160815661,
+        "train_home_residual_mean": 0.06704715185583827,
+        "train_away_residual_mean": -0.035791267487028135
+      },
+      "2025": {
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "train_match_n": 496,
+        "residual_covariance_raw": 0.01360073690374398,
+        "shared_poisson_covariance_nonnegative": 0.01360073690374398,
+        "residual_corr": 0.008713155103127042,
+        "train_home_residual_mean": -0.18396890057140533,
+        "train_away_residual_mean": -0.02696160703774977
+      }
+    },
+    "serie-a": {
+      "2019": {
+        "train_seasons": [
+          2017,
+          2018
+        ],
+        "train_match_n": 634,
+        "residual_covariance_raw": 0.053222614259469274,
+        "shared_poisson_covariance_nonnegative": 0.053222614259469274,
+        "residual_corr": 0.041078420344550434,
+        "train_home_residual_mean": -0.0239848585152959,
+        "train_away_residual_mean": 0.009542294271145772
+      },
+      "2020": {
+        "train_seasons": [
+          2018,
+          2019
+        ],
+        "train_match_n": 634,
+        "residual_covariance_raw": 0.028802781160438315,
+        "shared_poisson_covariance_nonnegative": 0.028802781160438315,
+        "residual_corr": 0.021634867594146397,
+        "train_home_residual_mean": -0.005055950707639587,
+        "train_away_residual_mean": 0.050602902986432406
+      },
+      "2021": {
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "train_match_n": 630,
+        "residual_covariance_raw": -0.005921100141694534,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.004187134883519523,
+        "train_home_residual_mean": 0.02068317148680244,
+        "train_away_residual_mean": 0.025515251216045056
+      },
+      "2022": {
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "train_match_n": 632,
+        "residual_covariance_raw": 0.05549658165222224,
+        "shared_poisson_covariance_nonnegative": 0.05549658165222224,
+        "residual_corr": 0.040900851479709496,
+        "train_home_residual_mean": -0.03648319788222937,
+        "train_away_residual_mean": -0.0010532311991311805
+      },
+      "2023": {
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "train_match_n": 632,
+        "residual_covariance_raw": 0.003829034352007945,
+        "shared_poisson_covariance_nonnegative": 0.003829034352007945,
+        "residual_corr": 0.0030461271208530346,
+        "train_home_residual_mean": -0.05002597214075465,
+        "train_away_residual_mean": -0.016455377289950703
+      },
+      "2024": {
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "train_match_n": 630,
+        "residual_covariance_raw": 0.016532156487022772,
+        "shared_poisson_covariance_nonnegative": 0.016532156487022772,
+        "residual_corr": 0.014242487288008492,
+        "train_home_residual_mean": -0.07290918613545513,
+        "train_away_residual_mean": -0.016712259037505024
+      },
+      "2025": {
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "train_match_n": 630,
+        "residual_covariance_raw": 0.05166833210194361,
+        "shared_poisson_covariance_nonnegative": 0.05166833210194361,
+        "residual_corr": 0.04516303163738893,
+        "train_home_residual_mean": -0.16573505084927534,
+        "train_away_residual_mean": -0.012113732966687897
+      }
+    },
+    "la-liga": {
+      "2019": {
+        "train_seasons": [
+          2017,
+          2018
+        ],
+        "train_match_n": 632,
+        "residual_covariance_raw": 0.06600458781764279,
+        "shared_poisson_covariance_nonnegative": 0.06600458781764279,
+        "residual_corr": 0.05044501865759849,
+        "train_home_residual_mean": -0.07063249526409218,
+        "train_away_residual_mean": -0.02627989126090283
+      },
+      "2020": {
+        "train_seasons": [
+          2018,
+          2019
+        ],
+        "train_match_n": 625,
+        "residual_covariance_raw": 0.015162287781207482,
+        "shared_poisson_covariance_nonnegative": 0.015162287781207482,
+        "residual_corr": 0.012926652328778742,
+        "train_home_residual_mean": -0.07672089161981109,
+        "train_away_residual_mean": -0.07425390532744275
+      },
+      "2021": {
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "train_match_n": 619,
+        "residual_covariance_raw": 0.01760694466620657,
+        "shared_poisson_covariance_nonnegative": 0.01760694466620657,
+        "residual_corr": 0.01478173820959397,
+        "train_home_residual_mean": -0.02425875607608308,
+        "train_away_residual_mean": -0.023939473998094752
+      },
+      "2022": {
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "train_match_n": 625,
+        "residual_covariance_raw": 0.0998490476904734,
+        "shared_poisson_covariance_nonnegative": 0.0998490476904734,
+        "residual_corr": 0.07827648146503399,
+        "train_home_residual_mean": 0.03483557431949584,
+        "train_away_residual_mean": -0.008062743173391888
+      },
+      "2023": {
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "train_match_n": 629,
+        "residual_covariance_raw": 0.13492376375109846,
+        "shared_poisson_covariance_nonnegative": 0.13492376375109846,
+        "residual_corr": 0.10862933589943537,
+        "train_home_residual_mean": -0.030066761878135447,
+        "train_away_residual_mean": -0.08662978024391864
+      },
+      "2024": {
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "train_match_n": 629,
+        "residual_covariance_raw": 0.13487374147940354,
+        "shared_poisson_covariance_nonnegative": 0.13487374147940354,
+        "residual_corr": 0.11362144918959942,
+        "train_home_residual_mean": -0.15399236816501322,
+        "train_away_residual_mean": -0.12035679215653648
+      },
+      "2025": {
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "train_match_n": 629,
+        "residual_covariance_raw": 0.08549381530434673,
+        "shared_poisson_covariance_nonnegative": 0.08549381530434673,
+        "residual_corr": 0.06965356078123706,
+        "train_home_residual_mean": -0.2013612239641822,
+        "train_away_residual_mean": -0.049511132799112734
+      }
+    },
+    "ligue-1": {
+      "2019": {
+        "train_seasons": [
+          2017,
+          2018
+        ],
+        "train_match_n": 633,
+        "residual_covariance_raw": -0.07900234339934877,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.0627634918165159,
+        "train_home_residual_mean": 0.058131292494735254,
+        "train_away_residual_mean": 0.057775756940859374
+      },
+      "2020": {
+        "train_seasons": [
+          2018,
+          2019
+        ],
+        "train_match_n": 534,
+        "residual_covariance_raw": -0.0038646866441568225,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.003159398629623541,
+        "train_home_residual_mean": 0.06628671739989282,
+        "train_away_residual_mean": 0.007690938042168441
+      },
+      "2021": {
+        "train_seasons": [
+          2019,
+          2020
+        ],
+        "train_match_n": 533,
+        "residual_covariance_raw": -0.04107178881969656,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.03199050259648841,
+        "train_home_residual_mean": 0.024731409504816875,
+        "train_away_residual_mean": 0.10316437527354642
+      },
+      "2022": {
+        "train_seasons": [
+          2020,
+          2021
+        ],
+        "train_match_n": 633,
+        "residual_covariance_raw": -0.020067495956640723,
+        "shared_poisson_covariance_nonnegative": 0.0,
+        "residual_corr": -0.014585394004727683,
+        "train_home_residual_mean": 0.032773067234866796,
+        "train_away_residual_mean": 0.07984517871574834
+      },
+      "2023": {
+        "train_seasons": [
+          2021,
+          2022
+        ],
+        "train_match_n": 633,
+        "residual_covariance_raw": 0.029309766981284166,
+        "shared_poisson_covariance_nonnegative": 0.029309766981284166,
+        "residual_corr": 0.02126524488735018,
+        "train_home_residual_mean": -0.0015723404637385653,
+        "train_away_residual_mean": -0.06728984837035529
+      },
+      "2024": {
+        "train_seasons": [
+          2022,
+          2023
+        ],
+        "train_match_n": 564,
+        "residual_covariance_raw": 0.04143807866559326,
+        "shared_poisson_covariance_nonnegative": 0.04143807866559326,
+        "residual_corr": 0.031452230834354035,
+        "train_home_residual_mean": -0.16767244666578074,
+        "train_away_residual_mean": -0.0697165773469569
+      },
+      "2025": {
+        "train_seasons": [
+          2023,
+          2024
+        ],
+        "train_match_n": 495,
+        "residual_covariance_raw": 0.01910396311628421,
+        "shared_poisson_covariance_nonnegative": 0.01910396311628421,
+        "residual_corr": 0.013753522243019659,
+        "train_home_residual_mean": -0.212205632017028,
+        "train_away_residual_mean": -0.03925955622272787
+      }
+    }
+  },
+  "overall": {
+    "n": 9908,
+    "bivariate_Brier": 0.5992779,
+    "independent_same_mean_Brier": 0.5993324,
+    "Crown_market_Brier": 0.5783596,
+    "mean_used_shared_component": 0.0247586,
+    "positive_shared_fixture_count": 4791,
+    "feasibility_cap_activated": 0,
+    "AH": {
+      "n": 9908,
+      "net_U": -116.91,
+      "ROI_pct": -1.17996,
+      "R5_indep_U": -121.55,
+      "delta_v_R5_U": 4.64,
+      "switched_sides": 7
+    },
+    "OU": {
+      "n": 9908,
+      "net_U": -153.925,
+      "ROI_pct": -1.55354,
+      "R5_indep_U": -148.56,
+      "delta_v_R5_U": -5.365,
+      "switched_sides": 60
+    }
+  },
+  "by_season": {
+    "2019": {
+      "n": 1373,
+      "bivariate_Brier": 0.5946977,
+      "independent_same_mean_Brier": 0.5948357,
+      "Crown_market_Brier": 0.5778054,
+      "mean_used_shared_component": 0.0254106,
+      "positive_shared_fixture_count": 589,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 1373,
+        "net_U": 35.335,
+        "ROI_pct": 2.57356,
+        "R5_indep_U": 35.335,
+        "delta_v_R5_U": 0.0,
+        "switched_sides": 0
+      },
+      "OU": {
+        "n": 1373,
+        "net_U": 35.005,
+        "ROI_pct": 2.54953,
+        "R5_indep_U": 35.695,
+        "delta_v_R5_U": -0.69,
+        "switched_sides": 8
+      }
+    },
+    "2020": {
+      "n": 1462,
+      "bivariate_Brier": 0.600995,
+      "independent_same_mean_Brier": 0.6010819,
+      "Crown_market_Brier": 0.5786587,
+      "mean_used_shared_component": 0.0090194,
+      "positive_shared_fixture_count": 589,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 1462,
+        "net_U": -22.13,
+        "ROI_pct": -1.51368,
+        "R5_indep_U": -24.06,
+        "delta_v_R5_U": 1.93,
+        "switched_sides": 1
+      },
+      "OU": {
+        "n": 1462,
+        "net_U": 9.985,
+        "ROI_pct": 0.68297,
+        "R5_indep_U": 13.785,
+        "delta_v_R5_U": -3.8,
+        "switched_sides": 4
+      }
+    },
+    "2021": {
+      "n": 1418,
+      "bivariate_Brier": 0.6000389,
+      "independent_same_mean_Brier": 0.6000916,
+      "Crown_market_Brier": 0.5822157,
+      "mean_used_shared_component": 0.0034022,
+      "positive_shared_fixture_count": 274,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 1418,
+        "net_U": 5.81,
+        "ROI_pct": 0.40973,
+        "R5_indep_U": 5.81,
+        "delta_v_R5_U": 0.0,
+        "switched_sides": 0
+      },
+      "OU": {
+        "n": 1418,
+        "net_U": -27.435,
+        "ROI_pct": -1.93477,
+        "R5_indep_U": -25.545,
+        "delta_v_R5_U": -1.89,
+        "switched_sides": 1
+      }
+    },
+    "2022": {
+      "n": 1468,
+      "bivariate_Brier": 0.6010097,
+      "independent_same_mean_Brier": 0.6008444,
+      "Crown_market_Brier": 0.5795739,
+      "mean_used_shared_component": 0.0307037,
+      "positive_shared_fixture_count": 590,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 1468,
+        "net_U": -41.08,
+        "ROI_pct": -2.79837,
+        "R5_indep_U": -43.99,
+        "delta_v_R5_U": 2.91,
+        "switched_sides": 2
+      },
+      "OU": {
+        "n": 1468,
+        "net_U": -93.785,
+        "ROI_pct": -6.38862,
+        "R5_indep_U": -86.01,
+        "delta_v_R5_U": -7.775,
+        "switched_sides": 14
+      }
+    },
+    "2023": {
+      "n": 1396,
+      "bivariate_Brier": 0.5981383,
+      "independent_same_mean_Brier": 0.5987447,
+      "Crown_market_Brier": 0.5743101,
+      "mean_used_shared_component": 0.0332413,
+      "positive_shared_fixture_count": 834,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 1396,
+        "net_U": -19.605,
+        "ROI_pct": -1.40437,
+        "R5_indep_U": -21.665,
+        "delta_v_R5_U": 2.06,
+        "switched_sides": 1
+      },
+      "OU": {
+        "n": 1396,
+        "net_U": -18.985,
+        "ROI_pct": -1.35996,
+        "R5_indep_U": -14.145,
+        "delta_v_R5_U": -4.84,
+        "switched_sides": 11
+      }
+    },
+    "2024": {
+      "n": 1391,
+      "bivariate_Brier": 0.5898169,
+      "independent_same_mean_Brier": 0.5895183,
+      "Crown_market_Brier": 0.5700479,
+      "mean_used_shared_component": 0.0381815,
+      "positive_shared_fixture_count": 835,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 1391,
+        "net_U": -35.795,
+        "ROI_pct": -2.57333,
+        "R5_indep_U": -33.715,
+        "delta_v_R5_U": -2.08,
+        "switched_sides": 1
+      },
+      "OU": {
+        "n": 1391,
+        "net_U": -24.255,
+        "ROI_pct": -1.74371,
+        "R5_indep_U": -32.1,
+        "delta_v_R5_U": 7.845,
+        "switched_sides": 11
+      }
+    },
+    "2025": {
+      "n": 1400,
+      "bivariate_Brier": 0.6099268,
+      "independent_same_mean_Brier": 0.6098981,
+      "Crown_market_Brier": 0.5857078,
+      "mean_used_shared_component": 0.0341575,
+      "positive_shared_fixture_count": 1080,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 1400,
+        "net_U": -39.445,
+        "ROI_pct": -2.8175,
+        "R5_indep_U": -39.265,
+        "delta_v_R5_U": -0.18,
+        "switched_sides": 2
+      },
+      "OU": {
+        "n": 1400,
+        "net_U": -34.455,
+        "ROI_pct": -2.46107,
+        "R5_indep_U": -40.24,
+        "delta_v_R5_U": 5.785,
+        "switched_sides": 11
+      }
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "n": 1720,
+      "bivariate_Brier": 0.6033932,
+      "independent_same_mean_Brier": 0.6034179,
+      "Crown_market_Brier": 0.583032,
+      "mean_used_shared_component": 0.0019531,
+      "positive_shared_fixture_count": 247,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 1720,
+        "net_U": -34.285,
+        "ROI_pct": -1.99331,
+        "R5_indep_U": -36.105,
+        "delta_v_R5_U": 1.82,
+        "switched_sides": 1
+      },
+      "OU": {
+        "n": 1720,
+        "net_U": -58.8,
+        "ROI_pct": -3.4186,
+        "R5_indep_U": -58.59,
+        "delta_v_R5_U": -0.21,
+        "switched_sides": 2
+      }
+    },
+    "epl": {
+      "n": 2193,
+      "bivariate_Brier": 0.5911971,
+      "independent_same_mean_Brier": 0.5911971,
+      "Crown_market_Brier": 0.5746553,
+      "mean_used_shared_component": 0.0,
+      "positive_shared_fixture_count": 0,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 2193,
+        "net_U": 44.03,
+        "ROI_pct": 2.00775,
+        "R5_indep_U": 44.03,
+        "delta_v_R5_U": 0.0,
+        "switched_sides": 0
+      },
+      "OU": {
+        "n": 2193,
+        "net_U": -29.3,
+        "ROI_pct": -1.33607,
+        "R5_indep_U": -29.3,
+        "delta_v_R5_U": 0.0,
+        "switched_sides": 0
+      }
+    },
+    "la-liga": {
+      "n": 1944,
+      "bivariate_Brier": 0.5975056,
+      "independent_same_mean_Brier": 0.5977713,
+      "Crown_market_Brier": 0.5752279,
+      "mean_used_shared_component": 0.0794879,
+      "positive_shared_fixture_count": 1944,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 1944,
+        "net_U": -39.6,
+        "ROI_pct": -2.03704,
+        "R5_indep_U": -45.51,
+        "delta_v_R5_U": 5.91,
+        "switched_sides": 3
+      },
+      "OU": {
+        "n": 1944,
+        "net_U": -29.6,
+        "ROI_pct": -1.52263,
+        "R5_indep_U": -16.74,
+        "delta_v_R5_U": -12.86,
+        "switched_sides": 35
+      }
+    },
+    "ligue-1": {
+      "n": 1880,
+      "bivariate_Brier": 0.6059686,
+      "independent_same_mean_Brier": 0.6059012,
+      "Crown_market_Brier": 0.5853036,
+      "mean_used_shared_component": 0.0116348,
+      "positive_shared_fixture_count": 730,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 1880,
+        "net_U": -4.245,
+        "ROI_pct": -0.2258,
+        "R5_indep_U": -2.245,
+        "delta_v_R5_U": -2.0,
+        "switched_sides": 1
+      },
+      "OU": {
+        "n": 1880,
+        "net_U": -60.84,
+        "ROI_pct": -3.23617,
+        "R5_indep_U": -66.56,
+        "delta_v_R5_U": 5.72,
+        "switched_sides": 3
+      }
+    },
+    "serie-a": {
+      "n": 2171,
+      "bivariate_Brier": 0.5999733,
+      "independent_same_mean_Brier": 0.6000228,
+      "Crown_market_Brier": 0.5751906,
+      "mean_used_shared_component": 0.0301939,
+      "positive_shared_fixture_count": 1870,
+      "feasibility_cap_activated": 0,
+      "AH": {
+        "n": 2171,
+        "net_U": -82.81,
+        "ROI_pct": -3.81437,
+        "R5_indep_U": -81.72,
+        "delta_v_R5_U": -1.09,
+        "switched_sides": 2
+      },
+      "OU": {
+        "n": 2171,
+        "net_U": 24.615,
+        "ROI_pct": 1.13381,
+        "R5_indep_U": 22.63,
+        "delta_v_R5_U": 1.985,
+        "switched_sides": 20
+      }
+    }
+  },
+  "audit": {
+    "market_contracts": 19816
+  },
+  "limitations": [
+    "Bivariate Poisson only represents nonnegative correlation. If residual covariance is negative, model reduces to independent Poisson; cannot establish universal independent-goal correctness.",
+    "Source R5 xG asof provider publishing time is unverified; historical Crown T12 source-event retrieved after games.",
+    "Same long-studied 9908 fixtures. No blind new prices, no new trading rule, Gate or production order. National teams excluded."
+  ]
+}

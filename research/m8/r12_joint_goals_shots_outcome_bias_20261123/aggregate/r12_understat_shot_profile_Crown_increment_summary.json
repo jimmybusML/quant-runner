@@ -1,0 +1,1112 @@
+{
+  "study": "R12_ASOF_UNDERSTAT_SHOT_COMPOSITION_VS_CROWN_MARKET_RESIDUAL",
+  "data_source": "5 major European domestic club leagues, all 45 league seasons Understat shots 2017-2025. Shot situation, count and understat xG built into strictly previous-date features.",
+  "original_Crown_quote_SHA256": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+  "shot_files_listed_SHA256": "d486a883019e21a9dfd8ffe2001f1415d0ee079732749a95821053212724d280",
+  "source_shot_file_count": 45,
+  "feature_definitions": [
+    "volume_shots_per_match",
+    "quality_xg_per_shot",
+    "nonopen_xg_share"
+  ],
+  "method": "On each fixture use home team minus away team prior per-match shot count, mean shot xG, and non-open-play xG share (separately current season and all prior archive). On each date process all score predictions before updating any team shot profile. Fit scalar or three-component market multinomial residual correction on two fully previous seasons, optimize proper multiclass logloss, test all 2021-2025 fixtures, no trade ROI or selection gates.",
+  "overall": {
+    "n": 7073,
+    "market_only": {
+      "Brier": 0.5784053,
+      "logloss": 0.9730486
+    },
+    "current_season_shot_volume": {
+      "Brier": 0.5782953,
+      "logloss": 0.9728004
+    },
+    "current_season_mean_shot_quality": {
+      "Brier": 0.5785336,
+      "logloss": 0.9732061
+    },
+    "current_season_nonopen_xG_share": {
+      "Brier": 0.5784549,
+      "logloss": 0.973143
+    },
+    "current_season_all_three": {
+      "Brier": 0.5784032,
+      "logloss": 0.9730289
+    },
+    "all_archive_shot_volume": {
+      "Brier": 0.5785315,
+      "logloss": 0.9731493
+    },
+    "all_archive_mean_shot_quality": {
+      "Brier": 0.5784615,
+      "logloss": 0.9730918
+    },
+    "all_archive_nonopen_xG_share": {
+      "Brier": 0.5784831,
+      "logloss": 0.9731457
+    },
+    "all_archive_all_three": {
+      "Brier": 0.5785834,
+      "logloss": 0.9732521
+    }
+  },
+  "by_season": {
+    "2021": {
+      "n": 1418,
+      "market_only": {
+        "Brier": 0.5822157,
+        "logloss": 0.9795754
+      },
+      "current_season_shot_volume": {
+        "Brier": 0.5821865,
+        "logloss": 0.9796081
+      },
+      "current_season_mean_shot_quality": {
+        "Brier": 0.5822154,
+        "logloss": 0.9796483
+      },
+      "current_season_nonopen_xG_share": {
+        "Brier": 0.5822335,
+        "logloss": 0.9795569
+      },
+      "current_season_all_three": {
+        "Brier": 0.5822042,
+        "logloss": 0.9795823
+      },
+      "all_archive_shot_volume": {
+        "Brier": 0.5823325,
+        "logloss": 0.9797388
+      },
+      "all_archive_mean_shot_quality": {
+        "Brier": 0.582246,
+        "logloss": 0.9796167
+      },
+      "all_archive_nonopen_xG_share": {
+        "Brier": 0.5823646,
+        "logloss": 0.9797293
+      },
+      "all_archive_all_three": {
+        "Brier": 0.5823774,
+        "logloss": 0.9797564
+      }
+    },
+    "2022": {
+      "n": 1468,
+      "market_only": {
+        "Brier": 0.5795739,
+        "logloss": 0.9749318
+      },
+      "current_season_shot_volume": {
+        "Brier": 0.5799552,
+        "logloss": 0.9756607
+      },
+      "current_season_mean_shot_quality": {
+        "Brier": 0.5795477,
+        "logloss": 0.9748369
+      },
+      "current_season_nonopen_xG_share": {
+        "Brier": 0.5797039,
+        "logloss": 0.9751336
+      },
+      "current_season_all_three": {
+        "Brier": 0.580034,
+        "logloss": 0.9757977
+      },
+      "all_archive_shot_volume": {
+        "Brier": 0.5797969,
+        "logloss": 0.9753093
+      },
+      "all_archive_mean_shot_quality": {
+        "Brier": 0.5795466,
+        "logloss": 0.974889
+      },
+      "all_archive_nonopen_xG_share": {
+        "Brier": 0.5796908,
+        "logloss": 0.9751484
+      },
+      "all_archive_all_three": {
+        "Brier": 0.5797206,
+        "logloss": 0.975211
+      }
+    },
+    "2023": {
+      "n": 1396,
+      "market_only": {
+        "Brier": 0.5743101,
+        "logloss": 0.9660678
+      },
+      "current_season_shot_volume": {
+        "Brier": 0.5742246,
+        "logloss": 0.9659173
+      },
+      "current_season_mean_shot_quality": {
+        "Brier": 0.5741618,
+        "logloss": 0.9658173
+      },
+      "current_season_nonopen_xG_share": {
+        "Brier": 0.5743026,
+        "logloss": 0.9660295
+      },
+      "current_season_all_three": {
+        "Brier": 0.5741427,
+        "logloss": 0.9657655
+      },
+      "all_archive_shot_volume": {
+        "Brier": 0.5746303,
+        "logloss": 0.9666746
+      },
+      "all_archive_mean_shot_quality": {
+        "Brier": 0.574798,
+        "logloss": 0.9669288
+      },
+      "all_archive_nonopen_xG_share": {
+        "Brier": 0.5743169,
+        "logloss": 0.9660859
+      },
+      "all_archive_all_three": {
+        "Brier": 0.5749345,
+        "logloss": 0.9671487
+      }
+    },
+    "2024": {
+      "n": 1391,
+      "market_only": {
+        "Brier": 0.5700479,
+        "logloss": 0.9609309
+      },
+      "current_season_shot_volume": {
+        "Brier": 0.5694668,
+        "logloss": 0.9597615
+      },
+      "current_season_mean_shot_quality": {
+        "Brier": 0.5703159,
+        "logloss": 0.961264
+      },
+      "current_season_nonopen_xG_share": {
+        "Brier": 0.5702271,
+        "logloss": 0.9612024
+      },
+      "current_season_all_three": {
+        "Brier": 0.5698088,
+        "logloss": 0.9603431
+      },
+      "all_archive_shot_volume": {
+        "Brier": 0.5700141,
+        "logloss": 0.960607
+      },
+      "all_archive_mean_shot_quality": {
+        "Brier": 0.5700725,
+        "logloss": 0.9609019
+      },
+      "all_archive_nonopen_xG_share": {
+        "Brier": 0.5701892,
+        "logloss": 0.9610789
+      },
+      "all_archive_all_three": {
+        "Brier": 0.5700101,
+        "logloss": 0.9607463
+      }
+    },
+    "2025": {
+      "n": 1400,
+      "market_only": {
+        "Brier": 0.5857078,
+        "logloss": 0.9834639
+      },
+      "current_season_shot_volume": {
+        "Brier": 0.5854443,
+        "logloss": 0.9827242
+      },
+      "current_season_mean_shot_quality": {
+        "Brier": 0.5862654,
+        "logloss": 0.9842041
+      },
+      "current_season_nonopen_xG_share": {
+        "Brier": 0.5856331,
+        "logloss": 0.9835167
+      },
+      "current_season_all_three": {
+        "Brier": 0.5856309,
+        "logloss": 0.9833351
+      },
+      "all_archive_shot_volume": {
+        "Brier": 0.5857073,
+        "logloss": 0.9831278
+      },
+      "all_archive_mean_shot_quality": {
+        "Brier": 0.5854786,
+        "logloss": 0.9828555
+      },
+      "all_archive_nonopen_xG_share": {
+        "Brier": 0.5856804,
+        "logloss": 0.9834063
+      },
+      "all_archive_all_three": {
+        "Brier": 0.5857047,
+        "logloss": 0.9831217
+      }
+    }
+  },
+  "by_league": {
+    "bundesliga": {
+      "n": 1222,
+      "market_only": {
+        "Brier": 0.5818577,
+        "logloss": 0.9793501
+      },
+      "current_season_shot_volume": {
+        "Brier": 0.581815,
+        "logloss": 0.9793591
+      },
+      "current_season_mean_shot_quality": {
+        "Brier": 0.5816931,
+        "logloss": 0.9791626
+      },
+      "current_season_nonopen_xG_share": {
+        "Brier": 0.5820046,
+        "logloss": 0.9796453
+      },
+      "current_season_all_three": {
+        "Brier": 0.5818201,
+        "logloss": 0.9794612
+      },
+      "all_archive_shot_volume": {
+        "Brier": 0.5814498,
+        "logloss": 0.9787532
+      },
+      "all_archive_mean_shot_quality": {
+        "Brier": 0.5813193,
+        "logloss": 0.9785895
+      },
+      "all_archive_nonopen_xG_share": {
+        "Brier": 0.5820355,
+        "logloss": 0.9795714
+      },
+      "all_archive_all_three": {
+        "Brier": 0.5816838,
+        "logloss": 0.979137
+      }
+    },
+    "epl": {
+      "n": 1562,
+      "market_only": {
+        "Brier": 0.5716667,
+        "logloss": 0.9619406
+      },
+      "current_season_shot_volume": {
+        "Brier": 0.5722386,
+        "logloss": 0.9625232
+      },
+      "current_season_mean_shot_quality": {
+        "Brier": 0.5724897,
+        "logloss": 0.9628321
+      },
+      "current_season_nonopen_xG_share": {
+        "Brier": 0.5717944,
+        "logloss": 0.9621485
+      },
+      "current_season_all_three": {
+        "Brier": 0.5727339,
+        "logloss": 0.9632155
+      },
+      "all_archive_shot_volume": {
+        "Brier": 0.5729154,
+        "logloss": 0.9635242
+      },
+      "all_archive_mean_shot_quality": {
+        "Brier": 0.5720973,
+        "logloss": 0.9623375
+      },
+      "all_archive_nonopen_xG_share": {
+        "Brier": 0.5719061,
+        "logloss": 0.9622861
+      },
+      "all_archive_all_three": {
+        "Brier": 0.5726024,
+        "logloss": 0.963097
+      }
+    },
+    "la-liga": {
+      "n": 1390,
+      "market_only": {
+        "Brier": 0.5759148,
+        "logloss": 0.9710397
+      },
+      "current_season_shot_volume": {
+        "Brier": 0.5753599,
+        "logloss": 0.9703677
+      },
+      "current_season_mean_shot_quality": {
+        "Brier": 0.5760811,
+        "logloss": 0.9716593
+      },
+      "current_season_nonopen_xG_share": {
+        "Brier": 0.5757521,
+        "logloss": 0.9708683
+      },
+      "current_season_all_three": {
+        "Brier": 0.5758416,
+        "logloss": 0.9714221
+      },
+      "all_archive_shot_volume": {
+        "Brier": 0.5757757,
+        "logloss": 0.9709205
+      },
+      "all_archive_mean_shot_quality": {
+        "Brier": 0.5758352,
+        "logloss": 0.9710978
+      },
+      "all_archive_nonopen_xG_share": {
+        "Brier": 0.5758148,
+        "logloss": 0.9709963
+      },
+      "all_archive_all_three": {
+        "Brier": 0.5761423,
+        "logloss": 0.9714994
+      }
+    },
+    "ligue-1": {
+      "n": 1352,
+      "market_only": {
+        "Brier": 0.5832781,
+        "logloss": 0.9803039
+      },
+      "current_season_shot_volume": {
+        "Brier": 0.5832486,
+        "logloss": 0.9803016
+      },
+      "current_season_mean_shot_quality": {
+        "Brier": 0.5831369,
+        "logloss": 0.9800009
+      },
+      "current_season_nonopen_xG_share": {
+        "Brier": 0.5833419,
+        "logloss": 0.9803875
+      },
+      "current_season_all_three": {
+        "Brier": 0.5829273,
+        "logloss": 0.9797584
+      },
+      "all_archive_shot_volume": {
+        "Brier": 0.5837289,
+        "logloss": 0.9808707
+      },
+      "all_archive_mean_shot_quality": {
+        "Brier": 0.5835491,
+        "logloss": 0.9806279
+      },
+      "all_archive_nonopen_xG_share": {
+        "Brier": 0.5834258,
+        "logloss": 0.9804317
+      },
+      "all_archive_all_three": {
+        "Brier": 0.5835893,
+        "logloss": 0.98063
+      }
+    },
+    "serie-a": {
+      "n": 1547,
+      "market_only": {
+        "Brier": 0.5804614,
+        "logloss": 0.9747509
+      },
+      "current_season_shot_volume": {
+        "Brier": 0.5799388,
+        "logloss": 0.9736265
+      },
+      "current_season_mean_shot_quality": {
+        "Brier": 0.580321,
+        "logloss": 0.9744271
+      },
+      "current_season_nonopen_xG_share": {
+        "Brier": 0.5805333,
+        "logloss": 0.9748207
+      },
+      "current_season_all_three": {
+        "Brier": 0.5797762,
+        "logloss": 0.973419
+      },
+      "all_archive_shot_volume": {
+        "Brier": 0.5798306,
+        "logloss": 0.9736955
+      },
+      "all_archive_mean_shot_quality": {
+        "Brier": 0.5805433,
+        "logloss": 0.9748131
+      },
+      "all_archive_nonopen_xG_share": {
+        "Brier": 0.5803957,
+        "logloss": 0.9745984
+      },
+      "all_archive_all_three": {
+        "Brier": 0.5799916,
+        "logloss": 0.9739841
+      }
+    }
+  },
+  "learned_params": {
+    "2021": {
+      "current_season_shot_volume": {
+        "coefficients": [
+          0.011986487304556245
+        ],
+        "train_n": 2835,
+        "train_years": [
+          2019,
+          2020
+        ],
+        "train_logloss": 0.9745294362252336,
+        "grad_inf": 2.5063042842364544e-11,
+        "feature_columns": [
+          "volume_shots_per_match"
+        ]
+      },
+      "current_season_mean_shot_quality": {
+        "coefficients": [
+          0.32472915080134546
+        ],
+        "train_n": 2835,
+        "train_years": [
+          2019,
+          2020
+        ],
+        "train_logloss": 0.9748980146247287,
+        "grad_inf": 3.777983024256966e-10,
+        "feature_columns": [
+          "quality_xg_per_shot"
+        ]
+      },
+      "current_season_nonopen_xG_share": {
+        "coefficients": [
+          -0.2132587114685228
+        ],
+        "train_n": 2835,
+        "train_years": [
+          2019,
+          2020
+        ],
+        "train_logloss": 0.9747422926760361,
+        "grad_inf": 2.5353107816168452e-14,
+        "feature_columns": [
+          "nonopen_xg_share"
+        ]
+      },
+      "current_season_all_three": {
+        "coefficients": [
+          0.010986241617964836,
+          -0.06594957375406399,
+          -0.1582639301984538
+        ],
+        "train_n": 2835,
+        "train_years": [
+          2019,
+          2020
+        ],
+        "train_logloss": 0.9744356511395107,
+        "grad_inf": 1.833052761118203e-11,
+        "feature_columns": [
+          "volume_shots_per_match",
+          "quality_xg_per_shot",
+          "nonopen_xg_share"
+        ]
+      },
+      "all_archive_shot_volume": {
+        "coefficients": [
+          0.00911979097906234
+        ],
+        "train_n": 2835,
+        "train_years": [
+          2019,
+          2020
+        ],
+        "train_logloss": 0.9747351493156758,
+        "grad_inf": 2.0606115285580344e-13,
+        "feature_columns": [
+          "volume_shots_per_match"
+        ]
+      },
+      "all_archive_mean_shot_quality": {
+        "coefficients": [
+          0.39754220698171433
+        ],
+        "train_n": 2835,
+        "train_years": [
+          2019,
+          2020
+        ],
+        "train_logloss": 0.9749037267067941,
+        "grad_inf": 5.379060277740125e-12,
+        "feature_columns": [
+          "quality_xg_per_shot"
+        ]
+      },
+      "all_archive_nonopen_xG_share": {
+        "coefficients": [
+          -0.3860144428075778
+        ],
+        "train_n": 2835,
+        "train_years": [
+          2019,
+          2020
+        ],
+        "train_logloss": 0.9746493831703069,
+        "grad_inf": 3.5171262336012815e-12,
+        "feature_columns": [
+          "nonopen_xg_share"
+        ]
+      },
+      "all_archive_all_three": {
+        "coefficients": [
+          0.005930429238318744,
+          -0.35523667647874024,
+          -0.3193351768355184
+        ],
+        "train_n": 2835,
+        "train_years": [
+          2019,
+          2020
+        ],
+        "train_logloss": 0.9745905366897647,
+        "grad_inf": 2.881592054526258e-10,
+        "feature_columns": [
+          "volume_shots_per_match",
+          "quality_xg_per_shot",
+          "nonopen_xg_share"
+        ]
+      }
+    },
+    "2022": {
+      "current_season_shot_volume": {
+        "coefficients": [
+          0.014487694364339802
+        ],
+        "train_n": 2880,
+        "train_years": [
+          2020,
+          2021
+        ],
+        "train_logloss": 0.9777670514688498,
+        "grad_inf": 7.020673425333573e-11,
+        "feature_columns": [
+          "volume_shots_per_match"
+        ]
+      },
+      "current_season_mean_shot_quality": {
+        "coefficients": [
+          0.43841492466758286
+        ],
+        "train_n": 2880,
+        "train_years": [
+          2020,
+          2021
+        ],
+        "train_logloss": 0.9782594470817755,
+        "grad_inf": 1.198545024801619e-14,
+        "feature_columns": [
+          "quality_xg_per_shot"
+        ]
+      },
+      "current_season_nonopen_xG_share": {
+        "coefficients": [
+          -0.1858419403366942
+        ],
+        "train_n": 2880,
+        "train_years": [
+          2020,
+          2021
+        ],
+        "train_logloss": 0.9781779140968456,
+        "grad_inf": 7.391618181726598e-15,
+        "feature_columns": [
+          "nonopen_xg_share"
+        ]
+      },
+      "current_season_all_three": {
+        "coefficients": [
+          0.013894907235117665,
+          -0.07219680173044553,
+          -0.12307111821564264
+        ],
+        "train_n": 2880,
+        "train_years": [
+          2020,
+          2021
+        ],
+        "train_logloss": 0.9777147136064439,
+        "grad_inf": 2.7749723506708e-11,
+        "feature_columns": [
+          "volume_shots_per_match",
+          "quality_xg_per_shot",
+          "nonopen_xg_share"
+        ]
+      },
+      "all_archive_shot_volume": {
+        "coefficients": [
+          0.007063543778481884
+        ],
+        "train_n": 2880,
+        "train_years": [
+          2020,
+          2021
+        ],
+        "train_logloss": 0.9781948525894045,
+        "grad_inf": 3.9980364697890357e-14,
+        "feature_columns": [
+          "volume_shots_per_match"
+        ]
+      },
+      "all_archive_mean_shot_quality": {
+        "coefficients": [
+          -0.17012448531014676
+        ],
+        "train_n": 2880,
+        "train_years": [
+          2020,
+          2021
+        ],
+        "train_logloss": 0.9782982662685991,
+        "grad_inf": 4.0730924131167817e-13,
+        "feature_columns": [
+          "quality_xg_per_shot"
+        ]
+      },
+      "all_archive_nonopen_xG_share": {
+        "coefficients": [
+          -0.32814087177142653
+        ],
+        "train_n": 2880,
+        "train_years": [
+          2020,
+          2021
+        ],
+        "train_logloss": 0.9781562917795077,
+        "grad_inf": 1.2293407033088973e-14,
+        "feature_columns": [
+          "nonopen_xg_share"
+        ]
+      },
+      "all_archive_all_three": {
+        "coefficients": [
+          0.006990234357579527,
+          -1.0181563426909073,
+          -0.3045409116394679
+        ],
+        "train_n": 2880,
+        "train_years": [
+          2020,
+          2021
+        ],
+        "train_logloss": 0.978044207886173,
+        "grad_inf": 6.749235651840972e-09,
+        "feature_columns": [
+          "volume_shots_per_match",
+          "quality_xg_per_shot",
+          "nonopen_xg_share"
+        ]
+      }
+    },
+    "2023": {
+      "current_season_shot_volume": {
+        "coefficients": [
+          0.001172083945146828
+        ],
+        "train_n": 2886,
+        "train_years": [
+          2021,
+          2022
+        ],
+        "train_logloss": 0.977209960773405,
+        "grad_inf": 3.7764208700180876e-10,
+        "feature_columns": [
+          "volume_shots_per_match"
+        ]
+      },
+      "current_season_mean_shot_quality": {
+        "coefficients": [
+          0.18916143809204006
+        ],
+        "train_n": 2886,
+        "train_years": [
+          2021,
+          2022
+        ],
+        "train_logloss": 0.9772057495313548,
+        "grad_inf": 8.438854597019855e-11,
+        "feature_columns": [
+          "quality_xg_per_shot"
+        ]
+      },
+      "current_season_nonopen_xG_share": {
+        "coefficients": [
+          -0.029291519681716924
+        ],
+        "train_n": 2886,
+        "train_years": [
+          2021,
+          2022
+        ],
+        "train_logloss": 0.9772102649676419,
+        "grad_inf": 2.311416208199007e-11,
+        "feature_columns": [
+          "nonopen_xg_share"
+        ]
+      },
+      "current_season_all_three": {
+        "coefficients": [
+          0.0005334262502627016,
+          0.15722931560666698,
+          -0.019763298832039634
+        ],
+        "train_n": 2886,
+        "train_years": [
+          2021,
+          2022
+        ],
+        "train_logloss": 0.9772033762033083,
+        "grad_inf": 1.7827855523560808e-10,
+        "feature_columns": [
+          "volume_shots_per_match",
+          "quality_xg_per_shot",
+          "nonopen_xg_share"
+        ]
+      },
+      "all_archive_shot_volume": {
+        "coefficients": [
+          -0.005635986911260331
+        ],
+        "train_n": 2886,
+        "train_years": [
+          2021,
+          2022
+        ],
+        "train_logloss": 0.9771539502561728,
+        "grad_inf": 5.6793320181464235e-11,
+        "feature_columns": [
+          "volume_shots_per_match"
+        ]
+      },
+      "all_archive_mean_shot_quality": {
+        "coefficients": [
+          -0.9276038215833636
+        ],
+        "train_n": 2886,
+        "train_years": [
+          2021,
+          2022
+        ],
+        "train_logloss": 0.9771346842145147,
+        "grad_inf": 2.8645016704362047e-10,
+        "feature_columns": [
+          "quality_xg_per_shot"
+        ]
+      },
+      "all_archive_nonopen_xG_share": {
+        "coefficients": [
+          0.016200636441088302
+        ],
+        "train_n": 2886,
+        "train_years": [
+          2021,
+          2022
+        ],
+        "train_logloss": 0.9772130233454253,
+        "grad_inf": 2.1614742028251788e-13,
+        "feature_columns": [
+          "nonopen_xg_share"
+        ]
+      },
+      "all_archive_all_three": {
+        "coefficients": [
+          -0.004245429627694902,
+          -0.848743225979203,
+          -0.14561081275086613
+        ],
+        "train_n": 2886,
+        "train_years": [
+          2021,
+          2022
+        ],
+        "train_logloss": 0.9770998538400382,
+        "grad_inf": 4.519932268612976e-11,
+        "feature_columns": [
+          "volume_shots_per_match",
+          "quality_xg_per_shot",
+          "nonopen_xg_share"
+        ]
+      }
+    },
+    "2024": {
+      "current_season_shot_volume": {
+        "coefficients": [
+          0.011097155775770862
+        ],
+        "train_n": 2864,
+        "train_years": [
+          2022,
+          2023
+        ],
+        "train_logloss": 0.9702953642455063,
+        "grad_inf": 2.314664288916086e-12,
+        "feature_columns": [
+          "volume_shots_per_match"
+        ]
+      },
+      "current_season_mean_shot_quality": {
+        "coefficients": [
+          2.030998255948629
+        ],
+        "train_n": 2864,
+        "train_years": [
+          2022,
+          2023
+        ],
+        "train_logloss": 0.9697832284378778,
+        "grad_inf": 2.382435076927648e-11,
+        "feature_columns": [
+          "quality_xg_per_shot"
+        ]
+      },
+      "current_season_nonopen_xG_share": {
+        "coefficients": [
+          -0.06750644124481214
+        ],
+        "train_n": 2864,
+        "train_years": [
+          2022,
+          2023
+        ],
+        "train_logloss": 0.9705949167171565,
+        "grad_inf": 3.519836721901817e-10,
+        "feature_columns": [
+          "nonopen_xg_share"
+        ]
+      },
+      "current_season_all_three": {
+        "coefficients": [
+          0.006415687855723475,
+          1.8535993295029864,
+          0.057879683341335454
+        ],
+        "train_n": 2864,
+        "train_years": [
+          2022,
+          2023
+        ],
+        "train_logloss": 0.9696888958803206,
+        "grad_inf": 2.224464560410395e-12,
+        "feature_columns": [
+          "volume_shots_per_match",
+          "quality_xg_per_shot",
+          "nonopen_xg_share"
+        ]
+      },
+      "all_archive_shot_volume": {
+        "coefficients": [
+          0.00798617461540776
+        ],
+        "train_n": 2864,
+        "train_years": [
+          2022,
+          2023
+        ],
+        "train_logloss": 0.9705051966370366,
+        "grad_inf": 3.6822953860519413e-09,
+        "feature_columns": [
+          "volume_shots_per_match"
+        ]
+      },
+      "all_archive_mean_shot_quality": {
+        "coefficients": [
+          1.5903236390157933
+        ],
+        "train_n": 2864,
+        "train_years": [
+          2022,
+          2023
+        ],
+        "train_logloss": 0.9703924851933362,
+        "grad_inf": 7.248680628423314e-14,
+        "feature_columns": [
+          "quality_xg_per_shot"
+        ]
+      },
+      "all_archive_nonopen_xG_share": {
+        "coefficients": [
+          -0.15512639431381509
+        ],
+        "train_n": 2864,
+        "train_years": [
+          2022,
+          2023
+        ],
+        "train_logloss": 0.9705755971575124,
+        "grad_inf": 1.8307047172432777e-10,
+        "feature_columns": [
+          "nonopen_xg_share"
+        ]
+      },
+      "all_archive_all_three": {
+        "coefficients": [
+          0.0025784274519537274,
+          1.4861380161699058,
+          0.05242347824825012
+        ],
+        "train_n": 2864,
+        "train_years": [
+          2022,
+          2023
+        ],
+        "train_logloss": 0.9703846539621045,
+        "grad_inf": 4.95762467701437e-10,
+        "feature_columns": [
+          "volume_shots_per_match",
+          "quality_xg_per_shot",
+          "nonopen_xg_share"
+        ]
+      }
+    },
+    "2025": {
+      "current_season_shot_volume": {
+        "coefficients": [
+          0.02577670530371026
+        ],
+        "train_n": 2787,
+        "train_years": [
+          2023,
+          2024
+        ],
+        "train_logloss": 0.9618088432332621,
+        "grad_inf": 6.776543206495681e-14,
+        "feature_columns": [
+          "volume_shots_per_match"
+        ]
+      },
+      "current_season_mean_shot_quality": {
+        "coefficients": [
+          2.0049246935723146
+        ],
+        "train_n": 2787,
+        "train_years": [
+          2023,
+          2024
+        ],
+        "train_logloss": 0.9627107157061596,
+        "grad_inf": 2.32881849593649e-11,
+        "feature_columns": [
+          "quality_xg_per_shot"
+        ]
+      },
+      "current_season_nonopen_xG_share": {
+        "coefficients": [
+          0.18649679293809057
+        ],
+        "train_n": 2787,
+        "train_years": [
+          2023,
+          2024
+        ],
+        "train_logloss": 0.9633918052101735,
+        "grad_inf": 3.5887730215307017e-14,
+        "feature_columns": [
+          "nonopen_xg_share"
+        ]
+      },
+      "current_season_all_three": {
+        "coefficients": [
+          0.02454128182757783,
+          1.4874899579368166,
+          0.40367962578175304
+        ],
+        "train_n": 2787,
+        "train_years": [
+          2023,
+          2024
+        ],
+        "train_logloss": 0.9610722274462463,
+        "grad_inf": 1.1123585535514383e-10,
+        "feature_columns": [
+          "volume_shots_per_match",
+          "quality_xg_per_shot",
+          "nonopen_xg_share"
+        ]
+      },
+      "all_archive_shot_volume": {
+        "coefficients": [
+          0.02395683220769514
+        ],
+        "train_n": 2787,
+        "train_years": [
+          2023,
+          2024
+        ],
+        "train_logloss": 0.9626061518779391,
+        "grad_inf": 2.2925833459843817e-11,
+        "feature_columns": [
+          "volume_shots_per_match"
+        ]
+      },
+      "all_archive_mean_shot_quality": {
+        "coefficients": [
+          3.0600598467691587
+        ],
+        "train_n": 2787,
+        "train_years": [
+          2023,
+          2024
+        ],
+        "train_logloss": 0.9627495402595323,
+        "grad_inf": 3.402420413744856e-12,
+        "feature_columns": [
+          "quality_xg_per_shot"
+        ]
+      },
+      "all_archive_nonopen_xG_share": {
+        "coefficients": [
+          -0.06211669799914784
+        ],
+        "train_n": 2787,
+        "train_years": [
+          2023,
+          2024
+        ],
+        "train_logloss": 0.9634994659824136,
+        "grad_inf": 4.64985357159065e-11,
+        "feature_columns": [
+          "nonopen_xg_share"
+        ]
+      },
+      "all_archive_all_three": {
+        "coefficients": [
+          0.023839746569315038,
+          2.4513948848949587,
+          0.7158687269539981
+        ],
+        "train_n": 2787,
+        "train_years": [
+          2023,
+          2024
+        ],
+        "train_logloss": 0.962058624165908,
+        "grad_inf": 6.411577098687909e-10,
+        "feature_columns": [
+          "volume_shots_per_match",
+          "quality_xg_per_shot",
+          "nonopen_xg_share"
+        ]
+      }
+    }
+  },
+  "audit": {
+    "raw_understat_shots": 405363,
+    "published_xG_comparable_team_sides": 32214,
+    "published_xg_shots_difference_over_0p01": 6822,
+    "published_xg_shots_difference_over_0p1": 1778,
+    "match_xG_unreliable_source": 4
+  },
+  "limitations": [
+    "Per-shot data likely published following each game; match-date asof alone does not prove original data were available before following match at original Crown T12 time.",
+    "Goal count in target fixture never used in past features. However underlying old historical Crown odds were collected after result, not true pregame receipts.",
+    "Shot profile averages may confound opponent, game-state, injuries, pace, and lineups, and are not full game-state adjusted xG or the current 2026 paper replication.",
+    "Crown probability benchmark is derived from its original AH/OU prices, not independent exchange 1X2 price.",
+    "All 9908 match forecast features scored, test 7073 full seasons; no venue/league filters or trading rules; national teams excluded."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "study": "R12_SHOT_VOLUME_OBSERVED_BRIER_IMPROVEMENT_UNCERTAINTY_AND_MULTIPLE_RESEARCH_VARIANTS",
+  "source_sha256": "e36db4f60c08ed9e70f9bec965094c402085c2a3390f102b74dc21e72f8c8e84",
+  "full_heldout_n": 7073,
+  "model_variants_tested": [
+    "current_season_shot_volume",
+    "current_season_mean_shot_quality",
+    "current_season_nonopen_xG_share",
+    "current_season_all_three",
+    "all_archive_shot_volume",
+    "all_archive_mean_shot_quality",
+    "all_archive_nonopen_xG_share",
+    "all_archive_all_three"
+  ],
+  "models_count": 8,
+  "selected_for_diagnostic": "current_season_shot_volume",
+  "selected_model_is_not_user_approved": true,
+  "observed_market_minus_model_Brier": 0.000110053,
+  "observed_market_minus_model_logloss": 0.000248245,
+  "fixture_bootstrap_10000_95pct_Brier_gain": [
+    -0.00040681,
+    0.00061726
+  ],
+  "fixture_bootstrap_10000_95pct_logloss_gain": [
+    -0.00056593,
+    0.00103747
+  ],
+  "league_season_25_cluster_bootstrap_10000_95pct_Brier_gain": [
+    -0.00023266,
+    0.00044163
+  ],
+  "season_5_cluster_bootstrap_10000_95pct_Brier_gain": [
+    -0.00017567,
+    0.00038242
+  ],
+  "signflip_12000_single_volume_one_sided_p": 0.344471,
+  "signflip_12000_best_of_8_familywise_p": 0.703108,
+  "league_season_25_signflip_single_volume_p": 0.260062,
+  "league_season_25_signflip_best_of_8_p": 0.681443,
+  "all_8_variants_Brier_gain": {
+    "current_season_shot_volume": 0.000110053,
+    "current_season_mean_shot_quality": -0.000128316,
+    "current_season_nonopen_xG_share": -4.9539e-05,
+    "current_season_all_three": 2.112e-06,
+    "all_archive_shot_volume": -0.000126157,
+    "all_archive_mean_shot_quality": -5.6172e-05,
+    "all_archive_nonopen_xG_share": -7.7804e-05,
+    "all_archive_all_three": -0.000178064
+  },
+  "methodology": "Paired same-fixture Brier differences. Repeated 10000 resamples independently at fixture, 25 league-season clusters, 5 full seasons. 12000 paired sign-flips across all 8 variants test maximum observed gain as post-selection multiple-model sanity check. No ROI, no monetary betting simulation; purely descriptive uncertainty.",
+  "limitations": [
+    "User-requested open-minded exploration: eight research variants now observed and only one tiny aggregate positive; selection-after-looking means claimed single p-value is not an honest discovery rate.",
+    "Fixture signflip may be anti-conservative for correlated league/season data; present 25-cluster check and year-bootstrap too.",
+    "All training and test are historical Crown T12 source-event prices retrieved after the games; this is not real receipted executable blind testing.",
+    "Historical Understat shot arrival/publishing times unknown; strict match date prior does not independently prove pregame observable data.",
+    "Five season-block bootstrap contains only five blocks, so interval is unstable and not a proof of transportability.",
+    "No new betting Gates, no profitability claims; no national teams."
+  ]
+}

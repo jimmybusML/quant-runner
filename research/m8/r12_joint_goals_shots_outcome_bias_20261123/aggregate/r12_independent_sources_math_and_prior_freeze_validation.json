@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "checks": {
+    "bivariate_fixture_score_checks": 9908,
+    "bivariate_AH_OU_quarter_payoffs": 19816,
+    "bivariate_prior_two_season_covariance_reconstruction": 35,
+    "bivariate_independent_joint_grid_spotcheck": 103,
+    "outcome_luck_walkforward_Brier_logloss": 14146,
+    "outcome_luck_test_fixtures": 7073,
+    "shot_model_Brier_logloss_independently": 56584,
+    "shot_test_fixtures": 7073,
+    "shot_prior_count_strict_asof_fixture": 9908,
+    "shot_data_coverage_and_uncertainty_source_sha": 1,
+    "R5_R11_sha256_unmodified_file": 309
+  },
+  "errors": {},
+  "frozen_R5_to_R11_manifests_sha256": {
+    "R5_BAYES_BIVAR_FROZEN_20261123": "6f465b284492eca97b311753e3850cd08e783a0fc93ba8c2af5e194f496996c2",
+    "R6_BAYES_BIVAR_COMPLEMENT_20261123": "402a9c469517354c6a371137057f4119fe66a9e6d3869d88002fe7cb9481c4c4",
+    "R7_CROWN_MARKET_PRICING_20261123": "90cf4d48ae54be76761c60419033a417f7f1cabcaceb791c7c4680922ab61d71",
+    "R8_CROWN_HTTP_TIMING_BAYES_POSTERIOR_20261123": "67d61404562d7c3fa0e0ab2f00bb6755ab29861841a022acf838f834b8896cdd",
+    "R9_CROWN_TRUE_UPDATE_BAYES_OU_20261123": "2791c6c88624e10fc5fa051bd4867b19222d52e80cb8909cd82cd3aecb050299",
+    "R10_XG_GAMMA_OBS_DYNAMIC_NB_20261123": "8749ffa503fae84a3d128d7131dcb32935c19c0b1c4fb52774a6f46af382daaa",
+    "R11_DC_MARKET_RESIDUAL_XG_OBSERVATION_SOURCE_20261123": "96b3e2597ee3614b33d765f0208f1fb7983568925c7067c2828ab02bebe4932f"
+  },
+  "source_sha256": {
+    "r5_bayes_bivar_asof_features_20261123.jsonl": "71e841b629136c266b79190366bd47175f5748818db9a6b8fe1c888d65658561",
+    "r5_bayes_bivar_CrownT12_20261123.jsonl": "534fadd46e0352dc860abb3c4355ea7918c736f97d774dbb728cb26a5409a9b8",
+    "r7_market_implied_2market_20261123.jsonl": "c3405e0fadcf539fe45a0408035efd6ce4a1e268d32bbe4d50ce3db4500eecf8"
+  },
+  "R12_ledger_sha256": {
+    "r12_bivariate_shared_count_CrownT12_20261123.jsonl": "b32d64eaa1eb29ede78524247cdeb07bffeb390f88368f327642d4526aaa4490",
+    "r12_outcome_bias_strict_past_xG_features_2019_2025.jsonl": "55712b99996eeee10f41339fe64bdf25d445daf745dea231c6c4067eda44338b",
+    "r12_outcome_bias_market_increment_crossyear_2021_2025.jsonl": "b66871257c5ca8d692fdb85ca6f1b0e2bc3fdac0c1bcdcb4eadd2473efc54598",
+    "r12_understat_shot_profile_prior_features_2019_2025.jsonl": "fad5c6125cbb5951808c21b0322398bfc4907d9ac09e44237e7f07897724ccde",
+    "r12_understat_shot_profile_Crown_increment_2021_2025.jsonl": "e36db4f60c08ed9e70f9bec965094c402085c2a3390f102b74dc21e72f8c8e84",
+    "r12_shot_profile_uncertainty_and_multiple_tests.json": "36f5d883374033f2145369328d75742b453f4e48c708b3b4a3c0f53170dcd5e3",
+    "r12_shot_source_reconciliation_2017_2025.json": "33d2cfdccf22e23231b8ec213f752848389fa2630e4b0b61af02894638b5772d"
+  },
+  "notes": [
+    "Study only, previously researched historic Crown T12 source events, not actual receipted executable prices, not official TG.",
+    "All test cohort 9908/7073 without ROI-based selections; 405363 shot data audited separately.",
+    "No national teams and no approved bet/EV Gates added."
+  ]
+}
