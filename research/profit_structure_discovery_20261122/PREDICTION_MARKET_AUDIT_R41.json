@@ -1,0 +1,525 @@
+{
+  "scope": "R41 first diagnostic of existing M7 AH model probabilities vs Crown quote prices; separate from R7 494 pattern test",
+  "source": "/Users/mac/QuantAsiaDesk/research-work/m7/m7_frozen_market_probability_blend_all_orders.jsonl",
+  "coverage": {
+    "AH_rows": 9400,
+    "complete": 9400
+  },
+  "years": {
+    "2025": {
+      "summary": {
+        "n": 1075,
+        "unique_fixtures": 1075,
+        "mean_model_positive_return_probability": 0.572549,
+        "realized_positive_return_rate": 0.450233,
+        "positive_return_probability_bias_pp": 12.2316,
+        "model_binary_brier": 0.264383,
+        "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.250378,
+        "mean_model_minus_market_no_vig_share": 0.073241,
+        "mean_theoretical_EV": 0.144301,
+        "mean_realized_net_U": -0.074433,
+        "mean_EV_minus_realized_net_U": 0.218734,
+        "quote_capture_classes": {
+          "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 1075
+        },
+        "model_ids": {
+          "m5_annual_score_grid": 1075
+        }
+      },
+      "model_probability_bins": {
+        "0": {
+          "n": 55,
+          "unique_fixtures": 55,
+          "mean_model_positive_return_probability": 0.377561,
+          "realized_positive_return_rate": 0.327273,
+          "positive_return_probability_bias_pp": 5.0288,
+          "model_binary_brier": 0.22425,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.252151,
+          "mean_model_minus_market_no_vig_share": -0.10871,
+          "mean_theoretical_EV": 0.007012,
+          "mean_realized_net_U": -0.016727,
+          "mean_EV_minus_realized_net_U": 0.023739,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 55
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 55
+          }
+        },
+        "1": {
+          "n": 247,
+          "unique_fixtures": 247,
+          "mean_model_positive_return_probability": 0.45533,
+          "realized_positive_return_rate": 0.37247,
+          "positive_return_probability_bias_pp": 8.2861,
+          "model_binary_brier": 0.241162,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.250151,
+          "mean_model_minus_market_no_vig_share": -0.037437,
+          "mean_theoretical_EV": 0.065935,
+          "mean_realized_net_U": -0.092996,
+          "mean_EV_minus_realized_net_U": 0.158931,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 247
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 247
+          }
+        },
+        "2": {
+          "n": 348,
+          "unique_fixtures": 348,
+          "mean_model_positive_return_probability": 0.552141,
+          "realized_positive_return_rate": 0.454023,
+          "positive_return_probability_bias_pp": 9.8118,
+          "model_binary_brier": 0.258838,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.25095,
+          "mean_model_minus_market_no_vig_share": 0.052475,
+          "mean_theoretical_EV": 0.09662,
+          "mean_realized_net_U": -0.07329,
+          "mean_EV_minus_realized_net_U": 0.16991,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 348
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 348
+          }
+        },
+        "3": {
+          "n": 284,
+          "unique_fixtures": 284,
+          "mean_model_positive_return_probability": 0.64417,
+          "realized_positive_return_rate": 0.517606,
+          "positive_return_probability_bias_pp": 12.6564,
+          "model_binary_brier": 0.267779,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.250783,
+          "mean_model_minus_market_no_vig_share": 0.140381,
+          "mean_theoretical_EV": 0.178005,
+          "mean_realized_net_U": -0.056391,
+          "mean_EV_minus_realized_net_U": 0.234396,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 284
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 284
+          }
+        },
+        "4": {
+          "n": 116,
+          "unique_fixtures": 116,
+          "mean_model_positive_return_probability": 0.740505,
+          "realized_positive_return_rate": 0.508621,
+          "positive_return_probability_bias_pp": 23.1884,
+          "model_binary_brier": 0.301965,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.245585,
+          "mean_model_minus_market_no_vig_share": 0.234281,
+          "mean_theoretical_EV": 0.346299,
+          "mean_realized_net_U": -0.069052,
+          "mean_EV_minus_realized_net_U": 0.415351,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 116
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 116
+          }
+        },
+        "5": {
+          "n": 25,
+          "unique_fixtures": 25,
+          "mean_model_positive_return_probability": 0.85078,
+          "realized_positive_return_rate": 0.4,
+          "positive_return_probability_bias_pp": 45.078,
+          "model_binary_brier": 0.446344,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.258383,
+          "mean_model_minus_market_no_vig_share": 0.346151,
+          "mean_theoretical_EV": 0.564173,
+          "mean_realized_net_U": -0.2638,
+          "mean_EV_minus_realized_net_U": 0.827973,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 25
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 25
+          }
+        }
+      },
+      "model_minus_market_bins": {
+        "0": {
+          "n": 52,
+          "unique_fixtures": 52,
+          "mean_model_positive_return_probability": 0.387055,
+          "realized_positive_return_rate": 0.269231,
+          "positive_return_probability_bias_pp": 11.7824,
+          "model_binary_brier": 0.211842,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.255161,
+          "mean_model_minus_market_no_vig_share": -0.115672,
+          "mean_theoretical_EV": 0.001091,
+          "mean_realized_net_U": -0.116154,
+          "mean_EV_minus_realized_net_U": 0.117245,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 52
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 52
+          }
+        },
+        "1": {
+          "n": 229,
+          "unique_fixtures": 229,
+          "mean_model_positive_return_probability": 0.453197,
+          "realized_positive_return_rate": 0.388646,
+          "positive_return_probability_bias_pp": 6.4551,
+          "model_binary_brier": 0.244037,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.251249,
+          "mean_model_minus_market_no_vig_share": -0.044646,
+          "mean_theoretical_EV": 0.065909,
+          "mean_realized_net_U": -0.051179,
+          "mean_EV_minus_realized_net_U": 0.117088,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 229
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 229
+          }
+        },
+        "2": {
+          "n": 373,
+          "unique_fixtures": 373,
+          "mean_model_positive_return_probability": 0.548776,
+          "realized_positive_return_rate": 0.447721,
+          "positive_return_probability_bias_pp": 10.1055,
+          "model_binary_brier": 0.258253,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.249619,
+          "mean_model_minus_market_no_vig_share": 0.050126,
+          "mean_theoretical_EV": 0.087847,
+          "mean_realized_net_U": -0.100295,
+          "mean_EV_minus_realized_net_U": 0.188142,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 373
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 373
+          }
+        },
+        "3": {
+          "n": 292,
+          "unique_fixtures": 292,
+          "mean_model_positive_return_probability": 0.64599,
+          "realized_positive_return_rate": 0.530822,
+          "positive_return_probability_bias_pp": 11.5169,
+          "model_binary_brier": 0.263088,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.250581,
+          "mean_model_minus_market_no_vig_share": 0.144998,
+          "mean_theoretical_EV": 0.185263,
+          "mean_realized_net_U": -0.024144,
+          "mean_EV_minus_realized_net_U": 0.209406,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 292
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 292
+          }
+        },
+        "4": {
+          "n": 98,
+          "unique_fixtures": 98,
+          "mean_model_positive_return_probability": 0.738168,
+          "realized_positive_return_rate": 0.459184,
+          "positive_return_probability_bias_pp": 27.8985,
+          "model_binary_brier": 0.3233,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.246597,
+          "mean_model_minus_market_no_vig_share": 0.237986,
+          "mean_theoretical_EV": 0.362743,
+          "mean_realized_net_U": -0.134694,
+          "mean_EV_minus_realized_net_U": 0.497437,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 98
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 98
+          }
+        },
+        "5": {
+          "n": 31,
+          "unique_fixtures": 31,
+          "mean_model_positive_return_probability": 0.836046,
+          "realized_positive_return_rate": 0.451613,
+          "positive_return_probability_bias_pp": 38.4434,
+          "model_binary_brier": 0.402526,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.255085,
+          "mean_model_minus_market_no_vig_share": 0.342366,
+          "mean_theoretical_EV": 0.566504,
+          "mean_realized_net_U": -0.148226,
+          "mean_EV_minus_realized_net_U": 0.71473,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 31
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 31
+          }
+        }
+      }
+    },
+    "2026": {
+      "summary": {
+        "n": 8325,
+        "unique_fixtures": 8325,
+        "mean_model_positive_return_probability": 0.564649,
+        "realized_positive_return_rate": 0.467868,
+        "positive_return_probability_bias_pp": 9.6781,
+        "model_binary_brier": 0.256683,
+        "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.249663,
+        "mean_model_minus_market_no_vig_share": 0.065405,
+        "mean_theoretical_EV": 0.138638,
+        "mean_realized_net_U": -0.036712,
+        "mean_EV_minus_realized_net_U": 0.17535,
+        "quote_capture_classes": {
+          "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 8325
+        },
+        "model_ids": {
+          "m5_annual_score_grid": 8325
+        }
+      },
+      "model_probability_bins": {
+        "0": {
+          "n": 421,
+          "unique_fixtures": 421,
+          "mean_model_positive_return_probability": 0.37701,
+          "realized_positive_return_rate": 0.327791,
+          "positive_return_probability_bias_pp": 4.9219,
+          "model_binary_brier": 0.224332,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.246257,
+          "mean_model_minus_market_no_vig_share": -0.108633,
+          "mean_theoretical_EV": 0.00971,
+          "mean_realized_net_U": -0.053349,
+          "mean_EV_minus_realized_net_U": 0.063059,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 421
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 421
+          }
+        },
+        "1": {
+          "n": 2014,
+          "unique_fixtures": 2014,
+          "mean_model_positive_return_probability": 0.454314,
+          "realized_positive_return_rate": 0.387289,
+          "positive_return_probability_bias_pp": 6.7025,
+          "model_binary_brier": 0.241875,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.250144,
+          "mean_model_minus_market_no_vig_share": -0.040035,
+          "mean_theoretical_EV": 0.060381,
+          "mean_realized_net_U": -0.045631,
+          "mean_EV_minus_realized_net_U": 0.106012,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 2014
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 2014
+          }
+        },
+        "2": {
+          "n": 2971,
+          "unique_fixtures": 2971,
+          "mean_model_positive_return_probability": 0.552804,
+          "realized_positive_return_rate": 0.4793,
+          "positive_return_probability_bias_pp": 7.3504,
+          "model_binary_brier": 0.253983,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.250737,
+          "mean_model_minus_market_no_vig_share": 0.054354,
+          "mean_theoretical_EV": 0.108257,
+          "mean_realized_net_U": -0.029207,
+          "mean_EV_minus_realized_net_U": 0.137465,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 2971
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 2971
+          }
+        },
+        "3": {
+          "n": 1980,
+          "unique_fixtures": 1980,
+          "mean_model_positive_return_probability": 0.644163,
+          "realized_positive_return_rate": 0.527778,
+          "positive_return_probability_bias_pp": 11.6385,
+          "model_binary_brier": 0.262869,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.249153,
+          "mean_model_minus_market_no_vig_share": 0.138997,
+          "mean_theoretical_EV": 0.18021,
+          "mean_realized_net_U": -0.041061,
+          "mean_EV_minus_realized_net_U": 0.221271,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 1980
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 1980
+          }
+        },
+        "4": {
+          "n": 770,
+          "unique_fixtures": 770,
+          "mean_model_positive_return_probability": 0.736109,
+          "realized_positive_return_rate": 0.549351,
+          "positive_return_probability_bias_pp": 18.6758,
+          "model_binary_brier": 0.283343,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.247044,
+          "mean_model_minus_market_no_vig_share": 0.229839,
+          "mean_theoretical_EV": 0.336667,
+          "mean_realized_net_U": -0.012097,
+          "mean_EV_minus_realized_net_U": 0.348764,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 770
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 770
+          }
+        },
+        "5": {
+          "n": 169,
+          "unique_fixtures": 169,
+          "mean_model_positive_return_probability": 0.842381,
+          "realized_positive_return_rate": 0.502959,
+          "positive_return_probability_bias_pp": 33.9422,
+          "model_binary_brier": 0.367274,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.251459,
+          "mean_model_minus_market_no_vig_share": 0.33839,
+          "mean_theoretical_EV": 0.537187,
+          "mean_realized_net_U": -0.082101,
+          "mean_EV_minus_realized_net_U": 0.619288,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 169
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 169
+          }
+        }
+      },
+      "model_minus_market_bins": {
+        "0": {
+          "n": 414,
+          "unique_fixtures": 414,
+          "mean_model_positive_return_probability": 0.386407,
+          "realized_positive_return_rate": 0.347826,
+          "positive_return_probability_bias_pp": 3.8581,
+          "model_binary_brier": 0.229328,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.25175,
+          "mean_model_minus_market_no_vig_share": -0.118329,
+          "mean_theoretical_EV": 0.000331,
+          "mean_realized_net_U": -0.029251,
+          "mean_EV_minus_realized_net_U": 0.029582,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 414
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 414
+          }
+        },
+        "1": {
+          "n": 1894,
+          "unique_fixtures": 1894,
+          "mean_model_positive_return_probability": 0.452457,
+          "realized_positive_return_rate": 0.378036,
+          "positive_return_probability_bias_pp": 7.4421,
+          "model_binary_brier": 0.240663,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.250054,
+          "mean_model_minus_market_no_vig_share": -0.044407,
+          "mean_theoretical_EV": 0.062933,
+          "mean_realized_net_U": -0.053136,
+          "mean_EV_minus_realized_net_U": 0.116069,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 1894
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 1894
+          }
+        },
+        "2": {
+          "n": 3098,
+          "unique_fixtures": 3098,
+          "mean_model_positive_return_probability": 0.551031,
+          "realized_positive_return_rate": 0.481278,
+          "positive_return_probability_bias_pp": 6.9753,
+          "model_binary_brier": 0.253273,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.249658,
+          "mean_model_minus_market_no_vig_share": 0.051788,
+          "mean_theoretical_EV": 0.097301,
+          "mean_realized_net_U": -0.033318,
+          "mean_EV_minus_realized_net_U": 0.130619,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 3098
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 3098
+          }
+        },
+        "3": {
+          "n": 2056,
+          "unique_fixtures": 2056,
+          "mean_model_positive_return_probability": 0.644153,
+          "realized_positive_return_rate": 0.537451,
+          "positive_return_probability_bias_pp": 10.6701,
+          "model_binary_brier": 0.258625,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.249129,
+          "mean_model_minus_market_no_vig_share": 0.142768,
+          "mean_theoretical_EV": 0.189001,
+          "mean_realized_net_U": -0.018127,
+          "mean_EV_minus_realized_net_U": 0.207128,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 2056
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 2056
+          }
+        },
+        "4": {
+          "n": 701,
+          "unique_fixtures": 701,
+          "mean_model_positive_return_probability": 0.736524,
+          "realized_positive_return_rate": 0.510699,
+          "positive_return_probability_bias_pp": 22.5825,
+          "model_binary_brier": 0.29981,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.248545,
+          "mean_model_minus_market_no_vig_share": 0.23927,
+          "mean_theoretical_EV": 0.362393,
+          "mean_realized_net_U": -0.059422,
+          "mean_EV_minus_realized_net_U": 0.421815,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 701
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 701
+          }
+        },
+        "5": {
+          "n": 162,
+          "unique_fixtures": 162,
+          "mean_model_positive_return_probability": 0.839492,
+          "realized_positive_return_rate": 0.5,
+          "positive_return_probability_bias_pp": 33.9492,
+          "model_binary_brier": 0.36784,
+          "market_no_vig_share_binary_brier_DIAGNOSTIC_ONLY": 0.251499,
+          "mean_model_minus_market_no_vig_share": 0.345027,
+          "mean_theoretical_EV": 0.560294,
+          "mean_realized_net_U": -0.066235,
+          "mean_EV_minus_realized_net_U": 0.626528,
+          "quote_capture_classes": {
+            "HISTORICAL_RESPONSE_RETRIEVED_AFTER_KICKOFF": 162
+          },
+          "model_ids": {
+            "m5_annual_score_grid": 162
+          }
+        }
+      }
+    }
+  },
+  "caveats": [
+    "Market no-vig share is a normalized two-side quoted odds share; it is NOT the probability of positive net return for Asian quarter-line or push/half outcomes. Market Brier against positive return is only a deliberately labeled non-comparable diagnostic and cannot rank market vs model.",
+    "Model positive-return probability cannot by itself determine full/half-win/half-loss/push EV. Require settlement-class probabilities or exact score matrix for fair price comparison.",
+    "These pre-existing M7 records have their own model identity, fixture universe and entry windows, not original R7 27 or all494. Never transfer their predictive metrics to R7.",
+    "Historical Crown responses captured after kickoff are not live executable; capture classification must be checked.",
+    "Rows can include repeated fixtures across windows, directions or model versions; n is rows, not independent fixture count.",
+    "These model forecasts may have been trained or selected on past data; no new strategy selection or production rule.",
+    "2026 rows, if present, are an audit of existing records only and do not imply prospective live validation."
+  ]
+}
