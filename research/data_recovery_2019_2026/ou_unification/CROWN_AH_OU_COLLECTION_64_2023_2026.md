@@ -3570,3 +3570,18 @@ From T0830 through the 08:32:04.051214Z scheduled-job pause, 13 unique FIDs rece
 Queue rebuilt at 08:35:15.294612Z: 27,927 requests remain (2023 0; 2024 13,940; 2025 13,520; 2026 467), down 13 from T0830. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,319 FIDs. Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0835Z` suffix in this directory. The driver briefly started collector PID35231, then paused it at 08:35:25.657894Z for scheduled process PID35273; the unresolved FID remains eligible for retry after that task.
+
+
+### T0843 incremental checkpoint (2026-11-24 08:43 UTC)
+
+From T0835 through the 08:39:59.290969Z scheduled-job pause, 36 unique FIDs returned HTTP 200/API-success responses: 18 `BOTH_MARKETS`, 16 `PARTIAL_MARKETS`, and 2 `NO_CROWN_MARKET_DATA`. Thirty-four FIDs added 1,207 OU movement rows; no AH movement or AH/OU open-close rows were added. Across 41 request attempts, 36 succeeded and 5 had transport errors; retries left no `FETCH_FAILED` FID. Mean/median response duration was 1.4024/1.3851 seconds. The late retry for FID `149847437` (70 OU rows) was received at 08:36:29.635609Z after T0835's queue snapshot and is included here.
+
+Queue rebuilt at 08:43:16.542903Z: 27,891 requests remain (2023 0; 2024 13,904; 2025 13,520; 2026 467), down 36 from T0835. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,353 FIDs. All 36 raw SHA and 64-league/year/fixture identity checks passed; no duplicates or mismatches; queue rebuild matched. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0843Z` suffix in this directory. Driver PID49373 resumed collector PID37042 at 08:43:16Z; it paused again for a scheduled MR1 task at 08:47:33.996911Z. At documentation time the safe driver remained alive and awaited the scheduled run before rebuilding the next queue. Existing 5.2-second cadence and production configuration are unchanged.
+
+### Open-source tool fit assessment (read-only, 2026-11-24)
+
+- `OddsHarvester` and `oddsportal_scraper` are OddsPortal scrapers. They can expose bookmaker-filtered historical odds/lines as represented by OddsPortal, but do not retrieve TotalCorner's Crown API payloads or preserve this collector's Crown source-event and local HTTP-receipt evidence. They are not used as Crown substitutes.
+- `soccerdata` lists Club Elo, ESPN, FBref, Football-Data.co.uk, Sofascore, SoFIFA, Understat, and WhoScored as sources; its documented source set does not include bookmaker odds or Crown. It does not reduce this Crown quote backfill.
+- No external scraper was installed or run; none can replace the validated combined Crown request without weakening the source requirement.
