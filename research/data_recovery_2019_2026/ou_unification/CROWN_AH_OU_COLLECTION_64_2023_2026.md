@@ -3585,3 +3585,14 @@ Checkpoint evidence and SHA manifest use the `20261124T0843Z` suffix in this dir
 - `[OddsHarvester](https://github.com/jordantete/OddsHarvester) and [oddsportal_scraper](https://github.com/Bedbin17/oddsportal_scraper) are OddsPortal scrapers. They can expose bookmaker-filtered historical odds/lines as represented by OddsPortal, but do not retrieve TotalCorner's Crown API payloads or preserve this collector's Crown source-event and local HTTP-receipt evidence. They are not used as Crown substitutes.
 - [soccerdata](https://github.com/probberechts/soccerdata) lists Club Elo, ESPN, FBref, Football-Data.co.uk, Sofascore, SoFIFA, Understat, and WhoScored as sources; its documented source set does not include bookmaker odds or Crown. It does not reduce this Crown quote backfill.
 - No external scraper was installed or run; none can replace the validated combined Crown request without weakening the source requirement.
+
+
+### T0915 incremental checkpoint (2026-11-24 09:15 UTC)
+
+From T0901 through the 09:12:03.003339Z scheduled-job pause, 77 unique FIDs received HTTP 200/API-success responses: 39 `BOTH_MARKETS`, 32 `PARTIAL_MARKETS`, and 6 `NO_CROWN_MARKET_DATA`. Seventy-one FIDs added 2,135 OU movement rows; no AH movement or AH/OU open-close rows were added. Across 82 attempts, 77 succeeded, 4 had transport errors, and 1 returned `TOO_MANY_REQUEST`; mean/median successful-response duration was 1.3684/1.3780 seconds. All 77 response SHA values and fixture/scope identities passed, with no duplicate FIDs.
+
+Two pause-time failure records were present. FID `148991695` (TOO_MANY_REQUEST) was retried successfully at 09:07:34.477177Z within this interval, adding 74 OU rows. FID `149596176` had two `IncompleteRead` attempts at the pause, then succeeded at 09:15:30.386363Z after this queue snapshot, adding 50 OU rows; its removal is pending confirmation at the next rebuilt queue. Thus the failure-record count is not the count of unresolved FIDs.
+
+Queue rebuilt at 09:15:26.409842Z: 27,715 remain (2023 0; 2024 13,728; 2025 13,520; 2026 467), down 77 from T0901. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,509 FIDs. The queue rebuild matched its source queue. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0915Z` suffix in this directory. Safe driver PID49373 resumed collector PID43750 at 09:15:26Z on the existing 5.2-second cadence. FID `149596176` completed at 09:15:30Z after the snapshot; it remains pending queue-removal verification.
