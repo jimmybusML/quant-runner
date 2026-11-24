@@ -3489,3 +3489,12 @@ From T0742 through the 07:43:56.559630Z scheduled-job pause, 17 unique FIDs rece
 Queue rebuilt at 07:47:13.830978Z: 28,184 requests remain (2023 0; 2024 14,197; 2025 13,520; 2026 467), down 17 from T0742. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,080 FIDs. Raw SHA, identity/scope, duplicate-FID, and queue-rebuild checks passed (17 response hashes checked, no mismatches or duplicates). Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0747Z` suffix in this directory. The driver briefly restarted collector PID24067 at the unchanged 5.2-second cadence after the scheduled job, then paused for another scheduled MR1 run at 07:47:15Z.
+
+
+### T0755 incremental checkpoint (2026-11-24 07:55 UTC)
+
+From T0748 through the 07:51:55.668804Z scheduled-job pause, 38 unique FIDs received HTTP 200/API-success responses: 8 `BOTH_MARKETS`, 27 `PARTIAL_MARKETS`, and 3 `NO_CROWN_MARKET_DATA`. Thirty-five FIDs added 1,152 OU movement rows; no AH or open/close rows were added. The interval had one transport error and one API `TOO_MANY_REQUEST` error; the latter FID (`149852501`) was retried after the pause and received HTTP 200 with 12 OU movement rows at 07:55:15.550240Z, after the 07:55:11 queue snapshot. Therefore it is not an unresolved loss, and its eventual queue removal will appear in a later rebuilt checkpoint. The interval audit counted 38 responses, checked all raw SHA/identity/scope, found no duplicates; mean/median successful response duration 1.3971/1.3834 seconds.
+
+Queue rebuilt at 07:55:11.743739Z: 28,146 requests remain (2023 0; 2024 14,159; 2025 13,520; 2026 467), down 38 from T0748. Coverage at that snapshot: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,115 FIDs. The queue rebuild matched. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0755Z` suffix in this directory. Safe driver PID49373 resumed collector PID26017 at the unchanged 5.2-second cadence.
