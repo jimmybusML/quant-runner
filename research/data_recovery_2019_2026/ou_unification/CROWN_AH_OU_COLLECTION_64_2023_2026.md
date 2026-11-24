@@ -3270,3 +3270,19 @@ From T0513 through the 05:17:44.022840Z settlement pause, 43 unique FIDs receive
 Queue rebuilt at 05:21:09.558775Z: 28,771 requests remain (2023 231; 2024 14,553; 2025 13,520; 2026 467), down 43 from T0513. Coverage remains AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 11,512. Independent raw SHA/identity/scope and queue-rebuild checks passed (43 hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0521Z` suffix in this directory.
+
+### T0525 incremental checkpoint (2026-11-24 05:25 UTC)
+
+From T0521 through the 05:23:53.444281Z MR1 scheduled pause, 24 unique FIDs returned HTTP 200/API-success responses. The saved increment contains 945 OU movement rows across those 24 FIDs; no AH or OU open/close rows were added. Four transport errors occurred in 28 attempts; one FID (`146987476`) ended as `FETCH_FAILED` and remained in the rebuilt queue. The other 3 transport errors were recovered. Mean/median request duration was 1.4083/1.3915 seconds.
+
+Queue rebuilt at 05:25:05.604109Z: 28,747 requests remain (2023 207; 2024 14,553; 2025 13,520; 2026 467), down 24 from T0521. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 11,536 FIDs. Raw SHA, schedule identity/scope, duplicate-FID, and queue-rebuild checks passed (24 hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0525Z` suffix in this directory.
+
+### T0528 incremental checkpoint (2026-11-24 05:28 UTC)
+
+From T0525 through the 05:25:51.287207Z settlement pause, 8 unique FIDs received HTTP 200/API-success responses: 3 `BOTH_MARKETS` and 5 `PARTIAL_MARKETS`. All 8 added OU movement data (288 rows); no AH or OU open/close rows were added. One transient transport error recovered; another transport interruption on FID `147323664` coincided with the scheduled pause and remained queued for retry. Across 10 attempts there were 8 successful responses and 2 transport errors; mean/median successful-response duration was 1.3093/1.3270 seconds.
+
+Queue rebuilt at 05:28:59.642694Z: 28,739 requests remain (2023 199; 2024 14,553; 2025 13,520; 2026 467), down 8 from T0525. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 11,544 FIDs. Raw SHA, schedule identity/scope, duplicate-FID, and queue-rebuild checks passed (8 hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0528Z` suffix in this directory.
