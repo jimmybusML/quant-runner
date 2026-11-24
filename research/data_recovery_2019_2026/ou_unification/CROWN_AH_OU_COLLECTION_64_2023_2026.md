@@ -1,6 +1,6 @@
 # Crown AH+OU 64 联赛采集进度（2023—2026）
 
-更新时间：2026-11-24 11:34 UTC（本次负责范围为2023—2026；下列覆盖取自11:34 UTC权威队列快照）
+更新时间：2026-11-24 11:41 UTC（本次负责范围为2023—2026；下列覆盖取自11:41 UTC权威队列快照）
 性质：历史采集与采集效率工程；不是模型研究、回测或正式实战。
 
 ## 范围
@@ -22,9 +22,9 @@
 | Crown AH 开盘+收盘 | 32,449 | 15,653 | 0 场 FID（T0923增量） |
 | Crown AH 变化序列 | 36,342 | 11,760 | 0 场 FID（T0923增量） |
 | Crown OU 开盘+收盘 | 32,445 | 15,657 | 0 场 FID（T0923增量） |
-| Crown OU 变化序列 | 13,157 | 34,945 | 20 场 FID（T1134增量） |
+| Crown OU 变化序列 | 13,169 | 34,933 | 12 场 FID（T1141增量） |
 
-07:21:59 UTC曾有初始覆盖基线和43,031场请求队列；后续队列按安全窗口重建。截至2026-11-24 11:34:58 UTC，最近权威队列为26,966场（2023 0；2024 12,979；2025 13,520；2026 467）。该快照中OU变化序列覆盖13,157场，缺口34,945。按覆盖项计算的缺口彼此重叠；HTTP/API成功但响应未返回目标Crown市场数据的赛事不会被推断为永久无盘。当前safe driver PID49373仍在运行，collector PID59282使用5.2秒节奏，按排程任务安全暂停和续跑。
+07:21:59 UTC曾有初始覆盖基线和43,031场请求队列；后续队列按安全窗口重建。截至2026-11-24 11:41:10 UTC，最近权威队列为26,946场（2023 0；2024 12,959；2025 13,520；2026 467）。该快照中OU变化序列覆盖13,169场，缺口34,933。按覆盖项计算的缺口彼此重叠；HTTP/API成功但响应未返回目标Crown市场数据的赛事不会被推断为永久无盘。safe driver PID49373仍运行，collector PID75268使用5.2秒节奏，按排程任务安全暂停和续跑。
 
 ## 一次请求合并 AH/OU 的实测
 
@@ -3784,3 +3784,12 @@ Checkpoint evidence and SHA manifest use the `20261124T0957Z` suffix in this dir
 - From T1131 through the 11:33:45.732495Z scheduled MR1 pause, 21 unique FIDs succeeded: 12 `BOTH_MARKETS`, 8 `PARTIAL_MARKETS`, 1 `NO_CROWN_MARKET_DATA`. Twenty FIDs added 561 OU movement rows; all 21 requests succeeded. This window includes the verified retry of FID `150598970` from T1131. Raw SHA, scope identity, uniqueness and queue-rebuild checks passed.
 - Queue rebuilt at 11:34:58.120677Z: 26,966 remain (2023 0; 2024 12,979; 2025 13,520; 2026 467), down 21. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 13,157 FIDs. Historical retrieval only. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261124T1134Z`.
 - Safe driver PID49373 resumed collector PID73838 at the unchanged 5.2-second cadence. No production settings changed.
+
+
+## 2026-11-24 11:41 UTC：T1141采集检查点
+
+- 责任范围保持固定64个 Provider League ID、2023—2026年；48,102场赛程及可信完赛比分库存未变。2023年待采队列为0；这表示其可请求缺口已处理完，不表示每场都存在Crown报价。
+- T1134后至11:36:39.856065Z正式结算任务开始前，取得20个唯一FID响应：7场有AH/OU市场数据、5场部分市场数据、8场响应未返回Crown市场；20次HTTP请求全部成功（HTTP 200/API success），无传输失败。
+- 本窗口新增12个OU movement FID、340条OU走势记录；未增加AH及AH/OU开收盘记录。20个原始响应SHA、FID/联赛/年份范围、唯一性及市场落库核验通过。队列重建一致：26,966降至26,946（2024 12,959；2025 13,520；2026 467）。
+- 2026-11-24 11:41:10Z覆盖：AH开收盘32,449、AH走势36,342、OU开收盘32,445、OU走势13,169个FID。数据为历史回取，非真实赛前收据。
+- 检查点文件及七文件SHA manifest使用`20261124T1141Z`后缀。safe driver PID49373于正式任务安全暂停后，在5.2秒请求节奏恢复collector PID75268；未改生产、策略、Telegram或账本。
