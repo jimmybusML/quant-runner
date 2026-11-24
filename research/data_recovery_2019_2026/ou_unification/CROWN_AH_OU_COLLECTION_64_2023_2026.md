@@ -3561,3 +3561,12 @@ From T0827 through the 08:29:34.423304Z scheduled-job pause, 24 unique FIDs rece
 Queue rebuilt at 08:30:38.993364Z: 27,940 requests remain (2023 0; 2024 13,953; 2025 13,520; 2026 467), down 24 from T0827. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,306 FIDs. Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0830Z` suffix in this directory. Safe driver PID49373 resumed collector PID34189 at the unchanged 5.2-second cadence.
+
+
+### T0835 incremental checkpoint (2026-11-24 08:35 UTC)
+
+From T0830 through the 08:32:04.051214Z scheduled-job pause, 13 unique FIDs received HTTP 200/API-success responses: 7 `BOTH_MARKETS` and 6 `PARTIAL_MARKETS`. All 13 added OU movement data (613 rows); no AH or open/close rows were added. Across 16 attempts there were 13 successes, 2 transport errors, and 1 `TOO_MANY_REQUEST`; mean/median successful-response duration was 1.3866/1.3692 seconds. Raw SHA, identity/scope, duplicate-FID and queue-rebuild checks passed. FID `149847437` remains unresolved in this snapshot: it hit `TOO_MANY_REQUEST`, then an `IncompleteRead` on a post-snapshot retry. It remains outstanding for a later retry and is not counted as a successful quote or no-market response.
+
+Queue rebuilt at 08:35:15.294612Z: 27,927 requests remain (2023 0; 2024 13,940; 2025 13,520; 2026 467), down 13 from T0830. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,319 FIDs. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0835Z` suffix in this directory. The driver briefly started collector PID35231, then paused it at 08:35:25.657894Z for scheduled process PID35273; the unresolved FID remains eligible for retry after that task.
