@@ -8644,3 +8644,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - Added an exact end-checkpoint selector to the read-only checkpoint auditor; default latest-checkpoint behavior is unchanged. Historical audits no longer compare an earlier checkpoint count to today's queue: per-year queue split is left null when it was not saved at that historical point.
 - Re-audited four windows T0843→T0851, T0851→T0855, T0855→T0859, and T0859→T0901. All 99 response records were unique, fixed-scope identity and raw SHA checks passed, and all 6 transport errors recovered. The intervals added 2,450 OU movement rows across 85 FIDs; no AH/open-close rows were added.
 - Full per-window artifacts and SHA manifests: `research/data_recovery_2019_2026/ou_unification/*20261124T0851Z`, `T0855Z`, `T0859Z`, and `T0901Z`. Queue counts at those events were respectively 27,843; 27,810; 27,800; 27,792. Historical per-year splits were not stored, so they are not inferred here.
+
+
+### 2026-11-24 09:39 UTC — T0939 checkpoint; scope 2023–2026
+- From T0933 through the 09:36:22.061667Z scheduled-job pause, 36 unique FIDs returned HTTP 200/API-success: 8 `BOTH_MARKETS`, 26 `PARTIAL_MARKETS`, 2 `NO_CROWN_MARKET_DATA`. Thirty-four added 727 OU movement rows; no AH/open-close rows were added. Across 38 attempts, 36 succeeded and 2 transport errors recovered; no unresolved failed FID. Mean/median response time 1.4402/1.4396s. All raw SHA, identity/scope, and uniqueness checks passed.
+- Queue rebuilt at 09:39:52.765566Z: 27,594 remain (2023 0; 2024 13,607; 2025 13,520; 2026 467), down 36. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,622 FIDs. Historical retrieval only. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261124T0939Z`.
+- Safe driver PID49373 resumed collector PID49079 at the existing 5.2-second cadence. No production settings changed.

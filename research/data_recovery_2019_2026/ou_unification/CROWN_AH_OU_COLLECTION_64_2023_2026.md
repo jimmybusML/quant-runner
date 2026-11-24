@@ -1,6 +1,6 @@
 # Crown AH+OU 64 联赛采集进度（2023—2026）
 
-更新时间：2026-11-24 09:33 UTC（本次负责范围为2023—2026；下列覆盖取自09:33 UTC权威队列快照）
+更新时间：2026-11-24 09:39 UTC（本次负责范围为2023—2026；下列覆盖取自09:39 UTC权威队列快照）
 性质：历史采集与采集效率工程；不是模型研究、回测或正式实战。
 
 ## 范围
@@ -22,9 +22,9 @@
 | Crown AH 开盘+收盘 | 32,449 | 15,653 | 0 场 FID（T0923增量） |
 | Crown AH 变化序列 | 36,342 | 11,760 | 0 场 FID（T0923增量） |
 | Crown OU 开盘+收盘 | 32,445 | 15,657 | 0 场 FID（T0923增量） |
-| Crown OU 变化序列 | 12,588 | 35,514 | 25 场 FID（T0933增量）；较07:21基线净增5,492场 |
+| Crown OU 变化序列 | 12,622 | 35,480 | 34 场 FID（T0939增量）；较07:21基线净增5,526场 |
 
-07:21:59 UTC曾有初始覆盖基线和43,031场请求队列；后续队列按安全窗口重建。截至2026-11-24 09:33:13 UTC，最近权威队列为27,630场（2023 0；2024 13,643；2025 13,520；2026 467）。该快照中OU变化序列覆盖12,588场，缺口35,514。按覆盖项计算的缺口彼此重叠；HTTP/API成功但响应未返回目标Crown市场数据的赛事不会被推断为永久无盘。当前safe driver PID49373仍在运行，使用5.2秒节奏，按排程任务安全暂停和续跑。
+07:21:59 UTC曾有初始覆盖基线和43,031场请求队列；后续队列按安全窗口重建。截至2026-11-24 09:39:52 UTC，最近权威队列为27,594场（2023 0；2024 13,607；2025 13,520；2026 467）。该快照中OU变化序列覆盖12,622场，缺口35,480。按覆盖项计算的缺口彼此重叠；HTTP/API成功但响应未返回目标Crown市场数据的赛事不会被推断为永久无盘。当前safe driver PID49373仍在运行，使用5.2秒节奏，按排程任务安全暂停和续跑。
 
 ## 一次请求合并 AH/OU 的实测
 
@@ -3637,3 +3637,12 @@ The earlier run had authoritative queue events for four short windows that were 
 | 2026-11-24 09:01:21 | 8 | 4 / 4 / 0 | 225 (8) | 9 / 1 transport recovered | 27,792 |
 
 Across these four windows, 99 unique FIDs were processed, adding 2,450 OU movement rows over 85 FIDs; six transport errors were retried successfully. The matching 36 audit artifacts are timestamped `20261124T0851Z`, `T0855Z`, `T0859Z`, and `T0901Z` in this directory.
+
+
+### T0939 incremental checkpoint (2026-11-24 09:39 UTC)
+
+From T0933 through the 09:36:22.061667Z scheduled-job pause, 36 unique FIDs returned HTTP 200/API-success responses: 8 `BOTH_MARKETS`, 26 `PARTIAL_MARKETS`, and 2 `NO_CROWN_MARKET_DATA`. Thirty-four FIDs added 727 OU movement rows; no AH movement or AH/OU open-close rows were added. Across 38 attempts, 36 succeeded and 2 transport errors recovered; no FID remained failed. Mean/median response duration was 1.4402/1.4396 seconds. All 36 raw SHA and identity/scope checks passed with no duplicates.
+
+Queue rebuilt at 09:39:52.765566Z: 27,594 remain (2023 0; 2024 13,607; 2025 13,520; 2026 467), down 36 from T0933. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,622 FIDs. Queue rebuild matched. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0939Z` suffix in this directory. Safe driver PID49373 started collector PID49079 at the unchanged 5.2-second cadence.
