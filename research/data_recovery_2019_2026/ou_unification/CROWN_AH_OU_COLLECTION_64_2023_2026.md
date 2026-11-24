@@ -2814,3 +2814,11 @@ From T2359 through the 00:01:34.365787Z MR1 pause, 26 unique FIDs completed HTTP
 Queue rebuilt at 00:02:34.887330Z: 30,285 requests remain (2023 1,745; 2024 14,553; 2025 13,520; 2026 467), down 26 from T2359. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 10,200. Mean/median request duration was 1.3482/1.3818 seconds at the unchanged 5.2-second cadence. Independent raw SHA/SQLite and queue-rebuild checks passed. Safe driver PID49373 resumed collection as PID23806. This is historical retrieval, not a real-time Crown receipt.
 
 Checkpoint evidence and SHA manifest use the `20261124T0002Z` suffix in this directory.
+
+### T0015 incremental checkpoint (2026-11-24 00:15 UTC)
+
+From T0002 through the 00:12:00.811535Z settlement pause, 59 unique FIDs received HTTP 200 responses. Statuses were 41 `PARTIAL_MARKETS`, 7 `BOTH_MARKETS`, and 11 `NO_CROWN_MARKET_DATA`. Forty-eight quote-bearing FIDs added 1,245 OU movement rows. Two transport errors occurred across 61 attempts; all 59 FIDs have successful responses and there are no unresolved failed records.
+
+Queue rebuilt at 00:15:20.435649Z: 30,226 requests remain (2023 1,686; 2024 14,553; 2025 13,520; 2026 467), down 59 from T0002. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 10,248. Mean/median request duration was 1.3350/1.3025 seconds at the unchanged 5.2-second cadence. Independent raw SHA/identity/scope and queue-rebuild checks passed. Safe driver PID49373 resumed collection as PID26663. This is historical retrieval, not a real-time Crown receipt.
+
+Checkpoint evidence and SHA manifest use the `20261124T0015Z` suffix in this directory.
