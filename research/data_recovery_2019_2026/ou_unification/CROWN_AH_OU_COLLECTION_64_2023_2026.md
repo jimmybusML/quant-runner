@@ -2958,3 +2958,11 @@ From T0146 through the 01:48:21.339774Z settlement pause, 23 unique FIDs receive
 Queue rebuilt at 01:51:49.624433Z: 29,761 requests remain (2023 1,221; 2024 14,553; 2025 13,520; 2026 467), down 23 from T0146. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 10,652. Mean/median request duration was 1.3678/1.3754 seconds at the unchanged 5.2-second cadence. Independent raw SHA/identity/scope and queue-rebuild checks passed. Safe driver PID49373 resumed collection as PID46680. Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0151Z` suffix in this directory.
+
+### T0159 incremental checkpoint (2026-11-24 01:59 UTC)
+
+From T0151 through the 01:56:06.992820Z MR1 pause, 38 unique FIDs received HTTP 200 responses: 27 `PARTIAL_MARKETS`, 6 `BOTH_MARKETS`, and 5 `NO_CROWN_MARKET_DATA`. Thirty-three FIDs added 705 OU movement rows. Eight transient transport errors occurred across 46 attempts; FID `145987486` remains queued for retry.
+
+Queue rebuilt at 01:59:50.742547Z: 29,723 requests remain (2023 1,183; 2024 14,553; 2025 13,520; 2026 467), down 38 from T0151. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 10,685. Mean/median request duration was 1.3582/1.3468 seconds at the unchanged 5.2-second cadence. Independent raw SHA/identity/scope and queue-rebuild checks passed. Safe driver PID49373 resumed collection as PID48332. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0159Z` suffix in this directory.
