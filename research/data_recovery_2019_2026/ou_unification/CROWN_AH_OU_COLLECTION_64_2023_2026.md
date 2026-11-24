@@ -3030,3 +3030,11 @@ From T0231 through the 02:32:40.471728Z MR1 pause, 10 unique FIDs received HTTP 
 Queue rebuilt at 02:34:18.982495Z: 29,563 requests remain (2023 1,023; 2024 14,553; 2025 13,520; 2026 467), down 10 from T0231. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 10,823. Independent raw SHA/identity/scope and queue-rebuild checks passed (10 hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0234Z` suffix in this directory.
+
+### T0240 incremental checkpoint (2026-11-24 02:40 UTC)
+
+From T0234 through the 02:36:36.004520Z settlement pause, 24 unique FIDs received HTTP 200 responses: 16 `PARTIAL_MARKETS`, 6 `BOTH_MARKETS`, and 2 `NO_CROWN_MARKET_DATA`. Twenty-two FIDs added 476 OU movement rows. Two transient transport errors occurred across 26 attempts and recovered; mean/median request duration was 1.3688/1.3647 seconds.
+
+Queue rebuilt at 02:40:09.812407Z: 29,539 requests remain (2023 999; 2024 14,553; 2025 13,520; 2026 467), down 24 from T0234. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 10,845. Independent raw SHA/identity/scope and queue-rebuild checks passed (24 hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0240Z` suffix in this directory.
