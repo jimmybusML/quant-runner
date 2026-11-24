@@ -3182,3 +3182,11 @@ The safe driver briefly paused because a diagnostic shell command matched its br
 Queue rebuilt at 04:25:20.001496Z: 29,022 requests remain (2023 482; 2024 14,553; 2025 13,520; 2026 467), down 6 from T0424. Coverage remains AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 11,287. Independent raw SHA/identity/scope and queue-rebuild checks passed (6 hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0425Z` suffix in this directory.
+
+### T0432 incremental checkpoint (2026-11-24 04:32 UTC)
+
+From T0425 through the 04:28:26.827440Z MR1 scheduled pause, 35 unique FIDs received HTTP 200/API-success responses: 25 `PARTIAL_MARKETS`, 9 `BOTH_MARKETS`, and 1 `NO_CROWN_MARKET_DATA`. Thirty-four FIDs added 954 OU movement rows; no AH rows were added. Across 37 attempts, 35 succeeded and 2 transient transport errors recovered; mean/median successful-response duration was 1.3279/1.2916 seconds.
+
+Queue rebuilt at 04:32:28.554622Z: 28,987 requests remain (2023 447; 2024 14,553; 2025 13,520; 2026 467), down 35 from T0425. Coverage remains AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 11,321. Independent raw SHA/identity/scope and queue-rebuild checks passed (35 hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0432Z` suffix in this directory.
