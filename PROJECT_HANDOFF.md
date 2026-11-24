@@ -8729,3 +8729,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - Audited T1045→T1052: 40 unique successful historical Crown responses (9 `BOTH_MARKETS`, 26 `PARTIAL_MARKETS`, 5 `NO_CROWN_MARKET_DATA`); 35 FIDs added 1,133 OU movement rows. One transport error recovered among 41 attempts; no unresolved FID. Mean/median successful response duration 1.3640/1.3425s. Raw SHA, 64-league/year/fixture identity, uniqueness and queue reconstruction checks passed.
 - Queue at 10:52:01.691007Z: 27,195 remaining (2023 0; 2024 13,208; 2025 13,520; 2026 467). Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,957.
 - Evidence and seven-file hash manifest use `20261124T1052Z` in `research/data_recovery_2019_2026/ou_unification/`. Safe driver PID49373 resumed collector PID64574 at 5.2s. Historical retrieval only; no production, model, Telegram or ledger changes.
+
+
+### 2026-11-24 11:00 UTC — T1100 checkpoint; 2023–2026 collection
+- Audited T1052→T1100: 42 unique successful historical Crown responses (15 `BOTH_MARKETS`, 22 `PARTIAL_MARKETS`, 5 `NO_CROWN_MARKET_DATA`); 37 FIDs added 1,227 OU movement rows. Five transient transport errors recovered across 47 attempts; no unresolved FID. Mean/median successful response duration 1.3675/1.4144s. Raw SHA, identity/scope, uniqueness and queue rebuild checks passed.
+- Queue at 11:00:11.427079Z: 27,153 remaining (2023 0; 2024 13,166; 2025 13,520; 2026 467). Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,994.
+- Checkpoint evidence and seven-file SHA manifest timestamped `20261124T1100Z` in `research/data_recovery_2019_2026/ou_unification/`. Safe driver PID49373 resumed collector PID66285 at 5.2 seconds. Historical retrieval only; no production/model/ledger changes.
