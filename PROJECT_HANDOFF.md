@@ -8338,3 +8338,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - From T0432 through the 04:34:24.654309Z MR1 pause, 22 unique FIDs received HTTP 200/API-success responses: 10 `BOTH_MARKETS`, 9 `PARTIAL_MARKETS`, 3 `NO_CROWN_MARKET_DATA`. Nineteen FIDs added 615 OU movement rows; no AH rows were added. Across 23 attempts, 22 succeeded and one transient transport error recovered; mean/median successful duration was 1.3542/1.3434 seconds.
 - Queue rebuilt at 04:35:26.436625Z: 28,965 requests remain (2023 425; 2024 14,553; 2025 13,520; 2026 467), down 22 from T0432. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 11,340 FIDs. Independent raw SHA/identity/scope and queue-rebuild checks passed (22 checked, no mismatches or duplicate FIDs).
 - Safe driver PID49373 resumed collector PID82642 at 5.2s cadence. Historical retrieval only. Evidence and manifest: `research/data_recovery_2019_2026/ou_unification/*20261124T0435Z`.
+
+
+### 2026-11-24 04:40 UTC — T0440 checkpoint; scope 2023–2026
+- From T0435 through the 04:37:10.157535Z settlement pause, 20 unique FIDs received HTTP 200/API-success responses: 12 `BOTH_MARKETS`, 8 `PARTIAL_MARKETS`. All 20 added OU movement (518 rows); no AH rows or no-market responses. Across 21 attempts, one transient transport error recovered; mean/median successful duration was 1.3378/1.3487 seconds.
+- Queue rebuilt at 04:40:09.722565Z: 28,945 requests remain (2023 405; 2024 14,553; 2025 13,520; 2026 467), down 20 from T0435. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 11,360 FIDs. Independent raw SHA/identity/scope and queue-rebuild checks passed (20 checked, no mismatches or duplicate FIDs).
+- Safe driver PID49373 resumed collector PID83708, which immediately paused for the next scheduled MR1 job. Historical retrieval only. Evidence and manifest: `research/data_recovery_2019_2026/ou_unification/*20261124T0440Z`.
