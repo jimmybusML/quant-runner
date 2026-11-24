@@ -3623,3 +3623,17 @@ From T0925 through the 09:28:15.708440Z scheduled-job pause, 26 unique FIDs retu
 Queue rebuilt at 09:33:13.234312Z: 27,630 remain (2023 0; 2024 13,643; 2025 13,520; 2026 467), down 26 from T0925. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,588 FIDs. Queue rebuild matched. Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0933Z` suffix in this directory. Safe driver PID49373 started collector PID47560 at the unchanged 5.2-second cadence.
+
+
+### Recovered per-window audits (T0843–T0901)
+
+The earlier run had authoritative queue events for four short windows that were not yet emitted as separate evidence artifacts. The auditor now supports selecting an exact `--through-utc` checkpoint; reruns preserve default latest-window behavior. Each of these historical intervals was audited separately. All response SHA, fixed-scope identities, and unique-FID checks passed; none had unresolved failed FIDs. The historical driver event log stores total queue counts but not per-year queue splits, so the recovered interval records intentionally leave `queue_after_rebuild` null instead of comparing an old checkpoint against today's queue.
+
+| Through checkpoint UTC | Unique responses | BOTH / PARTIAL / NO MARKET | OU movement rows (FIDs) | Attempts / errors | Queue count |
+|---|---:|---:|---:|---:|---:|
+| 2026-11-24 08:51:10 | 48 | 19 / 23 / 6 | 1,194 (42) | 51 / 3 transport recovered | 27,843 |
+| 2026-11-24 08:55:06 | 33 | 19 / 10 / 4 | 806 (29) | 35 / 2 transport recovered | 27,810 |
+| 2026-11-24 08:59:07 | 10 | 4 / 2 / 4 | 225 (6) | 10 / 0 | 27,800 |
+| 2026-11-24 09:01:21 | 8 | 4 / 4 / 0 | 225 (8) | 9 / 1 transport recovered | 27,792 |
+
+Across these four windows, 99 unique FIDs were processed, adding 2,450 OU movement rows over 85 FIDs; six transport errors were retried successfully. The matching 36 audit artifacts are timestamped `20261124T0851Z`, `T0855Z`, `T0859Z`, and `T0901Z` in this directory.

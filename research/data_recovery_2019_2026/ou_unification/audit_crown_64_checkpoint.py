@@ -52,27 +52,38 @@ def schedule_index():
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--after-utc', help='start at an earlier authoritative queue_checkpoint; useful to roll several brief windows into one published increment')
+    parser.add_argument('--through-utc', help='audit through this exact authoritative queue_checkpoint; defaults to the latest checkpoint')
     args = parser.parse_args()
     events = read_jsonl(EVENTS)
     checkpoints = [(i, e) for i, e in enumerate(events) if e.get('event') == 'queue_checkpoint']
     if len(checkpoints) < 2:
         raise RuntimeError('need at least two authoritative queue checkpoints')
-    latest_i, latest = checkpoints[-1]
+    if args.through_utc:
+        selected_end = [(i, e) for i, e in checkpoints if e.get('at_utc') == args.through_utc]
+        if not selected_end:
+            raise RuntimeError(f'no authoritative checkpoint matches --through-utc={args.through_utc}')
+        latest_i, latest = selected_end[-1]
+    else:
+        latest_i, latest = checkpoints[-1]
+    prior_checkpoints = [(i, e) for i, e in checkpoints if i < latest_i]
     if args.after_utc:
-        selected = [(i,e) for i,e in checkpoints[:-1] if e.get('at_utc') == args.after_utc]
+        selected = [(i,e) for i,e in prior_checkpoints if e.get('at_utc') == args.after_utc]
         if not selected:
             raise RuntimeError(f'no prior authoritative checkpoint matches --after-utc={args.after_utc}')
         prev_i, prev = selected[-1]
     else:
-        prev_i, prev = checkpoints[-2]
+        if not prior_checkpoints:
+            raise RuntimeError('selected end checkpoint has no earlier checkpoint')
+        prev_i, prev = prior_checkpoints[-1]
     pauses = [e for e in events[prev_i + 1:latest_i] if e.get('event') == 'collection_paused_for_scheduled_job']
     pause = pauses[-1] if pauses else None
     if pause is None:
         raise RuntimeError('no scheduled-job pause between the last two queue checkpoints')
     start = iso(prev['at_utc'])
     end = iso(pause['at_utc']) + dt.timedelta(seconds=20)  # include a response already in flight when SIGTERM arrives
+    is_latest_checkpoint = latest_i == checkpoints[-1][0]
     queue_counts = collections.Counter()
-    if QUEUE.exists():
+    if is_latest_checkpoint and QUEUE.exists():
         for queued in read_jsonl(QUEUE):
             queue_counts[str(queued.get('year'))] += 1
 
@@ -166,11 +177,11 @@ def main():
         'duplicate_fids': len(rows) - len(seen),
         'capture_mode': 'historical',
         'queue_checkpoint_utc': latest['at_utc'],
-        'queue_after_rebuild': dict(sorted(queue_counts.items())),
-        'queue_count_matches_rebuild': sum(queue_counts.values()) == latest.get('queue_count'),
+        'queue_after_rebuild': dict(sorted(queue_counts.items())) if is_latest_checkpoint else None,
+        'queue_count_matches_rebuild': sum(queue_counts.values()) == latest.get('queue_count') if is_latest_checkpoint else None,
         'queue_count': latest.get('queue_count'),
         'queue_delta_since_previous_checkpoint': (latest.get('queue_count') or 0) - (prev.get('queue_count') or 0),
-        'queue_year_basis': 'actual safe-window rebuilt queue',
+        'queue_year_basis': 'actual current safe-window rebuilt queue' if is_latest_checkpoint else 'historical checkpoint event; historical year split was not stored',
     }
     transport = {
         'interval_scope': {'after_utc': prev['at_utc'], 'through_pause_utc': pause['at_utc']},
