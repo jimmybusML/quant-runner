@@ -8457,3 +8457,9 @@ T0241后至02:42:48 UTC MR1暂停前处理18个唯一FID，全部HTTP 200：10�
 - The 06:14:02.923948Z settlement pause followed two seconds after collector restart, leaving no safe request interval. Audit found zero requests and zero market rows; this was scheduler occupancy, not a no-market response or collection failure.
 - Queue rebuilt at 06:17:24.285483Z: 28,572 remain (2023 32; 2024 14,553; 2025 13,520; 2026 467), unchanged from T0614. Coverage unchanged: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 11,705 FIDs. Queue rebuild matched. Historical retrieval only. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261124T0617Z`.
 - Safe driver PID49373 resumed collector PID4642 at the existing 5.2-second cadence; no collection or production settings changed.
+
+
+### 2026-11-24 06:19 UTC — T0619 checkpoint; scope 2023–2026
+- From T0617 through the 06:18:45.161370Z MR1 pause, 15 unique FIDs returned HTTP 200/API-success responses: 11 `PARTIAL_MARKETS`, 4 `BOTH_MARKETS`. All 15 added 374 OU movement rows; no AH or open/close rows were added. Two transport errors recovered within requests. Across 17 attempts, 15 succeeded; mean/median successful-response duration was 1.4106/1.3681 seconds.
+- Queue rebuilt at 06:19:48.772585Z: 28,557 remain (2023 17; 2024 14,553; 2025 13,520; 2026 467), down 15. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 11,720 FIDs. All 15 response hashes and identity/scope checks passed; no duplicates; queue rebuild matched. Historical retrieval only. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261124T0619Z`.
+- Safe driver PID49373 resumed collector PID5222 at 5.2-second cadence. No collection or production setting changed.
