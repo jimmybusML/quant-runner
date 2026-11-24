@@ -3094,3 +3094,11 @@ From T0319 through the 03:21:21.908525Z MR1 pause, 16 unique FIDs received HTTP 
 Queue rebuilt at 03:22:36.117198Z: 29,317 requests remain (2023 777; 2024 14,553; 2025 13,520; 2026 467), down 16 from T0319. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 11,038. Independent raw SHA/identity/scope and queue-rebuild checks passed (16 hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0322Z` suffix in this directory.
+
+### T0328 incremental checkpoint (2026-11-24 03:28 UTC)
+
+From T0322 through the 03:24:21.931710Z settlement pause, 18 unique FIDs were attempted: 11 `PARTIAL_MARKETS`, 4 `BOTH_MARKETS`, 3 `NO_CROWN_MARKET_DATA`, plus one `FETCH_FAILED` record for FID `146931580` after an `IncompleteRead` transport error. Fifteen FIDs added 413 OU movement rows in the checkpoint window. There were 21 attempts: 18 successful HTTP responses and 3 transport errors; mean/median successful response duration was 1.5291/1.4709 seconds.
+
+Queue rebuilt at 03:28:31.068308Z: 29,299 requests remain (2023 759; 2024 14,553; 2025 13,520; 2026 467), down 18 from T0322. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 11,053. Independent raw SHA/identity/scope and queue-rebuild checks passed (18 hashes checked, no mismatches or duplicate FIDs). FID `146931580` remains queued with existing AH movement but missing AH open/close and OU movement; it is not counted as complete and will be retried. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0328Z` suffix in this directory.
