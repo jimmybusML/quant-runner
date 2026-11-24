@@ -3286,3 +3286,11 @@ From T0525 through the 05:25:51.287207Z settlement pause, 8 unique FIDs received
 Queue rebuilt at 05:28:59.642694Z: 28,739 requests remain (2023 199; 2024 14,553; 2025 13,520; 2026 467), down 8 from T0525. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 11,544 FIDs. Raw SHA, schedule identity/scope, duplicate-FID, and queue-rebuild checks passed (8 hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0528Z` suffix in this directory.
+
+### T0531 incremental checkpoint (2026-11-24 05:31 UTC)
+
+From T0528 through the 05:29:51.551182Z MR1 scheduled pause, 8 unique FIDs returned HTTP 200/API-success responses: 7 `PARTIAL_MARKETS` and 1 `NO_CROWN_MARKET_DATA`. Seven FIDs added 150 OU movement rows; the no-market response contained no saved market rows. No AH or OU open/close rows were added. A separate FID (`147323666`) had a transport failure and remained for retry. Across the response records there were 10 attempts, 8 successes and 2 transport errors (one recovered); mean/median successful-response duration was 1.3698/1.3640 seconds.
+
+Queue rebuilt at 05:31:53.327991Z: 28,731 requests remain (2023 191; 2024 14,553; 2025 13,520; 2026 467), down 8 from T0528. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 11,551 FIDs. Raw SHA, schedule identity/scope, duplicate-FID, and queue-rebuild checks passed (8 response hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0531Z` suffix in this directory.
