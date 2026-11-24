@@ -3552,3 +3552,12 @@ From T0819 through the 08:23:47.569879Z scheduled-job pause, 49 unique FIDs rece
 Queue rebuilt at 08:27:19.343555Z: 27,964 requests remain (2023 0; 2024 13,977; 2025 13,520; 2026 467), down 49 from T0819. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,282 FIDs. Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0827Z` suffix in this directory. Safe driver PID49373 resumed collector PID33415 at the unchanged 5.2-second cadence.
+
+
+### T0830 incremental checkpoint (2026-11-24 08:30 UTC)
+
+From T0827 through the 08:29:34.423304Z scheduled-job pause, 24 unique FIDs received HTTP 200/API-success responses: 7 `BOTH_MARKETS` and 17 `PARTIAL_MARKETS`. All 24 added OU movement data (774 rows); no AH or open/close rows were added. Four transport errors recovered; no FID remained failed. Across 28 attempts, all 24 FIDs succeeded; mean/median successful-response duration was 1.5039/1.4490 seconds. Raw SHA, identity/scope, duplicate-FID and queue-rebuild checks passed.
+
+Queue rebuilt at 08:30:38.993364Z: 27,940 requests remain (2023 0; 2024 13,953; 2025 13,520; 2026 467), down 24 from T0827. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,306 FIDs. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0830Z` suffix in this directory. Safe driver PID49373 resumed collector PID34189 at the unchanged 5.2-second cadence.
