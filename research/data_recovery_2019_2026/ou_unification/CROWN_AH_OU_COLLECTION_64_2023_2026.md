@@ -3350,3 +3350,11 @@ From T0609 through the 06:12:55.337408Z MR1 pause, 22 unique FIDs received HTTP 
 Queue rebuilt at 06:14:00.857388Z: 28,572 requests remain (2023 32; 2024 14,553; 2025 13,520; 2026 467), down 22 from T0609. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 11,705 FIDs. Raw SHA, schedule identity/scope, duplicate-FID, and queue-rebuild checks passed (22 response hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0614Z` suffix in this directory.
+
+### T0617 scheduler-only checkpoint (2026-11-24 06:17 UTC)
+
+The 06:14:02.923948Z pause for the scheduled settlement job followed two seconds after collector restart, leaving no safe request interval. The audit found zero requests and zero market rows; this is scheduler occupancy, not a Crown no-market response or collection failure.
+
+Queue rebuilt at 06:17:24.285483Z: 28,572 requests remain (2023 32; 2024 14,553; 2025 13,520; 2026 467), unchanged from T0614. Coverage unchanged: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 11,705 FIDs. Queue rebuild matched. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0617Z` suffix in this directory.
