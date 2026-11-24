@@ -3070,3 +3070,11 @@ From T0258 through the 03:00:25.571315Z settlement pause, 21 unique FIDs receive
 Queue rebuilt at 03:04:30.458764Z: 29,412 requests remain (2023 872; 2024 14,553; 2025 13,520; 2026 467), down 21 from T0258. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 10,952. Independent raw SHA/identity/scope and queue-rebuild checks passed (21 hashes checked, no mismatches or duplicate FIDs). Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0304Z` suffix in this directory.
+
+### T0311 incremental checkpoint (2026-11-24 03:11 UTC)
+
+From T0304 through the 03:08:14.810889Z settlement pause, 41 unique FIDs were attempted: 29 `PARTIAL_MARKETS`, 7 `BOTH_MARKETS`, and 5 `NO_CROWN_MARKET_DATA` completed responses, plus one `FETCH_FAILED` record for FID `146931403` (HTTP 200 API error `TOO_MANY_REQUEST`). Forty-one FIDs added 817 OU movement rows in the checkpoint window. There were 45 attempts: 41 successful HTTP responses, 3 transport errors, and 1 API error; mean/median successful response duration was 1.4606/1.3944 seconds.
+
+Queue rebuilt at 03:11:31.747852Z: 29,371 requests remain (2023 831; 2024 14,553; 2025 13,520; 2026 467), down 41 from T0304. Coverage: AH open/close 32,449 FIDs; AH movement 36,342; OU open/close 32,445; OU movement 10,988. Independent raw SHA/identity/scope and queue-rebuild checks passed (41 hashes checked, no mismatches or duplicate FIDs). FID `146931403` remained in the missing queue; the resumed collector retried it at 03:11:34.112754Z and got HTTP 200/API success at 03:11:35.324537Z, saving an OU movement response. AH open/close and further OU movement remain missing for that FID and will be retried as needed. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0311Z` suffix in this directory.
