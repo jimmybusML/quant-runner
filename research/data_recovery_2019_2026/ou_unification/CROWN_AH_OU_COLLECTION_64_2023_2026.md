@@ -1,6 +1,6 @@
 # Crown AH+OU 64 联赛采集进度（2023—2026）
 
-更新时间：2026-11-24 09:23 UTC（本次负责范围为2023—2026；下列覆盖取自09:23 UTC权威队列快照）
+更新时间：2026-11-24 09:25 UTC（本次负责范围为2023—2026；下列覆盖取自09:25 UTC权威队列快照）
 性质：历史采集与采集效率工程；不是模型研究、回测或正式实战。
 
 ## 范围
@@ -22,9 +22,9 @@
 | Crown AH 开盘+收盘 | 32,449 | 15,653 | 0 场 FID（T0923增量） |
 | Crown AH 变化序列 | 36,342 | 11,760 | 0 场 FID（T0923增量） |
 | Crown OU 开盘+收盘 | 32,445 | 15,657 | 0 场 FID（T0923增量） |
-| Crown OU 变化序列 | 12,550 | 35,552 | 41 场 FID（T0923增量）；较07:21基线净增5,454场 |
+| Crown OU 变化序列 | 12,563 | 35,539 | 13 场 FID（T0925增量）；较07:21基线净增5,467场 |
 
-07:21:59 UTC曾有初始覆盖基线和43,031场请求队列；后续队列按安全窗口重建。截至2026-11-24 09:23:33 UTC，最近权威队列为27,672场（2023 0；2024 13,685；2025 13,520；2026 467）。该快照中OU变化序列覆盖12,550场，缺口35,552。按覆盖项计算的缺口彼此重叠；HTTP/API成功但响应未返回目标Crown市场数据的赛事不会被推断为永久无盘。当前safe driver PID49373仍在运行，使用5.2秒节奏，按排程任务安全暂停和续跑。
+07:21:59 UTC曾有初始覆盖基线和43,031场请求队列；后续队列按安全窗口重建。截至2026-11-24 09:25:58 UTC，最近权威队列为27,656场（2023 0；2024 13,669；2025 13,520；2026 467）。该快照中OU变化序列覆盖12,563场，缺口35,539。按覆盖项计算的缺口彼此重叠；HTTP/API成功但响应未返回目标Crown市场数据的赛事不会被推断为永久无盘。当前safe driver PID49373仍在运行，使用5.2秒节奏，按排程任务安全暂停和续跑。
 
 ## 一次请求合并 AH/OU 的实测
 
@@ -3605,3 +3605,12 @@ From T0915 through the 09:19:12.716924Z scheduled-job pause, 43 unique FIDs retu
 Queue rebuilt at 09:23:33.311769Z: 27,672 remain (2023 0; 2024 13,685; 2025 13,520; 2026 467), down 43 from T0915. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,550 FIDs. Queue rebuild matched. Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0923Z` suffix in this directory. Safe driver PID49373 started collector PID45416 at the unchanged 5.2-second cadence.
+
+
+### T0925 incremental checkpoint (2026-11-24 09:25 UTC)
+
+From T0923 through the 09:24:58.411378Z scheduled-job pause, 16 unique FIDs returned HTTP 200/API-success responses: 11 `PARTIAL_MARKETS`, 2 `BOTH_MARKETS`, and 3 `NO_CROWN_MARKET_DATA`. Thirteen FIDs added 185 OU movement rows; no AH movement or AH/OU open-close rows were added. Across 17 attempts, 16 succeeded and 1 transport error recovered; no FID remained failed. Mean/median response duration was 1.3556/1.3390 seconds. All 16 response SHA and identity/scope checks passed with no duplicates.
+
+Queue rebuilt at 09:25:58.729802Z: 27,656 remain (2023 0; 2024 13,669; 2025 13,520; 2026 467), down 16 from T0923. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,563 FIDs. Queue rebuild matched. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0925Z` suffix in this directory. Safe driver PID49373 started collector PID46040 at the unchanged 5.2-second cadence.
