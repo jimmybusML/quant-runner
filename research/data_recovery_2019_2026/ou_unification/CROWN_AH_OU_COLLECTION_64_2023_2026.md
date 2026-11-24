@@ -1,6 +1,6 @@
 # Crown AH+OU 64 联赛采集进度（2023—2026）
 
-更新时间：2026-11-24 10:39 UTC（本次负责范围为2023—2026；下列覆盖取自10:39 UTC权威队列快照）
+更新时间：2026-11-24 10:44 UTC（本次负责范围为2023—2026；下列覆盖取自10:44 UTC权威队列快照）
 性质：历史采集与采集效率工程；不是模型研究、回测或正式实战。
 
 ## 范围
@@ -22,9 +22,9 @@
 | Crown AH 开盘+收盘 | 32,449 | 15,653 | 0 场 FID（T0923增量） |
 | Crown AH 变化序列 | 36,342 | 11,760 | 0 场 FID（T0923增量） |
 | Crown OU 开盘+收盘 | 32,445 | 15,657 | 0 场 FID（T0923增量） |
-| Crown OU 变化序列 | 12,908 | 35,194 | 20 场 FID（T1039增量） |
+| Crown OU 变化序列 | 12,921 | 35,181 | 13 场 FID（T1044增量） |
 
-07:21:59 UTC曾有初始覆盖基线和43,031场请求队列；后续队列按安全窗口重建。截至2026-11-24 10:39:21 UTC，最近权威队列为27,253场（2023 0；2024 13,266；2025 13,520；2026 467）。该快照中OU变化序列覆盖12,908场，缺口35,194。按覆盖项计算的缺口彼此重叠；HTTP/API成功但响应未返回目标Crown市场数据的赛事不会被推断为永久无盘。当前safe driver PID49373仍在运行，collector PID59282使用5.2秒节奏，按排程任务安全暂停和续跑。
+07:21:59 UTC曾有初始覆盖基线和43,031场请求队列；后续队列按安全窗口重建。截至2026-11-24 10:44:02 UTC，最近权威队列为27,237场（2023 0；2024 13,250；2025 13,520；2026 467）。该快照中OU变化序列覆盖12,921场，缺口35,181。按覆盖项计算的缺口彼此重叠；HTTP/API成功但响应未返回目标Crown市场数据的赛事不会被推断为永久无盘。当前safe driver PID49373仍在运行，collector PID59282使用5.2秒节奏，按排程任务安全暂停和续跑。
 
 ## 一次请求合并 AH/OU 的实测
 
@@ -3717,10 +3717,16 @@ Checkpoint evidence and SHA manifest use the `20261124T0957Z` suffix in this dir
 ### 2026-11-24 10:36 UTC — T1036 checkpoint; scope 2023–2026
 - From T1028 through the 10:32:22.219706Z scheduled MR1 pause, 49 unique FIDs returned HTTP 200/API-success: 13 `BOTH_MARKETS`, 27 `PARTIAL_MARKETS`, 9 `NO_CROWN_MARKET_DATA`. Forty FIDs added 1,092 OU movement rows; no AH movement or AH/OU open-close rows were added. Across 51 attempts, 49 succeeded and 2 transport errors recovered; no unresolved FID. Mean/median successful response time was 1.3668/1.3355s. All 49 raw SHAs, fixed-scope identities, uniqueness and rebuilt-queue checks passed.
 - Queue rebuilt at 10:36:04.320342Z: 27,279 remain (2023 0; 2024 13,292; 2025 13,520; 2026 467), down 49. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,888 FIDs. Historical retrieval only. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261124T1036Z`.
-- Safe driver PID49373 resumed collector PID61758 at the unchanged 5.2-second cadence. No production setting changed.
+- Safe driver PID49373 resumed collector PID62838 at the unchanged 5.2-second cadence. No production setting changed.
 
 
 ### 2026-11-24 10:39 UTC — T1039 checkpoint; scope 2023–2026
 - From T1036 through the 10:38:21.280815Z scheduled MR1 pause, 26 unique FIDs returned HTTP 200/API-success: 9 `BOTH_MARKETS`, 11 `PARTIAL_MARKETS`, and 6 `NO_CROWN_MARKET_DATA`. Twenty FIDs added 572 OU movement rows; no AH movement or AH/OU open-close rows were added. Across 27 attempts, 26 succeeded and 1 transport error recovered; no FID remained failed. Mean/median successful response duration was 1.3930/1.3737s. All raw SHA, fixed-scope identity, uniqueness and queue-rebuild checks passed.
 - Queue rebuilt at 10:39:21.727127Z: 27,253 remain (2023 0; 2024 13,266; 2025 13,520; 2026 467), down 26. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,908 FIDs. Historical retrieval only. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261124T1039Z`.
 - Safe driver PID49373 resumed collector PID61758 at the unchanged 5.2-second cadence. No production setting changed.
+
+
+### 2026-11-24 10:44 UTC — T1044 checkpoint; scope 2023–2026
+- From T1039 through the 10:40:44.749970Z scheduled settlement pause, 16 unique FIDs returned HTTP 200/API-success: 2 `BOTH_MARKETS`, 11 `PARTIAL_MARKETS`, 3 `NO_CROWN_MARKET_DATA`. Thirteen FIDs added 202 OU movement rows; no AH movement or AH/OU open-close rows were added. Across 17 attempts, 16 succeeded and 1 transport error recovered; no unresolved FID. Mean/median successful response duration was 1.4023/1.3786s. All raw SHA, fixed scope/identity, uniqueness and rebuilt-queue checks passed.
+- Queue rebuilt at 10:44:02.735142Z: 27,237 remain (2023 0; 2024 13,250; 2025 13,520; 2026 467), down 16. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,921 FIDs. Historical retrieval only. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261124T1044Z`.
+- Safe driver PID49373 started collector PID62838, which was immediately paused by the next scheduled MR1 job; the driver remains responsible for safe resumption at the unchanged 5.2-second cadence.
