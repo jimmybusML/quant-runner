@@ -1,6 +1,6 @@
 # Crown AH+OU 64 联赛采集进度（2023—2026）
 
-更新时间：2026-11-24 11:00 UTC（本次负责范围为2023—2026；下列覆盖取自11:00 UTC权威队列快照）
+更新时间：2026-11-24 11:03 UTC（本次负责范围为2023—2026；下列覆盖取自11:03 UTC权威队列快照）
 性质：历史采集与采集效率工程；不是模型研究、回测或正式实战。
 
 ## 范围
@@ -22,9 +22,9 @@
 | Crown AH 开盘+收盘 | 32,449 | 15,653 | 0 场 FID（T0923增量） |
 | Crown AH 变化序列 | 36,342 | 11,760 | 0 场 FID（T0923增量） |
 | Crown OU 开盘+收盘 | 32,445 | 15,657 | 0 场 FID（T0923增量） |
-| Crown OU 变化序列 | 12,994 | 35,108 | 37 场 FID（T1100增量） |
+| Crown OU 变化序列 | 13,016 | 35,086 | 22 场 FID（T1103增量） |
 
-07:21:59 UTC曾有初始覆盖基线和43,031场请求队列；后续队列按安全窗口重建。截至2026-11-24 11:00:11 UTC，最近权威队列为27,153场（2023 0；2024 13,166；2025 13,520；2026 467）。该快照中OU变化序列覆盖12,994场，缺口35,108。按覆盖项计算的缺口彼此重叠；HTTP/API成功但响应未返回目标Crown市场数据的赛事不会被推断为永久无盘。当前safe driver PID49373仍在运行，collector PID59282使用5.2秒节奏，按排程任务安全暂停和续跑。
+07:21:59 UTC曾有初始覆盖基线和43,031场请求队列；后续队列按安全窗口重建。截至2026-11-24 11:03:44 UTC，最近权威队列为27,127场（2023 0；2024 13,140；2025 13,520；2026 467）。该快照中OU变化序列覆盖13,016场，缺口35,086。按覆盖项计算的缺口彼此重叠；HTTP/API成功但响应未返回目标Crown市场数据的赛事不会被推断为永久无盘。当前safe driver PID49373仍在运行，collector PID59282使用5.2秒节奏，按排程任务安全暂停和续跑。
 
 ## 一次请求合并 AH/OU 的实测
 
@@ -3741,10 +3741,16 @@ Checkpoint evidence and SHA manifest use the `20261124T0957Z` suffix in this dir
 ### 2026-11-24 10:52 UTC — T1052 checkpoint; scope 2023–2026
 - From T1045 through the 10:48:45.007249Z scheduled settlement pause, 40 unique FIDs returned HTTP 200/API-success: 9 `BOTH_MARKETS`, 26 `PARTIAL_MARKETS`, 5 `NO_CROWN_MARKET_DATA`. Thirty-five FIDs added 1,133 OU movement rows; no AH movement or AH/OU open-close rows were added. Across 41 attempts, 40 succeeded and 1 transport error recovered; no unresolved FID. Mean/median successful response duration was 1.3640/1.3425s. All raw SHA, fixed-scope identities, uniqueness and rebuilt-queue checks passed.
 - Queue rebuilt at 10:52:01.691007Z: 27,195 remain (2023 0; 2024 13,208; 2025 13,520; 2026 467), down 40. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,957 FIDs. Historical retrieval only. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261124T1052Z`.
-- Safe driver PID49373 resumed collector PID66285 at the unchanged 5.2-second cadence. No production settings changed.
+- Safe driver PID49373 resumed collector PID67016 at the unchanged 5.2-second cadence. No production settings changed.
 
 
 ### 2026-11-24 11:00 UTC — T1100 checkpoint; scope 2023–2026
 - From T1052 through the 10:56:19.155031Z scheduled MR1 pause, 42 unique FIDs returned HTTP 200/API-success: 15 `BOTH_MARKETS`, 22 `PARTIAL_MARKETS`, 5 `NO_CROWN_MARKET_DATA`. Thirty-seven FIDs added 1,227 OU movement rows; no AH movement or AH/OU open-close rows were added. Across 47 attempts, 42 succeeded and 5 transport errors recovered; no unresolved failure. Mean/median successful response duration was 1.3675/1.4144s. All raw SHA, fixed-scope identities, uniqueness and rebuilt-queue checks passed.
 - Queue rebuilt at 11:00:11.427079Z: 27,153 remain (2023 0; 2024 13,166; 2025 13,520; 2026 467), down 42. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,994 FIDs. Historical retrieval only. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261124T1100Z`.
 - Safe driver PID49373 resumed collector PID66285 at the unchanged 5.2-second cadence. No production or collection configuration changed.
+
+
+### 2026-11-24 11:03 UTC — T1103 checkpoint; scope 2023–2026
+- From T1100 through the 11:02:40.907729Z scheduled MR1 pause, 26 unique FIDs returned HTTP 200/API-success: 12 `BOTH_MARKETS`, 10 `PARTIAL_MARKETS`, 4 `NO_CROWN_MARKET_DATA`. Twenty-two FIDs added 523 OU movement rows; no AH movement or AH/OU open-close rows were added. Across 29 attempts, 26 succeeded and 3 transport errors recovered; no unresolved failure. Mean/median successful response duration was 1.3702/1.3785s. All raw SHA, fixed-scope identities, uniqueness and queue rebuild checks passed.
+- Queue rebuilt at 11:03:44.660855Z: 27,127 remain (2023 0; 2024 13,140; 2025 13,520; 2026 467), down 26. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 13,016 FIDs. Historical retrieval only. Evidence: `research/data_recovery_2019_2026/ou_unification/*20261124T1103Z`.
+- Safe driver PID49373 resumed collector PID67016 at the unchanged 5.2-second cadence. No production settings changed.
