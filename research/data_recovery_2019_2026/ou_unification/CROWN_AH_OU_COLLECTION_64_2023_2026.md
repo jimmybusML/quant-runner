@@ -3596,3 +3596,12 @@ Two pause-time failure records were present. FID `148991695` (TOO_MANY_REQUEST) 
 Queue rebuilt at 09:15:26.409842Z: 27,715 remain (2023 0; 2024 13,728; 2025 13,520; 2026 467), down 77 from T0901. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,509 FIDs. The queue rebuild matched its source queue. Historical retrieval only.
 
 Checkpoint evidence and SHA manifest use the `20261124T0915Z` suffix in this directory. Safe driver PID49373 resumed collector PID43750 at 09:15:26Z on the existing 5.2-second cadence. FID `149596176` completed at 09:15:30Z after the snapshot; it remains pending queue-removal verification.
+
+
+### T0923 incremental checkpoint (2026-11-24 09:23 UTC)
+
+From T0915 through the 09:19:12.716924Z scheduled-job pause, 43 unique FIDs returned HTTP 200/API-success responses: 36 `PARTIAL_MARKETS`, 5 `BOTH_MARKETS`, and 2 `NO_CROWN_MARKET_DATA`. Forty-one FIDs added 952 OU movement rows; no AH movement or AH/OU open-close rows were added. Across 44 attempts, 43 succeeded and 1 transport error recovered; no FID remained failed. Mean/median response duration was 1.4235/1.3949 seconds. All 43 raw SHA and identity/scope checks passed with no duplicates.
+
+Queue rebuilt at 09:23:33.311769Z: 27,672 remain (2023 0; 2024 13,685; 2025 13,520; 2026 467), down 43 from T0915. Coverage: AH open/close 32,449; AH movement 36,342; OU open/close 32,445; OU movement 12,550 FIDs. Queue rebuild matched. Historical retrieval only.
+
+Checkpoint evidence and SHA manifest use the `20261124T0923Z` suffix in this directory. Safe driver PID49373 started collector PID45416 at the unchanged 5.2-second cadence.
