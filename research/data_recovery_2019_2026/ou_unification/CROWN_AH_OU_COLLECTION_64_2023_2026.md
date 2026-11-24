@@ -3582,6 +3582,6 @@ Checkpoint evidence and SHA manifest use the `20261124T0843Z` suffix in this dir
 
 ### Open-source tool fit assessment (read-only, 2026-11-24)
 
-- `OddsHarvester` and `oddsportal_scraper` are OddsPortal scrapers. They can expose bookmaker-filtered historical odds/lines as represented by OddsPortal, but do not retrieve TotalCorner's Crown API payloads or preserve this collector's Crown source-event and local HTTP-receipt evidence. They are not used as Crown substitutes.
-- `soccerdata` lists Club Elo, ESPN, FBref, Football-Data.co.uk, Sofascore, SoFIFA, Understat, and WhoScored as sources; its documented source set does not include bookmaker odds or Crown. It does not reduce this Crown quote backfill.
+- `[OddsHarvester](https://github.com/jordantete/OddsHarvester) and [oddsportal_scraper](https://github.com/Bedbin17/oddsportal_scraper) are OddsPortal scrapers. They can expose bookmaker-filtered historical odds/lines as represented by OddsPortal, but do not retrieve TotalCorner's Crown API payloads or preserve this collector's Crown source-event and local HTTP-receipt evidence. They are not used as Crown substitutes.
+- [soccerdata](https://github.com/probberechts/soccerdata) lists Club Elo, ESPN, FBref, Football-Data.co.uk, Sofascore, SoFIFA, Understat, and WhoScored as sources; its documented source set does not include bookmaker odds or Crown. It does not reduce this Crown quote backfill.
 - No external scraper was installed or run; none can replace the validated combined Crown request without weakening the source requirement.
